@@ -1,0 +1,2499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1711"
+   version="1.1"
+   width="1367.4984"
+   height="1079.1900686"
+   sodipodi:docname="testscript.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview158647"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.81264647"
+     inkscape:cx="684.18435"
+     inkscape:cy="539.59503"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1711" />
+  <defs
+     id="defs157831">
+    <filter
+       id="shadow1"
+       x="-0.13383839"
+       y="-0.14722222"
+       width="1.3434344"
+       height="1.3777778">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset157822" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix157824" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur157826" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend157828" />
+    </filter>
+  </defs>
+  <g
+     id="n1712">
+    <rect
+       id="TestScript"
+       x="341.03814"
+       y="148.68694770000002"
+       rx="4"
+       ry="4"
+       width="272.8"
+       height="302.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1713"
+       x1="341.03814"
+       y1="176.68694770000002"
+       x2="613.8381400000001"
+       y2="176.68694770000002"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1714"
+       x="477.43814"
+       y="168.68694770000002"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">TestScript<tspan
+   class="diagram-class-title-link"
+   id="tspan157837"> (<a
+   id="n1715"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n1716"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
+    <text
+       id="n1717"
+       x="347.03814"
+       y="190.68694770000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1718"
+   xlink:href="testscript-definitions.html#TestScript.url"><title
+   id="title157840">An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers</title>url</a> : <a
+   id="n1719"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1723"
+       x="347.03814"
+       y="204.68694770000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1724"
+   xlink:href="testscript-definitions.html#TestScript.identifier"><title
+   id="title157845">A formal identifier that is used to identify this test script when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1725"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1729"
+       x="347.03814"
+       y="218.68694770000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1730"
+   xlink:href="testscript-definitions.html#TestScript.version"><title
+   id="title157850">The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n1731"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1735"
+       x="347.03814"
+       y="232.68694770000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1736"
+   xlink:href="testscript-definitions.html#TestScript.versionAlgorithm_x_"><title
+   id="title157855">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n1737"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1738"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1739"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n1740"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n1741">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1742"
+       x="367.03814"
+       y="246.68694770000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1743"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n1753"
+       x="347.03814"
+       y="260.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1754"
+   xlink:href="testscript-definitions.html#TestScript.name"><title
+   id="title157866">A natural language name identifying the test script. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1755"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n1756"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1757">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1763"
+       x="347.03814"
+       y="274.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1764"
+   xlink:href="testscript-definitions.html#TestScript.title"><title
+   id="title157873">A short, descriptive, user-friendly title for the test script</title>title</a> : <a
+   id="n1765"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1769"
+       x="347.03814"
+       y="288.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1770"
+   xlink:href="testscript-definitions.html#TestScript.status"><title
+   id="title157878">The status of this test script. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1771"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1772"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1773">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n1779"
+       x="347.03814"
+       y="302.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1780"
+   xlink:href="testscript-definitions.html#TestScript.experimental"><title
+   id="title157885">A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1781"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1785"
+       x="347.03814"
+       y="316.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1786"
+   xlink:href="testscript-definitions.html#TestScript.date"><title
+   id="title157890">The date  (and optionally time) when the test script was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes</title>date</a> : <a
+   id="n1787"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1791"
+       x="347.03814"
+       y="330.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1792"
+   xlink:href="testscript-definitions.html#TestScript.publisher"><title
+   id="title157895">The name of the organization or individual responsible for the release and ongoing maintenance of the test script</title>publisher</a> : <a
+   id="n1793"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1797"
+       x="347.03814"
+       y="344.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1798"
+   xlink:href="testscript-definitions.html#TestScript.contact"><title
+   id="title157900">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1799"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1803"
+       x="347.03814"
+       y="358.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1804"
+   xlink:href="testscript-definitions.html#TestScript.description"><title
+   id="title157905">A free text natural language description of the test script from a consumer's perspective</title>description</a> : <a
+   id="n1805"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1809"
+       x="347.03814"
+       y="372.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1810"
+   xlink:href="testscript-definitions.html#TestScript.useContext"><title
+   id="title157910">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate test script instances</title>useContext</a> : <a
+   id="n1811"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1815"
+       x="347.03814"
+       y="386.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1816"
+   xlink:href="testscript-definitions.html#TestScript.jurisdiction"><title
+   id="title157915">A legal or geographic region in which the test script is intended to be used</title>jurisdiction</a> : <a
+   id="n1817"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1818"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1819">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n1825"
+       x="347.03814"
+       y="400.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1826"
+   xlink:href="testscript-definitions.html#TestScript.purpose"><title
+   id="title157922">Explanation of why this test script is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1827"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1831"
+       x="347.03814"
+       y="414.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1832"
+   xlink:href="testscript-definitions.html#TestScript.copyright"><title
+   id="title157927">A copyright statement relating to the test script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test script</title>copyright</a> : <a
+   id="n1833"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1837"
+       x="347.03814"
+       y="428.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1838"
+   xlink:href="testscript-definitions.html#TestScript.copyrightLabel"><title
+   id="title157932">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1839"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1843"
+       x="347.03814"
+       y="442.6869477"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1844"
+   xlink:href="testscript-definitions.html#TestScript.profile"><title
+   id="title157937">Reference to the profile to be used for validation</title>profile</a> : <a
+   id="n1845"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1846"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+  </g>
+  <g
+     id="n1851"
+     transform="translate(164.89335,-118.13255)">
+    <rect
+       id="TestScript.origin"
+       x="193.15182"
+       y="142.6261"
+       rx="4"
+       ry="4"
+       width="242"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1852"
+       x1="193.15182"
+       y1="170.6261"
+       x2="435.15182"
+       y2="170.6261"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1853"
+       x="314.15182"
+       y="162.6261"
+       fill="#000000"
+       class="diagram-class-title">Origin</text>
+    <text
+       id="n1854"
+       x="199.15182"
+       y="184.6261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1855"
+   xlink:href="testscript-definitions.html#TestScript.origin.index"><title
+   id="title157947">Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1</title>index</a> : <a
+   id="n1856"
+   xlink:href="datatypes.html#integer">integer</a> [1..1]</text>
+    <text
+       id="n1860"
+       x="199.15182"
+       y="198.6261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1861"
+   xlink:href="testscript-definitions.html#TestScript.origin.profile"><title
+   id="title157952">The type of origin profile the test system supports</title>profile</a> : <a
+   id="n1862"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n1863"
+   xlink:href="valueset-testscript-profile-origin-types.html"><title
+   id="n1864">null (Strength=Extensible)</title>TestScriptProfileOriginType</a>+ »</text>
+    <text
+       id="n1870"
+       x="199.15182"
+       y="212.6261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1871"
+   xlink:href="testscript-definitions.html#TestScript.origin.url"><title
+   id="title157959">The explicit url path of the origin server used in this test script</title>url</a> : <a
+   id="n1872"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
+  </g>
+  <g
+     id="n1876">
+    <rect
+       id="TestScript.destination"
+       x="0.0"
+       y="379.9867486"
+       rx="4"
+       ry="4"
+       width="264.0"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1877"
+       x1="0.0"
+       y1="407.9867486"
+       x2="264.0"
+       y2="407.9867486"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1878"
+       x="132.0"
+       y="399.9867486"
+       fill="black"
+       class="diagram-class-title">Destination</text>
+    <text
+       id="n1879"
+       x="6.0"
+       y="421.9867486"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1880"
+   xlink:href="testscript-definitions.html#TestScript.destination.index"><title
+   id="title157968">Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1</title>index</a> : <a
+   id="n1881"
+   xlink:href="datatypes.html#integer">integer</a> [1..1]</text>
+    <text
+       id="n1885"
+       x="6.0"
+       y="435.9867486"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1886"
+   xlink:href="testscript-definitions.html#TestScript.destination.profile"><title
+   id="title157973">The type of destination profile the test system supports</title>profile</a> : <a
+   id="n1887"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n1888"
+   xlink:href="valueset-testscript-profile-destination-types.html"><title
+   id="n1889">null (Strength=Extensible)</title>TestScriptProfileDestinationT...</a>+ »</text>
+    <text
+       id="n1895"
+       x="6.0"
+       y="449.9867486"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1896"
+   xlink:href="testscript-definitions.html#TestScript.destination.url"><title
+   id="title157980">The explicit url path of the destination server used in this test script</title>url</a> : <a
+   id="n1897"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
+  </g>
+  <g
+     id="n1901">
+    <rect
+       id="TestScript.metadata"
+       x="106.36847000000003"
+       y="169.2288676"
+       rx="4"
+       ry="4"
+       width="63.36000000000001"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1902"
+       x1="106.36847000000003"
+       y1="197.2288676"
+       x2="169.72847000000004"
+       y2="197.2288676"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1903"
+       x="138.04847000000004"
+       y="189.2288676"
+       fill="black"
+       class="diagram-class-title">Metadata</text>
+  </g>
+  <g
+     id="n1904">
+    <rect
+       id="TestScript.metadata.link"
+       x="55.91412"
+       y="252.10566060000002"
+       rx="4"
+       ry="4"
+       width="118.80000000000001"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1905"
+       x1="55.91412"
+       y1="280.1056606"
+       x2="174.71412"
+       y2="280.1056606"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1906"
+       x="115.31412"
+       y="272.1056606"
+       fill="black"
+       class="diagram-class-title">Link</text>
+    <text
+       id="n1907"
+       x="61.91412"
+       y="294.1056606"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1908"
+   xlink:href="testscript-definitions.html#TestScript.metadata.link.url"><title
+   id="title157993">URL to a particular requirement or feature within the FHIR specification</title>url</a> : <a
+   id="n1909"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+    <text
+       id="n1913"
+       x="61.91412"
+       y="308.1056606"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1914"
+   xlink:href="testscript-definitions.html#TestScript.metadata.link.description"><title
+   id="title157998">Short description of the link</title>description</a> : <a
+   id="n1915"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n1919">
+    <rect
+       id="TestScript.metadata.capability"
+       x="23.76833000000002"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="242.00000000000003"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1920"
+       x1="23.76833000000002"
+       y1="28.0"
+       x2="265.76833000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1921"
+       x="144.76833000000005"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Capability</text>
+    <text
+       id="n1922"
+       x="29.76833000000002"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1923"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.required"><title
+   id="title158007">Whether or not the test execution will require the given capabilities of the server in order for this test script to execute</title>required</a> : <a
+   id="n1924"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1] « <a
+   id="n1925"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1926">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1932"
+       x="29.76833000000002"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1933"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.validated"><title
+   id="title158014">Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute</title>validated</a> : <a
+   id="n1934"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1] « <a
+   id="n1935"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1936">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1942"
+       x="29.76833000000002"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1943"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.description"><title
+   id="title158021">Description of the capabilities that this test script is requiring the server to support</title>description</a> : <a
+   id="n1944"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1948"
+       x="29.76833000000002"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1949"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.origin"><title
+   id="title158026">Which origin server these requirements apply to</title>origin</a> : <a
+   id="n1950"
+   xlink:href="datatypes.html#integer">integer</a> [0..*]</text>
+    <text
+       id="n1954"
+       x="29.76833000000002"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1955"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.destination"><title
+   id="title158031">Which server these requirements apply to</title>destination</a> : <a
+   id="n1956"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n1960"
+       x="29.76833000000002"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1961"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.link"><title
+   id="title158036">Links to the FHIR specification that describes this interaction and the resources involved in more detail</title>link</a> : <a
+   id="n1962"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n1966"
+       x="29.76833000000002"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1967"
+   xlink:href="testscript-definitions.html#TestScript.metadata.capability.capabilities"><title
+   id="title158041">Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped</title>capabilities</a> : <a
+   id="n1968"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n1969"
+   xlink:href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a> »</text>
+  </g>
+  <g
+     id="n1974">
+    <rect
+       id="TestScript.scope"
+       x="674.288807"
+       y="87.5265296"
+       rx="4"
+       ry="4"
+       width="259.6"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1975"
+       x1="674.288807"
+       y1="115.5265296"
+       x2="933.888807"
+       y2="115.5265296"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1976"
+       x="804.0888070000001"
+       y="107.5265296"
+       fill="black"
+       class="diagram-class-title">Scope</text>
+    <text
+       id="n1977"
+       x="680.288807"
+       y="129.5265296"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1978"
+   xlink:href="testscript-definitions.html#TestScript.scope.artifact"><title
+   id="title158051">The specific conformance artifact being tested. The canonical reference can be version-specific</title>artifact</a> : <a
+   id="n1979"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n1980"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n1985"
+       x="680.288807"
+       y="143.5265296"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1986"
+   xlink:href="testscript-definitions.html#TestScript.scope.conformance"><title
+   id="title158057">The expectation of whether the test must pass for the system to be considered conformant with the artifact: required - all tests are expected to pass, optional - all test are expected to pass but non-pass status may be allowed, strict - all tests are expected to pass and warnings are treated as a failure</title>conformance</a> : <a
+   id="n1987"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1988"
+   xlink:href="valueset-testscript-scope-conformance-codes.html"><title
+     id="n1989">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1990"
+       x="700.288807"
+       y="157.5265296"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1991"
+   xlink:href="valueset-testscript-scope-conformance-codes.html">TestScriptScopeConformanceType</a>+ »</text>
+    <text
+       id="n1999"
+       x="680.288807"
+       y="171.5265296"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2000"
+   xlink:href="testscript-definitions.html#TestScript.scope.phase"><title
+   id="title158066">The phase of testing for this artifact: unit - development / implementation phase, integration - internal system to system phase, production - live system to system phase (Note, this may involve pii/phi data)</title>phase</a> : <a
+   id="n2001"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2002"
+   xlink:href="valueset-testscript-scope-phase-codes.html"><title
+   id="n2003">null (Strength=Extensible)</title>TestScriptScopePhaseType</a>+ »</text>
+  </g>
+  <g
+     id="n2009">
+    <rect
+       id="TestScript.fixture"
+       x="732.56241"
+       y="212.8442636"
+       rx="4"
+       ry="4"
+       width="154.0"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2010"
+       x1="732.56241"
+       y1="240.8442636"
+       x2="886.56241"
+       y2="240.8442636"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2011"
+       x="809.56241"
+       y="232.8442636"
+       fill="black"
+       class="diagram-class-title">Fixture</text>
+    <text
+       id="n2012"
+       x="738.56241"
+       y="254.8442636"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2013"
+   xlink:href="testscript-definitions.html#TestScript.fixture.autocreate"><title
+   id="title158077">Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section</title>autocreate</a> : <a
+   id="n2014"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n2018"
+       x="738.56241"
+       y="268.8442636"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2019"
+   xlink:href="testscript-definitions.html#TestScript.fixture.autodelete"><title
+   id="title158082">Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section</title>autodelete</a> : <a
+   id="n2020"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n2024"
+       x="738.56241"
+       y="282.8442636"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2025"
+   xlink:href="testscript-definitions.html#TestScript.fixture.resource"><title
+   id="title158087">Reference to the resource (containing the contents of the resource needed for operations). This is allowed to be a Parameters resource</title>resource</a> : <a
+   id="n2026"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2027"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n2032">
+    <rect
+       id="TestScript.variable"
+       x="728.9164700000001"
+       y="323.5308046"
+       rx="4"
+       ry="4"
+       width="145.20000000000002"
+       height="148.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2033"
+       x1="728.9164700000001"
+       y1="351.5308046"
+       x2="874.1164700000002"
+       y2="351.5308046"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2034"
+       x="801.5164700000001"
+       y="343.5308046"
+       fill="black"
+       class="diagram-class-title">Variable</text>
+    <text
+       id="n2035"
+       x="734.9164700000001"
+       y="365.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2036"
+   xlink:href="testscript-definitions.html#TestScript.variable.name"><title
+   id="title158097">Descriptive name for this variable</title>name</a> : <a
+   id="n2037"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n2041"
+       x="734.9164700000001"
+       y="379.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2042"
+   xlink:href="testscript-definitions.html#TestScript.variable.defaultValue"><title
+   id="title158102">A default, hard-coded, or user-defined value for this variable</title>defaultValue</a> : <a
+   id="n2043"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2047"
+       x="734.9164700000001"
+       y="393.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2048"
+   xlink:href="testscript-definitions.html#TestScript.variable.description"><title
+   id="title158107">A free text natural language description of the variable and its purpose</title>description</a> : <a
+   id="n2049"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2053"
+       x="734.9164700000001"
+       y="407.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2054"
+   xlink:href="testscript-definitions.html#TestScript.variable.expression"><title
+   id="title158112">The FHIRPath expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified</title>expression</a> : <a
+   id="n2055"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2056"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2057">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2063"
+       x="734.9164700000001"
+       y="421.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2064"
+   xlink:href="testscript-definitions.html#TestScript.variable.headerField"><title
+   id="title158119">Will be used to grab the HTTP header field value from the headers that sourceId is pointing to</title>headerField</a> : <a
+   id="n2065"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2066"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2067">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2073"
+       x="734.9164700000001"
+       y="435.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2074"
+   xlink:href="testscript-definitions.html#TestScript.variable.hint"><title
+   id="title158126">Displayable text string with hint help information to the user when entering a default value</title>hint</a> : <a
+   id="n2075"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2079"
+       x="734.9164700000001"
+       y="449.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2080"
+   xlink:href="testscript-definitions.html#TestScript.variable.path"><title
+   id="title158131">XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified</title>path</a> : <a
+   id="n2081"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2082"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2083">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2089"
+       x="734.9164700000001"
+       y="463.5308046"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2090"
+   xlink:href="testscript-definitions.html#TestScript.variable.sourceId"><title
+   id="title158138">Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable</title>sourceId</a> : <a
+   id="n2091"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+  </g>
+  <g
+     id="n2095">
+    <rect
+       id="TestScript.setup"
+       x="256.89779"
+       y="466.1729486"
+       rx="4"
+       ry="4"
+       width="39.6"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2096"
+       x1="256.89779"
+       y1="494.1729486"
+       x2="296.49779"
+       y2="494.1729486"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2097"
+       x="276.69779"
+       y="486.1729486"
+       fill="black"
+       class="diagram-class-title">Setup</text>
+  </g>
+  <g
+     id="n2098">
+    <rect
+       id="TestScript.setup.action"
+       x="256.518996"
+       y="577.6826186"
+       rx="4"
+       ry="4"
+       width="47.52"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2099"
+       x1="256.518996"
+       y1="605.6826186"
+       x2="304.038996"
+       y2="605.6826186"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2100"
+       x="280.278996"
+       y="597.6826186"
+       fill="black"
+       class="diagram-class-title">SetupAction</text>
+  </g>
+  <g
+     id="n2101">
+    <rect
+       id="TestScript.setup.action.operation"
+       x="434.44609"
+       y="665.8658585999999"
+       rx="4"
+       ry="4"
+       width="237.60000000000002"
+       height="260.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2102"
+       x1="434.44609"
+       y1="693.8658585999999"
+       x2="672.04609"
+       y2="693.8658585999999"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2103"
+       x="553.2460900000001"
+       y="685.8658585999999"
+       fill="black"
+       class="diagram-class-title">Operation</text>
+    <text
+       id="n2104"
+       x="440.44609"
+       y="707.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2105"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.type"><title
+   id="title158155">Server interaction or operation type</title>type</a> : <a
+   id="n2106"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n2107"
+   xlink:href="valueset-testscript-operation-codes.html"><title
+   id="n2108">null (Strength=Extensible)</title>TestScriptOperationCode</a>+ » « <a
+   id="n2109"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2110">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2118"
+       x="440.44609"
+       y="721.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2119"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.resource"><title
+   id="title158164">The type of the FHIR resource. See the [resource list](resourcelist.html). Data type of uri is needed when non-HL7 artifacts are identified</title>resource</a> : <a
+   id="n2120"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n2121"
+   xlink:href="valueset-concrete-fhir-types.html"><title
+   id="n2122">null (Strength=Extensible)</title>ConcreteFHIRTypes</a>+ »</text>
+    <text
+       id="n2128"
+       x="440.44609"
+       y="735.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2129"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.label"><title
+   id="title158171">The label would be used for tracking/logging purposes by test engines</title>label</a> : <a
+   id="n2130"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2134"
+       x="440.44609"
+       y="749.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2135"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.description"><title
+   id="title158176">The description would be used by test engines for tracking and reporting purposes</title>description</a> : <a
+   id="n2136"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2140"
+       x="440.44609"
+       y="763.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2141"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.accept"><title
+   id="title158181">The mime-type to use for RESTful operation in the 'Accept' header</title>accept</a> : <a
+   id="n2142"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2143"
+   xlink:href="valueset-mimetypes.html"><title
+   id="n2144">null (Strength=Required)</title>MimeTypes</a>! »</text>
+    <text
+       id="n2150"
+       x="440.44609"
+       y="777.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2151"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.contentType"><title
+   id="title158188">The mime-type to use for RESTful operation in the 'Content-Type' header</title>contentType</a> : <a
+   id="n2152"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2153"
+   xlink:href="valueset-mimetypes.html"><title
+   id="n2154">null (Strength=Required)</title>MimeTypes</a>! »</text>
+    <text
+       id="n2160"
+       x="440.44609"
+       y="791.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2161"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.destination"><title
+   id="title158195">The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section</title>destination</a> : <a
+   id="n2162"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n2166"
+       x="440.44609"
+       y="805.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2167"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.encodeRequestUrl"><title
+   id="title158200">Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths</title>encodeRequestUrl</a> : <a
+   id="n2168"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n2172"
+       x="440.44609"
+       y="819.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2173"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.method"><title
+   id="title158205">The HTTP method the test engine MUST use for this operation regardless of any other operation details</title>method</a> : <a
+   id="n2174"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2175"
+   xlink:href="valueset-http-operations.html"><title
+   id="n2176">null (Strength=Required)</title>TestScriptRequestMethodCode</a>! »</text>
+    <text
+       id="n2182"
+       x="440.44609"
+       y="833.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2183"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.origin"><title
+   id="title158212">The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section</title>origin</a> : <a
+   id="n2184"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n2188"
+       x="440.44609"
+       y="847.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2189"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.params"><title
+   id="title158217">Path plus parameters after [type].  Used to set parts of the request URL explicitly</title>params</a> : <a
+   id="n2190"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2191"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2192">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2198"
+       x="440.44609"
+       y="861.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2199"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.requestId"><title
+   id="title158224">The fixture id (maybe new) to map to the request</title>requestId</a> : <a
+   id="n2200"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+    <text
+       id="n2204"
+       x="440.44609"
+       y="875.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2205"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.responseId"><title
+   id="title158229">The fixture id (maybe new) to map to the response</title>responseId</a> : <a
+   id="n2206"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+    <text
+       id="n2210"
+       x="440.44609"
+       y="889.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2211"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.sourceId"><title
+   id="title158234">The id of the fixture used as the body of a PUT or POST request</title>sourceId</a> : <a
+   id="n2212"
+   xlink:href="datatypes.html#id">id</a> [0..1] « <a
+   id="n2213"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2214">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2220"
+       x="440.44609"
+       y="903.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2221"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.targetId"><title
+   id="title158241">Id of fixture used for extracting the [id],  [type], and [vid] for GET requests</title>targetId</a> : <a
+   id="n2222"
+   xlink:href="datatypes.html#id">id</a> [0..1] « <a
+   id="n2223"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2224">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2230"
+       x="440.44609"
+       y="917.8658585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2231"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.url"><title
+   id="title158248">Complete request URL</title>url</a> : <a
+   id="n2232"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2233"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2234">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n2240">
+    <rect
+       id="TestScript.setup.action.operation.requestHeader"
+       x="764.5384"
+       y="590.0843885999999"
+       rx="4"
+       ry="4"
+       width="102.96000000000001"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2241"
+       x1="764.5384"
+       y1="618.0843885999999"
+       x2="867.4984000000001"
+       y2="618.0843885999999"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2242"
+       x="816.0184"
+       y="610.0843885999999"
+       fill="black"
+       class="diagram-class-title">RequestHeader</text>
+    <text
+       id="n2243"
+       x="770.5384"
+       y="632.0843885999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2244"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader.field"><title
+   id="title158259">The HTTP header field e.g. &quot;Accept&quot;</title>field</a> : <a
+   id="n2245"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n2249"
+       x="770.5384"
+       y="646.0843885999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2250"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader.value"><title
+   id="title158264">The value of the header e.g. &quot;application/fhir+xml&quot;</title>value</a> : <a
+   id="n2251"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n2255">
+    <rect
+       id="TestScript.setup.action.assert"
+       x="48.754310000000004"
+       y="653.1900686"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="386.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2256"
+       x1="48.754310000000004"
+       y1="681.1900686"
+       x2="334.75431000000003"
+       y2="681.1900686"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2257"
+       x="191.75431"
+       y="673.1900686"
+       fill="black"
+       class="diagram-class-title">Assert</text>
+    <text
+       id="n2258"
+       x="54.754310000000004"
+       y="695.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2259"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.label"><title
+   id="title158273">The label would be used for tracking/logging purposes by test engines</title>label</a> : <a
+   id="n2260"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2264"
+       x="54.754310000000004"
+       y="709.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2265"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.description"><title
+   id="title158278">The description would be used by test engines for tracking and reporting purposes</title>description</a> : <a
+   id="n2266"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2270"
+       x="54.754310000000004"
+       y="723.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2271"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.direction"><title
+   id="title158283">The direction to use for the assertion</title>direction</a> : <a
+   id="n2272"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2273"
+   xlink:href="valueset-assert-direction-codes.html"><title
+   id="n2274">null (Strength=Required)</title>AssertionDirectionType</a>! » « <a
+   id="n2275"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2276">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2284"
+       x="54.754310000000004"
+       y="737.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2285"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceId"><title
+   id="title158292">Id of the source fixture used as the contents to be evaluated by either the &quot;source/expression&quot; or &quot;sourceId/path&quot; definition</title>compareToSourceId</a> : <a
+   id="n2286"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2287"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2288">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2294"
+       x="54.754310000000004"
+       y="751.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2295"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceExpression"><title
+   id="title158299">The FHIRPath expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both</title>compareToSourceExpression</a> : <a
+   id="n2296"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2297"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2298">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2304"
+       x="54.754310000000004"
+       y="765.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2305"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourcePath"><title
+   id="title158306">XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both</title>compareToSourcePath</a> : <a
+   id="n2306"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2307"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2308">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2314"
+       x="54.754310000000004"
+       y="779.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2315"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.contentType"><title
+   id="title158313">The mime-type contents to compare against the request or response message 'Content-Type' header</title>contentType</a> : <a
+   id="n2316"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2317"
+   xlink:href="valueset-mimetypes.html"><title
+   id="n2318">null (Strength=Required)</title>MimeTypes</a>! » « <a
+   id="n2319"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2320">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2328"
+       x="54.754310000000004"
+       y="793.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2329"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.defaultManualCompletion"><title
+   id="title158322">The default manual completion outcome applied to this assertion</title>defaultManualCompletion</a> : <a
+   id="n2330"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2331"
+   xlink:href="valueset-assert-manual-completion-codes.html"><title
+     id="n2332">null (Strength=Required)</title></a></text>
+    <text
+       id="n2333"
+       x="74.75431"
+       y="807.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2334"
+   xlink:href="valueset-assert-manual-completion-codes.html">AssertionManualCompletionType</a>! »</text>
+    <text
+       id="n2342"
+       x="54.754310000000004"
+       y="821.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2343"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.expression"><title
+   id="title158331">The FHIRPath expression to be evaluated against the request or response message contents - HTTP headers and payload</title>expression</a> : <a
+   id="n2344"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2345"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2346">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2352"
+       x="54.754310000000004"
+       y="835.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2353"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.headerField"><title
+   id="title158338">The HTTP header field name e.g. 'Location'</title>headerField</a> : <a
+   id="n2354"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2355"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2356">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2362"
+       x="54.754310000000004"
+       y="849.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2363"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.minimumId"><title
+   id="title158345">The ID of a fixture. Asserts that the response contains at a minimum the fixture specified by minimumId</title>minimumId</a> : <a
+   id="n2364"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2365"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2366">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2372"
+       x="54.754310000000004"
+       y="863.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2373"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.navigationLinks"><title
+   id="title158352">Whether or not the test execution performs validation on the bundle navigation links</title>navigationLinks</a> : <a
+   id="n2374"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n2375"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2376">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2382"
+       x="54.754310000000004"
+       y="877.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2383"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.operator"><title
+   id="title158359">The operator type defines the conditional behavior of the assert</title>operator</a> : <a
+   id="n2384"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2385"
+   xlink:href="valueset-assert-operator-codes.html"><title
+   id="n2386">null (Strength=Required)</title>AssertionOperatorType</a>! »</text>
+    <text
+       id="n2392"
+       x="54.754310000000004"
+       y="891.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2393"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.path"><title
+   id="title158366">The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server</title>path</a> : <a
+   id="n2394"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2395"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2396">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2402"
+       x="54.754310000000004"
+       y="905.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2403"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.requestMethod"><title
+   id="title158373">The request method or HTTP operation code to compare against that used by the client system under test</title>requestMethod</a> : <a
+   id="n2404"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2405"
+   xlink:href="valueset-http-operations.html"><title
+   id="n2406">null (Strength=Required)</title>TestScriptRequestMethodCode</a>! » « <a
+   id="n2407"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2408">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2416"
+       x="54.754310000000004"
+       y="919.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2417"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.requestURL"><title
+   id="title158382">The value to use in a comparison against the request URL path string</title>requestURL</a> : <a
+   id="n2418"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2422"
+       x="54.754310000000004"
+       y="933.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2423"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.resource"><title
+   id="title158387">The type of the resource.  See the [resource list](resourcelist.html)</title>resource</a> : <a
+   id="n2424"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n2425"
+   xlink:href="valueset-concrete-fhir-types.html"><title
+   id="n2426">null (Strength=Extensible)</title>ConcreteFHIRTypes</a>+ » « <a
+   id="n2427"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2428">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2436"
+       x="54.754310000000004"
+       y="947.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2437"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.response"><title
+   id="title158396">continue | switchingProtocols | okay | created | accepted | nonAuthoritativeInformation | noContent | resetContent | partialContent | multipleChoices | movedPermanently | found | seeOther | notModified | useProxy | temporaryRedirect | permanentRedirect | badRequest | unauthorized | paymentRequired | forbidden | notFound | methodNotAllowed | notAcceptable | proxyAuthenticationRequired | requestTimeout | conflict | gone | lengthRequired | preconditionFailed | contentTooLarge | uriTooLong | unsupportedMediaType | rangeNotSatisfiable | expectationFailed | misdirectedRequest | unprocessableContent | upgradeRequired | internalServerError | notImplemented | badGateway | serviceUnavailable | gatewayTimeout | httpVersionNotSupported</title>response</a> : <a
+   id="n2438"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2439"
+   xlink:href="valueset-assert-response-code-types.html"><title
+   id="n2440">null (Strength=Required)</title>AssertionResponseTypes</a>! » « <a
+   id="n2441"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2442">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2450"
+       x="54.754310000000004"
+       y="961.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2451"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.responseCode"><title
+   id="title158405">The value of the HTTP response code to be tested</title>responseCode</a> : <a
+   id="n2452"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n2453"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2454">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2460"
+       x="54.754310000000004"
+       y="975.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2461"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.sourceId"><title
+   id="title158412">Fixture to evaluate the XPath/JSONPath expression or the headerField  against</title>sourceId</a> : <a
+   id="n2462"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+    <text
+       id="n2466"
+       x="54.754310000000004"
+       y="989.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2467"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.stopTestOnFail"><title
+   id="title158417">Whether or not the current test execution will stop on failure for this assert</title>stopTestOnFail</a> : <a
+   id="n2468"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n2472"
+       x="54.754310000000004"
+       y="1003.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2473"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.validateProfileId"><title
+   id="title158422">The ID of the Profile to validate against</title>validateProfileId</a> : <a
+   id="n2474"
+   xlink:href="datatypes.html#id">id</a> [0..1] « <a
+   id="n2475"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n2476">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n2482"
+       x="54.754310000000004"
+       y="1017.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2483"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.value"><title
+   id="title158429">The value to compare to</title>value</a> : <a
+   id="n2484"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2488"
+       x="54.754310000000004"
+       y="1031.1900686"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2489"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.warningOnly"><title
+   id="title158434">Whether or not the test execution will produce a warning only on error for this assert</title>warningOnly</a> : <a
+   id="n2490"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+  </g>
+  <g
+     id="n2494">
+    <rect
+       id="TestScript.setup.action.assert.requirement"
+       x="407.20894999999996"
+       y="966.3898585999999"
+       rx="4"
+       ry="4"
+       width="272.8"
+       height="50.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2495"
+       x1="407.20894999999996"
+       y1="994.3898585999999"
+       x2="680.0089499999999"
+       y2="994.3898585999999"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2496"
+       x="543.6089499999999"
+       y="986.3898585999999"
+       fill="black"
+       class="diagram-class-title">Requirement</text>
+    <text
+       id="n2497"
+       x="413.20894999999996"
+       y="1008.3898585999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2498"
+   xlink:href="testscript-definitions.html#TestScript.setup.action.assert.requirement.link_x_"><title
+   id="title158443">Link or reference providing traceability to the testing requirement for this test</title>link[x]</a> : <a
+   id="n2499"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n2500"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n2501"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n2502"
+   xlink:href="requirements.html#Requirements">Requirements</a>) »</text>
+  </g>
+  <g
+     id="n2509">
+    <rect
+       id="TestScript.test"
+       x="398.87649"
+       y="473.8005576"
+       rx="4"
+       ry="4"
+       width="118.80000000000001"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2510"
+       x1="398.87649"
+       y1="501.8005576"
+       x2="517.6764900000001"
+       y2="501.8005576"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2511"
+       x="458.27648999999997"
+       y="493.8005576"
+       fill="black"
+       class="diagram-class-title">Test</text>
+    <text
+       id="n2512"
+       x="404.87649"
+       y="515.8005576"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2513"
+   xlink:href="testscript-definitions.html#TestScript.test.name"><title
+   id="title158455">The name of this test used for tracking/logging purposes by test engines</title>name</a> : <a
+   id="n2514"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2518"
+       x="404.87649"
+       y="529.8005576"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2519"
+   xlink:href="testscript-definitions.html#TestScript.test.description"><title
+   id="title158460">A short description of the test used by test engines for tracking and reporting purposes</title>description</a> : <a
+   id="n2520"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n2524">
+    <rect
+       id="TestScript.test.action"
+       x="428.972408"
+       y="595.0530186"
+       rx="4"
+       ry="4"
+       width="47.52"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2525"
+       x1="428.972408"
+       y1="623.0530186"
+       x2="476.49240799999995"
+       y2="623.0530186"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2526"
+       x="452.73240799999996"
+       y="615.0530186"
+       fill="black"
+       class="diagram-class-title">TestAction</text>
+  </g>
+  <g
+     id="n2527">
+    <rect
+       id="TestScript.teardown"
+       x="615.14235"
+       y="484.4465586"
+       rx="4"
+       ry="4"
+       width="63.36000000000001"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2528"
+       x1="615.14235"
+       y1="512.4465586"
+       x2="678.50235"
+       y2="512.4465586"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2529"
+       x="646.8223499999999"
+       y="504.4465586"
+       fill="black"
+       class="diagram-class-title">Teardown</text>
+  </g>
+  <g
+     id="n2530">
+    <rect
+       id="TestScript.teardown.action"
+       x="619.53539"
+       y="567.7171886"
+       rx="4"
+       ry="4"
+       width="47.52"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2531"
+       x1="619.53539"
+       y1="595.7171886"
+       x2="667.05539"
+       y2="595.7171886"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2532"
+       x="643.29539"
+       y="587.7171886"
+       fill="black"
+       class="diagram-class-title">TeardownAction</text>
+  </g>
+  <line
+     id="n2533"
+     x1="341.03814"
+     y1="201.06570485957099"
+     x2="368.09151744030913"
+     y2="220.62609859999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2534"
+     points="341.03814,201.06570485957099 347.03814,205.06570485957099 353.03814,201.06570485957099 347.03814,197.06570485957099 341.03814,201.06570485957099"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(35.86804447035193 341.03814 201.06570485957099)" />
+  <rect
+     id="n2535"
+     x="341.0"
+     y="203.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2536"
+     x="354.0"
+     y="213.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2537"
+       xlink:href="testscript-definitions.html#TestScript.origin"><title
+   id="title158481">An abstract server used in operations within this test script in the origin element</title>origin</a></text>
+  <text
+     id="n2538"
+     x="368.09151744030913"
+     y="234.62609859999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2539"
+     x1="341.03814"
+     y1="346.79376932299743"
+     x2="244.92631972866945"
+     y2="379.9867486"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2540"
+     points="341.03814,346.79376932299743 347.03814,350.79376932299743 353.03814,346.79376932299743 347.03814,342.79376932299743 341.03814,346.79376932299743"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(160.9472411192062 341.03814 346.79376932299743)" />
+  <rect
+     id="n2541"
+     x="268.0"
+     y="356.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2542"
+     x="292.0"
+     y="366.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2543"
+       xlink:href="testscript-definitions.html#TestScript.destination"><title
+   id="title158489">An abstract server used in operations within this test script in the destination element</title>destination</a></text>
+  <text
+     id="n2544"
+     x="244.92631972866945"
+     y="375.9867486"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2545"
+     x1="133.82435927825063"
+     y1="205.22886759999994"
+     x2="122.82365017199899"
+     y2="252.10566060000008"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2546"
+     points="133.82435927825063,205.22886759999994 139.82435927825063,209.22886759999994 145.82435927825063,205.22886759999994 139.82435927825063,201.22886759999994 133.82435927825063,205.22886759999994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(103.2067848198163 133.82435927825063 205.22886759999994)" />
+  <rect
+     id="n2547"
+     x="119.5"
+     y="221.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2548"
+     x="128.0"
+     y="231.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2549"
+       xlink:href="testscript-definitions.html#TestScript.metadata.link"><title
+   id="title158497">A link to the FHIR specification that this test is covering</title>link</a></text>
+  <text
+     id="n2550"
+     x="122.82365017199899"
+     y="248.10566060000008"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2551"
+     x1="139.0545302117823"
+     y1="169.22886760000029"
+     x2="141.02355032281042"
+     y2="134.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2552"
+     points="139.0545302117823,169.22886760000029 145.0545302117823,173.22886760000029 151.0545302117823,169.22886760000029 145.0545302117823,165.22886760000029 139.0545302117823,169.22886760000029"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-86.80093934084466 139.0545302117823 169.22886760000029)" />
+  <rect
+     id="n2553"
+     x="118.0"
+     y="144.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2554"
+     x="140.0"
+     y="154.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2555"
+       xlink:href="testscript-definitions.html#TestScript.metadata.capability"><title
+   id="title158505">Capabilities that must exist and are assumed to function correctly on the FHIR server being tested</title>capability</a></text>
+  <text
+     id="n2556"
+     x="141.02355032281042"
+     y="148.0"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n2557"
+     x1="341.03814"
+     y1="254.49028002994396"
+     x2="169.72847000000004"
+     y2="197.72615815562597"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2558"
+     points="341.03814,254.49028002994396 347.03814,258.49028002994396 353.03814,254.49028002994396 347.03814,250.49028002994396 341.03814,254.49028002994396"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-161.66718520023704 341.03814 254.49028002994396)" />
+  <rect
+     id="n2559"
+     x="237.5"
+     y="219.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2560"
+     x="255.0"
+     y="229.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2561"
+       xlink:href="testscript-definitions.html#TestScript.metadata"><title
+   id="title158513">The required capability must exist and are assumed to function correctly on the FHIR server being tested</title>metadata</a></text>
+  <text
+     id="n2562"
+     x="184.72847000000004"
+     y="193.72615815562597"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2563"
+     x1="613.8381400000001"
+     y1="230.30309724902264"
+     x2="713.6585417550187"
+     y2="179.5265296"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2564"
+     points="613.8381400000001,230.30309724902264 619.8381400000001,234.30309724902264 625.8381400000001,230.30309724902264 619.8381400000001,226.30309724902264 613.8381400000001,230.30309724902264"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-26.961496256791442 613.8381400000001 230.30309724902264)" />
+  <rect
+     id="n2565"
+     x="652.0"
+     y="197.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2566"
+     x="663.0"
+     y="207.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2567"
+       xlink:href="testscript-definitions.html#TestScript.scope"><title
+   id="title158521">The scope indicates a conformance artifact that is tested by the test(s) within this test case and the expectation of the test outcome(s) as well as the intended test phase inclusion</title>scope</a></text>
+  <text
+     id="n2568"
+     x="713.6585417550187"
+     y="193.5265296"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2569"
+     x1="613.8381400000001"
+     y1="280.0384525411247"
+     x2="732.56241"
+     y2="262.93615602839736"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2570"
+     points="613.8381400000001,280.0384525411247 619.8381400000001,284.0384525411247 625.8381400000001,280.0384525411247 619.8381400000001,276.0384525411247 613.8381400000001,280.0384525411247"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.197100835543695 613.8381400000001 280.0384525411247)" />
+  <rect
+     id="n2571"
+     x="658.0"
+     y="264.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2572"
+     x="673.0"
+     y="274.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2573"
+       xlink:href="testscript-definitions.html#TestScript.fixture"><title
+   id="title158529">Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute</title>fixture</a></text>
+  <text
+     id="n2574"
+     x="712.56241"
+     y="258.93615602839736"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2575"
+     x1="613.8381400000001"
+     y1="340.8680475938436"
+     x2="728.9164700000001"
+     y2="375.6118320758575"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2576"
+     points="613.8381400000001,340.8680475938436 619.8381400000001,344.8680475938436 625.8381400000001,340.8680475938436 619.8381400000001,336.8680475938436 613.8381400000001,340.8680475938436"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(16.79981210713426 613.8381400000001 340.8680475938436)" />
+  <rect
+     id="n2577"
+     x="653.5"
+     y="351.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2578"
+     x="671.0"
+     y="361.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2579"
+       xlink:href="testscript-definitions.html#TestScript.variable"><title
+   id="title158537">Variable is set based either on element value in response body or on header field value in the response headers</title>variable</a></text>
+  <text
+     id="n2580"
+     x="708.9164700000001"
+     y="371.6118320758575"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2581"
+     x1="672.04609"
+     y1="717.2988336497685"
+     x2="767.6316881140895"
+     y2="654.0843886000002"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2582"
+     points="672.04609,717.2988336497685 678.04609,721.2988336497685 684.04609,717.2988336497685 678.04609,713.2988336497685 672.04609,717.2988336497685"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-33.47820250787561 672.04609 717.2988336497685)" />
+  <rect
+     id="n2583"
+     x="690.5"
+     y="678.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2584"
+     x="719.0"
+     y="688.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2585"
+       xlink:href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader"><title
+   id="title158545">Header elements would be used to set HTTP headers</title>requestHeader</a></text>
+  <text
+     id="n2586"
+     x="767.6316881140895"
+     y="668.0843886000002"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2587"
+     x1="304.038996"
+     y1="613.1072602031376"
+     x2="434.44609"
+     y2="708.7426505843114"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2588"
+     points="304.038996,613.1072602031376 310.038996,617.1072602031376 316.038996,613.1072602031376 310.038996,609.1072602031376 304.038996,613.1072602031376"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(36.254843842895816 304.038996 613.1072602031376)" />
+  <rect
+     id="n2589"
+     x="349.5"
+     y="653.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2590"
+     x="369.0"
+     y="663.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2591"
+       xlink:href="testscript-definitions.html#TestScript.setup.action.operation"><title
+   id="title158553">The operation to perform</title>operation</a></text>
+  <text
+     id="n2592"
+     x="414.44609"
+     y="704.7426505843114"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2593"
+     x1="334.75431000000003"
+     y1="905.2018524718852"
+     x2="483.0278293248251"
+     y2="966.3898585999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2594"
+     points="334.75431000000003,905.2018524718852 340.75431000000003,909.2018524718852 346.75431000000003,905.2018524718852 340.75431000000003,901.2018524718852 334.75431000000003,905.2018524718852"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(22.424461951258905 334.75431000000003 905.2018524718852)" />
+  <rect
+     id="n2595"
+     x="384.0"
+     y="928.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2596"
+     x="408.0"
+     y="938.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2597"
+       xlink:href="testscript-definitions.html#TestScript.setup.action.assert.requirement"><title
+   id="title158561">Links or references providing traceability to the testing requirements for this assert</title>requirement</a></text>
+  <text
+     id="n2598"
+     x="483.0278293248251"
+     y="962.3898585999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2599"
+     x1="273.9181298940219"
+     y1="613.6826186"
+     x2="259.9569299140983"
+     y2="653.1900686000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2600"
+     points="273.9181298940219,613.6826186 279.9181298940219,617.6826186 285.9181298940219,613.6826186 279.9181298940219,609.6826186 273.9181298940219,613.6826186"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(109.46246331575828 273.9181298940219 613.6826186)" />
+  <rect
+     id="n2601"
+     x="253.0"
+     y="626.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2602"
+     x="266.0"
+     y="636.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2603"
+       xlink:href="testscript-definitions.html#TestScript.setup.action.assert"><title
+   id="title158569">Evaluates the results of previous operations to determine if the server under test behaves appropriately</title>assert</a></text>
+  <text
+     id="n2604"
+     x="259.9569299140983"
+     y="649.1900686000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2605"
+     x1="277.2758717753294"
+     y1="502.1729486000004"
+     x2="279.7009142246705"
+     y2="577.6826185999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2606"
+     points="277.2758717753294,502.1729486000004 283.2758717753294,506.1729486000004 289.2758717753294,502.1729486000004 283.2758717753294,498.1729486000004 277.2758717753294,502.1729486000004"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(88.16054080047097 277.2758717753294 502.1729486000004)" />
+  <rect
+     id="n2607"
+     x="265.0"
+     y="532.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2608"
+     x="278.0"
+     y="542.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2609"
+       xlink:href="testscript-definitions.html#TestScript.setup.action"><title
+   id="title158577">Action would contain either an operation or an assertion</title>action</a></text>
+  <text
+     id="n2610"
+     x="279.7009142246705"
+     y="573.6826185999998"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n2611"
+     x1="341.03814"
+     y1="425.0423658944986"
+     x2="296.283700488453"
+     y2="466.17294859999976"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2612"
+     points="341.03814,425.0423658944986 347.03814,429.0423658944986 353.03814,425.0423658944986 347.03814,421.0423658944986 341.03814,425.0423658944986"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(137.4161210779585 341.03814 425.0423658944986)" />
+  <rect
+     id="n2613"
+     x="307.0"
+     y="438.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2614"
+     x="318.0"
+     y="448.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2615"
+       xlink:href="testscript-definitions.html#TestScript.setup"><title
+   id="title158585">A series of required setup operations before tests are executed</title>setup</a></text>
+  <text
+     id="n2616"
+     x="296.283700488453"
+     y="462.17294859999976"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2617"
+     x1="462.6291213599588"
+     y1="631.0530185999996"
+     x2="481.7698268447428"
+     y2="665.8658586000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2618"
+     points="462.6291213599588,631.0530185999996 468.6291213599588,635.0530185999996 474.6291213599588,631.0530185999996 468.6291213599588,627.0530185999996 462.6291213599588,631.0530185999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(61.19723889179409 462.6291213599588 631.0530185999996)" />
+  <rect
+     id="n2619"
+     x="452.5"
+     y="641.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2620"
+     x="472.0"
+     y="651.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2621"
+       xlink:href="testscript-definitions.html#TestScript.test.action.operation"><title
+   id="title158593">An operation would involve a REST request to a server</title>operation</a></text>
+  <text
+     id="n2622"
+     x="481.7698268447428"
+     y="661.8658586000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2623"
+     x1="432.58286178244305"
+     y1="631.0530185999996"
+     x2="334.75431000000003"
+     y2="718.4452562747911"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2624"
+     points="432.58286178244305,631.0530185999996 438.58286178244305,635.0530185999996 444.58286178244305,631.0530185999996 438.58286178244305,627.0530185999996 432.58286178244305,631.0530185999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(138.2249358239938 432.58286178244305 631.0530185999996)" />
+  <rect
+     id="n2625"
+     x="370.0"
+     y="667.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2626"
+     x="383.0"
+     y="677.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2627"
+       xlink:href="testscript-definitions.html#TestScript.test.action.assert"><title
+   id="title158601">Evaluates the results of previous operations to determine if the server under test behaves appropriately</title>assert</a></text>
+  <text
+     id="n2628"
+     x="349.75431000000003"
+     y="714.4452562747911"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2629"
+     x1="456.62234964419065"
+     y1="537.8005575999996"
+     x2="453.66286195014317"
+     y2="595.0530185999996"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2630"
+     points="456.62234964419065,537.8005575999996 462.62234964419065,541.8005575999996 468.62234964419065,537.8005575999996 462.62234964419065,533.8005575999996 456.62234964419065,537.8005575999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(92.95909316902569 456.62234964419065 537.8005575999996)" />
+  <rect
+     id="n2631"
+     x="442.0"
+     y="559.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2632"
+     x="455.0"
+     y="569.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2633"
+       xlink:href="testscript-definitions.html#TestScript.test.action"><title
+   id="title158609">Action would contain either an operation or an assertion</title>action</a></text>
+  <text
+     id="n2634"
+     x="453.66286195014317"
+     y="591.0530185999996"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n2635"
+     x1="463.40020649622124"
+     y1="450.6869477"
+     x2="461.25141630543663"
+     y2="473.8005575999996"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2636"
+     points="463.40020649622124,450.6869477 469.40020649622124,454.6869477 475.40020649622124,450.6869477 469.40020649622124,446.6869477 463.40020649622124,450.6869477"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(95.31131867443304 463.40020649622124 450.6869477)" />
+  <rect
+     id="n2637"
+     x="453.5"
+     y="455.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2638"
+     x="462.0"
+     y="465.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2639"
+       xlink:href="testscript-definitions.html#TestScript.test"><title
+   id="title158617">A test in this script</title>test</a></text>
+  <text
+     id="n2640"
+     x="461.25141630543663"
+     y="469.8005575999996"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2641"
+     x1="635.5823390442174"
+     y1="603.7171885999992"
+     x2="608.9514580139873"
+     y2="665.8658586000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2642"
+     points="635.5823390442174,603.7171885999992 641.5823390442174,607.7171885999992 647.5823390442174,603.7171885999992 641.5823390442174,599.7171885999992 635.5823390442174,603.7171885999992"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(113.19526995599152 635.5823390442174 603.7171885999992)" />
+  <rect
+     id="n2643"
+     x="602.5"
+     y="627.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2644"
+     x="622.0"
+     y="637.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2645"
+       xlink:href="testscript-definitions.html#TestScript.teardown.action.operation"><title
+   id="title158625">An operation would involve a REST request to a server</title>operation</a></text>
+  <text
+     id="n2646"
+     x="608.9514580139873"
+     y="661.8658586000001"
+     fill="black"
+     class="diagram-class-linkage">[1..1]</text>
+  <line
+     id="n2647"
+     x1="646.0599529819876"
+     y1="520.4465586000006"
+     x2="644.0577870180123"
+     y2="567.7171885999978"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2648"
+     points="646.0599529819876,520.4465586000006 652.0599529819876,524.4465586000006 658.0599529819876,520.4465586000006 652.0599529819876,516.4465586000006 646.0599529819876,520.4465586000006"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(92.4253354398253 646.0599529819876 520.4465586000006)" />
+  <rect
+     id="n2649"
+     x="632.0"
+     y="537.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2650"
+     x="645.0"
+     y="547.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2651"
+       xlink:href="testscript-definitions.html#TestScript.teardown.action"><title
+   id="title158633">The teardown action will only contain an operation</title>action</a></text>
+  <text
+     id="n2652"
+     x="644.0577870180123"
+     y="563.7171885999978"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n2653"
+     x1="603.5826694576662"
+     y1="450.6869477"
+     x2="631.7852537732584"
+     y2="484.44655860000023"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2654"
+     points="603.5826694576662,450.6869477 609.5826694576662,454.6869477 615.5826694576662,450.6869477 609.5826694576662,446.6869477 603.5826694576662,450.6869477"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(50.12481238018941 603.5826694576662 450.6869477)" />
+  <rect
+     id="n2655"
+     x="599.5"
+     y="460.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2656"
+     x="617.0"
+     y="470.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2657"
+       xlink:href="testscript-definitions.html#TestScript.teardown"><title
+   id="title158641">A series of operations required to clean up after all the tests are executed (successfully or otherwise)</title>teardown</a></text>
+  <text
+     id="n2658"
+     x="631.7852537732584"
+     y="480.44655860000023"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

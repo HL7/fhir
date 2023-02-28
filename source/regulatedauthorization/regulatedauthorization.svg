@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n387"
+   version="1.1"
+   width="801.6"
+   height="312.0"
+   sodipodi:docname="regulatedauthorization.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview125470"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5543913"
+     inkscape:cx="400.79999"
+     inkscape:cy="156.00963"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n387" />
+  <defs
+     id="defs125305">
+    <filter
+       id="shadow1"
+       x="-0.018821022"
+       y="-0.057608696"
+       width="1.0482955"
+       height="1.1478261">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset125296" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix125298" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur125300" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend125302" />
+    </filter>
+  </defs>
+  <g
+     id="n388">
+    <rect
+       id="RegulatedAuthorization"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.88000000000005"
+       height="302.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n389"
+       x1="0.0"
+       y1="28.0"
+       x2="308.88000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n390"
+       x="154.44000000000003"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">RegulatedAuthorization<tspan
+   class="diagram-class-title-link"
+   id="tspan125310"> (<a
+   id="n391"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n392"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n393"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.identifier"><title
+   id="title125313">Business identifier for the authorization, typically assigned by the authorizing body</title>identifier</a> : <a
+   id="n394"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n398"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n399"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.subject"><title
+   id="title125318">The product type, treatment, facility or activity that is being authorized</title>subject</a> : <a
+   id="n400"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n401"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|</text>
+    <text
+       id="n402"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n403"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a
+   id="n404"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>|</text>
+    <text
+       id="n405"
+       x="26.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n406"
+   xlink:href="packagedproductdefinition.html#PackagedProductDefinition">PackagedProductDefinition</a>|<a
+   id="n407"
+   xlink:href="manufactureditemdefinition.html#ManufacturedItemDefinition">ManufacturedItemDefinition</a>|</text>
+    <text
+       id="n408"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n409"
+   xlink:href="ingredient.html#Ingredient">Ingredient</a>|<a
+   id="n410"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>|<a
+   id="n411"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|<a
+   id="n412"
+   xlink:href="researchstudy.html#ResearchStudy">ResearchStudy</a>|</text>
+    <text
+       id="n413"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n414"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|<a
+   id="n415"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a>|<a
+   id="n416"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>|</text>
+    <text
+       id="n417"
+       x="26.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n418"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n419"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n420"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n444"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n445"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.type"><title
+   id="title125343">Overall type of this authorization, for example drug marketing approval, orphan drug designation</title>type</a> : <a
+   id="n446"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n447"
+   xlink:href="valueset-regulated-authorization-type.html"><title
+   id="n448">null (Strength=Example)</title>RegulatedAuthorizationType</a>?? »</text>
+    <text
+       id="n454"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n455"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.description"><title
+   id="title125350">General textual supporting information</title>description</a> : <a
+   id="n456"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n460"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n461"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.region"><title
+   id="title125355">The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted</title>region</a> : <a
+   id="n462"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n463"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n464">null (Strength=Example)</title>JurisdictionValueSet</a>?? »</text>
+    <text
+       id="n470"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n471"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.status"><title
+   id="title125362">The status that is authorised e.g. approved. Intermediate states and actions can be tracked with cases and applications</title>status</a> : <a
+   id="n472"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n473"
+   xlink:href="valueset-publication-status.html"><title
+   id="title125366">null (Strength=Preferred)</title>PublicationStatus</a>? »</text>
+    <text
+       id="n478"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n479"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.statusDate"><title
+   id="title125370">The date at which the current status was assigned</title>statusDate</a> : <a
+   id="n480"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n484"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n485"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.validityPeriod"><title
+   id="title125375">The time period in which the regulatory approval, clearance or licencing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date</title>validityPeriod</a> : <a
+   id="n486"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n490"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n491"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.indication"><title
+   id="title125380">Condition for which the use of the regulated product applies</title>indication</a> : <a
+   id="n492"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n493"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+    <text
+       id="n498"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n499"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.intendedUse"><title
+   id="title125386">The intended use of the product, e.g. prevention, treatment, diagnosis</title>intendedUse</a> : <a
+   id="n500"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n501"
+   xlink:href="valueset-product-intended-use.html"><title
+   id="title125390">null (Strength=Preferred)</title>ProductIntendedUse</a>? »</text>
+    <text
+       id="n506"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n507"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.basis"><title
+   id="title125394">The legal or regulatory framework against which this authorization is granted, or other reasons for it</title>basis</a> : <a
+   id="n508"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n509"
+   xlink:href="valueset-regulated-authorization-basis.html"><title
+   id="n510">null (Strength=Example)</title>RegulatedAuthorizationBasis</a>?? »</text>
+    <text
+       id="n516"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n517"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.holder"><title
+   id="title125401">The organization that has been granted this authorization, by some authoritative body (the 'regulator')</title>holder</a> : <a
+   id="n518"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n519"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n524"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n525"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.regulator"><title
+   id="title125407">The regulatory authority or authorizing body granting the authorization. For example, European Medicines Agency (EMA), Food and Drug Administration (FDA), Health Canada (HC), etc</title>regulator</a> : <a
+   id="n526"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n527"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n532"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n533"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.attachedDocument"><title
+   id="title125413">Additional information or supporting documentation about the authorization</title>attachedDocument</a> : <a
+   id="n534"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n535"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+  </g>
+  <g
+     id="n540"
+     transform="translate(133.81444,112.58427)">
+    <rect
+       id="RegulatedAuthorization.case"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n541"
+       x1="320"
+       y1="28"
+       x2="601.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n542"
+       x="460.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Case</text>
+    <text
+       id="n543"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n544"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.case.identifier"><title
+   id="title125423">Identifier by which this case can be referenced</title>identifier</a> : <a
+   id="n545"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n549"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n550"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.case.type"><title
+   id="title125428">The defining type of case</title>type</a> : <a
+   id="n551"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n552"
+   xlink:href="valueset-regulated-authorization-case-type.html"><title
+   id="n553">null (Strength=Example)</title>RegulatedAuthorizationCaseType</a>?? »</text>
+    <text
+       id="n559"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n560"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.case.status"><title
+   id="title125435">The status associated with the case</title>status</a> : <a
+   id="n561"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n562"
+   xlink:href="valueset-publication-status.html"><title
+   id="title125439">null (Strength=Preferred)</title>PublicationStatus</a>? »</text>
+    <text
+       id="n567"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n568"
+   xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.case.date_x_"><title
+   id="title125443">Relevant date for this case</title>date[x]</a> : <a
+   id="n569"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n570"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n571"
+   xlink:href="datatypes.html#dateTime">dateTime</a> »</text>
+  </g>
+  <line
+     id="n577"
+     x1="601.6"
+     y1="21.0"
+     x2="661.6"
+     y2="21.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n578"
+     x1="661.6"
+     y1="21.0"
+     x2="661.6"
+     y2="71.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n579"
+     x1="661.6"
+     y1="71.0"
+     x2="601.6"
+     y2="71.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n580"
+     points="601.6,21.0 607.6,25.0 613.6,21.0 607.6,17.0 601.6,21.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 601.6 21.0)" />
+  <rect
+     id="n581"
+     x="637.0"
+     y="39.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n582"
+     x="661.0"
+     y="49.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n583"
+       xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.case.application"><title
+   id="title125456">A regulatory submission from an organization to a regulator, as part of an assessing case. Multiple applications may occur over time, with more or different information to support or modify the submission or the authorization. The applications can be considered as steps within the longer running case or procedure for this authorization process</title>application</a></text>
+  <text
+     id="n584"
+     x="616.6"
+     y="67.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n585"
+     x1="308.88000000000005"
+     y1="98.06815511163333"
+     x2="326.5851428571428"
+     y2="92.00000000000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n586"
+     points="308.88000000000005,98.06815511163333 314.88000000000005,102.06815511163333 320.88000000000005,98.06815511163333 314.88000000000005,94.06815511163333 308.88000000000005,98.06815511163333"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-18.918332728383135 308.88000000000005 98.06815511163333)" />
+  <rect
+     id="n587"
+     x="308.5"
+     y="88.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n588"
+     x="317.0"
+     y="98.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n589"
+       xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.case"><title
+   id="title125464">The case or regulatory procedure for granting or amending a regulated authorization. An authorization is granted in response to submissions/applications by those seeking authorization. A case is the administrative process that deals with the application(s) that relate to this and assesses them. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)</title>case</a></text>
+  <text
+     id="n590"
+     x="326.5851428571428"
+     y="106.00000000000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

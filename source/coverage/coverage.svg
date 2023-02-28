@@ -22,8 +22,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.2210897"
-     inkscape:cx="510.20001"
-     inkscape:cy="162.55971"
+     inkscape:cx="510.20003"
+     inkscape:cy="163.37866"
      inkscape:window-width="1390"
      inkscape:window-height="1205"
      inkscape:window-x="0"
@@ -313,7 +313,7 @@
   </g>
   <g
      id="n681"
-     transform="translate(-281.71558,308.74062)">
+     transform="translate(-313.65427,342.31719)">
     <rect
        id="Coverage.paymentBy"
        x="320"
@@ -368,7 +368,7 @@
   </g>
   <g
      id="n702"
-     transform="translate(15.559872,15.559872)">
+     transform="translate(16.378813,19.654575)">
     <rect
        id="Coverage.class"
        x="430"
@@ -431,7 +431,7 @@
   </g>
   <g
      id="n727"
-     transform="translate(3.2757625,40.947031)">
+     transform="translate(-1.2415442e-7,53.231141)">
     <rect
        id="Coverage.costToBeneficiary"
        x="430"
@@ -545,7 +545,7 @@
   </g>
   <g
      id="n790"
-     transform="translate(-8.1894063,67.153132)">
+     transform="translate(-23.749279,104.00546)">
     <rect
        id="Coverage.costToBeneficiary.exception"
        x="430"

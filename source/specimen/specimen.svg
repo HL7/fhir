@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n598"
+   version="1.1"
+   width="828.2"
+   height="694.0"
+   sodipodi:docname="specimen.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview124705"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1512968"
+     inkscape:cx="414.31541"
+     inkscape:cy="347.86859"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n598" />
+  <defs
+     id="defs124440">
+    <filter
+       id="shadow1"
+       x="-0.024090909"
+       y="-0.0828125"
+       width="1.0618182"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset124431" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix124433" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur124435" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend124437" />
+    </filter>
+  </defs>
+  <g
+     id="n599">
+    <rect
+       id="Specimen"
+       x="19.799999999999983"
+       y="284.0"
+       rx="4"
+       ry="4"
+       width="268.40000000000003"
+       height="218.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n600"
+       x1="19.799999999999983"
+       y1="312.0"
+       x2="288.20000000000005"
+       y2="312.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n601"
+       x="154.0"
+       y="304.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Specimen<tspan
+   class="diagram-class-title-link"
+   id="tspan124445"> (<a
+   id="n602"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n603"
+       x="25.799999999999983"
+       y="326.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n604"
+   xlink:href="specimen-definitions.html#Specimen.identifier"><title
+   id="title124448">Id for specimen</title>identifier</a> : <a
+   id="n605"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n609"
+       x="25.799999999999983"
+       y="340.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n610"
+   xlink:href="specimen-definitions.html#Specimen.accessionIdentifier"><title
+   id="title124453">The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures</title>accessionIdentifier</a> : <a
+   id="n611"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n615"
+       x="25.799999999999983"
+       y="354.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n616"
+   xlink:href="specimen-definitions.html#Specimen.status"><title
+   id="title124458">The availability of the specimen (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n617"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n618"
+   xlink:href="valueset-specimen-status.html"><title
+   id="n619">null (Strength=Required)</title>SpecimenStatus</a>! »</text>
+    <text
+       id="n625"
+       x="25.799999999999983"
+       y="368.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n626"
+   xlink:href="specimen-definitions.html#Specimen.type"><title
+   id="title124465">The kind of material that forms the specimen</title>type</a> : <a
+   id="n627"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n628"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0487.html"><title
+   id="n629">null (Strength=Example)</title>Hl7VSSpecimenType</a>?? »</text>
+    <text
+       id="n635"
+       x="25.799999999999983"
+       y="382.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n636"
+   xlink:href="specimen-definitions.html#Specimen.subject"><title
+   id="title124472">Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device</title>subject</a> : <a
+   id="n637"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n638"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n639"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n640"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n641"
+       x="45.79999999999998"
+       y="396.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n642"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a
+   id="n643"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n644"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n655"
+       x="25.799999999999983"
+       y="410.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n656"
+   xlink:href="specimen-definitions.html#Specimen.receivedTime"><title
+   id="title124484">Time when specimen is received by the testing laboratory for processing or testing</title>receivedTime</a> : <a
+   id="n657"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n661"
+       x="25.799999999999983"
+       y="424.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n662"
+   xlink:href="specimen-definitions.html#Specimen.parent"><title
+   id="title124489">Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen</title>parent</a> : <a
+   id="n663"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n664"
+   xlink:href="specimen.html#Specimen">Specimen</a> »</text>
+    <text
+       id="n669"
+       x="25.799999999999983"
+       y="438.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n670"
+   xlink:href="specimen-definitions.html#Specimen.request"><title
+   id="title124495">Details concerning a service request that required a specimen to be collected</title>request</a> : <a
+   id="n671"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n672"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n677"
+       x="25.799999999999983"
+       y="452.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n678"
+   xlink:href="specimen-definitions.html#Specimen.combined"><title
+   id="title124501">This element signifies if the specimen is part of a group or pooled</title>combined</a> : <a
+   id="n679"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n680"
+   xlink:href="valueset-specimen-combined.html"><title
+   id="n681">null (Strength=Required)</title>SpecimenCombined</a>! »</text>
+    <text
+       id="n687"
+       x="25.799999999999983"
+       y="466.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n688"
+   xlink:href="specimen-definitions.html#Specimen.role"><title
+   id="title124508">The role or reason for the specimen in the testing workflow</title>role</a> : <a
+   id="n689"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n690"
+   xlink:href="valueset-specimen-role.html"><title
+   id="title124512">null (Strength=Preferred)</title>SpecimenRole</a>? »</text>
+    <text
+       id="n695"
+       x="25.799999999999983"
+       y="480.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n696"
+   xlink:href="specimen-definitions.html#Specimen.condition"><title
+   id="title124516">A mode or state of being that describes the nature of the specimen</title>condition</a> : <a
+   id="n697"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n698"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0493.html"><title
+   id="n699">null (Strength=Extensible)</title>Hl7VSSpecimenCondition</a>+ »</text>
+    <text
+       id="n705"
+       x="25.799999999999983"
+       y="494.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n706"
+   xlink:href="specimen-definitions.html#Specimen.note"><title
+   id="title124523">To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen)</title>note</a> : <a
+   id="n707"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n711"
+     transform="translate(85.121404,5.2115144)">
+    <rect
+       id="Specimen.feature"
+       x="339.79999"
+       y="284"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n712"
+       x1="339.79999"
+       y1="312"
+       x2="586.20001"
+       y2="312"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n713"
+       x="463"
+       y="304"
+       fill="#000000"
+       class="diagram-class-title">Feature</text>
+    <text
+       id="n714"
+       x="345.79999"
+       y="326"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="specimen-definitions.html#Specimen.feature.type"><title
+   id="title124532">The landmark or feature being highlighted</title>type</a> : <a
+   id="n716"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n717"
+   xlink:href="valueset-body-site.html"><title
+   id="n718">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n724"
+       x="345.79999"
+       y="340"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n725"
+   xlink:href="specimen-definitions.html#Specimen.feature.description"><title
+   id="title124539">Description of the feature of the specimen</title>description</a> : <a
+   id="n726"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n730">
+    <rect
+       id="Specimen.collection"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="204.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n731"
+       x1="0.0"
+       y1="28.0"
+       x2="308.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n732"
+       x="154.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Collection</text>
+    <text
+       id="n733"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n734"
+   xlink:href="specimen-definitions.html#Specimen.collection.collector"><title
+   id="title124548">Person who collected the specimen</title>collector</a> : <a
+   id="n735"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n736"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n737"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n738"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n739"
+       x="26.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n740"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n749"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n750"
+   xlink:href="specimen-definitions.html#Specimen.collection.collected_x_"><title
+   id="title124558">Time when specimen was collected from subject - the physiologically relevant time</title>collected[x]</a> : <a
+   id="n751"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n752"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n753"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n759"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n760"
+   xlink:href="specimen-definitions.html#Specimen.collection.duration"><title
+   id="title124565">The span of time over which the collection of a specimen occurred</title>duration</a> : <a
+   id="n761"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
+    <text
+       id="n765"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="specimen-definitions.html#Specimen.collection.quantity"><title
+   id="title124570">The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample</title>quantity</a> : <a
+   id="n767"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a124574">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n771"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n772"
+   xlink:href="specimen-definitions.html#Specimen.collection.method"><title
+   id="title124577">A coded value specifying the technique that is used to perform the procedure</title>method</a> : <a
+   id="n773"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n774"
+   xlink:href="valueset-specimen-collection-method.html"><title
+   id="n775">null (Strength=Example)</title>FHIRSpecimenCollectionMethod</a>?? »</text>
+    <text
+       id="n781"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n782"
+   xlink:href="specimen-definitions.html#Specimen.collection.device"><title
+   id="title124584">A coded value specifying the technique that is used to perform the procedure</title>device</a> : <a
+   id="n783"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n784"
+   xlink:href="device.html#Device">Device</a>; <title
+   id="title124589">null (Strength=Example)</title>SpecimenCollectionDevice?? »</text>
+    <text
+       id="n789"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n790"
+   xlink:href="specimen-definitions.html#Specimen.collection.procedure"><title
+   id="title124592">The procedure event during which the specimen was collected (e.g. the surgery leading to the collection of a pathology sample)</title>procedure</a> : <a
+   id="n791"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n792"
+   xlink:href="procedure.html#Procedure">Procedure</a> »</text>
+    <text
+       id="n797"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n798"
+   xlink:href="specimen-definitions.html#Specimen.collection.bodySite"><title
+   id="title124598">Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens</title>bodySite</a> : <a
+   id="n799"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n800"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
+   id="n801"
+   xlink:href="valueset-body-site.html"><title
+     id="n802">null (Strength=Example)</title></a></text>
+    <text
+       id="n803"
+       x="26.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n804"
+   xlink:href="valueset-body-site.html">SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n813"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n814"
+   xlink:href="specimen-definitions.html#Specimen.collection.fastingStatus_x_"><title
+   id="title124608">Abstinence or reduction from some or all food, drink, or both, for a period of time prior to sample collection</title>fastingStatus[x]</a> : <a
+   id="n815"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n816"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n817"
+   xlink:href="datatypes.html#Duration">Duration</a>; <a
+   id="n818"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0916.html"><title
+     id="n819">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n820"
+       x="26.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n821"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0916.html">Hl7VSRelevantClincialInformat...</a>+ »</text>
+  </g>
+  <g
+     id="n831"
+     transform="translate(402.1552,-440.37297)">
+    <rect
+       id="Specimen.processing"
+       x="22"
+       y="582"
+       rx="4"
+       ry="4"
+       width="264"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n832"
+       x1="22"
+       y1="610"
+       x2="286"
+       y2="610"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n833"
+       x="154"
+       y="602"
+       fill="#000000"
+       class="diagram-class-title">Processing</text>
+    <text
+       id="n834"
+       x="28"
+       y="624"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n835"
+   xlink:href="specimen-definitions.html#Specimen.processing.description"><title
+   id="title124623">Textual description of procedure</title>description</a> : <a
+   id="n836"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n840"
+       x="28"
+       y="638"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n841"
+   xlink:href="specimen-definitions.html#Specimen.processing.method"><title
+   id="title124628">A coded value specifying the method used to process the specimen</title>method</a> : <a
+   id="n842"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n843"
+   xlink:href="valueset-specimen-processing-method.html"><title
+   id="n844">null (Strength=Example)</title>SpecimenProcessingMethod</a>?? »</text>
+    <text
+       id="n850"
+       x="28"
+       y="652"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n851"
+   xlink:href="specimen-definitions.html#Specimen.processing.additive"><title
+   id="title124635">Material used in the processing step</title>additive</a> : <a
+   id="n852"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n853"
+   xlink:href="substance.html#Substance">Substance</a> »</text>
+    <text
+       id="n858"
+       x="28"
+       y="666"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n859"
+   xlink:href="specimen-definitions.html#Specimen.processing.time_x_"><title
+   id="title124641">A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin</title>time[x]</a> : <a
+   id="n860"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n861"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n862"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+  </g>
+  <g
+     id="n868"
+     transform="translate(29.531917,54.720901)">
+    <rect
+       id="Specimen.container"
+       x="408.20001"
+       y="354"
+       rx="4"
+       ry="4"
+       width="220"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n869"
+       x1="408.20001"
+       y1="382"
+       x2="628.20001"
+       y2="382"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n870"
+       x="518.20001"
+       y="374"
+       fill="#000000"
+       class="diagram-class-title">Container</text>
+    <text
+       id="n871"
+       x="414.20001"
+       y="396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n872"
+   xlink:href="specimen-definitions.html#Specimen.container.device"><title
+   id="title124652">The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device</title>device</a> : <a
+   id="n873"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n874"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n879"
+       x="414.20001"
+       y="410"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n880"
+   xlink:href="specimen-definitions.html#Specimen.container.location"><title
+   id="title124658">The location of the container holding the specimen</title>location</a> : <a
+   id="n881"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n882"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n887"
+       x="414.20001"
+       y="424"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n888"
+   xlink:href="specimen-definitions.html#Specimen.container.specimenQuantity"><title
+   id="title124664">The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type</title>specimenQuantity</a> : <a
+   id="n889"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a124668">SimpleQuantity</a>) [0..1]</text>
+  </g>
+  <line
+     id="n893"
+     x1="288.20000000000005"
+     y1="359.55857605177994"
+     x2="339.79999999999995"
+     y2="346.70032362459546"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n894"
+     points="288.20000000000005,359.55857605177994 294.20000000000005,363.55857605177994 300.20000000000005,359.55857605177994 294.20000000000005,355.55857605177994 288.20000000000005,359.55857605177994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-13.992606172850497 288.20000000000005 359.55857605177994)" />
+  <rect
+     id="n895"
+     x="299.0"
+     y="346.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n896"
+     x="314.0"
+     y="356.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n897"
+       xlink:href="specimen-definitions.html#Specimen.feature"><title
+   id="title124675">A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)</title>feature</a></text>
+  <text
+     id="n898"
+     x="319.79999999999995"
+     y="342.70032362459546"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n899"
+     x1="154.0"
+     y1="284.0"
+     x2="154.0"
+     y2="204.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n900"
+     points="154.0,284.0 160.0,288.0 166.0,284.0 160.0,280.0 154.0,284.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-90.0 154.0 284.0)" />
+  <rect
+     id="n901"
+     x="132.0"
+     y="237.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n902"
+     x="154.0"
+     y="247.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n903"
+       xlink:href="specimen-definitions.html#Specimen.collection"><title
+   id="title124683">Details concerning the specimen collection</title>collection</a></text>
+  <text
+     id="n904"
+     x="154.0"
+     y="218.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n905"
+     x1="154.0"
+     y1="502.0"
+     x2="154.0"
+     y2="582.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n906"
+     points="154.0,502.0 160.0,506.0 166.0,502.0 160.0,498.0 154.0,502.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.0 154.0 502.0)" />
+  <rect
+     id="n907"
+     x="132.0"
+     y="535.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n908"
+     x="154.0"
+     y="545.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n909"
+       xlink:href="specimen-definitions.html#Specimen.processing"><title
+   id="title124691">Details concerning processing and processing steps for the specimen</title>processing</a></text>
+  <text
+     id="n910"
+     x="154.0"
+     y="578.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n911"
+     x1="288.20000000000005"
+     y1="392.99999999999994"
+     x2="408.20000000000005"
+     y2="392.99999999999994"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n912"
+     points="288.20000000000005,392.99999999999994 294.20000000000005,396.99999999999994 300.20000000000005,392.99999999999994 294.20000000000005,388.99999999999994 288.20000000000005,392.99999999999994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 288.20000000000005 392.99999999999994)" />
+  <rect
+     id="n913"
+     x="328.5"
+     y="385.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n914"
+     x="348.0"
+     y="395.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n915"
+       xlink:href="specimen-definitions.html#Specimen.container"><title
+   id="title124699">The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here</title>container</a></text>
+  <text
+     id="n916"
+     x="388.20000000000005"
+     y="388.99999999999994"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

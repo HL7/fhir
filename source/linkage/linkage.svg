@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n91"
+   version="1.1"
+   width="674.0"
+   height="88.0"
+   sodipodi:docname="linkage.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview80095"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.8486647"
+     inkscape:cx="337"
+     inkscape:cy="44.085875"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n91" />
+  <defs
+     id="defs80046">
+    <filter
+       id="shadow1"
+       x="-0.034415584"
+       y="-0.0828125"
+       width="1.0883117"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset80037" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix80039" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur80041" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend80043" />
+    </filter>
+  </defs>
+  <g
+     id="n92">
+    <rect
+       id="Linkage"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="255.20000000000002"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n93"
+       x1="0.0"
+       y1="28.0"
+       x2="255.20000000000002"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n94"
+       x="127.60000000000001"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Linkage<tspan
+   class="diagram-class-title-link"
+   id="tspan80051"> (<a
+   id="n95"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n96"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n97"
+   xlink:href="linkage-definitions.html#Linkage.active"><title
+   id="title80054">Indicates whether the asserted set of linkages are considered to be &quot;in effect&quot;</title>active</a> : <a
+   id="n98"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n102"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n103"
+   xlink:href="linkage-definitions.html#Linkage.author"><title
+   id="title80059">Identifies the user or organization responsible for asserting the linkages as well as the user or organization who establishes the context in which the nature of each linkage is evaluated</title>author</a> : <a
+   id="n104"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n105"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n106"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n107"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n108"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+  </g>
+  <g
+     id="n116"
+     transform="translate(75.730337,10.277689)">
+    <rect
+       id="Linkage.item"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="154"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n117"
+       x1="320"
+       y1="28"
+       x2="474"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n118"
+       x="397"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Item</text>
+    <text
+       id="n119"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n120"
+   xlink:href="linkage-definitions.html#Linkage.item.type"><title
+   id="title80072">Distinguishes which item is &quot;source of truth&quot; (if any) and which items are no longer considered to be current representations</title>type</a> : <a
+   id="n121"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n122"
+   xlink:href="valueset-linkage-type.html"><title
+   id="n123">null (Strength=Required)</title>LinkageType</a>! »</text>
+    <text
+       id="n129"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n130"
+   xlink:href="linkage-definitions.html#Linkage.item.resource"><title
+   id="title80079">The resource instance being linked as part of the group</title>resource</a> : <a
+   id="n131"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n132"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <line
+     id="n137"
+     x1="255.20000000000002"
+     y1="35.68448403860431"
+     x2="320.0"
+     y2="34.00074239049741"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n138"
+     points="255.20000000000002,35.68448403860431 261.20000000000005,39.68448403860431 267.20000000000005,35.68448403860431 261.20000000000005,31.68448403860431 255.20000000000002,35.68448403860431"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-1.488419569790802 255.20000000000002 35.68448403860431)" />
+  <rect
+     id="n139"
+     x="278.5"
+     y="27.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n140"
+     x="287.0"
+     y="37.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n141"
+       xlink:href="linkage-definitions.html#Linkage.item"><title
+   id="title80089">Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items</title>item</a></text>
+  <text
+     id="n142"
+     x="300.0"
+     y="30.000742390497408"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+</svg>

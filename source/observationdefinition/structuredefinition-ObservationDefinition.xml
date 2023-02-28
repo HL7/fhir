@@ -79,9 +79,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="ObservationDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="330,200"/>
-      </extension>
       <path value="ObservationDefinition"/>
       <short value="Definition of an observation"/>
       <definition value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
@@ -786,9 +783,6 @@
       </mapping>
     </element>
     <element id="ObservationDefinition.quantitativeDetails.decimalPrecision">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,0"/>
-      </extension>
       <path value="ObservationDefinition.quantitativeDetails.decimalPrecision"/>
       <short value="Decimal precision of observation quantitative results"/>
       <definition value="Number of digits after decimal separator when the results of such observations are of type Quantity."/>

@@ -1,1378 +1,1856 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n666"
+   id="n1195"
    version="1.1"
-   width="983.4000000000001"
-   height="709.0"
+   width="1542.758946"
+   height="711.070668"
    sodipodi:docname="valueset.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata371">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview120420"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview369"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.1551759"
-     inkscape:cx="491.70001"
-     inkscape:cy="354.5"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n666" />
+     inkscape:zoom="0.80764401"
+     inkscape:cx="771.37946"
+     inkscape:cy="355.97367"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1195" />
   <defs
-     id="defs11">
+     id="defs119846">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.066919194"
+       y="-0.0828125"
+       width="1.1717172"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset119837" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix119839" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur119841" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend119843" />
     </filter>
   </defs>
   <g
-     id="n667">
+     id="n1196">
     <rect
        id="ValueSet"
        x="0.0"
        y="0.0"
        rx="4"
        ry="4"
-       width="277.20000000000005"
-       height="260.0"
+       width="272.8"
+       height="428.0"
        filter="url(#shadow1)"
        style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n668"
+       id="n1197"
        x1="0.0"
        y1="28.0"
-       x2="277.20000000000005"
+       x2="272.8"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n669"
-       x="138.60000000000002"
+       id="n1198"
+       x="136.4"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">ValueSet<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan119852"> (<a
+   id="n1199"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n670">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n1200"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
     <text
-       id="n671"
+       id="n1201"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.url"
-   id="n672"><title
-   id="title19">An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers</title>
-url</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n673">uri</a>
- [0..1]</text>
+   id="n1202"
+   xlink:href="valueset-definitions.html#ValueSet.url"><title
+   id="title119855">An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers</title>url</a> : <a
+   id="n1203"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n677"
+       id="n1207"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.identifier"
-   id="n678"><title
-   id="title24">A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n679">Identifier</a>
- [0..*]</text>
+   id="n1208"
+   xlink:href="valueset-definitions.html#ValueSet.identifier"><title
+   id="title119860">A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1209"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n683"
+       id="n1213"
        x="6.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.version"
-   id="n684"><title
-   id="title29">The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>
-version</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n685">string</a>
- [0..1]</text>
+   id="n1214"
+   xlink:href="valueset-definitions.html#ValueSet.version"><title
+   id="title119865">The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n1215"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n689"
+       id="n1219"
        x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.name"
-   id="n690"><title
-   id="title34">A natural language name identifying the value set. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n691">string</a>
- [0..1]</text>
+   id="n1220"
+   xlink:href="valueset-definitions.html#ValueSet.versionAlgorithm_x_"><title
+   id="title119870">Indicates the mechanism used to compare versions to determine which ValueSet is more current</title>versionAlgorithm[x]</a> : <a
+   id="n1221"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1222"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1223"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n1224"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n1225">null (Strength=Extensible)</title></a></text>
     <text
-       id="n695"
-       x="6.0"
+       id="n1226"
+       x="26.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.title"
-   id="n696"><title
-   id="title39">A short, descriptive, user-friendly title for the value set</title>
-title</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n697">string</a>
- [0..1]</text>
+   id="n1227"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
     <text
-       id="n701"
+       id="n1237"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.status"
-   id="n702"><title
-   id="title44">The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n703">code</a>
- [1..1] « <a
-   xlink:href="valueset-publication-status.html"
-   id="n704"><title
-   id="n705">The lifecycle status of an artifact. (Strength=Required)</title>
-PublicationStatus</a>
-! »</text>
+   id="n1238"
+   xlink:href="valueset-definitions.html#ValueSet.name"><title
+   id="title119881">A natural language name identifying the value set. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1239"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1240"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1241">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n711"
+       id="n1247"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.experimental"
-   id="n712"><title
-   id="title51">A Boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>
-experimental</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n713">boolean</a>
- [0..1]</text>
+   id="n1248"
+   xlink:href="valueset-definitions.html#ValueSet.title"><title
+   id="title119888">A short, descriptive, user-friendly title for the value set</title>title</a> : <a
+   id="n1249"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n717"
+       id="n1253"
        x="6.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.date"
-   id="n718"><title
-   id="title56">The date (and optionally time) when the value set was created or revised (e.g. the 'content logical definition')</title>
-date</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n719">dateTime</a>
- [0..1]</text>
+   id="n1254"
+   xlink:href="valueset-definitions.html#ValueSet.status"><title
+   id="title119893">The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1255"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1256"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1257">null (Strength=Required)</title>PublicationStatus</a>! »</text>
     <text
-       id="n723"
+       id="n1263"
        x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.publisher"
-   id="n724"><title
-   id="title61">The name of the organization or individual that published the value set</title>
-publisher</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n725">string</a>
- [0..1]</text>
+   id="n1264"
+   xlink:href="valueset-definitions.html#ValueSet.experimental"><title
+   id="title119900">A Boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1265"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n729"
+       id="n1269"
        x="6.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.contact"
-   id="n730"><title
-   id="title66">Contact details to assist a user in finding and communicating with the publisher</title>
-contact</a>
- : <a
-   xlink:href="metadatatypes.html#ContactDetail"
-   id="n731">ContactDetail</a>
- [0..*]</text>
+   id="n1270"
+   xlink:href="valueset-definitions.html#ValueSet.date"><title
+   id="title119905">The date (and optionally time) when the value set metadata or content logical definition (.compose) was created or revised</title>date</a> : <a
+   id="n1271"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n735"
+       id="n1275"
        x="6.0"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.description"
-   id="n736"><title
-   id="title71">A free text natural language description of the value set from a consumer's perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set</title>
-description</a>
- : <a
-   xlink:href="datatypes.html#markdown"
-   id="n737">markdown</a>
- [0..1]</text>
-    <rect
-       id="n741"
-       x="1.0"
-       y="186.0"
-       width="275.20000000000005"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+   id="n1276"
+   xlink:href="valueset-definitions.html#ValueSet.publisher"><title
+   id="title119910">The name of the organization or individual responsible for the release and ongoing maintenance of the value set</title>publisher</a> : <a
+   id="n1277"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n742"
+       id="n1281"
        x="6.0"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.useContext"
-   id="n743"><title
-   id="title77">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate value set instances</title>
-useContext</a>
- : <a
-   xlink:href="metadatatypes.html#UsageContext"
-   id="n744">UsageContext</a>
- [0..*]</text>
+   id="n1282"
+   xlink:href="valueset-definitions.html#ValueSet.contact"><title
+   id="title119915">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1283"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text
-       id="n749"
+       id="n1287"
        x="6.0"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.jurisdiction"
-   id="n750"><title
-   id="title82">A legal or geographic region in which the value set is intended to be used</title>
-jurisdiction</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n751">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-jurisdiction.html"
-   id="n752"><title
-   id="n753">Countries and regions within which this artifact is targeted for use. (Strength=Extensible)</title>
-Jurisdiction ValueSet</a>
-+ »</text>
+   id="n1288"
+   xlink:href="valueset-definitions.html#ValueSet.description"><title
+   id="title119920">A free text natural language description of the value set from a consumer's perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set</title>description</a> : <a
+   id="n1289"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <rect
+       id="n1293"
+       x="1.0"
+       y="214.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n759"
+       id="n1294"
        x="6.0"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.immutable"
-   id="n760"><title
-   id="title89">If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change</title>
-immutable</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n761">boolean</a>
- [0..1]</text>
+   id="n1295"
+   xlink:href="valueset-definitions.html#ValueSet.useContext"><title
+   id="title119926">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate value set instances</title>useContext</a> : <a
+   id="n1296"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
     <text
-       id="n765"
+       id="n1301"
        x="6.0"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.purpose"
-   id="n766"><title
-   id="title94">Explanation of why this value set is needed and why it has been designed as it has</title>
-purpose</a>
- : <a
-   xlink:href="datatypes.html#markdown"
-   id="n767">markdown</a>
- [0..1]</text>
+   id="n1302"
+   xlink:href="valueset-definitions.html#ValueSet.jurisdiction"><title
+   id="title119931">A legal or geographic region in which the value set is intended to be used</title>jurisdiction</a> : <a
+   id="n1303"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1304"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1305">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
     <text
-       id="n771"
+       id="n1311"
        x="6.0"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-definitions.html#ValueSet.copyright"
-   id="n772"><title
-   id="title99">A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set</title>
-copyright</a>
- : <a
-   xlink:href="datatypes.html#markdown"
-   id="n773">markdown</a>
- [0..1]</text>
+   id="n1312"
+   xlink:href="valueset-definitions.html#ValueSet.immutable"><title
+   id="title119938">If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change</title>immutable</a> : <a
+   id="n1313"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1317"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1318"
+   xlink:href="valueset-definitions.html#ValueSet.purpose"><title
+   id="title119943">Explanation of why this value set is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1319"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1323"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1324"
+   xlink:href="valueset-definitions.html#ValueSet.copyright"><title
+   id="title119948">A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set</title>copyright</a> : <a
+   id="n1325"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1329"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1330"
+   xlink:href="valueset-definitions.html#ValueSet.copyrightLabel"><title
+   id="title119953">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1331"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <rect
+       id="n1335"
+       x="1.0"
+       y="298.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1336"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1337"
+   xlink:href="valueset-definitions.html#ValueSet.approvalDate"><title
+   id="title119959">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n1338"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <rect
+       id="n1343"
+       x="1.0"
+       y="312.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1344"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1345"
+   xlink:href="valueset-definitions.html#ValueSet.lastReviewDate"><title
+   id="title119965">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n1346"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <rect
+       id="n1351"
+       x="1.0"
+       y="326.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1352"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1353"
+   xlink:href="valueset-definitions.html#ValueSet.effectivePeriod"><title
+   id="title119971">The period during which the ValueSet content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n1354"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <rect
+       id="n1359"
+       x="1.0"
+       y="340.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1360"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1361"
+   xlink:href="valueset-definitions.html#ValueSet.topic"><title
+   id="title119977">Descriptions related to the content of the ValueSet. Topics provide a high-level categorization as well as keywords for the ValueSet that can be useful for filtering and searching</title>topic</a> : <a
+   id="n1362"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1363"
+   xlink:href="valueset-definition-topic.html"><title
+   id="n1364">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
+    <rect
+       id="n1371"
+       x="1.0"
+       y="354.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1372"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1373"
+   xlink:href="valueset-definitions.html#ValueSet.author"><title
+   id="title119985">An individiual or organization primarily involved in the creation and maintenance of the ValueSet</title>author</a> : <a
+   id="n1374"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <rect
+       id="n1379"
+       x="1.0"
+       y="368.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1380"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1381"
+   xlink:href="valueset-definitions.html#ValueSet.editor"><title
+   id="title119991">An individual or organization primarily responsible for internal coherence of the ValueSet</title>editor</a> : <a
+   id="n1382"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <rect
+       id="n1387"
+       x="1.0"
+       y="382.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1388"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1389"
+   xlink:href="valueset-definitions.html#ValueSet.reviewer"><title
+   id="title119997">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet</title>reviewer</a> : <a
+   id="n1390"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <rect
+       id="n1395"
+       x="1.0"
+       y="396.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1396"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1397"
+   xlink:href="valueset-definitions.html#ValueSet.endorser"><title
+   id="title120003">An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting</title>endorser</a> : <a
+   id="n1398"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <rect
+       id="n1403"
+       x="1.0"
+       y="410.0"
+       width="270.8"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1404"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1405"
+   xlink:href="valueset-definitions.html#ValueSet.relatedArtifact"><title
+   id="title120009">Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts</title>relatedArtifact</a> : <a
+   id="n1406"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
   </g>
   <g
-     id="n777"
-     transform="translate(-29,-14)">
+     id="n1411"
+     transform="translate(-12.381693,-104.00622)">
     <rect
        id="ValueSet.compose"
-       x="40"
-       y="310"
+       x="338.37201"
+       y="437.54395"
        rx="4"
        ry="4"
        width="110"
-       height="64"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n778"
-       x1="40"
-       y1="338"
-       x2="150"
-       y2="338"
+       id="n1412"
+       x1="338.37201"
+       y1="465.54395"
+       x2="448.37201"
+       y2="465.54395"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n779"
-       x="95"
-       y="330"
-       class="diagram-class-title"
-       style="fill:#000000">Compose</text>
+       id="n1413"
+       x="393.37201"
+       y="457.54395"
+       fill="#000000"
+       class="diagram-class-title">Compose</text>
     <text
-       id="n780"
-       x="46"
-       y="352"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.lockedDate"
-   id="n781"><title
-   id="title108">The Locked Date is  the effective date that is used to determine the version of all referenced Code Systems and Value Set Definitions included in the compose that are not already tied to a specific version</title>
-lockedDate</a>
- : <a
-   xlink:href="datatypes.html#date"
-   id="n782">date</a>
- [0..1]</text>
+       id="n1414"
+       x="344.37201"
+       y="479.54395"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1415"
+   xlink:href="valueset-definitions.html#ValueSet.compose.lockedDate"><title
+   id="title120018">The Locked Date is  the effective date that is used to determine the version of all referenced Code Systems and Value Set Definitions included in the compose that are not already tied to a specific version</title>lockedDate</a> : <a
+   id="n1416"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
-       id="n786"
-       x="46"
-       y="366"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.inactive"
-   id="n787"><title
-   id="title113">Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable $expand parameters (but generally, inactive codes would be expected to be included)</title>
-inactive</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n788">boolean</a>
- [0..1]</text>
+       id="n1420"
+       x="344.37201"
+       y="493.54395"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1421"
+   xlink:href="valueset-definitions.html#ValueSet.compose.inactive"><title
+   id="title120023">Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable $expand parameters (but generally, inactive codes would be expected to be included)</title>inactive</a> : <a
+   id="n1422"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1426"
+       x="344.37201"
+       y="507.54395"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1427"
+   xlink:href="valueset-definitions.html#ValueSet.compose.property"><title
+   id="title120028">A property to return in the expansion, if the client doesn't ask for any particular properties. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. The special value '*' means all properties known to the server</title>property</a> : <a
+   id="n1428"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>
   <g
-     id="n792"
-     transform="translate(-12.985036,-25.104402)">
+     id="n1432"
+     transform="translate(-33.43057,-105.24439)">
     <rect
        id="ValueSet.compose.include"
-       x="40"
-       y="430"
+       x="297.73331"
+       y="571.71918"
        rx="4"
        ry="4"
-       width="176"
-       height="78"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="202.39999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n793"
-       x1="40"
-       y1="458"
-       x2="216"
-       y2="458"
+       id="n1433"
+       x1="297.73331"
+       y1="599.71918"
+       x2="500.13333"
+       y2="599.71918"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n794"
-       x="128"
-       y="450"
-       class="diagram-class-title"
-       style="fill:#000000">ConceptSet</text>
+       id="n1434"
+       x="398.93332"
+       y="591.71918"
+       fill="#000000"
+       class="diagram-class-title">ConceptSet</text>
     <text
-       id="n795"
-       x="46"
-       y="472"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.system"
-   id="n796"><title
-   id="title122">An absolute URI which is the code system from which the selected codes come from</title>
-system</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n797">uri</a>
- [0..1]</text>
+       id="n1435"
+       x="303.73331"
+       y="613.71918"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1436"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.system"><title
+   id="title120037">An absolute URI which is the code system from which the selected codes come from</title>system</a> : <a
+   id="n1437"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n1438"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1439">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n801"
-       x="46"
-       y="486"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.version"
-   id="n802"><title
-   id="title127">The version of the code system that the codes are selected from, or the special version &quot;*&quot; for all versions</title>
-version</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n803">string</a>
- [0..1]</text>
+       id="n1445"
+       x="303.73331"
+       y="627.71918"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1446"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.version"><title
+   id="title120044">The version of the code system that the codes are selected from, or the special version '*' for all versions</title>version</a> : <a
+   id="n1447"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n807"
-       x="46"
-       y="500"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.valueSet"
-   id="n808"><title
-   id="title132">Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets</title>
-valueSet</a>
- : <a
-   xlink:href="datatypes.html#canonical"
-   id="n809">canonical</a>
- [0..*] « <a
-   xlink:href="valueset.html#ValueSet"
-   id="n810">ValueSet</a>
- »</text>
+       id="n1451"
+       x="303.73331"
+       y="641.71918"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1452"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.valueSet"><title
+   id="title120049">Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the intersection of the contents of all of the referenced value sets</title>valueSet</a> : <a
+   id="n1453"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1454"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> » « <a
+   id="n1455"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1456">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1463"
+       x="303.73331"
+       y="655.71918"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1464"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.copyright"><title
+   id="title120057">A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present)</title>copyright</a> : <a
+   id="n1465"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
   <g
-     id="n815"
-     transform="translate(65.599998,-75)">
+     id="n1469"
+     transform="translate(-65.622975,-132.48412)">
     <rect
        id="ValueSet.compose.include.concept"
-       x="77.400002"
-       y="588"
+       x="614.6076"
+       y="607.07068"
        rx="4"
        ry="4"
        width="101.2"
        height="64"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n816"
-       x1="77.400002"
-       y1="616"
-       x2="178.60001"
-       y2="616"
+       id="n1470"
+       x1="614.6076"
+       y1="635.07068"
+       x2="715.80762"
+       y2="635.07068"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n817"
-       x="128"
-       y="608"
-       class="diagram-class-title"
-       style="fill:#000000">ConceptReference</text>
+       id="n1471"
+       x="665.20764"
+       y="627.07068"
+       fill="#000000"
+       class="diagram-class-title">ConceptReference</text>
     <text
-       id="n818"
-       x="83.400002"
-       y="630"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.code"
-   id="n819"><title
-   id="title142">Specifies a code for the concept to be included or excluded</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n820">code</a>
- [1..1]</text>
+       id="n1472"
+       x="620.6076"
+       y="649.07068"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1473"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.code"><title
+   id="title120066">Specifies a code for the concept to be included or excluded</title>code</a> : <a
+   id="n1474"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
     <text
-       id="n824"
-       x="83.400002"
-       y="644"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.display"
-   id="n825"><title
-   id="title147">The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system</title>
-display</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n826">string</a>
- [0..1]</text>
+       id="n1478"
+       x="620.6076"
+       y="663.07068"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1479"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.display"><title
+   id="title120071">The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system</title>display</a> : <a
+   id="n1480"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
   <g
-     id="n830"
-     transform="translate(-33.761091,-179.19349)">
+     id="n1484"
+     transform="translate(-37.14508,-113.91157)">
     <rect
        id="ValueSet.compose.include.concept.designation"
-       x="298.60001"
-       y="581"
+       x="805.15894"
+       y="562.6142"
        rx="4"
        ry="4"
-       width="184.8"
-       height="78"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="237.60001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n831"
-       x1="298.60001"
-       y1="609"
-       x2="483.39999"
-       y2="609"
+       id="n1485"
+       x1="805.15894"
+       y1="590.6142"
+       x2="1042.7589"
+       y2="590.6142"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n832"
-       x="391"
-       y="601"
-       class="diagram-class-title"
-       style="fill:#000000">Designation</text>
+       id="n1486"
+       x="923.95892"
+       y="582.6142"
+       fill="#000000"
+       class="diagram-class-title">Designation</text>
     <text
-       id="n833"
-       x="304.60001"
-       y="623"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.language"
-   id="n834"><title
-   id="title156">The language this designation is defined for</title>
-language</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n835">code</a>
- [0..1] « <a
-   xlink:href="valueset-languages.html"
-   id="n836"><title
-   id="title160">A human language. (Strength=Preferred)</title>
-CommonLanguages</a>
-? »</text>
+       id="n1487"
+       x="811.15894"
+       y="604.6142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1488"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.language"><title
+   id="title120080">The language this designation is defined for</title>language</a> : <a
+   id="n1489"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1490"
+   xlink:href="valueset-all-languages.html"><title
+   id="n1491">null (Strength=Required)</title>AllLanguages</a>! »</text>
     <text
-       id="n841"
-       x="304.60001"
-       y="637"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.use"
-   id="n842"><title
-   id="title164">A code that represents types of uses of designations</title>
-use</a>
- : <a
-   xlink:href="datatypes.html#Coding"
-   id="n843">Coding</a>
- [0..1] « <a
-   xlink:href="valueset-designation-use.html"
-   id="n844"><title
-   id="n845">Details of how a designation would be used. (Strength=Extensible)</title>
-DesignationUse</a>
-+ »</text>
+       id="n1497"
+       x="811.15894"
+       y="618.6142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1498"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.use"><title
+   id="title120087">A code that represents types of uses of designations</title>use</a> : <a
+   id="n1499"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n1500"
+   xlink:href="valueset-designation-use.html"><title
+   id="n1501">null (Strength=Extensible)</title>DesignationUse</a>+ » « <a
+   id="n1502"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1503">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n851"
-       x="304.60001"
-       y="651"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.value"
-   id="n852"><title
-   id="title171">The text value for this designation</title>
-value</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n853">string</a>
- [1..1]</text>
+       id="n1511"
+       x="811.15894"
+       y="632.6142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1512"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.additionalUse"><title
+   id="title120096">Additional codes that detail how this designation would be used, if there is more than one use</title>additionalUse</a> : <a
+   id="n1513"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n1514"
+   xlink:href="valueset-designation-use.html"><title
+   id="n1515">null (Strength=Extensible)</title>DesignationUse</a>+ » « <a
+   id="n1516"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1517">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1525"
+       x="811.15894"
+       y="646.6142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1526"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation.value"><title
+   id="title120105">The text value for this designation</title>value</a> : <a
+   id="n1527"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
   </g>
   <g
-     id="n857"
-     transform="translate(4.3283455,-132.44736)">
+     id="n1531"
+     transform="translate(-42.097755,11.143523)">
     <rect
        id="ValueSet.compose.include.filter"
-       x="230"
-       y="420"
+       x="64.095749"
+       y="459.62796"
        rx="4"
        ry="4"
        width="154"
        height="78"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n858"
-       x1="230"
-       y1="448"
-       x2="384"
-       y2="448"
+       id="n1532"
+       x1="64.095749"
+       y1="487.62796"
+       x2="218.09575"
+       y2="487.62796"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n859"
-       x="307"
-       y="440"
-       class="diagram-class-title"
-       style="fill:#000000">Filter</text>
+       id="n1533"
+       x="141.09575"
+       y="479.62796"
+       fill="#000000"
+       class="diagram-class-title">Filter</text>
     <text
-       id="n860"
-       x="236"
-       y="462"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.filter.property"
-   id="n861"><title
-   id="title180">A code that identifies a property or a filter defined in the code system</title>
-property</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n862">code</a>
- [1..1]</text>
+       id="n1534"
+       x="70.095749"
+       y="501.62796"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1535"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.filter.property"><title
+   id="title120114">A code that identifies a property or a filter defined in the code system</title>property</a> : <a
+   id="n1536"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
     <text
-       id="n866"
-       x="236"
-       y="476"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.filter.op"
-   id="n867"><title
-   id="title185">The kind of operation to perform as a part of the filter criteria</title>
-op</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n868">code</a>
- [1..1] « <a
-   xlink:href="valueset-filter-operator.html"
-   id="n869"><title
-   id="n870">The kind of operation to perform as a part of a property based filter. (Strength=Required)</title>
-FilterOperator</a>
-! »</text>
+       id="n1540"
+       x="70.095749"
+       y="515.62793"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1541"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.filter.op"><title
+   id="title120119">The kind of operation to perform as a part of the filter criteria</title>op</a> : <a
+   id="n1542"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1543"
+   xlink:href="valueset-filter-operator.html"><title
+   id="n1544">null (Strength=Required)</title>FilterOperator</a>! »</text>
     <text
-       id="n876"
-       x="236"
-       y="490"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.compose.include.filter.value"
-   id="n877"><title
-   id="title192">The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'</title>
-value</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n878">string</a>
- [1..1]</text>
+       id="n1550"
+       x="70.095749"
+       y="529.62793"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1551"
+   xlink:href="valueset-definitions.html#ValueSet.compose.include.filter.value"><title
+   id="title120126">The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'</title>value</a> : <a
+   id="n1552"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
   </g>
   <g
-     id="n882"
-     transform="translate(22.507395,-64.925178)">
+     id="n1556"
+     transform="translate(0,-11.143523)">
     <rect
        id="ValueSet.expansion"
-       x="360"
-       y="205"
+       x="381.69656"
+       y="157.34966"
        rx="4"
        ry="4"
        width="118.8"
-       height="92"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n883"
-       x1="360"
-       y1="233"
-       x2="478.79999"
-       y2="233"
+       id="n1557"
+       x1="381.69656"
+       y1="185.34966"
+       x2="500.49658"
+       y2="185.34966"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n884"
-       x="419.39999"
-       y="225"
-       class="diagram-class-title"
-       style="fill:#000000">Expansion</text>
+       id="n1558"
+       x="441.09656"
+       y="177.34966"
+       fill="#000000"
+       class="diagram-class-title">Expansion</text>
     <text
-       id="n885"
-       x="366"
-       y="247"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.identifier"
-   id="n886"><title
-   id="title201">An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n887">uri</a>
- [0..1]</text>
+       id="n1559"
+       x="387.69656"
+       y="199.34966"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1560"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.identifier"><title
+   id="title120135">An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier</title>identifier</a> : <a
+   id="n1561"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n891"
-       x="366"
-       y="261"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.timestamp"
-   id="n892"><title
-   id="title206">The time at which the expansion was produced by the expanding system</title>
-timestamp</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n893">dateTime</a>
- [1..1]</text>
+       id="n1565"
+       x="387.69656"
+       y="213.34966"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1566"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.next"><title
+   id="title120140">As per paging Search results, the next URLs are opaque to the client, have no dictated structure, and only the server understands them</title>next</a> : <a
+   id="n1567"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n897"
-       x="366"
-       y="275"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.total"
-   id="n898"><title
-   id="title211">The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter</title>
-total</a>
- : <a
-   xlink:href="datatypes.html#integer"
-   id="n899">integer</a>
- [0..1]</text>
+       id="n1571"
+       x="387.69656"
+       y="227.34966"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1572"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.timestamp"><title
+   id="title120145">The time at which the expansion was produced by the expanding system</title>timestamp</a> : <a
+   id="n1573"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
-       id="n903"
-       x="366"
-       y="289"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.offset"
-   id="n904"><title
-   id="title216">If paging is being used, the offset at which this resource starts.  I.e. this resource is a partial view into the expansion. If paging is not being used, this element SHALL NOT be present</title>
-offset</a>
- : <a
-   xlink:href="datatypes.html#integer"
-   id="n905">integer</a>
- [0..1]</text>
+       id="n1577"
+       x="387.69656"
+       y="241.34966"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1578"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.total"><title
+   id="title120150">The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter</title>total</a> : <a
+   id="n1579"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n1583"
+       x="387.69656"
+       y="255.34966"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1584"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.offset"><title
+   id="title120155">If paging is being used, the offset at which this resource starts.  I.e. this resource is a partial view into the expansion. If paging is not being used, this element SHALL NOT be present</title>offset</a> : <a
+   id="n1585"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
   </g>
   <g
-     id="n909"
-     transform="translate(69.253523,-56.268487)">
+     id="n1589"
+     transform="translate(-324.40035,-360.30725)">
     <rect
        id="ValueSet.expansion.parameter"
-       x="290"
-       y="80"
+       x="935.1355"
+       y="382.31427"
        rx="4"
        ry="4"
-       width="286"
+       width="303.60001"
        height="78"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n910"
-       x1="290"
-       y1="108"
-       x2="576"
-       y2="108"
+       id="n1590"
+       x1="935.1355"
+       y1="410.31427"
+       x2="1238.7355"
+       y2="410.31427"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n911"
-       x="433"
-       y="100"
-       class="diagram-class-title"
-       style="fill:#000000">Parameter</text>
+       id="n1591"
+       x="1086.9355"
+       y="402.31427"
+       fill="#000000"
+       class="diagram-class-title">Parameter</text>
     <text
-       id="n912"
-       x="296"
-       y="122"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.parameter.name"
-   id="n913"><title
-   id="title225">Name of the input parameter to the $expand operation; may be a server-assigned name for additional default or other server-supplied parameters used to control the expansion process</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n914">string</a>
- [1..1]</text>
+       id="n1592"
+       x="941.1355"
+       y="424.31427"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1593"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.parameter.name"><title
+   id="title120164">Name of the input parameter to the $expand operation; may be a server-assigned name for additional default or other server-supplied parameters used to control the expansion process</title>name</a> : <a
+   id="n1594"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n918"
-       x="296"
-       y="136"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.parameter.value_x_"
-   id="n919"><title
-   id="title230">The value of the parameter</title>
-value[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n920">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#string"
-   id="n921">string</a>
-|<a
-   xlink:href="datatypes.html#boolean"
-   id="n922">boolean</a>
-|<a
-   xlink:href="datatypes.html#integer"
-   id="n923">integer</a>
-|<a
-   xlink:href="datatypes.html#decimal"
-   id="n924">decimal</a>
-|<a
-   xlink:href="datatypes.html#uri"
-   id="n925">uri</a>
-|<a
-   xlink:href="datatypes.html#code"
-   id="n926">code</a>
-|</text>
+       id="n1598"
+       x="941.1355"
+       y="438.31427"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1599"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.parameter.value_x_"><title
+   id="title120169">The value of the parameter</title>value[x]</a> : <a
+   id="n1600"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n1601"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1602"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1603"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1604"
+   xlink:href="datatypes.html#decimal">decimal</a>|<a
+   id="n1605"
+   xlink:href="datatypes.html#uri">uri</a>|</text>
     <text
-       id="n927"
-       x="316"
-       y="150"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="datatypes.html#dateTime"
-   id="n928">dateTime</a>
- »</text>
+       id="n1606"
+       x="961.1355"
+       y="452.31427"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1607"
+   xlink:href="datatypes.html#code">code</a>|<a
+   id="n1608"
+   xlink:href="datatypes.html#dateTime">dateTime</a> »</text>
   </g>
   <g
-     id="n940"
-     transform="translate(24.200757,-28.687899)">
+     id="n1620"
+     transform="translate(-2.4763385,61.908464)">
     <rect
-       id="ValueSet.expansion.contains"
-       x="500"
-       y="320"
+       id="ValueSet.expansion.property"
+       x="599.98468"
+       y="88.326843"
        rx="4"
        ry="4"
-       width="110"
-       height="120"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="79.199997"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n941"
-       x1="500"
-       y1="348"
-       x2="610"
-       y2="348"
+       id="n1621"
+       x1="599.98468"
+       y1="116.32684"
+       x2="679.18469"
+       y2="116.32684"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n942"
-       x="555"
-       y="340"
-       class="diagram-class-title"
-       style="fill:#000000">Contains</text>
+       id="n1622"
+       x="639.58466"
+       y="108.32684"
+       fill="#000000"
+       class="diagram-class-title">Property</text>
     <text
-       id="n943"
-       x="506"
-       y="362"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.system"
-   id="n944"><title
-   id="title247">An absolute URI which is the code system in which the code for this item in the expansion is defined</title>
-system</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n945">uri</a>
- [0..1]</text>
+       id="n1623"
+       x="605.98468"
+       y="130.32684"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1624"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.property.code"><title
+   id="title120186">A code that is used to identify the property. The code is used in ValueSet.expansion.contains.property.code</title>code</a> : <a
+   id="n1625"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
     <text
-       id="n949"
-       x="506"
-       y="376"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.abstract"
-   id="n950"><title
-   id="title252">If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value</title>
-abstract</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n951">boolean</a>
- [0..1]</text>
+       id="n1629"
+       x="605.98468"
+       y="144.32684"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1630"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.property.uri"><title
+   id="title120191">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system</title>uri</a> : <a
+   id="n1631"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+  </g>
+  <g
+     id="n1635"
+     transform="translate(-48.288602,66.861141)">
+    <rect
+       id="ValueSet.expansion.contains"
+       x="586.91449"
+       y="218.56412"
+       rx="4"
+       ry="4"
+       width="136.39999"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1636"
+       x1="586.91449"
+       y1="246.56412"
+       x2="723.31451"
+       y2="246.56412"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n955"
-       x="506"
-       y="390"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.inactive"
-   id="n956"><title
-   id="title257">If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether a concept is inactive (and it may depend on the context of use)</title>
-inactive</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n957">boolean</a>
- [0..1]</text>
+       id="n1637"
+       x="655.1145"
+       y="238.56412"
+       fill="#000000"
+       class="diagram-class-title">Contains</text>
     <text
-       id="n961"
-       x="506"
-       y="404"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.version"
-   id="n962"><title
-   id="title262">The version of the code system from this code was taken. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged</title>
-version</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n963">string</a>
- [0..1]</text>
+       id="n1638"
+       x="592.91449"
+       y="260.56412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1639"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.system"><title
+   id="title120200">An absolute URI which is the code system in which the code for this item in the expansion is defined</title>system</a> : <a
+   id="n1640"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n1641"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1642">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n967"
-       x="506"
-       y="418"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.code"
-   id="n968"><title
-   id="title267">The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n969">code</a>
- [0..1]</text>
+       id="n1648"
+       x="592.91449"
+       y="274.56412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1649"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.abstract"><title
+   id="title120207">If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value</title>abstract</a> : <a
+   id="n1650"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n1651"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1652">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n973"
-       x="506"
-       y="432"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.display"
-   id="n974"><title
-   id="title272">The recommended display for this item in the expansion</title>
-display</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n975">string</a>
- [0..1]</text>
+       id="n1658"
+       x="592.91449"
+       y="288.56412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1659"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.inactive"><title
+   id="title120214">If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether a concept is inactive (and it may depend on the context of use)</title>inactive</a> : <a
+   id="n1660"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1664"
+       x="592.91449"
+       y="302.56412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1665"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.version"><title
+   id="title120219">The version of the code system from this code was taken. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged</title>version</a> : <a
+   id="n1666"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1670"
+       x="592.91449"
+       y="316.56412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1671"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.code"><title
+   id="title120224">The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set</title>code</a> : <a
+   id="n1672"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1673"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1674">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1680"
+       x="592.91449"
+       y="330.56412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1681"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.display"><title
+   id="title120231">The recommended display for this item in the expansion</title>display</a> : <a
+   id="n1682"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1683"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1684">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1690"
+     transform="translate(-82.95734,59.432128)">
+    <rect
+       id="ValueSet.expansion.contains.property"
+       x="826.85919"
+       y="122.54036"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1691"
+       x1="826.85919"
+       y1="150.54036"
+       x2="1108.4592"
+       y2="150.54036"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1692"
+       x="967.65918"
+       y="142.54036"
+       fill="#000000"
+       class="diagram-class-title">ConceptProperty</text>
+    <text
+       id="n1693"
+       x="832.85919"
+       y="164.54036"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1694"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.property.code"><title
+   id="title120242">A code that is a reference to ValueSet.expansion.property.code</title>code</a> : <a
+   id="n1695"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n1699"
+       x="832.85919"
+       y="178.54036"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1700"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.property.value_x_"><title
+   id="title120247">The value of this property</title>value[x]</a> : <a
+   id="n1701"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1702"
+   xlink:href="datatypes.html#code">code</a>|<a
+   id="n1703"
+   xlink:href="datatypes.html#Coding">Coding</a>|<a
+   id="n1704"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1705"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1706"
+   xlink:href="datatypes.html#boolean">boolean</a>|</text>
+    <text
+       id="n1707"
+       x="852.85919"
+       y="192.54036"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1708"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1709"
+   xlink:href="datatypes.html#decimal">decimal</a> »</text>
+  </g>
+  <g
+     id="n1721"
+     transform="translate(61.908462,312.01865)">
+    <rect
+       id="ValueSet.expansion.contains.property.subProperty"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1722"
+       x1="720"
+       y1="28"
+       x2="1001.6"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1723"
+       x="860.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ConceptSubProperty</text>
+    <text
+       id="n1724"
+       x="726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1725"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.property.subProperty.code"><title
+   id="title120264">A code that is a reference to ValueSet.expansion.property.code</title>code</a> : <a
+   id="n1726"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n1730"
+       x="726"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1731"
+   xlink:href="valueset-definitions.html#ValueSet.expansion.contains.property.subProperty.value_x_"><title
+   id="title120269">The value of this subproperty</title>value[x]</a> : <a
+   id="n1732"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1733"
+   xlink:href="datatypes.html#code">code</a>|<a
+   id="n1734"
+   xlink:href="datatypes.html#Coding">Coding</a>|<a
+   id="n1735"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1736"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1737"
+   xlink:href="datatypes.html#boolean">boolean</a>|</text>
+    <text
+       id="n1738"
+       x="746"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1739"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1740"
+   xlink:href="datatypes.html#decimal">decimal</a> »</text>
+  </g>
+  <g
+     id="n1752">
+    <rect
+       id="ValueSet.scope"
+       x="374.76469999999995"
+       y="21.692456"
+       rx="4"
+       ry="4"
+       width="145.20000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n1753"
+       x1="374.76469999999995"
+       y1="49.692456"
+       x2="519.9647"
+       y2="49.692456"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1754"
+       x="447.36469999999997"
+       y="41.692456"
+       fill="black"
+       class="diagram-class-title">Scope</text>
+    <text
+       id="n1755"
+       x="380.76469999999995"
+       y="63.692456"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1756"
+   xlink:href="valueset-definitions.html#ValueSet.scope.inclusionCriteria"><title
+   id="title120286">Criteria describing which concepts or codes should be included and why</title>inclusionCriteria</a> : <a
+   id="n1757"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1761"
+       x="380.76469999999995"
+       y="77.69245599999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1762"
+   xlink:href="valueset-definitions.html#ValueSet.scope.exclusionCriteria"><title
+   id="title120291">Criteria describing which concepts or codes should be excluded and why</title>exclusionCriteria</a> : <a
+   id="n1763"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
   <line
-     id="n979"
-     x1="178.60000000000002"
-     y1="620.0"
-     x2="298.6"
-     y2="620.0"
+     id="n1767"
+     x1="715.80763"
+     y1="633.1147628605648"
+     x2="805.158946"
+     y2="622.5976094578042"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n980"
-     points="178.60000000000002,620.0 184.60000000000002,624.0 190.60000000000002,620.0 184.60000000000002,616.0 178.60000000000002,620.0"
+     id="n1768"
+     points="715.80763,633.1147628605648 721.80763,637.1147628605648 727.80763,633.1147628605648 721.80763,629.1147628605648 715.80763,633.1147628605648"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 178.60000000000002 620.0)" />
+     transform="rotate(-6.713147144375749 715.80763 633.1147628605648)" />
   <rect
-     id="n981"
-     x="214.0"
-     y="613.0"
+     id="n1769"
+     x="736.0"
+     y="620.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n982"
-     x="238.0"
-     y="623.0"
+     id="n1770"
+     x="760.0"
+     y="630.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation"
-       id="n983"><title
-   id="title281">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.</title>
-designation</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1771"
+       xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation"><title
+   id="title120300">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc</title>designation</a></text>
   <text
-     id="n984"
-     x="278.6"
-     y="616.0"
+     id="n1772"
+     x="785.158946"
+     y="618.5976094578042"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n985"
-     x1="128.0"
-     y1="508.0"
-     x2="128.0"
-     y2="588.0"
+     id="n1773"
+     x1="500.13332"
+     y1="625.8339994296739"
+     x2="614.60763"
+     y2="635.0132502851628"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n986"
-     points="128.0,508.0 134.0,512.0 140.0,508.0 134.0,504.0 128.0,508.0"
+     id="n1774"
+     points="500.13332,625.8339994296739 506.13332,629.8339994296739 512.13332,625.8339994296739 506.13332,621.8339994296739 500.13332,625.8339994296739"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(90.0 128.0 508.0)" />
+     transform="rotate(4.584517226809123 500.13332 625.8339994296739)" />
   <rect
-     id="n987"
-     x="113.0"
-     y="541.0"
+     id="n1775"
+     x="542.0"
+     y="623.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n988"
-     x="128.0"
-     y="551.0"
+     id="n1776"
+     x="557.0"
+     y="633.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.compose.include.concept"
-       id="n989"><title
-   id="title289">Specifies a concept to be included or excluded</title>
-concept</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1777"
+       xlink:href="valueset-definitions.html#ValueSet.compose.include.concept"><title
+   id="title120308">Specifies a concept to be included or excluded</title>concept</a></text>
   <text
-     id="n990"
-     x="128.0"
-     y="584.0"
+     id="n1778"
+     x="594.60763"
+     y="631.0132502851628"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n991"
-     x1="216.0"
-     y1="464.08379888268155"
-     x2="230.0"
-     y2="463.30167597765364"
+     id="n1779"
+     x1="299.34135329118834"
+     y1="571.7191640000001"
+     x2="218.09575"
+     y2="534.1930675195298"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n992"
-     points="216.0,464.08379888268155 222.0,468.08379888268155 228.0,464.08379888268155 222.0,460.08379888268155 216.0,464.08379888268155"
+     id="n1780"
+     points="299.34135329118834,571.7191640000001 305.34135329118834,575.7191640000001 311.34135329118834,571.7191640000001 305.34135329118834,567.7191640000001 299.34135329118834,571.7191640000001"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-3.1975577738507313 216.0 464.08379888268155)" />
+     transform="rotate(-155.20851001647037 299.34135329118834 571.7191640000001)" />
   <rect
-     id="n993"
-     x="210.0"
-     y="456.0"
+     id="n1781"
+     x="245.0"
+     y="545.0"
      width="26.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n994"
-     x="223.0"
-     y="466.0"
+     id="n1782"
+     x="258.0"
+     y="555.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.compose.include.filter"
-       id="n995"><title
-   id="title297">Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true</title>
-filter</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1783"
+       xlink:href="valueset-definitions.html#ValueSet.compose.include.filter"><title
+   id="title120316">Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified within the include, they SHALL all be true</title>filter</a></text>
   <text
-     id="n996"
-     x="210.0"
-     y="459.30167597765364"
+     id="n1784"
+     x="233.09575"
+     y="530.1930675195298"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n997"
-     x1="78.31496062992126"
-     y1="374.0"
-     x2="92.86614173228347"
-     y2="430.0"
+     id="n1785"
+     x1="369.90832829195523"
+     y1="515.5439470000001"
+     x2="372.12124047615566"
+     y2="571.7191640000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n998"
-     points="78.31496062992126,374.0 84.31496062992126,378.0 90.31496062992126,374.0 84.31496062992126,370.0 78.31496062992126,374.0"
+     id="n1786"
+     points="369.90832829195523,515.5439470000001 375.90832829195523,519.5439470000001 381.90832829195523,515.5439470000001 375.90832829195523,511.5439470000001 369.90832829195523,515.5439470000001"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(75.43423575344342 78.31496062992126 374.0)" />
+     transform="rotate(87.74411188115253 369.90832829195523 515.5439470000001)" />
   <rect
-     id="n999"
-     x="70.0"
-     y="395.0"
+     id="n1787"
+     x="356.0"
+     y="536.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1000"
-     x="85.0"
-     y="405.0"
+     id="n1788"
+     x="371.0"
+     y="546.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.compose.include"
-       id="n1001"><title
-   id="title305">Include one or more codes from a code system or other value set(s)</title>
-include</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1789"
+       xlink:href="valueset-definitions.html#ValueSet.compose.include"><title
+   id="title120324">Include one or more codes from a code system or other value set(s)</title>include</a></text>
   <text
-     id="n1002"
-     x="92.86614173228347"
-     y="426.0"
+     id="n1790"
+     x="372.12124047615566"
+     y="567.7191640000001"
      fill="black"
      class="diagram-class-linkage">[1..*]</text>
   <line
-     id="n1003"
-     x1="128.31496062992125"
-     y1="374.0"
-     x2="142.86614173228347"
-     y2="430.0"
+     id="n1791"
+     x1="419.90832829195523"
+     y1="515.5439470000001"
+     x2="422.12124047615566"
+     y2="571.7191640000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1004"
-     points="128.31496062992125,374.0 134.31496062992125,378.0 140.31496062992125,374.0 134.31496062992125,370.0 128.31496062992125,374.0"
+     id="n1792"
+     points="419.90832829195523,515.5439470000001 425.90832829195523,519.5439470000001 431.90832829195523,515.5439470000001 425.90832829195523,511.5439470000001 419.90832829195523,515.5439470000001"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(75.43423575344339 128.31496062992125 374.0)" />
+     transform="rotate(87.74411188115253 419.90832829195523 515.5439470000001)" />
   <rect
-     id="n1005"
-     x="120.0"
-     y="409.0"
+     id="n1793"
+     x="406.0"
+     y="550.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1006"
-     x="135.0"
-     y="419.0"
+     id="n1794"
+     x="421.0"
+     y="560.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.compose.exclude"
-       id="n1007"><title
-   id="title313">Exclude one or more codes from the value set based on code system filters and/or other value sets</title>
-exclude</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1795"
+       xlink:href="valueset-definitions.html#ValueSet.compose.exclude"><title
+   id="title120332">Exclude one or more codes from the value set based on code system filters and/or other value sets</title>exclude</a></text>
   <text
-     id="n1008"
-     x="142.86614173228347"
-     y="426.0"
+     id="n1796"
+     x="422.12124047615566"
+     y="567.7191640000001"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1009"
-     x1="111.86415094339624"
-     y1="260.0"
-     x2="101.5811320754717"
-     y2="310.0"
+     id="n1797"
+     x1="272.8"
+     y1="353.3575734741529"
+     x2="355.19969355562387"
+     y2="437.5439469999999"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1010"
-     points="111.86415094339624,260.0 117.86415094339624,264.0 123.86415094339624,260.0 117.86415094339624,256.0 111.86415094339624,260.0"
+     id="n1798"
+     points="272.8,353.3575734741529 278.8,357.3575734741529 284.8,353.3575734741529 278.8,349.3575734741529 272.8,353.3575734741529"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(101.62143237435505 111.86415094339624 260.0)" />
+     transform="rotate(45.61448894541814 272.8 353.3575734741529)" />
   <rect
-     id="n1011"
-     x="91.0"
-     y="278.0"
+     id="n1799"
+     x="298.0"
+     y="388.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1012"
-     x="106.0"
-     y="288.0"
+     id="n1800"
+     x="313.0"
+     y="398.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.compose"
-       id="n1013"><title
-   id="title321">A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD)</title>
-compose</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1801"
+       xlink:href="valueset-definitions.html#ValueSet.compose"><title
+   id="title120340">A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD)</title>compose</a></text>
   <text
-     id="n1014"
-     x="101.5811320754717"
-     y="306.0"
+     id="n1802"
+     x="355.19969355562387"
+     y="433.5439469999999"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1015"
-     x1="424.1393939393939"
-     y1="205.0"
-     x2="428.9818181818182"
-     y2="158.0"
+     id="n1803"
+     x1="500.49656999999996"
+     y1="229.75279160804274"
+     x2="967.5424056694311"
+     y2="382.3142699999998"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1016"
-     points="424.1393939393939,205.0 430.1393939393939,209.0 436.1393939393939,205.0 430.1393939393939,201.0 424.1393939393939,205.0"
+     id="n1804"
+     points="500.49656999999996,229.75279160804274 506.49656999999996,233.75279160804274 512.49657,229.75279160804274 506.49656999999996,225.75279160804274 500.49656999999996,229.75279160804274"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-84.11755440990464 424.1393939393939 205.0)" />
+     transform="rotate(18.089732501668188 500.49656999999996 229.75279160804274)" />
   <rect
-     id="n1017"
-     x="406.5"
-     y="174.0"
+     id="n1805"
+     x="714.5"
+     y="299.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1018"
-     x="426.0"
-     y="184.0"
+     id="n1806"
+     x="734.0"
+     y="309.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.expansion.parameter"
-       id="n1019"><title
-   id="title329">A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion</title>
-parameter</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1807"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.parameter"><title
+   id="title120348">A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion</title>parameter</a></text>
   <text
-     id="n1020"
-     x="428.9818181818182"
-     y="172.0"
+     id="n1808"
+     x="967.5424056694311"
+     y="378.3142699999998"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1021"
-     x1="514.0"
-     y1="440.0000000000001"
-     x2="417.65"
-     y2="581.0000000000001"
+     id="n1809"
+     x1="500.49656999999996"
+     y1="183.40922978330929"
+     x2="599.984685"
+     y2="138.28713181112727"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1022"
-     points="514.0,440.0000000000001 520.0,444.0000000000001 526.0,440.0000000000001 520.0,436.0000000000001 514.0,440.0000000000001"
+     id="n1810"
+     points="500.49656999999996,183.40922978330929 506.49656999999996,187.40922978330929 512.49657,183.40922978330929 506.49656999999996,179.40922978330929 500.49656999999996,183.40922978330929"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(124.34609740006152 514.0 440.0000000000001)" />
+     transform="rotate(-24.39631620949239 500.49656999999996 183.40922978330929)" />
   <rect
-     id="n1023"
-     x="441.0"
-     y="503.0"
+     id="n1811"
+     x="532.5"
+     y="153.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1812"
+     x="550.0"
+     y="163.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1813"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.property"><title
+   id="title120356">A property defines an additional slot through which additional information can be provided about a concept</title>property</a></text>
+  <text
+     id="n1814"
+     x="588.65186"
+     y="133.04895"
+     fill="#000000"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1815"
+     x1="703.9879100415986"
+     y1="338.5641149999999"
+     x2="886.4893469681078"
+     y2="562.6141800000003"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1816"
+     points="703.9879100415986,338.5641149999999 709.9879100415986,342.5641149999999 715.9879100415986,338.5641149999999 709.9879100415986,334.5641149999999 703.9879100415986,338.5641149999999"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(50.83523798184002 703.9879100415986 338.5641149999999)" />
+  <rect
+     id="n1817"
+     x="769.76184"
+     y="460.33438"
+     width="48"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n1818"
+     x="795.0"
+     y="453.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1819"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.contains.designation"><title
+   id="title120364">Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation</title>designation</a></text>
+  <text
+     id="n1820"
+     x="886.4893469681078"
+     y="558.6141800000003"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1821"
+     x1="933.6499181976322"
+     y1="122.54035999999996"
+     x2="894.8092718023678"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1822"
+     points="933.6499181976322,122.54035999999996 939.6499181976322,126.54035999999996 945.6499181976322,122.54035999999996 939.6499181976322,118.54035999999996 933.6499181976322,122.54035999999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-131.089489548719 933.6499181976322 122.54035999999996)" />
+  <rect
+     id="n1823"
+     x="890.0"
+     y="93.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1024"
-     x="465.0"
-     y="513.0"
+     id="n1824"
+     x="914.0"
+     y="103.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.expansion.contains.designation"
-       id="n1025"><title
-   id="title337">Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation</title>
-designation</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1825"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.contains.property.subProperty"><title
+   id="title120372">A subproperty value for this concept</title>subProperty</a></text>
   <text
-     id="n1026"
-     x="417.65"
-     y="577.0000000000001"
+     id="n1826"
+     x="894.8092718023678"
+     y="92.0"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1027"
-     x1="610.0"
-     y1="355.0"
-     x2="670.0"
-     y2="355.0"
-     style="stroke:navy;stroke-width:1" />
-  <line
-     id="n1028"
-     x1="670.0"
-     y1="355.0"
-     x2="670.0"
-     y2="405.0"
-     style="stroke:navy;stroke-width:1" />
-  <line
-     id="n1029"
-     x1="670.0"
-     y1="405.0"
-     x2="610.0"
-     y2="405.0"
+     id="n1827"
+     x1="723.31452"
+     y1="253.02850087162597"
+     x2="863.4987814573071"
+     y2="200.54035999999996"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1030"
-     points="610.0,355.0 616.0,359.0 622.0,355.0 616.0,351.0 610.0,355.0"
+     id="n1828"
+     points="723.31452,253.02850087162597 729.31452,257.02850087162597 735.31452,253.02850087162597 729.31452,249.02850087162597 723.31452,253.02850087162597"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 610.0 355.0)" />
+     transform="rotate(-20.527030507818996 723.31452 253.02850087162597)" />
   <rect
-     id="n1031"
-     x="652.5"
-     y="373.0"
+     id="n1829"
+     x="775.5"
+     y="219.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1032"
-     x="670.0"
-     y="383.0"
+     id="n1830"
+     x="793.0"
+     y="229.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.expansion.contains.contains"
-       id="n1033"><title
-   id="title347">Other codes and entries contained under this entry in the hierarchy</title>
-contains</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1831"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.contains.property"><title
+   id="title120380">A property value for this concept</title>property</a></text>
   <text
-     id="n1034"
-     x="625.0"
-     y="401.0"
+     id="n1832"
+     x="863.4987814573071"
+     y="214.54035999999996"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1035"
-     x1="467.7534883720931"
-     y1="297.0"
-     x2="500.0"
-     y2="327.6769911504424"
+     id="n1833"
+     x1="723.31452"
+     y1="253.56411500000002"
+     x2="783.31452"
+     y2="253.56411500000002"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1834"
+     x1="783.31452"
+     y1="253.56411500000002"
+     x2="783.31452"
+     y2="303.564115"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1835"
+     x1="783.31452"
+     y1="303.564115"
+     x2="723.31452"
+     y2="303.564115"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1036"
-     points="467.7534883720931,297.0 473.7534883720931,301.0 479.7534883720931,297.0 473.7534883720931,293.0 467.7534883720931,297.0"
+     id="n1836"
+     points="723.31452,253.56411500000002 729.31452,257.564115 735.31452,253.56411500000002 729.31452,249.56411500000002 723.31452,253.56411500000002"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(43.57114985172294 467.7534883720931 297.0)" />
+     transform="rotate(0.0 723.31452 253.56411500000002)" />
   <rect
-     id="n1037"
-     x="465.5"
-     y="305.0"
+     id="n1837"
+     x="765.5"
+     y="271.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1038"
-     x="483.0"
-     y="315.0"
+     id="n1838"
+     x="783.0"
+     y="281.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.expansion.contains"
-       id="n1039"><title
-   id="title355">The codes that are contained in the value set expansion</title>
-contains</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1839"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.contains.contains"><title
+   id="title120390">Other codes and entries contained under this entry in the hierarchy</title>contains</a></text>
   <text
-     id="n1040"
-     x="480.0"
-     y="323.6769911504424"
+     id="n1840"
+     x="738.31452"
+     y="299.564115"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1041"
-     x1="277.20000000000005"
-     y1="189.724358974359"
-     x2="360.0"
-     y2="225.40384615384616"
+     id="n1841"
+     x1="500.49656999999996"
+     y1="229.28236460258123"
+     x2="586.91452"
+     y2="256.82656527111044"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1042"
-     points="277.20000000000005,189.724358974359 283.20000000000005,193.724358974359 289.20000000000005,189.724358974359 283.20000000000005,185.724358974359 277.20000000000005,189.724358974359"
+     id="n1842"
+     points="500.49656999999996,229.28236460258123 506.49656999999996,233.28236460258123 512.49657,229.28236460258123 506.49656999999996,225.28236460258123 500.49656999999996,229.28236460258123"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(23.31177450528524 277.20000000000005 189.724358974359)" />
+     transform="rotate(17.67876561038068 500.49656999999996 229.28236460258123)" />
   <rect
-     id="n1043"
-     x="298.5"
-     y="200.0"
+     id="n1843"
+     x="525.5"
+     y="236.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1844"
+     x="543.0"
+     y="246.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1845"
+       xlink:href="valueset-definitions.html#ValueSet.expansion.contains"><title
+   id="title120398">The codes that are contained in the value set expansion</title>contains</a></text>
+  <text
+     id="n1846"
+     x="566.91452"
+     y="252.82656527111044"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1847"
+     x1="272.8"
+     y1="212.36589438469886"
+     x2="381.69656999999995"
+     y2="211.0612866389215"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1848"
+     points="272.8,212.36589438469886 278.8,216.36589438469886 284.8,212.36589438469886 278.8,208.36589438469886 272.8,212.36589438469886"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.686384722079535 272.8 212.36589438469886)" />
+  <rect
+     id="n1849"
+     x="307.5"
+     y="204.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1044"
-     x="318.0"
-     y="210.0"
+     id="n1850"
+     x="327.0"
+     y="214.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="valueset-definitions.html#ValueSet.expansion"
-       id="n1045"><title
-   id="title363">A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed</title>
-expansion</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1851"
+       xlink:href="valueset-definitions.html#ValueSet.expansion"><title
+   id="title120406">A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed</title>expansion</a></text>
   <text
-     id="n1046"
-     x="340.0"
-     y="221.40384615384616"
+     id="n1852"
+     x="361.69656999999995"
+     y="207.0612866389215"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1853"
+     x1="272.8"
+     y1="143.68350104818967"
+     x2="385.2910748186423"
+     y2="85.69245599999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1854"
+     points="272.8,143.68350104818967 278.8,147.68350104818967 284.8,143.68350104818967 278.8,139.68350104818967 272.8,143.68350104818967"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-27.271868284316906 272.8 143.68350104818967)" />
+  <rect
+     id="n1855"
+     x="318.0"
+     y="107.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1856"
+     x="329.0"
+     y="117.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1857"
+       xlink:href="valueset-definitions.html#ValueSet.scope"><title
+   id="title120414">Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description</title>scope</a></text>
+  <text
+     id="n1858"
+     x="385.2910748186423"
+     y="99.69245599999999"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
 </svg>

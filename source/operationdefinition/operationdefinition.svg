@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n759"
+   version="1.1"
+   width="1538.48"
+   height="438.0"
+   sodipodi:docname="operationdefinition.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview126528"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.80989029"
+     inkscape:cx="588.96866"
+     inkscape:cy="220.40022"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n759" />
+  <defs
+     id="defs126196">
+    <filter
+       id="shadow1"
+       x="-0.047799424"
+       y="-0.0828125"
+       width="1.1226551"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset126187" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix126189" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur126191" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend126193" />
+    </filter>
+  </defs>
+  <g
+     id="n760"
+     transform="translate(-232.13021,7.4084108)">
+    <rect
+       id="OperationDefinition"
+       x="247.60001"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308.88"
+       height="428"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n761"
+       x1="247.60001"
+       y1="28"
+       x2="556.47998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n762"
+       x="402.04001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">OperationDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan126202">(<a
+   id="n763"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n764"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
+    <text
+       id="n765"
+       x="253.60001"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.url"><title
+   id="title126205">An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers</title>url</a> : <a
+   id="n767"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n771"
+       x="253.60001"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n772"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.version"><title
+   id="title126210">The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n773"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n777"
+       x="253.60001"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n778"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.versionAlgorithm_x_"><title
+   id="title126215">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n779"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n780"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n781"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n782"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n783">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n784"
+       x="273.60001"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n785"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n795"
+       x="253.60001"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n796"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.name"><title
+   id="title126226">A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n797"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n798"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n799">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n805"
+       x="253.60001"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n806"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.title"><title
+   id="title126233">A short, descriptive, user-friendly title for the operation definition</title>title</a> : <a
+   id="n807"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n811"
+       x="253.60001"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n812"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.status"><title
+   id="title126238">The status of this operation definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n813"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n814"
+   xlink:href="valueset-publication-status.html"><title
+   id="n815">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n821"
+       x="253.60001"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n822"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.kind"><title
+   id="title126245">Whether this is an operation or a named query</title>kind</a> : <a
+   id="n823"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n824"
+   xlink:href="valueset-operation-kind.html"><title
+   id="n825">null (Strength=Required)</title>OperationKind</a>! » « <a
+   id="n826"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n827">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n835"
+       x="253.60001"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n836"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.experimental"><title
+   id="title126254">A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n837"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n841"
+       x="253.60001"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n842"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.date"><title
+   id="title126259">The date  (and optionally time) when the operation definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes</title>date</a> : <a
+   id="n843"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n847"
+       x="253.60001"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n848"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.publisher"><title
+   id="title126264">The name of the organization or individual responsible for the release and ongoing maintenance of the operation definition</title>publisher</a> : <a
+   id="n849"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n853"
+       x="253.60001"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n854"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.contact"><title
+   id="title126269">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n855"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n859"
+       x="253.60001"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n860"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.description"><title
+   id="title126274">A free text natural language description of the operation definition from a consumer's perspective</title>description</a> : <a
+   id="n861"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <rect
+       id="n865"
+       x="248.60001"
+       y="214"
+       width="306.88"
+       height="14"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:0" />
+    <text
+       id="n866"
+       x="253.60001"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n867"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.useContext"><title
+   id="title126280">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition instances</title>useContext</a> : <a
+   id="n868"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n873"
+       x="253.60001"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n874"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.jurisdiction"><title
+   id="title126285">A legal or geographic region in which the operation definition is intended to be used</title>jurisdiction</a> : <a
+   id="n875"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n876"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n877">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n883"
+       x="253.60001"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n884"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.purpose"><title
+   id="title126292">Explanation of why this operation definition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n885"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n889"
+       x="253.60001"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n890"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.copyright"><title
+   id="title126297">A copyright statement relating to the OperationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the OperationDefinition</title>copyright</a> : <a
+   id="n891"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n895"
+       x="253.60001"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n896"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.copyrightLabel"><title
+   id="title126302">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n897"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n901"
+       x="253.60001"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n902"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.affectsState"><title
+   id="title126307">Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'</title>affectsState</a> : <a
+   id="n903"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n907"
+       x="253.60001"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n908"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.code"><title
+   id="title126312">The label that is recommended to be used in the URL for this operation. In some cases, servers may need to use a different CapabilityStatement operation.name to differentiate between multiple SearchParameters that happen to have the same code</title>code</a> : <a
+   id="n909"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n913"
+       x="253.60001"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n914"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.comment"><title
+   id="title126317">Additional information about how to use this operation or named query</title>comment</a> : <a
+   id="n915"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n919"
+       x="253.60001"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n920"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.base"><title
+   id="title126322">Indicates that this operation definition is a constraining profile on the base</title>base</a> : <a
+   id="n921"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n922"
+   xlink:href="operationdefinition.html#OperationDefinition">OperationDefinition</a> »</text>
+    <text
+       id="n927"
+       x="253.60001"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n928"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.resource"><title
+   id="title126328">The types on which this operation can be executed</title>resource</a> : <a
+   id="n929"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n930"
+   xlink:href="valueset-version-independent-all-resource-types.html"><title
+   id="n931">null (Strength=Required)</title>VersionIndependentResourceTyp...</a>! »</text>
+    <text
+       id="n937"
+       x="253.60001"
+       y="364"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n938"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.system"><title
+   id="title126335">Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)</title>system</a> : <a
+   id="n939"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n943"
+       x="253.60001"
+       y="378"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n944"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.type"><title
+   id="title126340">Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)</title>type</a> : <a
+   id="n945"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n949"
+       x="253.60001"
+       y="392"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n950"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.instance"><title
+   id="title126345">Indicates whether this operation can be invoked on a particular instance of one of the given types</title>instance</a> : <a
+   id="n951"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1] « <a
+   id="n952"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n953">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n959"
+       x="253.60001"
+       y="406"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n960"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.inputProfile"><title
+   id="title126352">Additional validation information for the in parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource as a whole</title>inputProfile</a> : <a
+   id="n961"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n962"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+    <text
+       id="n967"
+       x="253.60001"
+       y="420"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n968"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.outputProfile"><title
+   id="title126358">Additional validation information for the out parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource</title>outputProfile</a> : <a
+   id="n969"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n970"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+  </g>
+  <g
+     id="n975"
+     transform="translate(-141.99454,128.41245)">
+    <rect
+       id="OperationDefinition.parameter"
+       x="567.59998"
+       y="0"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="176"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n976"
+       x1="567.59998"
+       y1="28"
+       x2="840.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n977"
+       x="704"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Parameter</text>
+    <text
+       id="n978"
+       x="573.59998"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n979"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.name"><title
+   id="title126368">The name of used to identify the parameter</title>name</a> : <a
+   id="n980"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n981"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n982">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n988"
+       x="573.59998"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n989"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.use"><title
+   id="title126375">Whether this is an input or an output parameter</title>use</a> : <a
+   id="n990"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n991"
+   xlink:href="valueset-operation-parameter-use.html"><title
+   id="n992">null (Strength=Required)</title>OperationParameterUse</a>! » « <a
+   id="n993"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n994">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1002"
+       x="573.59998"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1003"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.scope"><title
+   id="title126384">If present, indicates that the parameter applies when the operation is being invoked at the specified level</title>scope</a> : <a
+   id="n1004"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n1005"
+   xlink:href="valueset-operation-parameter-scope.html"><title
+   id="n1006">null (Strength=Required)</title>OperationParameterScope</a>! »</text>
+    <text
+       id="n1012"
+       x="573.59998"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1013"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.min"><title
+   id="title126391">The minimum number of times this parameter SHALL appear in the request or response</title>min</a> : <a
+   id="n1014"
+   xlink:href="datatypes.html#integer">integer</a> [1..1]</text>
+    <text
+       id="n1018"
+       x="573.59998"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1019"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.max"><title
+   id="title126396">The maximum number of times this element is permitted to appear in the request or response</title>max</a> : <a
+   id="n1020"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1024"
+       x="573.59998"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1025"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.documentation"><title
+   id="title126401">Describes the meaning or use of this parameter</title>documentation</a> : <a
+   id="n1026"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1030"
+       x="573.59998"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1031"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.type"><title
+   id="title126406">The type for this parameter</title>type</a> : <a
+   id="n1032"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1033"
+   xlink:href="valueset-fhir-types.html"><title
+   id="n1034">null (Strength=Required)</title>FHIRTypes</a>! » « <a
+   id="n1035"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1036">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1044"
+       x="573.59998"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1045"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.allowedType"><title
+   id="title126415">Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter</title>allowedType</a> : <a
+   id="n1046"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n1047"
+   xlink:href="valueset-fhir-types.html"><title
+   id="n1048">null (Strength=Required)</title>FHIRTypes</a>! »</text>
+    <text
+       id="n1054"
+       x="573.59998"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1055"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.targetProfile"><title
+   id="title126422">Used when the type is &quot;Reference&quot; or &quot;canonical&quot;, and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide</title>targetProfile</a> : <a
+   id="n1056"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1057"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> » « <a
+   id="n1058"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1059">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1066"
+       x="573.59998"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1067"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.searchType"><title
+   id="title126430">How the parameter is understood if/when it used as search parameter. This is only used if the parameter is a string</title>searchType</a> : <a
+   id="n1068"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1069"
+   xlink:href="valueset-search-param-type.html"><title
+   id="n1070">null (Strength=Required)</title>SearchParamType</a>! » « <a
+   id="n1071"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1072">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1080"
+     transform="translate(-414.87101,339.55217)">
+    <rect
+       id="OperationDefinition.parameter.binding"
+       x="887.59998"
+       y="0"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1081"
+       x1="887.59998"
+       y1="28"
+       x2="1072.4"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1082"
+       x="980"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Binding</text>
+    <text
+       id="n1083"
+       x="893.59998"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1084"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.binding.strength"><title
+   id="title126443">Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances</title>strength</a> : <a
+   id="n1085"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1086"
+   xlink:href="valueset-binding-strength.html"><title
+   id="n1087">null (Strength=Required)</title>BindingStrength</a>! »</text>
+    <text
+       id="n1093"
+       x="893.59998"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1094"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.binding.valueSet"><title
+   id="title126450">Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used</title>valueSet</a> : <a
+   id="n1095"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n1096"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> »</text>
+  </g>
+  <g
+     id="n1101"
+     transform="translate(-609.95916,11.112616)">
+    <rect
+       id="OperationDefinition.parameter.referencedFrom"
+       x="1127.6"
+       y="0"
+       rx="4"
+       ry="4"
+       width="110.88"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1102"
+       x1="1127.6"
+       y1="28"
+       x2="1238.48"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1103"
+       x="1183.04"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ReferencedFrom</text>
+    <text
+       id="n1104"
+       x="1133.6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1105"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.referencedFrom.source"><title
+   id="title126460">The name of the parameter or dot-separated path of parameter names pointing to the resource parameter that is expected to contain a reference to this resource</title>source</a> : <a
+   id="n1106"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1110"
+       x="1133.6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1111"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.referencedFrom.sourceId"><title
+   id="title126465">The id of the element in the referencing resource that is expected to resolve to this resource</title>sourceId</a> : <a
+   id="n1112"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n1116"
+     transform="translate(-224.72179,-149.40295)">
+    <rect
+       id="OperationDefinition.overload"
+       x="0"
+       y="182"
+       rx="4"
+       ry="4"
+       width="127.6"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1117"
+       x1="0"
+       y1="210"
+       x2="127.6"
+       y2="210"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1118"
+       x="63.799999"
+       y="202"
+       fill="#000000"
+       class="diagram-class-title">Overload</text>
+    <text
+       id="n1119"
+       x="6"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1120"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.overload.parameterName"><title
+   id="title126474">Name of parameter to include in overload</title>parameterName</a> : <a
+   id="n1121"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n1125"
+       x="6"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1126"
+   xlink:href="operationdefinition-definitions.html#OperationDefinition.overload.comment"><title
+   id="title126479">Comments to go on overload</title>comment</a> : <a
+   id="n1127"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <line
+     id="n1131"
+     x1="840.4000000000001"
+     y1="60.3246376811594"
+     x2="887.6"
+     y2="50.74782608695651"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1132"
+     points="840.4000000000001,60.3246376811594 846.4000000000001,64.3246376811594 852.4000000000001,60.3246376811594 846.4000000000001,56.3246376811594 840.4000000000001,60.3246376811594"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-11.469530332866915 840.4000000000001 60.3246376811594)" />
+  <rect
+     id="n1133"
+     x="849.0"
+     y="48.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1134"
+     x="864.0"
+     y="58.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1135"
+       xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.binding"><title
+   id="title126488">Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)</title>binding</a></text>
+  <text
+     id="n1136"
+     x="867.6"
+     y="46.74782608695651"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1137"
+     x1="840.4000000000001"
+     y1="72.05477621910484"
+     x2="1127.6"
+     y2="38.48096192384767"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1138"
+     points="840.4000000000001,72.05477621910484 846.4000000000001,76.05477621910484 852.4000000000001,72.05477621910484 846.4000000000001,68.05477621910484 840.4000000000001,72.05477621910484"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.6676406135659025 840.4000000000001 72.05477621910484)" />
+  <rect
+     id="n1139"
+     x="953.5"
+     y="48.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1140"
+     x="984.0"
+     y="58.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1141"
+       xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.referencedFrom"><title
+   id="title126496">Identifies other resource parameters within the operation invocation that are expected to resolve to this resource</title>referencedFrom</a></text>
+  <text
+     id="n1142"
+     x="1107.6"
+     y="34.48096192384767"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1143"
+     x1="840.4000000000001"
+     y1="63.0"
+     x2="900.4000000000001"
+     y2="63.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1144"
+     x1="900.4000000000001"
+     y1="63.0"
+     x2="900.4000000000001"
+     y2="113.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1145"
+     x1="900.4000000000001"
+     y1="113.0"
+     x2="840.4000000000001"
+     y2="113.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1146"
+     points="840.4000000000001,63.0 846.4000000000001,67.0 852.4000000000001,63.0 846.4000000000001,59.0 840.4000000000001,63.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 840.4000000000001 63.0)" />
+  <rect
+     id="n1147"
+     x="891.5"
+     y="81.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1148"
+     x="900.0"
+     y="91.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1149"
+       xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.part"><title
+   id="title126506">The parts of a nested Parameter</title>part</a></text>
+  <text
+     id="n1150"
+     x="855.4000000000001"
+     y="109.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1151"
+     x1="556.48"
+     y1="149.55623261359125"
+     x2="567.6"
+     y2="144.91614783415028"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1152"
+     points="556.48,149.55623261359125 562.48,153.55623261359125 568.48,149.55623261359125 562.48,145.55623261359125 556.48,149.55623261359125"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-22.649499392850437 556.48 149.55623261359125)" />
+  <rect
+     id="n1153"
+     x="542.5"
+     y="140.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1154"
+     x="562.0"
+     y="150.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1155"
+       xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter"><title
+   id="title126514">The parameters for the operation/query</title>parameter</a></text>
+  <text
+     id="n1156"
+     x="547.6"
+     y="140.91614783415028"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1157"
+     x1="247.60000000000002"
+     y1="214.0"
+     x2="127.60000000000001"
+     y2="214.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1158"
+     points="247.60000000000002,214.0 253.60000000000002,218.0 259.6,214.0 253.60000000000002,210.0 247.60000000000002,214.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(180.0 247.60000000000002 214.0)" />
+  <rect
+     id="n1159"
+     x="169.5"
+     y="207.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1160"
+     x="187.0"
+     y="217.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1161"
+       xlink:href="operationdefinition-definitions.html#OperationDefinition.overload"><title
+   id="title126522">Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation</title>overload</a></text>
+  <text
+     id="n1162"
+     x="142.60000000000002"
+     y="210.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

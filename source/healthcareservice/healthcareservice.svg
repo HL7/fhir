@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n391"
+   version="1.1"
+   width="748.8"
+   height="368.0"
+   sodipodi:docname="healthcareservice.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview149312"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.6639958"
+     inkscape:cx="374.39999"
+     inkscape:cy="184.19518"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n391" />
+  <defs
+     id="defs149144">
+    <filter
+       id="shadow1"
+       x="-0.023164335"
+       y="-0.0828125"
+       width="1.0594406"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset149135" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix149137" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur149139" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend149141" />
+    </filter>
+  </defs>
+  <g
+     id="n392">
+    <rect
+       id="HealthcareService"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="290.40000000000003"
+       height="358.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n393"
+       x1="0.0"
+       y1="28.0"
+       x2="290.40000000000003"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n394"
+       x="145.20000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">HealthcareService<tspan
+   class="diagram-class-title-link"
+   id="tspan149149"> (<a
+   id="n395"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n396"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n397"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.identifier"><title
+   id="title149152">External identifiers for this item</title>identifier</a> : <a
+   id="n398"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n402"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n403"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.active"><title
+   id="title149157">This flag is used to mark the record to not be used. This is not used when a center is closed for maintenance, or for holidays, the notAvailable period is to be used for this (this element modifies the meaning of other elements)</title>active</a> : <a
+   id="n404"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n408"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n409"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.providedBy"><title
+   id="title149162">The organization that provides this healthcare service</title>providedBy</a> : <a
+   id="n410"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n411"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n416"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n417"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.offeredIn"><title
+   id="title149168">When the HealthcareService is representing a specific, schedulable service, the availableIn property can refer to a generic service</title>offeredIn</a> : <a
+   id="n418"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n419"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> »</text>
+    <text
+       id="n424"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n425"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.category"><title
+   id="title149174">Identifies the broad category of service being performed or delivered</title>category</a> : <a
+   id="n426"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n427"
+   xlink:href="valueset-service-category.html"><title
+   id="n428">null (Strength=Example)</title>ServiceCategory</a>?? »</text>
+    <text
+       id="n434"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n435"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.type"><title
+   id="title149181">The specific type of service that may be delivered or performed</title>type</a> : <a
+   id="n436"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n437"
+   xlink:href="valueset-service-type.html"><title
+   id="n438">null (Strength=Example)</title>ServiceType</a>?? »</text>
+    <text
+       id="n444"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n445"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.specialty"><title
+   id="title149188">Collection of specialties handled by the Healthcare service. This is more of a medical term</title>specialty</a> : <a
+   id="n446"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n447"
+   xlink:href="valueset-c80-practice-codes.html"><title
+   id="title149192">null (Strength=Preferred)</title>PracticeSettingCodeValueSet</a>? »</text>
+    <text
+       id="n452"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n453"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.location"><title
+   id="title149196">The location(s) where this healthcare service may be provided</title>location</a> : <a
+   id="n454"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n455"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n460"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n461"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.name"><title
+   id="title149202">Further description of the service as it would be presented to a consumer while searching</title>name</a> : <a
+   id="n462"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n466"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n467"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.comment"><title
+   id="title149207">Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName</title>comment</a> : <a
+   id="n468"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n472"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n473"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.extraDetails"><title
+   id="title149212">Extra details about the service that can't be placed in the other fields</title>extraDetails</a> : <a
+   id="n474"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n478"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n479"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.photo"><title
+   id="title149217">If there is a photo/symbol associated with this HealthcareService, it may be included here to facilitate quick identification of the service in a list</title>photo</a> : <a
+   id="n480"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..1]</text>
+    <text
+       id="n484"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n485"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.contact"><title
+   id="title149222">The contact details of communication devices available relevant to the specific HealthcareService. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites</title>contact</a> : <a
+   id="n486"
+   xlink:href="metadatatypes.html#ExtendedContactDetail">ExtendedContactDetail</a> [0..*]</text>
+    <text
+       id="n490"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n491"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.coverageArea"><title
+   id="title149227">The location(s) that this service is available to (not where the service is provided)</title>coverageArea</a> : <a
+   id="n492"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n493"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n498"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n499"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.serviceProvisionCode"><title
+   id="title149233">The code(s) that detail the conditions under which the healthcare service is available/offered</title>serviceProvisionCode</a> : <a
+   id="n500"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n501"
+   xlink:href="valueset-service-provision-conditions.html"><title
+     id="n502">null (Strength=Example)</title></a></text>
+    <text
+       id="n503"
+       x="26.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n504"
+   xlink:href="valueset-service-provision-conditions.html">ServiceProvisionConditions</a>?? »</text>
+    <text
+       id="n512"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n513"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.program"><title
+   id="title149242">Programs that this service is applicable to</title>program</a> : <a
+   id="n514"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n515"
+   xlink:href="valueset-program.html"><title
+   id="n516">null (Strength=Example)</title>Program</a>?? »</text>
+    <text
+       id="n522"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n523"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.characteristic"><title
+   id="title149249">Collection of characteristics (attributes)</title>characteristic</a> : <a
+   id="n524"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n525"
+   xlink:href="valueset-service-mode.html"><title
+   id="n526">null (Strength=Example)</title>ServiceMode</a>?? »</text>
+    <text
+       id="n532"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n533"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.communication"><title
+   id="title149256">Some services are specifically made available in multiple languages, this property permits a directory to declare the languages this is offered in. Typically this is only provided where a service operates in communities with mixed languages used</title>communication</a> : <a
+   id="n534"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n535"
+   xlink:href="valueset-all-languages.html"><title
+   id="n536">null (Strength=Required)</title>AllLanguages</a>! »</text>
+    <text
+       id="n542"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n543"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.referralMethod"><title
+   id="title149263">Ways that the service accepts referrals, if this is not provided then it is implied that no referral is required</title>referralMethod</a> : <a
+   id="n544"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n545"
+   xlink:href="valueset-service-referral-method.html"><title
+   id="n546">null (Strength=Example)</title>ReferralMethod</a>?? »</text>
+    <text
+       id="n552"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n553"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.appointmentRequired"><title
+   id="title149270">Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service</title>appointmentRequired</a> : <a
+   id="n554"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n558"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n559"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.availability"><title
+   id="title149275">A collection of times that the healthcare service is available</title>availability</a> : <a
+   id="n560"
+   xlink:href="metadatatypes.html#Availability">Availability</a> [0..*]</text>
+    <text
+       id="n564"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n565"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.endpoint"><title
+   id="title149280">Technical endpoints providing access to services operated for the specific healthcare services defined at this resource</title>endpoint</a> : <a
+   id="n566"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n567"
+   xlink:href="endpoint.html#Endpoint">Endpoint</a> »</text>
+  </g>
+  <g
+     id="n572"
+     transform="translate(129.80802,155.04847)">
+    <rect
+       id="HealthcareService.eligibility"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n573"
+       x1="320"
+       y1="28"
+       x2="548.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n574"
+       x="434.39999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Eligibility</text>
+    <text
+       id="n575"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n576"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.eligibility.code"><title
+   id="title149290">Coded value for the eligibility</title>code</a> : <a
+   id="n577"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <title
+   id="title149294">null (Strength=Example)</title>ServiceEligibility?? »</text>
+    <text
+       id="n581"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n582"
+   xlink:href="healthcareservice-definitions.html#HealthcareService.eligibility.comment"><title
+   id="title149297">Describes the eligibility conditions for the service</title>comment</a> : <a
+   id="n583"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <line
+     id="n587"
+     x1="290.40000000000003"
+     y1="105.19502074688799"
+     x2="371.4448979591837"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n588"
+     points="290.40000000000003,105.19502074688799 296.40000000000003,109.19502074688799 302.40000000000003,105.19502074688799 296.40000000000003,101.19502074688799 290.40000000000003,105.19502074688799"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-26.94417404423606 290.40000000000003 105.19502074688799)" />
+  <rect
+     id="n589"
+     x="306.0"
+     y="77.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n590"
+     x="330.0"
+     y="87.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n591"
+       xlink:href="healthcareservice-definitions.html#HealthcareService.eligibility"><title
+   id="title149306">Does this service have specific eligibility requirements that need to be met in order to use the service?</title>eligibility</a></text>
+  <text
+     id="n592"
+     x="371.4448979591837"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

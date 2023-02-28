@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="n427"
    version="1.1"
    width="1151.2"
    height="340.0"
    sodipodi:docname="chargeitemdefinition.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata220">
     <rdf:RDF>
@@ -34,25 +34,28 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
      id="namedview218"
      showgrid="false"
      inkscape:zoom="1.9735929"
-     inkscape:cx="575.59998"
-     inkscape:cy="170"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n427" />
+     inkscape:cx="423.08624"
+     inkscape:cy="171.00791"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n427"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs11">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.051476302"
+       y="-0.14722222"
+       width="1.1320901"
+       height="1.3777778">
       <feOffset
          result="offOut"
          in="SourceGraphic"
@@ -98,345 +101,293 @@
        style="stroke:dimgrey;stroke-width:1" />
     <text
        id="n430"
-       x="138.60000000000002"
-       y="20.0"
-       fill="black"
+       x="138.60001"
+       y="20"
+       fill="#000000"
        class="diagram-class-title  diagram-class-resource">ChargeItemDefinition<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
+   id="tspan16">(<a
    xlink:href="domainresource.html"
    class="diagram-class-reference"
-   id="n431">DomainResource</a>
-)</tspan>
-</text>
+   id="n431">DomainResource</a>)</tspan></text>
     <text
        id="n432"
-       x="6.0"
-       y="42.0"
-       fill="black"
+       x="6"
+       y="42"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.url"
    id="n433"><title
    id="title19">An absolute URI that is used to identify this charge item definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this charge item definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the charge item definition is stored on different servers</title>
-url</a>
- : <a
+url</a> : <a
    xlink:href="datatypes.html#uri"
-   id="n434">uri</a>
- [1..1]</text>
+   id="n434">uri</a> [1..1]</text>
     <text
        id="n438"
-       x="6.0"
-       y="56.0"
-       fill="black"
+       x="6"
+       y="56"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.identifier"
    id="n439"><title
    id="title24">A formal identifier that is used to identify this charge item definition when it is represented in other formats, or referenced in a specification, model, design or an instance</title>
-identifier</a>
- : <a
+identifier</a> : <a
    xlink:href="datatypes.html#Identifier"
-   id="n440">Identifier</a>
- [0..*]</text>
+   id="n440">Identifier</a> [0..*]</text>
     <text
        id="n444"
-       x="6.0"
-       y="70.0"
-       fill="black"
+       x="6"
+       y="70"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.version"
    id="n445"><title
    id="title29">The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets</title>
-version</a>
- : <a
+version</a> : <a
    xlink:href="datatypes.html#string"
-   id="n446">string</a>
- [0..1]</text>
+   id="n446">string</a> [0..1]</text>
     <text
        id="n450"
-       x="6.0"
-       y="84.0"
-       fill="black"
+       x="6"
+       y="84"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.title"
    id="n451"><title
    id="title34">A short, descriptive, user-friendly title for the charge item definition</title>
-title</a>
- : <a
+title</a> : <a
    xlink:href="datatypes.html#string"
-   id="n452">string</a>
- [0..1]</text>
+   id="n452">string</a> [0..1]</text>
     <text
        id="n456"
-       x="6.0"
-       y="98.0"
-       fill="black"
+       x="6"
+       y="98"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.derivedFromUri"
    id="n457"><title
    id="title39">The URL pointing to an externally-defined charge item definition that is adhered to in whole or in part by this definition</title>
-derivedFromUri</a>
- : <a
+derivedFromUri</a> : <a
    xlink:href="datatypes.html#uri"
-   id="n458">uri</a>
- [0..*]</text>
+   id="n458">uri</a> [0..*]</text>
     <text
        id="n462"
-       x="6.0"
-       y="112.0"
-       fill="black"
+       x="6"
+       y="112"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.partOf"
    id="n463"><title
    id="title44">A larger definition of which this particular definition is a component or step</title>
-partOf</a>
- : <a
+partOf</a> : <a
    xlink:href="datatypes.html#canonical"
-   id="n464">canonical</a>
- [0..*] « <a
+   id="n464">canonical</a> [0..*] « <a
    xlink:href="chargeitemdefinition.html#ChargeItemDefinition"
-   id="n465">ChargeItemDefinition</a>
- »</text>
+   id="n465">ChargeItemDefinition</a> »</text>
     <text
        id="n470"
-       x="6.0"
-       y="126.0"
-       fill="black"
+       x="6"
+       y="126"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.replaces"
    id="n471"><title
    id="title50">As new versions of a protocol or guideline are defined, allows identification of what versions are replaced by a new instance</title>
-replaces</a>
- : <a
+replaces</a> : <a
    xlink:href="datatypes.html#canonical"
-   id="n472">canonical</a>
- [0..*] « <a
+   id="n472">canonical</a> [0..*] « <a
    xlink:href="chargeitemdefinition.html#ChargeItemDefinition"
-   id="n473">ChargeItemDefinition</a>
- »</text>
+   id="n473">ChargeItemDefinition</a> »</text>
     <text
        id="n478"
-       x="6.0"
-       y="140.0"
-       fill="black"
+       x="6"
+       y="140"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.status"
    id="n479"><title
    id="title56">The current state of the ChargeItemDefinition (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
+status</a> : <a
    xlink:href="datatypes.html#code"
-   id="n480">code</a>
- [1..1] « <a
+   id="n480">code</a> [1..1] « <a
    xlink:href="valueset-publication-status.html"
    id="n481"><title
    id="n482">The lifecycle status of an artifact. (Strength=Required)</title>
-PublicationStatus</a>
-! »</text>
+PublicationStatus</a>! »</text>
     <text
        id="n488"
-       x="6.0"
-       y="154.0"
-       fill="black"
+       x="6"
+       y="154"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.experimental"
    id="n489"><title
    id="title63">A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>
-experimental</a>
- : <a
+experimental</a> : <a
    xlink:href="datatypes.html#boolean"
-   id="n490">boolean</a>
- [0..1]</text>
+   id="n490">boolean</a> [0..1]</text>
     <text
        id="n494"
-       x="6.0"
-       y="168.0"
-       fill="black"
+       x="6"
+       y="168"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.date"
    id="n495"><title
    id="title68">The date  (and optionally time) when the charge item definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the charge item definition changes</title>
-date</a>
- : <a
+date</a> : <a
    xlink:href="datatypes.html#dateTime"
-   id="n496">dateTime</a>
- [0..1]</text>
+   id="n496">dateTime</a> [0..1]</text>
     <text
        id="n500"
-       x="6.0"
-       y="182.0"
-       fill="black"
+       x="6"
+       y="182"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.publisher"
    id="n501"><title
    id="title73">The name of the organization or individual that published the charge item definition</title>
-publisher</a>
- : <a
+publisher</a> : <a
    xlink:href="datatypes.html#string"
-   id="n502">string</a>
- [0..1]</text>
+   id="n502">string</a> [0..1]</text>
     <text
        id="n506"
-       x="6.0"
-       y="196.0"
-       fill="black"
+       x="6"
+       y="196"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.contact"
    id="n507"><title
    id="title78">Contact details to assist a user in finding and communicating with the publisher</title>
-contact</a>
- : <a
+contact</a> : <a
    xlink:href="metadatatypes.html#ContactDetail"
-   id="n508">ContactDetail</a>
- [0..*]</text>
+   id="n508">ContactDetail</a> [0..*]</text>
     <text
        id="n512"
-       x="6.0"
-       y="210.0"
-       fill="black"
+       x="6"
+       y="210"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.description"
    id="n513"><title
    id="title83">A free text natural language description of the charge item definition from a consumer's perspective</title>
-description</a>
- : <a
+description</a> : <a
    xlink:href="datatypes.html#markdown"
-   id="n514">markdown</a>
- [0..1]</text>
+   id="n514">markdown</a> [0..1]</text>
     <text
        id="n518"
-       x="6.0"
-       y="224.0"
-       fill="black"
+       x="6"
+       y="224"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.useContext"
    id="n519"><title
    id="title88">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate charge item definition instances</title>
-useContext</a>
- : <a
+useContext</a> : <a
    xlink:href="metadatatypes.html#UsageContext"
-   id="n520">UsageContext</a>
- [0..*]</text>
+   id="n520">UsageContext</a> [0..*]</text>
     <text
        id="n524"
-       x="6.0"
-       y="238.0"
-       fill="black"
+       x="6"
+       y="238"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.jurisdiction"
    id="n525"><title
    id="title93">A legal or geographic region in which the charge item definition is intended to be used</title>
-jurisdiction</a>
- : <a
+jurisdiction</a> : <a
    xlink:href="datatypes.html#CodeableConcept"
-   id="n526">CodeableConcept</a>
- [0..*] « <a
+   id="n526">CodeableConcept</a> [0..*] « <a
    xlink:href="valueset-jurisdiction.html"
    id="n527"><title
    id="n528">Countries and regions within which this artifact is targeted for use. (Strength=Extensible)</title>
-Jurisdiction ValueSet</a>
-+ »</text>
+Jurisdiction ValueSet</a>+ »</text>
     <text
        id="n534"
-       x="6.0"
-       y="252.0"
-       fill="black"
+       x="6"
+       y="252"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.copyright"
    id="n535"><title
    id="title100">A copyright statement relating to the charge item definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the charge item definition</title>
-copyright</a>
- : <a
+copyright</a> : <a
    xlink:href="datatypes.html#markdown"
-   id="n536">markdown</a>
- [0..1]</text>
+   id="n536">markdown</a> [0..1]</text>
     <text
        id="n540"
-       x="6.0"
-       y="266.0"
-       fill="black"
+       x="6"
+       y="266"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.approvalDate"
    id="n541"><title
    id="title105">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>
-approvalDate</a>
- : <a
+approvalDate</a> : <a
    xlink:href="datatypes.html#date"
-   id="n542">date</a>
- [0..1]</text>
+   id="n542">date</a> [0..1]</text>
     <text
        id="n546"
-       x="6.0"
-       y="280.0"
-       fill="black"
+       x="6"
+       y="280"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.lastReviewDate"
    id="n547"><title
    id="title110">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>
-lastReviewDate</a>
- : <a
+lastReviewDate</a> : <a
    xlink:href="datatypes.html#date"
-   id="n548">date</a>
- [0..1]</text>
+   id="n548">date</a> [0..1]</text>
     <text
        id="n552"
-       x="6.0"
-       y="294.0"
-       fill="black"
+       x="6"
+       y="294"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.effectivePeriod"
    id="n553"><title
    id="title115">The period during which the charge item definition content was or is planned to be in active use</title>
-effectivePeriod</a>
- : <a
+effectivePeriod</a> : <a
    xlink:href="datatypes.html#Period"
-   id="n554">Period</a>
- [0..1]</text>
+   id="n554">Period</a> [0..1]</text>
     <text
        id="n558"
-       x="6.0"
-       y="308.0"
-       fill="black"
+       x="6"
+       y="308"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.code"
    id="n559"><title
    id="title120">The defined billing details in this resource pertain to the given billing code</title>
-code</a>
- : <a
+code</a> : <a
    xlink:href="datatypes.html#CodeableConcept"
-   id="n560">CodeableConcept</a>
- [0..1] « <a
+   id="n560">CodeableConcept</a> [0..1] « <a
    xlink:href="valueset-chargeitem-billingcodes.html"
    id="n561"><title
    id="n562">Billing Code defined by this ChargeItemDefinition. (Strength=Example)</title>
-ChargeItemCode</a>
-?? »</text>
+ChargeItemCode</a>?? »</text>
     <text
        id="n568"
-       x="6.0"
-       y="322.0"
-       fill="black"
+       x="6"
+       y="322"
+       fill="#000000"
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.instance"
    id="n569"><title
    id="title127">The defined billing details in this resource pertain to the given product instance(s)</title>
-instance</a>
- : <a
+instance</a> : <a
    xlink:href="references.html#Reference"
-   id="n570">Reference</a>
- [0..*] « <a
+   id="n570">Reference</a> [0..*] « <a
    xlink:href="medication.html#Medication"
-   id="n571">Medication</a>
-|<a
+   id="n571">Medication</a>|<a
    xlink:href="substance.html#Substance"
-   id="n572">Substance</a>
-|<a
+   id="n572">Substance</a>|<a
    xlink:href="device.html#Device"
-   id="n573">Device</a>
- »</text>
+   id="n573">Device</a> »</text>
   </g>
   <g
      id="n580"
-     transform="translate(79.043659,9.6271123)">
+     transform="translate(103.36478,41.041899)">
     <rect
        id="ChargeItemDefinition.applicability"
        x="320"
@@ -468,11 +419,9 @@ instance</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.applicability.description"
    id="n584"><title
    id="title139">A brief, natural language description of the condition that effectively communicates the intended semantics</title>
-description</a>
- : <a
+description</a> : <a
    xlink:href="datatypes.html#string"
-   id="n585">string</a>
- [0..1]</text>
+   id="n585">string</a> [0..1]</text>
     <text
        id="n589"
        x="326"
@@ -482,11 +431,9 @@ description</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.applicability.language"
    id="n590"><title
    id="title144">The media type of the language for the expression, e.g. &quot;text/cql&quot; for Clinical Query Language expressions or &quot;text/fhirpath&quot; for FHIRPath expressions</title>
-language</a>
- : <a
+language</a> : <a
    xlink:href="datatypes.html#string"
-   id="n591">string</a>
- [0..1]</text>
+   id="n591">string</a> [0..1]</text>
     <text
        id="n595"
        x="326"
@@ -496,15 +443,13 @@ language</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.applicability.expression"
    id="n596"><title
    id="title149">An expression that returns true or false, indicating whether the condition is satisfied. When using FHIRPath expressions, the %context environment variable must be replaced at runtime with the ChargeItem resource to which this definition is applied</title>
-expression</a>
- : <a
+expression</a> : <a
    xlink:href="datatypes.html#string"
-   id="n597">string</a>
- [0..1]</text>
+   id="n597">string</a> [0..1]</text>
   </g>
   <g
      id="n601"
-     transform="translate(-59.789434,140.85985)">
+     transform="translate(-54.722533,148.96689)">
     <rect
        id="ChargeItemDefinition.propertyGroup"
        x="480"
@@ -530,7 +475,7 @@ expression</a>
   </g>
   <g
      id="n604"
-     transform="translate(-226.49048,228.51724)">
+     transform="translate(-255.87851,269.05245)">
     <rect
        id="ChargeItemDefinition.propertyGroup.priceComponent"
        x="640"
@@ -562,16 +507,13 @@ expression</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.priceComponent.type"
    id="n608"><title
    id="title162">This code identifies the type of the component</title>
-type</a>
- : <a
+type</a> : <a
    xlink:href="datatypes.html#code"
-   id="n609">code</a>
- [1..1] « <a
+   id="n609">code</a> [1..1] « <a
    xlink:href="valueset-invoice-priceComponentType.html"
    id="n610"><title
    id="n611">Codes indicating the kind of the price component. (Strength=Required)</title>
-InvoicePriceComponentType</a>
-! »</text>
+InvoicePriceComponentType</a>! »</text>
     <text
        id="n617"
        x="646"
@@ -581,11 +523,9 @@ InvoicePriceComponentType</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.priceComponent.code"
    id="n618"><title
    id="title169">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.</title>
-code</a>
- : <a
+code</a> : <a
    xlink:href="datatypes.html#CodeableConcept"
-   id="n619">CodeableConcept</a>
- [0..1]</text>
+   id="n619">CodeableConcept</a> [0..1]</text>
     <text
        id="n623"
        x="646"
@@ -595,11 +535,9 @@ code</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.priceComponent.factor"
    id="n624"><title
    id="title174">The factor that has been applied on the base price for calculating this component</title>
-factor</a>
- : <a
+factor</a> : <a
    xlink:href="datatypes.html#decimal"
-   id="n625">decimal</a>
- [0..1]</text>
+   id="n625">decimal</a> [0..1]</text>
     <text
        id="n629"
        x="646"
@@ -609,11 +547,9 @@ factor</a>
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.priceComponent.amount"
    id="n630"><title
    id="title179">The amount calculated for this component</title>
-amount</a>
- : <a
+amount</a> : <a
    xlink:href="datatypes.html#Money"
-   id="n631">Money</a>
- [0..1]</text>
+   id="n631">Money</a> [0..1]</text>
   </g>
   <line
      id="n635"
@@ -636,21 +572,19 @@ amount</a>
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n638"
-     x="298.0"
-     y="84.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
+     x="298"
+     y="84"
+     fill="#000000"
+     class="diagram-class-linkage"><a
        xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.applicability"
        id="n639"><title
    id="title188">Expressions that describe applicability criteria for the billing code</title>
-applicability</a>
-  </text>
+applicability</a></text>
   <text
      id="n640"
-     x="300.0"
-     y="66.08139534883716"
-     fill="black"
+     x="300"
+     y="66.081398"
+     fill="#000000"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n641"
@@ -666,28 +600,26 @@ applicability</a>
      transform="rotate(172.13801772701584 480.0 25.10862703840084)" />
   <rect
      id="n643"
-     x="430.5"
-     y="20.0"
-     width="57.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
+     x="439.62042"
+     y="30.640491"
+     width="57"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
   <text
      id="n644"
-     x="459.0"
-     y="30.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
+     x="459"
+     y="30"
+     fill="#000000"
+     class="diagram-class-linkage"><a
        xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.applicability"
        id="n645"><title
    id="title196">Expressions that describe applicability criteria for the priceComponent</title>
-applicability</a>
-  </text>
+applicability</a></text>
   <text
      id="n646"
-     x="453.8"
-     y="26.797738032614404"
-     fill="black"
+     x="453.79999"
+     y="26.797737"
+     fill="#000000"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n647"
@@ -710,21 +642,19 @@ applicability</a>
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n650"
-     x="611.0"
-     y="31.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
+     x="611"
+     y="31"
+     fill="#000000"
+     class="diagram-class-linkage"><a
        xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.priceComponent"
        id="n651"><title
    id="title204">The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the prices have been calculated</title>
-priceComponent</a>
-  </text>
+priceComponent</a></text>
   <text
      id="n652"
-     x="620.0"
-     y="28.190920978890333"
-     fill="black"
+     x="620"
+     y="28.190922"
+     fill="#000000"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n653"
@@ -747,20 +677,18 @@ priceComponent</a>
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n656"
-     x="380.0"
-     y="77.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
+     x="380"
+     y="77"
+     fill="#000000"
+     class="diagram-class-linkage"><a
        xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup"
        id="n657"><title
    id="title212">Group of properties which are applicable under the same conditions. If no applicability rules are established for the group, then all properties always apply</title>
-propertyGroup</a>
-  </text>
+propertyGroup</a></text>
   <text
      id="n658"
-     x="483.3722448979591"
-     y="50.0"
-     fill="black"
+     x="483.37225"
+     y="50"
+     fill="#000000"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

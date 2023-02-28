@@ -23,7 +23,7 @@
      showgrid="false"
      inkscape:zoom="0.96649088"
      inkscape:cx="644.59998"
-     inkscape:cy="135.02455"
+     inkscape:cy="136.05922"
      inkscape:window-width="1390"
      inkscape:window-height="1205"
      inkscape:window-x="0"
@@ -290,7 +290,7 @@
   </g>
   <g
      id="n622"
-     transform="translate(79.66966,16.554735)">
+     transform="translate(-307.29726,311.43594)">
     <rect
        id="GraphDefinition.node"
        x="320"
@@ -366,7 +366,7 @@
   </g>
   <g
      id="n655"
-     transform="translate(-204.86484,139.68057)">
+     transform="translate(-253.49437,44.490846)">
     <rect
        id="GraphDefinition.link"
        x="640"
@@ -481,7 +481,7 @@
   </g>
   <g
      id="n706"
-     transform="translate(-435.59645,329.02535)">
+     transform="translate(-446.97783,237.97431)">
     <rect
        id="GraphDefinition.link.compartment"
        x="800"

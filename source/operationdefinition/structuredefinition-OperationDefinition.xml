@@ -81,9 +81,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="OperationDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="OperationDefinition"/>
       <short value="Definition of an operation or a named query"/>
       <definition value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
@@ -646,9 +643,6 @@
       </type>
     </element>
     <element id="OperationDefinition.parameter">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,0"/>
-      </extension>
       <path value="OperationDefinition.parameter"/>
       <short value="Parameters for the operation/query"/>
       <definition value="The parameters for the operation/query."/>
@@ -864,9 +858,6 @@
       </binding>
     </element>
     <element id="OperationDefinition.parameter.binding">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,230"/>
-      </extension>
       <path value="OperationDefinition.parameter.binding"/>
       <short value="ValueSet details if this is coded"/>
       <definition value="Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)."/>
