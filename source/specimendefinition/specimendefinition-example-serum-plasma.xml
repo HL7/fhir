@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SpecimenDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="2364"/>
+  <url value="http://example.com/specdef/v1/12345" />
+  <identifier value="12345" />
+  <title value="Example Specimen Definition for Testing" />
   <status value="active"/>
+  <experimental value="false" />
   <typeCollected>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -21,6 +25,7 @@
   </patientPreparation>
   <timeAspect value="preferrably morning time"/>
   <typeTested>
+    <isDerived value="false" />
     <type>
       <coding>
         <system value="http://snomed.info/sct"/>
