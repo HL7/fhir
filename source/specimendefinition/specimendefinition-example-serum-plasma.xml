@@ -3,7 +3,7 @@
   <id value="2364"/>
   <url value="http://example.com/specdef/v1/12345" />
   <identifier>
-    <value value="12345"/>
+    <value value="12345" />
   </identifier>
   <title value="Example Specimen Definition for Testing" />
   <status value="active"/>
