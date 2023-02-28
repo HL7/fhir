@@ -22,11 +22,11 @@
   </contact>
   <description value="An example mapping"/>
   <purpose value="To illustrate mapping features"/>
-  <mapAttribute>
+  <additionalAttribute>
     <code value="ex3"/>
     <uri value="http://example.org/fhir/property-value/example"/>
     <type value="Coding"/>
-  </mapAttribute>
+  </additionalAttribute>
   <sourceScopeUri value="http://example.org/fhir/example1"/>
   <targetScopeUri value="http://example.org/fhir/example2"/>
   <group>
@@ -40,7 +40,7 @@
         <display value="Some Example Code"/>
         <relationship value="equivalent"/>
         <dependsOn>
-          <mapAttribute value="ex3"/>
+          <attribute value="ex3"/>
           <valueCoding>
             <system value="http://example.org/fhir/example3"/>
             <code value="some-code"/>
