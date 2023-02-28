@@ -168,7 +168,7 @@
       <definition value="A short, descriptive, user-friendly title for the SpecimenDefinition."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
+      <type> 
         <code value="string"/>
       </type>
       <isSummary value="true"/>
@@ -545,6 +545,10 @@
         <description value="The type of specimen conditioned in a container for lab testing."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
       </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
     </element>
     <element id="SpecimenDefinition.typeTested.preference">
       <path value="SpecimenDefinition.typeTested.preference"/>

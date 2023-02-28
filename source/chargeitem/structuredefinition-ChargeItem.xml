@@ -608,6 +608,7 @@
           <valueString value="override-reason"/>
         </extension>
         <strength value="example"/>
+        <description value="Local or regional codes covering why a price was overridden"/>
       </binding>
     </element>
     <element id="ChargeItem.enterer">
