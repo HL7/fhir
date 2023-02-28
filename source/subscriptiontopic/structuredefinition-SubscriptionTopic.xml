@@ -174,6 +174,43 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="SubscriptionTopic.versionAlgorithm[x]">
+       <path value="SubscriptionTopic.versionAlgorithm[x]"/>
+       <short value="How to compare versions"/>
+       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+       <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+       <min value="0"/>
+       <max value="1"/>
+       <type>
+         <code value="string"/>
+       </type>
+       <type>
+         <code value="Coding"/>
+       </type>
+       <isSummary value="true"/>
+       <binding>
+         <strength value="extensible"/>
+         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+       </binding>
+    </element>
+    <element id="SubscriptionTopic.name">
+ 			<path value="SubscriptionTopic.name"/>
+ 			<short value="Name for this subscription topic (computer friendly)"/>
+ 			<definition value="A natural language name identifying the subscription topic This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+ 			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+ 			<requirements value="Support human navigation and code generation."/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="string"/>
+ 			</type>
+ 			<condition value="cnl-0"/>
+ 			<isSummary value="true"/>
+ 			<mapping>
+ 				<identity value="workflow"/>
+ 				<map value="Definition.name"/>
+ 			</mapping>
+ 		</element>     
     <element id="SubscriptionTopic.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>

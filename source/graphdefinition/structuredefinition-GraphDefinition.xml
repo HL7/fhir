@@ -125,7 +125,23 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
-    </element>
+    </element> 		
+    <element id="GraphDefinition.identifier">
+ 			<path value="GraphDefinition.identifier"/>
+ 			<short value="Additional identifier for the GraphDefinition (business identifier)"/>
+ 			<definition value="A formal identifier that is used to identify this GraphDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+ 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+ 			<min value="0"/>
+ 			<max value="*"/>
+ 			<type>
+ 				<code value="Identifier"/>
+ 			</type>
+ 			<isSummary value="true"/>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.identifier"/>
+ 			</mapping>
+ 		</element>
     <element id="GraphDefinition.version">
       <path value="GraphDefinition.version"/>
       <short value="Business version of the graph definition"/>
@@ -360,7 +376,39 @@
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
-    </element>
+    </element> 		
+    <element id="GraphDefinition.copyright">
+ 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+ 				<valueBoolean value="true"/>
+ 			</extension>
+ 			<path value="GraphDefinition.copyright"/>
+ 			<short value="Use and/or publishing restrictions"/>
+ 			<definition value="A copyright statement relating to the graph definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the graph definition."/>
+ 			<comment value="..."/>
+ 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the graph definition."/>
+ 			<alias value="License"/>
+ 			<alias value="Restrictions"/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="markdown"/>
+ 			</type>
+ 		</element>
+ 		<element id="GraphDefinition.copyrightLabel">
+ 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+ 				<valueBoolean value="true"/>
+ 			</extension>
+ 			<path value="GraphDefinition.copyrightLabel"/>
+ 			<short value="Copyright holder and year(s)"/>
+ 			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+ 			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+ 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="string"/>
+ 			</type>
+ 		</element>
     <element id="GraphDefinition.start">
       <path value="GraphDefinition.start"/>
       <short value="Starting Node"/>
