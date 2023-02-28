@@ -9,9 +9,5 @@
     <reference value="Appointment/example" />
     <display value="Brian MRI results discussion" />
   </appointment>
-  <actor>
-    <reference value="Patient/example" />
-    <display value="Peter James Chalmers" />
-  </actor>
   <participantStatus value="accepted" />
 </AppointmentResponse>
