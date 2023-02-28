@@ -148,6 +148,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="GraphDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GraphDefinition-identifier"/>
+        <description value="External identifier for the graph definition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="GraphDefinition.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="GraphDefinition-jurisdiction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
