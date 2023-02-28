@@ -600,17 +600,12 @@
       <path value="EvidenceVariable.characteristic.definitionExpression"/>
       <short value="Defines the characteristic (without using type and value) by an expression"/>
       <definition value="Defines the characteristic using Expression."/>
+	  <comment value="When another element provides a definition of the characteristic, the definitionExpression content SHALL match the definition (only adding technical concepts necessary for implementation) without changing the meaning."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Expression"/>
       </type>
-      <constraint>
-        <key value="evv-2"/>
-        <severity value="warning"/>
-        <human value="When another element provides a definition of the characteristic, the definitionExpression content SHALL match the definition (only adding technical concepts necessary for implementation) without changing the meaning."/>
-        <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionId">
