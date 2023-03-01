@@ -30,7 +30,7 @@
                <valueString value="1"/>
             </property>
             <property>
-               <property value="mapAdvice"/>
+               <code value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
             </property>
          </target>
@@ -42,7 +42,7 @@
                <valueString value="3"/>
             </property>
             <property>
-               <property value="mapAdvice"/>
+               <code value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
             </property> 
          </target>
@@ -54,7 +54,7 @@
                <valueString value="2"/>
             </property>
             <property>
-               <property value="mapAdvice"/>
+               <code value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
             </property>
          </target>
