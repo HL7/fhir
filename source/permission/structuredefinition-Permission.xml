@@ -229,7 +229,7 @@
     </element>
     <element id="Permission.rule">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="rule"/>
+        <valueString value="Rule"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>

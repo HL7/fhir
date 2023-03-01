@@ -974,7 +974,7 @@
     </element>
     <element id="ConceptMap.group.element.target.property">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="ConceptProperty"/>
+        <valueString value="MappingProperty"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,260"/>
