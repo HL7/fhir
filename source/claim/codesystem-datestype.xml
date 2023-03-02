@@ -9,7 +9,6 @@
     <valueCode value="fm"/>
   </extension>
   <url value="http://hl7.org/fhir/datestype"/>
-  <version value="5.0.0-snapshot3"/>
   <name value="DatesEventTypeCodes"/>
   <title value="Dates Event Type Codes"/>
   <status value="active"/>

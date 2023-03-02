@@ -1582,8 +1582,15 @@
     <Cell><Data ss:Type="Number">54</Data></Cell>
     <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
     <Cell><Data ss:Type="String">5.0.0</Data></Cell>
-    <Cell><Data ss:Type="String">5.0.0-snapshot2</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">R5 January 2023 Staging Release + Connectathon 32</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">55</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-draft-final</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-draft-final</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R5 Final QA</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

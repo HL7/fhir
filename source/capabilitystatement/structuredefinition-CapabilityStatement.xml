@@ -185,7 +185,26 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
-    </element>
+    </element> 		<element id="CapabilityStatement.identifier">
+ 			<path value="CapabilityStatement.identifier"/>
+ 			<short value="Additional identifier for the CapabilityStatement (business identifier)"/>
+ 			<definition value="A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+ 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+ 			<min value="0"/>
+ 			<max value="*"/>
+ 			<type>
+ 				<code value="Identifier"/>
+ 			</type>
+ 			<isSummary value="true"/>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.identifier"/>
+ 			</mapping>
+ 			<mapping>
+ 				<identity value="workflow"/>
+ 				<map value="Definition.identifier"/>
+ 			</mapping>
+ 		</element>
     <element id="CapabilityStatement.version">
       <path value="CapabilityStatement.version"/>
       <short value="Business version of the capability statement"/>

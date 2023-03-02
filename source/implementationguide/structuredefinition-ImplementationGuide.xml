@@ -138,6 +138,22 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
+    <element id="ImplementationGuide.identifier">
+ 			<path value="ImplementationGuide.identifier"/>
+ 			<short value="Additional identifier for the implementation guide (business identifier)"/>
+ 			<definition value="A formal identifier that is used to identify this implementation guide when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+ 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+ 			<min value="0"/>
+ 			<max value="*"/>
+ 			<type>
+ 				<code value="Identifier"/>
+ 			</type>
+ 			<isSummary value="true"/>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.identifier"/>
+ 			</mapping>
+ 		</element>
     <element id="ImplementationGuide.version">
       <path value="ImplementationGuide.version"/>
       <short value="Business version of the implementation guide"/>
@@ -348,6 +364,28 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
     </element>
+    <element id="ImplementationGuide.purpose">
+ 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+ 				<valueBoolean value="true"/>
+ 			</extension>
+ 			<path value="ImplementationGuide.purpose"/>
+ 			<short value="Why this implementation guide is defined"/>
+ 			<definition value="Explanation of why this implementation guide is needed and why it has been designed as it has."/>
+ 			<comment value="This element does not describe the usage of the implementation guide. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this implementation guide."/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="markdown"/>
+ 			</type>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.why[x]"/>
+ 			</mapping>
+ 			<mapping>
+ 				<identity value="objimpl"/>
+ 				<map value="no-gen-base"/>
+ 			</mapping>
+ 		</element>    
     <element id="ImplementationGuide.copyright">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>

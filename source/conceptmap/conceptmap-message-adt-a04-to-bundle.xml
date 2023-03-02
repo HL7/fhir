@@ -239,8 +239,8 @@
           <valueString value="NK1[RelatedPerson]"/>
         </property>
         <property>
-          <cpde value="references"/>
-          <code value="RelatedPerson[2].patient.reference=Patient[1].id"/>
+          <code value="references"/>
+          <valueString value="RelatedPerson[2].patient.reference=Patient[1].id"/>
         </property>
         <property>
           <code value="narrative"/>
