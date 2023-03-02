@@ -971,7 +971,7 @@
         <key value="que-7"/>
         <severity value="error"/>
         <human value="If the operator is 'exists', the value must be a boolean"/>
-        <expression value="operator = 'exists' implies (answer is Boolean)"/>
+        <expression value="operator = 'exists' implies (answer is boolean)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </constraint>
       <isModifier value="true"/>
