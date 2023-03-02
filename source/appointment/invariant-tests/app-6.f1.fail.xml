@@ -108,7 +108,7 @@
 				<system value="http://unitsofmeasure.org" />
 				<code value="d" />
 				<display value="day" />
-			</concept>
+			</coding>
 		</recurrenceType>
 	</recurrenceTemplate>
 </Appointment>
