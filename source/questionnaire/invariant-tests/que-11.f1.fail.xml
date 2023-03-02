@@ -12,8 +12,10 @@
     <linkId value="1"/>
     <type value="choice"/>
     <answerOption>
-      <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
-      <code value="Y"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </valueCoding>
     </answerOption>
     <initial>
       <valueString value="be boop"/>

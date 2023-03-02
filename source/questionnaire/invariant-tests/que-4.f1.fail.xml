@@ -13,8 +13,10 @@
     <type value="coding"/>
     <answerValueSet value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
     <answerOption>
-      <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
-      <code value="Y"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </valueCoding>
     </answerOption>
   </item>
 </Questionnaire>
