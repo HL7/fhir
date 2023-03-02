@@ -21,7 +21,7 @@
       <enableWhen>
         <question value="1.1"/>
         <operator value="exists"/>
-        <valueString value="not right!"/>
+        <answerString value="not right!"/>
       </enableWhen>
       <answerValueSet value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
     </item>

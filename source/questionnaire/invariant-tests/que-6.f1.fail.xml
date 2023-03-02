@@ -10,6 +10,7 @@
   <description value="Cancer Quality Forum Questionnaire 2012"/>
   <item>
     <linkId value="1"/>
+    <type value="group"/>
     <item>
       <linkId value="1b"/>
       <type value="display"/>
