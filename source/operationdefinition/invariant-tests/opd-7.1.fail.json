@@ -5,7 +5,7 @@
   "code" : "test",
   "name" : "test",
   "status" : "draft",
-  "kind" : "operation",
+  "kind" : "query",
   "resource" : ["Patient"],
   "system" : false,
   "type" : true,
