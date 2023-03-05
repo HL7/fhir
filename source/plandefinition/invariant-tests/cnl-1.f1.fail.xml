@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+  <id value="low-suicide-risk-order-set"/>
+  <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide|risk-order-set"/>
+  <name value="LowSuicideRiskOrderSet"/>
+  <title value="Low Suicide Risk Order Set"/>
+  <status value="active"/>
+</PlanDefinition>

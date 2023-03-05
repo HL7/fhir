@@ -1,16 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?><ChargeItemDefinition xmlns="http://hl7.org/fhir"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<ChargeItemDefinition xmlns="http://hl7.org/fhir">
 	<id value="device"/>
 	<url value="http://sap.org/ChargeItemDefinition/device-123"/>
 	<identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.29.2"/>
-  </identifier>
-  <status value="active"/> 
-	<description value="Financial details for  custom made device"/>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.29.2"/>
+	</identifier>
+	<name value="CustomDevice345675"/>
+	<title value="Financial details for custom made device (345675)"/>
+	<status value="active"/>
+	<date value="2023-02"/>
+	<publisher value="Example Publisher"/>
+	<description value="Financial details for custom made device"/>
+	<useContext>
+		<code>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+			<code value="venue"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="440655000"/>
+				<display value="Outpatient environment"/>
+			</coding>
+		</valueCodeableConcept>
+	</useContext>
+	<useContext>
+		<code>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+			<code value="age"/>
+		</code>
+		<valueQuantity>
+			<value value="18"/>
+			<comparator value="&gt;"/>
+			<unit value="yrs"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="a"/>
+		</valueQuantity>
+	</useContext>
+	<jurisdiction>
+		<coding>
+			<system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+			<code value="001"/>
+			<display value="World"/>
+		</coding>
+	</jurisdiction>
 	<instance>
-		<reference value="Device/12345"/>
+		<reference value="Device/example"/>
 	</instance>
-	<!-- definition only applicable if the ChargeItem pertains to the device this  -->	
+	<!-- definition only applicable if the ChargeItem pertains to the device this  -->
 	<applicability>
 		<condition>
 			<description value="Verify ChargeItem pertains to Device 12345"/>

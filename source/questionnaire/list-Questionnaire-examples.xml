@@ -87,4 +87,15 @@
 			<display value="Practtitioner info 'definition' example"/>
 		</item>
 	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Questionnaire with a variety of child item types (as used in the QuestionnaireResponse page links section)"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-child-rel-demo"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/child-rel-demo"/>
+		</item>
+	</entry>
 </List>

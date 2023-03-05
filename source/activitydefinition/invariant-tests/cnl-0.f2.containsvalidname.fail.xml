@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id value="referralPrimaryCareMentalHealthEx"/>
+  <url value="http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealthEx"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.19.8"/>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <system value="http://motivemi.com/artifacts"/>
+    <value value="referralPrimaryCareMentalHealth"/>
+  </identifier>
+  <version value="1.1.0"/>
+  <name value="1ReferralPrimaryCareMentalHealth"/>
+  <title value="Referral to Primary Care Mental Health"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2017-03-03T14:06:00Z"/>
+  <publisher value="Motive Medical Intelligence"/>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="415-362-4007"/>
+      <use value="work"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="info@motivemi.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://meshb.nlm.nih.gov"/>
+        <code value="D000328"/>
+        <display value="Adult"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="87512008"/>
+        <display value="Mild major depression"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="40379007"/>
+        <display value="Major depression, recurrent, mild"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="225444004"/>
+        <display value="At risk for suicide (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="306206005"/>
+        <display value="Referral to service (procedure)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="user"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="309343006"/>
+        <display value="Physician"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="venue"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="440655000"/>
+        <display value="Outpatient environment"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Defines a referral to a mental-health integrated care program for use in suicide risk order sets. The definition is independent of the order set in which it appears to allow reuse of the general definition of the referrral."/>
+  <usage value="This activity definition is used as the definition of a referral request within various suicide risk order sets. Elements that apply universally are defined here, while elements that apply to the specific setting of a referral within a particular order set are defined in the order set."/>
+  <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
+  <approvalDate value="2017-03-01"/>
+  <lastReviewDate value="2017-03-01"/>
+  <effectivePeriod>
+    <start value="2017-03-01"/>
+    <end value="2017-12-31"/>
+  </effectivePeriod>
+  <topic>
+    <text value="Mental Health Referral"/>
+  </topic>
+  <author>
+    <name value="Motive Medical Intelligence"/>
+    <telecom>
+	  <system value="phone"/>
+	  <value value="415-362-4007"/>
+	  <use value="work"/>
+    </telecom>
+    <telecom>
+  	  <system value="email"/>
+	  <value value="info@motivemi.com"/>
+	  <use value="work"/>
+    </telecom>
+  </author>
+  <relatedArtifact>
+    <type value="citation"/>
+    <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+    <document>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+    </document>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="predecessor"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
+  </relatedArtifact>
+  <!-- Kind indicates the type of resource that is defined by this activity, a ServiceRequest in this case -->
+  <kind value="ServiceRequest"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="306206005"/>
+    </coding>
+    <text value="Referral to service (procedure)"/>
+  </code>
+  <timingTiming>
+    <event>
+	  <!-- The expression here specifies the value for the timing of the resulting resource.
+		   In this case, ServiceRequest.fulfillmentTime.start -->
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+        <valueExpression>
+          <language value="text/cql"/>
+          <expression value="Now()"/>
+        </valueExpression>
+      </extension>
+    </event>
+  </timingTiming>
+  <participant>
+		<type value="practitioner"/>
+  </participant>
+</ActivityDefinition>

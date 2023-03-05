@@ -12,7 +12,7 @@
         <status value="active"/>
         <type value="query-status"/>
         <eventsSinceSubscriptionStart value="310"/>
-        <eventsInNotification value="0"/>
+        <!-- <eventsInNotification value="0"/> -->
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
         </subscription>
@@ -24,4 +24,3 @@
     </search>
   </entry>
 </Bundle>
-

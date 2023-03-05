@@ -8,16 +8,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f003-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Marc Versteegh<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f003" />
-          <display value="Marc Versteegh" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -46,12 +36,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="example-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Adam Careful<br /><span style="color: gray;">location:</span> South Wing, second floor<br /><span style="color: gray;">role:</span> RP<br /><span style="color: gray;">Email:</span> dr.adam.careful@example.org<br /><span style="color: gray;">identifier:</span> 52
-          </div>
-        </text>
         <identifier>
           <system value="http://example.org/role-identifier" />
           <value value="52" />
@@ -60,10 +44,6 @@
           <start value="2012-01-01" />
           <end value="2012-03-31" />
         </period>
-        <practitioner>
-          <reference value="Practitioner/example" />
-          <display value="Adam Careful" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
         </organization>
@@ -80,10 +60,12 @@
         <healthcareService>
           <reference value="HealthcareService/example" />
         </healthcareService>
-        <telecom>
-          <system value="email" />
-          <value value="dr.adam.careful@example.org" />
-        </telecom>
+        <contact>
+          <telecom>
+            <system value="email" />
+            <value value="dr.adam.careful@example.org" />
+          </telecom>
+        </contact>
         <endpoint>
           <reference value="Endpoint/example" />
         </endpoint>
@@ -95,19 +77,9 @@
     <resource>
       <OrganizationAffiliation>
         <id value="example-1" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Adam Careful<br /><span style="color: gray;">organization:</span> Good Health Clinic
-          </div>
-        </text>
         <period>
           <start value="2012-01-01" />
         </period>
-        <practitioner>
-          <reference value="Practitioner/example" />
-          <display value="Adam Careful" />
-        </practitioner>
         <organization>
           <reference value="Organization/2" />
           <display value="Good Health Clinic" />
@@ -120,22 +92,10 @@
     <resource>
       <OrganizationAffiliation>
         <id value="example-2" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Adam Careful<br />
-            <span style="color: gray;">organization:</span> Good Health Clinic<br/>
-            <span style="color: gray;">role:</span> On call physcologist
-          </div>
-        </text>
         <period>
           <start value="2016-07-01" />
           <end value="2017-06-30" />
         </period>
-        <practitioner>
-          <reference value="Practitioner/example" />
-          <display value="Adam Careful" />
-        </practitioner>
         <organization>
           <reference value="Organization/2" />
           <display value="Good Health Clinic" />
@@ -143,17 +103,13 @@
         <code>
           <text value="On call physcologist"/>
         </code>
-        <telecom>
-          <system value="phone" />
-          <value value="555 123456" />
-          <use value="mobile"/>
-        </telecom>
-        <availableTime>
-          <daysOfWeek value="sat"/>
-          <daysOfWeek value="sun"/>
-          <allDay value="true"/>
-        </availableTime>
-      <availabilityExceptions value="Public Holidays"/>
+        <contact>
+          <telecom>
+            <system value="phone" />
+            <value value="555 123456" />
+            <use value="mobile"/>
+          </telecom>
+        </contact>
       </OrganizationAffiliation>
     </resource>
   </entry>
@@ -162,16 +118,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f007-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Simone Heps<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f007" />
-          <display value="Simone Heps" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -200,16 +146,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f004-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Ronald Briet<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f004" />
-          <display value="Ronald Briet" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -238,16 +174,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="xcda1-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Sherry Dopplemeyer<br /><span style="color: gray;">organization:</span> Cleveland Clinic<br /><span style="color: gray;">role:</span> Primary Surgon
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/xcda1" />
-          <display value="Sherry Dopplemeyer" />
-        </practitioner>
         <organization>
           <display value="Cleveland Clinic" />
         </organization>
@@ -265,16 +191,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f202-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Luigi Maas<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Electronic laboratory reporting
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f202" />
-          <display value="Luigi Maas" />
-        </practitioner>
         <organization>
           <reference value="Organization/f201" />
           <display value="AUMC" />
@@ -301,16 +217,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f201-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Dokter Bronsig<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Implementation of planned interventions
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f201" />
-          <display value="Dokter Bronsig" />
-        </practitioner>
         <organization>
           <reference value="Organization/f201" />
           <display value="AUMC" />
@@ -337,16 +243,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f203-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Juri van Gelder<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Physical therapist
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f203" />
-          <display value="Juri van Gelder" />
-        </practitioner>
         <organization>
           <reference value="Organization/f201" />
           <display value="AUMC" />
@@ -373,16 +269,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f005-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Langeveld Anne<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f005" />
-          <display value="Langeveld Anne" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -411,16 +297,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f006-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Rob van den Berk<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f006" />
-          <display value="Rob van den Berk" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -449,16 +325,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f001-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Eric van den broek<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f001" />
-          <display value="Eric van den broek" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -487,16 +353,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f002-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Pieter Voigt<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f002" />
-          <display value="Pieter Voigt" />
-        </practitioner>
         <organization>
           <reference value="Organization/f001" />
           <display value="BMC" />
@@ -525,16 +381,6 @@
     <resource>
       <OrganizationAffiliation>
         <id value="f204-0" />
-        <text>
-          <status value="generated" />
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Carla Espinosa<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Renal nurse
-          </div>
-        </text>
-        <practitioner>
-          <reference value="Practitioner/f204" />
-          <display value="Carla Espinosa" />
-        </practitioner>
         <organization>
           <reference value="Organization/f201" />
           <display value="AUMC" />
