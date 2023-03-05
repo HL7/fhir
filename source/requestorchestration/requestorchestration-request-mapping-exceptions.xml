@@ -1,0 +1,259 @@
+<mappingExceptions pattern="Request" resource="RequestOrchestration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="RequestOrchestration.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for request orchestration"/>
+            <resource value="Business identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this request orchestration by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Allows a service to provide a unique, business identifier for the request."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the request orchestration as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Allows identification of the request as it is known by various participating systems and in a way that remains consistent across servers."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.basedOn" resourcePath="RequestOrchestration.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Fulfills plan, proposal, or order"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this request orchestration.  Authorization from the 'basedOn' request flows through to the referencing request orchestration."/>
+            <resource value="A plan, proposal or order that is fulfilled in whole or in part by this request."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.replaces" resourcePath="RequestOrchestration.replaces">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Request(s) replaced by this request orchestration"/>
+            <resource value="Request(s) replaced by this request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Completed or terminated request(s) whose function is taken by this new request orchestration."/>
+            <resource value="Completed or terminated request(s) whose function is taken by this new request."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.groupIdentifier" resourcePath="RequestOrchestration.groupIdentifier">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="RequestOrchestration.status">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the request orchestration."/>
+            <resource value="The current state of the request. For request orchestrations, the status reflects the status of all the requests in the orchestration."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.intent" resourcePath="RequestOrchestration.intent">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="proposal | plan | order (immutable)"/>
+            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the level of authority/intentionality associated with the request orchestration and where the request fits into the workflow chain."/>
+            <resource value="Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#xa;&#xa;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.priority" resourcePath="RequestOrchestration.priority">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates how quickly the request orchestration should be addressed with respect to other requests."/>
+            <resource value="Indicates how quickly the request should be addressed with respect to other requests."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.priority" resourcePath="RequestOrchestration.action.priority">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates how quickly the request orchestration should be addressed with respect to other requests."/>
+            <resource value="Indicates how quickly the action should be addressed with respect to other actions."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.code" resourcePath="RequestOrchestration.code">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Service requested/ordered"/>
+            <resource value="What's being requested/ordered"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <resource value="A code that identifies what the overall request orchestration is."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.code" resourcePath="RequestOrchestration.action.code">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Service requested/ordered"/>
+            <resource value="Code representing the meaning of the action or sub-actions"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <resource value="A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a section of a documentation template."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="RequestOrchestration.subject">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(CareTeam,Device,HealthcareService,Location,Organization,Practitioner,PractitionerRole,RelatedPerson)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Who the request orchestration is about"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The subject for which the request orchestration was created."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.encounter" resourcePath="RequestOrchestration.encounter">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the request orchestration is tied to"/>
+            <resource value="Created as part of"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this request orchestration was created or to which the creation of this record is tightly associated."/>
+            <resource value="Describes the context of the request orchestration, if any."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter during which the request orchestration was created.  However, some {{title}s may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission activities)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request orchestration to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.occurrence[x]" resourcePath="RequestOrchestration.action.timing[x]">
+        <extraTypes _resource="Duration, Range, Age" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When service should (not) occur"/>
+            <resource value="When the action should take place"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date or time(s) at which the activity or service is desired to occur or not occur."/>
+            <resource value="An optional value describing when the action should be performed."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="RequestOrchestration.authoredOn">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="When the request orchestration was authored"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft request orchestrations, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="Indicates when the request orchestration was created."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="RequestOrchestration.author">
+        <missingTypes
+            _pattern="Reference(Organization,Patient,RelatedPerson)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Device or practitioner that authored the request orchestration"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="Provides a reference to the author of the request orchestration."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="RequestOrchestration.action.participant">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Who should perform the action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The participant that should perform or be responsible for this action."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.reason" resourcePath="RequestOrchestration.reason">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why is service (not) needed?"/>
+            <resource value="Why the request orchestration is needed"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the request is being made in coded or textual form, or Indicates another resource whose existence justifies this request."/>
+            <resource value="Describes the reason for the request orchestration in coded or textual form."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="RequestOrchestration.action.documentation">
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="RelatedArtifact" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Supporting documentation for the intended performer of the action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this request orchestration."/>
+            <resource value="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.note" resourcePath="RequestOrchestration.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about request orchestration"/>
+            <resource value="Additional notes about the response"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the request orchestration by the requester, performer, subject or other participants."/>
+            <resource value="Provides a mechanism to communicate additional information about the response."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

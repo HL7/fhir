@@ -1,0 +1,49 @@
+<mappingExceptions pattern="Definition" resource="CapabilityStatement"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Definition.identifier" resourcePath="CapabilityStatement.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for capability statement"/>
+            <resource value="Additional identifier for the CapabilityStatement (business identifier)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A formal identifier that is used to identify this capability statement when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+            <resource value="A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this capability statement outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the capability statement."/>
+            <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Definition.contact" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.approvalDate" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.name" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.description" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.jurisdiction" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.copyrightLabel" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.effectivePeriod" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.product" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.code" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.title" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.date" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.status" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.url" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.copyright" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.lastReviewDate" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.purpose" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.versionAlgorithm" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.publisher" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.topic" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.useContext" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.experimental" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.version" reason="Unknown"/>
+</mappingExceptions>

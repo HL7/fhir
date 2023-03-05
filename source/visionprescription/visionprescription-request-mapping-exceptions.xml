@@ -1,0 +1,111 @@
+<mappingExceptions pattern="Request" resource="VisionPrescription"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="VisionPrescription.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this vision prescription by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="A unique identifier assigned to this vision prescription."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the vision prescription as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Allows vision prescriptions to be distinguished and referenced."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="VisionPrescription.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="active | cancelled | draft | entered-in-error"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the vision prescription."/>
+            <resource value="The status of the resource instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="VisionPrescription.patient">
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Who prescription is for"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="A resource reference to the person to whom the vision prescription applies."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value="Needed to identify the patient for whom the vision prescription has been issued."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.encounter" resourcePath="VisionPrescription.encounter">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the vision prescription is tied to"/>
+            <resource value="Created during encounter / admission / stay"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this vision prescription was created or to which the creation of this record is tightly associated."/>
+            <resource value="A reference to a resource that identifies the particular occurrence of contact between patient and health care provider during which the prescription was issued."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter during which the vision prescription was created.  However, some {{title}s may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission activities)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the vision prescription to the Encounter context."/>
+            <resource value="Used in some jurisdictions to link clinical events to claim items."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="VisionPrescription.dateWritten">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="When prescription was authorized"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft vision prescriptions, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="The date (and perhaps time) when the prescription was written."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="VisionPrescription.prescriber">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Organization,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Who authorized the vision prescription"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="The healthcare professional responsible for authorizing the prescription."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.intent" reason="Unknown"/>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.priority" reason="Unknown"/>
+    <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
+    <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.note" reason="Unknown"/>
+    <unmappedElement patternPath="Request.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
+    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,139 @@
+<mappingExceptions pattern="Event" resource="QuestionnaireResponse"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="QuestionnaireResponse.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for questionnaire response"/>
+            <resource value="Unique id for this set of answers"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this questionnaire response by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="A business identifier assigned to a particular completed (or partially completed) questionnaire."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the questionnaire response as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Used for tracking, registration and other business purposes."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="QuestionnaireResponse.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Request fulfilled by this QuestionnaireResponse"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this questionnaire response."/>
+            <resource value="The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the questionnaire response and tracking whether proposals/recommendations were acted upon."/>
+            <resource value="Supports traceability of responsibility for the action and allows linkage of an action to the recommendations acted upon."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="QuestionnaireResponse.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Observation,Procedure)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Part of this action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular questionnaire response is a component or step."/>
+            <resource value="A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an questionnaire response to an Encounter - use 'context' for that.&#xa;."/>
+            <resource value="Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="QuestionnaireResponse.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="in-progress | completed | amended | entered-in-error | stopped"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the questionnaire response."/>
+            <resource value="The position of the questionnaire response within its overall lifecycle."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="QuestionnaireResponse.subject">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="The subject of the questions"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the questionnaire response to the Patient context."/>
+            <resource value="Allows linking the answers to the individual the answers describe.  May also affect access control."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="QuestionnaireResponse.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the questionnaire response is part of"/>
+            <resource value="Encounter created as part of"/>
+        </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the questionnaire response was created during, but some questionnaire responses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the questionnaire response to the Encounter context."/>
+            <resource value="Provides context for the information that was captured.  May also affect access control."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="QuestionnaireResponse.authored">
+        <missingTypes _pattern="Period, Timing" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When questionnaire response occurred/is occurring"/>
+            <resource value="Date the answers were gathered"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the questionnaire response did occur or is occurring."/>
+            <resource value="The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value="May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#xa;&#xa;This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer" resourcePath="QuestionnaireResponse.author">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(Device,Practitioner,PractitionerRole,Patient,RelatedPerson,Organization)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed questionnaire response and what they did"/>
+            <resource value="The individual or device that received and recorded the answers"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the questionnaire response and how they were involved."/>
+            <resource value="The individual or device that received the answers to the questions in the QuestionnaireResponse and recorded them in the system."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.code" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.note" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,131 @@
+<mappingExceptions pattern="Event" resource="MedicationStatement"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="MedicationStatement.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for medication statement"/>
+            <resource value="External identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this medication statement by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the medication statement as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="MedicationStatement.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="recorded | entered-in-error | draft"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the medication statement."/>
+            <resource value="A code representing the status of recording the medication statement."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="This status concerns just the recording of the medication statement.  MedicationStatement.adherence should be used for indicating a patient's adherence to the information in this resource.  Note, the statuses are different than in previous releases for MedicationStatement or MedicationStatement.&#xa;&#xa;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="MedicationStatement.medication">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Medication)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="What medication was taken"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="MedicationStatement.subject">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="Who is/was taking  the medication"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="The person, animal or group who is/was taking the medication."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the medication statement to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="MedicationStatement.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the medication statement is part of"/>
+            <resource value="Encounter associated with MedicationStatement"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this medication statement was created or to which the creation of this record is tightly associated."/>
+            <resource value="The encounter that establishes the context for this MedicationStatement."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the medication statement was created during, but some medication statements may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the medication statement to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="MedicationStatement.effective[x]">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When medication statement occurred/is occurring"/>
+            <resource value="The date/time or interval when the medication is/was/will be taken"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the medication statement did occur or is occurring."/>
+            <resource value="The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationStatement.adherence element is Not Taking)."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value="This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="MedicationStatement.reason">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was medication statement performed?"/>
+            <resource value="Reason for why the medication is being/was taken"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the medication statement occurred in coded or textual form or Indicates another resource whose existence justifies this medication statement."/>
+            <resource value="A concept, Condition or observation that supports why the medication is being/was taken."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="MedicationStatement.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Further information about the usage"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the medication statement by the performer, subject or other participants."/>
+            <resource value="Provides extra information about the Medication Statement that is not conveyed by the other attributes."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,207 @@
+<mappingExceptions pattern="Event" resource="Task"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="Task.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for task"/>
+            <resource value="Task Instance Identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this task by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="The business identifier for this task."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the task as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="Task.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Request fulfilled by this task"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this task."/>
+            <resource value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfill.  This latter resource is referenced by focus.  For example, based on a CarePlan (= basedOn), a task is created to fulfill a ServiceRequest ( = focus ) to collect a specimen from a patient."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the task and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="Task.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Task)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Composite task"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular task is a component or step."/>
+            <resource value="Task that this particular task is part of."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an task to an Encounter - use 'context' for that.&#xa;."/>
+            <resource value="This should usually be 0..1."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="Task.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="draft | requested | received | accepted | +"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the task."/>
+            <resource value="The current status of the task."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="Task.doNotPerform">
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="boolean" reason="Unknown"/>
+        <modifier _pattern="false" _resource="true" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="True if Task is prohibiting action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="If true indicates that the Task is asking for the specified action to *not* occur."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="Task.code">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="Task Type"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="A name or code (or both) briefly describing what the task involves."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="Task.for">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="Beneficiary of the Task"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="The entity who benefits from the performance of the service specified in the task (e.g., the patient)."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the task to the Patient context."/>
+            <resource value="Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).  This can also affect access control."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="Task.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the task is part of"/>
+            <resource value="Healthcare event during which this task originated"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this task was created or to which the creation of this record is tightly associated."/>
+            <resource value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the task was created during, but some tasks may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the task to the Encounter context."/>
+            <resource value="For some tasks it may be important to know the link between the encounter the task originated within."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="Task.executionPeriod">
+        <missingTypes _pattern="dateTime, Timing" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When task occurred/is occurring"/>
+            <resource value="Start and end time of execution"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the task did occur or is occurring."/>
+            <resource value="Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end)."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="Task.requestedPerformer">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes
+            _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Type of performance"/>
+            <resource value="Who should perform Task"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Distinguishes the type of involvement of the performer in the task.."/>
+            <resource value="The kind of participant or specific participant that should perform the task."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
+            <resource value="Use to distinguish tasks on different activity queues."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="Task.owner">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed task"/>
+            <resource value="Responsible individual"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the task."/>
+            <resource value="Party responsible for managing task execution."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="Task.reason">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was task performed?"/>
+            <resource value="Why task is needed"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the task occurred in coded or textual form or Indicates another resource whose existence justifies this task."/>
+            <resource value="A description, code, or reference indicating why this task needs to be performed."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  E.g. a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="Task.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Comments made about the task"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the task by the performer, subject or other participants."/>
+            <resource value="Free-text information captured about the task as it progresses."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+</mappingExceptions>

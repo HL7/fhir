@@ -1,0 +1,124 @@
+<mappingExceptions pattern="Event" resource="ClinicalImpression"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="ClinicalImpression.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for clinical impression"/>
+            <resource value="Business identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this clinical impression by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="ClinicalImpression.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the clinical impression."/>
+            <resource value="Identifies the workflow status of the assessment."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.statusReason" resourcePath="ClinicalImpression.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the clinical impression."/>
+            <resource value="Captures the reason for the current state of the ClinicalImpression."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#xa;."/>
+            <resource value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;on-hold&quot; or &quot;stopped&quot;."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="ClinicalImpression.subject">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="Patient or group assessed"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="The patient or group of individuals assessed as part of this record."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the clinical impression to the Patient context."/>
+            <resource value="Group is typically for veterinary and/or public health purposes."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="ClinicalImpression.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the clinical impression is part of"/>
+            <resource value="The Encounter during which this ClinicalImpression was created"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this clinical impression was created or to which the creation of this record is tightly associated."/>
+            <resource value="The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the clinical impression was created during, but some clinical impressions may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the clinical impression to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="ClinicalImpression.effective[x]">
+        <missingTypes _pattern="Timing" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When clinical impression occurred/is occurring"/>
+            <resource value="Time of assessment"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the clinical impression did occur or is occurring."/>
+            <resource value="The point in time or period over which the subject was assessed."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value="This SHOULD be accurate to at least the minute, though some assessments only have a known date."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="ClinicalImpression.performer">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Organization,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed clinical impression"/>
+            <resource value="The clinician performing the assessment"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the clinical impression."/>
+            <resource value="The clinician performing the assessment."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="ClinicalImpression.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Comments made about the ClinicalImpression"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the clinical impression by the performer, subject or other participants."/>
+            <resource value="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.code" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+</mappingExceptions>

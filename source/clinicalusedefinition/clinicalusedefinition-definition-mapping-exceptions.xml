@@ -1,0 +1,89 @@
+<mappingExceptions pattern="Definition" resource="ClinicalUseDefinition"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Definition.identifier" resourcePath="ClinicalUseDefinition.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for clinical use definition"/>
+            <resource value="Business identifier for this issue"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A formal identifier that is used to identify this clinical use definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+            <resource value="Business identifier for this issue."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this clinical use definition outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the clinical use definition."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.status" resourcePath="ClinicalUseDefinition.status">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes _pattern="code" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <modifier _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingStrength _pattern="required" _resource="preferred" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | retired | unknown"/>
+            <resource value="Whether this is a current issue or one that has been retired etc"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of this clinical use definition."/>
+            <resource value="Whether this is a current issue or one that has been retired etc."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Enables tracking the lifecycle of the content and filtering of clinical use definitions that are appropriate for use versus not."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.subject[x]" resourcePath="ClinicalUseDefinition.subject">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept, Reference(Group)" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(MedicinalProductDefinition,Medication,ActivityDefinition,PlanDefinition,Device,DeviceDefinition,Substance,NutritionProduct,BiologicallyDerivedProduct)" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Type of individual the defined service is for"/>
+            <resource value="The medication, product, substance, device, procedure etc. for which this is an indication"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code or group definition that describes the intended subject of instantiations of this definition."/>
+            <resource value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Many protocols, order sets and guidelines are inted for use only with specific types of patients or subjects."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Definition.contact" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.approvalDate" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.name" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.description" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.jurisdiction" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.copyrightLabel" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.effectivePeriod" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.product" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.code" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.title" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.date" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.url" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.copyright" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.lastReviewDate" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.purpose" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.versionAlgorithm" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.publisher" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.topic" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.useContext" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.experimental" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.version" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,62 @@
+<mappingExceptions pattern="ParticipantLiving" resource="RelatedPerson"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="ParticipantLiving.birthDate" resourcePath="RelatedPerson.birthDate">
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="The date of birth for the individual"/>
+            <resource value="The date on which the related person was born"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date of birth for the individual."/>
+            <resource value="The date on which the related person was born."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantLiving.gender" resourcePath="RelatedPerson.gender">
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Administrative Gender - the gender that the participant is considered to have for administration and record keeping purposes."/>
+            <resource value="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Needed for identification of the individual, in combination with (at least) name and birth date."/>
+            <resource value="Needed for identification of the person, in combination with (at least) name and birth date."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantLiving.photo" resourcePath="RelatedPerson.photo">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Image of the participant"/>
+            <resource value="Image of the person"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Image of the participant."/>
+            <resource value="Image of the person."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Many EHR systems have the capability to capture an image of the participant. Fits with newer social media usage too."/>
+            <resource value="Many EHR systems have the capability to capture an image of persons. Fits with newer social media usage too."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantLiving.communication" resourcePath="RelatedPerson.communication">
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="The language which can be used to communicate with the participant"/>
+            <resource value="A language which may be used to communicate with the related person about the patient's health"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
+            <resource value="A language which may be used to communicate with the related person about the patient's health."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
+            <resource value="If a related person does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Participant.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.name" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.active" reason="Unknown"/>
+    <unmappedElement patternPath="ParticipantContactable.address" reason="Unknown"/>
+    <unmappedElement patternPath="ParticipantContactable.telecom" reason="Unknown"/>
+</mappingExceptions>

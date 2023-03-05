@@ -1,0 +1,160 @@
+<mappingExceptions pattern="Event" resource="AuditEvent"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.code" resourcePath="AuditEvent.category">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="Type/identifier of event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="Classification of the type of event."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="AuditEvent.basedOn">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(CarePlan,DeviceRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest,Task)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="Workflow authorization within which this event occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="AuditEvent.encounter">
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="Reference(Encounter)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="Encounter within which this event occurred or which the event is tightly associated"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="AuditEvent.patient">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="The patient is the subject of the data used/created/updated/deleted during the activity"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the audit event to the Patient context."/>
+            <resource value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="AuditEvent.occurred[x]">
+        <missingTypes _pattern="Timing" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When audit event occurred/is occurring"/>
+            <resource value="When the activity occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the audit event did occur or is occurring."/>
+            <resource value="The time or period during which the activity occurred."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value="The time or period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer" resourcePath="AuditEvent.agent">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed audit event and what they did"/>
+            <resource value="Actor involved in the event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the audit event and how they were involved."/>
+            <resource value="An actor taking an active role in the event or activity that is logged."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="AuditEvent.agent.type">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Type of performance"/>
+            <resource value="How agent participated"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Distinguishes the type of involvement of the performer in the audit event.."/>
+            <resource value="The Functional Role of the user when performing the event."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
+            <resource value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="AuditEvent.agent.who">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed audit event"/>
+            <resource value="Identifier of who"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the audit event."/>
+            <resource value="Reference to who this agent is that was involved in the event."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="AuditEvent.agent.location">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where audit event occurred"/>
+            <resource value="The agent location when the event occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the audit event was performed."/>
+            <resource value="Where the agent location is known, the agent location when the event occurred."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="AuditEvent.authorization">
+        <missingTypes
+            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was audit event performed?"/>
+            <resource value="Authorization related to the event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the audit event occurred in coded or textual form or Indicates another resource whose existence justifies this audit event."/>
+            <resource value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value="Use AuditEvent.agent.authorization when you know that it is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.status" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.note" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.encounter" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Event.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+</mappingExceptions>
