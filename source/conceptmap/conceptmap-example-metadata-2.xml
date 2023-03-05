@@ -82,16 +82,16 @@
     <target value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
     <element>
       <code value="home"/>
-      <display value="home"/>
+      <display value="Home"/>
       <target>
         <code value="H"/>
-        <display value="home"/>
+        <display value="home address"/>
         <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="work"/>
-      <display value="work"/>
+      <display value="Work"/>
       <target>
         <code value="WP"/>
         <display value="work place"/>
@@ -100,7 +100,7 @@
     </element>
     <element>
       <code value="temp"/>
-      <display value="temp"/>
+      <display value="Temporary"/>
       <target>
         <code value="TMP"/>
         <display value="temporary address"/>
@@ -109,7 +109,7 @@
     </element>
     <element>
       <code value="old"/>
-      <display value="old"/>
+      <display value="Old / Incorrect"/>
       <target>
         <code value="BAD"/>
         <display value="bad address"/>
