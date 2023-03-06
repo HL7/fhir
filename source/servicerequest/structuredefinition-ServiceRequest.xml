@@ -619,8 +619,8 @@
       <path value="ServiceRequest.orderDetail.parameter"/>
       <short value="The parameter details for the service being requested"/>
       <definition value="The parameter details for the service being requested."/>
-      <min value="0"/>
-      <max value="1"/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
