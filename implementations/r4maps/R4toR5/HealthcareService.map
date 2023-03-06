@@ -1,0 +1,50 @@
+map "http://hl7.org/fhir/StructureMap/HealthcareService3to4" = "R3 to R4 Conversions for HealthcareService"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/HealthcareService" alias HealthcareServiceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group HealthcareService(source src : HealthcareServiceR3, target tgt : HealthcareService) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.providedBy -> tgt.providedBy;
+  src.category -> tgt.category;
+  src.type -> tgt.type;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.name -> tgt.name;
+  src.comment -> tgt.comment;
+  src.extraDetails -> tgt.extraDetails;
+  src.photo -> tgt.photo;
+  src.telecom -> tgt.telecom;
+  src.coverageArea -> tgt.coverageArea;
+  src.serviceProvisionCode -> tgt.serviceProvisionCode;
+  src.eligibility as vs -> tgt.eligibility as vt then eligibility(vs, vt, src);
+  src.programName as v ->  tgt.program as cc,  cc.text = v;
+  src.characteristic -> tgt.characteristic;
+  src.referralMethod -> tgt.referralMethod;
+  src.appointmentRequired -> tgt.appointmentRequired;
+  src.availableTime as vs -> tgt.availableTime as vt then availableTime(vs, vt);
+  src.notAvailable as vs -> tgt.notAvailable as vt then notAvailable(vs, vt);
+  src.availabilityExceptions -> tgt.availabilityExceptions;
+  src.endpoint -> tgt.endpoint;
+}
+
+group eligibility(source src, target tgt, source res) {
+  src as vs -> tgt.code as vt then CodeableConcept(vs, vt) "code";
+  res.eligibilityNote -> tgt.comment;
+}
+
+group availableTime(source src, target tgt) extends BackboneElement {
+  src.daysOfWeek -> tgt.daysOfWeek;
+  src.allDay -> tgt.allDay;
+  src.availableStartTime -> tgt.availableStartTime;
+  src.availableEndTime -> tgt.availableEndTime;
+}
+
+group notAvailable(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.during -> tgt.during;
+}
+

@@ -1,0 +1,26 @@
+map "http://hl7.org/fhir/StructureMap/CodeableConcept4to3" = "R4 to R3 Conversion for CodeableConcept"
+
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConcept as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeableConcept" alias CodeableConceptR3 as target
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Coding" alias CodingR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CodeableConcept(source src : CodeableConcept, target tgt : CodeableConceptR3) extends Element <<type+>> {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+
+group CodeableConceptNoExtensions(source src : CodeableConcept, target tgt : CodeableConceptR3) {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+
+group CodeableConcept2Coding(source src : CodeableConcept, target tgt : CodingR3) extends Element <<types>> {
+  src.coding first as vs0 then Coding(vs0, tgt);
+}
+
+group CodeableConcept2code(source src : CodeableConcept, target tgt : codeR3) extends Element <<types>> {
+  src.coding first as vs0 -> tgt.code = create('code') as vt then Coding2code(vs0, vt) "CodeableConcept2code-coding";
+}
+

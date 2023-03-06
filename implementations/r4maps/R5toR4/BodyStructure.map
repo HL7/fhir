@@ -1,0 +1,17 @@
+map "http://hl7.org/fhir/StructureMap/BodyStructure4to3" = "R4 to R3 Conversion for BodyStructure"
+
+uses "http://hl7.org/fhir/StructureDefinition/BodyStructure" alias BodyStructure as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/BodySite" alias BodySiteR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group BodyStructure(source src : BodyStructure, target tgt : BodySiteR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.location -> tgt.code;
+  src.locationQualifier -> tgt.qualifier;
+  src.description -> tgt.description;
+  src.image -> tgt.image;
+  src.patient -> tgt.patient;
+}
+

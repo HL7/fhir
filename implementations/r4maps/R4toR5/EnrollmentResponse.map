@@ -1,0 +1,22 @@
+map "http://hl7.org/fhir/StructureMap/EnrollmentResponse3to4" = "R3 to R4 Conversions for EnrollmentResponse"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentResponse" alias EnrollmentResponseR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" alias EnrollmentResponse as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group EnrollmentResponse(source src : EnrollmentResponseR3, target tgt : EnrollmentResponse) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.request -> tgt.request;
+  src.outcome as vs then {
+    vs.coding as c where code in ('complete' | 'error' | 'partial') then {
+      c.code -> tgt.outcome;
+    };
+  };
+  src.disposition -> tgt.disposition;
+  src.created -> tgt.created;
+  src.organization -> tgt.organization;
+  src.requestProvider -> tgt.requestProvider;
+}
+

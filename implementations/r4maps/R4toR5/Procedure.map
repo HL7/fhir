@@ -1,0 +1,63 @@
+map "http://hl7.org/fhir/StructureMap/Procedure3to4" = "R3 to R4 Conversions for Procedure"
+
+conceptmap "EventStatus" {
+  prefix s = "http://hl7.org/fhir/ValueSet/event-status"
+  prefix t = "http://hl7.org/fhir/ValueSet/event-status"
+
+  s:"'entered-in-error'" - t:"'entered-in-error'"
+  s:"'in-progress'" - t:"'in-progress'"
+  s:aborted - t:stopped
+  s:completed - t:completed
+  s:preparation - t:preparation
+  s:suspended - t:suspended
+  s:unknown - t:unknown
+}
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Procedure" alias ProcedureR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias Procedure as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Procedure(source src : ProcedureR3, target tgt : Procedure) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status as vs where (src.notDone = true).not() -> tgt.status = translate(vs, '#EventStatus', 'code');
+  src.status where (src.notDone = true) ->  tgt.status = create('code') as vt,  vt.value = 'not-done';
+  src.notDoneReason as vs -> tgt.statusReason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.context : Reference as vs -> tgt.encounter = create('Reference') as vt then Reference(vs, vt);
+  src.performed -> tgt.performed;
+  src.recorder -> tgt.recorder;
+  src.asserter -> tgt.asserter;
+  src.performer as s -> tgt.performer as t then ProcedurePerformer(s, t);
+  src.location -> tgt.location;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.bodySite -> tgt.bodySite;
+  src.outcome -> tgt.outcome;
+  src.report -> tgt.report;
+  src.complication -> tgt.complication;
+  src.complicationDetail -> tgt.complicationDetail;
+  src.followUp -> tgt.followUp;
+  src.note -> tgt.note;
+  src.focalDevice as s -> tgt.focalDevice as t then ProcedureFocalDevice(s, t);
+  src.usedReference -> tgt.usedReference;
+  src.usedCode -> tgt.usedCode;
+}
+
+group ProcedurePerformer(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.function;
+  src.actor -> tgt.actor;
+  src.onBehalfOf -> tgt.onBehalfOf;
+}
+
+group ProcedureFocalDevice(source src, target tgt) extends BackboneElement {
+  src.action -> tgt.action;
+  src.manipulated -> tgt.manipulated;
+}
+

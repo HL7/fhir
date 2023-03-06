@@ -1,0 +1,24 @@
+map "http://hl7.org/fhir/StructureMap/DeviceMetric3to4" = "R3 to R4 Conversions for DeviceMetric"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceMetric" alias DeviceMetricR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group DeviceMetric(source src : DeviceMetricR3, target tgt : DeviceMetric) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.unit -> tgt.unit;
+  src.source -> tgt.source;
+  src.parent -> tgt.parent;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.color -> tgt.color;
+  src.category -> tgt.category;
+  src.measurementPeriod -> tgt.measurementPeriod;
+  src.calibration as vs0 -> tgt.calibration as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.state -> vt0.state;
+    vs0.time -> vt0.time;
+  };
+}
+

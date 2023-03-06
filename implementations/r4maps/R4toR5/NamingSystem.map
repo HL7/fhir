@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/NamingSystem3to4" = "R3 to R4 Conversions for NamingSystem"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/NamingSystem" alias NamingSystemR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystem as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group NamingSystem(source src : NamingSystemR3, target tgt : NamingSystem) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.responsible -> tgt.responsible;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.usage -> tgt.usage;
+  src.uniqueId as vs0 -> tgt.uniqueId as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.value -> vt0.value;
+    vs0.preferred -> vt0.preferred;
+    vs0.comment -> vt0.comment;
+    vs0.period -> vt0.period;
+  };
+}
+

@@ -1,0 +1,10 @@
+map "http://hl7.org/fhir/StructureMap/Duration3to4" = "R3 to R4 Conversions for Duration"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Duration" alias DurationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Duration" alias Duration as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Duration(source src : DurationR3, target tgt : Duration) extends Quantity <<type+>> {
+}
+

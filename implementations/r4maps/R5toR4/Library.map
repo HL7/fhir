@@ -1,0 +1,39 @@
+map "http://hl7.org/fhir/StructureMap/Library4to3" = "R4 to R3 Conversion for Library"
+
+uses "http://hl7.org/fhir/StructureDefinition/Library" alias Library as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Library" alias LibraryR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Library(source src : Library, target tgt : LibraryR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.type -> tgt.type;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor',  vt.contact = vs;
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer',  vt.contact = vs;
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser',  vt.contact = vs;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.parameter -> tgt.parameter;
+  src.dataRequirement -> tgt.dataRequirement;
+  src.content -> tgt.content;
+}
+

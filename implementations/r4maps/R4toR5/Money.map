@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Money3to4" = "R3 to R4 Conversions for Money"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Money" alias MoneyR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Money" alias Money as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Money(source src : MoneyR3, target tgt : Money) extends Element <<type+>> {
+  src.value -> tgt.value;
+  src.code -> tgt.currency;
+}
+

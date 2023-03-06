@@ -1,0 +1,15 @@
+map "http://hl7.org/fhir/StructureMap/MarketingStatus4to3" = "R4 to R3 Conversion for MarketingStatus"
+
+uses "http://hl7.org/fhir/StructureDefinition/MarketingStatus" alias MarketingStatus as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MarketingStatus" alias MarketingStatusR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group MarketingStatus(source src : MarketingStatus, target tgt : MarketingStatusR3) extends BackboneElement <<type+>> {
+  src.country -> tgt.country;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.status -> tgt.status;
+  src.dateRange -> tgt.dateRange;
+  src.restoreDate -> tgt.restoreDate;
+}
+

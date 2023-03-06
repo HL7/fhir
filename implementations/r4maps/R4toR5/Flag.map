@@ -1,0 +1,18 @@
+map "http://hl7.org/fhir/StructureMap/Flag3to4" = "R3 to R4 Conversions for Flag"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Flag" alias FlagR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Flag" alias Flag as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Flag(source src : FlagR3, target tgt : Flag) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.period -> tgt.period;
+  src.encounter -> tgt.encounter;
+  src.author -> tgt.author;
+}
+

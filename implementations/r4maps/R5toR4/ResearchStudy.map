@@ -1,0 +1,56 @@
+map "http://hl7.org/fhir/StructureMap/ResearchStudy4to3" = "R4 to R3 Conversion for ResearchStudy"
+
+conceptmap "ResourceStudyStatus" {
+  prefix s = "http://hl7.org/fhir/research-study-status"
+  prefix t = "http://hl7.org/fhir/research-study-status"
+
+  s:active - t:"in-progress"
+  s:"administratively-completed" - t:completed
+  s:approved - t:"in-progress"
+  s:"closed-to-accrual" - t:suspended
+  s:"closed-to-accrual-and-intervention" - t:suspended
+  s:completed - t:completed
+  s:disapproved - t:stopped
+  s:"in-review" - t:draft
+  s:"temporarily-closed-to-accrual" - t:suspended
+  s:"temporarily-closed-to-accrual-and-intervention" - t:suspended
+  s:withdrawn - t:stopped
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudy as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchStudy" alias ResearchStudyR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ResearchStudy(source src : ResearchStudy, target tgt : ResearchStudyR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.title -> tgt.title;
+  src.protocol -> tgt.protocol;
+  src.partOf -> tgt.partOf;
+  src.status as v -> tgt.status = translate(v, '#ResourceStudyStatus', 'code');
+  src.category -> tgt.category;
+  src.focus -> tgt.focus;
+  src.contact -> tgt.contact;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.keyword -> tgt.keyword;
+  src.location -> tgt.location;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ResearchStudy.jurisdiction' then {
+    e.value -> tgt.jurisdiction;
+  };
+  src.description -> tgt.description;
+  src.enrollment -> tgt.enrollment;
+  src.period -> tgt.period;
+  src.sponsor -> tgt.sponsor;
+  src.principalInvestigator -> tgt.principalInvestigator;
+  src.site -> tgt.site;
+  src.reasonStopped -> tgt.reasonStopped;
+  src.note -> tgt.note;
+  src.arm as s -> tgt.arm as t then arm(s, t);
+}
+
+group arm(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.type -> tgt.code;
+  src.description -> tgt.description;
+}
+

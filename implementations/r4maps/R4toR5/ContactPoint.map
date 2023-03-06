@@ -1,0 +1,15 @@
+map "http://hl7.org/fhir/StructureMap/ContactPoint3to4" = "R3 to R4 Conversions for ContactPoint"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ContactPoint" alias ContactPointR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" alias ContactPoint as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ContactPoint(source src : ContactPointR3, target tgt : ContactPoint) extends Element <<type+>> {
+  src.system -> tgt.system;
+  src.value -> tgt.value;
+  src.use -> tgt.use;
+  src.rank -> tgt.rank;
+  src.period -> tgt.period;
+}
+

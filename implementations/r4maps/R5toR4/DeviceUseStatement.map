@@ -1,0 +1,25 @@
+map "http://hl7.org/fhir/StructureMap/DeviceUseStatement4to3" = "R4 to R3 Conversion for DeviceUseStatement"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DeviceUseStatement(source src : DeviceUseStatement, target tgt : DeviceUseStatementR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DeviceUseStatement.whenUsed' then {
+    e.value -> tgt.whenUsed;
+  };
+  src.timing : Timing as vs -> tgt.timing = create('Timing') as vt then Timing(vs, vt);
+  src.timing : Period as vs -> tgt.timing = create('Period') as vt then Period(vs, vt);
+  src.timing : dateTime as vs -> tgt.timing = create('dateTime') as vt then dateTime(vs, vt);
+  src.recordedOn -> tgt.recordedOn;
+  src.source -> tgt.source;
+  src.device -> tgt.device;
+  src.reasonCode -> tgt.indication "indication";
+  src.bodySite -> tgt.bodySite;
+  src.note -> tgt.note;
+}
+

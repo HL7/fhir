@@ -1,0 +1,30 @@
+map "http://hl7.org/fhir/StructureMap/List3to4" = "R3 to R4 Conversions for List"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/List" alias ListR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/List" alias List as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group List(source src : ListR3, target tgt : List) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.mode -> tgt.mode;
+  src.title -> tgt.title;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.date -> tgt.date;
+  src.source -> tgt.source;
+  src.orderedBy -> tgt.orderedBy;
+  src.note -> tgt.note;
+  src.entry as s -> tgt.entry as t then entry(s, t);
+  src.emptyReason -> tgt.emptyReason;
+}
+
+group entry(source src, target tgt) extends BackboneElement {
+  src.flag -> tgt.flag;
+  src.deleted -> tgt.deleted;
+  src.date -> tgt.date;
+  src.item -> tgt.item;
+}
+

@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/DeviceRequest4to3" = "R4 to R3 Conversion for DeviceRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceRequest" alias DeviceRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DeviceRequest(source src : DeviceRequest, target tgt : DeviceRequestR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.priorRequest -> tgt.priorRequest;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent as vs ->  tgt.intent as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/request-intent',  c.code = vs;
+  src.priority -> tgt.priority;
+  src.code : CodeableConcept as vs -> tgt.code = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.code : Reference as vs -> tgt.code = create('Reference') as vt then Reference(vs, vt);
+  src.parameter as s -> tgt.parameter as t then DeviceRequestParameter(s, t);
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.occurrence -> tgt.occurrence;
+  src.authoredOn -> tgt.authoredOn;
+  src.requester as vs ->  tgt.requester as vt,  vt.agent = vs;
+  src.performerType -> tgt.performerType;
+  src.performer -> tgt.performer;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.insurance -> tgt.insurance;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+}
+
+group DeviceRequestParameter(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+}
+

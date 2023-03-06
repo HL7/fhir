@@ -1,0 +1,21 @@
+map "http://hl7.org/fhir/StructureMap/Endpoint3to4" = "R3 to R4 Conversions for Endpoint"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Endpoint" alias EndpointR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Endpoint" alias Endpoint as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Endpoint(source src : EndpointR3, target tgt : Endpoint) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.connectionType -> tgt.connectionType;
+  src.name -> tgt.name;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.contact -> tgt.contact;
+  src.period -> tgt.period;
+  src.payloadType -> tgt.payloadType;
+  src.payloadMimeType -> tgt.payloadMimeType;
+  src.address -> tgt.address;
+  src.header -> tgt.header;
+}
+

@@ -1,0 +1,31 @@
+map "http://hl7.org/fhir/StructureMap/DataRequirement4to3" = "R4 to R3 Conversion for DataRequirement"
+
+uses "http://hl7.org/fhir/StructureDefinition/DataRequirement" alias DataRequirement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DataRequirement" alias DataRequirementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DataRequirement(source src : DataRequirement, target tgt : DataRequirementR3) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+  src.mustSupport -> tgt.mustSupport;
+  src.codeFilter as vs0 -> tgt.codeFilter as vt0 then codeFiter(vs0, vt0);
+  src.dateFilter as vs0 -> tgt.dateFilter as vt0 then dateFilter(vs0, vt0);
+}
+
+group codeFiter(source src, target tgt) extends Element {
+  src.path -> tgt.path;
+  src.valueSet as vs -> tgt.valueSet = create('string') as vt then canonical2string(vs, vt);
+  src.code as vs where system.empty() then {
+    vs.code -> tgt.valueCode;
+  };
+  src.code as vs where system.exists() -> tgt.valueCoding;
+}
+
+group dateFilter(source src, target tgt) extends Element {
+  src.path -> tgt.path;
+  src.value : dateTime as vs -> tgt.value = create('dateTime') as vt then dateTime(vs, vt);
+  src.value : Period as vs -> tgt.value = create('Period') as vt then Period(vs, vt);
+  src.value : Duration as vs -> tgt.value = create('Duration') as vt then Duration(vs, vt);
+}
+

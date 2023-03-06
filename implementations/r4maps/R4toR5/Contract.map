@@ -1,0 +1,97 @@
+map "http://hl7.org/fhir/StructureMap/Contract3to4" = "R3 to R4 Conversions for Contract"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Contract" alias ContractR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Contract" alias Contract as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Contract(source src : ContractR3, target tgt : Contract) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.contentDerivative -> tgt.contentDerivative;
+  src.issued -> tgt.issued;
+  src.applies -> tgt.applies;
+  src.subject -> tgt.subject;
+  src.authority -> tgt.authority;
+  src.domain -> tgt.domain;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.term as s -> tgt.term as t then ContractTerm(s, t);
+  src.signer as s -> tgt.signer as t then ContractSigner(s, t);
+  src.friendly as s -> tgt.friendly as t then ContractFriendly(s, t);
+  src.legal as s -> tgt.legal as t then ContractLegal(s, t);
+  src.rule as s -> tgt.rule as t then ContractRule(s, t);
+  src.legallyBinding -> tgt.legallyBinding;
+}
+
+group ContractTerm(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.issued -> tgt.issued;
+  src.applies -> tgt.applies;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.offer as s -> tgt.offer as t then ContractTermOffer(s, t);
+  src.asset as s -> tgt.asset as t then ContractTermAsset(s, t);
+// agent ist not in R4 anymore in term src.agent as s -> tgt.agent as t then ContractTermAgent(s, t);
+  src.action -> tgt.action;
+  src.actionReason -> tgt.actionReason;
+  src.group -> tgt.group;
+}
+
+group ContractTermOffer(source src, target tgt) extends BackboneElement {
+  src.topic -> tgt.topic;
+  src.type -> tgt.type;
+  src.decision -> tgt.decision;
+  src.text -> tgt.text;
+  src.linkId -> tgt.linkId;
+}
+
+group ContractTermAsset(source src, target tgt) extends BackboneElement {
+  src.class -> tgt.class;
+  src.code -> tgt.code;
+  src.period -> tgt.period;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as s -> tgt.data as t then ContractTermAssetData(s, t);
+  src.valuedItem as s -> tgt.valuedItem as t then ContractTermAssetValuedItem(s, t);
+  src.securityLabel -> tgt.securityLabel;
+}
+
+group ContractTermAssetData(source src, target tgt) extends BackboneElement {
+  src.meaning -> tgt.meaning;
+  src.reference -> tgt.reference;
+}
+
+group ContractTermAssetValuedItem(source src, target tgt) extends BackboneElement {
+  src.entity -> tgt.entity;
+  src.identifier -> tgt.identifier;
+  src.effectiveTime -> tgt.effectiveTime;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.points -> tgt.points;
+  src.net -> tgt.net;
+}
+
+group ContractTermAgent(source src, target tgt) extends BackboneElement {
+  src.actor -> tgt.actor;
+  src.role -> tgt.role;
+}
+
+group ContractSigner(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.party -> tgt.party;
+  src.signature -> tgt.signature;
+}
+
+group ContractFriendly(source src, target tgt) extends BackboneElement {
+  src.content -> tgt.content;
+}
+
+group ContractLegal(source src, target tgt) extends BackboneElement {
+  src.content -> tgt.content;
+}
+
+group ContractRule(source src, target tgt) extends BackboneElement {
+  src.content -> tgt.content;
+}
+

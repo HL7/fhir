@@ -1,0 +1,54 @@
+map "http://hl7.org/fhir/StructureMap/Composition4to3" = "R4 to R3 Conversion for Composition"
+
+uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Composition" alias CompositionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Composition(source src : Composition, target tgt : CompositionR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.category -> tgt.class;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+  src.title -> tgt.title;
+  src.confidentiality -> tgt.confidentiality;
+  src.attester as vs0 -> tgt.attester as vt0 then attester(vs0, vt0);
+  src.custodian -> tgt.custodian;
+  src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
+  src.event as vs0 -> tgt.event as vt0 then event(vs0, vt0);
+  src.section as vs0 -> tgt.section as vt0 then section(vs0, vt0);
+}
+
+group attester(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.time -> tgt.time;
+  src.party -> tgt.party;
+}
+
+group relatesTo(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.target : Identifier as vs -> tgt.target = create('Identifier') as vt then Identifier(vs, vt);
+  src.target : Reference as vs -> tgt.target = create('Reference') as vt then Reference(vs, vt);
+}
+
+group event(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.period -> tgt.period;
+  src.detail -> tgt.detail;
+}
+
+group section(source src, target tgt) extends BackboneElement {
+  src.title -> tgt.title;
+  src.code -> tgt.code;
+  src.text -> tgt.text;
+  src.mode -> tgt.mode;
+  src.orderedBy -> tgt.orderedBy;
+  src.entry -> tgt.entry;
+  src.emptyReason -> tgt.emptyReason;
+  src.section as vs0 -> tgt.section as vt0 then section(vs0, vt0);
+}
+

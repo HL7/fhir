@@ -1,0 +1,41 @@
+map "http://hl7.org/fhir/StructureMap/RiskAssessment4to3" = "R4 to R3 Conversion for RiskAssessment"
+
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessment as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RiskAssessment" alias RiskAssessmentR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group RiskAssessment(source src : RiskAssessment, target tgt : RiskAssessmentR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.parent -> tgt.parent;
+  src.status -> tgt.status;
+  src.method -> tgt.method;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.condition -> tgt.condition;
+  src.performer -> tgt.performer;
+  src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
+  src.basis -> tgt.basis;
+  src.prediction as vs0 -> tgt.prediction as vt0 then prediction(vs0, vt0);
+  src.mitigation -> tgt.mitigation;
+  src.note as n then {
+    n.text -> tgt.comment;
+  };
+}
+
+group prediction(source src, target tgt) extends BackboneElement {
+  src.outcome -> tgt.outcome;
+  src.probability : decimal as vs -> tgt.probability = create('decimal') as vt then decimal(vs, vt);
+  src.probability : Range as vs -> tgt.probability = create('Range') as vt then Range(vs, vt);
+  src.qualitativeRisk -> tgt.qualitativeRisk;
+  src.relativeRisk -> tgt.relativeRisk;
+  src.when : Period as vs -> tgt.when = create('Period') as vt then Period(vs, vt);
+  src.when : Range as vs -> tgt.when = create('Range') as vt then Range(vs, vt);
+  src.rationale -> tgt.rationale;
+}
+

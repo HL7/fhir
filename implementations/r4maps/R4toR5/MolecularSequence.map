@@ -1,0 +1,72 @@
+map "http://hl7.org/fhir/StructureMap/Sequence3to4" = "R3 to R4 Conversions for Sequence"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Sequence" alias SequenceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias MolecularSequence as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Sequence(source src : SequenceR3, target tgt : MolecularSequence) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coordinateSystem -> tgt.coordinateSystem;
+  src.patient -> tgt.patient;
+  src.specimen -> tgt.specimen;
+  src.device -> tgt.device;
+  src.performer -> tgt.performer;
+  src.quantity -> tgt.quantity;
+  src.referenceSeq as vs0 -> tgt.referenceSeq as vt0 then referenceSeq(vs0, vt0);
+  src.variant as vs0 -> tgt.variant as vt0 then variant(vs0, vt0);
+  src.observedSeq -> tgt.observedSeq;
+  src.quality as vs0 -> tgt.quality as vt0 then quality(vs0, vt0);
+  src.readCoverage -> tgt.readCoverage;
+  src.repository as vs0 -> tgt.repository as vt0 then repository(vs0, vt0);
+  src.pointer -> tgt.pointer;
+}
+
+group referenceSeq(source src, target tgt) extends BackboneElement {
+  src.chromosome -> tgt.chromosome;
+  src.genomeBuild -> tgt.genomeBuild;
+  src.referenceSeqId -> tgt.referenceSeqId;
+  src.referenceSeqPointer -> tgt.referenceSeqPointer;
+  src.referenceSeqString -> tgt.referenceSeqString;
+  src.strand where value = 1 -> tgt.strand = 'watson';
+  src.strand where value = -1 -> tgt.strand = 'crick';
+  src.windowStart -> tgt.windowStart;
+  src.windowEnd -> tgt.windowEnd;
+}
+
+group variant(source src, target tgt) extends BackboneElement {
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.observedAllele -> tgt.observedAllele;
+  src.referenceAllele -> tgt.referenceAllele;
+  src.cigar -> tgt.cigar;
+  src.variantPointer -> tgt.variantPointer;
+}
+
+group quality(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.standardSequence -> tgt.standardSequence;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.score -> tgt.score;
+  src.method -> tgt.method;
+  src.truthTP -> tgt.truthTP;
+  src.queryTP -> tgt.queryTP;
+  src.truthFN -> tgt.truthFN;
+  src.queryFP -> tgt.queryFP;
+  src.gtFP -> tgt.gtFP;
+  src.precision -> tgt.precision;
+  src.recall -> tgt.recall;
+  src.fScore -> tgt.fScore;
+}
+
+group repository(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.url -> tgt.url;
+  src.name -> tgt.name;
+  src.datasetId -> tgt.datasetId;
+  src.variantsetId -> tgt.variantsetId;
+  src.readsetId -> tgt.readsetId;
+}
+

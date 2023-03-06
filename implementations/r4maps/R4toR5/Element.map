@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Element3to4" = "R3 to R4 Conversions for Period"
+
+uses "http://hl7.org/fhir/StructureDefinition/ElementR3" as source
+uses "http://hl7.org/fhir/StructureDefinition/Element" as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Element(source src : ElementR3, target tgt : Element) <<type+>> {
+  src.id -> tgt.id "Element-id";
+  src.extension -> tgt.extension "Element-extensions";
+}
+

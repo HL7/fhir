@@ -1,0 +1,22 @@
+map "http://hl7.org/fhir/StructureMap/Signature4to3" = "R4 to R3 Conversion for Signature"
+
+uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Signature" alias SignatureR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Signature(source src : Signature, target tgt : SignatureR3) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.when -> tgt.when;
+  src.who as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').empty() -> tgt.who = create('Reference') as vt0 then Reference(vs0, vt0);
+  src.who as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').exists() -> tgt.who = create('uri') as vt0 then {
+    vs0.reference as vs1 then uri(vs1, vt0);
+  };
+  src.onBehalfOf as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').empty() -> tgt.onBehalfOf = create('Reference') as vt0 then Reference(vs0, vt0);
+  src.onBehalfOf as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').exists() -> tgt.onBehalfOf = create('uri') as vt0 then {
+    vs0.reference as vs1 then uri(vs1, vt0);
+  };
+  src.sigFormat -> tgt.contentType;
+  src.data -> tgt.blob;
+}
+

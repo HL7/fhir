@@ -1,0 +1,24 @@
+map "http://hl7.org/fhir/StructureMap/ConceptMaps4to3" = "R4 to R3 Concept Map Library"
+
+conceptmap "ResourceTypeMap" {
+  prefix s = "http://hl7.org/fhir/request-resource-types"
+  prefix t = "http://hl7.org/fhir/request-resource-types"
+
+  unmapped for s = provided
+  s:Appointment = t:Appointment
+  s:AppointmentResponse = t:AppointmentResponse
+  s:CarePlan = t:CarePlan
+  s:Claim = t:Claim
+  s:CommunicationRequest = t:CommunicationRequest
+  s:Contract = t:Contract
+  s:DeviceRequest = t:DeviceRequest
+  s:EnrollmentRequest = t:EnrollmentRequest
+  s:ImmunizationRecommendation = t:ImmunizationRecommendation
+  s:MedicationRequest = t:MedicationRequest
+  s:NutritionOrder = t:NutritionOrder
+  s:SupplyRequest = t:SupplyRequest
+  s:ServiceRequest = t:ProcedureRequest
+  s:Task = t:Task
+  s:VisionPrescription = t:VisionPrescription
+}
+

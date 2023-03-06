@@ -1,0 +1,53 @@
+map "http://hl7.org/fhir/StructureMap/FamilyMemberHistory4to3" = "R4 to R3 Conversion for FamilyMemberHistory"
+
+uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistory as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group FamilyMemberHistory(source src : FamilyMemberHistory, target tgt : FamilyMemberHistoryR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.definition;
+  src.status -> tgt.status;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-FamilyMemberHistory.notDone' then {
+    e.value -> tgt.notDone;
+  };
+  src.dataAbsentReason -> tgt.notDoneReason;
+  src.dataAbsentReason where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-FamilyMemberHistory.notDone').empty() -> tgt.notDone = true;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.name -> tgt.name;
+  src.relationship -> tgt.relationship;
+  src.sex as cc then {
+    cc.coding as c where system = 'http://hl7.org/fhir/administrative-gender' then {
+      c.code -> tgt.gender;
+    };
+  };
+  src.born : Period as vs -> tgt.born = create('Period') as vt then Period(vs, vt);
+  src.born : Date as vs -> tgt.born = create('date') as vt then Date(vs, vt);
+  src.born : string as vs -> tgt.born = create('string') as vt then string(vs, vt);
+  src.age : Age as vs -> tgt.age = create('Age') as vt then Age(vs, vt);
+  src.age : Range as vs -> tgt.age = create('Range') as vt then Range(vs, vt);
+  src.age : string as vs -> tgt.age = create('string') as vt then string(vs, vt);
+  src.estimatedAge -> tgt.estimatedAge;
+  src.deceased : boolean as vs -> tgt.deceased = create('boolean') as vt then boolean(vs, vt);
+  src.deceased : Age as vs -> tgt.deceased = create('Age') as vt then Age(vs, vt);
+  src.deceased : Range as vs -> tgt.deceased = create('Range') as vt then Range(vs, vt);
+  src.deceased : Date as vs -> tgt.deceased = create('date') as vt then Date(vs, vt);
+  src.deceased : string as vs -> tgt.deceased = create('string') as vt then string(vs, vt);
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.condition as s -> tgt.condition as t then condition(s, t);
+}
+
+group condition(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.outcome -> tgt.outcome;
+  src.onset : string as vs -> tgt.onset = create('string') as vt then string(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create('Age') as vt then Age(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create('Range') as vt then Range(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create('Period') as vt then Period(vs, vt);
+  src.note -> tgt.note;
+}
+

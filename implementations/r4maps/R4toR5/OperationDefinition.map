@@ -1,0 +1,55 @@
+map "http://hl7.org/fhir/StructureMap/OperationDefinition3to4" = "R3 to R4 Conversions for OperationDefinition"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/OperationDefinition" alias OperationDefinitionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group OperationDefinition(source src : OperationDefinitionR3, target tgt : OperationDefinition) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.idempotent -> tgt.affectsState "affectsState";
+  src.code -> tgt.code;
+  src.comment as vs -> tgt.comment as vt then stringToMarkdown(vs, vt);
+  src.base -> tgt.base;
+  src.resource -> tgt.resource;
+  src.system -> tgt.system;
+  src.type -> tgt.type;
+  src.instance -> tgt.instance;
+  src.parameter as vs0 -> tgt.parameter as vt0 then parameter(vs0, vt0);
+  src.overload as vs0 -> tgt.overload as vt0 then {
+    vs0.parameterName -> vt0.parameterName;
+    vs0.comment -> vt0.comment;
+  };
+}
+
+group parameter(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.use -> tgt.use;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type -> tgt.type;
+  src.searchType -> tgt.searchType;
+  src.profile -> tgt.targetProfile;
+  src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0);
+  src.part as vs0 -> tgt.part as vt0 then parameter(vs0, vt0);
+}
+
+group binding(source src, target tgt) extends BackboneElement {
+  src.strength -> tgt.strength;
+  src.valueSet : uri as vs0 -> tgt.valueSet as vt0 then uri2Canonical(vs0, vt0) "valueSetU";
+  src.valueSet : Reference as vs0 -> tgt.valueSet as vt0 then Reference2Canonical(vs0, vt0) "valueSetR";
+}
+

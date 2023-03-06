@@ -1,0 +1,14 @@
+map "http://hl7.org/fhir/StructureMap/DomainResource4to3" = "R4 to R3 Conversion for DomainResource"
+
+uses "http://hl7.org/fhir/StructureDefinition/DomainResource" alias DomainResource as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DomainResource" alias DomainResourceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DomainResource(source src : DomainResource, target tgt : DomainResourceR3) extends Resource <<type+>> {
+  src.text -> tgt.text;
+  src.contained -> tgt.contained;
+  src.extension where url.startsWith('http://hl7.org/fhir/3.0/StructureDefinition').not() and (url != 'http://hl7.org/fhir/StructureDefinition/patient-animal') -> tgt.extension;
+  src.modifierExtension -> tgt.modifierExtension;
+}
+

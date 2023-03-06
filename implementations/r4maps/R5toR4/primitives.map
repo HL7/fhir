@@ -1,0 +1,201 @@
+map "http://hl7.org/fhir/StructureMap/primitives4to3" = "R4 to R3 Primitive Conversions"
+
+uses "http://hl7.org/fhir/StructureDefinition/base64Binary" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/base64Binary" alias base64BinaryR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/boolean" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/boolean" alias booleanR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/canonical" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/canonical" alias canonicalR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/code" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/code" alias codeR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/date" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/date" alias dateR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/dateTime" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/dateTime" alias dateTimeR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/decimal" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/decimal" alias decimalR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/id" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/id" alias idR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/instant" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/instant" alias instantR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/integer" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/integer" alias integerR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/markdown" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/markdown" alias markdownR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/oid" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/oid" alias oidR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/positiveInt" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/positiveInt" alias positiveIntR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/string" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/string" alias stringR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/time" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/time" alias timeR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/unsignedInt" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/unsignedInt" alias unsignedIntR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/uri" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/uri" alias uriR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/url" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/url" alias urlR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/uuid" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/uuid" alias uuidR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/xhtml" as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/xhtml" alias xhtmlR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/Element4to3"
+
+group base64Binary(source src : base64Binary, target tgt : base64BinaryR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "base64Binary-value";
+}
+
+group boolean(source src : boolean, target tgt : booleanR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "boolean-value";
+}
+
+group canonical(source src : canonical, target tgt : canonicalR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "canonical-value";
+}
+
+group code(source src : code, target tgt : codeR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "code-value";
+}
+
+group date(source src : date, target tgt : dateR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "date-value";
+}
+
+group dateTime(source src : dateTime, target tgt : dateTimeR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "dateTime-value";
+}
+
+group decimal(source src : decimal, target tgt : decimalR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "decimal-value";
+}
+
+group id(source src : id, target tgt : idR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "id-value";
+}
+
+group instant(source src : instant, target tgt : instantR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "instant-value";
+}
+
+group integer(source src : integer, target tgt : integerR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "integer-value";
+}
+
+group markdown(source src : markdown, target tgt : markdownR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "markdown-value";
+}
+
+group oid(source src : oid, target tgt : oidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "oid-value";
+}
+
+group positiveInt(source src : positiveInt, target tgt : positiveIntR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "positiveInt-value";
+}
+
+group string(source src : string, target tgt : stringR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "string-value";
+}
+
+group time(source src : time, target tgt : timeR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "time-value";
+}
+
+group unsignedInt(source src : unsignedInt, target tgt : unsignedIntR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "unsignedInt-value";
+}
+
+group uri(source src : uri, target tgt : uriR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "uri-value";
+}
+
+group url(source src : url, target tgt : urlR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "url-value";
+}
+
+group uuid(source src : uuid, target tgt : uuidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "uuid-value";
+}
+
+group xhtml(source src : xhtml, target tgt : xhtmlR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "xhtml-value";
+}
+
+group markdownToString(source src : markdown, target tgt : stringR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "markdownToString-value";
+}
+
+group code2id(source src : code, target tgt : idR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2id-value";
+}
+
+group uri2code(source src : uriR3, target tgt : code) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
+
+group string2code(source src : stringR3, target tgt : code) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
+
+group code2string(source src : codeR3, target tgt : string) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
+
+group canonical2Uri(source src : canonicalR3, target tgt : uri) extends Element <<types>> {
+  src.value as v -> tgt.value = v "canonical2uri-value";
+}
+
+group url2uri(source src : url, target tgt : uriR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uri-value";
+}
+
+group string2id(source src : string, target tgt : idR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
+
+group string2uri(source src : string, target tgt : uriR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uri-value";
+}
+
+group decimal2unsignedInt(source src : decimal, target tgt : unsignedIntR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "unsignedInt2decimal-value";
+}
+
+group canonical2string(source src : canonical, target tgt : stringR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uri-value";
+}
+
+group oid2string(source src : string, target tgt : oidR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v;
+}
+
+group id2oid(source src : id, target tgt : oidR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v;
+}
+
+group id2string(source src : id, target tgt : stringR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+
+group code2oid(source src : code, target tgt : oidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+
+group integer2positiveInt(source src : integer, target tgt : positiveIntR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "unsignedInt2decimal-value";
+}
+
+group positiveInt2integer(source src : positiveInt, target tgt : integerR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "unsignedInt2decimal-value";
+}
+
+group unsignedInt2positiveInt(source src : unsignedInt, target tgt : positiveIntR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v;
+}
+
+group code2uri(source src : code, target tgt : uriR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v;
+}
+

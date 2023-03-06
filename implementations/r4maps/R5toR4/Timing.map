@@ -1,0 +1,33 @@
+map "http://hl7.org/fhir/StructureMap/Timing4to3" = "R4 to R3 Conversion for Timing"
+
+uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Timing" alias TimingR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Timing(source src : Timing, target tgt : TimingR3) extends BackboneElement <<type+>> {
+  src.event -> tgt.event;
+  src.repeat as vs0 -> tgt.repeat as vt0 then repeat(vs0, vt0);
+  src.code -> tgt.code;
+}
+
+group repeat(source src, target tgt) extends Element {
+  src.bounds : Duration as vs -> tgt.bounds = create('Duration') as vt then Duration(vs, vt);
+  src.bounds : Range as vs -> tgt.bounds = create('Range') as vt then Range(vs, vt);
+  src.bounds : Period as vs -> tgt.bounds = create('Period') as vt then Period(vs, vt);
+  src.count -> tgt.count;
+  src.countMax -> tgt.countMax;
+  src.duration -> tgt.duration;
+  src.durationMax -> tgt.durationMax;
+  src.durationUnit -> tgt.durationUnit;
+  src.frequency -> tgt.frequency;
+  src.frequencyMax -> tgt.frequencyMax;
+  src.period -> tgt.period;
+  src.periodMax -> tgt.periodMax;
+  src.periodUnit -> tgt.periodUnit;
+  src.dayOfWeek -> tgt.dayOfWeek;
+  src.timeOfDay -> tgt.timeOfDay;
+  src.when -> tgt.when;
+  src.offset -> tgt.offset;
+}
+

@@ -1,0 +1,65 @@
+map "http://hl7.org/fhir/StructureMap/ActivityDefinition4to3" = "R4 to R3 Conversion for ActivityDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" alias ActivityDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ActivityDefinition(source src : ActivityDefinition, target tgt : ActivityDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.subtitle -> tgt.subtitle;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.subject -> tgt.subject;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor' then Contributor(vs, vt);
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer' then Contributor(vs, vt);
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser' then Contributor(vs, vt);
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.library -> tgt.library;
+  src.kind as v -> tgt.kind = translate(v, 'http://hl7.org/fhir/StructureMap/ConceptMaps4to3#ResourceTypeMap', 'code');
+  src.code -> tgt.code;
+  src.doNotPerform -> tgt.doNotPerform;
+  src.timing -> tgt.timing;
+  src.location -> tgt.location;
+  src.participant as s -> tgt.participant as t then ActivityDefinitionParticipant(s, t);
+  src.product -> tgt.product;
+  src.quantity -> tgt.quantity;
+  src.dosage -> tgt.dosage;
+  src.bodySite -> tgt.bodySite;
+  src.specimenRequirement -> tgt.specimenRequirement;
+  src.transform -> tgt.transform;
+  src.dynamicValue as s -> tgt.dynamicValue as t then ActivityDefinitionDynamicValue(s, t);
+}
+
+group ActivityDefinitionParticipant(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.role -> tgt.role;
+}
+
+group ActivityDefinitionDynamicValue(source src, target tgt) extends BackboneElement {
+  src.path -> tgt.path;
+  src.expression as vs where vs.type.exists().not() -> tgt as vt then {
+    vs.description -> vt.description;
+    vs.language -> vt.language;
+    vs.expression -> vt.expression;
+  };
+}
+

@@ -1,0 +1,32 @@
+map "http://hl7.org/fhir/StructureMap/PractitionerRole4to3" = "R4 to R3 Conversion for PractitionerRole"
+
+uses "http://hl7.org/fhir/StructureDefinition/PractitionerRole" alias PractitionerRole as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/PractitionerRole" alias PractitionerRoleR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group PractitionerRole(source src : PractitionerRole, target tgt : PractitionerRoleR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.period -> tgt.period;
+  src.practitioner -> tgt.practitioner;
+  src.organization -> tgt.organization;
+  src.code -> tgt.code;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.healthcareService -> tgt.healthcareService;
+  src.telecom -> tgt.telecom;
+  src.availableTime as vs0 -> tgt.availableTime as vt0 then {
+    vs0.daysOfWeek -> vt0.daysOfWeek;
+    vs0.allDay -> vt0.allDay;
+    vs0.availableStartTime -> vt0.availableStartTime;
+    vs0.availableEndTime -> vt0.availableEndTime;
+  };
+  src.notAvailable as vs0 -> tgt.notAvailable as vt0 then {
+    vs0.description -> vt0.description;
+    vs0.during -> vt0.during;
+  };
+  src.availabilityExceptions -> tgt.availabilityExceptions;
+  src.endpoint -> tgt.endpoint;
+}
+

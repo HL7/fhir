@@ -1,0 +1,15 @@
+map "http://hl7.org/fhir/StructureMap/Expression4to3" = "R4 to R3 Conversion for Expression"
+
+uses "http://hl7.org/fhir/StructureDefinition/Expression" alias Expression as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Expression" alias ExpressionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Expression(source src : Expression, target tgt : ExpressionR3) extends Element <<type+>> {
+  src.description -> tgt.description;
+  src.name -> tgt.name;
+  src.language -> tgt.language;
+  src.expression -> tgt.expression;
+  src.reference -> tgt.reference;
+}
+

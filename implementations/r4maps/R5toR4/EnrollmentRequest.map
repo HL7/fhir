@@ -1,0 +1,17 @@
+map "http://hl7.org/fhir/StructureMap/EnrollmentRequest4to3" = "R4 to R3 Conversion for EnrollmentRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentRequest" alias EnrollmentRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group EnrollmentRequest(source src : EnrollmentRequest, target tgt : EnrollmentRequestR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.created -> tgt.created;
+  src.insurer -> tgt.insurer;
+  src.provider -> tgt.provider;
+  src.candidate -> tgt.subject;
+  src.coverage -> tgt.coverage;
+}
+

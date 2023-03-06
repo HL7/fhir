@@ -1,0 +1,21 @@
+map "http://hl7.org/fhir/StructureMap/Slot4to3" = "R4 to R3 Conversion for Slot"
+
+uses "http://hl7.org/fhir/StructureDefinition/Slot" alias Slot as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Slot" alias SlotR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Slot(source src : Slot, target tgt : SlotR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.serviceCategory -> tgt.serviceCategory;
+  src.serviceType -> tgt.serviceType;
+  src.specialty -> tgt.specialty;
+  src.appointmentType -> tgt.appointmentType;
+  src.schedule -> tgt.schedule;
+  src.status -> tgt.status;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.overbooked -> tgt.overbooked;
+  src.comment -> tgt.comment;
+}
+

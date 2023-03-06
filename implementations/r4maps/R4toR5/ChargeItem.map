@@ -1,0 +1,40 @@
+map "http://hl7.org/fhir/StructureMap/ChargeItem3to4" = "R3 to R4 Conversions for ChargeItem"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ChargeItem" alias ChargeItemR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItem as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ChargeItem(source src : ChargeItemR3, target tgt : ChargeItem) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.definition -> tgt.definitionUri;
+  src.status -> tgt.status;
+  src.partOf -> tgt.partOf;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.occurrence -> tgt.occurrence;
+  src.participant as s -> tgt.performer as t then ChargeItemPerformer(s, t);
+  src.performingOrganization -> tgt.performingOrganization;
+  src.requestingOrganization -> tgt.requestingOrganization;
+  src.costCenter -> tgt.costCenter;
+  src.quantity -> tgt.quantity;
+  src.bodysite -> tgt.bodysite;
+  src.factorOverride -> tgt.factorOverride;
+  src.priceOverride -> tgt.priceOverride;
+  src.overrideReason -> tgt.overrideReason;
+  src.enterer -> tgt.enterer;
+  src.enteredDate -> tgt.enteredDate;
+  src.reason -> tgt.reason;
+  src.service -> tgt.service;
+  src.product -> tgt.product;
+  src.account -> tgt.account;
+  src.note -> tgt.note;
+  src.supportingInformation -> tgt.supportingInformation;
+}
+
+group ChargeItemPerformer(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
