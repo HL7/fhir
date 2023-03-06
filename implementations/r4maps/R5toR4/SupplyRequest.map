@@ -1,0 +1,34 @@
+map "http://hl7.org/fhir/StructureMap/SupplyRequest4to3" = "R4 to R3 Conversion for SupplyRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyRequest" alias SupplyRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group SupplyRequest(source src : SupplyRequest, target tgt : SupplyRequestR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.item : CodeableConcept as vs ->  tgt.orderedItem as t,  t.item = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs ->  tgt.orderedItem as t,  t.item = create('Reference') as vt then Reference(vs, vt);
+  src.quantity as vs ->  tgt.orderedItem as t,  t.quantity as vt then Quantity(vs, vt);
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.occurrence : Timing as vs -> tgt.occurrence = create('Timing') as vt then Timing(vs, vt);
+  src.authoredOn -> tgt.authoredOn;
+  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf').exists() -> tgt.requester as vt0 then agent(src, vt0) "requester";
+  src.supplier -> tgt.supplier;
+  src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
+  src.deliverFrom -> tgt.deliverFrom;
+  src.deliverTo -> tgt.deliverTo;
+}
+
+group agent(source src, target tgt) {
+  src.requester -> tgt.agent;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+

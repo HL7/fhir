@@ -1,0 +1,33 @@
+map "http://hl7.org/fhir/StructureMap/MedicationStatement3to4" = "R3 to R4 Conversions for MedicationStatement"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationStatement" alias MedicationStatementR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group MedicationStatement(source src : MedicationStatementR3, target tgt : MedicationStatement) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.context -> tgt.context;
+  src.status as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status',  vt.value = v;
+  src.taken as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.taken',  vt.value = v;
+  src.status where (src.taken in ('n' | 'unk')).not() -> tgt.status;
+  src.taken where value = 'n' -> tgt.status = 'not-taken';
+  src.taken where value = 'unk' -> tgt.status = 'unknown';
+  src.category -> tgt.category;
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.dateAsserted -> tgt.dateAsserted;
+  src.informationSource -> tgt.informationSource;
+  src.subject -> tgt.subject;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.reasonNotTaken -> tgt.reasonCode;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.dosage -> tgt.dosage;
+}
+

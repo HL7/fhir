@@ -1,0 +1,49 @@
+map "http://hl7.org/fhir/StructureMap/ResearchStudy3to4" = "R3 to R4 Conversions for ResearchStudy"
+
+conceptmap "ResourceStudyStatus" {
+  prefix s = "http://hl7.org/fhir/research-study-status"
+  prefix t = "http://hl7.org/fhir/research-study-status"
+
+  s:draft - t:"in-review"
+  s:"in-progress" - t:active
+  s:suspended - t:disapproved
+  s:stopped - t:withdrawn
+  s:completed - t:"administratively-completed"
+  s:"entered-in-error" - t:withdrawn
+}
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchStudy" alias ResearchStudyR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudy as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ResearchStudy(source src : ResearchStudyR3, target tgt : ResearchStudy) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.title -> tgt.title;
+  src.protocol -> tgt.protocol;
+  src.partOf -> tgt.partOf;
+  src.status as v -> tgt.status = translate(v, '#ResourceStudyStatus', 'code');
+  src.category -> tgt.category;
+  src.focus -> tgt.focus;
+  src.contact -> tgt.contact;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.keyword -> tgt.keyword;
+  src.location -> tgt.location;
+  src.jurisdiction as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ResearchStudy.jurisdiction',  vt.value = v;
+  src.description -> tgt.description;
+  src.enrollment -> tgt.enrollment;
+  src.period -> tgt.period;
+  src.sponsor -> tgt.sponsor;
+  src.principalInvestigator -> tgt.principalInvestigator;
+  src.site -> tgt.site;
+  src.reasonStopped -> tgt.reasonStopped;
+  src.note -> tgt.note;
+  src.arm as s -> tgt.arm as t then arm(s, t);
+}
+
+group arm(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.code -> tgt.type;
+  src.description -> tgt.description;
+}
+

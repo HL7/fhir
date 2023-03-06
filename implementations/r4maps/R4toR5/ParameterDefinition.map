@@ -1,0 +1,16 @@
+map "http://hl7.org/fhir/StructureMap/ParameterDefinition3to4" = "R3 to R4 Conversions for ParameterDefinition"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias ParameterDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ParameterDefinition(source src : ParameterDefinitionR3, target tgt : ParameterDefinition) extends Element <<type+>> {
+  src.name -> tgt.name;
+  src.use -> tgt.use;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type -> tgt.type;
+}
+

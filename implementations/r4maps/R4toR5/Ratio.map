@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Ratio3to4" = "R3 to R4 Conversions for Ratio"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Ratio" alias RatioR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Ratio" alias Ratio as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Ratio(source src : RatioR3, target tgt : Ratio) extends Element <<type+>> {
+  src.numerator -> tgt.numerator;
+  src.denominator -> tgt.denominator;
+}
+

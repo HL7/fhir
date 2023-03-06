@@ -1,0 +1,51 @@
+map "http://hl7.org/fhir/StructureMap/OccupationalData3to4" = "R3 to R4 Conversions for OccupationalData"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/OccupationalData" alias OccupationalDataR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/OccupationalData" alias OccupationalData as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group OccupationalData(source src : OccupationalDataR3, target tgt : OccupationalData) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.date -> tgt.date;
+  src.recorder -> tgt.recorder;
+  src.informant -> tgt.informant;
+  src.employmentStatus as s -> tgt.employmentStatus as t then OccupationalDataEmploymentStatus(s, t);
+  src.retirementDate -> tgt.retirementDate;
+  src.combatZonePeriod -> tgt.combatZonePeriod;
+  src.usualWork as s -> tgt.usualWork as t then OccupationalDataUsualWork(s, t);
+  src.pastOrPresentJob as s -> tgt.pastOrPresentJob as t then OccupationalDataPastOrPresentJob(s, t);
+}
+
+group OccupationalDataEmploymentStatus(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.effective -> tgt.effective;
+}
+
+group OccupationalDataUsualWork(source src, target tgt) extends BackboneElement {
+  src.occupation -> tgt.occupation;
+  src.industry -> tgt.industry;
+  src.start -> tgt.start;
+  src.duration -> tgt.duration;
+}
+
+group OccupationalDataPastOrPresentJob(source src, target tgt) extends BackboneElement {
+  src.occupation -> tgt.occupation;
+  src.industry -> tgt.industry;
+  src.effective -> tgt.effective;
+  src.employer -> tgt.employer;
+  src.workClassification -> tgt.workClassification;
+  src.supervisoryLevel -> tgt.supervisoryLevel;
+  src.jobDuty -> tgt.jobDuty;
+  src.occupationalHazard -> tgt.occupationalHazard;
+  src.workSchedule as s -> tgt.workSchedule as t then OccupationalDataPastOrPresentJobWorkSchedule(s, t);
+}
+
+group OccupationalDataPastOrPresentJobWorkSchedule(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.weeklyWorkDays -> tgt.weeklyWorkDays;
+  src.dailyWorkHours -> tgt.dailyWorkHours;
+}
+

@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/EligibilityRequest3to4" = "R3 to R4 Conversions for (Coverage)EligibilityRequest"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityRequest" alias EligibilityRequestR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest" alias CoverageEligibilityRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group EligibilityRequest(source src : EligibilityRequestR3, target tgt : CoverageEligibilityRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.priority -> tgt.priority;
+  src.patient -> tgt.patient;
+  src.serviced -> tgt.serviced;
+  src.created -> tgt.created;
+  src.enterer -> tgt.enterer;
+  src.provider -> tgt.provider;
+  src.insurer -> tgt.insurer;
+  src.facility -> tgt.facility;
+  src.coverage as coverage -> tgt.insurance as insurance then {
+    src ->  insurance.focal = true,  insurance.coverage = coverage "focal";
+    src.businessArrangement as ba -> insurance.businessArrangement = ba;
+  };
+  src.benefitCategory as bc -> tgt.item as item then {
+    src -> item.category = bc "category";
+  };
+}
+

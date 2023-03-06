@@ -1,0 +1,36 @@
+map "http://hl7.org/fhir/StructureMap/DocumentManifest4to3" = "R4 to R3 Conversion for DocumentManifest"
+
+uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentManifest" alias DocumentManifestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DocumentManifest(source src : DocumentManifest, target tgt : DocumentManifestR3) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.masterIdentifier;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.created -> tgt.created;
+  src.author -> tgt.author;
+  src.recipient -> tgt.recipient;
+  src.source -> tgt.source;
+  src.description -> tgt.description;
+  src.content as s -> tgt.content as t then content(s, t);
+  src.related as s -> tgt.related as t then DocumentManifestRelated(s, t);
+}
+
+group content(source src, target tgt) extends Element {
+  src.extension as s where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentManifest.content.p_Attachment' then contentAttachment(s, tgt);
+  src where extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentManifest.content.p_Attachment').empty() -> tgt.p = create('Reference') as p then Reference(src, p) "attachment";
+}
+
+group contentAttachment(source src, target tgt) extends Element {
+  src.value : Attachment as s -> tgt.p = create('Attachment') as t then Attachment(s, t);
+}
+
+group DocumentManifestRelated(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.ref -> tgt.ref;
+}
+

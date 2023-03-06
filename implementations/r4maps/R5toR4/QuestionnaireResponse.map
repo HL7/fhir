@@ -1,0 +1,37 @@
+map "http://hl7.org/fhir/StructureMap/QuestionnaireResponse4to3" = "R4 to R3 Conversion for QuestionnaireResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group QuestionnaireResponse(source src : QuestionnaireResponse, target tgt : QuestionnaireResponseR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.parent;
+  src.questionnaire -> tgt.questionnaire;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.authored -> tgt.authored;
+  src.author -> tgt.author;
+  src.source -> tgt.source;
+  src.item as vs0 -> tgt.item as vt0 then item(vs0, vt0);
+}
+
+group item(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
+  src.definition -> tgt.definition;
+  src.text -> tgt.text;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-QuestionnaireResponse.item.subject' then {
+    e.value -> tgt.subject;
+  };
+  src.answer as vs0 -> tgt.answer as vt0 then answer(vs0, vt0);
+  src.item as vs0 -> tgt.item as vt0 then item(vs0, vt0);
+}
+
+group answer(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+  src.item as vs0 -> tgt.item as vt0 then item(vs0, vt0);
+}
+

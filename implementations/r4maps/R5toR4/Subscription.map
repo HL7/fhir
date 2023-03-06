@@ -1,0 +1,24 @@
+map "http://hl7.org/fhir/StructureMap/Subscription4to3" = "R4 to R3 Conversion for Subscription"
+
+uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias Subscription as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Subscription" alias SubscriptionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Subscription(source src : Subscription, target tgt : SubscriptionR3) extends DomainResource <<type+>> {
+  src.status -> tgt.status;
+  src.contact -> tgt.contact;
+  src.end -> tgt.end;
+  src.reason -> tgt.reason;
+  src.criteria -> tgt.criteria;
+  src.error -> tgt.error;
+  src.channel as vs0 -> tgt.channel as vt0 then channel(vs0, vt0);
+}
+
+group channel(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.endpoint -> tgt.endpoint;
+  src.payload -> tgt.payload;
+  src.header -> tgt.header;
+}
+

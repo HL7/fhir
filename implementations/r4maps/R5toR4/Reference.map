@@ -1,0 +1,40 @@
+map "http://hl7.org/fhir/StructureMap/Reference4to3" = "R4 to R3 Conversion for Reference"
+
+uses "http://hl7.org/fhir/StructureDefinition/Reference" alias Reference as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Reference" alias ReferenceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Reference(source src : Reference, target tgt : ReferenceR3) extends Element <<type+>> {
+  src.reference -> tgt.reference;
+  src.identifier -> tgt.identifier;
+  src.display -> tgt.display;
+}
+
+group ReferenceNoIdentifier(source src : Reference, target tgt : ReferenceR3) extends Element {
+  src.reference -> tgt.reference;
+  src.display -> tgt.display;
+}
+
+group canonical2Reference(source src : canonical, target tgt : ReferenceR3) <<types>> {
+  src.id -> tgt.id "Element-id";
+  src.extension where (url.startsWith('http://hl7.org/fhir/3.0/StructureDefinition').not() and (url != 'http://hl7.org/fhir/StructureDefinition/rendered-value')) -> tgt.extension "Element-extensions";
+  src.value -> tgt.reference "reference";
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/rendered-value' then {
+    e.value -> tgt.display;
+  };
+}
+
+group uri2Reference(source src : uri, target tgt : ReferenceR3) <<types>> {
+  src.id -> tgt.id "Element-id";
+  src.extension where (url.startsWith('http://hl7.org/fhir/3.0/StructureDefinition').not() and (url != 'http://hl7.org/fhir/StructureDefinition/rendered-value')) -> tgt.extension "Element-extensions";
+  src.value -> tgt.reference "reference";
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/rendered-value' then {
+    e.value -> tgt.display;
+  };
+}
+
+group Reference2Identifier(source src : Reference, target tgt : IdentifierR3) extends Element <<types>> {
+  src.identifier as vs0 then Identifier(vs0, tgt) "inner";
+}
+

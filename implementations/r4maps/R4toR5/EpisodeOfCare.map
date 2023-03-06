@@ -1,0 +1,33 @@
+map "http://hl7.org/fhir/StructureMap/EpisodeOfCare3to4" = "R3 to R4 Conversions for EpisodeOfCare"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group EpisodeOfCare(source src : EpisodeOfCareR3, target tgt : EpisodeOfCare) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.statusHistory as vs0 -> tgt.statusHistory as vt0 then statusHistory(vs0, vt0);
+  src.type -> tgt.type;
+  src.diagnosis as vs0 -> tgt.diagnosis as vt0 then diagnosis(vs0, vt0);
+  src.patient -> tgt.patient;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.period -> tgt.period;
+  src.referralRequest -> tgt.referralRequest;
+  src.careManager -> tgt.careManager;
+  src.team -> tgt.team;
+  src.account -> tgt.account;
+}
+
+group statusHistory(source src, target tgt) extends BackboneElement {
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+}
+
+group diagnosis(source src, target tgt) extends BackboneElement {
+  src.condition -> tgt.condition;
+  src.role -> tgt.role;
+  src.rank -> tgt.rank;
+}
+

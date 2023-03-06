@@ -1,0 +1,46 @@
+<mappingExceptions pattern="ParticipantLiving" resource="Practitioner"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="ParticipantLiving.birthDate" resourcePath="Practitioner.birthDate">
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="The date of birth for the individual"/>
+            <resource value="The date  on which the practitioner was born"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date of birth for the individual."/>
+            <resource value="The date of birth for the practitioner."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantLiving.gender" resourcePath="Practitioner.gender">
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Administrative Gender - the gender that the participant is considered to have for administration and record keeping purposes."/>
+            <resource value="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Needed for identification of the individual, in combination with (at least) name and birth date."/>
+            <resource value="Needed to address the person correctly."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantLiving.photo" resourcePath="Practitioner.photo">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Image of the participant"/>
+            <resource value="Image of the person"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Image of the participant."/>
+            <resource value="Image of the person."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Many EHR systems have the capability to capture an image of the participant. Fits with newer social media usage too."/>
+            <resource value="Many EHR systems have the capability to capture an image of patients and personnel. Fits with newer social media usage too."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Participant.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.name" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.active" reason="Unknown"/>
+    <unmappedElement patternPath="ParticipantContactable.address" reason="Unknown"/>
+    <unmappedElement patternPath="ParticipantLiving.communication" reason="Unknown"/>
+    <unmappedElement patternPath="ParticipantContactable.telecom" reason="Unknown"/>
+</mappingExceptions>

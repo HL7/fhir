@@ -1,0 +1,10 @@
+map "http://hl7.org/fhir/StructureMap/Age3to4" = "R3 to R4 Conversions for Age"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Age" alias AgeR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Age" alias Age as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Age(source src : AgeR3, target tgt : Age) extends Quantity <<type+>> {
+}
+

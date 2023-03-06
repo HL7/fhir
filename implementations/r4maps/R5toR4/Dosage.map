@@ -1,0 +1,32 @@
+map "http://hl7.org/fhir/StructureMap/Dosage4to3" = "R4 to R3 Conversion for Dosage"
+
+uses "http://hl7.org/fhir/StructureDefinition/Dosage" alias Dosage as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Dosage" alias DosageR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Dosage(source src : Dosage, target tgt : DosageR3) extends BackboneElement <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.text -> tgt.text;
+  src.additionalInstruction -> tgt.additionalInstruction;
+  src.patientInstruction -> tgt.patientInstruction;
+  src.timing -> tgt.timing;
+  src.asNeeded : boolean as vs -> tgt.asNeeded = create('boolean') as vt then boolean(vs, vt);
+  src.asNeeded : CodeableConcept as vs -> tgt.asNeeded = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.doseAndRate as vs0 then doseAndRate(vs0, tgt);
+  src.maxDosePerPeriod -> tgt.maxDosePerPeriod;
+  src.maxDosePerAdministration -> tgt.maxDosePerAdministration;
+  src.maxDosePerLifetime -> tgt.maxDosePerLifetime;
+}
+
+group doseAndRate(source src, target tgt) {
+  src.dose : Range as vs -> tgt.dose = create('Range') as vt then Range(vs, vt);
+  src.dose : Quantity as vs -> tgt.dose = create('Quantity') as vt then Quantity(vs, vt);
+  src.rate : Ratio as vs -> tgt.rate = create('Ratio') as vt then Ratio(vs, vt);
+  src.rate : Range as vs -> tgt.rate = create('Range') as vt then Range(vs, vt);
+  src.rate : Quantity as vs -> tgt.rate = create('Quantity') as vt then Quantity(vs, vt);
+}
+

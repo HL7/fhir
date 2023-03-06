@@ -1,0 +1,58 @@
+map "http://hl7.org/fhir/StructureMap/ImagingStudy3to4" = "R3 to R4 Conversions for ImagingStudy"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStudyR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ImagingStudy(source src : ImagingStudyR3, target tgt : ImagingStudy) extends DomainResource <<type+>> {
+  src.uid as s ->  tgt.identifier as i,  i.system = 'urn:dicom:uid',  i.value = s;
+  src.identifier -> tgt.identifier;
+  src.accession -> tgt.identifier;
+  src.availability where (value = 'OFFLINE') or (value = 'UNAVAILABLE') -> tgt.status = 'registered';
+  src.availability where (value = 'ONLINE') or (value = 'NEARLINE') -> tgt.status = 'available';
+  src.availability where value.empty() -> tgt.status = 'unknown';
+  src.modalityList -> tgt.modality;
+  src.patient -> tgt.subject;
+  src.context -> tgt.encounter;
+  src.started -> tgt.started;
+  src.basedOn -> tgt.basedOn;
+  src.referrer -> tgt.referrer;
+  src.interpreter -> tgt.interpreter;
+  src.endpoint -> tgt.endpoint;
+  src.numberOfSeries -> tgt.numberOfSeries;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.procedureReference -> tgt.procedureReference;
+  src.procedureCode -> tgt.procedureCode;
+  src.reason -> tgt.reasonCode;
+  src.description -> tgt.description;
+  src.series as vs -> tgt.series as vt then series(vs, vt);
+}
+
+group series(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
+  src.number -> tgt.number;
+  src.modality -> tgt.modality;
+  src.description -> tgt.description;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.availability as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImagingStudy.series.availability',  vt.value = v;
+  src.endpoint -> tgt.endpoint;
+  src.bodySite -> tgt.bodySite;
+  src.laterality -> tgt.laterality;
+  src.started -> tgt.started;
+  src.performer as vs -> tgt.performer as vt then performer(vs, vt);
+  src.instance as vs -> tgt.instance as vt then instance(vs, vt);
+}
+
+group performer(source src, target tgt) extends BackboneElement {
+  src ->  tgt.function as t,  t.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',  c.code = 'PRF' "function";
+  src -> tgt.actor as t then Reference(src, t) "actor";
+}
+
+group instance(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
+  src.number -> tgt.number;
+  src.sopClass as v ->  tgt.sopClass as t,  t.system = 'urn:ietf:rfc:3986',  t.code = v;
+  src.title -> tgt.title;
+}
+

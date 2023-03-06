@@ -1,0 +1,46 @@
+<mappingExceptions pattern="Participant" resource="Patient"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Participant.identifier" resourcePath="Patient.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for participant"/>
+            <resource value="An identifier for this patient"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="An identifier for this patient."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the participant as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Patients are almost always assigned specific numerical identifiers."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Participant.active" resourcePath="Patient.active">
+        <modifier _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Whether the participant is currently active"/>
+            <resource value="Whether this patient's record is in active use"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Whether this participant record is in active use."/>
+            <resource value="Whether this patient record is in active use. &#xa;Many systems use this property to mark as non-current patients, such as those that have not been seen for a period of time based on an organization's business rules.&#xa;&#xa;It is often used to filter patient lists to exclude inactive patients&#xa;&#xa;Deceased patients may also be marked as inactive for the same reasons, but may be active for some time after death."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Participant.name" resourcePath="Patient.name">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="string" reason="Unknown"/>
+        <extraTypes _resource="HumanName" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="A name for the participant"/>
+            <resource value="A name associated with the patient"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Description of participant as presented to a consumer while searching."/>
+            <resource value="A name associated with the individual."/>
+        </definitionUnmatched>
+    </divergentElement>
+</mappingExceptions>

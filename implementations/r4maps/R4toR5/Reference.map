@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/Reference3to4" = "R3 to R4 Conversions for Reference"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Reference" alias ReferenceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Reference" alias Reference as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Reference(source src : ReferenceR3, target tgt : Reference) extends Element <<type+>> {
+  src.reference -> tgt.reference;
+  src.identifier -> tgt.identifier;
+  src.display -> tgt.display;
+}
+
+group Reference2Canonical(source src : ReferenceR3, target tgt : canonical) extends Element <<types>> {
+  src.reference as vs then uri2Canonical(vs, tgt);
+  src.display as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/StructureDefinition/rendered-value',  vt.value = v;
+}
+
+group Reference2uri(source src : ReferenceR3, target tgt : uri) extends Element <<types>> {
+  src.reference as vs then uri(vs, tgt);
+  src.display as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/StructureDefinition/rendered-value',  vt.value = v;
+}
+
+group Identifier2Reference(source src : IdentifierR3, target tgt : Reference) extends Element <<types>> {
+  src -> tgt.identifier as vt0 then Identifier(src, vt0) "inner";
+}
+

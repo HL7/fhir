@@ -1,0 +1,59 @@
+map "http://hl7.org/fhir/StructureMap/CoverageEligibilityResponse4to3" = "R4 to R3 Conversion for (Coverage)EligibilityResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponse as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityResponse" alias EligibilityResponseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR3, target tgt : EligibilityResponse) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.serviced -> tgt.serviced;
+  src.created -> tgt.created;
+  src.requestor -> tgt.requestProvider;
+  src.request -> tgt.request;
+  src.outcome as vs where value in ('complete' | 'error' | 'partial') ->  tgt.outcome as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/remittance-outcome',  c.code = vs;
+  src.disposition -> tgt.disposition;
+  src.insurer -> tgt.insurer;
+  src.insurance as s -> tgt.insurance as t then CoverageEligibilityResponseInsurance(s, t);
+  src.preAuthRef -> tgt.preAuthRef;
+  src.form -> tgt.form;
+  src.error as s -> tgt.error as t then CoverageEligibilityResponseError(s, t);
+}
+
+group CoverageEligibilityResponseInsurance(source src, target tgt) extends BackboneElement {
+  src.coverage -> tgt.coverage;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CoverageEligibilityResponse.insurance.contract' then {
+    e.value -> tgt.contract;
+  };
+  src.item as s -> tgt.benefitBalance as t then CoverageEligibilityResponseInsuranceDetail(s, t);
+}
+
+group CoverageEligibilityResponseInsuranceDetail(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.service -> tgt.service;
+  src.modifier -> tgt.modifier;
+  src.provider -> tgt.provider;
+  src.excluded -> tgt.excluded;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.network -> tgt.network;
+  src.unit -> tgt.unit;
+  src.term -> tgt.term;
+  src.benefit as s -> tgt.benefit as t then CoverageEligibilityResponseInsuranceDetailBenefit(s, t);
+  src.authorizationRequired -> tgt.authorizationRequired;
+  src.authorizationSupporting -> tgt.authorizationSupporting;
+  src.authorizationUrl -> tgt.authorizationUrl;
+}
+
+group CoverageEligibilityResponseInsuranceDetailBenefit(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.allowed -> tgt.allowed;
+  src.used -> tgt.used;
+}
+
+group CoverageEligibilityResponseError(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+}
+

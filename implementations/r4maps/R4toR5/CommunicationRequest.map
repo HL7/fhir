@@ -1,0 +1,42 @@
+map "http://hl7.org/fhir/StructureMap/CommunicationRequest3to4" = "R3 to R4 Conversions for CommunicationRequest"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CommunicationRequest" alias CommunicationRequestR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group CommunicationRequest(source src : CommunicationRequestR3, target tgt : CommunicationRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.medium -> tgt.medium;
+  src.subject -> tgt.subject;
+  src.recipient -> tgt.recipient;
+  src.topic -> tgt.about;
+  src.context -> tgt.encounter;
+  src.payload as s -> tgt.payload as t then payload(s, t);
+  src.occurrence : dateTime as s -> tgt.occurrence = create('dateTime') as t then dateTime(s, t);
+  src.occurrence : Period as s -> tgt.occurrence = create('Period') as t then Period(s, t);
+  src.authoredOn -> tgt.authoredOn;
+  src.sender -> tgt.sender;
+  src.requester as vs0 -> tgt then agent(vs0, tgt);
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+}
+
+group agent(source src, target tgt) {
+  src.agent -> tgt.requester;
+  src.onBehalfOf as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CommunicationRequest.requester.onBehalfOf',  vt.value = v;
+}
+
+group payload(source src, target tgt) extends BackboneElement {
+  src.content : string as s -> tgt.content = create('string') as t then string(s, t);
+  src.content : Attachment as s -> tgt.content = create('Attachment') as t then Attachment(s, t);
+  src.content : Reference as s -> tgt.content = create('Reference') as t then Reference(s, t);
+}
+

@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/EntryDefinition4to3" = "R4 to R3 Conversion for EntryDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/EntryDefinition" alias EntryDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EntryDefinition" alias EntryDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group EntryDefinition(source src : EntryDefinition, target tgt : EntryDefinitionR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.orderable -> tgt.orderable;
+  src.referencedItem -> tgt.referencedItem;
+  src.additionalIdentifier -> tgt.additionalIdentifier;
+  src.classification -> tgt.classification;
+  src.status -> tgt.status;
+  src.validityPeriod -> tgt.validityPeriod;
+  src.lastUpdated -> tgt.lastUpdated;
+  src.additionalCharacteristic -> tgt.additionalCharacteristic;
+  src.additionalClassification -> tgt.additionalClassification;
+  src.relatedEntry as s -> tgt.relatedEntry as t then EntryDefinitionRelatedEntry(s, t);
+}
+
+group EntryDefinitionRelatedEntry(source src, target tgt) extends BackboneElement {
+  src.relationtype -> tgt.relationtype;
+  src.item -> tgt.item;
+}
+

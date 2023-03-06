@@ -1,0 +1,59 @@
+map "http://hl7.org/fhir/StructureMap/ImagingStudy4to3" = "R4 to R3 Conversion for ImagingStudy"
+
+uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStudyR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ImagingStudy(source src : ImagingStudy, target tgt : ImagingStudyR3) extends DomainResource <<type+>> {
+  src.identifier as vs where system != 'urn:dicom:uid' -> tgt.identifier as vt then Identifier(vs, vt);
+  src.identifier as vs where system = 'urn:dicom:uid' then {
+    vs.value -> tgt.uid;
+  };
+  src.status where value = 'registered' -> tgt.availability = 'OFFLINE';
+  src.status where value = 'available' -> tgt.availability = 'ONLINE';
+  src.modality -> tgt.modalityList;
+  src.subject -> tgt.patient;
+  src.encounter -> tgt.context;
+  src.started -> tgt.started;
+  src.basedOn -> tgt.basedOn;
+  src.referrer -> tgt.referrer;
+  src.interpreter -> tgt.interpreter;
+  src.endpoint -> tgt.endpoint;
+  src.numberOfSeries -> tgt.numberOfSeries;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.procedureReference -> tgt.procedureReference;
+  src.procedureCode -> tgt.procedureCode;
+  src.reasonCode -> tgt.reason;
+  src.description -> tgt.description;
+  src.series as vs -> tgt.series as vt then series(vs, vt);
+}
+
+group series(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
+  src.number -> tgt.number;
+  src.modality -> tgt.modality;
+  src.description -> tgt.description;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImagingStudy.series.availability' then {
+    e.value -> tgt.availability;
+  };
+  src.endpoint -> tgt.endpoint;
+  src.bodySite -> tgt.bodySite;
+  src.laterality -> tgt.laterality;
+  src.started -> tgt.started;
+  src.performer as vs where function.coding.where((system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType') and (code = 'PRF')) then {
+    vs.actor -> tgt.performer;
+  };
+  src.instance as vs -> tgt.instance as vt then instance(vs, vt);
+}
+
+group instance(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
+  src.number -> tgt.number;
+  src.sopClass as s where system = 'urn:ietf:rfc:3986' then {
+    s.code -> tgt.sopClass;
+  };
+  src.title -> tgt.title;
+}
+

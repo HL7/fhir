@@ -1,0 +1,46 @@
+map "http://hl7.org/fhir/StructureMap/SpecimenDefinition3to4" = "R3 to R4 Conversions for SpecimenDefinition"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group SpecimenDefinition(source src : SpecimenDefinitionR3, target tgt : SpecimenDefinition) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.typeCollected -> tgt.typeCollected;
+  src.patientPreparation -> tgt.patientPreparation;
+  src.timeAspect -> tgt.timeAspect;
+  src.collection -> tgt.collection;
+  src.specimenToLab as s -> tgt.specimenToLab as t then SpecimenDefinitionSpecimenToLab(s, t);
+}
+
+group SpecimenDefinitionSpecimenToLab(source src, target tgt) extends BackboneElement {
+  src.isDerived -> tgt.isDerived;
+  src.type -> tgt.type;
+  src.preference -> tgt.preference;
+  src.containerMaterial -> tgt.containerMaterial;
+  src.containerType -> tgt.containerType;
+  src.containerCap -> tgt.containerCap;
+  src.containerDescription -> tgt.containerDescription;
+  src.containerCapacity -> tgt.containerCapacity;
+  src.containerMinimumVolume -> tgt.containerMinimumVolume;
+  src.containerAdditive as s -> tgt.containerAdditive as t then SpecimenDefinitionSpecimenToLabContainerAdditive(s, t);
+  src.containerPreparation -> tgt.containerPreparation;
+  src.requirement -> tgt.requirement;
+  src.retentionTime -> tgt.retentionTime;
+  src.rejectionCriterion -> tgt.rejectionCriterion;
+  src.handling as s -> tgt.handling as t then SpecimenDefinitionSpecimenToLabHandling(s, t);
+}
+
+group SpecimenDefinitionSpecimenToLabContainerAdditive(source src, target tgt) extends BackboneElement {
+  src.additive -> tgt.additive;
+}
+
+group SpecimenDefinitionSpecimenToLabHandling(source src, target tgt) extends BackboneElement {
+  src.conditionSet -> tgt.conditionSet;
+  src.tempRange -> tgt.tempRange;
+  src.maxDuration -> tgt.maxDuration;
+  src.lightExposure -> tgt.lightExposure;
+  src.instruction -> tgt.instruction;
+}
+

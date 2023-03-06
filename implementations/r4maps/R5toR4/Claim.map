@@ -1,0 +1,133 @@
+map "http://hl7.org/fhir/StructureMap/Claim4to3" = "R4 to R3 Conversion for Claim"
+
+conceptmap "Use" {
+  prefix s = "http://hl7.org/fhir/claim-use"
+  prefix t = "http://hl7.org/fhir/claim-use"
+
+  s:claim - t:complete
+  s:preauthorization - t:proposed
+  s:predetermination - t:exploratory
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Claim" alias Claim as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Claim" alias ClaimR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Claim(source src : Claim, target tgt : ClaimR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.use as v -> tgt.use = translate(v, '#Use', 'code');
+  src.patient -> tgt.patient;
+  src.billablePeriod -> tgt.billablePeriod;
+  src.created -> tgt.created;
+  src.enterer -> tgt.enterer;
+  src.insurer -> tgt.insurer;
+  src.provider -> tgt.provider;
+  src.priority -> tgt.priority;
+  src.fundsReserve -> tgt.fundsReserve;
+  src.prescription -> tgt.prescription;
+  src.originalPrescription -> tgt.originalPrescription;
+  src.payee as vs -> tgt.payee as vt then {
+    vs.type -> vt.type;
+    vs.party -> vt.party;
+  };
+  src.referral -> tgt.referral;
+  src.facility -> tgt.facility;
+  src.careTeam as vs -> tgt.careTeam as vt then {
+    vs.sequence -> vt.sequence;
+    vs.provider -> vt.provider;
+    vs.responsible -> vt.responsible;
+    vs.role -> vt.role;
+    vs.qualification -> vt.qualification;
+  };
+  src.supportingInfo as vs -> tgt.information as vt then {
+    vs.sequence -> vt.sequence;
+    vs.category -> vt.category;
+    vs.code -> vt.code;
+    vs.timing : date as vs0 -> vt.timing = create('date') as vt0 then date(vs0, vt0);
+    vs.timing : Period as vs0 -> vt.timing as vt0 then Period(vs0, vt0);
+    vs.value : boolean as vs0 -> vt.value = create('boolean') as vt0 then boolean(vs0, vt0);
+    vs.value : string as vs0 -> vt.value = create('string') as vt0 then string(vs0, vt0);
+    vs.value : Quantity as vs0 -> vt.value = create('Quantity') as vt0 then Quantity(vs0, vt0);
+    vs.value : Attachment as vs0 -> vt.value = create('Attachment') as vt0 then Attachment(vs0, vt0);
+    vs.value : Reference as vs0 -> vt.value = create('Reference') as vt0 then Reference(vs0, vt0);
+    vs.reason -> vt.reason;
+  };
+  src.diagnosis as vs -> tgt.diagnosis as vt then {
+    vs.sequence -> vt.sequence;
+    vs.diagnosis : Reference as vs0 -> vt.diagnosis = create('Reference') as vt0 then Reference(vs0, vt0);
+    vs.diagnosis : CodeableConcept as vs0 -> vt.diagnosis = create('CodeableConcept') as vt0 then CodeableConcept(vs0, vt0);
+    vs.type -> vt.type;
+    vs.packageCode -> vt.packageCode;
+  };
+  src.insurance as vs -> tgt.insurance as vt then {
+    vs.sequence -> vt.sequence;
+    vs.focal -> vt.focal;
+    vs.coverage -> vt.coverage;
+    vs.businessArrangement -> vt.businessArrangement;
+    vs.preAuthRef -> vt.preAuthRef;
+    vs.claimResponse -> vt.claimResponse;
+  };
+  src.accident as vs -> tgt.accident as vt then {
+    vs.date -> vt.date;
+    vs.type -> vt.type;
+    vs.location : Address as vs0 -> vt.location = create('Address') as vt0 then Address(vs0, vt0);
+    vs.location : Reference as vs0 -> vt.location = create('Reference') as vt0 then Reference(vs0, vt0);
+  };
+  src.item as vs -> tgt.item as vt then {
+    vs.sequence -> vt.sequence;
+    vs.careTeamSequence -> vt.careTeamLinkId;
+    vs.diagnosisSequence -> vt.diagnosisLinkId;
+    vs.procedureSequence -> vt.procedureLinkId;
+    vs.informationSequence -> vt.informationLinkId;
+    vs.revenue -> vt.revenue;
+    vs.category -> vt.category;
+    vs.productOrService -> vt.service;
+    vs.modifier -> vt.modifier;
+    vs.programCode -> vt.programCode;
+    vs.serviced : date as vs0 -> vt.serviced = create('date') as vt0 then date(vs0, vt0);
+    vs.serviced : Period as vs0 -> vt.serviced as vt0 then Period(vs0, vt0);
+    vs.location : CodeableConcept as vs0 -> vt.location = create('CodeableConcept') as vt0 then CodeableConcept(vs0, vt0);
+    vs.location : Address as vs0 -> vt.location = create('Address') as vt0 then Address(vs0, vt0);
+    vs.location : Reference as vs0 -> vt.location = create('Reference') as vt0 then Reference(vs0, vt0);
+    vs.quantity -> vt.quantity;
+    vs.unitPrice -> vt.unitPrice;
+    vs.factor -> vt.factor;
+    vs.net -> vt.net;
+    vs.udi -> vt.udi;
+    vs.bodySite -> vt.bodySite;
+    vs.subSite -> vt.subSite;
+    vs.encounter -> vt.encounter;
+    vs.detail as vsd -> vt.detail as vst then {
+      vsd.sequence -> vst.sequence;
+      vsd.revenue -> vst.revenue;
+      vsd.category -> vst.category;
+      vsd.productOrService -> vst.service;
+      vsd.modifier -> vst.modifier;
+      vsd.programCode -> vst.programCode;
+      vsd.quantity -> vst.quantity;
+      vsd.unitPrice -> vst.unitPrice;
+      vsd.factor -> vst.factor;
+      vsd.net -> vst.net;
+      vsd.udi -> vst.udi;
+      vsd.subDetail as vsds -> vst.subDetail as vsts then {
+        vsds.sequence -> vsts.sequence;
+        vsds.revenue -> vsts.revenue;
+        vsds.category -> vsts.category;
+        vsds.productOrService -> vsts.service;
+        vsds.modifier -> vsts.modifier;
+        vsds.programCode -> vsts.programCode;
+        vsds.quantity -> vsts.quantity;
+        vsds.unitPrice -> vsts.unitPrice;
+        vsds.factor -> vsts.factor;
+        vsds.net -> vsts.net;
+        vsds.udi -> vsts.udi;
+      };
+    };
+  };
+  src.total -> tgt.total;
+}
+

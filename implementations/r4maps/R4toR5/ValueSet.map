@@ -1,0 +1,93 @@
+map "http://hl7.org/fhir/StructureMap/ValueSet3to4" = "R3 to R4 Conversions for ValueSet"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ValueSet" alias ValueSetR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ValueSet(source src : ValueSetR3, target tgt : ValueSet) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.immutable -> tgt.immutable;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.extensible as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ValueSet.extensible',  ext.value = vs;
+  src.compose as vs0 -> tgt.compose as vt0 then compose(vs0, vt0);
+  src.expansion as vs0 -> tgt.expansion as vt0 then expansion(vs0, vt0);
+}
+
+group compose(source src, target tgt) extends BackboneElement {
+  src.lockedDate -> tgt.lockedDate;
+  src.inactive -> tgt.inactive;
+  src.include as vs0 -> tgt.include as vt0 then include(vs0, vt0);
+  src.exclude as vs0 -> tgt.exclude as vt0 then include(vs0, vt0);
+}
+
+group include(source src, target tgt) extends BackboneElement {
+  src.system -> tgt.system;
+  src.version -> tgt.version;
+  src.concept as vs0 -> tgt.concept as vt0 then concept(vs0, vt0);
+  src.filter as vs0 -> tgt.filter as vt0 then filter(vs0, vt0);
+  src.valueSet -> tgt.valueSet;
+}
+
+group concept(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.designation as vs0 -> tgt.designation as vt0 then designation(vs0, vt0);
+}
+
+group designation(source src, target tgt) extends BackboneElement {
+  src.language -> tgt.language;
+  src.use -> tgt.use;
+  src.value -> tgt.value;
+}
+
+group filter(source src, target tgt) extends BackboneElement {
+  src.property -> tgt.property;
+  src.op -> tgt.op;
+  src.value -> tgt.value;
+}
+
+group expansion(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.timestamp -> tgt.timestamp;
+  src.total -> tgt.total;
+  src.offset -> tgt.offset;
+  src.parameter as vs0 -> tgt.parameter as vt0 then parameter(vs0, vt0);
+  src.contains as vs0 -> tgt.contains as vt0 then contains(vs0, vt0);
+}
+
+group parameter(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.value : string as vs0 -> tgt.value = create('string') as vt0 then string(vs0, vt0) "valueString";
+  src.value : boolean as vs0 -> tgt.value = create('boolean') as vt0 then boolean(vs0, vt0) "valueBoolean";
+  src.value : integer as vs0 -> tgt.value = create('integer') as vt0 then integer(vs0, vt0) "valueInteger";
+  src.value : decimal as vs0 -> tgt.value = create('decimal') as vt0 then decimal(vs0, vt0) "valueDecimal";
+  src.value : url as vs0 -> tgt.value = create('url') as vt0 then url(vs0, vt0) "valueUrl";
+  src.value : code as vs0 -> tgt.value = create('code') as vt0 then code(vs0, vt0) "valueCode";
+  src.value : dateTime as vs0 -> tgt.value = create('dateTime') as vt0 then dateTime(vs0, vt0) "valueDateTime";
+}
+
+group contains(source src, target tgt) extends BackboneElement {
+  src.system -> tgt.system;
+  src.abstract -> tgt.abstract;
+  src.inactive -> tgt.inactive;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.designation as vs0 -> tgt.designation as vt0 then designation(vs0, vt0);
+  src.contains as vs0 -> tgt.contains as vt0 then contains(vs0, vt0);
+}
+

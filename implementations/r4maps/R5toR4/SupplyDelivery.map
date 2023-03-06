@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/SupplyDelivery4to3" = "R4 to R3 Conversion for SupplyDelivery"
+
+uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias SupplyDelivery as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group SupplyDelivery(source src : SupplyDelivery, target tgt : SupplyDeliveryR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.type -> tgt.type;
+  src.suppliedItem as vs0 -> tgt.suppliedItem as vt0 then suppliedItem(vs0, vt0);
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.occurrence : Timing as vs -> tgt.occurrence = create('Timing') as vt then Timing(vs, vt);
+  src.supplier -> tgt.supplier;
+  src.destination -> tgt.destination;
+  src.receiver -> tgt.receiver;
+}
+
+group suppliedItem(source src, target tgt) extends BackboneElement {
+  src.quantity -> tgt.quantity;
+  src.item : CodeableConcept as vs -> tgt.item = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs -> tgt.item = create('Reference') as vt then Reference(vs, vt);
+}
+

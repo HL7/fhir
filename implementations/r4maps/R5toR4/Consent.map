@@ -1,0 +1,64 @@
+map "http://hl7.org/fhir/StructureMap/Consent4to3" = "R4 to R3 Conversion for Consent"
+
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.patient -> tgt.patient;
+  src.dateTime -> tgt.dateTime;
+  src.performer -> tgt.consentingParty;
+  src.organization -> tgt.organization;
+  src.source -> tgt.source;
+  src.policy as vs -> tgt.policy as vt then policy(vs, vt);
+  src.policyRule as cc then {
+    cc.coding as c where system = 'urn:ietf:rfc:3986' then {
+      c.code -> tgt.policyRule;
+    };
+  };
+  src.provision as vs then baseProvision(vs, tgt);
+}
+
+group baseProvision(source src, target tgt) {
+  src.period -> tgt.period;
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+  src.provision as vs -> tgt.except as vt then provision(vs, vt);
+}
+
+group policy(source src, target tgt) extends BackboneElement {
+  src.authority -> tgt.authority;
+  src.uri -> tgt.uri;
+}
+
+group provision(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.period -> tgt.period;
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.class -> tgt.class;
+  src.code -> tgt.code;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+}
+
+group actor(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.reference -> tgt.reference;
+}
+
+group data(source src, target tgt) extends BackboneElement {
+  src.meaning -> tgt.meaning;
+  src.reference -> tgt.reference;
+}
+

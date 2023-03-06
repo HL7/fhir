@@ -1,0 +1,18 @@
+<mappingExceptions pattern="FiveWs" resource="MedicationRequest"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="FiveWs.class" resourcePath="MedicationRequest.intent">
+        <modifier _pattern="false" _resource="true" reason="Unknown"/>
+    </divergentElement>
+    <divergentElement patternPath="FiveWs.context" resourcePath="MedicationRequest.supportingInformation">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+    </divergentElement>
+    <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.done" reason="Unknown"/>
+</mappingExceptions>

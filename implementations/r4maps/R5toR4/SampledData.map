@@ -1,0 +1,17 @@
+map "http://hl7.org/fhir/StructureMap/SampledData4to3" = "R4 to R3 Conversion for SampledData"
+
+uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledData as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SampledData" alias SampledDataR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group SampledData(source src : SampledData, target tgt : SampledDataR3) extends Element <<type+>> {
+  src.origin -> tgt.origin;
+  src.period -> tgt.period;
+  src.factor -> tgt.factor;
+  src.lowerLimit -> tgt.lowerLimit;
+  src.upperLimit -> tgt.upperLimit;
+  src.dimensions -> tgt.dimensions;
+  src.data -> tgt.data;
+}
+

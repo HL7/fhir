@@ -1,0 +1,63 @@
+map "http://hl7.org/fhir/StructureMap/Questionnaire3to4" = "R3 to R4 Conversions for Questionnaire"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Questionnaire(source src : QuestionnaireR3, target tgt : Questionnaire) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.description -> tgt.description;
+  src.purpose -> tgt.purpose;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.contact -> tgt.contact;
+  src.copyright -> tgt.copyright;
+  src.code -> tgt.code;
+  src.subjectType -> tgt.subjectType;
+  src.item as s -> tgt.item as t then item(s, t);
+}
+
+group item(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
+  src.definition -> tgt.definition;
+  src.code -> tgt.code;
+  src.prefix -> tgt.prefix;
+  src.text -> tgt.text;
+  src.type -> tgt.type;
+  src.enableWhen as s -> tgt.enableWhen as t then enableWhen(s, t);
+  src.required -> tgt.required;
+  src.repeats -> tgt.repeats;
+  src.readOnly -> tgt.readOnly;
+  src.maxLength -> tgt.maxLength;
+  src.options -> tgt.answerValueSet;
+  src.option as s -> tgt.answerOption as t then option(s, t);
+  src.initial -> tgt.initial as t then initial(src, t);
+  src.item as s -> tgt.item as t then item(s, t);
+}
+
+group enableWhen(source src, target tgt) extends BackboneElement {
+  src.question -> tgt.question;
+  src.hasAnswer as v where src.answer.empty() ->  tgt.operator = 'exists',  tgt.answer = v;
+  src.answer as v ->  tgt.answer = v,  tgt.operator = '=';
+}
+
+group option(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+}
+
+group initial(source src, target tgt) extends BackboneElement {
+  src.initial -> tgt.value;
+}
+

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="mappingExceptions">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="unmappedElement">
+          <xs:complexType>
+            <xs:attribute name="patternPath" use="required" type="Path"/>
+            <xs:attribute name="reason" use="optional">
+              <xs:simpleType>
+                <xs:union memberTypes="UnmappedReasons NonEmptyString"/>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="doubleMappedElement">
+          <xs:complexType>
+            <xs:attribute name="patternPath" use="required" type="Path"/>
+            <xs:attribute name="reason" use="optional">
+              <xs:simpleType>
+                <xs:union memberTypes="DoubleMappedReasons NonEmptyString"/>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="divergentElement">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+              <xs:element name="shortUnmatched" type="LongStringDifference"/>
+              <xs:element name="definitionUnmatched" type="LongStringDifference"/>
+              <xs:element name="commentsUnmatched" type="LongStringDifference"/>
+              <xs:element name="requirementsUnmatched" type="LongStringDifference"/>
+              <xs:element name="lowerCardinality">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" use="required" type="LowerCardinality"/>
+                  <xs:attribute name="_resource" use="required" type="LowerCardinality"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="LowerCardinalityReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="upperCardinality">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" use="required" type="UpperCardinality"/>
+                  <xs:attribute name="_resource" use="required" type="UpperCardinality"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="UpperCardinalityReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="modifier">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" use="required" type="xs:boolean"/>
+                  <xs:attribute name="_resource" use="required" type="xs:boolean"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="ModifierReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="summary">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" use="required" type="xs:boolean"/>
+                  <xs:attribute name="_resource" use="required" type="xs:boolean"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="SummaryReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="bindingExistence">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" type="xs:string" use="required"/>
+                  <xs:attribute name="_resource" type="xs:string" use="required"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="BindingExistenceReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="bindingStrength">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" type="xs:string" use="required"/>
+                  <xs:attribute name="_resource" type="xs:string" use="required"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="BindingStrengthReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="bindingSystems">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" type="xs:string" use="required"/>
+                  <xs:attribute name="_resource" type="xs:string" use="required"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="BindingSystemReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="missingTypes">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_pattern" use="required" type="DataType"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="MissingTypeReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="extraTypes">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="_resource" use="required" type="DataType"/>
+                  <xs:attribute name="reason" use="optional">
+                    <xs:simpleType>
+                      <xs:union memberTypes="ExtraTypeReasons NonEmptyString"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+            <xs:attribute name="patternPath" use="required" type="Path"/>
+            <xs:attribute name="resourcePath" use="required" type="Path"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:attribute name="pattern" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="resource" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+	</xs:element>
+	<xs:complexType name="LongStringDifference" mixed="true">
+    <xs:sequence>
+      <xs:element name="_pattern" type="ValueString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="resource" type="ValueString" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+		<xs:attribute name="reason" use="optional">
+      <xs:simpleType>
+        <xs:union memberTypes="LongStringReasons NonEmptyString"/>
+      </xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="LongStringReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="Incorporates content from profile with context-specific wording"/>
+      <xs:enumeration value="Pattern language does not apply in this context"/>
+      <xs:enumeration value="Removed information not relevant to this resource"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="UnmappedReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="Not relevant for this resource"/>
+      <xs:enumeration value="If captured, represented using Provenance"/>
+      <xs:enumeration value="Implicit for this resource"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="DoubleMappedReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="Resource element(s) and extension(s) cover different types"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="LowerCardinalityReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="In this resource, this element will always be known in all contexts"/>
+      <xs:enumeration value="There are multiple elements and constraints ensure at least one is present"/>
+      <xs:enumeration value="The resource scope is broader than the pattern assumptions and this element will not always be known"/>
+      <xs:enumeration value="The parent element makes this element effectively optional"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="UpperCardinalityReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="In this resource, the element cannot ever repeat, regardless of context"/>
+      <xs:enumeration value="In this resource, multiple repetitions are possible"/>
+      <xs:enumeration value="The parent element makes this element effectively repeating"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="ModifierReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="The codes that made this element a modifier are not used for this resource"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="SummaryReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="While relevent in most resources, this element is not needed in summaries for this resource"/>
+      <xs:enumeration value="While not relevent in most resources, this element is important to appear in summaries for this resource"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="MissingTypeReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="The missing type(s) never apply in any context where this resource is used"/>
+      <xs:enumeration value="The scope of the resource is being broadened to a more generic type"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="ExtraTypeReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="The scope of the resource is being narrowed to more specific types - the other types possible in the pattern would never be used for this resource"/>
+      <xs:enumeration value="The specific data types used have been changed to reflect the narrower usage relevant for this resource"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="BindingExistenceReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="While a binding could not be defined at the pattern level, the resource is specific enough to allow a binding"/>
+      <xs:enumeration value="The data type that is bound in the pattern is not used for this resource element"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="BindingStrengthReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="The narrower context of the resource makes a tighter binding appropriate"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:simpleType name="BindingSystemReasons">
+    <xs:restriction base="NonEmptyString">
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="This resource requires additional codes not covered in the original binding"/>
+    </xs:restriction>
+  </xs:simpleType>
+	<xs:complexType name="ValueString">
+		<xs:attribute name="value" use="required" type="xs:string"/>
+	</xs:complexType>
+	<xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Path">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][A-Za-z]+(\.[A-Za-z]+)*(\[x\])?"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DataType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9]+(\([A-Za-z]+(,\s*[A-Za-z]+)*\))?(,\s*[A-Za-z0-9]+(\([A-Za-z]+(,\s*[A-Za-z]+)*\))?)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LowerCardinality">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[01]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UpperCardinality">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[1\*]"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

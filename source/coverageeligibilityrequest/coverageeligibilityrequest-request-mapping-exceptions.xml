@@ -1,0 +1,135 @@
+<mappingExceptions pattern="Request"
+    resource="CoverageEligibilityRequest"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="CoverageEligibilityRequest.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for coverage eligibility request"/>
+            <resource value="Business Identifier for coverage eligiblity request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this coverage eligibility request by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="A unique identifier assigned to this coverage eligiblity request."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the coverage eligibility request as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Allows coverage eligibility requests to be distinguished and referenced."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="CoverageEligibilityRequest.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="active | cancelled | draft | entered-in-error"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the coverage eligibility request."/>
+            <resource value="The status of the resource instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.priority" resourcePath="CoverageEligibilityRequest.priority">
+        <missingTypes _pattern="code" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingStrength _pattern="required" _resource="example" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="routine | urgent | asap | stat"/>
+            <resource value="Desired processing priority"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates how quickly the coverage eligibility request should be addressed with respect to other requests."/>
+            <resource value="When the requestor expects the processor to complete processing."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="CoverageEligibilityRequest.patient">
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Intended recipient of products and services"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The party who is the beneficiary of the supplied coverage and for whom eligibility is sought."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value="Required to provide context and coverage validation."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="CoverageEligibilityRequest.created">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="Creation date"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft coverage eligibility requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="The date when this resource was created."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="CoverageEligibilityRequest.provider">
+        <missingTypes _pattern="Reference(Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Party responsible for the request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="The provider which is responsible for the request."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="CoverageEligibilityRequest.item.provider">
+        <missingTypes
+            _pattern="Reference(Organization,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Perfoming practitioner"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="The practitioner who is responsible for the product or service to be rendered to the patient."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="CoverageEligibilityRequest.insurer">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Practitioner,PractitionerRole,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Coverage issuer"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The Insurer who issued the coverage in question and is the recipient of the request."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.intent" reason="Unknown"/>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
+    <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.note" reason="Unknown"/>
+    <unmappedElement patternPath="Request.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Request.encounter" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
+    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

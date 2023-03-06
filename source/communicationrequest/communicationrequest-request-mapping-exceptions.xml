@@ -1,0 +1,272 @@
+<mappingExceptions pattern="Request" resource="CommunicationRequest"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="CommunicationRequest.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for communication request"/>
+            <resource value="Unique identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this communication request by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.basedOn" resourcePath="CommunicationRequest.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Fulfills plan or proposal"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this communication request.  Authorization from the 'basedOn' request flows through to the referencing communication request."/>
+            <resource value="A plan or proposal that is fulfilled in whole or in part by this request."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.replaces" resourcePath="CommunicationRequest.replaces">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CommunicationRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Request(s) replaced by this communication request"/>
+            <resource value="Request(s) replaced by this request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Completed or terminated request(s) whose function is taken by this new communication request."/>
+            <resource value="Completed or terminated request(s) whose function is taken by this new request."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.groupIdentifier" resourcePath="CommunicationRequest.groupIdentifier">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="CommunicationRequest.status">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the communication request."/>
+            <resource value="The status of the proposal or order."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.statusReason" resourcePath="CommunicationRequest.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the communication request."/>
+            <resource value="Captures the reason for the current state of the CommunicationRequest."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the communication request was created at all is captured in reasonCode, not here. ."/>
+            <resource value="This is generally only used for &quot;exception&quot; statuses such as &quot;on-hold&quot; or &quot;revoked&quot;.  The reason why the CommunicationRequest was created at all is captured in reasonCode, not here."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.intent" resourcePath="CommunicationRequest.intent">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="proposal | plan | order (immutable)"/>
+            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the level of authority/intentionality associated with the communication request and where the request fits into the workflow chain."/>
+            <resource value="Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#xa;&#xa;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <resource value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.priority" resourcePath="CommunicationRequest.priority">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates how quickly the communication request should be addressed with respect to other requests."/>
+            <resource value="Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.doNotPerform" resourcePath="CommunicationRequest.doNotPerform">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="true if request is prohibiting action"/>
+            <resource value="True if request is prohibiting action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="If true indicates that the communication request is asking for the specified action to *not* occur."/>
+            <resource value="If true indicates that the CommunicationRequest is asking for the specified action to *not* occur."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the &quot;do not&quot; request only applies within the specified time.  If a performerType is specified then the &quot;do not&quot; request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, performerType and performer.&#xa;&#xa;In some cases, the Request.code may pre-coordinate prohibition into the requested action.  E.g. &quot;NPO&quot; (nothing by mouth), &quot;DNR&quot; (do not recussitate).  If this happens, doNotPerform SHALL NOT be set to true.  I.e. The resource shall not have double negation. (E.g. &quot;Do not DNR&quot;)."/>
+            <resource value="The attributes provided with the request qualify what is not to be done."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Supports things like Do Not Recussitate, Nothing by mouth, etc."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="CommunicationRequest.subject">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Focus of message"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The patient or group that is the focus of this communication request."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.encounter" resourcePath="CommunicationRequest.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the communication request is tied to"/>
+            <resource value="The Encounter during which this CommunicationRequest was created"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this communication request was created or to which the creation of this record is tightly associated."/>
+            <resource value="The Encounter during which this CommunicationRequest was created or to which the creation of this record is tightly associated."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter during which the communication request was created.  However, some {{title}s may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission activities)."/>
+            <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the communication request to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.occurrence[x]" resourcePath="CommunicationRequest.occurrence[x]">
+        <missingTypes _pattern="Timing" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When service should (not) occur"/>
+            <resource value="When scheduled"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date or time(s) at which the activity or service is desired to occur or not occur."/>
+            <resource value="The time when this communication is to occur."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="CommunicationRequest.authoredOn">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="When request transitioned to being actionable"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft communication requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="CommunicationRequest.requester">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Who asks for the information to be shared"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="The device, individual, or organization who asks for the information to be shared."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="CommunicationRequest.recipient">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group,Endpoint)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Who to share the information with"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="CommunicationRequest.informationProvider">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="Reference(CareTeam)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Endpoint)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Who should share the information"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.reason" resourcePath="CommunicationRequest.reason">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why is service (not) needed?"/>
+            <resource value="Why is communication needed?"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the request is being made in coded or textual form, or Indicates another resource whose existence justifies this request."/>
+            <resource value="Describes why the request is being made in coded or textual form."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>
+            <resource value="Textual reasons can be captured using reasonCode.text."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="CommunicationRequest.about">
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Resources that pertain to this communication request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this communication request."/>
+            <resource value="Other resources that pertain to this communication request and to which this communication request should be associated."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value="Don't use CommunicationRequest.about element when a more specific element exists, such as basedOn, reasonReference, or replaces."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.note" resourcePath="CommunicationRequest.payload.content[x]">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Annotation" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(Resource), Attachment, CodeableConcept" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about communication request"/>
+            <resource value="Message part content"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the communication request by the requester, performer, subject or other participants."/>
+            <resource value="The communicated content (or for multi-part communications, one portion of the communication)."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#xa;&#xa;If the content isn't codified, contentCodeableConcept.text can be used.  &#xa;&#xa;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.note" resourcePath="CommunicationRequest.note">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the communication request by the requester, performer, subject or other participants."/>
+            <resource value="Comments made about the request by the requester, sender, recipient, subject or other participants."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

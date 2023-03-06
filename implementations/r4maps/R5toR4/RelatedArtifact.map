@@ -1,0 +1,16 @@
+map "http://hl7.org/fhir/StructureMap/RelatedArtifact4to3" = "R4 to R3 Conversion for RelatedArtifact"
+
+uses "http://hl7.org/fhir/StructureDefinition/RelatedArtifact" alias RelatedArtifact as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RelatedArtifact" alias RelatedArtifactR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group RelatedArtifact(source src : RelatedArtifact, target tgt : RelatedArtifactR3) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.display -> tgt.display;
+  src.citation -> tgt.citation;
+  src.url -> tgt.url;
+  src.document -> tgt.document;
+  src.resource : canonical as vs0 -> tgt.resource = create('Reference') as vt0 then canonical2Reference(vs0, vt0);
+}
+

@@ -1,0 +1,15 @@
+map "http://hl7.org/fhir/StructureMap/Resource3to4" = "R3 to R4 Conversions for Resource"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Resource" alias ResourceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Resource" alias Resource as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to4"
+imports "http://hl7.org/fhir/StructureMap/Meta3to4"
+
+group Resource(source src : ResourceR3, target tgt : Resource) <<type+>> {
+  src.id -> tgt.id "Resource-id";
+  src.meta -> tgt.meta "Resource-meta";
+  src.implicitRules -> tgt.implicitRules "Resource-implicitRules";
+  src.language -> tgt.language "Resource-language";
+}
+

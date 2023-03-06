@@ -1,0 +1,50 @@
+map "http://hl7.org/fhir/StructureMap/Parameters3to4" = "R3 to R4 Conversions for Parameters"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Parameters" alias ParametersR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias Parameters as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Parameters(source src : ParametersR3, target tgt : Parameters) extends Resource <<type+>> {
+  src.parameter as vs0 -> tgt.parameter as vt0 then {
+    vs0.name -> vt0.name;
+    vs0.value : base64Binary as vs -> vt0.value = create('base64Binary') as vt then base64Binary(vs, vt);
+    vs0.value : boolean as vs -> vt0.value = create('boolean') as vt then boolean(vs, vt);
+    vs0.value : code as vs -> vt0.value = create('code') as vt then code(vs, vt);
+    vs0.value : date as vs -> vt0.value = create('date') as vt then date(vs, vt);
+    vs0.value : dateTime as vs -> vt0.value = create('dateTime') as vt then dateTime(vs, vt);
+    vs0.value : decimal as vs -> vt0.value = create('decimal') as vt then decimal(vs, vt);
+    vs0.value : id as vs -> vt0.value = create('id') as vt then id(vs, vt);
+    vs0.value : instant as vs -> vt0.value = create('instant') as vt then instant(vs, vt);
+    vs0.value : integer as vs -> vt0.value = create('integer') as vt then integer(vs, vt);
+    vs0.value : markdown as vs -> vt0.value = create('markdown') as vt then markdown(vs, vt);
+    vs0.value : oid as vs -> vt0.value = create('oid') as vt then oid(vs, vt);
+    vs0.value : positiveInt as vs -> vt0.value = create('positiveInt') as vt then positiveInt(vs, vt);
+    vs0.value : string as vs -> vt0.value = create('string') as vt then string(vs, vt);
+    vs0.value : time as vs -> vt0.value = create('time') as vt then time(vs, vt);
+    vs0.value : unsignedInt as vs -> vt0.value = create('unsignedInt') as vt then unsignedInt(vs, vt);
+    vs0.value : uri as vs -> vt0.value = create('uri') as vt then uri(vs, vt);
+    vs0.value : Address as vs -> vt0.value = create('Address') as vt then Address(vs, vt);
+    vs0.value : Age as vs -> vt0.value = create('Age') as vt then Age(vs, vt);
+    vs0.value : Annotation as vs -> vt0.value = create('Annotation') as vt then Annotation(vs, vt);
+    vs0.value : Attachment as vs -> vt0.value = create('Attachment') as vt then Attachment(vs, vt);
+    vs0.value : CodeableConcept as vs -> vt0.value = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+    vs0.value : Coding as vs -> vt0.value = create('Coding') as vt then Coding(vs, vt);
+    vs0.value : ContactPoint as vs -> vt0.value = create('ContactPoint') as vt then ContactPoint(vs, vt);
+    vs0.value : Count as vs -> vt0.value = create('Count') as vt then Count(vs, vt);
+    vs0.value : Distance as vs -> vt0.value = create('Distance') as vt then Distance(vs, vt);
+    vs0.value : Duration as vs -> vt0.value = create('Duration') as vt then Duration(vs, vt);
+    vs0.value : HumanName as vs -> vt0.value = create('HumanName') as vt then HumanName(vs, vt);
+    vs0.value : Identifier as vs -> vt0.value = create('Identifier') as vt then Identifier(vs, vt);
+    vs0.value : Money as vs -> vt0.value = create('Money') as vt then Money(vs, vt);
+    vs0.value : Period as vs -> vt0.value = create('Period') as vt then Period(vs, vt);
+    vs0.value : Quantity as vs -> vt0.value = create('Quantity') as vt then Quantity(vs, vt);
+    vs0.value : Range as vs -> vt0.value = create('Range') as vt then Range(vs, vt);
+    vs0.value : Ratio as vs -> vt0.value = create('Ratio') as vt then Ratio(vs, vt);
+    vs0.value : Reference as vs -> vt0.value = create('Reference') as vt then Reference(vs, vt);
+    vs0.value : SampledData as vs -> vt0.value = create('SampledData') as vt then SampledData(vs, vt);
+    vs0.value : Signature as vs -> vt0.value = create('Signature') as vt then Signature(vs, vt);
+    vs0.value : Timing as vs -> vt0.value = create('Timing') as vt then Timing(vs, vt);
+  };
+}
+

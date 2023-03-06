@@ -1,0 +1,50 @@
+map "http://hl7.org/fhir/StructureMap/ClinicalImpression3to4" = "R3 to R4 Conversions for ClinicalImpression"
+
+conceptmap "ClinicalImpressionStatus" {
+  prefix s = "http://hl7.org/fhir/clinical-impression-status"
+  prefix t = "http://hl7.org/fhir/event-status"
+
+  s:draft - t:"'in-progress'"
+  s:completed - t:completed
+  s:"'entered-in-error'" - t:"'entered-in-error'"
+}
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ClinicalImpression(source src : ClinicalImpressionR3, target tgt : ClinicalImpression) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#ClinicalImpressionStatus', 'code');
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.context -> tgt.encounter;
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.date -> tgt.date;
+  src.assessor -> tgt.assessor;
+  src.previous -> tgt.previous;
+  src.problem -> tgt.problem;
+  src.investigation as vs0 -> tgt.investigation as vt0 then investigation(vs0, vt0);
+  src.protocol -> tgt.protocol;
+  src.summary -> tgt.summary;
+  src.finding as vs0 -> tgt.finding as vt0 then finding(vs0, vt0);
+  src.prognosisCodeableConcept -> tgt.prognosisCodeableConcept;
+  src.prognosisReference -> tgt.prognosisReference;
+  src.action as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ClinicalImpression.action',  vt.value = v;
+  src.note -> tgt.note;
+}
+
+group investigation(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.item -> tgt.item;
+}
+
+group finding(source src, target tgt) extends BackboneElement {
+  src.item : CodeableConcept as vs -> tgt.itemCodeableConcept as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs -> tgt.itemReference as vt then Reference(vs, vt);
+  src.basis -> tgt.basis;
+}
+

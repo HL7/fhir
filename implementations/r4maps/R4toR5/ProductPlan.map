@@ -1,0 +1,81 @@
+map "http://hl7.org/fhir/StructureMap/ProductPlan3to4" = "R3 to R4 Conversions for ProductPlan"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductPlan" alias ProductPlanR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ProductPlan" alias ProductPlan as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ProductPlan(source src : ProductPlanR3, target tgt : ProductPlan) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.period -> tgt.period;
+  src.ownedBy -> tgt.ownedBy;
+  src.administeredBy -> tgt.administeredBy;
+  src.coverageArea -> tgt.coverageArea;
+  src.contact as s -> tgt.contact as t then ProductPlanContact(s, t);
+  src.endpoint -> tgt.endpoint;
+  src.network -> tgt.network;
+  src.coverage as s -> tgt.coverage as t then ProductPlanCoverage(s, t);
+  src.plan as s -> tgt.plan as t then ProductPlanPlan(s, t);
+}
+
+group ProductPlanContact(source src, target tgt) extends BackboneElement {
+  src.purpose -> tgt.purpose;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+}
+
+group ProductPlanCoverage(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.network -> tgt.network;
+  src.benefit as s -> tgt.benefit as t then ProductPlanCoverageBenefit(s, t);
+}
+
+group ProductPlanCoverageBenefit(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.requirement -> tgt.requirement;
+  src.limit as s -> tgt.limit as t then ProductPlanCoverageBenefitLimit(s, t);
+}
+
+group ProductPlanCoverageBenefitLimit(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+  src.code -> tgt.code;
+}
+
+group ProductPlanPlan(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coverageArea -> tgt.coverageArea;
+  src.network -> tgt.network;
+  src.generalCost as s -> tgt.generalCost as t then ProductPlanPlanGeneralCost(s, t);
+  src.specificCost as s -> tgt.specificCost as t then ProductPlanPlanSpecificCost(s, t);
+}
+
+group ProductPlanPlanGeneralCost(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.groupSize -> tgt.groupSize;
+  src.cost -> tgt.cost;
+  src.comment -> tgt.comment;
+}
+
+group ProductPlanPlanSpecificCost(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.benefit as s -> tgt.benefit as t then ProductPlanPlanSpecificCostBenefit(s, t);
+}
+
+group ProductPlanPlanSpecificCostBenefit(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.cost as s -> tgt.cost as t then ProductPlanPlanSpecificCostBenefitCost(s, t);
+}
+
+group ProductPlanPlanSpecificCostBenefitCost(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.applicability -> tgt.applicability;
+  src.qualifiers -> tgt.qualifiers;
+  src.value -> tgt.value;
+}
+

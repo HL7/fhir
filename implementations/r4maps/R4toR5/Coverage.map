@@ -1,0 +1,66 @@
+map "http://hl7.org/fhir/StructureMap/Coverage3to4" = "R3 to R4 Conversions for Coverage"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Coverage" alias CoverageR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias Coverage as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Coverage(source src : CoverageR3, target tgt : Coverage) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.policyHolder -> tgt.policyHolder;
+  src.subscriber -> tgt.subscriber;
+  src.subscriberId -> tgt.subscriberId;
+  src.beneficiary -> tgt.beneficiary;
+  src.dependent -> tgt.dependent;
+  src.relationship -> tgt.relationship;
+  src.period -> tgt.period;
+  src.payor -> tgt.payor;
+  src.grouping as g where src.grouping.group.exists() -> tgt.class as t then CoverageGroupingGroup(g, t);
+  src.grouping as g where src.grouping.subGroup.exists() -> tgt.class as t then CoverageGroupingSubGroup(g, t);
+  src.grouping as g where src.grouping.plan.exists() -> tgt.class as t then CoverageGroupingPlan(g, t);
+  src.grouping as g where src.grouping.subPlan.exists() -> tgt.class as t then CoverageGroupingSubPlan(g, t);
+  src.grouping as g where src.grouping.class.exists() -> tgt.class as t then CoverageGroupingClass(g, t);
+  src.grouping as g where src.grouping.subClass.exists() -> tgt.class as t then CoverageGroupingSubClass(g, t);
+  src.order -> tgt.order;
+  src.network -> tgt.network;
+  src.contract -> tgt.contract;
+}
+
+group CoverageGroupingGroup(source src, target tgt) extends BackboneElement {
+  src ->  tgt.type as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/coverage-class',  c.code = 'group' "group";
+  src.group -> tgt.value;
+  src.groupDisplay -> tgt.name;
+}
+
+group CoverageGroupingSubGroup(source src, target tgt) extends BackboneElement {
+  src ->  tgt.type as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/coverage-class',  c.code = 'subgroup' "subgroup";
+  src.subGroup -> tgt.value;
+  src.subGroupDisplay -> tgt.name;
+}
+
+group CoverageGroupingPlan(source src, target tgt) extends BackboneElement {
+  src ->  tgt.type as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/coverage-class',  c.code = 'plan' "plan";
+  src.plan -> tgt.value;
+  src.planDisplay -> tgt.name;
+}
+
+group CoverageGroupingSubPlan(source src, target tgt) extends BackboneElement {
+  src ->  tgt.type as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/coverage-class',  c.code = 'subplan' "subplan";
+  src.subPlan -> tgt.value;
+  src.subPlanDisplay -> tgt.name;
+}
+
+group CoverageGroupingClass(source src, target tgt) extends BackboneElement {
+  src ->  tgt.type as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/coverage-class',  c.code = 'class' "class";
+  src.class -> tgt.value;
+  src.classDisplay -> tgt.name;
+}
+
+group CoverageGroupingSubClass(source src, target tgt) extends BackboneElement {
+  src ->  tgt.type as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/coverage-class',  c.code = 'subclass' "subclass";
+  src.subClass -> tgt.value;
+  src.subClassDisplay -> tgt.name;
+}
+

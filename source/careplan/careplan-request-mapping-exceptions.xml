@@ -1,0 +1,213 @@
+<mappingExceptions pattern="Request" resource="CarePlan"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="CarePlan.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for care plan"/>
+            <resource value="External Ids for this plan"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this care plan by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.basedOn" resourcePath="CarePlan.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(CarePlan,ServiceRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan.  Authorization from the 'basedOn' request flows through to the referencing care plan."/>
+            <resource value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
+            <resource value="Allows tracing of the care plan and tracking whether proposals/recommendations were acted upon."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.replaces" resourcePath="CarePlan.replaces">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Request(s) replaced by this care plan"/>
+            <resource value="CarePlan replaced by this CarePlan"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Completed or terminated request(s) whose function is taken by this new care plan."/>
+            <resource value="Completed or terminated care plan whose function is taken by this new care plan."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
+            <resource value="The replacement could be because the initial care plan was immediately rejected (due to an issue) or because the previous care plan was completed, but the need for the action described by the care plan remains ongoing."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests."/>
+            <resource value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple care plans."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="CarePlan.status">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the care plan."/>
+            <resource value="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.&#xa;&#xa;This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.intent" resourcePath="CarePlan.intent">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="proposal | plan | order (immutable)"/>
+            <resource value="proposal | plan | order | option | directive"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the level of authority/intentionality associated with the care plan and where the request fits into the workflow chain."/>
+            <resource value="Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#xa;&#xa;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <resource value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.&#xa;This element is expected to be immutable. E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="CarePlan.subject">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Who the care plan is for"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="Identifies the patient or group whose intended care is described by the plan."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.encounter" resourcePath="CarePlan.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the care plan is tied to"/>
+            <resource value="The Encounter during which this CarePlan was created"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this care plan was created or to which the creation of this record is tightly associated."/>
+            <resource value="The Encounter during which this CarePlan was created or to which the creation of this record is tightly associated."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter during which the care plan was created.  However, some {{title}s may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission activities)."/>
+            <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. CarePlan activities conducted as a result of the care plan may well occur as part of other encounters."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the care plan to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.occurrence[x]" resourcePath="CarePlan.period">
+        <missingTypes _pattern="dateTime, Timing" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When service should (not) occur"/>
+            <resource value="Time period plan covers"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date or time(s) at which the activity or service is desired to occur or not occur."/>
+            <resource value="Indicates when the plan did (or is intended to) come into effect and end."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="CarePlan.created">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="Date record was first recorded"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft care plans, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="Represents when this particular CarePlan record was created in the system, which is often a system-generated date."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="CarePlan.custodian">
+        <extraTypes _resource="Reference(CareTeam)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Who is the designated responsible party"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="When populated, the custodian is responsible for the care plan. The care plan is attributed to the custodian."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="CarePlan.careTeam">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Practitioner,PractitionerRole,Organization,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Who's involved in plan?"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="Identifies all people and organizations who are expected to be involved in the care envisioned by this plan."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.reason" resourcePath="CarePlan.addresses">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why is service (not) needed?"/>
+            <resource value="Health issues this plan addresses"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the request is being made in coded or textual form, or Indicates another resource whose existence justifies this request."/>
+            <resource value="Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>
+            <resource value="Use CarePlan.addresses.concept when a code sufficiently describes the concern (e.g. condition, problem, diagnosis, risk). Use CarePlan.addresses.reference when referencing a resource, which allows more information to be conveyed, such as onset date. CarePlan.addresses.concept and CarePlan.addresses.reference are not meant to be duplicative. For a single concern, either CarePlan.addresses.concept or CarePlan.addresses.reference can be used. CarePlan.addresses.concept may be a summary code, or CarePlan.addresses.reference may be used to reference a very precise definition of the concern using Condition. Both CarePlan.addresses.concept and CarePlan.addresses.reference can be used if they are describing different concerns for the care plan."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="CarePlan.supportingInfo">
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Information considered as part of plan"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this care plan."/>
+            <resource value="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value="Use &quot;concern&quot; to identify specific conditions addressed by the care plan.  supportingInfo can be used to convey one or more Advance Directives or Medical Treatment Consent Directives by referencing Consent or any other request resource with intent = directive."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.note" resourcePath="CarePlan.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about care plan"/>
+            <resource value="Comments about the plan"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the care plan by the requester, performer, subject or other participants."/>
+            <resource value="General notes about the care plan not covered elsewhere."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.priority" reason="Unknown"/>
+    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
+    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

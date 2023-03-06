@@ -1,0 +1,46 @@
+map "http://hl7.org/fhir/StructureMap/ServiceRequestRR4to3" = "R4 to R3 Conversion for ServiceRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ReferralRequest" alias ReferralRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ServiceRequest(source src : ReferralRequestR3, target tgt : ServiceRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.requisition -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.orderDetail -> tgt.serviceRequested;
+  src.code -> tgt.type;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt0 then dateTime(vs, vt0);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt0 then Period(vs, vt0);
+  src.authoredOn -> tgt.authoredOn;
+  src.requester as vs -> tgt.requester as vt then requester(vs, vt);
+  src.performerType -> tgt.specialty;
+  src.performer -> tgt.recipient;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.orderDetail as cc then {
+    cc.text -> tgt.description;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.description' then {
+    e.value -> tgt.description;
+  };
+  src.supportingInfo -> tgt.supportingInfo;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+}
+
+group requester(source src, target tgt) {
+  src -> tgt.agent as v then Reference(src, v) "agent";
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.requester.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+

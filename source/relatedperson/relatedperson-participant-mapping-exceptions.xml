@@ -1,0 +1,46 @@
+<mappingExceptions pattern="Participant" resource="RelatedPerson"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Participant.identifier" resourcePath="RelatedPerson.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for participant"/>
+            <resource value="A human identifier for this person"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Identifier for a person within a particular scope."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="RelatedPerson identifiers might not be unique across instances within a system, as a single human individual may be represented as many different RelatedPerson resources with different roles, periods, or relationships."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the participant as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Participant.active" resourcePath="RelatedPerson.active">
+        <modifier _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Whether the participant is currently active"/>
+            <resource value="Whether this related person's record is in active use"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Whether this participant record is in active use."/>
+            <resource value="Whether this related person record is in active use."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Participant.name" resourcePath="RelatedPerson.name">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="string" reason="Unknown"/>
+        <extraTypes _resource="HumanName" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="A name for the participant"/>
+            <resource value="A name associated with the person"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Description of participant as presented to a consumer while searching."/>
+            <resource value="A name associated with the person."/>
+        </definitionUnmatched>
+    </divergentElement>
+</mappingExceptions>

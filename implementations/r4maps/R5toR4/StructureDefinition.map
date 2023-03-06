@@ -1,0 +1,45 @@
+map "http://hl7.org/fhir/StructureMap/StructureDefinition4to3" = "R4 to R3 Conversion for StructureDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/StructureDefinition" alias StructureDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group StructureDefinition(source src : StructureDefinition, target tgt : StructureDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.keyword -> tgt.keyword;
+  src.fhirVersion where src.fhirVersion = '4.0.0' -> tgt.fhirVersion = '3.0.1';
+  src.mapping as vs0 -> tgt.mapping as vt0 then {
+    vs0.identity -> vt0.identity;
+    vs0.uri -> vt0.uri;
+    vs0.name -> vt0.name;
+    vs0.comment -> vt0.comment;
+  };
+  src.kind -> tgt.kind;
+  src.abstract -> tgt.abstract;
+  src.type -> tgt.type;
+  src.baseDefinition -> tgt.baseDefinition;
+  src.contextInvariant -> tgt.contextInvariant;
+  src.derivation -> tgt.derivation;
+  src.snapshot as vs0 -> tgt.snapshot as vt0 then {
+    vs0.element -> vt0.element;
+  };
+  src.differential as vs0 -> tgt.differential as vt0 then {
+    vs0.element -> vt0.element;
+  };
+}
+

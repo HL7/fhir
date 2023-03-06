@@ -1,0 +1,35 @@
+map "http://hl7.org/fhir/StructureMap/Group4to3" = "R4 to R3 Conversion for Group"
+
+uses "http://hl7.org/fhir/StructureDefinition/Group" alias Group as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Group" alias GroupR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Group(source src : Group, target tgt : GroupR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.type -> tgt.type;
+  src.actual -> tgt.actual;
+  src.code -> tgt.code;
+  src.name -> tgt.name;
+  src.quantity -> tgt.quantity;
+  src.characteristic as vs0 -> tgt.characteristic as vt0 then characteristic(vs0, vt0);
+  src.member as vs0 -> tgt.member as vt0 then member(vs0, vt0);
+}
+
+group characteristic(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.value : CodeableConcept as vs -> tgt.value = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.value : boolean as vs -> tgt.value = create('boolean') as vt then boolean(vs, vt);
+  src.value : Quantity as vs -> tgt.value = create('Quantity') as vt then Quantity(vs, vt);
+  src.value : Range as vs -> tgt.value = create('Range') as vt then Range(vs, vt);
+  src.exclude -> tgt.exclude;
+  src.period -> tgt.period;
+}
+
+group member(source src, target tgt) extends BackboneElement {
+  src.period -> tgt.period;
+  src.entity -> tgt.entity;
+  src.inactive -> tgt.inactive;
+}
+

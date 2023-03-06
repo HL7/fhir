@@ -1,0 +1,35 @@
+map "http://hl7.org/fhir/StructureMap/Appointment4to3" = "R4 to R3 Conversion for Appointment"
+
+uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias Appointment as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Appointment" alias AppointmentR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Appointment(source src : Appointment, target tgt : AppointmentR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.serviceCategory -> tgt.serviceCategory;
+  src.serviceType -> tgt.serviceType;
+  src.specialty -> tgt.specialty;
+  src.appointmentType -> tgt.appointmentType;
+  src.reasonCode -> tgt.reason;
+  src.reasonReference -> tgt.indication;
+  src.priority -> tgt.priority;
+  src.description -> tgt.description;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.minutesDuration -> tgt.minutesDuration;
+  src.slot -> tgt.slot;
+  src.created -> tgt.created;
+  src.comment -> tgt.comment;
+  src.basedOn -> tgt.incomingReferral "incomingReferral";
+  src.participant as vs0 -> tgt.participant as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.actor -> vt0.actor;
+    vs0.required -> vt0.required;
+    vs0.status -> vt0.status;
+  };
+  src.requestedPeriod -> tgt.requestedPeriod;
+}
+
