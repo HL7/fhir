@@ -79,8 +79,8 @@
     <element id="DeviceMetric.identifier">
       <path value="DeviceMetric.identifier"/>
       <short value="Instance identifier"/>
-      <definition value="Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID."/>
-      <comment value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to the unique identifier of the device."/>
+      <definition value="Instance identifiers assigned to a device, by the device or gateway software, manufacturers, other organizations or owners. For example, handle ID."/>
+      <comment value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to any identifier of the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
