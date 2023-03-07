@@ -183,7 +183,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricColor"/>
@@ -225,7 +225,7 @@
       <type>
         <code value="Quantity"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
     </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -239,7 +239,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false"/>
     </element>
     <element id="DeviceMetric.calibration.type">
       <path value="DeviceMetric.calibration.type"/>
@@ -250,7 +250,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationType"/>
@@ -269,7 +269,7 @@
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationState"/>
@@ -288,7 +288,7 @@
       <type>
         <code value="instant"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
     </element>
   </differential>
 </StructureDefinition>
