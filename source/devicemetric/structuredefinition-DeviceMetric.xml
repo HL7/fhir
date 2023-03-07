@@ -195,7 +195,7 @@
     </element>
     <element id="DeviceMetric.category">
       <path value="DeviceMetric.category"/>
-      <short value="The category of the metric"/>
+      <short value="The category of the metric, such as a measurement"/>
       <definition value="Indicates the category of the observation generation process. A DeviceMetric can be, for example, a setting, measurement, or calculation."/>
       <min value="1"/>
       <max value="1"/>
@@ -243,7 +243,7 @@
     </element>
     <element id="DeviceMetric.calibration.type">
       <path value="DeviceMetric.calibration.type"/>
-      <short value="The type of the calibration"/>
+      <short value="The type of the calibration, such as an offset"/>
       <definition value="Describes the type of the calibration method."/>
       <min value="0"/>
       <max value="1"/>
