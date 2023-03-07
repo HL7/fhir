@@ -176,19 +176,19 @@
     </element>
     <element id="DeviceMetric.color">
       <path value="DeviceMetric.color"/>
-      <short value="black | red | green | yellow | blue | magenta | cyan | white"/>
-      <definition value="Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta."/>
+      <short value="The preferred color association with the metric (e.g., display color)" />
+      <definition value="The preferred color association with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricColor"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Describes the typical color of representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-color"/>
       </binding>
