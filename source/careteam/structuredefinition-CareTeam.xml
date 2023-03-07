@@ -201,8 +201,9 @@
       <path value="CareTeam.subject"/>
       <short value="Who care team is for"/>
       <definition value="Identifies the patient or group whose intended care is handled by the team."/>
-      <requirements value="Allows the team to care for a group (e.g. marriage) therapy. &#xA;Allows for an organization to designate a team such as the PICC line team."/>
-      <alias value="patient"/>
+      <comment value="Use Group for care provision to all members of the group (e.g. group therapy).  Use Patient for care provision to an individual patient."/>
+	  <requirements value="Allows the team to care for a group (e.g. marriage) therapy. &#xA;Allows for an organization to designate a team such as the PICC line team."/>
+	  <alias value="patient"/>
       <min value="0"/>
       <max value="1"/>
       <type>
