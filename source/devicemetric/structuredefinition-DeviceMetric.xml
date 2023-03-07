@@ -139,7 +139,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="IEEE 11073-10101"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
       </binding>
     </element>
     <element id="DeviceMetric.device">
