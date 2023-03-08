@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="f001"/>
+	<identifier>
+		<use value="official"/>
+		<system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
+		<value value="6323"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="15074-8"/>
+			<display value="Glucose [Moles/volume] in Blood"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/f001"/>
+		<display value="P. van de Heuvel"/>
+	</subject>
+	<effectiveDateTime value="2013-04-02T09:30:10+01:00"/>
+	<issued value="2013-04-03T15:30:10+01:00"/>
+	<performer>
+		<reference value="Practitioner/f005"/>
+		<display value="A. Langeveld"/>
+	</performer>
+	<valueQuantity>
+		<value value="6.3"/>
+		<unit value="mmol/l"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mmol/L"/>
+	</valueQuantity>
+	<interpretation>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+			<code value="H"/>
+			<display value="High"/>
+		</coding>
+	</interpretation>
+	<referenceRange>
+		<!-- <low>
+			<value value="3.1"/>
+			<unit value="mmol/l"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mmol/L"/>
+		</low>
+		<high>
+			<value value="6.2"/>
+			<unit value="mmol/l"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mmol/L"/>
+		</high> -->
+		<appliesTo>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="248153007"/>
+				<display value="Male"/>
+			</coding>
+		</appliesTo>
+		
+
+
+	</referenceRange>
+</Observation>
