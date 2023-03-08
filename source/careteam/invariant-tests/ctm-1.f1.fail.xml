@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CareTeam xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CareTeam.xsd">
+  <id value="example"/>
+
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Care Team</div>
+  </text>
+
+  <contained>
+    <Patient>
+      <id value="pr1"/>
+      <name>
+        <family value="Dietician"/>
+        <given value="Dorothy"/>
+      </name>
+    </Patient>
+  </contained>
+  <identifier>
+       <value value="12345"/>
+  </identifier>
+  <status value="active"/>
+  <category>
+     <coding>
+       <system value="http://loinc.org"/>
+       <code value="LA27976-2"/>
+	   <display value="Encounter-focused care team"/>
+     </coding>
+  </category>
+  <name value="Peter James Charlmers Care Team for Inpatient Encounter"/>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </subject>
+  <period>
+    <end value="2013-01-01"/>
+  </period>
+
+  <participant>
+    <role>
+      <text value="responsiblePerson"/>
+    </role>
+    <member>
+      <reference value="Patient/example"/>
+      <display value="Peter James Chalmers"/>
+    </member>
+	</participant>
+
+	<participant>
+		<role>
+			<text value="adviser"/>
+		</role>
+		<member>
+			<reference value="#pr1"/>
+			<display value="Dorothy Dietition"/>
+		</member>
+		<onBehalfOf>
+			<reference value="Organization/f001"/>
+		</onBehalfOf>
+		<coverageTiming>
+			<repeat>
+				<boundsPeriod>
+					<start value="2010-12-23" />
+					<end value="2013-01-01" />
+				</boundsPeriod>
+				<frequency value="1" />
+				<period value="1" />
+				<periodUnit value="d" />
+				<dayOfWeek value="mon" />
+				<when value="MORN" />
+			</repeat>
+		</coverageTiming>
+	</participant> 
+	<managingOrganization>
+        <reference value="Organization/f001"/>
+    </managingOrganization>
+</CareTeam>
