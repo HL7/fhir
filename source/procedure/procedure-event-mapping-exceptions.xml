@@ -134,12 +134,8 @@
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed procedure and what they did"/>
-            <resource value="The people who performed the procedure"/>
+            <resource value="Who performed the procedure and what they did"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the procedure and how they were involved."/>
-            <resource value="Limited to &quot;real&quot; people rather than equipment."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="Procedure.performer.function">
         <definitionUnmatched reason="Unknown">
