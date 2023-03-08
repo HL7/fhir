@@ -335,6 +335,9 @@
       </type>
     </element>
     <element id="TestPlan.testCase.dependencies">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="TestCaseDependencies"/>
+      </extension>
       <path value="TestPlan.testCase.dependencies"/>
       <short value="The required criteria to execute the test case - e.g. preconditions, previous tests"/>
       <definition value="The required criteria to execute the test case - e.g. preconditions, previous tests."/>
@@ -371,7 +374,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="BackboneElement"/>
       </type>
     </element>
     <element id="TestPlan.testCase.testRun.narrative">
