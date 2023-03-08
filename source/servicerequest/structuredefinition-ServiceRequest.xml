@@ -624,6 +624,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter.code">
       <path value="ServiceRequest.orderDetail.parameter.code"/>
