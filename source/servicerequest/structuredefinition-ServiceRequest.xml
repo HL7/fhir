@@ -635,6 +635,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter.value[x]">
       <path value="ServiceRequest.orderDetail.parameter.value[x]"/>
