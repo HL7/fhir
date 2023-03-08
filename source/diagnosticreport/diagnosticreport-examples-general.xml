@@ -17136,7 +17136,7 @@
 								<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 								<display value="Acme Laboratory, Inc"/>
 							</performer>
-							<valueMarkdown value="Non-reactive"/>
+							<valueString value="Non-reactive"/>
 						</Observation>
 					</resource>
 				</entry>

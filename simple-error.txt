@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+﻿Error parsing /Users/ehaas/Documents/FHIR/fhir/source/device/structuredefinition-Device.xml: attribute value must start with quotation or apostrophe not n (position: TEXT seen ... there is more than one Device.name"/>\n        <expression value=n... @96:28) 
