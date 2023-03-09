@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Person xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="per4"/>
+	<identifier>
+		<use value="usual"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="urn:oid:0.1.2.3.4.5.6.7"/>
+		<value value="123458"/>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="Notsowell"/>
+		<given value="Sandy"/>
+	</name>
+	<gender value="female"/>
+	<birthDate value="1982-08-02"/>
+	<deceasedDateTime value="2021-12-12"/>
+	<link>
+		<target>
+			<reference value="Patient/pat4"/>
+		</target>
+	</link>
+	<link>
+		<target>
+			<reference value="Practitioner/prac4"/>
+		</target>
+	</link>
+</Person>

@@ -1,22 +1,33 @@
 <NutritionProduct xmlns='http://hl7.org/fhir'>
   <id value="example-shake"/>
+  <code>
+    <coding>
+      <system value='https://fdc.nal.usda.gov/'/>
+      <code value='1838384'/>
+      <display value='FRENCH VANILLA MAX PROTEIN NUTRITION SHAKE, FRENCH VANILLA'/>
+    </coding>
+    <text value='FRENCH VANILLA MAX PROTEIN NUTRITION SHAKE, FRENCH VANILLA'/>
+  </code>
   <status value='active'/>
+  <category>
+    <text value='Energy, Protein &amp; Muscle Recovery Drinks'/>
+  </category>
   <nutrient>
     <item>
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Carbohydrate, by difference'/>
           <code value='1005'/>
+          <display value='Carbohydrate, by difference'/>
         </coding>
         <text value='Carbohydrate, by difference'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='1.82'/>
         <comparator value='ad'/>
         <unit value='g'/>
-        <value value='1.82'/>
       </numerator>
     </amount>
   </nutrient>
@@ -25,17 +36,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Protein'/>
           <code value='1003'/>
+          <display value='Protein'/>
         </coding>
         <text value='Protein'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='9.09'/>
         <comparator value='ad'/>
         <unit value='g'/>
-        <value value='9.09'/>
       </numerator>
     </amount>
   </nutrient>
@@ -44,17 +55,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Iodine, I'/>
           <code value='1100'/>
+          <display value='Iodine, I'/>
         </coding>
         <text value='Iodine, I'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='11'/>
         <comparator value='ad'/>
         <unit value='µg'/>
-        <value value='11'/>
       </numerator>
     </amount>
   </nutrient>
@@ -63,17 +74,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Thiamin'/>
           <code value='1165'/>
+          <display value='Thiamin'/>
         </coding>
         <text value='Thiamin'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='0'/>
       </numerator>
     </amount>
   </nutrient>
@@ -82,48 +93,36 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Riboflavin'/>
           <code value='1166'/>
+          <display value='Riboflavin'/>
         </coding>
         <text value='Riboflavin'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0.129'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='0.129'/>
       </numerator>
     </amount>
   </nutrient>
-  <ingredient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://uts.nlm.nih.gov/uts/'/>
-          <display value='calcium caseinate'/>
-          <code value='C0301465'/>
-        </coding>
-        <text value='calcium caseinate'/>
-      </concept>
-    </item>
-  </ingredient>
   <nutrient>
     <item>
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Vitamin B-6'/>
           <code value='1175'/>
+          <display value='Vitamin B-6'/>
         </coding>
         <text value='Vitamin B-6'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0.152'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='0.152'/>
       </numerator>
     </amount>
   </nutrient>
@@ -132,17 +131,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Pantothenic acid'/>
           <code value='1170'/>
+          <display value='Pantothenic acid'/>
         </coding>
         <text value='Pantothenic acid'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0.758'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='0.758'/>
       </numerator>
     </amount>
   </nutrient>
@@ -151,17 +150,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Cholesterol'/>
           <code value='1253'/>
+          <display value='Cholesterol'/>
         </coding>
         <text value='Cholesterol'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='6'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='6'/>
       </numerator>
     </amount>
   </nutrient>
@@ -170,17 +169,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Vitamin A, IU'/>
           <code value='1104'/>
+          <display value='Vitamin A, IU'/>
         </coding>
         <text value='Vitamin A, IU'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='455'/>
         <comparator value='ad'/>
         <unit value='IU'/>
-        <value value='455'/>
       </numerator>
     </amount>
   </nutrient>
@@ -189,48 +188,36 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Fatty acids, total saturated'/>
           <code value='1258'/>
+          <display value='Fatty acids, total saturated'/>
         </coding>
         <text value='Fatty acids, total saturated'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0.15'/>
         <comparator value='ad'/>
         <unit value='g'/>
-        <value value='0.15'/>
       </numerator>
     </amount>
   </nutrient>
-  <ingredient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://uts.nlm.nih.gov/uts/'/>
-          <display value='inulin'/>
-          <code value='C0021936'/>
-        </coding>
-        <text value='inulin'/>
-      </concept>
-    </item>
-  </ingredient>
   <nutrient>
     <item>
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Magnesium, Mg'/>
           <code value='1090'/>
+          <display value='Magnesium, Mg'/>
         </coding>
         <text value='Magnesium, Mg'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='30'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='30'/>
       </numerator>
     </amount>
   </nutrient>
@@ -239,17 +226,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Manganese, Mn'/>
           <code value='1101'/>
+          <display value='Manganese, Mn'/>
         </coding>
         <text value='Manganese, Mn'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='0'/>
       </numerator>
     </amount>
   </nutrient>
@@ -258,17 +245,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Potassium, K'/>
           <code value='1092'/>
+          <display value='Potassium, K'/>
         </coding>
         <text value='Potassium, K'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='142'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='142'/>
       </numerator>
     </amount>
   </nutrient>
@@ -277,17 +264,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Sodium, Na'/>
           <code value='1093'/>
+          <display value='Sodium, Na'/>
         </coding>
         <text value='Sodium, Na'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='42'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='42'/>
       </numerator>
     </amount>
   </nutrient>
@@ -296,17 +283,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Fiber, total dietary'/>
           <code value='1079'/>
+          <display value='Fiber, total dietary'/>
         </coding>
         <text value='Fiber, total dietary'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0.6'/>
         <comparator value='ad'/>
         <unit value='g'/>
-        <value value='0.6'/>
       </numerator>
     </amount>
   </nutrient>
@@ -315,17 +302,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Niacin'/>
           <code value='1167'/>
+          <display value='Niacin'/>
         </coding>
         <text value='Niacin'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='3.03'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='3.03'/>
       </numerator>
     </amount>
   </nutrient>
@@ -334,79 +321,55 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Fatty acids, total trans'/>
           <code value='1257'/>
+          <display value='Fatty acids, total trans'/>
         </coding>
         <text value='Fatty acids, total trans'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0'/>
         <comparator value='ad'/>
         <unit value='g'/>
-        <value value='0'/>
       </numerator>
     </amount>
   </nutrient>
-  <ingredient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://uts.nlm.nih.gov/uts/'/>
-          <display value='milk protein'/>
-          <code value='C0026138'/>
-        </coding>
-        <text value='milk protein'/>
-      </concept>
-    </item>
-  </ingredient>
   <nutrient>
     <item>
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Selenium, Se'/>
           <code value='1103'/>
+          <display value='Selenium, Se'/>
         </coding>
         <text value='Selenium, Se'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='5'/>
         <comparator value='ad'/>
         <unit value='µg'/>
-        <value value='5'/>
       </numerator>
     </amount>
   </nutrient>
-  <ingredient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://uts.nlm.nih.gov/uts/'/>
-          <display value='water'/>
-          <code value='C0043047'/>
-        </coding>
-        <text value='water'/>
-      </concept>
-    </item>
-  </ingredient>
   <nutrient>
     <item>
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Vitamin C, total ascorbic acid'/>
           <code value='1162'/>
+          <display value='Vitamin C, total ascorbic acid'/>
         </coding>
         <text value='Vitamin C, total ascorbic acid'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='9.1'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='9.1'/>
       </numerator>
     </amount>
   </nutrient>
@@ -415,17 +378,17 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Phosphorus, P'/>
           <code value='1091'/>
+          <display value='Phosphorus, P'/>
         </coding>
         <text value='Phosphorus, P'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='121'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='121'/>
       </numerator>
     </amount>
   </nutrient>
@@ -434,17 +397,207 @@
       <concept>
         <coding>
           <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Copper, Cu'/>
           <code value='1098'/>
+          <display value='Copper, Cu'/>
         </coding>
         <text value='Copper, Cu'/>
       </concept>
     </item>
     <amount>
       <numerator>
+        <value value='0.152'/>
         <comparator value='ad'/>
         <unit value='mg'/>
-        <value value='0.152'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1095'/>
+          <display value='Zinc, Zn'/>
+        </coding>
+        <text value='Zinc, Zn'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='1.14'/>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1178'/>
+          <display value='Vitamin B-12'/>
+        </coding>
+        <text value='Vitamin B-12'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='0.45'/>
+        <comparator value='ad'/>
+        <unit value='µg'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1004'/>
+          <display value='Total lipid (fat)'/>
+        </coding>
+        <text value='Total lipid (fat)'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='0.45'/>
+        <comparator value='ad'/>
+        <unit value='g'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='2000'/>
+          <display value='Sugars, total including NLEA'/>
+        </coding>
+        <text value='Sugars, total including NLEA'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='0.3'/>
+        <comparator value='ad'/>
+        <unit value='g'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1087'/>
+          <display value='Calcium, Ca'/>
+        </coding>
+        <text value='Calcium, Ca'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='197'/>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1177'/>
+          <display value='Folate, total'/>
+        </coding>
+        <text value='Folate, total'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='30'/>
+        <comparator value='ad'/>
+        <unit value='µg'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1185'/>
+          <display value='Vitamin K (phylloquinone)'/>
+        </coding>
+        <text value='Vitamin K (phylloquinone)'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='6.1'/>
+        <comparator value='ad'/>
+        <unit value='µg'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1089'/>
+          <display value='Iron, Fe'/>
+        </coding>
+        <text value='Iron, Fe'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='1.36'/>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1008'/>
+          <display value='Energy'/>
+        </coding>
+        <text value='Energy'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='45'/>
+        <comparator value='ad'/>
+        <unit value='kcal'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <code value='1186'/>
+          <display value='Folic acid'/>
+        </coding>
+        <text value='Folic acid'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <value value='18'/>
+        <comparator value='ad'/>
+        <unit value='µg'/>
       </numerator>
     </amount>
   </nutrient>
@@ -453,212 +606,59 @@
       <concept>
         <coding>
           <system value='https://uts.nlm.nih.gov/uts/'/>
-          <display value='fiber'/>
+          <code value='C0301465'/>
+          <display value='calcium caseinate'/>
+        </coding>
+        <text value='calcium caseinate'/>
+      </concept>
+    </item>
+  </ingredient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <code value='C0021936'/>
+          <display value='inulin'/>
+        </coding>
+        <text value='inulin'/>
+      </concept>
+    </item>
+  </ingredient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <code value='C0026138'/>
+          <display value='milk protein'/>
+        </coding>
+        <text value='milk protein'/>
+      </concept>
+    </item>
+  </ingredient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <code value='C0043047'/>
+          <display value='water'/>
+        </coding>
+        <text value='water'/>
+      </concept>
+    </item>
+  </ingredient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
           <code value='C0012173'/>
+          <display value='fiber'/>
         </coding>
         <text value='fiber'/>
       </concept>
     </item>
   </ingredient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Zinc, Zn'/>
-          <code value='1095'/>
-        </coding>
-        <text value='Zinc, Zn'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='mg'/>
-        <value value='1.14'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Vitamin B-12'/>
-          <code value='1178'/>
-        </coding>
-        <text value='Vitamin B-12'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='µg'/>
-        <value value='0.45'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Total lipid (fat)'/>
-          <code value='1004'/>
-        </coding>
-        <text value='Total lipid (fat)'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='g'/>
-        <value value='0.45'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Sugars, total including NLEA'/>
-          <code value='2000'/>
-        </coding>
-        <text value='Sugars, total including NLEA'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='g'/>
-        <value value='0.3'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Calcium, Ca'/>
-          <code value='1087'/>
-        </coding>
-        <text value='Calcium, Ca'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='mg'/>
-        <value value='197'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Folate, total'/>
-          <code value='1177'/>
-        </coding>
-        <text value='Folate, total'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='µg'/>
-        <value value='30'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Vitamin K (phylloquinone)'/>
-          <code value='1185'/>
-        </coding>
-        <text value='Vitamin K (phylloquinone)'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='µg'/>
-        <value value='6.1'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Iron, Fe'/>
-          <code value='1089'/>
-        </coding>
-        <text value='Iron, Fe'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='mg'/>
-        <value value='1.36'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Energy'/>
-          <code value='1008'/>
-        </coding>
-        <text value='Energy'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='kcal'/>
-        <value value='45'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <nutrient>
-    <item>
-      <concept>
-        <coding>
-          <system value='https://fdc.nal.usda.gov/'/>
-          <display value='Folic acid'/>
-          <code value='1186'/>
-        </coding>
-        <text value='Folic acid'/>
-      </concept>
-    </item>
-    <amount>
-      <numerator>
-        <comparator value='ad'/>
-        <unit value='µg'/>
-        <value value='18'/>
-      </numerator>
-    </amount>
-  </nutrient>
-  <category>
-    <text value='Energy, Protein &amp; Muscle Recovery Drinks'/>
-  </category>
-  <code>
-    <coding>
-      <system value='https://fdc.nal.usda.gov/'/>
-      <display value='FRENCH VANILLA MAX PROTEIN NUTRITION SHAKE, FRENCH VANILLA'/>
-      <code value='1838384'/>
-    </coding>
-    <text value='FRENCH VANILLA MAX PROTEIN NUTRITION SHAKE, FRENCH VANILLA'/>
-  </code>
 </NutritionProduct>

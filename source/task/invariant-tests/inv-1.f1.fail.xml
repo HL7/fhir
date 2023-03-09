@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value='example3'/>
+
+  <status value="draft"/>
+  <intent value="order"/>
+  <code>
+    <text value="Refill Request"/>
+  </code>
+  <focus>
+    <reference value="MedicationRequest/medrx002"/>
+  </focus>
+  <for>
+    <reference value="Patient/f001"/>
+  </for>
+  <authoredOn value="2016-03-10T22:39:32-04:00"/>
+  <lastModified value="2000-03-10T22:39:32-04:00"/>
+  <requester>
+      <reference value="Patient/example"/>
+  </requester>
+  <owner>
+    <reference value="Practitioner/example"/>
+  </owner>
+</Task>

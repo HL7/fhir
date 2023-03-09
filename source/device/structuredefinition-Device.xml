@@ -88,6 +88,15 @@
       <definition value="A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device."/>
       <min value="0"/>
       <max value="*"/>
+
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one Device.name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="name.where(display=true).count() &lt;= 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
+
       <mapping>
         <identity value="rim"/>
         <map value="Device"/>
@@ -504,13 +513,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <constraint>
-        <key value="dev-1"/>
-        <severity value="error"/>
-        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="where(display = true).count() &lt;= 1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </constraint>
+      <condition value="dev-1"/>
       <mapping>
         <identity value="interface"/>
         <map value="Participant.name"/>
