@@ -619,11 +619,12 @@
       <path value="ServiceRequest.orderDetail.parameter"/>
       <short value="The parameter details for the service being requested"/>
       <definition value="The parameter details for the service being requested."/>
-      <min value="0"/>
-      <max value="1"/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter.code">
       <path value="ServiceRequest.orderDetail.parameter.code"/>
@@ -634,6 +635,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceRequestOrderDetailParameterCode"/>
@@ -648,7 +650,7 @@
       <short value="The value for the order detail"/>
       <definition value="Indicates a value for the order detail."/>
       <comment value="CodeableConcept values are indented to express concepts that would normally be coded - when a code is not available for a concept, CodeableConcept.text can be used. When the data is a text or not a single identifiable concept, string should be used."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
@@ -671,19 +673,8 @@
       <type>
         <code value="Period"/>
       </type>
+      <isSummary value="true"/>
     </element>    
-
-
-
-
-
-
-
-
-
-
-
-
 
     
     <element id="ServiceRequest.quantity[x]">
