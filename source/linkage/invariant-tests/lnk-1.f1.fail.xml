@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Linkage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/linkage.xsd">
+  <id value="example"/>
+  <author>
+    <reference value="Practitioner/f201"/>
+  </author>
+  <item>
+    <type value="source"/>
+    <resource>
+      <reference value="Condition/example"/>
+      <display value="Severe burn of left ear (Date: 24-May 2012)"/>
+    </resource>
+  </item>
+  <!-- <item>
+    <type value="alternate"/>
+    <resource>
+      <reference value="Condition/example-linkage"/>
+      <display value="Severe burn of left ear (Date: 24-May 2012)"/>
+    </resource>
+  </item>   -->
+</Linkage>
