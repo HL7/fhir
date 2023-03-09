@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/genomicstudy-status"/>
   <identifier>
