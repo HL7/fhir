@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FamilyMemberHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familymemberhistory.xsd">
+  <!-- <id value="father"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Father died of a heart attack aged 74</div>
+  </text>
+  <identifier>
+	<value value="12345"/>
+  </identifier>
+  <instantiatesUri value="http://example.org/family-member-history-questionnaire"/> -->
+
+
+
+  <status value="completed"/>
+  <patient>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient"/>
+  </patient>
+
+  <!-- <date value="2011-03-18"/>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="verifier"/> 
+        <display value="Verifier"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/f201"/> 
+    </actor> 
+  </participant> -->
+
+
+  <relationship>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <code value="FTH"/>
+      <display value="father"/>
+    </coding>
+  </relationship>
+
+<!-- 
+  <sex>
+	<coding>
+      <system value="http://hl7.org/fhir/administrative-gender"/>
+      <code value="male"/>
+      <display value="Male"/>
+    </coding>
+  </sex>
+-->
+
+  <bornString value="1940-01-01"/>
+  <!-- <ageString value="74"/> -->
+
+  <estimatedAge value="true"/>
+
+  <!--
+  <condition>
+    <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="315619001"/>
+      <display value="Myocardial Infarction"/>
+    </coding>
+    <text value='Heart Attack'/>
+    </code>
+ 
+	<contributedToDeath value = "true"/>
+    <onsetAge>
+      <value value="74" />
+      <unit value="yr" />
+      <system value="http://unitsofmeasure.org" />
+      <code value="a" />
+    </onsetAge>
+    <note>
+      <text value="Was fishing at the time. At least he went doing someting he loved." />
+    </note>
+  </condition> -->
+</FamilyMemberHistory>
