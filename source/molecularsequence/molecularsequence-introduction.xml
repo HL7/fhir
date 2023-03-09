@@ -8,7 +8,7 @@
     It is strongly encouraged to provide as much information in this resource for any reported sequences, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize sequences over time or across sources.  However, these data should not be used to dynamically correct/change sequence representations for clinical use outside of the laboratory, due to insufficient information.
   </p>
   <p>
-    The MolecularSequence resource is designed to represent a single sequence in an instance. Each sequence might have multiple representations, but implementers SHALL ensure all representations are for the same sequence. This means that if a single MolecularSequence instance contains a <code>literal</code>, two <code>formatted</code> files, and a <code>relative</code>, all four of those representions must represent the same sequence. This can be a challenge across systems, as semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
+    The MolecularSequence resource is designed to represent a single sequence in an instance. Each sequence might have multiple representations, but implementers SHALL ensure all representations are for the same sequence. This means that if a single MolecularSequence instance contains a <code>literal</code>, two <code>formatted</code> files, and a <code>relative</code>, all four of those representations must represent the same sequence. This can be a challenge across systems, as semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
   </p>
   </div>
 

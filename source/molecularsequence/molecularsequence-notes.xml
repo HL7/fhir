@@ -24,7 +24,7 @@
     <code>MolecularSequence.formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
   </p>
   <p>
-    This method can be used to refer to sequence data from an an external source. If the sequence is referring to a GA4GH repository, the <code>MolecularSequence.formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
+    This method can be used to refer to sequence data from in an external source. If the sequence is referring to a GA4GH repository, the <code>MolecularSequence.formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
   </p>
   <h4>Sequence as a series of edits from a known sequence</h4>
   <p>
@@ -40,7 +40,7 @@
     <code>MolecularSequence.relative.sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> instances are used together.
   </p>
   <p>
-    These attributes help to clarify what sequence is being representing with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range).
+    These attributes help to clarify what sequence is being represented with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range).
   </p>
   <p>
     In a FGFR2:MET Fusion use case, where the fusion was uncovered through RNA sequencing, a partial representation can be found <a href="sequence-example-ordinal.html">here</a>.
@@ -74,10 +74,10 @@
   </p>
   <h5>Choice of Strand</h5>
   <p>
-    There are lots of definition concerning with the directionality of DNA or RNA. Here we are using <code>MolecularSequence.relative.startingSequence.orientation</code> and <code>MolecularSequence.relative.startingSequence.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>MolecularSequence.type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
+    There are many considerations concerning the directionality of DNA or RNA. Here we are using <code>MolecularSequence.relative.startingSequence.orientation</code> and <code>MolecularSequence.relative.startingSequence.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>MolecularSequence.type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
   </p>
   <p>
-    Only two possible values can be made by strand, watson and crick. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
+    Only two possible values can be made by strand, <code>watson</code> and <code>crick</code>. Since the directionality of the sequence string might be represented in different ways in different omics scenario, below are examples of how to map other expressions into its correlated value:
   </p>
   <table style="width:100%">
     <tr>
