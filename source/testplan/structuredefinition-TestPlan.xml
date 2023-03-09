@@ -475,7 +475,7 @@
     </element>
     <element id="TestPlan.testCase.assertion.type">
       <path value="TestPlan.testCase.assertion.type"/>
-      <short value="Test assertion type"/>
+      <short value="Assertion type - for example 'informative' or 'required' "/>
       <definition value="The test assertion type - this can be used to group assertions as 'required' or 'optional', or can be used for other classification of the assertion."/>
       <min value="0"/>
       <max value="*"/>
