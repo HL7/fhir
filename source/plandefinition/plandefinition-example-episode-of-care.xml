@@ -1,4 +1,5 @@
 <PlanDefinition>
+  <status value="draft"/>
   <action>
     <title value="Create an episode of care to link the related events"/>
     <trigger>
@@ -13,12 +14,22 @@
       </expression>
     </condition>
     <definitionCanonical value="http://example.org/fhir/ActivityDefinition/episode-of-care"/>
-    <type value="create"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+        <code value="create"/>
+      </coding>
+    </type>
 
     <!-- Sub action to link related encounters to the new episode of care -->
     <action>
       <title value="Link related encounters"/>
-      <type value="update"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+          <code value="update"/>
+        </coding>
+      </type>
       <definitionCanonical>
         <extension>
           <url value="cqf-expression"/>
@@ -29,7 +40,6 @@
         </extension>
       </definitionCanonical>
       <dynamicValue>
-        <language value="text/cql"/>
         <path value="episodeOfCare"/> <!-- This is the path to the episodeOfCare element of the related encounter -->
         <expression>
           <language value="text/cql"/>

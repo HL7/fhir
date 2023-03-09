@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/Communication4to3" = "R4 to R3 Conversion for Communication"
+
+uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Communication(source src : Communication, target tgt : CommunicationR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status where value != 'not-done' -> tgt.status;
+  src.status as v where value = 'not-done' ->  tgt.status = 'completed',  tgt.notDone = v;
+  src.statusReason where src.status = 'not-done' -> tgt.notDoneReason;
+  src.category -> tgt.category;
+  src.medium -> tgt.medium;
+  src.subject -> tgt.subject;
+  src.recipient -> tgt.recipient;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.topic' then {
+    e.value -> tgt.topic;
+  };
+  src.encounter -> tgt.context;
+  src.sent -> tgt.sent;
+  src.received -> tgt.received;
+  src.sender -> tgt.sender;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.payload as s -> tgt.payload as t then payload(s, t);
+  src.note -> tgt.note;
+}
+
+group payload(source src, target tgt) extends BackboneElement {
+  src.content : string as s -> tgt.content = create('string') as t then string(s, t);
+  src.content : Attachment as s -> tgt.content = create('Attachment') as t then Attachment(s, t);
+  src.content : Reference as s -> tgt.content = create('Reference') as t then Reference(s, t);
+}
+

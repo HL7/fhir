@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Schedule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/schedule.xsd">
-  <id value="example"/>
+<Schedule xmlns="http://hl7.org/fhir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/schedule.xsd">
+	<id value="example"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
       Burgers UMC, South Wing, second floor Physiotherapy Schedule
-    </div>
+		</div>
 	</text>
 	<identifier>
 		<use value="usual"/>
 		<system value="http://example.org/scheduleid"/>
 		<value value="45"/>
 	</identifier>
-  <active value="true"/>
+	<active value="true"/>
 	<serviceCategory>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/service-category"/>
@@ -36,6 +37,7 @@
 			<display value="Clinical immunology" />
 		</coding>
 	</specialty>
+	<name value="Burgers UMC, South Wing - Immunizations"/>
 	<actor>
 		<reference value="Location/1" />
 		<display value="Burgers UMC, South Wing, second floor" />

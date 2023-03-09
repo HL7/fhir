@@ -1,0 +1,18 @@
+map "http://hl7.org/fhir/StructureMap/Linkage3to4" = "R3 to R4 Conversions for Linkage"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Linkage" alias LinkageR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias Linkage as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Linkage(source src : LinkageR3, target tgt : Linkage) extends DomainResource <<type+>> {
+  src.active -> tgt.active;
+  src.author -> tgt.author;
+  src.item as vs0 -> tgt.item as vt0 then linkage(vs0, vt0);
+}
+
+group linkage(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.resource -> tgt.resource;
+}
+

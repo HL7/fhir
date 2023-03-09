@@ -1,0 +1,25 @@
+map "http://hl7.org/fhir/StructureMap/Practitioner4to3" = "R4 to R3 Conversion for Practitioner"
+
+uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Practitioner" alias PractitionerR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Practitioner(source src : Practitioner, target tgt : PractitionerR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.gender -> tgt.gender;
+  src.birthDate -> tgt.birthDate;
+  src.photo -> tgt.photo;
+  src.qualification as vs0 -> tgt.qualification as vt0 then {
+    vs0.identifier -> vt0.identifier;
+    vs0.code -> vt0.code;
+    vs0.period -> vt0.period;
+    vs0.issuer -> vt0.issuer;
+  };
+  src.communication -> tgt.communication;
+}
+

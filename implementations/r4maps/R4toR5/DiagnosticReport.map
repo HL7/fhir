@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/DiagnosticReport3to4" = "R3 to R4 Conversions for DiagnosticReport"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DiagnosticReport" alias DiagnosticReportR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReport as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group DiagnosticReport(source src : DiagnosticReportR3, target tgt : DiagnosticReport) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.context -> tgt.encounter;
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.issued -> tgt.issued;
+  src.performer as vs0 -> tgt.performer as vt0 then performer(vs0, vt0);
+  src.specimen -> tgt.specimen;
+  src.result -> tgt.result;
+  src.imagingStudy -> tgt.imagingStudy;
+  src.image as vs0 -> tgt.media as vt0 then image(vs0, vt0);
+  src.conclusion -> tgt.conclusion;
+  src.codedDiagnosis -> tgt.conclusionCode;
+  src.presentedForm -> tgt.presentedForm;
+}
+
+group performer(source src, target tgt) {
+  src.actor as v then Reference(v, tgt);
+  src.role as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DiagnosticReport.performer.role',  vt.value = v;
+}
+
+group image(source src, target tgt) extends BackboneElement {
+  src.comment -> tgt.comment;
+  src.link -> tgt.link;
+}
+

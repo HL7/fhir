@@ -1,0 +1,22 @@
+map "http://hl7.org/fhir/StructureMap/ProcessResponse3to4" = "R3 to R4 Conversions for ProcessResponse"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessResponse" alias ProcessResponseR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Task" alias Task as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ProcessResponse(source src : ProcessResponseR3, target tgt : Task) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+//  src.status -> tgt.status;
+  src.created -> tgt.authoredOn;
+//  src.organization -> tgt.organization;
+//  src.request -> tgt.request;
+//  src.outcome -> tgt.outcome;
+//  src.disposition -> tgt.disposition;
+//  src.requestProvider -> tgt.requestProvider;
+//  src.form -> tgt.form;
+//  src.processNote as s -> tgt.processNote as t then ProcessResponseProcessNote(s, t);
+//  src.error -> tgt.error;
+//  src.communicationRequest -> tgt.communicationRequest;
+}
+

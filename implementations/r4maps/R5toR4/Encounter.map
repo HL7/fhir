@@ -1,0 +1,71 @@
+map "http://hl7.org/fhir/StructureMap/Encounter4to3" = "R4 to R3 Conversion for Encounter"
+
+uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Encounter" alias EncounterR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Encounter(source src : Encounter, target tgt : EncounterR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.statusHistory as vs0 -> tgt.statusHistory as vt0 then statusHistory(vs0, vt0);
+  src.class -> tgt.class;
+  src.classHistory as vs0 -> tgt.classHistory as vt0 then classHistory(vs0, vt0);
+  src.type -> tgt.type;
+  src.priority -> tgt.priority;
+  src.subject -> tgt.subject;
+  src.episodeOfCare -> tgt.episodeOfCare;
+  src.basedOn -> tgt.incomingReferral;
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.appointment -> tgt.appointment;
+  src.period -> tgt.period;
+  src.length -> tgt.length;
+  src.reasonCode -> tgt.reason;
+  src.diagnosis as vs0 -> tgt.diagnosis as vt0 then diagnosis(vs0, vt0);
+  src.account -> tgt.account;
+  src.hospitalization as vs0 -> tgt.hospitalization as vt0 then hospitalization(vs0, vt0);
+  src.location as vs0 -> tgt.location as vt0 then location(vs0, vt0);
+  src.serviceProvider -> tgt.serviceProvider;
+  src.partOf -> tgt.partOf;
+}
+
+group statusHistory(source src, target tgt) extends BackboneElement {
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+}
+
+group classHistory(source src, target tgt) extends BackboneElement {
+  src.class -> tgt.class;
+  src.period -> tgt.period;
+}
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.period -> tgt.period;
+  src.individual -> tgt.individual;
+}
+
+group diagnosis(source src, target tgt) extends BackboneElement {
+  src.condition -> tgt.condition;
+  src.use -> tgt.role;
+  src.rank -> tgt.rank;
+}
+
+group hospitalization(source src, target tgt) extends BackboneElement {
+  src.preAdmissionIdentifier -> tgt.preAdmissionIdentifier;
+  src.origin -> tgt.origin;
+  src.admitSource -> tgt.admitSource;
+  src.reAdmission -> tgt.reAdmission;
+  src.dietPreference -> tgt.dietPreference;
+  src.specialCourtesy -> tgt.specialCourtesy;
+  src.specialArrangement -> tgt.specialArrangement;
+  src.destination -> tgt.destination;
+  src.dischargeDisposition -> tgt.dischargeDisposition;
+}
+
+group location(source src, target tgt) extends BackboneElement {
+  src.location -> tgt.location;
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+}
+

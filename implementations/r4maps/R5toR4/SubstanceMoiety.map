@@ -1,0 +1,17 @@
+map "http://hl7.org/fhir/StructureMap/SubstanceMoiety4to3" = "R4 to R3 Conversion for SubstanceMoiety"
+
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceMoiety" alias SubstanceMoiety as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceMoiety" alias SubstanceMoietyR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group SubstanceMoiety(source src : SubstanceMoiety, target tgt : SubstanceMoietyR3) extends BackboneElement <<type+>> {
+  src.role -> tgt.role;
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.stereochemistry -> tgt.stereochemistry;
+  src.opticalActivity -> tgt.opticalActivity;
+  src.molecularFormula -> tgt.molecularFormula;
+  src.amount -> tgt.amount;
+}
+

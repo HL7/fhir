@@ -1,0 +1,51 @@
+map "http://hl7.org/fhir/StructureMap/Bundle4to3" = "R4 to R3 Conversion for Bundle"
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Bundle" alias BundleR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Bundle(source src : Bundle, target tgt : BundleR3) extends Resource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.total -> tgt.total;
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+  src.entry as vs0 -> tgt.entry as vt0 then entry(vs0, vt0);
+  src.signature -> tgt.signature;
+}
+
+group link(source src, target tgt) extends BackboneElement {
+  src.relation -> tgt.relation;
+  src.url -> tgt.url;
+}
+
+group entry(source src, target tgt) extends BackboneElement {
+  src.fullUrl -> tgt.fullUrl;
+  src.resource -> tgt.resource;
+  src.search as vs0 -> tgt.search as vt0 then search(vs0, vt0);
+  src.request as vs0 -> tgt.request as vt0 then request(vs0, vt0);
+  src.response as vs0 -> tgt.response as vt0 then response(vs0, vt0);
+}
+
+group search(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.score -> tgt.score;
+}
+
+group request(source src, target tgt) extends BackboneElement {
+  src.method -> tgt.method;
+  src.url -> tgt.url;
+  src.ifNoneMatch -> tgt.ifNoneMatch;
+  src.ifModifiedSince -> tgt.ifModifiedSince;
+  src.ifMatch -> tgt.ifMatch;
+  src.ifNoneExist -> tgt.ifNoneExist;
+}
+
+group response(source src, target tgt) extends BackboneElement {
+  src.status -> tgt.status;
+  src.location -> tgt.location;
+  src.etag -> tgt.etag;
+  src.lastModified -> tgt.lastModified;
+  src.outcome -> tgt.outcome;
+}
+

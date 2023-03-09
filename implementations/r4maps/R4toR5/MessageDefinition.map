@@ -1,0 +1,55 @@
+map "http://hl7.org/fhir/StructureMap/MessageDefinition3to4" = "R3 to R4 Conversions for MessageDefinition"
+
+conceptmap "MessageSignificanceCategory" {
+  prefix s = "http://hl7.org/fhir/message-significance-category"
+  prefix t = "http://hl7.org/fhir/message-significance-category"
+
+  s:Consequence - t:consequence
+  s:Currency - t:currency
+  s:Notification - t:notification
+}
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MessageDefinition" alias MessageDefinitionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MessageDefinition" alias MessageDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group MessageDefinition(source src : MessageDefinitionR3, target tgt : MessageDefinition) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.base -> tgt.base;
+  src.parent -> tgt.parent;
+  src.replaces -> tgt.replaces;
+  src.event as vs0 -> tgt.event = create('Coding') as vt0 then Coding(vs0, vt0);
+  src.category as v -> tgt.category = translate(v, '#MessageSignificanceCategory', 'code');
+  src.focus as vs0 -> tgt.focus as vt0 then focus(vs0, vt0);
+  src.responseRequired where value = true -> tgt.responseRequired = 'always';
+  src.responseRequired where value = false -> tgt.responseRequired = 'never';
+  src.allowedResponse as vs0 -> tgt.allowedResponse as vt0 then allowedResponse(vs0, vt0);
+}
+
+group focus(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.profile -> tgt.profile;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+}
+
+group allowedResponse(source src, target tgt) extends BackboneElement {
+  src.message -> tgt.message;
+  src.situation -> tgt.situation;
+}
+

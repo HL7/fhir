@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Questionnaire xmlns="http://hl7.org/fhir">
+  <id value="que-9.f1.fail"/>
+  <url value="http://hl7.org/fhir/Questionnaire/que-9.f1.fail"/>
+  <title value="Cancer Quality Forum Questionnaire 2012"/>
+  <status value="draft"/>
+  <item>
+    <linkId value="1"/>
+    <type value="group"/>
+    <item>
+      <linkId value="1.1"/>
+      <type value="display"/>
+      <readOnly value="true"/>
+    </item>
+  </item>
+</Questionnaire>

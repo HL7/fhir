@@ -1,0 +1,92 @@
+<mappingExceptions pattern="Event" resource="MessageHeader"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.code" resourcePath="MessageHeader.event[x]">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="Coding, canonical(EventDefinition)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="Event code or link to EventDefinition"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification are defined by the implementation.  Alternatively a canonical uri to the EventDefinition."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="MessageHeader.sender">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(CareTeam,Patient,RelatedPerson)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed message header"/>
+            <resource value="Real world sender of the message"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the message header."/>
+            <resource value="Identifies the sending system to allow the use of a trust relationship."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="MessageHeader.author">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(CareTeam,Patient,RelatedPerson)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed message header"/>
+            <resource value="The source of the decision"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the message header."/>
+            <resource value="The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="MessageHeader.responsible">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed message header"/>
+            <resource value="Final responsibility for event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the message header."/>
+            <resource value="The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="MessageHeader.reason">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes
+            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was message header performed?"/>
+            <resource value="Cause of event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the message header occurred in coded or textual form or Indicates another resource whose existence justifies this message header."/>
+            <resource value="Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.status" reason="Unknown"/>
+    <unmappedElement patternPath="Event.subject" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.note" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.encounter" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Event.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Event.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+</mappingExceptions>

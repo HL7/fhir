@@ -1,0 +1,63 @@
+map "http://hl7.org/fhir/StructureMap/TestReport4to3" = "R4 to R3 Conversion for TestReport"
+
+uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReport as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TestReport" alias TestReportR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group TestReport(source src : TestReport, target tgt : TestReportR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.testScript -> tgt.testScript;
+  src.result -> tgt.result;
+  src.score -> tgt.score;
+  src.tester -> tgt.tester;
+  src.issued -> tgt.issued;
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.setup as vs0 -> tgt.setup as vt0 then setup(vs0, vt0);
+  src.test as vs0 -> tgt.test as vt0 then test(vs0, vt0);
+  src.teardown as vs0 -> tgt.teardown as vt0 then teardown(vs0, vt0);
+}
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.uri -> tgt.uri;
+  src.display -> tgt.display;
+}
+
+group setup(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group teardown(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then actionNA(vs0, vt0);
+}
+
+group test(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group action(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+  src.assert as vs0 -> tgt.assert as vt0 then assert(vs0, vt0);
+}
+
+group actionNA(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+}
+
+group operation(source src, target tgt) extends BackboneElement {
+  src.result -> tgt.result;
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
+}
+
+group assert(source src, target tgt) extends BackboneElement {
+  src.result -> tgt.result;
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
+}
+

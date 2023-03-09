@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Range3to4" = "R3 to R4 Conversions for Range"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Range" alias RangeR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Range" alias Range as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Range(source src : RangeR3, target tgt : Range) extends Element <<type+>> {
+  src.low -> tgt.low;
+  src.high -> tgt.high;
+}
+

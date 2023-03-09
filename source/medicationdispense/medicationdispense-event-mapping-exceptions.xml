@@ -1,0 +1,176 @@
+<mappingExceptions pattern="Event" resource="MedicationDispense"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="MedicationDispense.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for medication dispense"/>
+            <resource value="External identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this medication dispense by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Identifiers associated with this Medication Dispense that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the medication dispense as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="MedicationDispense.authorizingPrescription">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(MedicationRequest)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Medication order that authorizes the dispense"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this medication dispense."/>
+            <resource value="Indicates the medication order that is being dispensed against."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the medication dispense and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="MedicationDispense.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(Procedure,MedicationAdministration)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Event that dispense is part of"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular medication dispense is a component or step."/>
+            <resource value="The procedure or medication administration that triggered the dispense."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an medication dispense to an Encounter - use 'context' for that.&#xa;."/>
+            <resource value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="MedicationDispense.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the medication dispense."/>
+            <resource value="A code specifying the state of the set of dispense events."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="MedicationDispense.medication">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Medication)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="What medication was supplied"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="Identifies the medication supplied. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="MedicationDispense.subject">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="Who the dispense is for"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="A link to a resource representing the person or the group to whom the medication will be given."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the medication dispense to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="MedicationDispense.encounter">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the medication dispense is part of"/>
+            <resource value="Encounter associated with event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this medication dispense was created or to which the creation of this record is tightly associated."/>
+            <resource value="The encounter that establishes the context for this event."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the medication dispense was created during, but some medication dispenses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the medication dispense to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="MedicationDispense.whenHandedOver">
+        <missingTypes _pattern="Period, Timing" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When medication dispense occurred/is occurring"/>
+            <resource value="When product was given out"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the medication dispense did occur or is occurring."/>
+            <resource value="The time the dispensed product was provided to the patient or their representative."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer" resourcePath="MedicationDispense.performer">
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed medication dispense and what they did"/>
+            <resource value="Who performed event"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the medication dispense and how they were involved."/>
+            <resource value="Indicates who or what performed the event."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="MedicationDispense.performer.actor">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed medication dispense"/>
+            <resource value="Individual who was performing"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the medication dispense."/>
+            <resource value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="MedicationDispense.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Information about the dispense"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the medication dispense by the performer, subject or other participants."/>
+            <resource value="Extra information about the dispense that could not be conveyed in the other attributes."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+</mappingExceptions>

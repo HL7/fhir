@@ -1,0 +1,24 @@
+map "http://hl7.org/fhir/StructureMap/DeviceComponent3to4" = "R3 to R4 Conversions for DeviceComponent"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceComponent" alias DeviceComponentR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Basic" alias Basic as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group DeviceComponent(source src : DeviceComponentR3, target tgt : Basic) extends DomainResource <<type+>> {
+//  src.identifier -> tgt.identifier;
+//  src.type -> tgt.type;
+//  src.lastSystemChange -> tgt.lastSystemChange;
+//  src.source -> tgt.source;
+//  src.parent -> tgt.parent;
+//  src.operationalStatus -> tgt.operationalStatus;
+//  src.parametergroup -> tgt.parametergroup "parameterGroup";
+//  src.measurementPrinciple -> tgt.measurementPrinciple;
+//  src.productionSpecification as vs0 -> tgt.productionSpecification as vt0 then {
+//    vs0.specType -> vt0.specType;
+//    vs0.componentId -> vt0.componentId;
+//    vs0.productionSpec -> vt0.productionSpec;
+//  };
+//  src.languageCode -> tgt.languageCode;
+}
+

@@ -1,0 +1,63 @@
+map "http://hl7.org/fhir/StructureMap/AuditEvent4to3" = "R4 to R3 Conversion for AuditEvent"
+
+uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/AuditEvent" alias AuditEventR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group AuditEvent(source src : AuditEvent, target tgt : AuditEventR3) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.subtype -> tgt.subtype;
+  src.action -> tgt.action;
+  src.recorded -> tgt.recorded;
+  src.outcome -> tgt.outcome;
+  src.outcomeDesc -> tgt.outcomeDesc;
+  src.purposeOfEvent -> tgt.purposeOfEvent;
+  src.agent as s -> tgt.agent as t then AuditEventAgent(s, t);
+  src.source as s -> tgt.source as t then AuditEventSource(s, t);
+  src.entity as s -> tgt.entity as t then AuditEventEntity(s, t);
+}
+
+group AuditEventAgent(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.who as vs0 where reference.exists() -> tgt.reference as vt0 then ReferenceNoIdentifier(vs0, vt0);
+  src.who as vs0 where identifier.exists() -> tgt.userId as vt0 then Reference2Identifier(vs0, vt0);
+  src.altId -> tgt.altId;
+  src.name -> tgt.name;
+  src.requestor -> tgt.requestor;
+  src.location -> tgt.location;
+  src.policy -> tgt.policy;
+  src.media -> tgt.media;
+  src.network as s -> tgt.network as t then AuditEventAgentNetwork(s, t);
+  src.purposeOfUse -> tgt.purposeOfUse;
+}
+
+group AuditEventAgentNetwork(source src, target tgt) extends BackboneElement {
+  src.address -> tgt.address;
+  src.type -> tgt.type;
+}
+
+group AuditEventSource(source src, target tgt) extends BackboneElement {
+  src.site -> tgt.site;
+  src.observer as vs0 -> tgt.identifier as vt0 then Reference2Identifier(vs0, vt0);
+  src.type -> tgt.type;
+}
+
+group AuditEventEntity(source src, target tgt) extends BackboneElement {
+  src.what as vs0 where identifier.exists() -> tgt.identifier as vt0 then Reference2Identifier(vs0, vt0);
+  src.what as vs0 where reference.exists() -> tgt.reference as vt0 then ReferenceNoIdentifier(vs0, vt0);
+  src.type -> tgt.type;
+  src.role -> tgt.role;
+  src.lifecycle -> tgt.lifecycle;
+  src.securityLabel -> tgt.securityLabel;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.query -> tgt.query;
+  src.detail as s -> tgt.detail as t then AuditEventEntityDetail(s, t);
+}
+
+group AuditEventEntityDetail(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value where $this is base64Binary -> tgt.value;
+}
+

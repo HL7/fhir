@@ -1,0 +1,48 @@
+map "http://hl7.org/fhir/StructureMap/Extension3to4" = "R3 to R4 Conversions for Extension"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Extension" alias ExtensionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Extension" alias Extension as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Extension(source src : ExtensionR3, target tgt : Extension) extends Element <<type+>> {
+  src.url -> tgt.url;
+  src.value : base64Binary as vs -> tgt.value = create('base64Binary') as vt then base64Binary(vs, vt);
+  src.value : boolean as vs -> tgt.value = create('boolean') as vt then boolean(vs, vt);
+  src.value : code as vs -> tgt.value = create('code') as vt then code(vs, vt);
+  src.value : date as vs -> tgt.value = create('date') as vt then date(vs, vt);
+  src.value : dateTime as vs -> tgt.value = create('dateTime') as vt then dateTime(vs, vt);
+  src.value : decimal as vs -> tgt.value = create('decimal') as vt then decimal(vs, vt);
+  src.value : id as vs -> tgt.value = create('id') as vt then id(vs, vt);
+  src.value : instant as vs -> tgt.value = create('instant') as vt then instant(vs, vt);
+  src.value : integer as vs -> tgt.value = create('integer') as vt then integer(vs, vt);
+  src.value : markdown as vs -> tgt.value = create('markdown') as vt then markdown(vs, vt);
+  src.value : oid as vs -> tgt.value = create('oid') as vt then oid(vs, vt);
+  src.value : positiveInt as vs -> tgt.value = create('positiveInt') as vt then positiveInt(vs, vt);
+  src.value : string as vs -> tgt.value = create('string') as vt then string(vs, vt);
+  src.value : time as vs -> tgt.value = create('time') as vt then time(vs, vt);
+  src.value : unsignedInt as vs -> tgt.value = create('unsignedInt') as vt then unsignedInt(vs, vt);
+  src.value : uri as vs -> tgt.value = create('uri') as vt then uri(vs, vt);
+  src.value : Address as vs -> tgt.value = create('Address') as vt then Address(vs, vt);
+  src.value : Age as vs -> tgt.value = create('Age') as vt then Age(vs, vt);
+  src.value : Annotation as vs -> tgt.value = create('Annotation') as vt then Annotation(vs, vt);
+  src.value : Attachment as vs -> tgt.value = create('Attachment') as vt then Attachment(vs, vt);
+  src.value : CodeableConcept as vs -> tgt.value = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.value : Coding as vs -> tgt.value = create('Coding') as vt then Coding(vs, vt);
+  src.value : ContactPoint as vs -> tgt.value = create('ContactPoint') as vt then ContactPoint(vs, vt);
+  src.value : Count as vs -> tgt.value = create('Count') as vt then Count(vs, vt);
+  src.value : Distance as vs -> tgt.value = create('Distance') as vt then Distance(vs, vt);
+  src.value : Duration as vs -> tgt.value = create('Duration') as vt then Duration(vs, vt);
+  src.value : HumanName as vs -> tgt.value = create('HumanName') as vt then HumanName(vs, vt);
+  src.value : Identifier as vs -> tgt.value = create('Identifier') as vt then Identifier(vs, vt);
+  src.value : Money as vs -> tgt.value = create('Money') as vt then Money(vs, vt);
+  src.value : Period as vs -> tgt.value = create('Period') as vt then Period(vs, vt);
+  src.value : Quantity as vs -> tgt.value = create('Quantity') as vt then Quantity(vs, vt);
+  src.value : Range as vs -> tgt.value = create('Range') as vt then Range(vs, vt);
+  src.value : Ratio as vs -> tgt.value = create('Ratio') as vt then Ratio(vs, vt);
+  src.value : Reference as vs -> tgt.value = create('Reference') as vt then Reference(vs, vt);
+  src.value : SampledData as vs -> tgt.value = create('SampledData') as vt then SampledData(vs, vt);
+  src.value : Signature as vs -> tgt.value = create('Signature') as vt then Signature(vs, vt);
+  src.value : Timing as vs -> tgt.value = create('Timing') as vt then Timing(vs, vt);
+}
+

@@ -1,0 +1,10 @@
+map "http://hl7.org/fhir/StructureMap/Distance4to3" = "R4 to R3 Conversion for Distance"
+
+uses "http://hl7.org/fhir/StructureDefinition/Distance" alias Distance as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Distance" alias DistanceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Distance(source src : Distance, target tgt : DistanceR3) extends Quantity <<type+>> {
+}
+

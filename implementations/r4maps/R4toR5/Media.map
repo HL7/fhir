@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/Media3to4" = "R3 to R4 Conversions for Media"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Media" alias MediaR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Media(source src : MediaR3, target tgt : Media) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.type as vs0 ->  tgt.type as vt0,  vt0.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/media-type',  c.code = vs0;
+  src.subtype -> tgt.modality;
+  src.view -> tgt.view;
+  src.subject -> tgt.subject;
+  src.context -> tgt.encounter;
+  src.occurrence : dateTime as vs -> tgt.created = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.created = create('Period') as vt then Period(vs, vt);
+  src.operator -> tgt.operator;
+  src.reasonCode -> tgt.reasonCode;
+  src.bodySite -> tgt.bodySite;
+  src.device -> tgt.device;
+  src.height -> tgt.height;
+  src.width -> tgt.width;
+  src.frames -> tgt.frames;
+  src.duration -> tgt.duration;
+  src.content -> tgt.content;
+  src.note -> tgt.note;
+}
+

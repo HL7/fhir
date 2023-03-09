@@ -1,0 +1,40 @@
+map "http://hl7.org/fhir/StructureMap/Goal3to4" = "R3 to R4 Conversions for Goal"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Goal" alias GoalR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Goal" alias Goal as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Goal(source src : GoalR3, target tgt : Goal) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status where value in ('proposed' | 'planned' | 'accepted' | 'on-hold' | 'cancelled' | 'entered-in-error' | 'rejected') -> tgt.lifecycleStatus;
+  src.status where value = 'achieved' -> tgt.lifecycleStatus = 'completed';
+  src.status as s where value in ('in-progress' | 'sustaining') ->  tgt.lifecycleStatus = 'active',  tgt.achievementStatus as cc,  cc.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement',  c.code = s;
+  src.status where value = 'on-target' ->  tgt.lifecycleStatus = 'active',  tgt.achievementStatus as cc,  cc.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement',  c.code = 'sustaining';
+  src.status where value = 'ahead-of-target' ->  tgt.lifecycleStatus = 'active',  tgt.achievementStatus as cc,  cc.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement',  c.code = 'improving';
+  src.status where value = 'behind-target' ->  tgt.lifecycleStatus = 'active',  tgt.achievementStatus as cc,  cc.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement',  c.code = 'worsening';
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.start : date as vs -> tgt.start = create('date') as vt then date(vs, vt);
+  src.start : CodeableConcept as vs -> tgt.start = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
+  src.statusDate -> tgt.statusDate;
+  src.statusReason -> tgt.statusReason;
+  src.expressedBy -> tgt.expressedBy;
+  src.addresses -> tgt.addresses;
+  src.note -> tgt.note;
+  src.outcomeCode -> tgt.outcomeCode;
+  src.outcomeReference -> tgt.outcomeReference;
+}
+
+group target(source src, target tgt) extends BackboneElement {
+  src.measure -> tgt.measure;
+  src.detail : Quantity as vs -> tgt.detail = create('Quantity') as vt then Quantity(vs, vt);
+  src.detail : Range as vs -> tgt.detail = create('Range') as vt then Range(vs, vt);
+  src.detail : CodeableConcept as vs -> tgt.detail = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.due : date as vs -> tgt.due = create('date') as vt then date(vs, vt);
+  src.due : Duration as vs -> tgt.due = create('Duration') as vt then Duration(vs, vt);
+}
+

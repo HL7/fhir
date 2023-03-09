@@ -1,0 +1,52 @@
+map "http://hl7.org/fhir/StructureMap/HealthcareService4to3" = "R4 to R3 Conversion for HealthcareService"
+
+uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/HealthcareService" alias HealthcareServiceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group HealthcareService(source src : HealthcareService, target tgt : HealthcareServiceR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.providedBy -> tgt.providedBy;
+  src.category -> tgt.category;
+  src.type -> tgt.type;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.name -> tgt.name;
+  src.comment -> tgt.comment;
+  src.extraDetails -> tgt.extraDetails;
+  src.photo -> tgt.photo;
+  src.telecom -> tgt.telecom;
+  src.coverageArea -> tgt.coverageArea;
+  src.serviceProvisionCode -> tgt.serviceProvisionCode;
+  src.eligibility as vs -> tgt.eligibility as vt then eligibility(vs, vt, tgt);
+  src.program as cc then {
+    cc.text -> tgt.programName;
+  };
+  src.characteristic -> tgt.characteristic;
+  src.referralMethod -> tgt.referralMethod;
+  src.appointmentRequired -> tgt.appointmentRequired;
+  src.availableTime as vs -> tgt.availableTime as vt then availableTime(vs, vt);
+  src.notAvailable as vs -> tgt.notAvailable as vt then notAvailable(vs, vt);
+  src.availabilityExceptions -> tgt.availabilityExceptions;
+  src.endpoint -> tgt.endpoint;
+}
+
+group eligibility(source src, target tgt, target res) {
+  src.code as vs then CodeableConcept(vs, tgt);
+  src.comment -> res.eligibilityNote;
+}
+
+group availableTime(source src, target tgt) extends BackboneElement {
+  src.daysOfWeek -> tgt.daysOfWeek;
+  src.allDay -> tgt.allDay;
+  src.availableStartTime -> tgt.availableStartTime;
+  src.availableEndTime -> tgt.availableEndTime;
+}
+
+group notAvailable(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.during -> tgt.during;
+}
+

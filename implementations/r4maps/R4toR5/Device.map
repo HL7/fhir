@@ -1,0 +1,35 @@
+map "http://hl7.org/fhir/StructureMap/Device3to4" = "R3 to R4 Conversions for Device"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Device" alias DeviceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Device(source src : DeviceR3, target tgt : Device) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.udi as vs0 -> tgt.udiCarrier as vt0 then {
+    vs0.deviceIdentifier -> vt0.deviceIdentifier;
+    vs0.name as vs ->  tgt.deviceName as vt,  vt.name = vs,  vt.type = 'udi-label-name';
+    vs0.jurisdiction -> vt0.jurisdiction;
+    vs0.carrierHRF -> vt0.carrierHRF;
+    vs0.carrierAIDC -> vt0.carrierAIDC;
+    vs0.issuer -> vt0.issuer;
+    vs0.entryType -> vt0.entryType;
+  };
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.lotNumber -> tgt.lotNumber;
+  src.manufacturer -> tgt.manufacturer;
+  src.manufactureDate -> tgt.manufactureDate;
+  src.expirationDate -> tgt.expirationDate;
+  src.model -> tgt.modelNumber;
+  src.version as vs ->  tgt.version as vt,  vt.value = vs;
+  src.patient -> tgt.patient;
+  src.owner -> tgt.owner;
+  src.contact -> tgt.contact;
+  src.location -> tgt.location;
+  src.url -> tgt.url;
+  src.note -> tgt.note;
+  src.safety -> tgt.safety;
+}
+

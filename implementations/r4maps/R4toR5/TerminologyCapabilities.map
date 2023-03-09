@@ -1,0 +1,75 @@
+map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities3to4" = "R3 to R4 Conversions for TerminologyCapabilities"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilitiesR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilities as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group TerminologyCapabilities(source src : TerminologyCapabilitiesR3, target tgt : TerminologyCapabilities) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.lockedDate -> tgt.lockedDate;
+  src.codeSystem as s -> tgt.codeSystem as t then TerminologyCapabilitiesCodeSystem(s, t);
+  src.expansion as s -> tgt.expansion as t then TerminologyCapabilitiesExpansion(s, t);
+  src.codeSearch -> tgt.codeSearch;
+  src.validateCode as s -> tgt.validateCode as t then TerminologyCapabilitiesValidateCode(s, t);
+  src.translation as s -> tgt.translation as t then TerminologyCapabilitiesTranslation(s, t);
+  src.closure as s -> tgt.closure as t then TerminologyCapabilitiesClosure(s, t);
+}
+
+group TerminologyCapabilitiesCodeSystem(source src, target tgt) extends BackboneElement {
+  src.uri -> tgt.uri;
+  src.version as s -> tgt.version as t then TerminologyCapabilitiesCodeSystemVersion(s, t);
+}
+
+group TerminologyCapabilitiesCodeSystemVersion(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.isDefault -> tgt.isDefault;
+  src.compositional -> tgt.compositional;
+  src.language -> tgt.language;
+  src.filter as s -> tgt.filter as t then TerminologyCapabilitiesCodeSystemVersionFilter(s, t);
+  src.property -> tgt.property;
+}
+
+group TerminologyCapabilitiesCodeSystemVersionFilter(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.op -> tgt.op;
+}
+
+group TerminologyCapabilitiesExpansion(source src, target tgt) extends BackboneElement {
+  src.hierarchical -> tgt.hierarchical;
+  src.paging -> tgt.paging;
+  src.incomplete -> tgt.incomplete;
+  src.parameter as s -> tgt.parameter as t then TerminologyCapabilitiesExpansionParameter(s, t);
+  src.textFilter -> tgt.textFilter;
+}
+
+group TerminologyCapabilitiesExpansionParameter(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.documentation -> tgt.documentation;
+}
+
+group TerminologyCapabilitiesValidateCode(source src, target tgt) extends BackboneElement {
+  src.translations -> tgt.translations;
+}
+
+group TerminologyCapabilitiesTranslation(source src, target tgt) extends BackboneElement {
+  src.needsMap -> tgt.needsMap;
+}
+
+group TerminologyCapabilitiesClosure(source src, target tgt) extends BackboneElement {
+  src.translation -> tgt.translation;
+}
+

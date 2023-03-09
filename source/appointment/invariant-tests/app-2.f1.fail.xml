@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Appointment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/appointment.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
+	</text>
+	<status value="booked" />
+	<class>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/>
+			<display value="ambulatory"/>
+		</coding>
+	</class>
+	<serviceCategory>
+		<coding>
+			<system value="http://example.org/service-category" />
+			<code value="gp"/>
+			<display value="General Practice" />
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<concept>
+			<coding>
+				<code value="52"/>
+				<display value="General Discussion" />
+			</coding>
+		</concept>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct" />
+			<code value="394814009"/>
+			<display value="General practice" />
+		</coding>
+	</specialty>
+	<appointmentType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0276" />
+			<code value="FOLLOWUP" />
+			<display value="A follow up visit from a previous appointment" />
+		</coding>
+	</appointmentType>
+	<reason>
+    <reference>
+		  <reference value="Condition/example"/>
+		  <display value="Severe burn of left ear"/>
+    </reference>
+	</reason>
+	<!-- <priority value="5" /> -->
+	<description value="Discussion on the results of your recent MRI" />
+	<start value="2013-12-10T09:00:00Z" />
+	<created value="2013-10-10" />
+	<note>
+		<text value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
+	</note>
+	<patientInstruction>
+		<concept>
+			<text value="Please avoid excessive travel (specifically flying) before this appointment"/>
+		</concept>
+	</patientInstruction>
+	<basedOn>
+		<reference value="ServiceRequest/myringotomy"/>
+	</basedOn>
+	<subject>
+		<reference value="Patient/example" />
+		<display value="Peter James Chalmers" />
+	</subject>
+	<participant>
+		<actor>
+			<reference value="Patient/example" />
+			<display value="Peter James Chalmers" />
+		</actor>
+		<required value="true" />
+		<status value="accepted" />
+	</participant>
+	<participant>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="ATND"/>
+			</coding>
+		</type>
+		<actor>
+			<reference value="Practitioner/example" />
+			<display value="Dr Adam Careful" />
+		</actor>
+		<required value="true" />
+		<status value="accepted" />
+	</participant>
+	<participant>
+		<actor>
+			<reference value="Location/1" />
+			<display value="South Wing, second floor" />
+		</actor>
+		<required value="true" />
+		<status value="accepted" />
+	</participant>
+</Appointment>

@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/GuidanceResponse4to3" = "R4 to R3 Conversion for GuidanceResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponse as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group GuidanceResponse(source src : GuidanceResponse, target tgt : GuidanceResponseR3) extends DomainResource <<type+>> {
+  src.requestIdentifier as ii then {
+    ii.value -> tgt.requestId;
+  };
+  src.identifier -> tgt.identifier;
+  src.module : canonical as vs -> tgt.module as vt then canonical2Reference(vs, vt);
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.occurrenceDateTime -> tgt.occurrenceDateTime;
+  src.performer -> tgt.performer;
+  src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
+  src.note -> tgt.note;
+  src.evaluationMessage -> tgt.evaluationMessage;
+  src.outputParameters -> tgt.outputParameters;
+  src.result -> tgt.result;
+  src.dataRequirement -> tgt.dataRequirement;
+}
+

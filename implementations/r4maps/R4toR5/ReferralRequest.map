@@ -1,0 +1,40 @@
+map "http://hl7.org/fhir/StructureMap/ReferralRequest3to4" = "R3 to R4 Conversions for ServiceRequest"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ReferralRequest" alias ReferralRequestR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ServiceRequest(source src : ReferralRequestR3, target tgt : ServiceRequest) extends DomainResource <<type+>> {
+  src as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/BaseType',  vt.value = 'ReferralRequest' "ReferralRequest";
+  src.identifier -> tgt.identifier;
+  src.definition -> tgt.instantiatesCanonical;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.groupIdentifier -> tgt.requisition;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.serviceRequested -> tgt.orderDetail;
+  src.type -> tgt.code;
+  src.subject -> tgt.subject;
+  src.context -> tgt.encounter;
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.authoredOn -> tgt.authoredOn;
+  src.requester as vs -> tgt.requester as vt then requester(vs, vt);
+  src.specialty -> tgt.performerType;
+  src.recipient -> tgt.performer;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.description as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.description',  vt.value = v;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+}
+
+group requester(source src, target tgt) {
+  src.agent as v then Reference(v, tgt);
+  src.onBehalfOf as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.requester.onBehalfOf',  vt.value = v;
+}
+

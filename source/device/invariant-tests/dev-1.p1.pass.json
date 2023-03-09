@@ -1,0 +1,27 @@
+﻿{
+  "resourceType": "Device",
+  "id": "example",
+  "_id": {
+    "fhir_comments": [
+      "text>\r\n    <status value=\"generated\"/>\r\n    <div xmlns=\"http://www.w3.org/1999/xhtml\">\r\n      <p>example</p>\r\n    </div>\r\n  </text"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://goodcare.org/devices/id",
+      "value": "345675"
+    }
+  ],
+  "name": [
+    {
+      "value": "foo",
+      "type": "user-friendly-name",
+      "display": false
+    },
+    {
+      "value": "bar",
+      "type": "user-friendly-name",
+      "display": true
+    }
+  ]
+}

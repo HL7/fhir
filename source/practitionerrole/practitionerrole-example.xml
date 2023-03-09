@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<PractitionerRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitionerrole.xsd">
+<PractitionerRole xmlns="http://hl7.org/fhir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitionerrole.xsd">
 	<id value="example"/>
 
 	<text>
@@ -64,6 +64,24 @@
 			<use value="work"/>
 		</telecom>
 	</contact>
+	<characteristic>
+		<coding>
+			<system value="http://hl7.org/fhir/service-mode" />
+			<code value="in-person"/>
+			<display value="In Person"/>
+		</coding>
+		<coding>
+			<system value="http://hl7.org/fhir/service-mode" />
+			<code value="videoconference"/>
+			<display value="Video Conference"/>
+		</coding>
+	</characteristic>
+	<communication>
+		<coding>
+			<system value="urn:ietf:bcp:47"/>
+			<code value="en"/>
+		</coding>
+	</communication>
 	<availability>
 		<availableTime>
 			<daysOfWeek value="mon"/>
@@ -90,7 +108,7 @@
 		</notAvailableTime>
 	</availability>
 	<endpoint>
-    <!-- Endpoint that handles the v2 messaging for the external organization -->
-    <reference value="Endpoint/example"/>
-  </endpoint>
+		<!-- Endpoint that handles the v2 messaging for the external organization -->
+		<reference value="Endpoint/example"/>
+	</endpoint>
 </PractitionerRole>

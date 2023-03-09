@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/CareTeam4to3" = "R4 to R3 Conversion for CareTeam"
+
+uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeam as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CareTeam" alias CareTeamR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CareTeam(source src : CareTeam, target tgt : CareTeamR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.name -> tgt.name;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.period -> tgt.period;
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.note -> tgt.note;
+}
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.member -> tgt.member;
+  src.onBehalfOf -> tgt.onBehalfOf;
+  src.period -> tgt.period;
+}
+

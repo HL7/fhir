@@ -1,0 +1,48 @@
+map "http://hl7.org/fhir/StructureMap/GraphDefinition4to3" = "R4 to R3 Conversion for GraphDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/GraphDefinition" alias GraphDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group GraphDefinition(source src : GraphDefinition, target tgt : GraphDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.start -> tgt.start;
+  src.profile -> tgt.profile;
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+}
+
+group link(source src, target tgt) extends BackboneElement {
+  src.path -> tgt.path;
+  src.sliceName -> tgt.sliceName;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.description -> tgt.description;
+  src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
+}
+
+group target(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+  src.compartment as vs0 where use = 'requirement' -> tgt.compartment as vt0 then compartment(vs0, vt0);
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+}
+
+group compartment(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.rule -> tgt.rule;
+  src.expression -> tgt.expression;
+  src.description -> tgt.description;
+}
+

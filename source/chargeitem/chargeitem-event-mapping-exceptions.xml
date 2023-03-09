@@ -1,0 +1,203 @@
+<mappingExceptions pattern="Event" resource="ChargeItem"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="ChargeItem.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for charge item"/>
+            <resource value="Business Identifier for item"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this charge item by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Identifiers assigned to this event performer or other systems."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the charge item as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Allows identification of the charge Item as it is known by various participating systems and in a way that remains consistent across servers."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="ChargeItem.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ChargeItem)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Part of referenced ChargeItem"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular charge item is a component or step."/>
+            <resource value="ChargeItems can be grouped to larger ChargeItems covering the whole set."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an charge item to an Encounter - use 'context' for that.&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="ChargeItem.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="planned | billable | not-billable | aborted | billed | entered-in-error | unknown"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the charge item."/>
+            <resource value="The current state of the ChargeItem."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="ChargeItem.code">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="A code that identifies the charge, like a billing code"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="A code that identifies the charge, like a billing code."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="ChargeItem.subject">
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the charge item to the Patient context."/>
+            <resource value="Links the event to the Patient context."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="ChargeItem.encounter">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the charge item is part of"/>
+            <resource value="Encounter associated with this ChargeItem"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this charge item was created or to which the creation of this record is tightly associated."/>
+            <resource value="This ChargeItem has the details of how the associated Encounter should be billed or otherwise be handled by finance systems."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the charge item was created during, but some charge items may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This ChargeItem may be recorded during planning, execution or after the actual encounter takes place."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the charge item to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="ChargeItem.occurrence[x]">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When charge item occurred/is occurring"/>
+            <resource value="When the charged service was applied"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the charge item did occur or is occurring."/>
+            <resource value="Date/time(s) or duration when the charged service was applied."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <resource value="The list of types may be constrained as appropriate for the type of charge item."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer" resourcePath="ChargeItem.performer">
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed charge item and what they did"/>
+            <resource value="Who performed charged service"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the charge item and how they were involved."/>
+            <resource value="Indicates who or what performed or participated in the charged service."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="ChargeItem.performer.function">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Type of performance"/>
+            <resource value="What type of performance was done"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Distinguishes the type of involvement of the performer in the charge item.."/>
+            <resource value="Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="ChargeItem.performer.actor">
+        <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed charge item"/>
+            <resource value="Individual who was performing"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the charge item."/>
+            <resource value="The device, practitioner, etc. who performed or participated in the service."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="ChargeItem.performingOrganization">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed charge item"/>
+            <resource value="Organization providing the charged service"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the charge item."/>
+            <resource value="The organization performing the service."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="ChargeItem.reason">
+        <missingTypes
+            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was charge item performed?"/>
+            <resource value="Why was the charged  service rendered?"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the charge item occurred in coded or textual form or Indicates another resource whose existence justifies this charge item."/>
+            <resource value="Describes why the event occurred in coded or textual form."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="ChargeItem.service">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was charge item performed?"/>
+            <resource value="Which rendered service is being charged?"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the charge item occurred in coded or textual form or Indicates another resource whose existence justifies this charge item."/>
+            <resource value="Indicated the rendered service that caused this charge."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="ChargeItem.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Comments made about the ChargeItem"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the charge item by the performer, subject or other participants."/>
+            <resource value="Comments made about the event by the performer, subject or other participants."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+</mappingExceptions>

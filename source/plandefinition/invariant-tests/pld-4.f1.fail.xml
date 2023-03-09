@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlanDefinition xmlns="http://hl7.org/fhir">
+   <id value="low-suicide-risk-order-set"/>
+   <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
+   <title value="Low Suicide Risk Order Set"/>
+   <status value="active"/>
+   <experimental value="true"/>
+   <!-- Actions -->
+   <action>
+      <title value="Suicide Risk Assessment and Outpatient Management"/>
+      <relatedAction>
+         <targetId value="404"/>
+         <relationship value="concurrent"/>
+         <!-- There is no 404 action element_id -->
+      </relatedAction>
+      <action>
+         <title value="Consults and Referrals"/>
+      </action>
+   </action>
+</PlanDefinition>

@@ -1,0 +1,170 @@
+<mappingExceptions pattern="Request" resource="Claim"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="Claim.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this claim by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="A unique identifier assigned to this claim."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the claim as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Allows claims to be distinguished and referenced."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.identifier" resourcePath="Claim.insurance.identifier">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for claim"/>
+            <resource value="Pre-assigned Claim number"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this claim by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="The business identifier to be used when the claim is sent for adjudication against this insurance policy."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="Only required in jurisdictions where insurers, rather than the provider, are required to send claims to  insurers that appear after them in the list. This element is not required when 'subrogation=true'."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the claim as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payors may forward claims to other payors in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.replaces" resourcePath="Claim.related.claim">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Claim)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Request(s) replaced by this claim"/>
+            <resource value="Reference to the related claim"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Completed or terminated request(s) whose function is taken by this new claim."/>
+            <resource value="Reference to a related claim."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests."/>
+            <resource value="For workplace or other accidents it is common to relate separate claims arising from the same event."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="Claim.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="active | cancelled | draft | entered-in-error"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the claim."/>
+            <resource value="The status of the resource instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.priority" resourcePath="Claim.priority">
+        <missingTypes _pattern="code" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <bindingStrength _pattern="required" _resource="example" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="routine | urgent | asap | stat"/>
+            <resource value="Desired processing urgency"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates how quickly the claim should be addressed with respect to other requests."/>
+            <resource value="The provider-required urgency of processing the request. Typical values include: stat, normal, deferred."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="Claim.patient">
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="The recipient of the products and services"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value="The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="Claim.created">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="Resource creation date"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft claims, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="The date this resource was created."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="Claim.provider">
+        <missingTypes _pattern="Reference(Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Party responsible for the claim"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="The provider which is responsible for the claim, predetermination or preauthorization."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="Claim.insurer">
+        <missingTypes
+            _pattern="Reference(Practitioner,PractitionerRole,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Target"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The Insurer who is target of the request."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="Claim.supportingInfo">
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Supporting information"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this claim."/>
+            <resource value="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value="Often there are multiple jurisdiction specific valuesets which are required."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.intent" reason="Unknown"/>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.note" reason="Unknown"/>
+    <unmappedElement patternPath="Request.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Request.encounter" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
+    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,42 @@
+map "http://hl7.org/fhir/StructureMap/Medication3to4" = "R3 to R4 Conversions for Medication"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Medication" alias MedicationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Medication" alias Medication as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Medication(source src : MedicationR3, target tgt : Medication) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.status as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.status',  vt.value = v;
+  src.isBrand as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand',  vt.value = v;
+  src.isOverTheCounter as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationOTC',  vt.value = v;
+  src.manufacturer -> tgt.manufacturer;
+  src.form -> tgt.form;
+  src.ingredient as vs0 -> tgt.ingredient as vt0 then ingredient(vs0, vt0);
+  src.package as vs0 then package(vs0, tgt);
+  src.image as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationImage',  vt.value = v;
+}
+
+group ingredient(source src, target tgt) extends BackboneElement {
+  src.item : CodeableConcept as vs -> tgt.item = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs -> tgt.item = create('Reference') as vt then Reference(vs, vt);
+  src.isActive -> tgt.isActive;
+  src.amount -> tgt.strength;
+}
+
+group package(source src, target tgt) {
+  src.container as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container',  vt.value = v;
+  src.content as vs0 ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content' then content(vs0, vt);
+  src.batch as vs0 -> tgt.batch as vt0 then batch(vs0, vt0);
+}
+
+group content(source src, target tgt) extends Element {
+  src.item as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content',  vt.value = v;
+  src.amount as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content.amount',  vt.value = v;
+}
+
+group batch(source src, target tgt) extends BackboneElement {
+  src.lotNumber -> tgt.lotNumber;
+  src.expirationDate -> tgt.expirationDate;
+}
+

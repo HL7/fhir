@@ -1,0 +1,13 @@
+<mappingExceptions pattern="FiveWs" resource="Condition"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.why" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
+</mappingExceptions>

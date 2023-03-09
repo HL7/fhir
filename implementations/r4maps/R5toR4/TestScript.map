@@ -1,0 +1,148 @@
+map "http://hl7.org/fhir/StructureMap/TestScript4to3" = "R4 to R3 Conversion for TestScript"
+
+uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TestScript" alias TestScriptR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group TestScript(source src : TestScript, target tgt : TestScriptR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.origin as vs0 -> tgt.origin as vt0 then origin(vs0, vt0);
+  src.destination as vs0 -> tgt.destination as vt0 then origin(vs0, vt0);
+  src.metadata as vs0 -> tgt.metadata as vt0 then metadata(vs0, vt0);
+  src.fixture as vs0 -> tgt.fixture as vt0 then fixture(vs0, vt0);
+  src.profile -> tgt.profile;
+  src.variable as vs0 -> tgt.variable as vt0 then variable(vs0, vt0);
+  src.setup as vs0 -> tgt.setup as vt0 then setup(vs0, vt0);
+  src.test as vs0 -> tgt.test as vt0 then test(vs0, vt0);
+  src.teardown as vs0 -> tgt.teardown as vt0 then teardown(vs0, vt0);
+}
+
+group origin(source src, target tgt) extends BackboneElement {
+  src.index -> tgt.index;
+  src.profile -> tgt.profile;
+}
+
+group metadata(source src, target tgt) extends BackboneElement {
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+  src.capability as vs0 -> tgt.capability as vt0 then capability(vs0, vt0);
+}
+
+group link(source src, target tgt) extends BackboneElement {
+  src.url -> tgt.url;
+  src.description -> tgt.description;
+}
+
+group capability(source src, target tgt) extends BackboneElement {
+  src.required -> tgt.required;
+  src.validated -> tgt.validated;
+  src.description -> tgt.description;
+  src.origin -> tgt.origin;
+  src.destination -> tgt.destination;
+  src.link -> tgt.link;
+  src.capabilities -> tgt.capabilities;
+}
+
+group fixture(source src, target tgt) extends BackboneElement {
+  src.autocreate -> tgt.autocreate;
+  src.autodelete -> tgt.autodelete;
+  src.resource -> tgt.resource;
+}
+
+group variable(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.defaultValue -> tgt.defaultValue;
+  src.description -> tgt.description;
+  src.expression -> tgt.expression;
+  src.headerField -> tgt.headerField;
+  src.hint -> tgt.hint;
+  src.path -> tgt.path;
+  src.sourceId -> tgt.sourceId;
+}
+
+group setup(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group action(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+  src.assert as vs0 -> tgt.assert as vt0 then assert(vs0, vt0);
+}
+
+group actionNA(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+}
+
+group test(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group teardown(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then actionNA(vs0, vt0);
+}
+
+group operation(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.resource -> tgt.resource;
+  src.label -> tgt.label;
+  src.description -> tgt.description;
+  src.accept -> tgt.accept;
+  src.contentType -> tgt.contentType;
+  src.destination -> tgt.destination;
+  src.encodeRequestUrl -> tgt.encodeRequestUrl;
+  src.origin -> tgt.origin;
+  src.params -> tgt.params;
+  src.requestHeader as vs0 -> tgt.requestHeader as vt0 then header(vs0, vt0);
+  src.requestId -> tgt.requestId;
+  src.responseId -> tgt.responseId;
+  src.sourceId -> tgt.sourceId;
+  src.targetId -> tgt.targetId;
+  src.url -> tgt.url;
+}
+
+group header(source src, target tgt) extends BackboneElement {
+  src.field -> tgt.field;
+  src.value -> tgt.value;
+}
+
+group assert(source src, target tgt) extends BackboneElement {
+  src.label -> tgt.label;
+  src.description -> tgt.description;
+  src.direction -> tgt.direction;
+  src.compareToSourceId -> tgt.compareToSourceId;
+  src.compareToSourceExpression -> tgt.compareToSourceExpression;
+  src.compareToSourcePath -> tgt.compareToSourcePath;
+  src.contentType -> tgt.contentType;
+  src.expression -> tgt.expression;
+  src.headerField -> tgt.headerField;
+  src.minimumId -> tgt.minimumId;
+  src.navigationLinks -> tgt.navigationLinks;
+  src.operator -> tgt.operator;
+  src.path -> tgt.path;
+  src.requestMethod -> tgt.requestMethod;
+  src.requestURL -> tgt.requestURL;
+  src.resource -> tgt.resource;
+  src.response -> tgt.response;
+  src.responseCode -> tgt.responseCode;
+  src.sourceId -> tgt.sourceId;
+  src.validateProfileId -> tgt.validateProfileId;
+  src.value -> tgt.value;
+  src.warningOnly -> tgt.warningOnly;
+}
+

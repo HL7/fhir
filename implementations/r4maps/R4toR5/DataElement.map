@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/DataElement3to4" = "R3 to R4 Conversions for DataElement"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DataElement" alias DataElementR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group DataElement(source src : DataElementR3, target tgt : StructureDefinition) extends DomainResource <<type+>> {
+  src.url as v -> tgt.url = evaluate(v, v.replace('/DataElement/','/StructureDefinition/de-'));
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.status -> tgt.status, 
+                tgt.type='StructureDefinition',
+                tgt.kind='resource', 
+                tgt.abstract=false, 
+                tgt.baseDefinition = 'http://hl7.org/fhir/StructureDefinition/DomainResource',
+                tgt.derivation = 'specialization';
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+//  scr.stringency -> ;
+  src.mapping as vs0 -> tgt.mapping as vt0 then {
+    vs0.identity -> vt0.identity;
+    vs0.uri -> vt0.uri;
+    vs0.name -> vt0.name;
+    vs0.comment -> vt0.comment;
+  };
+  src.element as vs0 -> tgt.snapshot as vt0 share snapshot, vt0.element as vte then ElementDefinition(vs0, vte) "settingElement";
+}
+

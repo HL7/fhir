@@ -1,0 +1,31 @@
+map "http://hl7.org/fhir/StructureMap/Location4to3" = "R4 to R3 Conversion for Location"
+
+uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Location" alias LocationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Location(source src : Location, target tgt : LocationR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.description -> tgt.description;
+  src.mode -> tgt.mode;
+  src.type -> tgt.type;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.physicalType -> tgt.physicalType;
+  src.position as vs0 -> tgt.position as vt0 then position(vs0, vt0);
+  src.managingOrganization -> tgt.managingOrganization;
+  src.partOf -> tgt.partOf;
+  src.endpoint -> tgt.endpoint;
+}
+
+group position(source src, target tgt) extends BackboneElement {
+  src.longitude -> tgt.longitude;
+  src.latitude -> tgt.latitude;
+  src.altitude -> tgt.altitude;
+}
+

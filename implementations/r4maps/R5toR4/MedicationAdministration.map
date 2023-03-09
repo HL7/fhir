@@ -1,0 +1,64 @@
+map "http://hl7.org/fhir/StructureMap/MedicationAdministration4to3" = "R4 to R3 Conversion for MedicationAdministration"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministration as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group MedicationAdministration(source src : MedicationAdministration, target tgt : MedicationAdministrationR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiates -> tgt.definition;
+  src.partOf -> tgt.partOf;
+  src where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status').exists() then statusR3(src, tgt) "status1";
+  src where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status').empty() then statusNR3(src, tgt) "status2";
+  src.category -> tgt.category;
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.performer as vs0 -> tgt.performer as vt0 then actor(vs0, vt0);
+  src.statusReason -> tgt.statusReason;
+  src.reasonCode where value = 'not-done' -> tgt.reasonNotGiven;
+  src.reasonCode where value != 'not-done' -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.request -> tgt.prescription;
+  src.device -> tgt.device;
+  src.note -> tgt.note;
+  src.dosage as s -> tgt.dosage as t then dosage(s, t);
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group actor(source src, target tgt) extends BackboneElement {
+  src.actor -> tgt.actor;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.performer.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+
+group dosage(source src, target tgt) extends BackboneElement {
+  src.text -> tgt.text;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.dose -> tgt.dose;
+  src.rate : Ratio as vs -> tgt.rate = create('Ratio') as vt then Ratio(vs, vt);
+  src.rate : Quantity as vs -> tgt.rate = create('Quantity') as vt then Quantity(vs, vt);
+}
+
+group statusR3(source src, target tgt) {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.notGiven' then {
+    e.value -> tgt.notGiven;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status' then {
+    e.value -> tgt.status;
+  };
+}
+
+group statusNR3(source src, target tgt) {
+  src.status where value != 'not-done' -> tgt.status;
+  src.status where value = 'not-done' -> tgt.notGiven = false;
+}
+

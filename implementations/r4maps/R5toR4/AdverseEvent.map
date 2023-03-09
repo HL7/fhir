@@ -1,0 +1,45 @@
+map "http://hl7.org/fhir/StructureMap/AdverseEvent4to3" = "R4 to R3 Conversion for AdverseEvent"
+
+uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEvent as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/AdverseEvent" alias AdverseEventR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group AdverseEvent(source src : AdverseEvent, target tgt : AdverseEventR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.actuality -> tgt.actuality;
+  src.category as vs then {
+    vs.coding as c where system = 'http://terminology.hl7.org/CodeSystem/adverse-event-category' then {
+      c.code -> tgt.category;
+    };
+  };
+  src.event -> tgt.type;
+  src.subject -> tgt.subject;
+  src.date -> tgt.date;
+  src.detected -> tgt.detected;
+  src.recordedDate -> tgt.recordedDate;
+  src.resultingCondition -> tgt.resultingCondition;
+  src.location -> tgt.location;
+  src.seriousness -> tgt.seriousness;
+  src.severity -> tgt.severity;
+  src.outcome -> tgt.outcome;
+  src.recorder -> tgt.recorder;
+  src.contributor -> tgt.contributor;
+  src.suspectEntity as s -> tgt.suspectEntity as t then AdverseEventSuspectEntity(s, t);
+  src.subjectMedicalHistory -> tgt.subjectMedicalHistory;
+  src.referenceDocument -> tgt.referenceDocument;
+  src.study -> tgt.study;
+}
+
+group AdverseEventSuspectEntity(source src, target tgt) extends BackboneElement {
+  src.instance -> tgt.instance;
+  src.causality as s -> tgt.causality as t then AdverseEventSuspectEntityCausality(s, t);
+}
+
+group AdverseEventSuspectEntityCausality(source src, target tgt) extends BackboneElement {
+  src.assessment -> tgt.assessment;
+  src.productRelatedness -> tgt.productRelatedness;
+  src.author -> tgt.author;
+  src.method -> tgt.method;
+}
+

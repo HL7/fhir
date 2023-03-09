@@ -1,0 +1,11 @@
+map "http://hl7.org/fhir/StructureMap/BackboneElement4to3" = "R4 to R3 Conversion for BackboneElement"
+
+uses "http://hl7.org/fhir/StructureDefinition/BackboneElement" alias BackboneElement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/BackboneElement" alias BackboneElementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group BackboneElement(source src : BackboneElement, target tgt : BackboneElementR3) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+}
+

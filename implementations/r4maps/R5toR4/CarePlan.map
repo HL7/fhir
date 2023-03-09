@@ -1,0 +1,65 @@
+map "http://hl7.org/fhir/StructureMap/CarePlan4to3" = "R4 to R3 Conversion for CarePlan"
+
+uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlan as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CarePlan" alias CarePlanR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CarePlan(source src : CarePlan, target tgt : CarePlanR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.category -> tgt.category;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.period -> tgt.period;
+  src.author -> tgt.author;
+  src.contributor -> tgt.contributor;
+  src.careTeam -> tgt.careTeam;
+  src.addresses -> tgt.addresses;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.goal -> tgt.goal;
+  src.activity as vs -> tgt.activity as vt then activity(vs, vt);
+  src.note -> tgt.note;
+}
+
+group activity(source src, target tgt) extends BackboneElement {
+  src.outcomeCodeableConcept -> tgt.outcomeCodeableConcept;
+  src.outcomeReference -> tgt.outcomeReference;
+  src.progress -> tgt.progress;
+  src.reference -> tgt.reference;
+  src.detail as vs -> tgt.detail as vt then detail(vs, vt);
+}
+
+group detail(source src, target tgt) extends BackboneElement {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CarePlan.activity.detail.category' then {
+    e.value -> tgt.category;
+  };
+  src.instantiatesCanonical -> tgt.definition;
+  src.code -> tgt.code;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.goal -> tgt.goal;
+  src.status -> tgt.status;
+  src.statusReason as s then {
+    s.text -> tgt.statusReason;
+  };
+  src.doNotPerform -> tgt.prohibited;
+  src.scheduled : Timing as s -> tgt.scheduled = create('Timing') as t then Timing(s, t);
+  src.scheduled : Period as s -> tgt.scheduled = create('Period') as t then Period(s, t);
+  src.scheduled : string as s -> tgt.scheduled = create('string') as t then string(s, t);
+  src.location -> tgt.location;
+  src.performer -> tgt.performer;
+  src.product : CodeableConcept as s -> tgt.product = create('CodeableConcept') as t then CodeableConcept(s, t);
+  src.product : Reference as s -> tgt.product = create('Reference') as t then Reference(s, t);
+  src.dailyAmount -> tgt.dailyAmount;
+  src.quantity -> tgt.quantity;
+  src.description -> tgt.description;
+}
+

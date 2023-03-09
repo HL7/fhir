@@ -1,0 +1,100 @@
+<mappingExceptions pattern="Event"
+    resource="CoverageEligibilityResponse"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="CoverageEligibilityResponse.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for coverage eligibility response"/>
+            <resource value="Business Identifier for coverage eligiblity request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this coverage eligibility response by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="A unique identifier assigned to this coverage eligiblity request."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the coverage eligibility response as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Allows coverage eligibility requests to be distinguished and referenced."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="CoverageEligibilityResponse.request">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CoverageEligibilityRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Eligibility request reference"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this coverage eligibility response."/>
+            <resource value="Reference to the original request resource."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the coverage eligibility response and tracking whether proposals/recommendations were acted upon."/>
+            <resource value="Needed to allow the response to be linked to the request."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="CoverageEligibilityResponse.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="active | cancelled | draft | entered-in-error"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the coverage eligibility response."/>
+            <resource value="The status of the resource instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="CoverageEligibilityResponse.patient">
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="Intended recipient of products and services"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="The party who is the beneficiary of the supplied coverage and for whom eligibility is sought."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the coverage eligibility response to the Patient context."/>
+            <resource value="Required to provide context and coverage validation."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="CoverageEligibilityResponse.disposition">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Annotation" reason="Unknown"/>
+        <extraTypes _resource="string" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Disposition Message"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the coverage eligibility response by the performer, subject or other participants."/>
+            <resource value="A human readable description of the status of the adjudication."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.code" reason="Unknown"/>
+    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.category" reason="Unknown"/>
+    <unmappedElement patternPath="Event.encounter" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Event.product" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+</mappingExceptions>

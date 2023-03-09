@@ -1,0 +1,68 @@
+map "http://hl7.org/fhir/StructureMap/NutritionOrder3to4" = "R3 to R4 Conversions for NutritionOrder"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/NutritionOrder" alias NutritionOrderR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/NutritionOrder" alias NutritionOrder as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group NutritionOrder(source src : NutritionOrderR3, target tgt : NutritionOrder) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.dateTime -> tgt.dateTime;
+  src.orderer -> tgt.orderer;
+  src.allergyIntolerance -> tgt.allergyIntolerance;
+  src.foodPreferenceModifier -> tgt.foodPreferenceModifier;
+  src.excludeFoodModifier -> tgt.excludeFoodModifier;
+  src.oralDiet as s -> tgt.oralDiet as t then oralDiet(s, t);
+  src.supplement as s -> tgt.supplement as t then supplement(s, t);
+  src.enteralFormula as s -> tgt.enteralFormula as t then enteralFormula(s, t);
+}
+
+group oralDiet(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.schedule -> tgt.schedule;
+  src.nutrient as s -> tgt.nutrient as t then nutrient(s, t);
+  src.texture as s -> tgt.texture as t then texture(s, t);
+  src.fluidConsistencyType -> tgt.fluidConsistencyType;
+  src.instruction -> tgt.instruction;
+}
+
+group nutrient(source src, target tgt) extends BackboneElement {
+  src.modifier -> tgt.modifier;
+  src.amount -> tgt.amount;
+}
+
+group texture(source src, target tgt) extends BackboneElement {
+  src.modifier -> tgt.modifier;
+  src.foodType -> tgt.foodType;
+}
+
+group supplement(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.productName -> tgt.productName;
+  src.schedule -> tgt.schedule;
+  src.quantity -> tgt.quantity;
+  src.instruction -> tgt.instruction;
+}
+
+group enteralFormula(source src, target tgt) extends BackboneElement {
+  src.baseFormulaType -> tgt.baseFormulaType;
+  src.baseFormulaProductName -> tgt.baseFormulaProductName;
+  src.additiveType -> tgt.additiveType;
+  src.additiveProductName -> tgt.additiveProductName;
+  src.caloricDensity -> tgt.caloricDensity;
+  src.routeofAdministration -> tgt.routeofAdministration;
+  src.administration as s -> tgt.administration as t then administration(s, t);
+  src.maxVolumeToDeliver -> tgt.maxVolumeToDeliver;
+  src.administrationInstruction -> tgt.administrationInstruction;
+}
+
+group administration(source src, target tgt) extends BackboneElement {
+  src.schedule -> tgt.schedule;
+  src.quantity -> tgt.quantity;
+  src.rate : Quantity as vs -> tgt.rate = create('Quantity') as vt then Quantity(vs, vt);
+  src.rate : Ratio as vs -> tgt.rate = create('Ratio') as vt then Ratio(vs, vt);
+}
+

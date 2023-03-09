@@ -1,0 +1,60 @@
+map "http://hl7.org/fhir/StructureMap/Consent3to4" = "R3 to R4 Conversions for Consent"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Consent(source src : ConsentR3, target tgt : Consent) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.patient -> tgt.patient;
+  src.dateTime -> tgt.dateTime;
+  src.consentingParty -> tgt.performer;
+  src.organization -> tgt.organization;
+  src.source -> tgt.source;
+  src.policy as vs -> tgt.policy as vt then policy(vs, vt);
+  src.policyRule as v ->  tgt.policyRule as cc,  cc.coding as c,  c.system = 'urn:ietf:rfc:3986',  c.code = v;
+  src where securityLabel.exists() or period.exists() or actor.exists() or action.exists() or purpose.exists() or dataPeriod.exists() or data.exists() or except.exists() -> tgt.provision as vt then base(src, vt) "securityLabel";
+}
+
+group base(source src, target tgt) {
+  src.period -> tgt.period;
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+  src.except as vs -> tgt.provision as vt then provision(vs, vt);
+}
+
+group policy(source src, target tgt) extends BackboneElement {
+  src.authority -> tgt.authority;
+  src.uri -> tgt.uri;
+}
+
+group provision(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.period -> tgt.period;
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.class -> tgt.class;
+  src.code -> tgt.code;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+}
+
+group actor(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.reference -> tgt.reference;
+}
+
+group data(source src, target tgt) extends BackboneElement {
+  src.meaning -> tgt.meaning;
+  src.reference -> tgt.reference;
+}
+

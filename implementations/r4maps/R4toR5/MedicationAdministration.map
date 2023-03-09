@@ -1,0 +1,50 @@
+map "http://hl7.org/fhir/StructureMap/MedicationAdministration3to4" = "R3 to R4 Conversions for MedicationAdministration"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministration as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group MedicationAdministration(source src : MedicationAdministrationR3, target tgt : MedicationAdministration) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.definition -> tgt.instantiates;
+  src.partOf -> tgt.partOf;
+  src.status as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status',  vt.value = v;
+  src.notGiven as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.notGiven',  vt.value = v;
+  src.status where src.notGiven.not() -> tgt.status;
+  src.notGiven -> tgt.status = 'not-done';
+  src.category -> tgt.category;
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.performer as vs0 -> tgt.performer as vt0 then actor(vs0, vt0);
+  src.statusReason -> tgt.statusReason;
+  src.reasonNotGiven -> tgt.reasonCode;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.prescription -> tgt.request;
+  src.device -> tgt.device;
+  src.note -> tgt.note;
+  src.dosage as s -> tgt.dosage as t then dosage(s, t);
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group actor(source src, target tgt) extends BackboneElement {
+  src.actor -> tgt.actor;
+  src.onBehalfOf as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.performer.onBehalfOf',  vt.value = v;
+}
+
+group dosage(source src, target tgt) extends BackboneElement {
+  src.text -> tgt.text;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.dose -> tgt.dose;
+  src.rate : Ratio as vs -> tgt.rate = create('Ratio') as vt then Ratio(vs, vt);
+  src.rate : Quantity as vs -> tgt.rate = create('Quantity') as vt then Quantity(vs, vt);
+}
+

@@ -1,0 +1,111 @@
+map "http://hl7.org/fhir/StructureMap/PlanDefinition4to3" = "R4 to R3 Conversion for PlanDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/PlanDefinition" alias PlanDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/PlanDefinition" alias PlanDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group PlanDefinition(source src : PlanDefinition, target tgt : PlanDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.type -> tgt.type;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor',  vt.contact = vs;
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer',  vt.contact = vs;
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser',  vt.contact = vs;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.library -> tgt.library;
+  src.goal as vs0 -> tgt.goal as vt0 then goal(vs0, vt0);
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group goal(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.description -> tgt.description;
+  src.priority -> tgt.priority;
+  src.start -> tgt.start;
+  src.addresses -> tgt.addresses;
+  src.documentation -> tgt.documentation;
+  src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
+}
+
+group target(source src, target tgt) extends BackboneElement {
+  src.measure -> tgt.measure;
+  src.detail -> tgt.detail;
+  src.due -> tgt.due;
+}
+
+group action(source src, target tgt) extends BackboneElement {
+  src.prefix -> tgt.label;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.textEquivalent -> tgt.textEquivalent;
+  src.code -> tgt.code;
+  src.reason -> tgt.reason;
+  src.documentation -> tgt.documentation;
+  src.goalId -> tgt.goalId;
+  src.trigger -> tgt.triggerDefinition;
+  src.condition as vs0 -> tgt.condition as vt0 then condition(vs0, vt0);
+  src.input -> tgt.input;
+  src.output -> tgt.output;
+  src.relatedAction as vs0 -> tgt.relatedAction as vt0 then relatedAction(vs0, vt0);
+  src.timing : dateTime as vs -> tgt.timing = create('dateTime') as vt then dateTime(vs, vt);
+  src.timing : Period as vs -> tgt.timing = create('Period') as vt then Period(vs, vt);
+  src.timing : Duration as vs -> tgt.timing = create('Duration') as vt then Duration(vs, vt);
+  src.timing : Range as vs -> tgt.timing = create('Range') as vt then Range(vs, vt);
+  src.timing : Timing as vs -> tgt.timing = create('Timing') as vt then Timing(vs, vt);
+  src.type -> tgt.type;
+  src.groupingBehavior -> tgt.groupingBehavior;
+  src.selectionBehavior -> tgt.selectionBehavior;
+  src.requiredBehavior -> tgt.requiredBehavior;
+  src.precheckBehavior -> tgt.precheckBehavior;
+  src.cardinalityBehavior -> tgt.cardinalityBehavior;
+  src.definition -> tgt.definition;
+  src.transform -> tgt.transform;
+  src.dynamicValue as vs0 -> tgt.dynamicValue as vt0 then dynamicValue(vs0, vt0);
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group condition(source src, target tgt) extends BackboneElement {
+  src.kind -> tgt.kind;
+  src.expression as e then {
+    e.description -> tgt.description;
+    e.language -> tgt.language;
+    e.expression -> tgt.expression;
+  };
+}
+
+group relatedAction(source src, target tgt) extends BackboneElement {
+  src.actionId -> tgt.actionId;
+  src.relationship -> tgt.relationship;
+  src.offset : Duration as vs -> tgt.offset = create('Duration') as vt then Duration(vs, vt);
+  src.offset : Range as vs -> tgt.offset = create('Range') as vt then Range(vs, vt);
+}
+
+group dynamicValue(source src, target tgt) extends BackboneElement {
+  src.path -> tgt.path;
+  src.expression as e then {
+    e.description -> tgt.description;
+    e.language -> tgt.language;
+    e.expression -> tgt.expression;
+  };
+}
+

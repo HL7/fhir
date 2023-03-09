@@ -1,0 +1,32 @@
+map "http://hl7.org/fhir/StructureMap/DocumentManifest3to4" = "R3 to R4 Conversions for DocumentManifest"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentManifest" alias DocumentManifestR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group DocumentManifest(source src : DocumentManifestR3, target tgt : DocumentManifest) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.masterIdentifier;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.created -> tgt.created;
+  src.author -> tgt.author;
+  src.recipient -> tgt.recipient;
+  src.source -> tgt.source;
+  src.description -> tgt.description;
+  src.content as s -> tgt.content as t then content(s, t);
+  src.related as s -> tgt.related as t then DocumentManifestRelated(s, t);
+}
+
+group content(source src, target tgt) extends Element {
+  src.p : Attachment as s ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentManifest.content.p_Attachment',  ext.value = s;
+  src.p : Reference as s then Reference(s, tgt);
+}
+
+group DocumentManifestRelated(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.ref -> tgt.ref;
+}
+

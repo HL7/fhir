@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = example  file name = nutritionorder-example.xml  Name= Enteral Bolus  Description = General NutritionOrder Example 
-edited by Eric Haas Health eData Inc--><id value="example"/>
+<NutritionOrder xmlns="http://hl7.org/fhir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd">	<!-- id = example  file name = nutritionorder-example.xml Name= Enteral Bolus  Description = General NutritionOrder Example 
+edited by Eric Haas Health eData Inc-->
+	<id value="example"/>
+	<status value="active"/>
+	<intent value="order"/>
 	<subject>
 		<display value="Paula Patient Chalmers"/>
 	</subject>

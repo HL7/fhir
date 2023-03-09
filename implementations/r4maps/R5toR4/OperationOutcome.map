@@ -1,0 +1,18 @@
+map "http://hl7.org/fhir/StructureMap/OperationOutcome4to3" = "R4 to R3 Conversion for OperationOutcome"
+
+uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias OperationOutcome as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/OperationOutcome" alias OperationOutcomeR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group OperationOutcome(source src : OperationOutcome, target tgt : OperationOutcomeR3) extends DomainResource <<type+>> {
+  src.issue as vs0 -> tgt.issue as vt0 then {
+    vs0.severity -> vt0.severity;
+    vs0.code -> vt0.code;
+    vs0.details -> vt0.details;
+    vs0.diagnostics -> vt0.diagnostics;
+    vs0.location -> vt0.location;
+    vs0.expression -> vt0.expression;
+  };
+}
+

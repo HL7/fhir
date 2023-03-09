@@ -1,0 +1,36 @@
+<mappingExceptions pattern="ParticipantContactable"
+    resource="RelatedPerson"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="ParticipantContactable.telecom" resourcePath="RelatedPerson.telecom">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="A contact detail for the participant"/>
+            <resource value="A contact detail for the person"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the participant may be contacted."/>
+            <resource value="A contact detail for the person, e.g. a telephone number or an email address."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Participants have (primary) ways to contact them in some way such as phone, email."/>
+            <resource value="People have (primary) ways to contact them in some way such as phone, email."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantContactable.address" resourcePath="RelatedPerson.address">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="An address for the individual"/>
+            <resource value="Address where the related person can be contacted or visited"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="An address for the participant."/>
+            <resource value="Address where the related person can be contacted or visited."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="May need to keep track of participant addresses for contacting, billing or reporting requirements and also to help with identification."/>
+            <resource value="Need to keep track where the related person can be contacted per postal mail or visited."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Participant.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.name" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.active" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,31 @@
+map "http://hl7.org/fhir/StructureMap/ResearchSubject4to3" = "R4 to R3 Conversion for ResearchSubject"
+
+conceptmap "ResourceSubjectStatus" {
+  prefix s = "http://hl7.org/fhir/research-study-status"
+  prefix t = "http://hl7.org/fhir/research-study-status"
+
+  s:candidate - t:candidate
+  s:enrolled - t:"on-study"
+  s:active - t:"on-study-intervention"
+  s:suspended - t:"on-study-observation"
+  s:withdrawn - t:withdrawn
+  s:completed - t:"off-study"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubject as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchSubject" alias ResearchSubjectR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ResearchSubject(source src : ResearchSubject, target tgt : ResearchSubjectR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#ResourceSubjectStatus', 'code');
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+  src.study -> tgt.study;
+  src.individual -> tgt.individual;
+  src.assignedArm -> tgt.assignedArm;
+  src.actualArm -> tgt.actualArm;
+  src.consent -> tgt.consent;
+}
+

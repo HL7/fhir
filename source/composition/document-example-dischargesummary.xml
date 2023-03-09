@@ -348,7 +348,7 @@
         <encounter>
           <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
         </encounter>
-        <valueMarkdown value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
+        <valueString value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
       </Observation>
     </resource>
   </entry>

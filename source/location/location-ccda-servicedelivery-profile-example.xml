@@ -46,13 +46,11 @@
       <use value="work"/>
     </telecom>
   </contact>
-  <contact>
-    <address>
-      <use value="work"/>
-      <line value="Galapagosweg 91, Building A"/>
-      <city value="Den Burg"/>
-      <postalCode value="9105 PZ"/>
-      <country value="NLD"/>
-    </address>
-  </contact>
+  <address>
+    <use value="work"/>
+    <line value="Galapagosweg 91, Building A"/>
+    <city value="Den Burg"/>
+    <postalCode value="9105 PZ"/>
+    <country value="NLD"/>
+  </address>
 </Location>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionnaireResponse xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireresponse.xsd">
+  <id value="3141"/>
+  <questionnaire value="urn:uuid:95eaedf7-8a24-478a-8300-39acc44c746b"/>
+  <status value="completed"/>
+  <authored value="2013-02-19T14:15:00-05:00"/>
+  <!-- answer repeating at a child of the root -->
+  <item>
+    <linkId value="1"/>
+    <item>
+      <linkId value="1.1"/>
+      <answer>
+        <valueCoding>
+          <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+          <code value="1"/>
+          <display value="Yes"/>
+        </valueCoding>
+      </answer>
+      <item>
+        <linkId value="1.1.1.1"/>
+        <answer>
+          <valueCoding>
+            <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+            <code value="1"/>
+          </valueCoding>
+        </answer>
+      </item>
+    </item>
+  </item>
+</QuestionnaireResponse>
