@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="NutritionIntake.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for nutrition intake"/>
+            <_pattern value="Business identifier for nutrition intake"/>
             <resource value="External identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -45,7 +45,7 @@
             <resource value="A larger event of which this particular event is a component or step."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an nutrition intake to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an nutrition intake to an Encounter - use 'context' for that."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -59,7 +59,7 @@
             <resource value="A code representing the patient or other source's judgment about the state of the intake that this assertion is about.  Generally, this will be active or completed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="NutritionIntake is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for NutritionIntake.status contains codes that assert the status of the consumption of the food or fluid by the patient (for example, stopped or on hold) as well as codes that assert the status of the Nutrition Intake itself (for example, entered in error).&#xa;&#xa;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -97,7 +97,7 @@
             <resource value="The person, animal or group who is/was consuming the food or fluid."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the nutrition intake to the Patient context."/>
+            <_pattern value="Links the nutrition intake to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -115,7 +115,7 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the nutrition intake to the Encounter context."/>
+            <_pattern value="Links the nutrition intake to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

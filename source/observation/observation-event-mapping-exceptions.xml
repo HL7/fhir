@@ -2,6 +2,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Observation.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for observation"/>
+            <resource value="Business Identifier for observation"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Business identifiers assigned to this observation by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
             <resource value="A unique identifier assigned to this observation."/>
@@ -37,7 +41,7 @@
             <resource value="A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an observation to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an observation to an Encounter - use 'context' for that."/>
             <resource value="To link an Observation to an Encounter use `encounter`.  See the  [Notes](observation.html#obsgrouping) below for guidance on referencing another Observation."/>
         </commentsUnmatched>
     </divergentElement>
@@ -51,7 +55,7 @@
             <resource value="The status of the result value."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -79,7 +83,7 @@
             <resource value="The patient, or group of patients, location, device, organization, procedure or practitioner this observation is about and into whose or what record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the observation to the Patient context."/>
+            <_pattern value="Links the observation to the Patient context.  May also affect access control."/>
             <resource value="Observations have no value if you don't know who or what they're about."/>
         </requirementsUnmatched>
     </divergentElement>
@@ -97,7 +101,7 @@
             <resource value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the observation to the Encounter context."/>
+            <_pattern value="Links the observation to the Encounter context.  May also affect access control."/>
             <resource value="For some observations it may be important to know the link between an observation and a particular encounter."/>
         </requirementsUnmatched>
     </divergentElement>

@@ -4,18 +4,22 @@
     <divergentElement patternPath="ParticipantLiving.birthDate" resourcePath="Practitioner.birthDate">
         <summary _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="The date of birth for the individual"/>
+            <_pattern value="The date of birth for the practitioner"/>
             <resource value="The date  on which the practitioner was born"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="The date of birth for the individual."/>
+            <_pattern value="The date when the practitioner was born."/>
             <resource value="The date of birth for the practitioner."/>
         </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Used for identity verification and may drive other business processes."/>
+            <resource value="Needed for identification."/>
+        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="ParticipantLiving.gender" resourcePath="Practitioner.gender">
         <summary _pattern="false" _resource="true" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Administrative Gender - the gender that the participant is considered to have for administration and record keeping purposes."/>
+            <_pattern value="Administrative Gender - the gender that the practitioner is considered to have for administration and record keeping purposes."/>
             <resource value="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -25,11 +29,11 @@
     </divergentElement>
     <divergentElement patternPath="ParticipantLiving.photo" resourcePath="Practitioner.photo">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Image of the participant"/>
+            <_pattern value="Image of the {{title}"/>
             <resource value="Image of the person"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Image of the participant."/>
+            <_pattern value="A facial image of the practitioner."/>
             <resource value="Image of the person."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">

@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="AdverseEvent.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for adverse event"/>
+            <_pattern value="Business identifier for adverse event"/>
             <resource value="Business identifier for the event"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -25,7 +25,7 @@
             <resource value="The current state of the adverse event or potential adverse event."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient's condition."/>
         </commentsUnmatched>
     </divergentElement>
@@ -51,7 +51,7 @@
             <resource value="This subject or group impacted by the event."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the adverse event to the Patient context."/>
+            <_pattern value="Links the adverse event to the Patient context.  May also affect access control."/>
             <resource value="Allows for exposure of biohazard (such as legionella) to a group of individuals in a hospital."/>
         </requirementsUnmatched>
     </divergentElement>
@@ -69,7 +69,7 @@
             <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. For example, if a medication administration was considered an adverse event because it resulted in a rash, then the encounter when the medication administration was given is the associated encounter. If the patient reports the AdverseEvent during a second encounter, that second encounter is not the associated encounter."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the adverse event to the Encounter context."/>
+            <_pattern value="Links the adverse event to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

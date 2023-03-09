@@ -224,6 +224,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ImplementationGuide-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImplementationGuide-identifier"/>
+        <description value="External identifier for the implementation guide"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ImplementationGuide.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ImplementationGuide-jurisdiction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="ExampleScenario"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -477,6 +476,10 @@
         <human value="actor.key canot be 'OTHER'"/>
         <expression value="key != 'OTHER'"/>
       </constraint>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.who"/>
+			</mapping>
     </element>
     <element id="ExampleScenario.actor.key">
       <path value="ExampleScenario.actor.key"/>
@@ -588,6 +591,10 @@
         <human value="Instance version should be referenced in at least one operation"/>
         <expression value="version.exists() implies version.key.intersect(%resource.process.descendants().where(instanceReference = %context.key).versionReference).exists()"/>
       </constraint>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
     </element>
     <element id="ExampleScenario.instance.key">
       <path value="ExampleScenario.instance.key"/>

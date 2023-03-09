@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Communication.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for communication"/>
+            <_pattern value="Business identifier for communication"/>
             <resource value="Unique identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -39,7 +39,7 @@
             <resource value="A larger event (e.g. Communication, Procedure) of which this particular communication is a component or step."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an communication to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an communication to an Encounter - use 'context' for that."/>
             <resource value="The event the communication was part of - e.g. if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
         </commentsUnmatched>
     </divergentElement>
@@ -53,7 +53,7 @@
             <resource value="The status of the transmission."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains the codes aborted and entered-in-error that mark the communication as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -79,7 +79,7 @@
             <resource value="The patient or group that was the focus of this communication."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the communication to the Patient context."/>
+            <_pattern value="Links the communication to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -97,7 +97,7 @@
             <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the communication to the Encounter context."/>
+            <_pattern value="Links the communication to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
