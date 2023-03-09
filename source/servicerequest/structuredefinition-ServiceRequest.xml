@@ -642,7 +642,7 @@
       <short value="The value for the order detail"/>
       <definition value="Indicates a value for the order detail."/>
       <comment value="CodeableConcept values are indented to express concepts that would normally be coded - when a code is not available for a concept, CodeableConcept.text can be used. When the data is a text or not a single identifiable concept, string should be used."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
@@ -665,19 +665,8 @@
       <type>
         <code value="Period"/>
       </type>
+      <isSummary value="true"/>
     </element>    
-
-
-
-
-
-
-
-
-
-
-
-
 
     
     <element id="ServiceRequest.quantity[x]">
