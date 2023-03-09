@@ -79,8 +79,8 @@
         <valueCode value="-170,0"/>
       </extension>
       <path value="DeviceDispense"/>
-      <short value="Device Dispense"/>
-      <definition value="A record of dispensation of a device."/>
+      <short value="A record of dispensation of a device."/>
+      <definition value="A record of dispensation of a device - i.e., assigning a device to a patient, or to a professional for their use."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

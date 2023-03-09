@@ -628,12 +628,20 @@
     <element id="ServiceRequest.orderDetail.parameter.code">
       <path value="ServiceRequest.orderDetail.parameter.code"/>
       <short value="The detail of the order being requested"/>
-      <definition value="The detail of the order being requested."/>
+      <definition value="A value representing the additional detail or instructions for the order (e.g., catheter insertion, body elevation, descriptive device configuration and/or setting instructions)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceRequestOrderDetailParameterCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for order detail parameters."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
+      </binding>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter.value[x]">
       <path value="ServiceRequest.orderDetail.parameter.value[x]"/>
