@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Consent.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for consent"/>
+            <_pattern value="Business identifier for consent"/>
             <resource value="Identifier for this record (external references)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -29,7 +29,7 @@
             <resource value="Indicates the current state of this Consent resource."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -56,7 +56,7 @@
             <resource value="The patient/healthcare practitioner or group of persons to whom this consent applies."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the consent to the Patient context."/>
+            <_pattern value="Links the consent to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

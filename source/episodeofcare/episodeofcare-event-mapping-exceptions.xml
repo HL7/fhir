@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="EpisodeOfCare.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for episode of care"/>
+            <_pattern value="Business identifier for episode of care"/>
             <resource value="Business Identifier(s) relevant for this EpisodeOfCare"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -48,7 +48,7 @@
             <resource value="planned | waitlist | active | onhold | finished | cancelled."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -74,7 +74,7 @@
             <resource value="The patient who is the focus of this episode of care."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the episode of care to the Patient context."/>
+            <_pattern value="Links the episode of care to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

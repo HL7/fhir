@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="MedicationAdministration.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for medication administration"/>
+            <_pattern value="Business identifier for medication administration"/>
             <resource value="External identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -47,7 +47,7 @@
             <resource value="A larger event of which this particular event is a component or step."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an medication administration to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an medication administration to an Encounter - use 'context' for that."/>
             <resource value="MedicationDispense will be used to indicate waste."/>
         </commentsUnmatched>
     </divergentElement>
@@ -61,7 +61,7 @@
             <resource value="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -103,7 +103,7 @@
             <resource value="The person or animal or group receiving the medication."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the medication administration to the Patient context."/>
+            <_pattern value="Links the medication administration to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -122,7 +122,7 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the medication administration to the Encounter context."/>
+            <_pattern value="Links the medication administration to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

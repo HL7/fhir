@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Encounter.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for encounter"/>
+            <_pattern value="Business identifier for encounter"/>
             <resource value="Identifier(s) by which this encounter is known"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -67,7 +67,7 @@
             <resource value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an encounter to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an encounter to an Encounter - use 'context' for that."/>
             <resource value="This is also used for associating a child's encounter back to the mother's encounter.&#xd;&#xd;Refer to the Notes section in the Patient resource for further details."/>
         </commentsUnmatched>
     </divergentElement>
@@ -81,7 +81,7 @@
             <resource value="The current state of the encounter (not the state of the patient within the encounter - that is subjectState)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
         </commentsUnmatched>
     </divergentElement>
@@ -120,7 +120,7 @@
             <resource value="The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the encounter to the Patient context."/>
+            <_pattern value="Links the encounter to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="FamilyMemberHistory.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for family member history"/>
+            <_pattern value="Business identifier for family member history"/>
             <resource value="External Id(s) for this record"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -25,7 +25,7 @@
             <resource value="A code specifying the status of the record of the family history of a specific family member."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -40,7 +40,7 @@
             <resource value="The person who this history concerns."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the family member history to the Patient context."/>
+            <_pattern value="Links the family member history to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

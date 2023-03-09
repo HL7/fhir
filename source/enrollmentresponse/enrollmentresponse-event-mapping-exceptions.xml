@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="EnrollmentResponse.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for enrollment response"/>
+            <_pattern value="Business identifier for enrollment response"/>
             <resource value="Business Identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -49,7 +49,7 @@
             <resource value="The status of the resource instance."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the response as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>

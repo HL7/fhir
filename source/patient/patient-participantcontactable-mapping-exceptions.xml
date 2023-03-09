@@ -3,11 +3,11 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="ParticipantContactable.telecom" resourcePath="Patient.telecom">
         <shortUnmatched reason="Unknown">
-            <_pattern value="A contact detail for the participant"/>
+            <_pattern value="A contact detail for the patient"/>
             <resource value="A contact detail for the individual"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the participant may be contacted."/>
+            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the patient may be contacted."/>
             <resource value="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -16,14 +16,14 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="ParticipantContactable.address" resourcePath="Patient.address">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="An address for the patient"/>
+            <resource value="An address for the individual"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="An address for the participant."/>
+            <_pattern value="An address where the patient can be reached."/>
             <resource value="An address for the individual."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="May need to keep track of participant addresses for contacting, billing or reporting requirements and also to help with identification."/>
-            <resource value="May need to keep track of patient addresses for contacting, billing or reporting requirements and also to help with identification."/>
-        </requirementsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Participant.identifier" reason="Unknown"/>
     <unmappedElement patternPath="Participant.name" reason="Unknown"/>

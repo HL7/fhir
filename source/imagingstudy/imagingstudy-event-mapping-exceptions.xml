@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingStudy.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for imaging study"/>
+            <_pattern value="Business identifier for imaging study"/>
             <resource value="Identifiers for the whole study"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -44,7 +44,7 @@
             <resource value="A larger event of which this particular ImagingStudy is a component or step.  For example,  an ImagingStudy as part of a procedure."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that."/>
             <resource value="To link an ImagingStudy to an Encounter use `encounter`."/>
         </commentsUnmatched>
     </divergentElement>
@@ -62,7 +62,7 @@
             <resource value="This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that may include the ImagingStudy."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -76,7 +76,7 @@
             <resource value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
         </commentsUnmatched>
     </divergentElement>
@@ -91,7 +91,7 @@
             <resource value="The subject, typically a patient, of the imaging study."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the imaging study to the Patient context."/>
+            <_pattern value="Links the imaging study to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -109,7 +109,7 @@
             <resource value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission test)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the imaging study to the Encounter context."/>
+            <_pattern value="Links the imaging study to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
