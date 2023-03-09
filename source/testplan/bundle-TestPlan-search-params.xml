@@ -2,4 +2,63 @@
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="TestPlan-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestPlan-scope"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestPlan.scope"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope"/>
+        <description value="The scope that is to be tested with this test plan"/>
+        <code value="scope"/>
+        <type value="reference"/>
+        <expression value="TestPlan.scope"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestPlan-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestPlan.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-identifier"/>
+        <description value="An identifier for the test plan"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="TestPlan.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestPlan-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-url"/>
+        <description value="The uri that identifies the test plan"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="TestPlan.url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>
