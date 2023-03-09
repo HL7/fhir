@@ -867,32 +867,42 @@ Note for balloters: the R5 packages will be created when R5 is finalized. Until 
 <a name="plans"></a>
 <h3>Plans for future releases</h3>
 <p>
-While implementation of this mixed <i>Normative</i> and <i>Trial Use</i> release is occurring, development will be progressing on the next release.
-This next release will include additional clarifications, resources, profiles and quality enhancements over the current release based on
-implementation experience and ongoing development work.
-It will also incorporate fixes for issues raised with the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
-of the STU to review the candidate current release (at <a href="https://build.fhir.org">http://build.fhir.org</a>) to get a sense of what changes are
-likely coming and perhaps to find more robust definitions and guidance than are available in this release.  Some implementers who are dependent
-on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they
-will limit their potential communication partners.
+This specification is the result of three years of work by HL7, it's standards, government and implementation partners, 
+along with the wider (huge) FHIR implementation community. The FHIR implementation community is now massive, and 
+the pace of publication has slowed (as is evident in the <a href="history.html">publication history</a>).
 </p>
 <p>
-The next major publication of FHIR will be Release 5.  It is our hope release 5 will include more <a href="#normative">Normative</a> content,
-including more of the core patient summary clinical content.  Other content, including most if not all clinical knowledge/reasoning, care planning,
-and financial resources, are likely to remain at the <a href="#stu">Trial Use</a> level as they are not expected to meet the criteria for Normative.
+Accordingly, the pace of implementation adoption of new versions is slowing, and it is unclear how 
+quickly R5 will be adopted. HL7 will watch the market and survey it's many partners before deciding 
+how quickly to pursue the next release, and whether the next release will be a restricted branch 
+development from R5 (as R4B was to R4), or whether it will forge ahead with a full new version,
+which will be Release 6.
+</p>
+<p>
+Irrespective of the choice around publication speed and whether to publish partial new branch versions,
+HL7's general intent for the Release 6 is to move most of the resources in the Foundation, Base and Clinical layers (see the 
+'Category' tab in the <a href="resourcelist.html">Resources pages</a>) to full Normative status, along with
+a fwe other resources including e.g. Questionnaire. 
+</p>
+<p></p>
+Whatever HL7 decides to do with regard to the formal status of the resources, the next release will
+include additional clarifications, resources, profiles and quality enhancements over the current release based on
+implementation experience and ongoing development work. It will also incorporate fixes for issues raised with 
+the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
+of this release to review the candidate current release (at <a href="https://build.fhir.org">http://build.fhir.org</a>)
+to get a sense of what changes are likely coming and perhaps to find more robust definitions and guidance than are 
+available in this release.
+</p>
+<p>
+Some implementers who are dependent on content that exists in a draft release may choose to implement based
+on a particular snapshot of the development release, though in doing so, they will limit their potential 
+communication partners. In addition, implementers should be aware that most of the implementation tooling 
+including those provided by HL7 will not support interim versions other than the latest release.
 </p>
 <p>
  More information on plans for Release 5 can be found on the <a href="https://onfhir.hl7.org/">HL7 product director's blog</a>.
  (Subscribing to this blog is a good way to keep current on significant events in FHIR development, including ballot and publication timelines.)
 </p>
-<p>
-There will be additional releases of FHIR with a frequency of somewhere between 18 and 24 months for the foreseeable future.  These releases will include
-maintenance on Normative content, new content (e.g. in the public health, financial or clinical research spaces),
-revisions to trial use content reflecting implementer feedback and increasing maturity on Trial Use artifacts and the migration of additional
-content to normative status.  As well, HL7 will continue to focus to providing additional guidance through the publication of implementation guides and profiles where
-consensus can be found at the international level.
-</p>
-
 
 [%file newfooter%]
 
