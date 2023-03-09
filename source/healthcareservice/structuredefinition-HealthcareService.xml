@@ -519,7 +519,7 @@
           <valueString value="ReferralMethod"/>
         </extension>
         <strength value="example"/>
-        <description value="The methods of referral can be used when referring to a specific HealthCareService resource."/>
+        <description value="The methods of referral can be used when referring to a specific HealthcareService resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-referral-method"/>
       </binding>
       <mapping>
