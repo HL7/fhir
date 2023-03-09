@@ -44,7 +44,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A Genomic Study is a set of analysis performed to analyze and generate genomic data."/>
+  <description value="A set of analyses performed to analyze and generate genomic data."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -78,7 +78,7 @@
       </extension>
       <path value="GenomicStudy"/>
       <short value="Genomic Study"/>
-      <definition value="A Genomic Study is a set of analysis performed to analyze and generate genomic data."/>
+      <definition value="A GenomicStudy is a set of analyses performed to analyze and generate genomic data."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -7,9 +7,9 @@
   <p>
   This resource supports three patterns for representing a sequence of interest:
   <ul>
-    <li>By providing a “literal” string of IUPAC codes representing nucleotides or amino acids.</li>
-    <li>By linking to a “formatted” file or link containing the sequence information (e.g. FASTA file or GA4GH sequence repository).</li>
-    <li>By providing a list of “edits” from a starting sequence.</li>
+    <li>By providing a literal string of IUPAC codes representing nucleotides or amino acids.</li>
+    <li>By linking to a formatted file or link containing the sequence information (e.g. FASTA file or GA4GH sequence repository).</li>
+    <li>By providing a list of edits from a starting sequence.</li>
   </ul>
   </p>
   <p>
@@ -17,27 +17,27 @@
   </p>
   <h4>Sequence as a literal string</h4>
   <p>
-    <code>MolecularSequence.literal</code>: This string element can be used to hold the sequence as a string of characters.
+    <code>literal</code>: This string element can be used to hold the sequence as a string of characters.
   </p>
   <h4>Sequence as a file or URL</h4>
   <p>
-    <code>MolecularSequence.formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
+    <code>formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
   </p>
   <p>
-    This method can be used to refer to sequence data from in an external source. If the sequence is referring to a GA4GH repository, the <code>MolecularSequence.formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
+    This method can be used to refer to sequence data from in an external source. If the sequence is referring to a GA4GH repository, the <code>formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
   </p>
   <h4>Sequence as a series of edits from a known sequence</h4>
   <p>
-    <code>MolecularSequence.relative</code>: This complex element is used for encoding sequence. When the information of starting sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
+    <code>relative</code>: This complex element is used for encoding sequence. When the information of starting sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
   </p>
   <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px" />
 
   <h5>Composing multiple relative sequences into one new sequence</h5>
   <p>
-    <code>MolecularSequence.relative.ordinalPosition</code>: Indicates the order in which the sequence should be considered when putting multiple <code>relative</code> instances together.
+    <code>relative.ordinalPosition</code>: Indicates the order in which the sequence should be considered when putting multiple <code>relative</code> instances together.
   </p>
   <p>
-    <code>MolecularSequence.relative.sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> instances are used together.
+    <code>relative.sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> instances are used together.
   </p>
   <p>
     These attributes help to clarify what sequence is being represented with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range).
@@ -47,23 +47,23 @@
   </p>
   <h5>Representing the Starting Sequence</h5>
   <p>
-    <code>MolecularSequence.relative.startingSequence</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:
+    <code>relative.startingSequence</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:
     <ol>
-      <li><code>MolecularSequence.relative.startingSequence.sequenceCodeableConcept</code>: Starting sequence id in public database;</li>
-      <li><code>MolecularSequence.relative.startingSequence.sequenceString</code>: Starting sequence string; </li>
-      <li><code>MolecularSequence.relative.startingSequence.sequenceReference</code>: Reference to starting sequence stored in another sequence entity; </li>
-      <li><code>MolecularSequence.relative.startingSequence.genomeAssembly</code>, <code>MolecularSequence.relative.startingSequence.chromosome</code>: The combination of genome assembly and chromosome. </li>
+      <li><code>relative.startingSequence.sequenceCodeableConcept</code>: Starting sequence id in public database;</li>
+      <li><code>relative.startingSequence.sequenceString</code>: Starting sequence string; </li>
+      <li><code>relative.startingSequence.sequenceReference</code>: Reference to starting sequence stored in another sequence entity; </li>
+      <li><code>relative.startingSequence.genomeAssembly</code>, <code>relative.startingSequence.chromosome</code>: The combination of genome assembly and chromosome. </li>
     </ol>
   </p>
   <p>
-    The <code>MolecularSequence.relative.startingSequence.windowStart</code> and <code>MolecularSequence.relative.startingSequence.windowEnd</code>defines a range from the starting sequence that is used to define a subsequence used as the starting sequence.
+    The <code>relative.startingSequence.windowStart</code> and <code>relative.startingSequence.windowEnd</code>defines a range from the starting sequence that is used to define a subsequence used as the starting sequence.
   </p>
   <h5>Coordinate System</h5>
   <p>
     When saving the sequence information, the nucleic acid will be numbered with order. Some representations use a 0-based system (e.g. GA4GH API, BAM files) while some use a 1-based system (e.g. VCF file format). The element coordinateSystem contains this information.
   </p>
   <p>
-    <code>MolecularSequence.relative.coordinateSystem</code> binds to a LOINC answer list, please review those answers <a href="https://loinc.org/LL5323-2/">here</a> as well as the detailed description found <a href="https://loinc.org/92822-6/">here</a>.
+    <code>relative.coordinateSystem</code> binds to a LOINC answer list, please review those answers <a href="https://loinc.org/LL5323-2/">here</a> as well as the detailed description found <a href="https://loinc.org/92822-6/">here</a>.
   </p>
   <p> 
     Here are two examples:
@@ -74,7 +74,7 @@
   </p>
   <h5>Choice of Strand</h5>
   <p>
-    There are many considerations concerning the directionality of DNA or RNA. Here we are using <code>MolecularSequence.relative.startingSequence.orientation</code> and <code>MolecularSequence.relative.startingSequence.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>MolecularSequence.type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
+    There are many considerations concerning the directionality of DNA or RNA. Here we are using <code>relative.startingSequence.orientation</code> and <code>relative.startingSequence.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
   </p>
   <p>
     Only two possible values can be made by strand, <code>watson</code> and <code>crick</code>. Since the directionality of the sequence string might be represented in different ways in different omics scenario, below are examples of how to map other expressions into its correlated value:
