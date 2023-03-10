@@ -1,0 +1,24 @@
+{
+    "resourceType": "MolecularSequence",
+    "id": "example",
+    "type": "dna",
+    "relative": [
+        {
+            "coordinateSystem": {
+                "text": "hg38"
+            },
+            "startingSequence": {
+                "genomeAssembly": {
+                    "text": "hg38"
+                },
+                "chromosome": [
+                    {
+                        "coding": {
+                            "code": "LA21254-0"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
