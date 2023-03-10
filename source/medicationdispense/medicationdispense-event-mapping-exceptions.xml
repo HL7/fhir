@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="MedicationDispense.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for medication dispense"/>
+            <_pattern value="Business identifier for medication dispense"/>
             <resource value="External identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -51,7 +51,7 @@
             <resource value="The procedure or medication administration that triggered the dispense."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an medication dispense to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an medication dispense to an Encounter - use 'context' for that."/>
             <resource value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers."/>
         </commentsUnmatched>
     </divergentElement>
@@ -65,7 +65,7 @@
             <resource value="A code specifying the state of the set of dispense events."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -92,7 +92,7 @@
             <resource value="A link to a resource representing the person or the group to whom the medication will be given."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the medication dispense to the Patient context."/>
+            <_pattern value="Links the medication dispense to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -111,7 +111,7 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the medication dispense to the Encounter context."/>
+            <_pattern value="Links the medication dispense to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

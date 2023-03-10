@@ -1,4 +1,4 @@
-<MolecularSequence>
+<MolecularSequence xmlns="http://hl7.org/fhir">
     <!-- BCR-ABL1 fusion (COSMIC https://cancer.sanger.ac.uk/cosmic/fusion/summary?id=1755). 5-prime end comprised of BCR exons 1-14. 3-prime end comprised of ABL1 exons 2-11. -->
     <id value="sequence-example-fusion"/>
     <type value="rna"/>

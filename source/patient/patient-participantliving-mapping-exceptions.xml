@@ -3,21 +3,29 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="ParticipantLiving.birthDate" resourcePath="Patient.birthDate">
         <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="The date of birth for the patient"/>
+            <resource value="The date of birth for the individual"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date when the patient was born."/>
+            <resource value="The date of birth for the individual."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Used for identity verification and may drive other business processes."/>
+            <resource value="Age of the individual drives many clinical processes."/>
+        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="ParticipantLiving.gender" resourcePath="Patient.gender">
         <summary _pattern="false" _resource="true" reason="Unknown"/>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Administrative Gender - the gender that the participant is considered to have for administration and record keeping purposes."/>
-            <resource value="Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="ParticipantLiving.photo" resourcePath="Patient.photo">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Image of the participant"/>
+            <_pattern value="Image of the {{title}"/>
             <resource value="Image of the patient"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Image of the participant."/>
+            <_pattern value="A facial image of the patient."/>
             <resource value="Image of the patient."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -30,13 +38,17 @@
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="The language which can be used to communicate with the participant"/>
+            <_pattern value="Language used by patient"/>
             <resource value="A language which may be used to communicate with the patient about his or her health"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
+            <_pattern value="The language which can be used to communicate with the patient."/>
             <resource value="A language which may be used to communicate with the patient about his or her health."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
+            <resource value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Patient.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required."/>
+        </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
             <resource value="If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency are important things to keep track of both for patient and other persons of interest."/>

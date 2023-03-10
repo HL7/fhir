@@ -4,11 +4,11 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="ParticipantContactable.telecom" resourcePath="RelatedPerson.telecom">
         <shortUnmatched reason="Unknown">
-            <_pattern value="A contact detail for the participant"/>
+            <_pattern value="A contact detail for the related person"/>
             <resource value="A contact detail for the person"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the participant may be contacted."/>
+            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the related person may be contacted."/>
             <resource value="A contact detail for the person, e.g. a telephone number or an email address."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -18,15 +18,15 @@
     </divergentElement>
     <divergentElement patternPath="ParticipantContactable.address" resourcePath="RelatedPerson.address">
         <shortUnmatched reason="Unknown">
-            <_pattern value="An address for the individual"/>
+            <_pattern value="An address for the related person"/>
             <resource value="Address where the related person can be contacted or visited"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="An address for the participant."/>
+            <_pattern value="An address where the related person can be reached."/>
             <resource value="Address where the related person can be contacted or visited."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="May need to keep track of participant addresses for contacting, billing or reporting requirements and also to help with identification."/>
+            <_pattern value="May need to keep track of related person addresses for contacting, billing or reporting requirements and also to help with identification."/>
             <resource value="Need to keep track where the related person can be contacted per postal mail or visited."/>
         </requirementsUnmatched>
     </divergentElement>

@@ -40,42 +40,48 @@ encountered by developers:
 </p>
 
 <table class="none">
- <tr>
-  <td>
-    <ul>
-     <li><a href="testing.html">Testing FHIR</a> + <a href="testscript.html">TestScript</a> + <a href="testreport.html">TestReport</a></li>
-     <li><a href="validation.html">Validating Resources</a></li>
-     <li><a href="mapping-language.html">Mapping Language</a> (<a href="mapping-tutorial.html">Tutorial</a> &amp; <a href="structuremap.html">StructureMap</a>)</li>
-  <li><a href="fhirpath.html">FHIRPath</a> </li>
-     <li><a href="usecases.html">Common Usages</a></li>
-     <li><a href="versions.html">Version Management Policy</a></li>
-    </ul>
-  </td>
-  <td>
-    <ul>
+  <tr>
+   <td>
+     <ul>
+       <li><a href="requirements.html">Requirements</a> and <a href="actordefinition.html">ActorDefinition</a> </li>
+       <li><a href="testing.html">Testing FHIR</a> 
+         <ul>
+           <li><a href="testplan.html">TestPlan</a></li>
+           <li><a href="testscript.html">TestScript</a></li>
+           <li><a href="testreport.html">TestReport</a></li>
+         </ul>
+       </li>
+       <li><a href="validation.html">Validating Resources</a></li>
+       <li><a href="usecases.html">Common Usages</a></li>
+       <li><a href="examplescenario.html">ExampleScenario</a></li>
+     </ul>
+   </td>
+   <td>
+     <ul>
+      <li><a href="mapping-language.html">Mapping Language</a> (<a href="mapping-tutorial.html">Tutorial</a> &amp; <a href="structuremap.html">StructureMap</a>)</li>
+      <li><a href="fhirpath.html">FHIRPath</a> </li>
      <li><a href="safety.html">Clinical Safety Considerations</a></li>
-     <li><a href="ehr-fm.html">How FHIR fits into an EHR</a></li>
-     <li><a href="managing.html">Managing Resource Identity</a></li>
-     <li><a href="pushpull.html">Interaction Patterns</a></li>
-     <li><a href="updates.html">Update Rules</a></li>
-     <li><a href="integrated-examples.html">Clinical Examples</a></li>
-    </ul>
-  </td>
-  <td>
-    <ul>
-      <li><a href="comparison.html">Comparisons:</a></li>
-      <ul>
-       <li><a href="comparison-v2.html">v2</a> &amp; </li>
-       <li><a href="comparison-v3.html">v3 Messaging</a></li>
-       <li><a href="comparison-cda.html">CDA</a> + <a href="cda-intro.html">CDA on FHIR</a></li>
-       <li><a href="comparison-other.html">Other Specifications</a></li>
-      </ul>
-    </ul>
-  </td>
- </tr>
-</table>
-
-
+      <li><a href="managing.html">Managing Resource Identity</a></li>
+      <li><a href="pushpull.html">Interaction Patterns</a></li>
+      <li><a href="updates.html">Update Rules</a></li>
+      <li><a href="integrated-examples.html">Clinical Examples</a></li>
+     </ul>
+   </td>
+   <td>
+     <ul>
+       <li><a href="ehr-fm.html">How FHIR fits into an EHR</a></li>
+       <li><a href="versions.html">Version Management Policy</a></li>
+       <li><a href="comparison.html">Comparisons:</a></li>
+       <ul>
+        <li><a href="comparison-v2.html">v2</a> &amp; </li>
+        <li><a href="comparison-v3.html">v3 Messaging</a></li>
+        <li><a href="comparison-cda.html">CDA</a> + <a href="cda-intro.html">CDA on FHIR</a></li>
+        <li><a href="comparison-other.html">Other Specifications</a></li>
+       </ul>
+     </ul>
+   </td>
+  </tr>
+ </table>
 
 <a name="secpriv"></a>
 <h3>Security and Privacy</h3>
@@ -129,23 +135,17 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
 	as they work with FHIR:
 </p>
 <ul>
-  <li><a href="http://chat.fhir.org/">FHIR Chat Channel / Zulip</a> (maintained by fhir.org)</li>
-  <li><a href="http://community.fhir.org/">FHIR Community Forum</a> (maintained by fhir.org)</li>
+  <li><a href="http://chat.fhir.org/">FHIR Chat Channel / Zulip</a> (maintained by the FHIR Foundation)</li>
+  <li><a href="http://community.fhir.org/">FHIR Community Forum</a> (maintained by the FHIR Foundation)</li>
   <li><a href="http://stackoverflow.com/questions/tagged/hl7_fhir">StackOverflow</a> (General tech community, use the tag <code>hl7_fhir</code>)</li>
+  <li><a href="https://confluence.hl7.org/display/FHIR">HL7's FHIR Documentation</a></li>
 </ul>
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 <p>
-The reference servers and reference implementations generally try to keep up to date with
-recent changes to the FHIR specification. Each server may have multiple endpoints which are
-held to a specific version of the specification, but generally there will also be
-endpoints available for testing which conform to a very recent build.
-</p>
-<p>
-Efforts are now underway to create a curated collection of quality test data which
-can be used by FHIR implementers to help test their applications. This collection will
-be made available when it is ready.
+Most of the implementer support work has moved away from the specification, and little further work is 
+planned here. Implementers can connect to the very active community using the links above.  
 </p>
 
 [%file newfooter%]

@@ -1,0 +1,29 @@
+{
+    "resourceType": "DocumentReference",
+    "id": "docRef-1.f1.fail",
+    "status": "current",
+    "content": [
+        {
+            "attachment": {
+                "contentType": "text/plain",
+                "url": "/Binary/1-note",
+                "title": "Uri where the data can be found: [base]/Binary/1-note"
+            }
+        }
+    ],
+    "practiceSetting": {
+        "text": "Home"
+    },
+    "context": [
+        {
+            "reference": "#Enc"
+        }
+    ],
+    "contained": [
+        {
+            "resourceType": "Encounter",
+            "id": "Enc",
+            "status": "finished"
+        }
+    ]
+}

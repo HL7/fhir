@@ -23,7 +23,7 @@
             <resource value="The individual or set of individuals receiving the goods and services billed in this invoice."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the invoice to the Patient context."/>
+            <_pattern value="Links the invoice to the Patient context.  May also affect access control."/>
             <resource value="Links the event to the Patient context."/>
         </requirementsUnmatched>
     </divergentElement>

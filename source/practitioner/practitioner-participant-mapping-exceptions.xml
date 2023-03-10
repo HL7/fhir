@@ -3,11 +3,11 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Participant.identifier" resourcePath="Practitioner.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for participant"/>
+            <_pattern value="Business Identifier for practitioner"/>
             <resource value="An identifier for the person as this agent"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <_pattern value="Business identifiers assigned to this practitioner by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
             <resource value="An identifier that applies to this person in this role."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
@@ -15,18 +15,18 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the participant as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <_pattern value="Allows identification of the practitioner as it is known by various participating systems and in a way that remains consistent across servers."/>
             <resource value="Often, specific identities are assigned for the agent."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Participant.active" resourcePath="Practitioner.active">
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Whether the participant is currently active"/>
+            <_pattern value="Whether the practitioner is currently active"/>
             <resource value="Whether this practitioner's record is in active use"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Whether this participant record is in active use."/>
+            <_pattern value="Whether this practitioner record is in active use."/>
             <resource value="Whether this practitioner's record is in active use."/>
         </definitionUnmatched>
     </divergentElement>
@@ -35,11 +35,11 @@
         <missingTypes _pattern="string" reason="Unknown"/>
         <extraTypes _resource="HumanName" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="A name for the participant"/>
+            <_pattern value="A name for the practitioner"/>
             <resource value="The name(s) associated with the practitioner"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Description of participant as presented to a consumer while searching."/>
+            <_pattern value="Description of the practitioner as presented to a consumer while searching."/>
             <resource value="The name(s) associated with the practitioner."/>
         </definitionUnmatched>
     </divergentElement>

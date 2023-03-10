@@ -163,7 +163,7 @@
     <Cell><Data ss:Type="String">Note that FHIR strings SHALL NOT exceed 1,048,576 (1024*1024) characters in size</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">[ \r\n\t\S]+</Data></Cell>
+    <Cell><Data ss:Type="String">^[\s\S]+$</Data></Cell>
     <Cell><Data ss:Type="String">has-length</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">ST</Data></Cell>
     <Cell><Data ss:Type="String">ST</Data></Cell>
@@ -331,7 +331,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">\s*(\S|\s)*</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">^[\s\S]+$</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
