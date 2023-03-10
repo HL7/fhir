@@ -26,41 +26,47 @@
 <a name="audience"> </a>
 <h5>Audience</h5>
 
-<p>The evidence processing and guideline development communities represent a substantial volume of knowledge management effort (Cochrane alone has more than 30,000 people working on development of systematic reviews of clinical research).</p>
+<p>The evidence generation (research), evidence processing, and guideline development communities represent a substantial volume of knowledge management effort (Cochrane alone has more than 30,000 people working on development of systematic reviews of clinical research).</p>
 
 <p>The broad communities producing, analyzing, synthesizing, disseminating and implementing clinical research (evidence) and recommendations for clinical care (clinical practice guidelines) frequently send or receive biomedical evidence reports.</p>
 
 <a name="purpose"> </a>
 <h5>Purpose</h5>
 
-<p>The co-primary objectives of the Evidence-Based Medicine on FHIR Project are to meet the needs of the evidence processing and guideline development communities and to facilitate interoperability between these communities and the patient care communities.</p>
+<p>The co-primary objectives of the <a href="https://confluence.hl7.org/display/CDS/EBMonFHIR">Evidence-Based Medicine on FHIR Project</a> are to meet the needs of the evidence generation, evidence processing, and guideline development communities and to facilitate interoperability between these communities and the patient care communities.</p>
 
 <a name="resources"> </a>
 <h4>Resources</h4>
 
-<p>The <a href="evidence.html">Evidence Resource</a> provides a machine-interpretable expression of an evidence concept. It is comprised of specification of the group to which the evidence refers (ie, population), one or more evidence variables (eg exposures/interventions, comparators, outcomes, confounding variables), the  statistics, and the certainty of the evidence. The <b>Evidence Resource</b> enables machine-to-machine communication of results of research or observations of groups.</p>
-
-<p>The <a href="evidencevariable.html">EvidenceVariable Resource</a> provides a machine-interpretable expression of a description of a single evidence variable (eg, a single exposure or a single outcome/measured variable), and includes one or more characteristics of the variable and the combinational logic (intersection or union, ie, AND or OR) for these characteristics. As an example, an outcome of “death or hospitalization” may be expressed as a measured variable with two characteristics (“death” and “hospital admission”) and a union (OR) of characteristics such that either characteristic being present counts as meeting the definition for the measured variable. The <b>EvidenceVariable</b> Resource enables machine-to-machine communication of descriptions and characteristics of evidence variables and can be used to find Evidence Resources that match the context of interest.</p>
-
-<p>The <a href="group.html">The Group Resource</a> provides a machine-interpretable expression of a group, either expressed as an actual group or an intended group. An actual group may be specified as a list of members and/or a set of characteristics. An intended group is expressed as a set of characteristics. The <b>Group Resource</b> is used within the context of an Evidence resource to report the evidence variable in the role of population and is also used for other purposes beyond the reporting of Evidence. The <b>Group Resource</b> enables machine-to-machine communication of descriptions and characteristics of groups and can be used to find Evidence Resources that match the population of interest.</p>
+<p>The <a href="evidence.html">Evidence Resource</a> provides a machine-interpretable expression of an evidence concept. It is comprised of specification of the group to which the evidence refers (i.e., population), one or more evidence variables (e.g., exposures/interventions, comparators, outcomes, confounding variables), the  statistics, and the certainty of the evidence. The <b>Evidence Resource</b> enables machine-to-machine communication of results of research or observations of groups.</p>
 
 <p>The <a href="evidence-definitions.html#Evidence.certainty">certainty Element</a> provides a machine-interpretable expression of certainty, confidence or quality of the resource in which it is included. The <b>certainty Element</b> can express overall certainty and certainty of any subcomponent concepts using codeable concepts from structured rating systems. The <b>certainty Element</b> enables machine-to-machine communication of the certainty of evidence.</p>
 
 <p>The reporting of biomedical evidence is the reporting of facts and interpretations derived from analysis of observations of members of a group.  The certainty of the ‘facts’ may vary due to many factors including methodological factors, statistical factors, contextual factors, and the relatedness between the group the evidence was derived from and the group to which the evidence is applied.</p>
 
-<p>The <a href="citation.html">Citation Resource</a> provides a machine-interpretable expression of the identification and location of a knowledge artifact. The scope of the Citation Resource is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgement of the contributions of individuals and groups to the creation and advancement of knowledge. The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</p>
-<p>The <a href="evidencereport.html">EvidenceReport Resource</a> provides a machine-interpretable expression of compositions (structured collections) of resources (especially Evidence, EvidenceVariable, and Citation resources) and codable concepts. The EvidenceReport Resource is the common way that Evidence resources will be transmitted in data exchange between systems.</p>
+<p>The <a href="evidencevariable.html">EvidenceVariable Resource</a> provides a machine-interpretable expression of a description of a single evidence variable (e.g., a single exposure or a single outcome/measured variable), and includes one or more characteristics of the variable for these characteristics. The <b>EvidenceVariable</b> Resource enables machine-to-machine communication of descriptions and characteristics of evidence variables and can be used to find Evidence Resources that match the context of interest.</p>
+
+<p>The <a href="group.html">Group Resource</a> provides a machine-interpretable expression of a group, either expressed as an actual group or an intended group. An actual group may be specified as a list of members and/or a set of characteristics. An intended group is expressed as a set of characteristics. The <b>Group Resource</b> is used within the context of an Evidence resource to report the evidence variable in the role of population and is also used for other purposes beyond the reporting of Evidence. The <b>Group Resource</b> enables machine-to-machine communication of descriptions and characteristics of groups and can be used to find Evidence Resources that match the population of interest.</p>
+
+<p>The <a href="citation.html">Citation Resource</a> provides a machine-interpretable expression of the identification and location of a knowledge artifact. The scope of the Citation Resource is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgment of the contributions of individuals and groups to the creation and advancement of knowledge. The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</p>
+
+<p>The <a href="evidencereport.html">EvidenceReport Resource</a> provides a machine-interpretable expression of compositions (structured collections) of resources (especially Evidence, EvidenceVariable, and Citation resources) and codeable concepts. The EvidenceReport Resource will be deprecated and replaced with Profiles of <a href="composition.html">Composition Resource.</a></p>
+
+<p>The <a href="artifactassessment.html">ArtifactAssessment Resource</a> provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content. External/additional comments, classifiers, and ratings are extensively used in scientific communication throughout peer-review, critical appraisal of research methods and results, and evidence synthesis.</p>
+
+<p>An <a href="https://build.fhir.org/ig/HL7/ebm/">Evidence-Based Medicine Implementation Guide</a> is in development.</p>
 
 <a name="pico-vs.-statistically-defined-evidence-variables"> </a>
 <h4>PICO vs. Statistically-defined evidence variables</h4>
 
-<p>In the EBM communities (evidence analysis, systematic reviews, clinical practice guidelines) a common organizational framework used for the research question, the systematic review focus, and the recommendation focus is PICO which stands for Population, Intervention, Comparison, and Outcome.   There are variations such as PECO for research questions about non-interventional exposures, PICOT for adding time conventions, and PICOTS for adding system context, but PICO is the most prominent organizational framework across the EBM knowledge assets activities.</p>
+<p>In the EBM communities (evidence analysis, systematic reviews, clinical practice guidelines) a common organizational framework used for the research question, the systematic review focus, and the recommendation focus is PICO which stands for Population, Intervention, Comparator, and Outcome. There are variations such as PECO for research questions about non-interventional exposures, PICOT for adding time conventions, and PICOTS for adding system context, but PICO is the most prominent organizational framework across the EBM knowledge assets activities.</p>
 
+<p>In the statistically-defined evidence variables, represented by codeable concepts in Evidence.variableDefinition.variableRole, Population is coded as 'population' or 'subpopulation', Intervention is coded as 'exposure', Comparator is coded as 'referenceExposure', and Outcome is coded as 'measuredVariable'.</p>
 
 <a name="use-cases"> </a>
 <h4>Use Cases</h4>
 
-<p>The combinations of Citation, Evidence, EvidenceReport, and EvidenceVariable Resources can be used for many purposes, including:
+<p>The combinations of Citation, Evidence, EvidenceReport, EvidenceVariable, and ArtifactAssessment Resources can be used for many purposes, including:
 <ul>
 	<li>Reporting combinations of classifiers, risk of bias assessments, evidence variables, and evidence for a single study.</li>
 	<li>Reporting a summary of individual results from multiple studies.</li>
@@ -69,6 +75,12 @@
 	<li>Reporting a highly organized set of search results in response to advanced search queries for evidence.</li>
 </ul>
 </p>
+
+<a name="participate"> </a>
+<h4>Participate in EBMonFHIR</h4>
+
+<p><a href="https://confluence.hl7.org/display/CDS/EBMonFHIR">Evidence-Based Medicine on FHIR Project</a></p>
+
 [%file newfooter%]
 </body>
 </html>
