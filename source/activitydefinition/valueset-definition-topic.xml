@@ -45,6 +45,9 @@
   <immutable value="true"/>
   <compose>
     <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/definition-use"/>
+    </include>
+    <include>
       <system value="http://terminology.hl7.org/CodeSystem/definition-topic"/>
     </include>
   </compose>
