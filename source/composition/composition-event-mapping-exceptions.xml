@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Composition.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for composition"/>
+            <_pattern value="Business identifier for composition"/>
             <resource value="Version-independent identifier for the Composition"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -29,7 +29,7 @@
             <resource value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xa;&#xa;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
         </commentsUnmatched>
     </divergentElement>
@@ -58,7 +58,7 @@
             <resource value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the composition to the Patient context."/>
+            <_pattern value="Links the composition to the Patient context.  May also affect access control."/>
             <resource value="Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about."/>
         </requirementsUnmatched>
     </divergentElement>
@@ -76,7 +76,7 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the composition to the Encounter context."/>
+            <_pattern value="Links the composition to the Encounter context.  May also affect access control."/>
             <resource value="Provides context for the composition and supports searching."/>
         </requirementsUnmatched>
     </divergentElement>

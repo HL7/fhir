@@ -7,7 +7,7 @@
             <resource value="Canonical identifier for this activity definition, represented as a URI (globally unique)"/>
         </shortUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+            <_pattern value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
             <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
         </commentsUnmatched>
     </divergentElement>
@@ -26,9 +26,6 @@
             <_pattern value="There may be different activity definitions that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the activity definition with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
             <resource value="There may be different activity definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the activity definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
         </commentsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.versionAlgorithm[x]" resourcePath="ActivityDefinition.versionAlgorithm[x]">
-        <bindingStrength _pattern="required" _resource="extensible" reason="Unknown"/>
     </divergentElement>
     <divergentElement patternPath="Definition.name" resourcePath="ActivityDefinition.name">
         <commentsUnmatched reason="Unknown">
@@ -60,9 +57,10 @@
             <resource value="A Boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Definition.subject[x]" resourcePath="ActivityDefinition.subject[x]">
+    <divergentElement patternPath="Definition.subject" resourcePath="ActivityDefinition.subject[x]">
+        <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
         <extraTypes
-            _resource="Reference(MedicinalProductDefinition,SubstanceDefinition,AdministrableProductDefinition,ManufacturedItemDefinition,PackagedProductDefinition), canonical(EvidenceVariable)" reason="Unknown"/>
+            _resource="Reference(Group,MedicinalProductDefinition,SubstanceDefinition,AdministrableProductDefinition,ManufacturedItemDefinition,PackagedProductDefinition), canonical(EvidenceVariable), CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -74,7 +72,7 @@
             <resource value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Many protocols, order sets and guidelines are inted for use only with specific types of patients or subjects."/>
+            <_pattern value="Many protocols, order sets and guidelines are intended for use only with specific types of patients or subjects."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

@@ -8,5 +8,5 @@
 		<reference value="Patient/example"/>
 	</subject>
 	<effectiveDateTime value="2016-05-18"/>
-	<valueMarkdown value="blue"/>
+	<valueString value="blue"/>
 </Observation>

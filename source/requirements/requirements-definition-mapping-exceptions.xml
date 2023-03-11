@@ -1,34 +1,219 @@
 <mappingExceptions pattern="Definition" resource="Requirements"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <divergentElement patternPath="Definition.versionAlgorithm[x]" resourcePath="Requirements.versionAlgorithm[x]">
-        <bindingStrength _pattern="required" _resource="extensible" reason="Unknown"/>
+    <divergentElement patternPath="Definition.url" resourcePath="Requirements.url">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Canonical identifier for this requirements, represented as an absolute URI (globally unique)"/>
+            <resource value="Canonical identifier for this Requirements, represented as a URI (globally unique)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="An absolute URI that is used to identify this requirements when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this requirements is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the requirements is stored on different servers."/>
+            <resource value="An absolute URI that is used to identify this Requirements when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Requirements is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Requirements is stored on different servers."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+            <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows the requirements to be referenced by a single globally unique identifier."/>
+            <resource value="Allows the Requirements to be referenced by a single globally unique identifier."/>
+        </requirementsUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Definition.contact" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>
+    <divergentElement patternPath="Definition.identifier" resourcePath="Requirements.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for requirements"/>
+            <resource value="Additional identifier for the Requirements (business identifier)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A formal identifier that is used to identify this requirements when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+            <resource value="A formal identifier that is used to identify this Requirements when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this requirements outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the requirements."/>
+            <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.version" resourcePath="Requirements.version">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business version of the requirements"/>
+            <resource value="Business version of the Requirements"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The identifier that is used to identify this version of the requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+            <resource value="The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="There may be different requirementss that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the requirements with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+            <resource value="There may be different Requirements instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Requirements with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.name" resourcePath="Requirements.name">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Name for this requirements (computer friendly)"/>
+            <resource value="Name for this Requirements (computer friendly)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A natural language name identifying the requirements. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+            <resource value="A natural language name identifying the Requirements. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The name is not expected to be globally unique. The name should be a simple alphanumeric type no-whitespace name to ensure that it is machine-processing friendly."/>
+            <resource value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Supports code generation."/>
+            <resource value="Support human navigation and code generation."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.title" resourcePath="Requirements.title">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Name for this requirements (human friendly)"/>
+            <resource value="Name for this Requirements (human friendly)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A short, descriptive, user-friendly title for the requirements."/>
+            <resource value="A short, descriptive, user-friendly title for the Requirements."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.derivedFromCanonical" resourcePath="Requirements.derivedFrom">
+        <missingTypes _pattern="canonical(Definition)" reason="Unknown"/>
+        <extraTypes _resource="canonical(Requirements)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Based on FHIR protocol or definition"/>
+            <resource value="Other set of Requirements this builds on"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The canonical URL pointing to another FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition."/>
+            <resource value="Another set of Requirements that this set of Requirements builds on and updates."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Protocols and order sets may be refinements of more generic protocols and order sets."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.status" resourcePath="Requirements.status">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of this requirements."/>
+            <resource value="The status of this Requirements. Enables tracking the life-cycle of the content."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="Allows filtering of Requirements that are appropriate for use versus not."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Enables tracking the lifecycle of the content and filtering of requirementss that are appropriate for use versus not."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.experimental" resourcePath="Requirements.experimental">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A Boolean value to indicate that this requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <resource value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Allows filtering of requirementss that are appropriate for use versus not."/>
+            <resource value="Allows filtering of Requirements that are appropriate for use versus not."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level requirements."/>
+            <resource value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Requirements."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.date" resourcePath="Requirements.date">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date  (and optionally time) when the requirements was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the requirements changes."/>
+            <resource value="The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+            <resource value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.publisher" resourcePath="Requirements.publisher">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The name of the organization or individual responsible for the release and ongoing maintenance of the requirements."/>
+            <resource value="The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Usually an organization but may be an individual. The publisher (or steward) of the requirements is the organization or individual primarily responsible for the maintenance and upkeep of the requirements. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the requirements. This item SHOULD be populated unless the information is available from context."/>
+            <resource value="Usually an organization but may be an individual. The publisher (or steward) of the Requirements is the organization or individual primarily responsible for the maintenance and upkeep of the Requirements. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Requirements. This item SHOULD be populated unless the information is available from context."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Helps establish the &quot;authority/credibility&quot; of the requirements.  May also allow for contact."/>
+            <resource value="Helps establish the &quot;authority/credibility&quot; of the Requirements.  May also allow for contact."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.description" resourcePath="Requirements.description">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A free text natural language description of the requirements from a consumer's perspective."/>
+            <resource value="A free text natural language description of the requirements."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the requirements as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
+            <resource value="This description can be used for a general description of the requirements, and which covers why it was defined."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.useContext" resourcePath="Requirements.useContext">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate requirementss."/>
+            <resource value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Requirements instances."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
+            <resource value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.jurisdiction" resourcePath="Requirements.jurisdiction">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Intended jurisdiction for requirements (if applicable)"/>
+            <resource value="Intended jurisdiction for Requirements (if applicable)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A legal or geographic region in which the requirements is intended to be used."/>
+            <resource value="A legal or geographic region in which the Requirements is intended to be used."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="It may be possible for the requirements to be used in jurisdictions other than those for which it was originally designed or intended."/>
+            <resource value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.purpose" resourcePath="Requirements.purpose">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why this requirements is defined"/>
+            <resource value="Why this Requirements is defined"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Explanation of why this requirements is needed and why it has been designed as it has."/>
+            <resource value="Explanation of why this Requirements is needed and why it has been designed as it has."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element does not describe the usage of the requirements. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this requirements."/>
+            <resource value="This element does not describe the usage of the Requirements. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Requirements."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.copyright" resourcePath="Requirements.copyright">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A copyright statement relating to the requirements and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the requirements."/>
+            <resource value="A copyright statement relating to the Requirements and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Requirements."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Consumers of the requirements must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
+            <resource value="Consumers must be able to determine any legal restrictions on the use of the Requirements."/>
+        </requirementsUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Definition.approvalDate" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.name" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.description" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.jurisdiction" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.copyrightLabel" reason="Unknown"/>
     <unmappedElement patternPath="Definition.effectivePeriod" reason="Unknown"/>
     <unmappedElement patternPath="Definition.product" reason="Unknown"/>
     <unmappedElement patternPath="Definition.code" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.title" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.date" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.status" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.url" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.copyright" reason="Unknown"/>
     <unmappedElement patternPath="Definition.lastReviewDate" reason="Unknown"/>
     <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.identifier" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.purpose" reason="Unknown"/>
     <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.publisher" reason="Unknown"/>
     <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
     <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
     <unmappedElement patternPath="Definition.topic" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.useContext" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.experimental" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.version" reason="Unknown"/>
 </mappingExceptions>

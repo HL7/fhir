@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ChargeItem.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for charge item"/>
+            <_pattern value="Business identifier for charge item"/>
             <resource value="Business Identifier for item"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -32,7 +32,7 @@
             <resource value="ChargeItems can be grouped to larger ChargeItems covering the whole set."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an charge item to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an charge item to an Encounter - use 'context' for that."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -46,7 +46,7 @@
             <resource value="The current state of the ChargeItem."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -63,7 +63,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="ChargeItem.subject">
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the charge item to the Patient context."/>
+            <_pattern value="Links the charge item to the Patient context.  May also affect access control."/>
             <resource value="Links the event to the Patient context."/>
         </requirementsUnmatched>
     </divergentElement>
@@ -81,7 +81,7 @@
             <resource value="This ChargeItem may be recorded during planning, execution or after the actual encounter takes place."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the charge item to the Encounter context."/>
+            <_pattern value="Links the charge item to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

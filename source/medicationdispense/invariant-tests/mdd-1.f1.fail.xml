@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<!-- insert contents here -->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Penicillin VK 10ml suspension</p>
+			<p>dispensed 16:20 on 30 May 2012</p>
+			<p>by Dr Carfeful</p>
+			<p>picked up at 10:20 on 31 May 2012</p>
+			<p>on the authority of prescription ref: example</p>
+			<p>to patient ref: a23</p>
+		</div>
+	</text>
+	<status value="completed"/>
+	<medication>
+	<reference>
+		<reference value="Medication/example"/>
+	</reference>
+	</medication>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<performer>
+		<actor>
+			<reference value="Practitioner/f006"/>
+		</actor>
+	</performer>
+	<authorizingPrescription>
+		<reference value="MedicationRequest/medicationrequest-example"/>
+	</authorizingPrescription>
+	<quantity>
+		<value value="10"/>
+		<unit value="ml"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="ml"/>
+	</quantity>
+
+	<whenPrepared value="2012-06-30T16:20:00+00:00"/>
+	<whenHandedOver value="2012-05-31T10:20:00+00:00"/>
+	<substitution>
+		<wasSubstituted value="false"></wasSubstituted>
+	</substitution>
+</MedicationDispense>

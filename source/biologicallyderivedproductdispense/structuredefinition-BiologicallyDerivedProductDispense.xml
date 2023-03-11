@@ -316,7 +316,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="string"/>
       </type>
     </element>
   </differential>

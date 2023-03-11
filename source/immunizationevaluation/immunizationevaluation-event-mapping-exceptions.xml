@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="ImmunizationEvaluation.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for immunization evaluation"/>
+            <_pattern value="Business identifier for immunization evaluation"/>
             <resource value="Business identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -30,7 +30,7 @@
             <resource value="Indicates the current status of the evaluation of the vaccination administration event."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -45,7 +45,7 @@
             <resource value="The individual for whom the evaluation is being done."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the immunization evaluation to the Patient context."/>
+            <_pattern value="Links the immunization evaluation to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

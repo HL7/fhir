@@ -1,0 +1,19 @@
+<mappingExceptions pattern="Definition" resource="Library"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Definition.version" resourcePath="Library.version">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="There may be different librarys that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the library with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+            <resource value="There may be different library instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the library with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.copyright" resourcePath="Library.copyright">
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Consumers of the library must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
+            <resource value="Consumers must be able to determine any legal restrictions on the use of the library and/or its content."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Definition" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.versionAlgorithm" reason="Unknown"/>
+</mappingExceptions>

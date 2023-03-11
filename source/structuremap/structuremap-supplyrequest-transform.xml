@@ -2,27 +2,6 @@
 
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="supplyrequest-transform"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-map &quot;http://hl7.org/fhir/StructureMap/supplyrequest-transform&quot; = supplyRequestTransform
-
-uses &quot;http://hl7.org/fhir/StructureDefinition/ActivityDefinition&quot; as source
-uses &quot;http://hl7.org/fhir/StructureDefinition/SupplyRequest&quot; as target
-
-group main
-  input &quot;source&quot;: ActivityDefinition as source
-  input &quot;target&quot;: SupplyRequest as target
-
-  &quot;status&quot;: for source.id make target.status = 'draft'
-  &quot;category&quot;: for source.id make target.category = 'non-stock'
-  &quot;priority&quot;: for source.id make target.priority = 'routine'
-  &quot;quantity&quot;: for source.quantity make target.orderedItem.quantity
-  &quot;item&quot;: for source.code make target.orderedItem.itemCodeableConcept
-  &quot;when&quot;: for source.id make target.occurrenceDateTime = Now()
-  &quot;authoredOn&quot;: for source.id make target.authoredOn = Now()
-    </div>
-  </text>
   <url value="http://hl7.org/fhir/StructureMap/supplyrequest-transform"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

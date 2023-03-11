@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="Immunization.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for immunization"/>
+            <_pattern value="Business identifier for immunization"/>
             <resource value="Business identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -47,7 +47,7 @@
             <resource value="Indicates the current status of the immunization event."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -97,7 +97,7 @@
             <resource value="The patient who either received or did not receive the immunization."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the immunization to the Patient context."/>
+            <_pattern value="Links the immunization to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -116,7 +116,7 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the immunization to the Encounter context."/>
+            <_pattern value="Links the immunization to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

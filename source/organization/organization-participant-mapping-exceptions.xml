@@ -3,11 +3,11 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Participant.identifier" resourcePath="Organization.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for participant"/>
+            <_pattern value="Business Identifier for organization"/>
             <resource value="Identifies this organization  across multiple systems"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <_pattern value="Business identifiers assigned to this organization by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
             <resource value="Identifier for the organization that is used to identify the organization across multiple disparate systems."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
@@ -15,28 +15,28 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the participant as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <_pattern value="Allows identification of the organization as it is known by various participating systems and in a way that remains consistent across servers."/>
             <resource value="Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Participant.active" resourcePath="Organization.active">
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Whether the participant is currently active"/>
+            <_pattern value="Whether the organization is currently active"/>
             <resource value="Whether the organization's record is still in active use"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Whether this participant record is in active use."/>
+            <_pattern value="Whether this organization record is in active use."/>
             <resource value="Whether the organization's record is still in active use."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Participant.name" resourcePath="Organization.name">
         <shortUnmatched reason="Unknown">
-            <_pattern value="A name for the participant"/>
+            <_pattern value="A name for the organization"/>
             <resource value="Name used for the organization"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Description of participant as presented to a consumer while searching."/>
+            <_pattern value="Description of the organization as presented to a consumer while searching."/>
             <resource value="A name associated with the organization."/>
         </definitionUnmatched>
     </divergentElement>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <!-- <id value="example"/>
+  <meta>
+    <versionId value="1"/>
+  </meta>  -->
+
+  <contained>
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="Pract"/>
+      <name>
+        <family value="Surgeon"/>
+        <given value="Cecil"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <!--
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Routine Appendectomy</div>
+  </text> -->
+
+  <status value="completed"/>
+  <!-- <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="80146002"/>
+      <display value="Appendectomy (Procedure)"/>
+    </coding>
+    <text value="Appendectomy"/>
+  </code> -->
+
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <!-- <occurrenceDateTime value="2013-04-05"/>
+  <recorder>
+    <reference value="Practitioner/example"/>
+    <display value="Dr Cecil Surgeon"/>
+  </recorder>
+  <reportedReference>
+    <reference value="Practitioner/example"/>
+    <display value="Dr Cecil Surgeon"/>
+  </reportedReference> -->
+
+  <performer>
+    <actor>
+      <reference value="#Pract"/>
+      <display value="Dr Cecil Surgeon"/>
+    </actor>
+    <onBehalfOf>
+      <reference value="Organization/example"/>
+      <display value="Acme Healthcare"/>
+    </onBehalfOf>
+  </performer>  
+
+  <!-- <reason>
+       <concept>
+         <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
+       </concept>
+  </reason>
+  <followUp>
+    <text value="ROS 5 days  - 2013-04-10"/>
+  </followUp>
+  <note>
+    <text value="Routine Appendectomy. Appendix was inflamed and in retro-caecal position"/>
+  </note>
+  <supportingInfo>
+    <reference value="ImagingStudy/example"/>
+  </supportingInfo> -->
+</Procedure>

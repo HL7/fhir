@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="OperationDefinition"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -129,9 +128,9 @@
     </element>
     <element id="OperationDefinition.url">
       <path value="OperationDefinition.url"/>
-      <short value="Canonical identifier for this operation definition, represented as a URI (globally unique)"/>
+			<short value="Canonical identifier for this operation definition, represented as an absolute URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the operation definition to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -175,7 +174,7 @@
       <path value="OperationDefinition.version"/>
       <short value="Business version of the operation definition"/>
       <definition value="The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different operation definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the operation definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<comment value="There may be different operation definitions that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the operation definition with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -209,13 +208,17 @@
         <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.versionAlgorithm"/>
+			</mapping>
     </element>
     <element id="OperationDefinition.name">
       <path value="OperationDefinition.name"/>
       <short value="Name for this operation definition (computer friendly)"/>
       <definition value="A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type no-whitespace name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support code generation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -250,8 +253,9 @@
     <element id="OperationDefinition.status">
       <path value="OperationDefinition.status"/>
       <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this operation definition. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
+			<definition value="The current state of this operation definition."/>
+			<comment value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+			<requirements value="Enables tracking the lifecycle of the content and filtering of operation definitions that are appropriate for use versus not."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -310,7 +314,7 @@
     <element id="OperationDefinition.experimental">
       <path value="OperationDefinition.experimental"/>
       <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
       <comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level operation definition."/>
       <min value="0"/>
@@ -414,8 +418,8 @@
       </extension>
       <path value="OperationDefinition.useContext"/>
       <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
       <min value="0"/>
       <max value="*"/>
@@ -487,9 +491,8 @@
       </extension>
       <path value="OperationDefinition.copyright"/>
       <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the OperationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the OperationDefinition."/>
-      <comment value="..."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the OperationDefinition and/or its content."/>
+			<definition value="A copyright statement relating to the operation definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the operation definition."/>
+			<requirements value="Consumers of the operation definition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
       <min value="0"/>
@@ -520,6 +523,10 @@
       <type>
         <code value="string"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyrightLabel"/>
+			</mapping>
     </element>
     <element id="OperationDefinition.affectsState">
       <path value="OperationDefinition.affectsState"/>
@@ -547,6 +554,10 @@
         <code value="code"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.code"/>
+			</mapping>
     </element>
     <element id="OperationDefinition.comment">
       <path value="OperationDefinition.comment"/>
@@ -570,6 +581,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.derivedFromCanonical"/>
+			</mapping>
     </element>
     <element id="OperationDefinition.resource">
       <path value="OperationDefinition.resource"/>
@@ -595,10 +610,6 @@
           <shortDoco value="This is the value set to use for just R5 resource types"/>
         </additional>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.subject[x]"/>
-      </mapping>
     </element>
     <element id="OperationDefinition.system">
       <path value="OperationDefinition.system"/>

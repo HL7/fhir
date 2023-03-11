@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="Requirements"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -87,6 +86,10 @@
         <identity value="w5"/>
         <map value="conformance.content"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
     </element>
     <element id="Requirements.url">
       <path value="Requirements.url"/>
@@ -111,6 +114,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
     </element>
     <element id="Requirements.identifier">
       <path value="Requirements.identifier"/>
@@ -127,6 +134,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
     </element>
     <element id="Requirements.version">
       <path value="Requirements.version"/>
@@ -142,6 +153,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.version"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
       </mapping>
     </element>
     <element id="Requirements.versionAlgorithm[x]">
@@ -180,6 +195,10 @@
       </type>
       <condition value="cnl-0"/>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
     </element>
     <element id="Requirements.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -195,6 +214,10 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
     </element>
     <element id="Requirements.status">
       <path value="Requirements.status"/>
@@ -224,6 +247,10 @@
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
     </element>
     <element id="Requirements.experimental">
       <path value="Requirements.experimental"/>
@@ -242,6 +269,10 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
     </element>
     <element id="Requirements.date">
       <path value="Requirements.date"/>
@@ -259,6 +290,10 @@
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
     </element>
     <element id="Requirements.publisher">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -279,6 +314,10 @@
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
     </element>
     <element id="Requirements.contact">
       <path value="Requirements.contact"/>
@@ -291,6 +330,10 @@
         <code value="ContactDetail"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
     </element>
     <element id="Requirements.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -307,6 +350,10 @@
       <type>
         <code value="markdown"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
     </element>
     <element id="Requirements.useContext">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -323,6 +370,10 @@
         <code value="UsageContext"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
     </element>
     <element id="Requirements.jurisdiction">
       <path value="Requirements.jurisdiction"/>
@@ -346,6 +397,10 @@
         <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
     </element>
     <element id="Requirements.purpose">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -364,6 +419,10 @@
         <identity value="w5"/>
         <map value="FiveWs.why[x]"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
     </element>
     <element id="Requirements.copyright">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -381,6 +440,10 @@
       <type>
         <code value="markdown"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
     </element>
     <element id="Requirements.copyrightLabel">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -396,6 +459,10 @@
       <type>
         <code value="string"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyrightLabel"/>
+			</mapping>
     </element>
     <element id="Requirements.derivedFrom">
       <path value="Requirements.derivedFrom"/>
@@ -409,6 +476,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.derivedFromCanonical"/>
+      </mapping>
     </element>
     <element id="Requirements.reference">
       <path value="Requirements.reference"/>
@@ -431,6 +502,10 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
       </type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.who"/>
+			</mapping>
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
@@ -572,6 +647,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.source"/>
+			</mapping>
     </element>
   </differential>
 </StructureDefinition>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="SubscriptionTopic"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -102,9 +101,9 @@
     </element>
     <element id="SubscriptionTopic.url">
       <path value="SubscriptionTopic.url"/>
-      <short value="Canonical identifier for this subscription topic definition, represented as a URI (globally unique)"/>
+			<short value="Canonical identifier for this subscription topic, represented as an absolute URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this subscription topic when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this subscription topic is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the subscription topic is stored on different servers."/>
-      <comment value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;When this is a locally defined topic or derived from a topic defined in the FHIR spec or an IG, this uniquely identifies the topic and functionality. Ideally this URL resolves to documentation about the use cases.&#xA;&#xA;When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.&#xA;&#xA;When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<comment value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.&#xa;&#xa;When this is a locally defined topic or derived from a topic defined in the FHIR spec or an IG, this uniquely identifies the topic and functionality. Ideally this URL resolves to documentation about the use cases.&#xa;&#xa;When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.&#xa;&#xa;When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG."/>
       <requirements value="Allows the subscription topic to be referenced by a single globally unique identifier."/>
       <min value="1"/>
       <max value="1"/>
@@ -127,7 +126,7 @@
     </element>
     <element id="SubscriptionTopic.identifier">
       <path value="SubscriptionTopic.identifier"/>
-      <short value="Business Identifier for this subscription topic"/>
+			<short value="Business identifier for subscription topic"/>
       <definition value="Business identifiers assigned to this subscription topic by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
       <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
       <requirements value="Allows identification of the subscription topic as it is known by various participating systems and in a way that remains consistent across servers."/>
@@ -175,49 +174,54 @@
       </mapping>
     </element>
     <element id="SubscriptionTopic.versionAlgorithm[x]">
-       <path value="SubscriptionTopic.versionAlgorithm[x]"/>
-       <short value="How to compare versions"/>
-       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
-       <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <path value="SubscriptionTopic.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.versionAlgorithm"/>
+      </mapping>
+    </element>
+    <element id="SubscriptionTopic.name">
+       <path value="SubscriptionTopic.name"/>
+       <short value="Name for this subscription topic (computer friendly)"/>
+        <definition value="A natural language name identifying the subscription topic This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+        <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+       <requirements value="Support human navigation and code generation."/>
        <min value="0"/>
        <max value="1"/>
        <type>
          <code value="string"/>
        </type>
-       <type>
-         <code value="Coding"/>
-       </type>
+       <condition value="cnl-0"/>
        <isSummary value="true"/>
-       <binding>
-         <strength value="extensible"/>
-         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
-       </binding>
-    </element>
-    <element id="SubscriptionTopic.name">
- 			<path value="SubscriptionTopic.name"/>
- 			<short value="Name for this subscription topic (computer friendly)"/>
- 			<definition value="A natural language name identifying the subscription topic This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
- 			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
- 			<requirements value="Support human navigation and code generation."/>
- 			<min value="0"/>
- 			<max value="1"/>
- 			<type>
- 				<code value="string"/>
- 			</type>
- 			<condition value="cnl-0"/>
- 			<isSummary value="true"/>
- 			<mapping>
- 				<identity value="workflow"/>
- 				<map value="Definition.name"/>
- 			</mapping>
- 		</element>     
+       <mapping>
+         <identity value="workflow"/>
+         <map value="Definition.name"/>
+       </mapping>
+    </element>     
     <element id="SubscriptionTopic.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
       <path value="SubscriptionTopic.title"/>
-      <short value="Name for this subscription topic (Human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;."/>
+			<short value="Name for this subscription topic (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the subscription topic.  For example, &quot;admission&quot;."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
       <alias value="Name"/>
       <alias value="SubscriptionTopic Name"/>
       <min value="0"/>

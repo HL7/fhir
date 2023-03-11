@@ -3,21 +3,17 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Participant.identifier" resourcePath="CareTeam.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for participant"/>
+            <_pattern value="Business Identifier for care team"/>
             <resource value="External Ids for this team"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <_pattern value="Business identifiers assigned to this care team by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
             <resource value="Business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
         </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the participant as it is known by various participating systems and in a way that remains consistent across servers."/>
-            <resource value="Allows identification of the care team as it is known by various participating systems and in a way that remains consistent across servers."/>
-        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Participant.active" resourcePath="CareTeam.status">
         <missingTypes _pattern="boolean" reason="Unknown"/>
@@ -25,21 +21,21 @@
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Whether the participant is currently active"/>
+            <_pattern value="Whether the care team is currently active"/>
             <resource value="proposed | active | suspended | inactive | entered-in-error"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Whether this participant record is in active use."/>
+            <_pattern value="Whether this care team record is in active use."/>
             <resource value="Indicates the current state of the care team."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Participant.name" resourcePath="CareTeam.name">
         <shortUnmatched reason="Unknown">
-            <_pattern value="A name for the participant"/>
+            <_pattern value="A name for the care team"/>
             <resource value="Name of the team, such as crisis assessment team"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Description of participant as presented to a consumer while searching."/>
+            <_pattern value="Description of the care team as presented to a consumer while searching."/>
             <resource value="A label for human use intended to distinguish like teams.  E.g. the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
         </definitionUnmatched>
     </divergentElement>

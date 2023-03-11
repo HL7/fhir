@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Contract.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for contract"/>
+            <_pattern value="Business identifier for contract"/>
             <resource value="Contract number"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -22,7 +22,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="Contract.term.identifier">
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for contract"/>
+            <_pattern value="Business identifier for contract"/>
             <resource value="Contract Term Number"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -49,7 +49,7 @@
             <resource value="The status of the resource instance."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active."/>
         </commentsUnmatched>
     </divergentElement>
@@ -88,7 +88,7 @@
             <resource value="The target entity impacted by or of interest to parties to the agreement."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the contract to the Patient context."/>
+            <_pattern value="Links the contract to the Patient context.  May also affect access control."/>
             <resource value="The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement."/>
         </requirementsUnmatched>
     </divergentElement>
