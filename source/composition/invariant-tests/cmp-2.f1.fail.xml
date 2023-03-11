@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Consultation note for Henry Levin the 7th</p>
+			<p>Managed by Good Health Clinic</p>
+		</div>
+	</text>
+	<identifier>
+		<system value="http://healthintersections.com.au/test"/>
+		<value value="1"/>
+	</identifier>
+	<status value="final"/>
+	<type>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="11488-4"/>
+			<display value="Consult note"/>
+		</coding>
+	</type>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="LP173421-1"/>
+			<display value="Report"/>
+		</coding>
+	</category>
+	<subject>
+		<reference value="Patient/xcda"/>
+		<display value="Henry Levin the 7th"/>
+	</subject>
+	<encounter>
+		<reference value="Encounter/xcda"/>
+	</encounter>
+	<date value="2012-01-04T09:10:14Z"/>
+	<author>
+		<reference value="Practitioner/xcda-author"/>
+		<display value="Harold Hippocrates, MD"/>
+	</author>
+	<title value="Consultation Note"/>
+	<attester>
+		<mode>
+			<coding>
+				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<code value="legal"/>
+				<display value="Legal"/>
+			</coding>
+		</mode>
+		<time value="2012-01-04T09:10:14Z"/>
+		<party>
+			<reference value="Practitioner/xcda-author"/>
+			<display value="Harold Hippocrates, MD"/>
+		</party>
+	</attester>
+	<custodian>
+		<reference value="Organization/2.16.840.1.113883.19.5"/>
+		<display value="Good Health Clinic"/>
+	</custodian>
+	<relatesTo>
+		<type value="replaces" />
+		<resourceReference>
+			<reference value="Composition/old-example" />
+		</resourceReference>
+	</relatesTo>
+	<relatesTo>
+	    <type value="appends" />
+		<resourceReference>
+			<identifier>
+				<system value="http://example.org/fhir/NamingSystem/document-ids"/>
+				<value value="ABC123"/>
+			</identifier>
+		</resourceReference>
+	</relatesTo>
+	<event>
+		<code>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+				<code value="HEALTHREC"/>
+				<display value="health record"/>
+			</coding>
+		</code>
+		<period>
+			<start value="2010-07-18"/>
+			<end value="2012-11-12"/>
+		</period>
+		<detail>
+			<reference value="Observation/example"/>
+		</detail>
+	</event>
+	<section>
+		<title value="History of present illness"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="11348-0"/>
+				<display value="History of past illness Narrative"/>
+			</coding>
+		</code>
+		<emptyReason>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+				<code value="unknown"/>
+				<display value="Unknown"/>
+
+
+			</coding>
+		</emptyReason>
+		<!-- <text>
+			<status value="generated"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<table>
+					<tr>
+						<td>
+							<b>Code</b>
+						</td>
+						<td>
+							<b>Date</b>
+						</td>
+						<td>
+							<b>Type</b>
+						</td>
+						<td>
+							<b>BodySite</b>
+						</td>
+						<td>
+							<b>Severity</b>
+						</td>
+					</tr>
+					<tr>
+						<td>Stroke</td>
+						<td>2010-07-18</td>
+						<td>Diagnosis</td>
+						<td/>
+						<td/>
+					</tr>
+					<tr>
+						<td>Burnt Ear</td>
+						<td>2012-05-24</td>
+						<td>Diagnosis</td>
+						<td>Left Ear</td>
+						<td/>
+					</tr>
+					<tr>
+						<td>Asthma</td>
+						<td>2012-11-12</td>
+						<td>Finding</td>
+						<td/>
+						<td>Mild</td>
+					</tr>
+				</table>
+			</div>
+		</text>
+		<mode value="snapshot"/>
+		<orderedBy>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/list-order"/>
+				<code value="event-date"/>
+				<display value="Sorted by Event Date"/>
+			</coding>
+		</orderedBy>-->
+		
+		<entry>
+			<reference value="Condition/stroke"/>
+		</entry>
+		<entry>
+			<reference value="Condition/example"/>
+		</entry>
+		<entry>
+			<reference value="Condition/example2"/>
+		</entry>
+	</section>
+
+</Composition>

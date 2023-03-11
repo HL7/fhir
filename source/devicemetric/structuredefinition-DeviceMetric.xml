@@ -79,8 +79,8 @@
     <element id="DeviceMetric.identifier">
       <path value="DeviceMetric.identifier"/>
       <short value="Instance identifier"/>
-      <definition value="Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID."/>
-      <comment value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to the unique identifier of the device."/>
+      <definition value="Instance identifiers assigned to a device, by the device or gateway software, manufacturers, other organizations or owners. For example, handle ID."/>
+      <comment value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to any identifier of the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -139,7 +139,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="IEEE 11073-10101"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
       </binding>
     </element>
     <element id="DeviceMetric.device">
@@ -175,15 +175,16 @@
       </binding>
     </element>
     <element id="DeviceMetric.color">
-      <path value="DeviceMetric.color"/>
-      <short value="Color name (from CSS4) or #RRGGBB code"/>
-      <definition value="Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta."/>
+      <path value="DeviceMetric.color" />
+      <short value="Color name (from CSS4) or #RRGGBB code" />
+      <definition
+        value="The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta." />
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
       <binding>
         <strength value="required"/>
         <description value="Describes the typical color of representation."/>
@@ -222,7 +223,7 @@
       <type>
         <code value="Quantity"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
     </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -236,7 +237,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false"/>
     </element>
     <element id="DeviceMetric.calibration.type">
       <path value="DeviceMetric.calibration.type"/>
@@ -247,7 +248,7 @@
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationType"/>
@@ -266,7 +267,7 @@
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationState"/>
@@ -285,7 +286,7 @@
       <type>
         <code value="instant"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false" />
     </element>
   </differential>
 </StructureDefinition>

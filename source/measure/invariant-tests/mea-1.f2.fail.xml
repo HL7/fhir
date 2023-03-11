@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>
+  <status value="draft"/>
+  <group>
+    <stratifier>
+<code>
+    <coding>
+        <system value="http://hl7.org/fhir/measure-stratifier"/>
+        <code value="patient-characteristic"/>
+    </coding>
+</code>
+    <component>
+      <linkId value="1"/>
+      </component>
+
+    </stratifier>
+    </group>
+</Measure>
