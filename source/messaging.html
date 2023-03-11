@@ -177,6 +177,9 @@ Note that asynchronous messaging can be harder to implement due to the amount of
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
+[%impl-note%]
+Previous releases used a combination of Bundle.id and MessageHeader.id in an attempt to establish the message identity. This posed problems when crossing the boundaries between messaging and RESTful exchange. The current release uses Bundle.identifier exclusively to establish and maintain the message identity. The subsequent sections reflect this change.
+[%end-note%]
 
 <h3>Message Identifiers &amp; Timestamps</h3>
 <p>
@@ -206,6 +209,7 @@ The meaning of these will depend on the message event.
 <p>Note that Bundle.id and MessageHeader.id also must be present, according to the rules of the 
 	underlying Resource.id definition, which allows the potential additional or complementary use 
 	of these resources using the FHIR RESTful API.</p>
+
 
 <a name="reliable"></a>
 <h3>Absence of Reliable Messaging</h3>
