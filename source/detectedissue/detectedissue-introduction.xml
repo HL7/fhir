@@ -16,7 +16,7 @@ It does not apply to technical issues (e.g. lack of user permissions) but could 
 </ul>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 <p>
-This resource represents a specific instance of a potential issue for a particular patient. It is <b>not</b> intended to represent general patient-independent knowledge. This resource is also <b>not</b> intended to be used in defining general prohibitions on actions such as "No NSAIDs", "No solid oral dose forms" or "No MRIs - metallic tattoos".  
+This resource represents a specific instance of a potential issue for a particular patient. It is <b>not</b> intended to represent general patient-independent knowledge, the <a href="clinicalusedefinition.html">ClinicalUseDefinition</a> resource is defined for that purpose. This resource is also <b>not</b> intended to be used in defining general prohibitions on actions such as "No NSAIDs", "No solid oral dose forms" or "No MRIs - metallic tattoos".  
 These guidelines can be captured using the <a href="allergyintolerance.html">AllergyIntolerance</a>, and/or <a href="flag.html">Flag</a> resources.  
 Similarly, this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using <a href="condition.html">Condition</a>, <a href="procedure.html">Procedure</a> or other resources.
 </p>
