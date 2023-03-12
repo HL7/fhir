@@ -13,7 +13,11 @@
     </extension>
     <item>
       <reference value="GuidanceResponse/example"/>
-      <display value="General"/>
+      <display value="Example guidance response for appropriate use criteria assessment"/>
+    </item>
+    <item>
+      <reference value="GuidanceResponse/additional-data-example"/>
+      <display value="Example illustrating request for additional data for diabetes guideline"/>
     </item>
   </entry>
 </List>
