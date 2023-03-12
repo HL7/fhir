@@ -21,6 +21,7 @@
 <ol>
 	<li>Create the target resource of the type specified by the <code>kind</code> element and focused on the Patient in context</li>
 	<li>Set the <code>status</code> of the target resource to <i>draft</i></li>
+	<li>Set the <code>intent</code> of the target resource to <i>option</i></li>
 	<li>Apply the structural elements of the ActivityDefinition to the target resource such as <code>code</code>, <code>timing</code>, <code>doNotPerform</code>, <code>product</code>, <code>quantity</code>, <code>dosage</code>, and so on</li>
 	<li>Resolve the <code>participant</code> element based on the user in context</li>
 	<li>Resolve the <code>location</code> element based on the location in context</li>
