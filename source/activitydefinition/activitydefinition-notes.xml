@@ -40,6 +40,923 @@
 
 <p>Because the ActivityDefinition resource can be used to describe many different types of request resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the <code>quantity</code> element should not be used, but the <code>dosage</code> element must be.</p>
 
+<h3>ActivityDefinition Structure Mapping</h3>
 
+<p>The following sections provide FHIR Mapping Language snippets for mapping ActivityDefinition instances to each kind of Request resource that can be created.</p>
+
+<a name="appointment"> </a>
+<h4>Appointment</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToAppointment&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to Appointment&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/Appointment&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.participant as participant then {
+            doActor: for sbj as sbj make participant.actor=sbj
+            doStatus: for sbj as sbj make participant.status =&quot;needs-action&quot;
+        }
+    }
+
+//    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+//                do: for p.value as prac make tgt.requester = prac
+//    }
+
+    &quot;organization&quot; : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+        }
+
+
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.encounter = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ServiceRequest as target
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.basedOn = vvv
+//    &quot;ad.code&quot;      : for src.code     as vvv make tgt.code = vvv          // could be serviceCategory or specialty --&gt; unclear
+    //    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+    &quot;ad.priority&quot;  : for src  where priority='routine' then {
+            prio: for src make tgt.priority = 9
+    }
+    &quot;ad.priority&quot;  : for src.priority  as priority where priority='urgent' then {
+            prio: for priority make tgt.priority = 7
+    }
+    &quot;ad.priority&quot;  : for src.priority  as priority where priority='asap' then {
+            prio: for priority make tgt.priority = 4
+    }
+    &quot;ad.priority&quot;  : for src.priority  as priority where priority='stat' then {
+            prio: for priority make tgt.priority = 1
+    }
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.timingP1&quot;   : for src.timing :Period   as period   make tgt.start = period.start
+    &quot;ad.timingP2&quot;   : for src.timing :Period   as period   make tgt.end = period.end
+    &quot;ad.timingD&quot;    : for src.timing :Duration as duration make tgt.minutesDuration = duration
+    &quot;ad.timingDT&quot;   : for src.timing :dateTime as dt       make tgt.start = dt
+
+    &quot;ad.location&quot;  : for src.location as location make tgt.participant as participant then {
+            doActor:  for location make participant.actor = location
+            doStatus: for location make participant.status = &quot;needs-action&quot;
+    }
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as vvv check quantity.empty()
+//    &quot;ad.bodysite&quot;  : for src.bodySite as vvv make tgt.bodySite = vvv
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+    &quot;status&quot;       : for src                 make tgt.status = &quot;proposed&quot;
+    &quot;created&quot;      : for src                 make tgt.created = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="appointmentresponse"> </a>
+<h4>AppointmentResponse</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToAppointmentResponse&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to AppointmentResponse&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/AppointmentResponse&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+//    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+//        do: for p.value as sbj make tgt.subject = sbj
+//    }
+//
+//    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+//            do: for p.value as prac make tgt.requester = prac
+//        }
+//
+//    &quot;organization&quot; : for src as src where
+//            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+//        then{
+//            do: for src.parameter as p where name='organization' then{
+//                do: for p.value as org make tgt.requester = org
+//            }
+//        }
+//
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.encounter = enc
+//    }
+
+    // unsure who the actor is. No default makes sense - leave empty.
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ServiceRequest as target
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;status&quot;       : for src                 make tgt.participantStatus = &quot;needs-action&quot;
+//    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+//    &quot;ad.code&quot;      : for src.code     as vvv make tgt.code = vvv
+//    &quot;ad.timing&quot;    : for src.timing   as timing make tgt.start = timing   // unsure how to map on start/end
+//    &quot;ad.location&quot;  : for src.location as vvv make tgt.locationReference = vvv
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as vvv check quantity.empty()
+//    &quot;ad.bodysite&quot;  : for src.bodySite as vvv make tgt.bodySite = vvv
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+endgroup</pre></code>
+
+<a name="careplan"> </a>
+<h4>CarePlan</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToCarePlan&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to CarePlan&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/CarePlan&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.author = prac
+        }
+
+    &quot;organization&quot; : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.author = org
+            }
+        }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ServiceRequest as target
+
+    &quot;ad.code&quot;      : for src.code     as vvv  make tgt.category = vvv
+//    &quot;ad.priority&quot;  : for src.priority as prio make tgt.priority = vvv
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.timing&quot;    : for src.timing   as timing make tgt.period = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.location=location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as vvv check quantity.empty()
+//    &quot;ad.bodysite&quot;  : for src.bodySite as vvv make tgt.bodySite = vvv
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;status&quot;       : for src                 make tgt.status = &quot;draft&quot;
+    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+    &quot;created&quot;      : for src                 make tgt.created = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="claim"> </a>
+<h4>Claim</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToClaim&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to Claim&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/Claim&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.patient = sbj
+    }
+
+    &quot;practitioner1&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.enterer = prac
+        }
+
+     &quot;organization&quot; : for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.provider = org
+    }
+
+
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.encounter = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: Claim as target
+
+    &quot;ad.code&quot;      : for src.code     as vvv  make tgt.type = vvv
+    &quot;ad.priority1&quot;  : for src where priority.exists() then {
+        do: for src.priority as priority make tgt.priority as tgtprioCc then {
+            doCoding: for priority make tgtprioCc.coding as tgtCoding then {
+                system:  for priority make tgtCoding.system = &quot;http://hl7.org/fhir/ValueSet/request-priority&quot;
+                code:    for priority make tgtCoding.code   = priority
+            }
+        }
+    }
+    &quot;ad.priority2&quot;  : for src where priority.exists().not() then {
+        do: for src make tgt.priority as tgtprioCc then {
+            doCoding: for src make tgtprioCc.coding as tgtCoding then {
+                system:  for src make tgtCoding.system = &quot;http://hl7.org/fhir/ValueSet/request-priority&quot;
+                code:    for src make tgtCoding.code   = &quot;normal&quot;
+            }
+        }
+    }
+//    &quot;ad.timing&quot;    : for src.timing   as timing make tgt.period = timing
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.location&quot;  : for src.location as location make tgt.facility = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as quantity make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;status&quot;       : for src                 make tgt.status = &quot;draft&quot;
+    &quot;use&quot;          : for src                 make tgt.use = &quot;claim&quot;
+    &quot;created&quot;      : for src                 make tgt.created = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="communicationrequest"> </a>
+<h4>CommunicationRequest</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToCommunicationRequest&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to CommunicationRequest&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/CommunicationRequest&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ProcedureRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+        do: for p.value as prac make tgt.requester = prac
+    }
+
+    &quot;organization&quot; : for src.parameter as p where
+         parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+    then  {
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+    }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ProcedureRequest as target
+
+    &quot;basedOn&quot;      : for src                 make  tgt.basedOn = reference( src )
+    &quot;status&quot;       : for src                 make  tgt.status = &quot;draft&quot;
+    &quot;authoredOn&quot;   : for src                 make  tgt.authoredOn = evaluate( src, now() )
+    &quot;ad.code&quot;      : for src.code     as vvv make  tgt.reasonCode = vvv
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.timing&quot;    : for src.timing   as vvv make  tgt.occurrence = vvv
+//    &quot;ad.location&quot;  : for src          as vvv check location.empty()
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as vvv check quantity.empty()
+//    &quot;ad.bodysite&quot;  : for src          as vvv check bodysite.empty()
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+endgroup</pre></code>
+
+<a name="contract"> </a>
+<h4>Contract</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToContract&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to Contract&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/Contract&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.author = prac
+        }
+
+     &quot;organization&quot; : for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.authority = org
+    }
+
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.context = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: Contract as target
+
+    &quot;ad.code&quot;      : for src.code     as code  make tgt.scope = code
+//    &quot;ad.priority&quot;  : for src as priority make tgt.priority as tgtprioCc
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.timing&quot;    : for src.timing   as timing make tgt.applies = timing
+    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as quantity make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+//    &quot;status&quot;       : for src                 make tgt.status = &quot;draft&quot;
+//    &quot;use&quot;          : for src                 make tgt.use = &quot;claim&quot;
+//    &quot;created&quot;      : for src                 make tgt.created = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="devicerequest"> </a>
+<h4>DeviceRequest</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToDeviceRequest&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to DeviceRequest&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/DeviceRequest&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+            do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.requester = prac
+        }
+
+    &quot;organization&quot; : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+        }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: DeviceRequest as target
+
+    &quot;ad.code&quot;      : for src.code     as code     make tgt.code = code
+    &quot;ad.priority&quot;  : for src.priority as vvv      make tgt.priority = vvv
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as quantity make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+//    &quot;use&quot;          : for src                 make tgt.use = &quot;claim&quot;
+//    &quot;created&quot;      : for src                 make tgt.created = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="enrollmentrequest"> </a>
+<h4>EnrollmentRequest</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToEnrollmentRequest&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to EnrollmentRequest&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/EnrollmentRequest&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+            do: for p.value as sbj make tgt.candidate = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.provider = prac
+        }
+
+//    &quot;organization&quot; : for src as src where
+//            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+//        then{
+//            do: for src.parameter as p where name='organization' then{
+//                do: for p.value as org make tgt.requester = org
+//            }
+//        }
+
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.encounter = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: EnrollmentRequest as target
+
+//    &quot;ad.code&quot;      : for src.code     as code     make tgt.code = code
+//    &quot;ad.priority&quot;  : for src.priority as priority make tgt.priority as priority
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+//    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as quantity make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+//    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+//    &quot;use&quot;          : for src                 make tgt.use = &quot;claim&quot;
+    &quot;created&quot;      : for src                 make tgt.created = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="immunizationrecommendation"> </a>
+<h4>ImmunizationRecommendation</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToImmunizationRecommendation&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to ImmunizationRecommendation&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+            do: for p.value as sbj make tgt.patient = sbj
+    }
+
+//    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+//            do: for p.value as prac make tgt.provider = prac
+//        }
+
+    &quot;organization&quot; : for src as src where name='organization' then{
+        do: for p.value as organization make tgt.authority = organization
+    }
+
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.encounter = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ImmunizationRecommendation as target
+
+//    &quot;ad.code&quot;      : for src.code     as code     make tgt.code = code
+//    &quot;ad.priority&quot;  : for src.priority as priority make tgt.priority as priority
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+//    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as quantity make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+//    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+//    &quot;use&quot;          : for src                 make tgt.use = &quot;claim&quot;
+    &quot;created&quot;      : for src                 make tgt.date = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="medicationrequest"> </a>
+<h4>MedicationRequest</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToMedicationRequest&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to MedicationRequest&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/MedicationRequest&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+            do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            doReq: for p.value as prac make tgt.requester = prac
+            doRec: for p.value as prac make tgt.recorder = prac
+        }
+
+    &quot;organization&quot; : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+        }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: MedicationRequest as target
+
+    &quot;ad.code&quot;      : for src.code     as code     make tgt.reasonCode = code
+    &quot;ad.priority&quot;  : for src.priority as priority make tgt.priority = priority
+    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.doNotPerform as doNotPerform
+//    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+    &quot;ad.product&quot;   : for src.product  as product  make tgt.medication = product
+//    &quot;ad.quantity&quot;  : for src.quantity as quantity make tgt.quantity as tgt
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+    &quot;ad.dosage&quot;    : for src.dosage   as dosage   make tgt.dosageInstruction = dosage
+
+    dispenseRequest: for src make tgt.dispenseRequest as dispenseRequest then {
+        dr.q:   for src.quantity as quantity make dispenseRequest.quantity = quantity
+        dr.di:  for src.timing : Duration as timing make dispenseRequest.dispenseInterval = timing
+        dr.di:  for src.timing : Period   as timing make dispenseRequest.validityPeriod   = timing
+    }
+
+    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+    &quot;status&quot;       : for src                 make tgt.status = &quot;active&quot;
+    &quot;created&quot;      : for src                 make tgt.authoredOn = evaluate( src, now() )
+endgroup</pre></code>
+
+<a name="nutritionorder"> </a>
+<h4>NutritionOrder</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToNutritionOrder&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to NutritionOrder&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/NutritionOrder&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.patient = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.orderer = prac
+        }
+
+//    &quot;organization&quot; : for src as src where
+//            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+//        then{
+//            do: for src.parameter as p where name='organization' then{
+//                do: for p.value as org make tgt.requester = org
+//            }
+//        }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: NutritionOrder as target
+
+    &quot;ad.code1&quot;          : for src where doNotPerform then {
+            prMod: for src.code as code make tgt.foodPreferenceModifier = code
+        }
+    &quot;ad.code2&quot;          : for src where doNotPerform.not() then {
+        prMod: for src.code as code make tgt.excludeFoodModifier = code
+    }
+
+//    &quot;ad.priority&quot;      : for src.priority     as priority     make tgt.priority as priority
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+//    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as quantity make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+    &quot;status&quot;       : for src                 make tgt.status = &quot;active&quot;
+    &quot;created&quot;      : for src                 make tgt.dateTime = evaluate( src, now() )
+
+endgroup</pre></code>
+
+<a name="servicerequest"> </a>
+<h4>ServiceRequest</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToServiceRequest&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to ServiceRequest&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/ServiceRequest&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.requester = prac
+        }
+
+    &quot;organization&quot; : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+        }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ServiceRequest as target
+
+    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;status&quot;       : for src                 make tgt.status = &quot;draft&quot;
+    &quot;intent&quot;       : for src                 make tgt.intent = &quot;proposal&quot;
+    &quot;ad.code&quot;      : for src.code     as vvv make tgt.code = vvv
+    &quot;ad.timing&quot;    : for src.timing   as vvv make tgt.occurrence = vvv
+    &quot;ad.location&quot;  : for src.location as vvv make tgt.locationReference = vvv
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as vvv check quantity.empty()
+    &quot;ad.bodysite&quot;  : for src.bodySite as vvv make tgt.bodySite = vvv
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+endgroup</pre></code>
+
+<a name="supplyrequest"> </a>
+<h4>SupplyRequest</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToSupplyRequest&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to SupplyRequest&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/SupplyRequest&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: SupplyRequest as target
+
+//    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+//        do: for p.value as sbj make tgt.subject = sbj
+//    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+        do: for p.value as prac make tgt.requester = prac
+    }
+
+    &quot;organization&quot; : for src.parameter as p where name='organization' then{
+        do: for p.value as org make tgt.requester =org
+    }
+
+//    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.context = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: SupplyRequest as target
+
+    &quot;ad.code&quot;          : for src.code      as code         make tgt.item = code
+    &quot;ad.priority&quot;      : for src.priority  as priority     make tgt.priority = priority
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+    &quot;ad.quantity&quot;      : for src.quantity  as quantity     make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;status&quot;       : for src                 make tgt.status = &quot;draft&quot;
+    &quot;authoredOn&quot;   : for src                 make tgt.authoredOn = evaluate( src, now() )
+
+endgroup</pre></code>
+
+<a name="task"> </a>
+<h4>Task</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/Task&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to Task&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/Task&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: Task as target
+
+    &quot;for&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.for = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.requester as requester then{
+               do: for prac make requester.agent = prac
+            }
+        }
+
+    &quot;organization&quot; : for src.parameter as p where name='organization' then {
+            do: for p.value as org make tgt.requester as requester then {
+                    do: for org make requester.onBehalfOf = org
+                }
+        }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ProcedureRequest as target
+
+//    &quot;basedOn&quot;      : for src                 make tgt.basedOn = reference( src )
+    refAd          : for src.url as can   make tgt.instantiatesCanonical = can
+    &quot;status&quot;       : for src              make tgt.status = &quot;draft&quot;
+    &quot;ad.code&quot;      : for src.code  as vvv make tgt.code = vvv
+//    &quot;ad.timing&quot;    : for src          as vvv check timing.empty()  ==&gt;restriction.period
+//    &quot;ad.location&quot;  : for src          as vvv check location.empty()
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;  : for src          as vvv check quantity.empty()
+//    &quot;ad.bodysite&quot;  : for src          as vvv check bodysite.empty()
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+//    &quot;ad.relatedart&quot;: for src.relatedArtifact as relatedArtifact make tgt.payload as payload then {
+//        do: for relatedArtifact as relatedArtifact make payload.content as content then {
+//            &quot;content&quot;: for relatedArtifact as vvv make content = vvv
+//            &quot;display&quot; : for relatedArtifact.display as vvv make content
+//            &quot;citation&quot;: for relatedArtifact as vvv make content = vvv
+//            &quot;url&quot;     : for relatedArtifact as vvv make content = vvv
+//            &quot;document&quot;: for relatedArtifact as vvv make content = vvv
+//            &quot;resource&quot;: for relatedArtifact as vvv make content = vvv
+//        }
+//    }
+endgroup</pre></code>
+
+<a name="visionprescription"> </a>
+<h4>VisionPrescription</h4>
+
+<code><pre>map &quot;http://research.philips.com/fhir/r4/mapping/AdToVisionPrescription&quot; =
+    &quot;R3 Parameters of Activitydefinition.$apply to VisionPrescription&quot;
+
+uses &quot;http://hl7.org/fhir/StructureDefinition/Parameters&quot;       as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/VisionPrescription&quot; as target
+
+group main
+    input src: Parameters as source
+    input tgt: VisionPrescription as target
+
+    &quot;subject&quot; : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.patient = sbj
+    }
+
+    &quot;practitioner&quot; : for src.parameter as p where name='practitioner' then{
+        do: for p.value as prac make tgt.prescriber = prac
+    }
+
+//    &quot;organization&quot; : for src.parameter as p where name='organization' then{
+//        do: for p.value as org make tgt.requester =org
+//    }
+
+    &quot;encounter&quot; : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: VisionPrescription as target
+
+//    &quot;ad.code&quot;          : for src.code      as code         make tgt.item = code
+//    &quot;ad.priority&quot;      : for src.priority  as priority     make tgt.priority = priority
+//    &quot;ad.doNotPerform&quot;  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+//    &quot;ad.timing&quot;    : for src.timing   as timing   make tgt.occurrence = timing
+//    &quot;ad.location&quot;  : for src.location as location make tgt.site = location
+//    &quot;ad.product&quot;   : for src          as vvv check product.empty()
+//    &quot;ad.quantity&quot;      : for src.quantity  as quantity     make tgt.quantity = quantity
+//    &quot;ad.bodysite&quot;  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+//    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
+
+//    &quot;refAd&quot;        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    &quot;status&quot;       : for src              make tgt.status = &quot;draft&quot;
+    &quot;created&quot;   : for src                 make tgt.created = evaluate( src, now() )
+
+endgroup</pre></code>
 
 </div>
