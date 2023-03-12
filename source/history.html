@@ -152,7 +152,7 @@ notes: do not list revision in the version
         <a href="substancesourcematerial.html">SubstanceSourceMaterial</a>,
         <a href="testplan.html">TestPlan</a> and
         <a href="transport.html">Transport</a> + New types: 
-        <a href="datatypes.html#integer64">integer64</a>
+        <a href="datatypes.html#integer64">integer64</a>,
         <a href="metadatatypes.html#Availability">Availability</a> and 
         <a href="metadatatypes.html#ExtendedContactDetail">ExtendedContactDetail</a>
       </li>
@@ -162,24 +162,27 @@ notes: do not list revision in the version
         DocumentManifest (<a href="http://hl7.org/fhir/R4B/documentmanifest.html">R4B</a>) (use list), 
         Media (<a href="http://hl7.org/fhir/R4B/media.html">R4B</a>) (use Observation),
         EffectEvidenceSynthesis (<a href="http://hl7.org/fhir/R4/effectevidencesynthesis.html">R4</a>),
-        MedicinalProduct (<a href="http://hl7.org/fhir/R4/medicinalproduct.html">R4</a>),
-        MedicinalProductAuthorization (<a href="http://hl7.org/fhir/R4/medicinalproductauthorization.html">R4</a>),
-        MedicinalProductContraindication (<a href="http://hl7.org/fhir/R4/medicinalproductcontraindication.html">R4</a>),
-        MedicinalProductIndication (<a href="http://hl7.org/fhir/R4/medicinalproductindication.html">R4</a>),
-        MedicinalProductIngredient (<a href="http://hl7.org/fhir/R4/medicinalproductingredient.html">R4</a>),
-        MedicinalProductInteraction (<a href="http://hl7.org/fhir/R4/medicinalproductinteraction.html">R4</a>),
-        MedicinalProductManufactured (<a href="http://hl7.org/fhir/R4/medicinalproductmanufactured.html">R4</a>),
-        MedicinalProductPackaged (<a href="http://hl7.org/fhir/R4/medicinalproductpackaged.html">R4</a>),
-        MedicinalProductPharmaceutical (<a href="http://hl7.org/fhir/R4/medicinalproductpharmaceutical.html">R4</a>),
-        MedicinalProductUndesirableEffect (<a href="http://hl7.org/fhir/R4/medicinalproductundesirableeffect.html">R4</a>),
         ResearchDefinition (<a href="http://hl7.org/fhir/R4B/researchdefinition.html">R4B</a>),
         ResearchElementDefinition (<a href="http://hl7.org/fhir/R4B/researchelementdefinition.html">R4B</a>),
         RiskEvidenceSynthesis (<a href="http://hl7.org/fhir/R4/riskevidencesynthesis.html">R4</a>),
         SubstanceSpecification (<a href="http://hl7.org/fhir/R4/substancespecification.html">R4</a>),
-        and the types 
-        Contributor (<a href="http://hl7.org/fhir/R4B/metadatatypes.html#Contributor">R4B</a>),
-        ProdCharacteristic (<a href="http://hl7.org/fhir/R4B/prodcharacteristic.html">R4B</a>),
-        SubstanceAmount (<a href="http://hl7.org/fhir/R4/substanceamount.html">R4</a>)
+        and the type
+        Contributor (<a href="http://hl7.org/fhir/R4B/metadatatypes.html#Contributor">R4B</a>)
+      </li>
+      <li>For the MedicinalProduct Definitions, the changes are more complicated:
+        <ul>
+          <li>Renamed in R4B: 
+            MedicinalProduct -&gt; [[%MedicinalProductDefinition%]], 
+            MedicinalProductAuthorization -&gt; [[%RegulatedAuthorization%]],
+            MedicinalProductIngredient -&gt; [[%Ingredient%]],
+            MedicinalProductManufactured -&gt; [[%ManufacturedItemDefinition%]],
+            MedicinalProductPackaged -&gt; [[%PackagedProductDefinition%]],
+            MedicinalProductPharmaceutical -&gt; [[%AdministrableProductDefinition%]],
+            SubstanceSpecification -&gt; [[%SubstanceDefinition%]]</li>
+          <li>Collapsed into [[%ClinicalUseDefinition%]] in R4B: MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesirableEffect</li>
+          <li>Removed in R4B: types ProdCharacteristic and SubstanceAmount</li>
+          <li>Omitted from R4B due to limited scope: [[%SubstanceNucleicAcid%]], [[%SubstancePolymer%]], [[%SubstanceProtein%]], [[%SubstanceReferenceInformation%]], [[%SubstanceSourceMaterial%]]</li>
+        </ul>
       </li>
       <li>Moved many code systems and value sets to <a href="http://terminology.hl7.org">terminology.hl7.org</a></li>
       <li>Added <a href="operations-for-large-resources.html">Operations for Large Resources</a></li>
@@ -378,10 +381,10 @@ notes: do not list revision in the version
        <li>Renamed Resources:
          <ul>
            <li><code>BodySite</code> -&gt; <a href="bodystructure.html">BodyStructure</a></li>
-           <li><code>EligibilityRequest</code> ->  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
-           <li><code>EligibilityResponse</code> ->  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-           <li><code>Sequence</code> -> <a href="molecularsequence.html">MolecularSequence</a></li>
-           <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -> <a href="servicerequest.html">ServiceRequest</a></li>
+           <li><code>EligibilityRequest</code> -&gt;  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
+           <li><code>EligibilityResponse</code> -&gt;  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
+           <li><code>Sequence</code> -&gt; <a href="molecularsequence.html">MolecularSequence</a></li>
+           <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -&gt; <a href="servicerequest.html">ServiceRequest</a></li>
          </ul>
        </li>
        <li>Deleted Resources:
