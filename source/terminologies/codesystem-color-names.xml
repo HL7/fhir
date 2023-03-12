@@ -37,7 +37,7 @@
     <code value="aliceblue"/>
     <display value="aliceblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F0F8FF"/>
     </property>
   </concept>
@@ -45,7 +45,7 @@
     <code value="antiquewhite"/>
     <display value="antiquewhite"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FAEBD7"/>
     </property>
   </concept>
@@ -53,7 +53,7 @@
     <code value="aqua"/>
     <display value="aqua"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00FFFF"/>
     </property>
   </concept>
@@ -61,7 +61,7 @@
     <code value="aquamarine"/>
     <display value="aquamarine"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#7FFFD4"/>
     </property>
   </concept>
@@ -69,7 +69,7 @@
     <code value="azure"/>
     <display value="azure"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F0FFFF"/>
     </property>
   </concept>
@@ -77,7 +77,7 @@
     <code value="beige"/>
     <display value="beige"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F5F5DC"/>
     </property>
   </concept>
@@ -85,7 +85,7 @@
     <code value="bisque"/>
     <display value="bisque"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFE4C4"/>
     </property>
   </concept>
@@ -93,7 +93,7 @@
     <code value="black"/>
     <display value="black"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#000000"/>
     </property>
   </concept>
@@ -101,7 +101,7 @@
     <code value="blanchedalmond"/>
     <display value="blanchedalmond"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFEBCD"/>
     </property>
   </concept>
@@ -109,7 +109,7 @@
     <code value="blue"/>
     <display value="blue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#0000FF"/>
     </property>
   </concept>
@@ -117,7 +117,7 @@
     <code value="blueviolet"/>
     <display value="blueviolet"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#8A2BE2"/>
     </property>
   </concept>
@@ -125,7 +125,7 @@
     <code value="brown"/>
     <display value="brown"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#A52A2A"/>
     </property>
   </concept>
@@ -133,7 +133,7 @@
     <code value="burlywood"/>
     <display value="burlywood"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DEB887"/>
     </property>
   </concept>
@@ -141,7 +141,7 @@
     <code value="cadetblue"/>
     <display value="cadetblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#5F9EA0"/>
     </property>
   </concept>
@@ -149,7 +149,7 @@
     <code value="chartreuse"/>
     <display value="chartreuse"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#7FFF00"/>
     </property>
   </concept>
@@ -157,7 +157,7 @@
     <code value="chocolate"/>
     <display value="chocolate"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#D2691E"/>
     </property>
   </concept>
@@ -165,7 +165,7 @@
     <code value="coral"/>
     <display value="coral"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF7F50"/>
     </property>
   </concept>
@@ -173,7 +173,7 @@
     <code value="cornflowerblue"/>
     <display value="cornflowerblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#6495ED"/>
     </property>
   </concept>
@@ -181,7 +181,7 @@
     <code value="cornsilk"/>
     <display value="cornsilk"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFF8DC"/>
     </property>
   </concept>
@@ -189,7 +189,7 @@
     <code value="crimson"/>
     <display value="crimson"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DC143C"/>
     </property>
   </concept>
@@ -197,7 +197,7 @@
     <code value="cyan"/>
     <display value="cyan"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00FFFF"/>
     </property>
   </concept>
@@ -205,7 +205,7 @@
     <code value="darkblue"/>
     <display value="darkblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00008B"/>
     </property>
   </concept>
@@ -213,7 +213,7 @@
     <code value="darkcyan"/>
     <display value="darkcyan"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#008B8B"/>
     </property>
   </concept>
@@ -221,7 +221,7 @@
     <code value="darkgoldenrod"/>
     <display value="darkgoldenrod"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#B8860B"/>
     </property>
   </concept>
@@ -229,7 +229,7 @@
     <code value="darkgray"/>
     <display value="darkgray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#A9A9A9"/>
     </property>
   </concept>
@@ -237,7 +237,7 @@
     <code value="darkgreen"/>
     <display value="darkgreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#006400"/>
     </property>
   </concept>
@@ -245,7 +245,7 @@
     <code value="darkgrey"/>
     <display value="darkgrey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#A9A9A9"/>
     </property>
   </concept>
@@ -253,7 +253,7 @@
     <code value="darkkhaki"/>
     <display value="darkkhaki"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#BDB76B"/>
     </property>
   </concept>
@@ -261,7 +261,7 @@
     <code value="darkmagenta"/>
     <display value="darkmagenta"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#8B008B"/>
     </property>
   </concept>
@@ -269,7 +269,7 @@
     <code value="darkolivegreen"/>
     <display value="darkolivegreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#556B2F"/>
     </property>
   </concept>
@@ -277,7 +277,7 @@
     <code value="darkorange"/>
     <display value="darkorange"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF8C00"/>
     </property>
   </concept>
@@ -285,7 +285,7 @@
     <code value="darkorchid"/>
     <display value="darkorchid"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#9932CC"/>
     </property>
   </concept>
@@ -293,7 +293,7 @@
     <code value="darkred"/>
     <display value="darkred"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#8B0000"/>
     </property>
   </concept>
@@ -301,7 +301,7 @@
     <code value="darksalmon"/>
     <display value="darksalmon"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#E9967A"/>
     </property>
   </concept>
@@ -309,7 +309,7 @@
     <code value="darkseagreen"/>
     <display value="darkseagreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#8FBC8F"/>
     </property>
   </concept>
@@ -317,7 +317,7 @@
     <code value="darkslateblue"/>
     <display value="darkslateblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#483D8B"/>
     </property>
   </concept>
@@ -325,7 +325,7 @@
     <code value="darkslategray"/>
     <display value="darkslategray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#2F4F4F"/>
     </property>
   </concept>
@@ -333,7 +333,7 @@
     <code value="darkslategrey"/>
     <display value="darkslategrey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#2F4F4F"/>
     </property>
   </concept>
@@ -341,7 +341,7 @@
     <code value="darkturquoise"/>
     <display value="darkturquoise"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00CED1"/>
     </property>
   </concept>
@@ -349,7 +349,7 @@
     <code value="darkviolet"/>
     <display value="darkviolet"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#9400D3"/>
     </property>
   </concept>
@@ -357,7 +357,7 @@
     <code value="deeppink"/>
     <display value="deeppink"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF1493"/>
     </property>
   </concept>
@@ -365,7 +365,7 @@
     <code value="deepskyblue"/>
     <display value="deepskyblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00BFFF"/>
     </property>
   </concept>
@@ -373,7 +373,7 @@
     <code value="dimgray"/>
     <display value="dimgray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#696969"/>
     </property>
   </concept>
@@ -381,7 +381,7 @@
     <code value="dimgrey"/>
     <display value="dimgrey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#696969"/>
     </property>
   </concept>
@@ -389,7 +389,7 @@
     <code value="dodgerblue"/>
     <display value="dodgerblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#1E90FF"/>
     </property>
   </concept>
@@ -397,7 +397,7 @@
     <code value="firebrick"/>
     <display value="firebrick"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#B22222"/>
     </property>
   </concept>
@@ -405,7 +405,7 @@
     <code value="floralwhite"/>
     <display value="floralwhite"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFAF0"/>
     </property>
   </concept>
@@ -413,7 +413,7 @@
     <code value="forestgreen"/>
     <display value="forestgreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#228B22"/>
     </property>
   </concept>
@@ -421,7 +421,7 @@
     <code value="fuchsia"/>
     <display value="fuchsia"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF00FF"/>
     </property>
   </concept>
@@ -429,7 +429,7 @@
     <code value="gainsboro"/>
     <display value="gainsboro"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DCDCDC"/>
     </property>
   </concept>
@@ -437,7 +437,7 @@
     <code value="ghostwhite"/>
     <display value="ghostwhite"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F8F8FF"/>
     </property>
   </concept>
@@ -445,7 +445,7 @@
     <code value="gold"/>
     <display value="gold"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFD700"/>
     </property>
   </concept>
@@ -453,7 +453,7 @@
     <code value="goldenrod"/>
     <display value="goldenrod"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DAA520"/>
     </property>
   </concept>
@@ -461,7 +461,7 @@
     <code value="gray"/>
     <display value="gray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#808080"/>
     </property>
   </concept>
@@ -469,7 +469,7 @@
     <code value="green"/>
     <display value="green"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#008000"/>
     </property>
   </concept>
@@ -477,7 +477,7 @@
     <code value="greenyellow"/>
     <display value="greenyellow"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#ADFF2F"/>
     </property>
   </concept>
@@ -485,7 +485,7 @@
     <code value="grey"/>
     <display value="grey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#808080"/>
     </property>
   </concept>
@@ -493,7 +493,7 @@
     <code value="honeydew"/>
     <display value="honeydew"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F0FFF0"/>
     </property>
   </concept>
@@ -501,7 +501,7 @@
     <code value="hotpink"/>
     <display value="hotpink"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF69B4"/>
     </property>
   </concept>
@@ -509,7 +509,7 @@
     <code value="indianred"/>
     <display value="indianred"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#CD5C5C"/>
     </property>
   </concept>
@@ -517,7 +517,7 @@
     <code value="indigo"/>
     <display value="indigo"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#4B0082"/>
     </property>
   </concept>
@@ -525,7 +525,7 @@
     <code value="ivory"/>
     <display value="ivory"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFFF0"/>
     </property>
   </concept>
@@ -533,7 +533,7 @@
     <code value="khaki"/>
     <display value="khaki"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F0E68C"/>
     </property>
   </concept>
@@ -541,7 +541,7 @@
     <code value="lavender"/>
     <display value="lavender"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#E6E6FA"/>
     </property>
   </concept>
@@ -549,7 +549,7 @@
     <code value="lavenderblush"/>
     <display value="lavenderblush"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFF0F5"/>
     </property>
   </concept>
@@ -557,7 +557,7 @@
     <code value="lawngreen"/>
     <display value="lawngreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#7CFC00"/>
     </property>
   </concept>
@@ -565,7 +565,7 @@
     <code value="lemonchiffon"/>
     <display value="lemonchiffon"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFACD"/>
     </property>
   </concept>
@@ -573,7 +573,7 @@
     <code value="lightblue"/>
     <display value="lightblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#ADD8E6"/>
     </property>
   </concept>
@@ -581,7 +581,7 @@
     <code value="lightcoral"/>
     <display value="lightcoral"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F08080"/>
     </property>
   </concept>
@@ -589,7 +589,7 @@
     <code value="lightcyan"/>
     <display value="lightcyan"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#E0FFFF"/>
     </property>
   </concept>
@@ -597,7 +597,7 @@
     <code value="lightgoldenrodyellow"/>
     <display value="lightgoldenrodyellow"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FAFAD2"/>
     </property>
   </concept>
@@ -605,7 +605,7 @@
     <code value="lightgray"/>
     <display value="lightgray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#D3D3D3"/>
     </property>
   </concept>
@@ -613,7 +613,7 @@
     <code value="lightgreen"/>
     <display value="lightgreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#90EE90"/>
     </property>
   </concept>
@@ -621,7 +621,7 @@
     <code value="lightgrey"/>
     <display value="lightgrey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#D3D3D3"/>
     </property>
   </concept>
@@ -629,7 +629,7 @@
     <code value="lightpink"/>
     <display value="lightpink"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFB6C1"/>
     </property>
   </concept>
@@ -637,7 +637,7 @@
     <code value="lightsalmon"/>
     <display value="lightsalmon"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFA07A"/>
     </property>
   </concept>
@@ -645,7 +645,7 @@
     <code value="lightseagreen"/>
     <display value="lightseagreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#20B2AA"/>
     </property>
   </concept>
@@ -653,7 +653,7 @@
     <code value="lightskyblue"/>
     <display value="lightskyblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#87CEFA"/>
     </property>
   </concept>
@@ -661,7 +661,7 @@
     <code value="lightslategray"/>
     <display value="lightslategray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#778899"/>
     </property>
   </concept>
@@ -669,7 +669,7 @@
     <code value="lightslategrey"/>
     <display value="lightslategrey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#778899"/>
     </property>
   </concept>
@@ -677,7 +677,7 @@
     <code value="lightsteelblue"/>
     <display value="lightsteelblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#B0C4DE"/>
     </property>
   </concept>
@@ -685,7 +685,7 @@
     <code value="lightyellow"/>
     <display value="lightyellow"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFFE0"/>
     </property>
   </concept>
@@ -693,7 +693,7 @@
     <code value="lime"/>
     <display value="lime"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00FF00"/>
     </property>
   </concept>
@@ -701,7 +701,7 @@
     <code value="limegreen"/>
     <display value="limegreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#32CD32"/>
     </property>
   </concept>
@@ -709,7 +709,7 @@
     <code value="linen"/>
     <display value="linen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FAF0E6"/>
     </property>
   </concept>
@@ -717,7 +717,7 @@
     <code value="magenta"/>
     <display value="magenta"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF00FF"/>
     </property>
   </concept>
@@ -725,7 +725,7 @@
     <code value="maroon"/>
     <display value="maroon"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#800000"/>
     </property>
   </concept>
@@ -733,7 +733,7 @@
     <code value="mediumaquamarine"/>
     <display value="mediumaquamarine"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#66CDAA"/>
     </property>
   </concept>
@@ -741,7 +741,7 @@
     <code value="mediumblue"/>
     <display value="mediumblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#0000CD"/>
     </property>
   </concept>
@@ -749,7 +749,7 @@
     <code value="mediumorchid"/>
     <display value="mediumorchid"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#BA55D3"/>
     </property>
   </concept>
@@ -757,7 +757,7 @@
     <code value="mediumpurple"/>
     <display value="mediumpurple"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#9370DB"/>
     </property>
   </concept>
@@ -765,7 +765,7 @@
     <code value="mediumseagreen"/>
     <display value="mediumseagreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#3CB371"/>
     </property>
   </concept>
@@ -773,7 +773,7 @@
     <code value="mediumslateblue"/>
     <display value="mediumslateblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#7B68EE"/>
     </property>
   </concept>
@@ -781,7 +781,7 @@
     <code value="mediumspringgreen"/>
     <display value="mediumspringgreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00FA9A"/>
     </property>
   </concept>
@@ -789,7 +789,7 @@
     <code value="mediumturquoise"/>
     <display value="mediumturquoise"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#48D1CC"/>
     </property>
   </concept>
@@ -797,7 +797,7 @@
     <code value="mediumvioletred"/>
     <display value="mediumvioletred"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#C71585"/>
     </property>
   </concept>
@@ -805,7 +805,7 @@
     <code value="midnightblue"/>
     <display value="midnightblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#191970"/>
     </property>
   </concept>
@@ -813,7 +813,7 @@
     <code value="mintcream"/>
     <display value="mintcream"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F5FFFA"/>
     </property>
   </concept>
@@ -821,7 +821,7 @@
     <code value="mistyrose"/>
     <display value="mistyrose"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFE4E1"/>
     </property>
   </concept>
@@ -829,7 +829,7 @@
     <code value="moccasin"/>
     <display value="moccasin"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFE4B5"/>
     </property>
   </concept>
@@ -837,7 +837,7 @@
     <code value="navajowhite"/>
     <display value="navajowhite"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFDEAD"/>
     </property>
   </concept>
@@ -845,7 +845,7 @@
     <code value="navy"/>
     <display value="navy"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#000080"/>
     </property>
   </concept>
@@ -853,7 +853,7 @@
     <code value="oldlace"/>
     <display value="oldlace"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FDF5E6"/>
     </property>
   </concept>
@@ -861,7 +861,7 @@
     <code value="olive"/>
     <display value="olive"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#808000"/>
     </property>
   </concept>
@@ -869,7 +869,7 @@
     <code value="olivedrab"/>
     <display value="olivedrab"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#6B8E23"/>
     </property>
   </concept>
@@ -877,7 +877,7 @@
     <code value="orange"/>
     <display value="orange"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFA500"/>
     </property>
   </concept>
@@ -885,7 +885,7 @@
     <code value="orangered"/>
     <display value="orangered"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF4500"/>
     </property>
   </concept>
@@ -893,7 +893,7 @@
     <code value="orchid"/>
     <display value="orchid"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DA70D6"/>
     </property>
   </concept>
@@ -901,7 +901,7 @@
     <code value="palegoldenrod"/>
     <display value="palegoldenrod"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#EEE8AA"/>
     </property>
   </concept>
@@ -909,7 +909,7 @@
     <code value="palegreen"/>
     <display value="palegreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#98FB98"/>
     </property>
   </concept>
@@ -917,7 +917,7 @@
     <code value="paleturquoise"/>
     <display value="paleturquoise"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#AFEEEE"/>
     </property>
   </concept>
@@ -925,7 +925,7 @@
     <code value="palevioletred"/>
     <display value="palevioletred"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DB7093"/>
     </property>
   </concept>
@@ -933,7 +933,7 @@
     <code value="papayawhip"/>
     <display value="papayawhip"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFEFD5"/>
     </property>
   </concept>
@@ -941,7 +941,7 @@
     <code value="peachpuff"/>
     <display value="peachpuff"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFDAB9"/>
     </property>
   </concept>
@@ -949,7 +949,7 @@
     <code value="peru"/>
     <display value="peru"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#CD853F"/>
     </property>
   </concept>
@@ -957,7 +957,7 @@
     <code value="pink"/>
     <display value="pink"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFC0CB"/>
     </property>
   </concept>
@@ -965,7 +965,7 @@
     <code value="plum"/>
     <display value="plum"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#DDA0DD"/>
     </property>
   </concept>
@@ -973,7 +973,7 @@
     <code value="powderblue"/>
     <display value="powderblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#B0E0E6"/>
     </property>
   </concept>
@@ -981,7 +981,7 @@
     <code value="purple"/>
     <display value="purple"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#800080"/>
     </property>
   </concept>
@@ -989,7 +989,7 @@
     <code value="rebeccapurple"/>
     <display value="rebeccapurple"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#663399"/>
     </property>
   </concept>
@@ -997,7 +997,7 @@
     <code value="red"/>
     <display value="red"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF0000"/>
     </property>
   </concept>
@@ -1005,7 +1005,7 @@
     <code value="rosybrown"/>
     <display value="rosybrown"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#BC8F8F"/>
     </property>
   </concept>
@@ -1013,7 +1013,7 @@
     <code value="royalblue"/>
     <display value="royalblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#4169E1"/>
     </property>
   </concept>
@@ -1021,7 +1021,7 @@
     <code value="saddlebrown"/>
     <display value="saddlebrown"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#8B4513"/>
     </property>
   </concept>
@@ -1029,7 +1029,7 @@
     <code value="salmon"/>
     <display value="salmon"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FA8072"/>
     </property>
   </concept>
@@ -1037,7 +1037,7 @@
     <code value="sandybrown"/>
     <display value="sandybrown"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F4A460"/>
     </property>
   </concept>
@@ -1045,7 +1045,7 @@
     <code value="seagreen"/>
     <display value="seagreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#2E8B57"/>
     </property>
   </concept>
@@ -1053,7 +1053,7 @@
     <code value="seashell"/>
     <display value="seashell"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFF5EE"/>
     </property>
   </concept>
@@ -1061,7 +1061,7 @@
     <code value="sienna"/>
     <display value="sienna"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#A0522D"/>
     </property>
   </concept>
@@ -1069,7 +1069,7 @@
     <code value="silver"/>
     <display value="silver"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#C0C0C0"/>
     </property>
   </concept>
@@ -1077,7 +1077,7 @@
     <code value="skyblue"/>
     <display value="skyblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#87CEEB"/>
     </property>
   </concept>
@@ -1085,7 +1085,7 @@
     <code value="slateblue"/>
     <display value="slateblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#6A5ACD"/>
     </property>
   </concept>
@@ -1093,7 +1093,7 @@
     <code value="slategray"/>
     <display value="slategray"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#708090"/>
     </property>
   </concept>
@@ -1101,7 +1101,7 @@
     <code value="slategrey"/>
     <display value="slategrey"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#708090"/>
     </property>
   </concept>
@@ -1109,7 +1109,7 @@
     <code value="snow"/>
     <display value="snow"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFAFA"/>
     </property>
   </concept>
@@ -1117,7 +1117,7 @@
     <code value="springgreen"/>
     <display value="springgreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#00FF7F"/>
     </property>
   </concept>
@@ -1125,7 +1125,7 @@
     <code value="steelblue"/>
     <display value="steelblue"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#4682B4"/>
     </property>
   </concept>
@@ -1133,7 +1133,7 @@
     <code value="tan"/>
     <display value="tan"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#D2B48C"/>
     </property>
   </concept>
@@ -1141,7 +1141,7 @@
     <code value="teal"/>
     <display value="teal"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#008080"/>
     </property>
   </concept>
@@ -1149,7 +1149,7 @@
     <code value="thistle"/>
     <display value="thistle"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#D8BFD8"/>
     </property>
   </concept>
@@ -1157,7 +1157,7 @@
     <code value="tomato"/>
     <display value="tomato"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FF6347"/>
     </property>
   </concept>
@@ -1165,7 +1165,7 @@
     <code value="turquoise"/>
     <display value="turquoise"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#40E0D0"/>
     </property>
   </concept>
@@ -1173,7 +1173,7 @@
     <code value="violet"/>
     <display value="violet"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#EE82EE"/>
     </property>
   </concept>
@@ -1181,7 +1181,7 @@
     <code value="wheat"/>
     <display value="wheat"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F5DEB3"/>
     </property>
   </concept>
@@ -1189,7 +1189,7 @@
     <code value="white"/>
     <display value="white"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFFFF"/>
     </property>
   </concept>
@@ -1197,7 +1197,7 @@
     <code value="whitesmoke"/>
     <display value="whitesmoke"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#F5F5F5"/>
     </property>
   </concept>
@@ -1205,7 +1205,7 @@
     <code value="yellow"/>
     <display value="yellow"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#FFFF00"/>
     </property>
   </concept>
@@ -1213,7 +1213,7 @@
     <code value="yellowgreen"/>
     <display value="yellowgreen"/>
     <property>
-      <name value="rgb"/>
+      <code value="rgb"/>
       <valueString value="#9ACD32"/>
     </property>
   </concept>

@@ -1156,7 +1156,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationIntendedSubstitutionReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A coded concept describing the reason that a different medication should (or should not) be substituted from what was prescribed."/>
         </extension>
         <strength value="example"/>

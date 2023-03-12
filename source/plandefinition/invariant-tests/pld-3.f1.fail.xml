@@ -6,7 +6,8 @@
    <title value="Low Suicide Risk Order Set"/>
    <status value="active"/>
    <experimental value="true"/>
-   <goal id="g1">
+   <goal>
+      <id value="g1"/>
       <description>
          <text value="goal 1"/>
       </description>
