@@ -51,16 +51,20 @@ signatures.html
         <page title="Resource Life Cycles" filename="lifecycle.html"/>
         <page title="References between Resources" filename="references.html">
           <page title="Definitions" filename="references-definitions.html"/>
-          <page title="Profiles and Extensions" filename="references-extras.html"/>
+          <page title="Profiles" filename="references-profiles.html"/>
+          <page title="Extensions" filename="references-extensions.html"/>
+          <page title="R4 Conversions" filename="references-version-maps.html"/>
         </page>
         <page title="Narrative" filename="narrative.html">
           <page title="Narrative Example" filename="narrative-example.html"/>
           <page title="Definitions" filename="narrative-definitions.html"/>
+          <page title="R4 Conversions" filename="narrative-version-maps.html"/>
         </page>
         <page title="Extensibility" filename="extensibility.html">
           <page title="Defining Extensions" filename="defining-extensions.html"/>
           <page title="Examples" filename="extensibility-examples.html"/>
           <page title="Detailed Description" filename="extensibility-definitions.html"/>
+          <page title="R4 Conversions" filename="extensibility-version-maps.html"/>
         </page>
         <page title="Resource Definitions" filename="formats.html">
           <page title="UML Definition" filename="uml.html"/>
@@ -96,7 +100,8 @@ signatures.html
 
         <page title="Type Framework" filename="types.html">
           <page title="Detailed Descriptions" filename="types-definitions.html"/>
-          <page title="Profiles and Extensions" filename="types-extras.html"/>
+          <page title="Profiles" filename="types-profiles.html"/>
+          <page title="Extensions" filename="types-extensions.html"/>
           <page title="Mappings" filename="types-mappings.html"/>
           <page title="R4 Conversions" filename="types-version-maps.html"/>
           <page type="resource" resource="Resource">
@@ -110,18 +115,24 @@ signatures.html
           <page title="Examples" filename="datatypes-examples.html"/>
           <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
           <page title="Mappings" filename="datatypes-mappings.html"/>
-          <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
+          <page title="Profiles" filename="datatypes-profiles.html"/>
+          <page title="Extensions" filename="datatypes-extensions.html"/>
           <page title="R4 Conversions" filename="datatypes-version-maps.html"/>
           <page title="MetaData Types" filename="metadatatypes.html">
             <page title="Examples" filename="metadatatypes-examples.html"/>
             <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
             <page title="Mappings" filename="metadatatypes-mappings.html"/>
+            <page title="Profiles" filename="metadatatypes-profiles.html"/>
+            <page title="Extensions" filename="metadatatypes-extensions.html"/>
+            <page title="R4 Conversions" filename="metadatatypes-version-maps.html"/>
           </page>
           <page title="ElementDefinition" filename="elementdefinition.html">
             <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
             <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
             <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
-            <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
+            <page title="Profiles" filename="elementdefinition-profiles.html"/>
+            <page title="Extensions" filename="elementdefinition-extensions.html"/>
+            <page title="R4 Conversions" filename="elementdefinition-version-maps.html"/>
           </page>
         </page>
         <page title="Resource Guide" filename="resourceguide.html"/>
@@ -356,7 +367,9 @@ signatures.html
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
-        <page title="Dosage Profiles &amp; Extensions" filename="dosage-extras.html"/>
+        <page title="Dosage Profiles" filename="dosage-profiles.html"/>
+        <page title="Dosage Extensions" filename="dosage-extensions.html"/>
+        <page title="R4 Conversions" filename="dosage-version-maps.html"/>
       </page>
       <page type="resource" resource="FormularyItem"/>
     </page>
@@ -461,19 +474,25 @@ signatures.html
         <page title="Examples" filename="marketingstatus-examples.html"/>
         <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
         <page title="Mappings" filename="marketingstatus-mappings.html"/>
-        <page title="Profiles and Extensions" filename="marketingstatus-extras.html"/>
+        <page title="Profiles" filename="marketingstatus-profiles.html"/>
+        <page title="Extensions" filename="marketingstatus-extensions.html"/>
+        <page title="R4 Conversions" filename="marketingstatus-version-maps.html"/>
       </page>
       <page title="Population" filename="population.html">
         <page title="Examples" filename="population-examples.html"/>
         <page title="Detailed Descriptions" filename="population-definitions.html"/>
         <page title="Mappings" filename="population-mappings.html"/>
-        <page title="Profiles and Extensions" filename="population-extras.html"/>
+        <page title="Profiles" filename="population-profiles.html"/>
+        <page title="Extensions" filename="population-extensions.html"/>
+        <page title="R4 Conversions" filename="population-version-maps.html"/>
       </page>
       <page title="ProductShelfLife" filename="productshelflife.html">
         <page title="Examples" filename="productshelflife-examples.html"/>
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
         <page title="Mappings" filename="productshelflife-mappings.html"/>
-        <page title="Profiles and Extensions" filename="productshelflife-extras.html"/>
+        <page title="Profiles" filename="productshelflife-profiles.html"/>
+        <page title="Extensions" filename="productshelflife-extensions.html"/>
+        <page title="R4 Conversions" filename="productshelflife-version-maps.html"/>
       </page>
     </page>
 
