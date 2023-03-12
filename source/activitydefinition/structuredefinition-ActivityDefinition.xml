@@ -851,8 +851,8 @@
     <element id="ActivityDefinition.kind">
       <path value="ActivityDefinition.kind"/>
       <short value="Kind of resource"/>
-      <definition value="A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource."/>
-      <comment value="May determine what types of extensions are permitted."/>
+      <definition value="A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest."/>
+      <comment value="The kind element may only specify Request resource types to facilitate considering user input as part of processing the result of any automated clinical reasoning processes. To support creation of event resources, such as Observations, RiskAssessments, and DetectedIssues, use a Task resource with the focus of the task set to the event resource to be created. Note that the kind of resource to be created may determine what types of extensions are permitted."/>
       <min value="0"/>
       <max value="1"/>
       <type>

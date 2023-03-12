@@ -61,6 +61,9 @@
 
 <p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
 
+<h3>Event Resources</h3>
+<p>The ActivityDefinition resource may only specify Request resource types to facilitate considering user input as part of processing the result of any automated clinical reasoning processes. To support creation of event resources, such as Observations, RiskAssessments, and DetectedIssues, use a Task resource with the focus of the task set to the event resource to be created.</p>
+
 <h3>Overlap with ActivityDefinition</h3>
 
 <p>As noted in the Boundaries section, there is some overlap between the content that can be represented within the <code>action</code> element of a PlanDefinition, and the elements of the ActivityDefinition resource. This overlap allows for both resources to be used independently, as well as in combination. For example, a PlanDefinition may be used without any supporting ActivityDefinitions to describe a particular workflow, where it is sufficient to describe the actions simply as textual descriptions of what needs to take place. On the other hand, the PlanDefinition may be used together with ActivityDefinition to provide a detailed structural representation of the activities to be performed.</p>

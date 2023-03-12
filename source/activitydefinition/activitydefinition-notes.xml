@@ -16,7 +16,7 @@
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
-<p>To accommodate the variability in systems and use cases, this specification is not prescriptive about exactly how an ActivityDefinition is applied to produce target request or event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
+<p>To accommodate the variability in systems and use cases, this specification is not prescriptive about exactly how an ActivityDefinition is applied to produce target request resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
 
 <ol>
 	<li>Create the target resource of the type specified by the <code>kind</code> element and focused on the Patient in context</li>
@@ -33,8 +33,13 @@
 
 <p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
 
+<h3>Event Resources</h3>
+<p>The <code>kind</code> element may only specify Request resource types to facilitate considering user input as part of processing the result of any automated clinical reasoning processes. To support creation of event resources, such as Observations, RiskAssessments, and DetectedIssues, use a Task resource with the focus of the task set to the event resource to be created.</p>
+
 <h3>Profiling ActivityDefinition</h3>
 
 <p>Because the ActivityDefinition resource can be used to describe many different types of request resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the <code>quantity</code> element should not be used, but the <code>dosage</code> element must be.</p>
+
+
 
 </div>
