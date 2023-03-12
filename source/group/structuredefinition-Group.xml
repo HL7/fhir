@@ -94,9 +94,10 @@
     </element>
     <element id="Group.identifier">
       <path value="Group.identifier"/>
-      <short value="Unique id"/>
-      <definition value="A unique business identifier for this group."/>
-      <requirements value="Allows the group to be referenced from external specifications."/>
+      <short value="Business Identifier for this Group"/>
+      <definition value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types."/>
+      <requirements value="Allows identification of the group as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -281,6 +282,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
     </element>
     <element id="Group.characteristic">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -407,6 +412,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="./scopedRole[isNormalRole() and classCode=&quot;MBR&quot;]/player"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Group.member.entity">

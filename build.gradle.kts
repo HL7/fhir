@@ -36,6 +36,16 @@ task("publish", JavaExec::class) {
     classpath = sourceSets["main"].compileClasspath
 }
 
+task("publishFull", JavaExec::class) {
+    dependsOn(":printVersion")
+    if (properties["logback.configurationFile"] != null) {
+        jvmArgs = listOf("-Dlogback.configurationFile=${properties["logback.configurationFile"]}")
+    }
+    main = "org.hl7.fhir.tools.publisher.Publisher"
+    classpath = sourceSets["main"].compileClasspath
+    args("-nopartial")
+}
+
 task("printVersion") {
     println("\nKicking off FHIR publishing job!" +
             "\n\n==============================" +

@@ -5,15 +5,15 @@
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="An address for the individual"/>
+            <_pattern value="An address for the location"/>
             <resource value="Physical location"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="An address for the participant."/>
+            <_pattern value="An address where the location can be reached."/>
             <resource value="Physical location."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="May need to keep track of participant addresses for contacting, billing or reporting requirements and also to help with identification."/>
+            <_pattern value="May need to keep track of location addresses for contacting, billing or reporting requirements and also to help with identification."/>
             <resource value="If locations can be visited, we need to keep track of their address."/>
         </requirementsUnmatched>
     </divergentElement>

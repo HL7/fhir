@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">To be added</div>
+  </text>
+
+  <!-- insert contents here -->
+  <status value="completed"></status>
+  <intent value="order"></intent>
+<category>
+<coding>
+  <system value="http://snomed.info/sct"/>
+  <code value="103693007"/>
+  <display value="Diagnostic procedure (procedure)"/>
+</coding>
+<text value="Diagnostics Procedure"/>
+</category>
+  <code>
+   <concept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="303653007"/>
+      <display value="Computed tomography of head"/>
+    </coding>
+   </concept>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="123456"/>
+      <display value="Head"/>
+    </coding>
+  </bodySite>
+  <bodyStructure>
+  <display value="Head"/>
+  </bodyStructure>
+</ServiceRequest>

@@ -4,11 +4,11 @@
     <divergentElement patternPath="Participant.identifier" resourcePath="Device.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for participant"/>
+            <_pattern value="Business Identifier for device"/>
             <resource value="Instance identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <_pattern value="Business identifiers assigned to this device by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
             <resource value="Unique instance identifiers assigned to a device by manufacturers other organizations or owners."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
@@ -16,7 +16,7 @@
             <resource value="Certain attributes, like serial number and UDI Carrier (the HRF or AIDC barcode string) are not device instance identifiers as they are not consistently able to uniquely identify the instance of a device, thus are not appropriate to be used to value Device.identifier. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used. The identifier is typically valued if the serialNumber or lotNumber is not valued and represents a different type of identifier.  However, it is permissible to still include those identifiers in DeviceDefinition.identifier with the appropriate identifier.type."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the participant as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <_pattern value="Allows identification of the device as it is known by various participating systems and in a way that remains consistent across servers."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -26,11 +26,11 @@
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Whether the participant is currently active"/>
+            <_pattern value="Whether the device is currently active"/>
             <resource value="active | inactive | entered-in-error"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Whether this participant record is in active use."/>
+            <_pattern value="Whether this device record is in active use."/>
             <resource value="The Device record status. This is not the status of the device like availability."/>
         </definitionUnmatched>
     </divergentElement>
@@ -40,11 +40,11 @@
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="A name for the participant"/>
+            <_pattern value="A name for the device"/>
             <resource value="The name or names of the device as known to the manufacturer and/or patient"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Description of participant as presented to a consumer while searching."/>
+            <_pattern value="Description of the device as presented to a consumer while searching."/>
             <resource value="This represents the manufacturer's name of the device as provided by the device, from a UDI label, or by a person describing the Device.  This typically would be used when a person provides the name(s) or when the device represents one of the names available from DeviceDefinition."/>
         </definitionUnmatched>
     </divergentElement>

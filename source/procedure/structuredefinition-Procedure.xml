@@ -598,8 +598,8 @@
         <valueCode value="400,80"/>
       </extension>
       <path value="Procedure.performer"/>
-      <short value="The people who performed the procedure"/>
-      <definition value="Limited to &quot;real&quot; people rather than equipment."/>
+      <short value="Who performed the procedure and what they did"/>
+      <definition value="Indicates who or what performed the procedure and how they were involved."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -732,7 +732,6 @@
       <path value="Procedure.location"/>
       <short value="Where the procedure happened"/>
       <definition value="The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant."/>
-      <requirements value="Ties a procedure to where the records are likely kept."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -809,7 +808,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
         </extension>
         <strength value="example"/>

@@ -8,14 +8,14 @@
     It is strongly encouraged to provide as much information in this resource for any reported sequences, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize sequences over time or across sources.  However, these data should not be used to dynamically correct/change sequence representations for clinical use outside of the laboratory, due to insufficient information.
   </p>
   <p>
-    The MolecularSequence resource is designed to represent a single sequence in an instance. Each sequence might have multiple representations, but implementers SHALL ensure all representations are for the same sequence. This means that if a single MolecularSequence instance contains a <code>literal</code>, two <code>formatted</code> files, and a <code>relative</code>, all four of those representions must represent the same sequence. This can be a challenge across systems, as semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
+    The MolecularSequence resource is designed to represent a single sequence in an instance. Each sequence might have multiple representations, but implementers SHALL ensure all representations are for the same sequence. This means that if a single MolecularSequence instance contains a <code>literal</code>, two <code>formatted</code> files, and a <code>relative</code>, all four of those representations must represent the same sequence. This can be a challenge across systems, as semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
   </p>
   </div>
 
   <div>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The MolecularSequence resource should only be used to capture a molecular sequence. It will not be used for other entities such as variant, variant annotations, genotypes, haplotypes, etc. Those concepts will be captured in <code>Observation</code> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The sequence that was observed that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
+    The MolecularSequence resource should only be used to capture a molecular sequence. It will not be used for other entities such as variant, variant annotations, genotypes, haplotypes, etc. Those concepts will be captured in <a href="observation.html">Observation</a> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The sequence that was observed that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
   </p>
   <p>
     MolecularSequence will not be used to capture data such as precise read of DNA sequences and sequence alignment are not included; such data may be accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API, and may be referenced to by the <code>formatted</code> element.
@@ -32,4 +32,4 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-</div>
+</div> 

@@ -598,14 +598,14 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="deprecated">
           <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
-            <valueMarkdown value="Use the artifact-keyword extension instead"/>
+            <valueMarkdown value="Use the artifact-topic extension instead"/>
           </extension>
         </valueCode>
       </extension>
       <path value="StructureDefinition.keyword"/>
       <short value="Assist with indexing and finding"/>
       <definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
-      <comment value="Note that this element is deprecated. Use the artifact-keyword extension instead."/>
+      <comment value="Note that this element is deprecated. Use the [[[http://hl7.org/fhir/StructureDefinition/artifact-topic]]] extension instead."/>
       <requirements value="Assist in searching for appropriate StructureDefinitions."/>
       <min value="0"/>
       <max value="*"/>

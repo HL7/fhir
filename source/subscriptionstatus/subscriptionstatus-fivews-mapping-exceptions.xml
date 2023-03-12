@@ -7,21 +7,21 @@
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="SubscriptionStatus.type">
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
     </divergentElement>
-    <unmappedElement patternPath="FiveWs.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.class" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.context" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.identifier" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.who" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.grade" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.done" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.subject" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.recorded" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.author" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.actor" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.cause" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.version" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.witness" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.class" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.where" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.context" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.init" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.identifier" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.source" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.who" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.grade" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.planned" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.done" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.subject" reason="Not relevant for this resource"/>
 </mappingExceptions>

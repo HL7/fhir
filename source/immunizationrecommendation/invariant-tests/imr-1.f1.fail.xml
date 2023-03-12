@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImmunizationRecommendation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/ImmunizationRecommendation.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Authored by Joginder Madra</div>
+	</text>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235"/>
+	</identifier>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<date value="2015-02-09T11:04:15.817-05:00"/>
+	<authority>
+		<reference value="Organization/hl7"/>
+	</authority>
+	<recommendation>
+		<!-- <vaccineCode>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="14745005"/>
+				<display value="Hepatitis A vaccine"/>
+			</coding>
+		</vaccineCode>
+		<targetDisease>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="394914008"/>
+				<display value="Hepatitis A"/>
+			</coding>
+		</targetDisease> -->
+		<forecastStatus>
+			<text value="Not Complete"/>
+		</forecastStatus>
+		<dateCriterion>
+			<code>
+				<coding>
+					<system value="http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"/>
+					<code value="earliest"/>
+					<display value="Earliest Date"/>
+				</coding>
+			</code>
+			<value value="2015-12-01T00:00:00-05:00"/>
+		</dateCriterion>
+		<dateCriterion>
+			<code>
+				<coding>
+					<system value="http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"/>
+					<code value="recommended"/>
+					<display value="Recommended"/>
+				</coding>
+			</code>
+			<value value="2015-12-01T00:00:00-05:00"/>
+		</dateCriterion>
+		<dateCriterion>
+			<code>
+				<coding>
+					<system value="http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"/>
+					<code value="overdue"/>
+					<display value="Past Due Date"/>
+				</coding>
+			</code>
+			<value value="2016-12-28T00:00:00-05:00"/>
+		</dateCriterion>
+		<description value="First sequence in protocol"/>
+		<series value="Vaccination Series 1"/>
+		<doseNumber value="1"/>
+		<seriesDoses value="3"/>
+		<supportingImmunization>
+			<reference value="Immunization/example"/>
+		</supportingImmunization>
+		<supportingPatientInformation>
+			<reference value="Observation/example"/>
+		</supportingPatientInformation>
+	</recommendation>
+</ImmunizationRecommendation>

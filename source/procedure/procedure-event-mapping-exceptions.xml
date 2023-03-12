@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Procedure.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for procedure"/>
+            <_pattern value="Business identifier for procedure"/>
             <resource value="External Identifiers for this procedure"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -36,7 +36,7 @@
         <extraTypes
             _resource="Reference(Procedure,Observation,MedicationAdministration)" reason="Unknown"/>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an procedure to an Encounter - use 'context' for that.&#xa;."/>
+            <_pattern value="Not to be used to link an procedure to an Encounter - use 'context' for that."/>
             <resource value="The MedicationAdministration resource has a partOf reference to Procedure, but this is not a circular reference.   For example, the anesthesia MedicationAdministration is part of the surgical Procedure (MedicationAdministration.partOf = Procedure).  For example, the procedure to insert the IV port for an IV medication administration is part of the medication administration (Procedure.partOf = MedicationAdministration)."/>
         </commentsUnmatched>
     </divergentElement>
@@ -50,7 +50,7 @@
             <resource value="A code specifying the state of the procedure. Generally, this will be the in-progress or completed state."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="The &quot;unknown&quot; code is not to be used to convey other statuses.  The &quot;unknown&quot; code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.&#xa;&#xa;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -83,7 +83,7 @@
             <resource value="On whom or on what the procedure was performed. This is usually an individual human, but can also be performed on animals, groups of humans or animals, organizations or practitioners (for licensing), locations or devices (for safety inspections or regulatory authorizations).  If the actual focus of the procedure is different from the subject, the focus element specifies the actual focus of the procedure."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the procedure to the Patient context."/>
+            <_pattern value="Links the procedure to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -101,7 +101,7 @@
             <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the procedure to the Encounter context."/>
+            <_pattern value="Links the procedure to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -134,12 +134,8 @@
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed procedure and what they did"/>
-            <resource value="The people who performed the procedure"/>
+            <resource value="Who performed the procedure and what they did"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the procedure and how they were involved."/>
-            <resource value="Limited to &quot;real&quot; people rather than equipment."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="Procedure.performer.function">
         <definitionUnmatched reason="Unknown">

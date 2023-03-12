@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="deviceassociation-status-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/deviceassociation-status-reason"/>
+  <version value="5.0.0"/>
+  <name value="DeviceAssociation"/>
+  <title value="DeviceAssociation Status Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="DeviceAssociation Status Reason Codes"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status-reason"/>
+  <content value="complete"/>
+  <concept>
+    <code value="attached"/>
+    <display value="Attached"/>
+    <definition value="The device is connected to the patient."/>
+  </concept>
+  <concept>
+    <code value="disconnected"/>
+    <display value="Disconnected"/>
+    <definition value="The device is no longer connected."/>
+  </concept>
+  <concept>
+    <code value="failed"/>
+    <display value="Failed"/>
+    <definition value="The device has failed to work, or continue to function."/>
+  </concept>
+  <concept>
+    <code value="placed"/>
+    <display value="placed"/>
+    <definition value="The device was placed in the patient."/>
+  </concept>
+  <concept>
+    <code value="replaced"/>
+    <display value="Replaced"/>
+    <definition value="The device was updated with a new device or device part."/>
+  </concept>
+</CodeSystem>

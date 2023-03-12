@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+	<id value="example"/>
+<contained>
+	<Practitioner>
+	  <id value="a1"/>
+		<name>
+			<family value="Hippocrates"/>
+			<given value="Harold"/>
+		</name>
+	</Practitioner>
+</contained>
+	<target>
+		<reference value="Procedure/example/_history/1"/>
+	</target>
+	<occurredPeriod>
+		<start value="2015-06-27"/>
+		<end value="2015-06-28"/>
+	</occurredPeriod>
+	<recorded value="2015-06-27T08:39:24+10:00"/>
+	<!-- reference to a patient consent to share inforamtion -->
+	<policy value="http://acme.com/fhir/Consent/25"/>
+	<location>
+		<reference value="Location/1"/>
+	</location>
+	<activity>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="3457005"/>
+			<display value="Referral"/>
+		</coding>
+	</activity>
+
+	<!-- author = Harold Hippocrates -->
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="AUT"/>
+			</coding>
+		</type>
+		<who>
+			<reference value="#a1"/>
+		</who>
+		<!-- reference to other agent defined within -->
+		<!--   removed as unclear how to do this now     <onBehalfOf value="#a1"/>    -->
+
+		<onBehalfOf>
+			<reference value="#a1"/>
+		</onBehalfOf>>
+
+	</agent>
+	<entity>
+		<role value="source"/>
+		<!-- 
+      the document is in an XDS repository. 
+      as a source, we're going to give an MHD 
+      reference. (easier than XDS.b call with parameters!)
+	  Given the reference is to a FHIR DocumentReference, that resource describes the kind of content
+    -->
+		<what>
+			<reference value="DocumentReference/example"/>    
+			<display value="CDA Document in XDS repository"/>
+		</what>
+	</entity>
+</Provenance>

@@ -55,7 +55,7 @@
             <resource value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the audit event to the Patient context."/>
+            <_pattern value="Links the audit event to the Patient context.  May also affect access control."/>
             <resource value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
         </requirementsUnmatched>
     </divergentElement>

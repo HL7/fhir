@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="color-names"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/color-names"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2120"/>
+  </identifier>
+  <name value="ColorCodes"/>
+  <title value="Codes for Colors"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This code system represents that named RGB colors found in the [CSS4 specification](https://www.w3.org/TR/css-color-4/). The names are not case sensitive and different cases are encountered in common use (e.g. AliceBlue vs aliceblue."/>
+  <copyright value="[Copyright](https://www.w3.org/Consortium/Legal/ipr-notice) ©2022 World Wide Web Consortium. All Rights Reserved. This work is distributed under the [W3C® Software and Document License](https://www.w3.org/Consortium/Legal/copyright-software) in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."/>
+  <caseSensitive value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="rgb"/>
+    <description value="The RGB color that matches the named color (as defined in CSS4 specification)"/>
+    <type value="string"/>
+  </property>
+  <concept>
+    <code value="aliceblue"/>
+    <display value="aliceblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F0F8FF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="antiquewhite"/>
+    <display value="antiquewhite"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FAEBD7"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="aqua"/>
+    <display value="aqua"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00FFFF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="aquamarine"/>
+    <display value="aquamarine"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#7FFFD4"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="azure"/>
+    <display value="azure"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F0FFFF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="beige"/>
+    <display value="beige"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F5F5DC"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="bisque"/>
+    <display value="bisque"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFE4C4"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="black"/>
+    <display value="black"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#000000"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="blanchedalmond"/>
+    <display value="blanchedalmond"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFEBCD"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="blue"/>
+    <display value="blue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#0000FF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="blueviolet"/>
+    <display value="blueviolet"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#8A2BE2"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="brown"/>
+    <display value="brown"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#A52A2A"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="burlywood"/>
+    <display value="burlywood"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DEB887"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="cadetblue"/>
+    <display value="cadetblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#5F9EA0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="chartreuse"/>
+    <display value="chartreuse"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#7FFF00"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="chocolate"/>
+    <display value="chocolate"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#D2691E"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="coral"/>
+    <display value="coral"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF7F50"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="cornflowerblue"/>
+    <display value="cornflowerblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#6495ED"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="cornsilk"/>
+    <display value="cornsilk"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFF8DC"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="crimson"/>
+    <display value="crimson"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DC143C"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="cyan"/>
+    <display value="cyan"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00FFFF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkblue"/>
+    <display value="darkblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00008B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkcyan"/>
+    <display value="darkcyan"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#008B8B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkgoldenrod"/>
+    <display value="darkgoldenrod"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#B8860B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkgray"/>
+    <display value="darkgray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#A9A9A9"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkgreen"/>
+    <display value="darkgreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#006400"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkgrey"/>
+    <display value="darkgrey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#A9A9A9"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkkhaki"/>
+    <display value="darkkhaki"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#BDB76B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkmagenta"/>
+    <display value="darkmagenta"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#8B008B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkolivegreen"/>
+    <display value="darkolivegreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#556B2F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkorange"/>
+    <display value="darkorange"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF8C00"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkorchid"/>
+    <display value="darkorchid"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#9932CC"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkred"/>
+    <display value="darkred"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#8B0000"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darksalmon"/>
+    <display value="darksalmon"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#E9967A"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkseagreen"/>
+    <display value="darkseagreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#8FBC8F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkslateblue"/>
+    <display value="darkslateblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#483D8B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkslategray"/>
+    <display value="darkslategray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#2F4F4F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkslategrey"/>
+    <display value="darkslategrey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#2F4F4F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkturquoise"/>
+    <display value="darkturquoise"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00CED1"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="darkviolet"/>
+    <display value="darkviolet"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#9400D3"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="deeppink"/>
+    <display value="deeppink"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF1493"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="deepskyblue"/>
+    <display value="deepskyblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00BFFF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="dimgray"/>
+    <display value="dimgray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#696969"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="dimgrey"/>
+    <display value="dimgrey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#696969"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="dodgerblue"/>
+    <display value="dodgerblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#1E90FF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="firebrick"/>
+    <display value="firebrick"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#B22222"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="floralwhite"/>
+    <display value="floralwhite"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFAF0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="forestgreen"/>
+    <display value="forestgreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#228B22"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="fuchsia"/>
+    <display value="fuchsia"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF00FF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="gainsboro"/>
+    <display value="gainsboro"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DCDCDC"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="ghostwhite"/>
+    <display value="ghostwhite"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F8F8FF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="gold"/>
+    <display value="gold"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFD700"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="goldenrod"/>
+    <display value="goldenrod"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DAA520"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="gray"/>
+    <display value="gray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#808080"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="green"/>
+    <display value="green"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#008000"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="greenyellow"/>
+    <display value="greenyellow"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#ADFF2F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="grey"/>
+    <display value="grey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#808080"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="honeydew"/>
+    <display value="honeydew"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F0FFF0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="hotpink"/>
+    <display value="hotpink"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF69B4"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="indianred"/>
+    <display value="indianred"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#CD5C5C"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="indigo"/>
+    <display value="indigo"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#4B0082"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="ivory"/>
+    <display value="ivory"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFFF0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="khaki"/>
+    <display value="khaki"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F0E68C"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lavender"/>
+    <display value="lavender"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#E6E6FA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lavenderblush"/>
+    <display value="lavenderblush"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFF0F5"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lawngreen"/>
+    <display value="lawngreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#7CFC00"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lemonchiffon"/>
+    <display value="lemonchiffon"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFACD"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightblue"/>
+    <display value="lightblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#ADD8E6"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightcoral"/>
+    <display value="lightcoral"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F08080"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightcyan"/>
+    <display value="lightcyan"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#E0FFFF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightgoldenrodyellow"/>
+    <display value="lightgoldenrodyellow"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FAFAD2"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightgray"/>
+    <display value="lightgray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#D3D3D3"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightgreen"/>
+    <display value="lightgreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#90EE90"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightgrey"/>
+    <display value="lightgrey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#D3D3D3"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightpink"/>
+    <display value="lightpink"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFB6C1"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightsalmon"/>
+    <display value="lightsalmon"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFA07A"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightseagreen"/>
+    <display value="lightseagreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#20B2AA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightskyblue"/>
+    <display value="lightskyblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#87CEFA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightslategray"/>
+    <display value="lightslategray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#778899"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightslategrey"/>
+    <display value="lightslategrey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#778899"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightsteelblue"/>
+    <display value="lightsteelblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#B0C4DE"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lightyellow"/>
+    <display value="lightyellow"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFFE0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="lime"/>
+    <display value="lime"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00FF00"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="limegreen"/>
+    <display value="limegreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#32CD32"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="linen"/>
+    <display value="linen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FAF0E6"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="magenta"/>
+    <display value="magenta"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF00FF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="maroon"/>
+    <display value="maroon"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#800000"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumaquamarine"/>
+    <display value="mediumaquamarine"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#66CDAA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumblue"/>
+    <display value="mediumblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#0000CD"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumorchid"/>
+    <display value="mediumorchid"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#BA55D3"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumpurple"/>
+    <display value="mediumpurple"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#9370DB"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumseagreen"/>
+    <display value="mediumseagreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#3CB371"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumslateblue"/>
+    <display value="mediumslateblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#7B68EE"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumspringgreen"/>
+    <display value="mediumspringgreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00FA9A"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumturquoise"/>
+    <display value="mediumturquoise"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#48D1CC"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mediumvioletred"/>
+    <display value="mediumvioletred"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#C71585"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="midnightblue"/>
+    <display value="midnightblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#191970"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mintcream"/>
+    <display value="mintcream"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F5FFFA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="mistyrose"/>
+    <display value="mistyrose"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFE4E1"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="moccasin"/>
+    <display value="moccasin"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFE4B5"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="navajowhite"/>
+    <display value="navajowhite"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFDEAD"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="navy"/>
+    <display value="navy"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#000080"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="oldlace"/>
+    <display value="oldlace"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FDF5E6"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="olive"/>
+    <display value="olive"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#808000"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="olivedrab"/>
+    <display value="olivedrab"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#6B8E23"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="orange"/>
+    <display value="orange"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFA500"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="orangered"/>
+    <display value="orangered"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF4500"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="orchid"/>
+    <display value="orchid"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DA70D6"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="palegoldenrod"/>
+    <display value="palegoldenrod"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#EEE8AA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="palegreen"/>
+    <display value="palegreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#98FB98"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="paleturquoise"/>
+    <display value="paleturquoise"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#AFEEEE"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="palevioletred"/>
+    <display value="palevioletred"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DB7093"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="papayawhip"/>
+    <display value="papayawhip"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFEFD5"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="peachpuff"/>
+    <display value="peachpuff"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFDAB9"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="peru"/>
+    <display value="peru"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#CD853F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="pink"/>
+    <display value="pink"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFC0CB"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="plum"/>
+    <display value="plum"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#DDA0DD"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="powderblue"/>
+    <display value="powderblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#B0E0E6"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="purple"/>
+    <display value="purple"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#800080"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rebeccapurple"/>
+    <display value="rebeccapurple"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#663399"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="red"/>
+    <display value="red"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF0000"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rosybrown"/>
+    <display value="rosybrown"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#BC8F8F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="royalblue"/>
+    <display value="royalblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#4169E1"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="saddlebrown"/>
+    <display value="saddlebrown"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#8B4513"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="salmon"/>
+    <display value="salmon"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FA8072"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="sandybrown"/>
+    <display value="sandybrown"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F4A460"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="seagreen"/>
+    <display value="seagreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#2E8B57"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="seashell"/>
+    <display value="seashell"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFF5EE"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="sienna"/>
+    <display value="sienna"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#A0522D"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="silver"/>
+    <display value="silver"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#C0C0C0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="skyblue"/>
+    <display value="skyblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#87CEEB"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="slateblue"/>
+    <display value="slateblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#6A5ACD"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="slategray"/>
+    <display value="slategray"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#708090"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="slategrey"/>
+    <display value="slategrey"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#708090"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="snow"/>
+    <display value="snow"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFAFA"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="springgreen"/>
+    <display value="springgreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#00FF7F"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="steelblue"/>
+    <display value="steelblue"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#4682B4"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="tan"/>
+    <display value="tan"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#D2B48C"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="teal"/>
+    <display value="teal"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#008080"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="thistle"/>
+    <display value="thistle"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#D8BFD8"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="tomato"/>
+    <display value="tomato"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FF6347"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="turquoise"/>
+    <display value="turquoise"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#40E0D0"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="violet"/>
+    <display value="violet"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#EE82EE"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="wheat"/>
+    <display value="wheat"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F5DEB3"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="white"/>
+    <display value="white"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFFFF"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="whitesmoke"/>
+    <display value="whitesmoke"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#F5F5F5"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="yellow"/>
+    <display value="yellow"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#FFFF00"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="yellowgreen"/>
+    <display value="yellowgreen"/>
+    <property>
+      <code value="rgb"/>
+      <valueString value="#9ACD32"/>
+    </property>
+  </concept>
+</CodeSystem>

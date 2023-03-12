@@ -10,7 +10,7 @@ make you entries to go in the history list here. Use the following template
 
 notes:
 * Master editor will remove the major/minor flag when an update is published
-* location should be resource name, or title of the page on which cahgnes are made
+* location should be resource name, or title of the page on which changes are made
 
 
 * Major, Datatypes, rename Contact to ContactPoint
@@ -42,34 +42,53 @@ Major Milestones:
 </p>
 <table class="grid">
   <tr>
-    <td><a href="http://hl7.org/fhir/R4/index.html">Dec 27, 2018</a></td>
-    <td>4.0.1</td>
+    <td><a href="http://hl7.org/fhir/R5/index.html">5.0.0</a></td>
+    <td>Mar ??, 2023</td>
+    <td>Release 5 (Trial use - see below for discussion)
+    </td>
+  </tr>
+  <tr>
+    <td><a href="http://hl7.org/fhir/R4B/index.html">4.3.0</a></td>
+    <td>Dec 27, 2018</td>
+    <td>Release 4B: Staging release of modifications in specific areas</td>
+  </tr>
+  <tr>
+    <td><a href="http://hl7.org/fhir/R4/index.html">4.0.1</a></td>
+    <td>Dec 27, 2018</td>
     <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)
     </td>
   </tr>
   <tr>
-    <td><a href="http://hl7.org/fhir/STU3/index.html">Feb 21, 2017</a></td>
-    <td>3.0.2</td>
+    <td><a href="http://hl7.org/fhir/STU3/index.html">3.0.2</a></td>
+    <td>Feb 21, 2017</td>
     <td>Release 3 (STU - Standard for Trial Use)</td>
   </tr>
   <tr>
-    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Oct 24, 2015</a></td>
-    <td>1.0.2</td>
+    <td><a href="http://hl7.org/fhir/DSTU2/index.html">1.0.2</a></td>
+    <td>Oct 24, 2015</td>
     <td>DSTU2 (Second Draft Standard for Trial Use)</td>
   </tr>
   <tr>
-    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Sept 30, 2014</a></td>
-    <td>0.0.82</td>
+    <td><a href="http://hl7.org/fhir/DSTU2/index.html">0.0.82</a></td>
+    <td>Sept 30, 2014</td>
     <td>DSTU1 (First Draft Standard for Trial Use)</td>
   </tr>
 </table>
-
+<p><b>About Normative content in this R5 release</b></p>
+<a name="normative"> </a>
 <p>
-This is the preview work for the 5th milestone release of FHIR. The only changes tracked here are
-the changes made after the publication of the first DSTU release. For earlier changes,
-see the <a href="http://hl7.org/fhir/history.html">DSTU #1 Version History</a>.
-Note that a full archive history of everything is available
-<a href="http://github.com/hl7/fhir">through the HL7 GitHub archives</a>.
+This 5th Major release of the FHIR specification is labeled as 'trial-use' because 
+the entire ballot cycle that led to this release was performed under the HL7 STU 
+(Standard for Trial Use). None of the content in this specification is considered 
+<a href="versions.html#normative">"Normative"</a>, but the content that was previously
+normative in <a href="http://hl7.org/fhir/R4/index.html">Release 4</a> is still 
+labelled as Normative to preserve the status through the publication and implementation
+of this release. HL7 plans to publish the next release as a normative specification.
+</p>
+<p>
+A few new artifacts (such as <a href="canonicalresource.html">CanonicalResource</a>) are
+labelled as Normative because they were created by moving existing normative content 
+to a new type. 
 </p>
 
 <table class="grid">
@@ -90,6 +109,95 @@ template:
 
 notes: do not list revision in the version
 -->
+<tr>
+  <td>5.0.0<a name="v5.0.0"></a></td>
+  <td>
+    <p><b>R5 Milestone</b>. This version has cumulatively made 1000s of changes from the R4+R4B 
+      milestones (<a href="https://jira.hl7.org/browse/FHIR-5507?filter=19551">3969 change requests</a>, including
+      <a href="https://jira.hl7.org/browse/FHIR-7612?filter=19552">1840 substantive changes</a>).
+      Most of the changes are in response to implementation feedback.
+      There is no comprehensive list, but here is a list of the more significant changes:</p>
+    <ul>
+      <li>Complete Rework <a href="subscriptions.html">Subscriptions framework</a></li>
+      <li>Rework the abstract datatypes (new types <a href="types.html#Base">Base</a>, <a href="types.html#DataType">DataType</a>, <a href="types.html#BackboneType">BackboneType</a>), 
+        and introduce <a href="canonicalresource.html">CanonicalResource</a> and <a href="metadataresource.html">MetadataResource</a> interfaces</li>
+      <li>All the extensions have been moved to a new package <code>hl7.fhir.uv.extensions</code> published at <a href="http://hl7.org/fhir/extensions">http://hl7.org/fhir/extensions</a>. They are still published 
+         as part of this specification, but they will be released more often</li>
+      <li>A number of clarifications have been made on the <a href="http.html">RESTful API</a>
+          and <a href="search.html">Search</a> pages, that have resulted in the introduction of 
+          new <b>SHALL</b> and <b>SHOULD</b> conformance statements. Though the new SHALL statements 
+          are believed to be clarifications, implementers should review these pages carefully 
+          and particularly should note the clarifications around the use of GET/POST on search, and the new SHOULD requirement for clients about timezones
+      </li>  
+      <li>New resources: 
+        <a href="actordefinition.html">ActorDefinition</a>,
+        <a href="artifactassessment.html">ArtifactAssessment</a>,
+        <a href="biologicallyderivedproductdispense.html">BiologicallyDerivedProductDispense</a>,
+        <a href="conditiondefinition.html">ConditionDefinition</a>,
+        <a href="deviceassociation.html">DeviceAssociation</a>,
+        <a href="devicedispense.html">DeviceDispense</a>,
+        <a href="encounterhistory.html">EncounterHistory</a>,
+        <a href="formularyitem.html">FormularyItem</a>,
+        <a href="genomicstudy.html">GenomicStudy</a>,
+        <a href="imagingselection.html">ImagingSelection</a>,
+        <a href="inventoryitem.html">InventoryItem</a>,
+        <a href="inventoryreport.html">InventoryReport</a>,
+        <a href="nutritionintake.html">NutritionIntake</a>,
+        <a href="nutritionproduct.html">NutritionProduct</a>,
+        <a href="permission.html">Permission</a>,
+        <a href="substancenucleicacid.html">SubstanceNucleicAcid</a>,
+        <a href="substancepolymer.html">SubstancePolymer</a>,
+        <a href="substanceprotein.html">SubstanceProtein</a>,
+        <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>,
+        <a href="substancesourcematerial.html">SubstanceSourceMaterial</a>,
+        <a href="testplan.html">TestPlan</a> and
+        <a href="transport.html">Transport</a> + New types: 
+        <a href="datatypes.html#integer64">integer64</a>,
+        <a href="metadatatypes.html#Availability">Availability</a> and 
+        <a href="metadatatypes.html#ExtendedContactDetail">ExtendedContactDetail</a>
+      </li>
+      <li>Renamed resources <code>DeviceUseStatement</code> -&gt; <a href="deviceusage.html">DeviceUsage</a> and <code>RequestGroup</code> -&gt; <a href="requestorchestration.html">RequestOrchestration</a></li>
+      <li>Removed resources 
+        CatalogEntry (<a href="http://hl7.org/fhir/R4B/catalogentry.html">R4B</a>),
+        DocumentManifest (<a href="http://hl7.org/fhir/R4B/documentmanifest.html">R4B</a>) (use list), 
+        Media (<a href="http://hl7.org/fhir/R4B/media.html">R4B</a>) (use Observation),
+        EffectEvidenceSynthesis (<a href="http://hl7.org/fhir/R4/effectevidencesynthesis.html">R4</a>),
+        ResearchDefinition (<a href="http://hl7.org/fhir/R4B/researchdefinition.html">R4B</a>),
+        ResearchElementDefinition (<a href="http://hl7.org/fhir/R4B/researchelementdefinition.html">R4B</a>),
+        RiskEvidenceSynthesis (<a href="http://hl7.org/fhir/R4/riskevidencesynthesis.html">R4</a>),
+        SubstanceSpecification (<a href="http://hl7.org/fhir/R4/substancespecification.html">R4</a>),
+        and the type
+        Contributor (<a href="http://hl7.org/fhir/R4B/metadatatypes.html#Contributor">R4B</a>)
+      </li>
+      <li>For the MedicinalProduct Definitions, the changes are more complicated:
+        <ul>
+          <li>Renamed in R4B: 
+            MedicinalProduct -&gt; [[%MedicinalProductDefinition%]], 
+            MedicinalProductAuthorization -&gt; [[%RegulatedAuthorization%]],
+            MedicinalProductIngredient -&gt; [[%Ingredient%]],
+            MedicinalProductManufactured -&gt; [[%ManufacturedItemDefinition%]],
+            MedicinalProductPackaged -&gt; [[%PackagedProductDefinition%]],
+            MedicinalProductPharmaceutical -&gt; [[%AdministrableProductDefinition%]],
+            SubstanceSpecification -&gt; [[%SubstanceDefinition%]]</li>
+          <li>Collapsed into [[%ClinicalUseDefinition%]] in R4B: MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesirableEffect</li>
+          <li>Removed in R4B: types ProdCharacteristic and SubstanceAmount</li>
+          <li>Omitted from R4B due to limited scope: [[%SubstanceNucleicAcid%]], [[%SubstancePolymer%]], [[%SubstanceProtein%]], [[%SubstanceReferenceInformation%]], [[%SubstanceSourceMaterial%]]</li>
+        </ul>
+      </li>
+      <li>Moved many code systems and value sets to <a href="http://terminology.hl7.org">terminology.hl7.org</a></li>
+      <li>Added <a href="operations-for-large-resources.html">Operations for Large Resources</a></li>
+      <li>Added the ability to define <a href="terminologies.html#additional">additional bindings</a> on elements</li>
+      <li>Documented <a href="packages.html">FHIR NPM Packages</a></li>
+      <li>Changes to <a href="messaging.html#async">reliable messaging</a> (which identifier elements are used)</li>
+    </ul>
+  </td>
+</tr>
+<tr>
+  <td>5.0.0-draft-final<a name="v5.0.0-draft-final"></a></td>
+  <td>
+    R5 Draft: Final QA Version (for internal review by HL7).
+  </td>
+</tr>
 <tr>
   <td>5.0.0-snapshot3<a name="v5.0.0-snapshot3"></a></td>
   <td>
@@ -152,7 +260,48 @@ notes: do not list revision in the version
       </ul>
     </td>
   </tr>
-	<tr>
+  <tr>
+    <td>4.3.0<a name="v4.3.0"></a></td>
+    <td>
+      <p><b>Release R4B</b>: May 28, 2022:</p>
+      <ul>
+        <li>Though the changes listed here seem quite extensive, they are limited to particular areas of the specification. See the <a href="http://hl7.org/fhir/R4B/r4b-explanation.html">explanation about R4B</a> for further details</li>
+        <li>Add <a href="references.html#codeablereference">CodeableReference</a> and <a href="datatypes.html#RatioRange">RatioRange</a> types</li>
+        <li>Add <a href="nutritionproduct.html" title="A food or fluid product that is consumed by patients.">NutritionProduct</a> Resource</li>
+        <li>Add <a href="subscriptionstatus.html" title="The SubscriptionStatus resource describes the state of a Subscription during notifications.">SubscriptionStatus</a> 
+          and <a href="subscriptiontopic.html" title="Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic.">SubscriptionTopic</a> Resources</li>        
+        <li>Add new Resources <a href="administrableproductdefinition.html" title="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed).">AdministrableProductDefinition</a>, 
+          <a href="clinicalusedefinition.html" title="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure.">ClinicalUseDefinition</a>, 
+          <a href="packagedproductdefinition.html" title="A medically related item or items, in a container or package.">PackagedProductDefinition</a>, 
+          <a href="manufactureditemdefinition.html" title="The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product.">ManufacturedItemDefinition</a> and 
+          <a href="regulatedauthorization.html" title="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product.">RegulatedAuthorization</a></li>
+      <li>Rework <a href="marketingstatus.html">MarketingStatus</a> (relax cardinality constraints) and 
+        <a href="productshelflife.html">ProductShelfLife</a> Types</li>
+      <li>Rework &amp; rename MedicinalProduct -&gt; <a href="medicinalproductdefinition.html" title="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.).">MedicinalProductDefinition</a></li>
+      <li>Rework &amp; rename MedicinalProductIngredient -&gt; <a href="ingredient.html" title="An ingredient of a manufactured item or pharmaceutical product.">Ingredient</a></li>
+      <li>Rework &amp; rename SubstanceSpecification -&gt; <a href="substancedefinition.html" title="The detailed description of a substance, typically at a level beyond what is used for prescribing.">SubstanceDefinition</a></li> 
+      <li>Rework <a href="evidence.html" title="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence.">Evidence</a> and 
+        <a href="evidencevariable.html" title="The EvidenceVariable resource describes an element that knowledge (Evidence) is about.">EvidenceVariable</a> Resources</li>
+       <li>Add <a href="citation.html" title="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.">Citation</a> and
+        <a href="evidencereport.html" title="The EvidenceReport Resource is a specialized container for a collection of resources and codable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts.">EvidenceReport</a> Resources</li>
+       <li>Remove EffectEvidenceSynthesis and RiskEvidenceSynthesis Resources</li>
+       <li>Add canonical as an allowed type for <code>subject[x]</code> to 
+        <a href="activitydefinition.html" title="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.">ActivityDefinition</a> and 
+        <a href="plandefinition.html" title="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications.">PlanDefinition</a></li>            
+  <li>Remove MedicinalProductAuthorization, MedicinalProductContraindication, 
+          MedicinalProductIndication, MedicinalProductInteraction, MedicinalproductManufactured,
+          MedicinalproductPackaged, MedicinalproductPharmaceutical, MedicinalproductUndesirableEffect,
+          SubstanceAmount, SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein, 
+          SubstanceReferenceInformation and SubstanceSourceMaterial resources</li>
+            <li>Refine some invariants that behaved erroneously with missing data (no new restrictions were introduced)</li>
+      </ul>
+    <p>
+      Note that Release 4B was a derivative of Release 4. Release 5 is a direct development from Release 4, 
+      with many of the changes found in Release 4B incorporated and further developed.
+    </p>
+  </td>
+   </tr>
+  <tr>
 		<td>4.2.0<a name="v4.2.0"></a></td>
 		<td>
       1st Milestone for R5 - Sydney Connectathon Stable Version. Significant changes:
@@ -170,9 +319,9 @@ notes: do not list revision in the version
     </td>
   </tr>
 	<tr>
-		<td>4.1.0<a name="v4.1.0"></a></td>
+		<td>4.0.1<a name="v4.0.1"></a></td>
 		<td>
-      <p><b>R4</b>: Dec 27, 2018. First Normative content, with many significant changes</p>
+      <p><b>Release 4</b>: Dec 27, 2018. First Normative content, with many significant changes</p>
       <p>
       Note that between R3 and R4, nearly 3000 change proposals were applied to the specification, 
       including &gt;1000 substantive changes, of which 339 were labeled 'non-compatible'. As 
@@ -232,10 +381,10 @@ notes: do not list revision in the version
        <li>Renamed Resources:
          <ul>
            <li><code>BodySite</code> -&gt; <a href="bodystructure.html">BodyStructure</a></li>
-           <li><code>EligibilityRequest</code> ->  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
-           <li><code>EligibilityResponse</code> ->  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-           <li><code>Sequence</code> -> <a href="molecularsequence.html">MolecularSequence</a></li>
-           <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -> <a href="servicerequest.html">ServiceRequest</a></li>
+           <li><code>EligibilityRequest</code> -&gt;  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
+           <li><code>EligibilityResponse</code> -&gt;  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
+           <li><code>Sequence</code> -&gt; <a href="molecularsequence.html">MolecularSequence</a></li>
+           <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -&gt; <a href="servicerequest.html">ServiceRequest</a></li>
          </ul>
        </li>
        <li>Deleted Resources:

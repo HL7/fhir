@@ -1,0 +1,15 @@
+{
+    "resourceType": "ObservationDefinition",
+    "id": "cnl-O.f1.fail",
+    "name": "Albumin/Protein.total in Serum or Plasma by Electrophoresis",
+    "status": "active",
+    "code": {
+        "coding": [
+            {
+                "system": "http://loinc.org",
+                "code": "13980-8",
+                "display": "Albumin/Protein.total in Serum or Plasma by Electrophoresis"
+            }
+        ]
+    }
+}
