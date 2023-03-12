@@ -24,6 +24,8 @@ Note that this pattern is a profile pattern in that it is intended to serve as a
 should be derived from a Shareable profile of the same resource.
 </p>
 
+<p>Note that the <a href="https://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management Infrastructure</a> implementation guide includes general guidance for the Shareable, Publishable, Computable, and Executable content patterns. The profiles in the CRMI have the same URL as the equivalent profiles in this specification, the intent being to use the CRMI profiles to continue maturing the patterns and related profiles, with the ultimate goal of including the matured profiles in a future FHIR publication. Applications making use of the Shareable and Publishable patterns should use the profiles defined in the CRMI.</p>
+
 <!-- TODO: Add link to resources/profiles that implement this pattern -->
 </div>
 

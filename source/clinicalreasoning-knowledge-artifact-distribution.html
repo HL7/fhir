@@ -15,11 +15,61 @@
 <a name="knowledge-artifact-distribution"> </a>
 <h3>Sharing Knowledge Artifacts</h3>
 
-<p>One of the primary use cases of the Clinical Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts:</p>
+<p>One of the primary use cases of the Clinical Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts. Some general considerations for this use case are documented here, with a more complete and ongoing treatment in the <a href="https://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management Infrastructure</a> implementation guide.</p>
 
 <img alt="Knowledge Artifact Sharing" src="clinicalreasoning-knowledge-artifact-distribution.png"/>
 
-<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="library.html">Library</a>, <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and <a href="measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as FHIR resources, either by making use of the FHIR implementation guide publication infrastructure, or via a FHIR server. </p>
+
+<a name="knowledge-artifact-distribution-ig"> </a>
+<h3>Distribution via Implementation Guides</h3>
+
+<p>For distribution as part of FHIR Implementation Guides, the existing FHIR publication infrastructure can be used to produce implementation guides whose primary focus is conformance and knowledge artifacts such as ValueSets, Libraries, ActivityDefinitions, PlanDefinitions, and Measures. To help illustrate this approach, the following diagram depicts several types of FHIR implementation guides:</p>
+
+<img alt="FHIR Implementation Guide Categories" src="clinicalreasoning-ig-types.png"/>
+
+<p>This diagram depicts 4 categories of specifications, with representative examples of each category, illustrating how the various pieces can be used together to deliver shareable clinical reasoning artifacts such as quality measures and decision support rules.</p>
+
+<p>
+  Along the bottom of the diagram are the foundational standards, including FHIR, with the 5 layers of Foundation, Conformance, Administration, Clinical, and Reasoning, as well as expression language and integration standards including FHIRPath, Clinical Quality Language, CDS Hooks, and SMART-on-FHIR.
+</p>
+
+<p>In the middle left are the Model Implementation Guides, typically derived from Administration and Clinical resources such as Patient, Encounter, and MedicationRequest. Model IGs are typically built to address a broad range of use cases, focused on a particular target realm or domain.
+</p>
+<p>
+  In the middle right are the Specification Implementation Guides, which derive from the FHIR Clinical Reasoning resources to provide implementation guidance and conformance requirements for the creation, distribution, evaluation, and maintenance of shareable clinical knowledge. For example, the Quality Measure IG provides guidance on and conformance requirements for the use of the FHIR Measure and Library resources to create and share clinical quality measures, Data Exchange for Quality Measures (DEQM) provides guidance for reporting quality measures, and the Clinical Practice Guidelines IG (CPG-on-FHIR) demonstrates how to build shareable computable guideline content.
+</p>
+<p>
+  And finally, at the top of the diagram, the Content Implementation Guides are FHIR Implementation Guides, but not necessarily balloted as HL7 standards, rather these use the FHIR publication toolchain to support authoring and distribution, but the content is stewarded by separate authorities such as quality agencies and guideline developers; groups that have their own governance and maintenance policies. For example, the HEDIS IG contains HEDIS quality measures expressed using FHIR Measure and Library resources, and conforming to the Quality Measure IG profiles, while the CDC Opioid Prescribing IG and WHO Antenatal Care IGs contain decision support content to streamline guideline implementation. The content IGs conform to the specification IGs, and typically make use of the model IGs to define content focused on a particular realm.
+</p>
+
+<p>
+  The Foundation layer of FHIR defines the core data exchange protocol. The Conformance layer defines how resources, profiles, and terminologies are represented and used. The Administration layer defines individuals, locations, organizations, and encounters. The Clinical layer defines clinical information such as observations, medications, procedures, and orders. And the Reasoning layer provides definitional artifacts like plan and activity definitions, libraries, and measures.
+</p>
+
+<p>
+  FHIRPath is a simple, yet powerful, model-independent expression language that is used extensively throughout FHIR to describe paths to elements on resources, and define invariants on profiles.
+</p>
+<p>CQL is a superset of FHIRPath that provides an author-friendly format for the description of clinical logic, as well as a machine-friendly format for processing the logic.
+</p>
+<p>CDS Hooks is an HL7 standard specification for integrating decision support services with clinical systems. It is primarily focused on provide-facing remote decision support within an EMR.
+</p>
+<p>SMART-on-FHIR is an HL7 standard specification for integrating clinical applications into EMRs using FHIR.</p>
+  
+<p>International Patient Summary (IPS) is a set of internationally applicable FHIR profiles used to share patient information across international boundaries. As a result, it forms an excellent foundation for expressing universally applicable content guidelines such as the WHO Antenatal Care (WHO ANC).</p>
+<p>US Core is a set of profiles focused on enabling exchange of the US Clinical Data for Interoperability (US CDI), and is supported by a broad range of EMR vendors within the US.</p>
+<p>QI Core is a set of profiles that derives from US Core to enable quality improvement use cases such as quality measurement and decision support within the US.
+</p>
+
+<p>To get started building a content implementation guide, refer to the <a href="https://github.com/cqframework/sample-content-ig">Sample Content IG</a>, and the <a href="https://github.com/cqframework/content-ig-walkthrough">Content IG</a> and <a href="https://github.com/cqframework/cqf-ccc">Colorectal Cancer</a> walkthroughs.</p>
+
+<a name="knowledge-artifact-distribution-service"> </a>
+<h3>Distribution via Repository Services</h3>
+
+<p>
+  For distribution via a FHIR server, the search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="library.html">Library</a>, <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and <a href="measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
+
+<p>Some general considerations for use are documented in what follows, with a more complete and ongoing treatment provided as part of the <a href="https://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management Infrastructure</a> implementation guide.</p>
 
 <p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the <code>useContext</code> element to indicate semantic usage context for an example suicide risk order set:</p>
 
