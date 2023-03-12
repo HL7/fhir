@@ -157,6 +157,10 @@
 
 <p>Note that the way that parameters are bound to the expression from the evaluation context varies based on where the evaluation is taking place, but in general, the parameters are bound by name to the parameters defined in the evaluation operation. For example, in the <code>$apply</code> operation, parameters defined by libraries can be provided as named parameters in the operation invocation. For more details on how parameter binding occurs within each context, refer to the specific documentation for the <code>$apply</code>, <code>$evaluate</code>, and <code>$evaluate-measure</code> operations.</p>
 
+<p>
+  To encourage consistency and facilitate usage, operations SHOULD make any parameters to the operation available as context variables accessible in the evaluation context for any expressions evaluated as part of operation processing.
+</p>
+
 <a name="data-requirements"> </a>
 <h5>Data Requirements</h5>
 <p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference laboratory test results for hemoglobin A1c tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
