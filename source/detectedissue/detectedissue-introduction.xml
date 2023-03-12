@@ -13,6 +13,7 @@ It does not apply to technical issues (e.g. lack of user permissions) but could 
   <li>Drug-drug interactions</li>
   <li>Inappropriate therapy (wrong dose, frequency, body site)</li>
   <li>Duplicate therapy</li>
+  <li>Gaps in care</li>
 </ul>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 <p>
