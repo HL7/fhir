@@ -173,6 +173,27 @@
 
 <p>For CQL expressions that contain retrieves, a Library SHOULD be used to describe the data requirements. However, the <a href="operation-library-data-requirements.html">$data-requirements</a> operation can also be used to infer the data requirements based on usage within the expression.</p>
 
+<a name="quantities"> </a>
+<h5>Use of FHIR Quantity</h5>
+<p>The mapping from FHIR Quantity to CQL <code>System.Quantity</code> can only be applied if the FHIR Quantity has a UCUM code, i.e. a system of <code>http://unitsofmeausure.org</code> and a code is present.</p>
+
+<p>As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath and CQL, according to the following map:</p>
+
+<table>
+  <thead><tr><th>UCUM unit</th><th>Calendar Unit</th></tr></thead>
+  <tbody>
+    <tr><td>a</td><td>year</td></tr>
+    <tr><td>mo</td><td>month</td></tr>
+    <tr><td>d</td><td>day</td></tr>
+    <tr><td>h</td><td>hour</td></tr>
+    <tr><td>min</td><td>minute</td></tr>
+    <tr><td>s</td><td>second</td></tr>
+    <tr><td>ms</td><td>millisecond</td></tr>
+  </tbody>
+</table>
+
+<p>For example, the FHIR Quantity <code>1 'a'</code> would be implicitly converted to the CQL System.Quantity <code>1 year</code>.</p>
+
 <a name="fhirpath"> </a>
 <h4>FHIRPath</h4>
 <p><a href="fhirpath.html">FHIRPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fhirpath">here</a>.</p>
