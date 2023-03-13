@@ -11,7 +11,7 @@ A condition definition defines a set of system properties for a particular condi
 <p>
 It is important to understand the condition definition resource is not intended to be 
 used to define the underlying biological or ontological basis for the condition; instead 
-the focus is on how the the condition is identified, managed, and treated.
+the focus is on how the condition is identified, managed, and treated.
 </p>
 </div>
 
