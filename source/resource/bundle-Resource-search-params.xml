@@ -51,7 +51,7 @@
         <code value="_in"/>
         <type value="reference"/>
         <expression value="Resource.id"/>
-        <processingMode value="normal"/>
+        <processingMode value="other"/>
       </SearchParameter>
     </resource>
   </entry>

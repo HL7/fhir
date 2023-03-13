@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/goal.xsd">
+	
+	<!-- <id value="example"/>
+	<text>
+		<status value="additional"></status>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p> A simple care goal for a patient to lose weight due to obesity.</p>
+		</div>
+	</text>
+	<identifier>
+		<value value="123"/>
+	</identifier> -->
+
+
+	<lifecycleStatus value="on-hold" />
+
+	<!-- <category>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/goal-category"/>
+			<code value="dietary"/>
+		</coding>
+	</category>
+	<continuous value="true"/>
+	<priority>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/goal-priority" />
+			<code value="high-priority" />
+			<display value="High Priority" />
+		</coding>
+		<text value="high" />
+	</priority> -->
+
+
+
+	<description>
+    		<text value="Target weight is 160 to 180 lbs."/>
+	</description>
+
+
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</subject>
+
+
+	<!-- <startDate value="2015-04-05" /> -->
+	<target>
+		<!-- <measure>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="3141-9"/>
+				<display value="Weight Measured"/>
+			</coding>
+		</measure> -->
+		<detailRange>
+			<low>
+				<value value="160"/>
+				<unit value="lbs"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="[lb_av]"/>
+			</low>
+			<high>
+				<value value="180"/>
+				<unit value="lbs"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="[lb_av]"/>
+			</high>
+		</detailRange>
+	
+		<dueDate value="2016-04-05" />
+	</target>
+
+	<!--
+	<statusDate value="2016-02-14" />
+	<statusReason value="Patient wants to defer weight loss until after honeymoon."/>
+	<source>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</source>
+	<addresses>
+		<display value="obesity condition"/>
+	</addresses>
+	<outcome>
+    <reference>
+	  	<reference value="Observation/example"/>
+  		<display value="Body Weight Measured"/>
+    </reference>
+	</outcome> -->
+</Goal>

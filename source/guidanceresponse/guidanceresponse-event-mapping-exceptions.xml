@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="GuidanceResponse.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for guidance response"/>
+            <_pattern value="Business identifier for guidance response"/>
             <resource value="Business identifier"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -46,7 +46,7 @@
             <resource value="The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -62,7 +62,7 @@
             <resource value="The patient for which the request was processed."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the guidance response to the Patient context."/>
+            <_pattern value="Links the guidance response to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -81,7 +81,7 @@
             <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official copmletion of an encounter but still be tied to the context of the encounter."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the guidance response to the Encounter context."/>
+            <_pattern value="Links the guidance response to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

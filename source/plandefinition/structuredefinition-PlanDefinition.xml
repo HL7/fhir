@@ -2061,6 +2061,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If no grouping behavior is specified but the action has children (i.e. is a group), the grouping behavior is assumed to be `logical-group`."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionGroupingBehavior"/>
@@ -2083,6 +2084,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If no selection behavior is specified but the action has children (i.e. is a group), the selection behavior is assumed to be `all`."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionSelectionBehavior"/>
@@ -2105,6 +2107,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If no required behavior is specified but the action has children (i.e. is a group), the required behavior is assumed to be `could`."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRequiredBehavior"/>
@@ -2127,6 +2130,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If no precheck behavior is specified but the action has children (i.e. is a group), the precheck behavior is assumed to be `no`."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionPrecheckBehavior"/>
@@ -2149,6 +2153,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If no cardinality behavior is specified but the action has children (i.e. is a group), the cardinality behavior is assumed to be `single`."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionCardinalityBehavior"/>

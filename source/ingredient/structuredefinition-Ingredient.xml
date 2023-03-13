@@ -71,7 +71,7 @@
   <differential>
     <element id="Ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,100"/>
+        <valueCode value="0,106"/>
       </extension>
       <path value="Ingredient"/>
       <short value="An ingredient of a manufactured item or pharmaceutical product"/>
@@ -255,7 +255,7 @@
     </element>
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="160,300"/>
+        <valueCode value="160,325"/>
       </extension>
       <path value="Ingredient.manufacturer"/>
       <short value="An organization that manufactures this ingredient"/>
@@ -315,7 +315,7 @@
     </element>
     <element id="Ingredient.substance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="160,0"/>
+        <valueCode value="160,-15"/>
       </extension>
       <path value="Ingredient.substance"/>
       <short value="The substance that comprises this ingredient"/>
@@ -508,7 +508,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,117"/>
+        <valueCode value="775,106"/>
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>

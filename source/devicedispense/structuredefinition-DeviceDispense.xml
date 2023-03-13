@@ -79,8 +79,8 @@
         <valueCode value="-170,0"/>
       </extension>
       <path value="DeviceDispense"/>
-      <short value="Device Dispense"/>
-      <definition value="A record of dispensation of a device."/>
+      <short value="A record of dispensation of a device"/>
+      <definition value="A record of dispensation of a device - i.e., assigning a device to a patient, or to a professional for their use."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -156,7 +156,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceDispenseStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A coded concept specifying the state of the dispense event."/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
@@ -193,7 +193,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceDispenseStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A code describing why a dispense was or was not performed."/>
         </extension>
         <strength value="example"/>
@@ -508,7 +508,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="DeviceDispense.eventHistory">

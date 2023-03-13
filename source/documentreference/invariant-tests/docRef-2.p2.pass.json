@@ -1,0 +1,37 @@
+{
+    "resourceType": "DocumentReference",
+    "id": "docRef-1.f1.fail",
+    "status": "current",
+    "content": [
+        {
+            "attachment": {
+                "contentType": "text/plain",
+                "url": "/Binary/1-note",
+                "title": "Uri where the data can be found: [base]/Binary/1-note"
+            }
+        }
+    ],
+    "practiceSetting": {
+        "text": "Home"
+    },
+    "context": [
+        {
+            "reference": "#appt"
+        }
+    ],
+    "contained": [
+        {
+            "resourceType": "Appointment",
+            "id": "appt",
+            "status": "booked",
+            "participant": [
+                {
+                    "actor": {
+                        "display": "Patient/1"
+                    },
+                    "status": "accepted"
+                }
+            ]
+        }
+    ]
+}

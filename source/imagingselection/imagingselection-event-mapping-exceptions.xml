@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for imaging selection"/>
+            <_pattern value="Business identifier for imaging selection"/>
             <resource value="Business Identifier for Imaging Selection"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -46,7 +46,7 @@
             <resource value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
         </commentsUnmatched>
     </divergentElement>
@@ -63,7 +63,7 @@
             <resource value="The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the imaging selection to the Patient context."/>
+            <_pattern value="Links the imaging selection to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

@@ -428,7 +428,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
         <strength value="required"/>

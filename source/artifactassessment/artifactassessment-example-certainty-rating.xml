@@ -30,7 +30,7 @@
 		</type>
 		<classifier>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+				<system value="http://hl7.org/fhir/certainty-rating"/>
 				<code value="very-low"/>
 				<display value="Very low quality"/>
 			</coding>
@@ -51,7 +51,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<system value="http://hl7.org/fhir/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
@@ -72,7 +72,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<system value="http://hl7.org/fhir/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
@@ -92,7 +92,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<system value="http://hl7.org/fhir/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
@@ -113,7 +113,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<system value="http://hl7.org/fhir/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
@@ -133,7 +133,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<system value="http://hl7.org/fhir/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>

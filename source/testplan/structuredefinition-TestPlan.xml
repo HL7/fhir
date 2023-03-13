@@ -95,8 +95,8 @@
     </element>
     <element id="TestPlan.url">
       <path value="TestPlan.url"/>
-      <short value="Canonical identifier URL"/>
-      <definition value="Canonical identifier URL."/>
+      <short value="Canonical identifier for this test plan, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this test plan when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this test plan is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test plan is stored on different servers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -105,8 +105,8 @@
     </element>
     <element id="TestPlan.identifier">
       <path value="TestPlan.identifier"/>
-      <short value="Business identifier"/>
-      <definition value="Business identifier for the Test Plan."/>
+      <short value="Business identifier identifier for the test plan"/>
+      <definition value="A formal identifier that is used to identify this test plan when it is referenced in a specification, model, design or an instance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -115,8 +115,8 @@
     </element>
     <element id="TestPlan.version">
       <path value="TestPlan.version"/>
-      <short value="Version"/>
-      <definition value="Version of the test plan."/>
+      <short value="Business version of the test plan"/>
+      <definition value="The identifier that is used to identify this version of the test plan when it is referenced in a specification, model, design or instance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -125,8 +125,8 @@
     </element>
     <element id="TestPlan.name">
       <path value="TestPlan.name"/>
-      <short value="Name"/>
-      <definition value="Name."/>
+      <short value="Name for this test plan (computer friendly)"/>
+      <definition value="A natural language name identifying the test plan. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -135,8 +135,8 @@
     </element>
     <element id="TestPlan.title">
       <path value="TestPlan.title"/>
-      <short value="Human-readable title"/>
-      <definition value="Human-readable title."/>
+      <short value="Name for this test plan (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the test plan."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -146,7 +146,7 @@
     <element id="TestPlan.status">
       <path value="TestPlan.status"/>
       <short value="draft | active | retired | unknown"/>
-      <definition value="Status."/>
+      <definition value="The status of this test plan. Enables tracking the life-cycle of the content."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -166,8 +166,8 @@
     </element>
     <element id="TestPlan.date">
       <path value="TestPlan.date"/>
-      <short value="Date"/>
-      <definition value="Date."/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the test plan was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test plan changes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -176,8 +176,8 @@
     </element>
     <element id="TestPlan.publisher">
       <path value="TestPlan.publisher"/>
-      <short value="Publisher"/>
-      <definition value="Publisher."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the test plan."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -186,8 +186,8 @@
     </element>
     <element id="TestPlan.contact">
       <path value="TestPlan.contact"/>
-      <short value="Contact"/>
-      <definition value="Contact."/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -196,8 +196,8 @@
     </element>
     <element id="TestPlan.description">
       <path value="TestPlan.description"/>
-      <short value="Description"/>
-      <definition value="Description of the test plan."/>
+      <short value="Natural language description of the test plan"/>
+      <definition value="A free text natural language description of the test plan from a consumer's perspective."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -206,8 +206,8 @@
     </element>
     <element id="TestPlan.jurisdiction">
       <path value="TestPlan.jurisdiction"/>
-      <short value="Jurisdiction"/>
-      <definition value="Jurisdiction."/>
+      <short value="Intended jurisdiction where the test plan applies (if applicable)"/>
+      <definition value="A legal or geographic region in which the test plan is intended to be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -216,8 +216,8 @@
     </element>
     <element id="TestPlan.purpose">
       <path value="TestPlan.purpose"/>
-      <short value="Purpose"/>
-      <definition value="Purpose."/>
+      <short value="Why this test plan is defined"/>
+      <definition value="Explanation of why this test plan is needed and why it has been designed as it has."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -226,8 +226,8 @@
     </element>
     <element id="TestPlan.copyright">
       <path value="TestPlan.copyright"/>
-      <short value="Copyright"/>
-      <definition value="Copyright."/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the test plan and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test plan.  The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -264,8 +264,8 @@
         <code value="markdown"/>
       </type>
     </element>
-    <element id="TestPlan.dependencies">
-      <path value="TestPlan.dependencies"/>
+    <element id="TestPlan.dependency">
+      <path value="TestPlan.dependency"/>
       <short value="The required criteria to execute the test plan - e.g. preconditions, previous tests"/>
       <definition value="The required criteria to execute the test plan - e.g. preconditions, previous tests..."/>
       <min value="0"/>
@@ -274,20 +274,20 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="TestPlan.dependencies.description">
-      <path value="TestPlan.dependencies.description"/>
-      <short value="Description of the criteria"/>
-      <definition value="Description of the criteria."/>
+    <element id="TestPlan.dependency.description">
+      <path value="TestPlan.dependency.description"/>
+      <short value="Description of the dependency criterium"/>
+      <definition value="A textual description of the criterium - what is needed for the dependency to be considered met."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="markdown"/>
       </type>
     </element>
-    <element id="TestPlan.dependencies.predecessor">
-      <path value="TestPlan.dependencies.predecessor"/>
+    <element id="TestPlan.dependency.predecessor">
+      <path value="TestPlan.dependency.predecessor"/>
       <short value="Link to predecessor test plans"/>
-      <definition value="Link to predecessor test plans."/>
+      <definition value="Predecessor test plans - those that are expected to be successfully performed as a dependency for the execution of this test plan."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -306,8 +306,8 @@
     </element>
     <element id="TestPlan.testCase">
       <path value="TestPlan.testCase"/>
-      <short value="The test cases that are part of this plan"/>
-      <definition value="The test cases that are part of this plan."/>
+      <short value="The test cases that constitute this plan"/>
+      <definition value="The individual test cases that are part of this plan, when they they are made explicit."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -316,8 +316,8 @@
     </element>
     <element id="TestPlan.testCase.sequence">
       <path value="TestPlan.testCase.sequence"/>
-      <short value="Sequence of testing"/>
-      <definition value="Sequence of testing."/>
+      <short value="Sequence of test case in the test plan"/>
+      <definition value="Sequence of test case - an ordinal number that indicates the order for the present test case in the test plan."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -326,20 +326,20 @@
     </element>
     <element id="TestPlan.testCase.scope">
       <path value="TestPlan.testCase.scope"/>
-      <short value="Specific test scope for one test case"/>
-      <definition value="Specific test scope for one test case."/>
+      <short value="The scope or artifact covered by the case"/>
+      <definition value="The scope or artifact covered by the case, when the individual test case is associated with a testable artifact."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.dependencies">
+    <element id="TestPlan.testCase.dependency">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="TestCaseDependencies"/>
+        <valueString value="TestCaseDependency"/>
       </extension>
-      <path value="TestPlan.testCase.dependencies"/>
-      <short value="The required criteria to execute the test case - e.g. preconditions, previous tests"/>
+      <path value="TestPlan.testCase.dependency"/>
+      <short value="Required criteria to execute the test case"/>
       <definition value="The required criteria to execute the test case - e.g. preconditions, previous tests."/>
       <min value="0"/>
       <max value="*"/>
@@ -347,8 +347,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.dependencies.description">
-      <path value="TestPlan.testCase.dependencies.description"/>
+    <element id="TestPlan.testCase.dependency.description">
+      <path value="TestPlan.testCase.dependency.description"/>
       <short value="Description of the criteria"/>
       <definition value="Description of the criteria."/>
       <min value="0"/>
@@ -357,8 +357,8 @@
         <code value="markdown"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.dependencies.predecessor">
-      <path value="TestPlan.testCase.dependencies.predecessor"/>
+    <element id="TestPlan.testCase.dependency.predecessor">
+      <path value="TestPlan.testCase.dependency.predecessor"/>
       <short value="Link to predecessor test plans"/>
       <definition value="Link to predecessor test plans."/>
       <min value="0"/>
@@ -463,40 +463,40 @@
         <code value="Reference"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.assertions">
-      <path value="TestPlan.testCase.assertions"/>
-      <short value="The test assertions"/>
-      <definition value="The test assertions."/>
+    <element id="TestPlan.testCase.assertion">
+      <path value="TestPlan.testCase.assertion"/>
+      <short value="Test assertions or expectations"/>
+      <definition value="The test assertions - the expectations of test results from the execution of the test case."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.assertions.type">
-      <path value="TestPlan.testCase.assertions.type"/>
-      <short value="The test assertion type"/>
-      <definition value="The test assertion type."/>
+    <element id="TestPlan.testCase.assertion.type">
+      <path value="TestPlan.testCase.assertion.type"/>
+      <short value="Assertion type - for example 'informative' or 'required' "/>
+      <definition value="The test assertion type - this can be used to group assertions as 'required' or 'optional', or can be used for other classification of the assertion."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.assertions.object">
-      <path value="TestPlan.testCase.assertions.object"/>
+    <element id="TestPlan.testCase.assertion.object">
+      <path value="TestPlan.testCase.assertion.object"/>
       <short value="The focus or object of the assertion"/>
-      <definition value="The focus or object of the assertion."/>
+      <definition value="The focus or object of the assertion i.e. a resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
       </type>
     </element>
-    <element id="TestPlan.testCase.assertions.result">
-      <path value="TestPlan.testCase.assertions.result"/>
-      <short value="The test assertions"/>
-      <definition value="The test assertions."/>
+    <element id="TestPlan.testCase.assertion.result">
+      <path value="TestPlan.testCase.assertion.result"/>
+      <short value="The actual result assertion"/>
+      <definition value="The test assertion - the expected outcome from the test case execution."/>
       <min value="0"/>
       <max value="*"/>
       <type>

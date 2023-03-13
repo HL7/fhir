@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="CapabilityStatement"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -185,26 +184,27 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
-    </element> 		<element id="CapabilityStatement.identifier">
- 			<path value="CapabilityStatement.identifier"/>
- 			<short value="Additional identifier for the CapabilityStatement (business identifier)"/>
- 			<definition value="A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
- 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
- 			<min value="0"/>
- 			<max value="*"/>
- 			<type>
- 				<code value="Identifier"/>
- 			</type>
- 			<isSummary value="true"/>
- 			<mapping>
- 				<identity value="w5"/>
- 				<map value="FiveWs.identifier"/>
- 			</mapping>
- 			<mapping>
- 				<identity value="workflow"/>
- 				<map value="Definition.identifier"/>
- 			</mapping>
- 		</element>
+    </element>
+    <element id="CapabilityStatement.identifier">
+      <path value="CapabilityStatement.identifier"/>
+      <short value="Additional identifier for the CapabilityStatement (business identifier)"/>
+      <definition value="A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.identifier"/>
+      </mapping>
+    </element>
     <element id="CapabilityStatement.version">
       <path value="CapabilityStatement.version"/>
       <short value="Business version of the capability statement"/>
@@ -707,7 +707,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
         <strength value="required"/>

@@ -122,10 +122,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
         <valueString value="ObservationStatsCode"/>
       </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-        <valueString value="Codes specifying a statistical operation to be performed on the relevant operations. Multiple statistics operations can be specified. These codes are defined [here](valueset-observation-statistics.html)"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
         <valueString value="Codes specifying a statistical operation to be performed on the relevant operations. Multiple statistics operations can be specified. These codes are defined [here](valueset-observation-statistics.html)"/>
       </extension>
       <strength value="required"/>

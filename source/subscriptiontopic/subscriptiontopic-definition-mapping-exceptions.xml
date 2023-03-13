@@ -2,21 +2,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Definition.url" resourcePath="SubscriptionTopic.url">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Canonical identifier for this subscription topic, represented as an absolute URI (globally unique)"/>
-            <resource value="Canonical identifier for this subscription topic definition, represented as a URI (globally unique)"/>
-        </shortUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-            <resource value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;When this is a locally defined topic or derived from a topic defined in the FHIR spec or an IG, this uniquely identifies the topic and functionality. Ideally this URL resolves to documentation about the use cases.&#xa;&#xa;When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.&#xa;&#xa;When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-        </commentsUnmatched>
+        <lowerCardinality _pattern="0" _resource="1" reason="SubscriptionTopics are not ever expected to be contained"/>
     </divergentElement>
     <divergentElement patternPath="Definition.identifier" resourcePath="SubscriptionTopic.identifier">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Business identifier for subscription topic"/>
-            <resource value="Business Identifier for this subscription topic"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A formal identifier that is used to identify this subscription topic when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
             <resource value="Business identifiers assigned to this subscription topic by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
@@ -53,20 +41,6 @@
             <_pattern value="Supports code generation."/>
             <resource value="Support human navigation and code generation."/>
         </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.title" resourcePath="SubscriptionTopic.title">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Name for this subscription topic (human friendly)"/>
-            <resource value="Name for this subscription topic (Human friendly)"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A short, descriptive, user-friendly title for the subscription topic."/>
-            <resource value="A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-            <resource value=""/>
-        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.derivedFromCanonical" resourcePath="SubscriptionTopic.derivedFrom">
         <missingTypes _pattern="canonical(Definition)" reason="Unknown"/>
@@ -266,7 +240,6 @@
     <unmappedElement patternPath="Definition.code" reason="Unknown"/>
     <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
     <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.versionAlgorithm" reason="Unknown"/>
     <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
     <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
     <unmappedElement patternPath="Definition.topic" reason="Unknown"/>

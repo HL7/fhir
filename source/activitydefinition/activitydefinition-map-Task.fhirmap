@@ -1,0 +1,63 @@
+map "http://research.philips.com/fhir/r4/mapping/Task" =
+    "R3 Parameters of Activitydefinition.$apply to Task"
+
+uses "http://hl7.org/fhir/StructureDefinition/Parameters"       as source
+uses "http://hl7.org/fhir/StructureDefinition/Task" as target
+
+group main
+    input src: Parameters as source
+    input tgt: Task as target
+
+    "for" : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.for = sbj
+    }
+
+    "practitioner" : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.requester as requester then{
+               do: for prac make requester.agent = prac
+            }
+        }
+
+    "organization" : for src.parameter as p where name='organization' then {
+            do: for p.value as org make tgt.requester as requester then {
+                    do: for org make requester.onBehalfOf = org
+                }
+        }
+
+    "encounter" : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ProcedureRequest as target
+
+//    "basedOn"      : for src                 make tgt.basedOn = reference( src )
+    refAd          : for src.url as can   make tgt.instantiatesCanonical = can
+    "status"       : for src              make tgt.status = "draft"
+    "ad.code"      : for src.code  as vvv make tgt.code = vvv
+//    "ad.timing"    : for src          as vvv check timing.empty()  ==>restriction.period
+//    "ad.location"  : for src          as vvv check location.empty()
+//    "ad.product"   : for src          as vvv check product.empty()
+//    "ad.quantity"  : for src          as vvv check quantity.empty()
+//    "ad.bodysite"  : for src          as vvv check bodysite.empty()
+//    "ad.dosage"    : for src          as vvv check dosage.empty()
+//    "ad.relatedart": for src.relatedArtifact as relatedArtifact make tgt.payload as payload then {
+//        do: for relatedArtifact as relatedArtifact make payload.content as content then {
+//            "content": for relatedArtifact as vvv make content = vvv
+//            "display" : for relatedArtifact.display as vvv make content
+//            "citation": for relatedArtifact as vvv make content = vvv
+//            "url"     : for relatedArtifact as vvv make content = vvv
+//            "document": for relatedArtifact as vvv make content = vvv
+//            "resource": for relatedArtifact as vvv make content = vvv
+//        }
+//    }
+endgroup
+
+

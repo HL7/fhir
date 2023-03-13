@@ -42,9 +42,9 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Definition.subject[x]" resourcePath="ClinicalUseDefinition.subject">
+    <divergentElement patternPath="Definition.subject" resourcePath="ClinicalUseDefinition.subject">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="CodeableConcept, Reference(Group)" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
         <extraTypes
             _resource="Reference(MedicinalProductDefinition,Medication,ActivityDefinition,PlanDefinition,Device,DeviceDefinition,Substance,NutritionProduct,BiologicallyDerivedProduct)" reason="Unknown"/>
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
@@ -57,7 +57,7 @@
             <resource value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Many protocols, order sets and guidelines are inted for use only with specific types of patients or subjects."/>
+            <_pattern value="Many protocols, order sets and guidelines are intended for use only with specific types of patients or subjects."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

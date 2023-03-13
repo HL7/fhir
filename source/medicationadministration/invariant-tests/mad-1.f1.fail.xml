@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
+  <id value="example"/>
+<text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Penicillin VK 10ml suspension administered by oral route at 14:30 on 1 June 2012</p>
+      <p>on the authority of prescription ref: example</p>
+      <p>to patient ref: a23</p>
+    </div>
+  </text> 
+  <identifier>
+    <use value="official"/>
+    <system value="http://www.bmc.nl/portal/administrations"/>
+    <value value="12345689"/>
+  </identifier>
+  <status value="completed"/>
+  <medication>
+  <reference>
+    <reference value="Medication/example"/> 
+    </reference>
+  </medication>
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
+  <occurencePeriod>
+    <start value="2012-06-01T14:30:00+01:00"/>
+    <end value="2012-06-01T14:30:00+01:00"/>
+  </occurencePeriod>
+  <performer>
+    <actor>
+    <reference>
+      <reference value="Practitioner/f007"/>
+      <display value="Patrick Pump"/>
+    </reference>
+    </actor>
+  </performer>
+  <dosage>
+  <method>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
+      <code value="PO"/>
+    </coding>
+  </method>
+    <!-- <text value="one tablet four times daily"/>
+    <dose>
+      <value value="1"/>
+      <unit value="TAB"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+      <code value="TAB"/>
+    </dose> -->
+  </dosage>
+</MedicationAdministration>

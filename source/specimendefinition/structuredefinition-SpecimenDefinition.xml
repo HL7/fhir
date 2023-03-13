@@ -447,7 +447,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PreparePatient"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Checks on the patient prior specimen collection."/>
         </extension>
         <strength value="example"/>
@@ -492,7 +492,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCollection"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The action to collect a type of specimen."/>
         </extension>
         <strength value="example"/>
@@ -600,7 +600,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContainerMaterial"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Types of material for specimen containers."/>
         </extension>
         <strength value="example"/>
@@ -621,7 +621,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContainerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Type of specimen container."/>
         </extension>
         <strength value="example"/>

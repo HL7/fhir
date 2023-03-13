@@ -1,0 +1,147 @@
+<mappingExceptions pattern="Request" resource="Contract"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="Contract.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for contract"/>
+            <resource value="Contract number"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this contract by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Unique identifier for this Contract or a derivative that references a Source Contract."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the contract as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="This is the business identifier of the contract content conveyed.  It may be a derivative of the legally binding contract, in which case, the identifier of the basal contract is  contained in the Contract.binding referenced Contract."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.identifier" resourcePath="Contract.term.identifier">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for contract"/>
+            <resource value="Contract Term Number"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this contract by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Unique identifier for this particular Contract Provision."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the contract as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="Contract.status">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="amended | appended | cancelled | disputed | entered-in-error | executable +"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the contract."/>
+            <resource value="The status of the resource instance."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.code" resourcePath="Contract.type">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Service requested/ordered"/>
+            <resource value="Legal instrument category"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <resource value="A high-level category for the legal instrument, whether constructed as a Contract definition, derivative, or instance in any legal state.  Provides additional information about its content within the context of the Contract's scope to distinguish the kinds of systems that would be interested in the contract."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.code" resourcePath="Contract.term.type">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Service requested/ordered"/>
+            <resource value="Contract Term Type or Form"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <resource value="A legal clause or condition contained within a contract that requires one or both parties to perform a particular requirement by some specified time or prevents one or both parties from performing a particular requirement by some specified time."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="Contract.subject">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Contract Target Entity"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The target entity impacted by or of interest to parties to the agreement."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value="The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="Contract.issued">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="When this Contract was issued"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft contracts, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="When this  Contract was issued."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="Contract.term.issued">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="Contract Term Issue Date Time"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft contracts, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="When this Contract Provision was issued."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="Contract.signer.party">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(Organization,Patient,Practitioner,PractitionerRole,RelatedPerson)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Contract Signatory Party"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="Party which is a signator to this Contract."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="Contract.term.action.type">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes
+            _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Type or form of the action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="Activity or service obligation to be done or not done, performed or not performed, effectuated or not by this Contract term."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Request" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+</mappingExceptions>

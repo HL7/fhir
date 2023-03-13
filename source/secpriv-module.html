@@ -44,15 +44,18 @@ The Security and Privacy module includes the following materials:
  <tr>
    <td>
 <ul>
-<li>
-  <a href="consent.html">Consent</a>
-</li>
-<li>
-  <a href="provenance.html">Provenance</a>
-</li>
-<li>
-  <a href="auditevent.html">Audit Event</a>
-</li>
+  <li>
+    <a href="auditevent.html">Audit Event</a>
+  </li>
+  <li>
+    <a href="consent.html">Consent</a>
+  </li>
+  <li>
+    <a href="permission.html">Permission</a>
+  </li>
+  <li>
+    <a href="provenance.html">Provenance</a>
+  </li>
 </ul>
    </td>
    <td>
@@ -480,7 +483,7 @@ Use-Case: There are times when data will have different authorization requiremen
 <h3>Developmental Roadmap</h3>
 
 <p>
-In the STU3 release, FHIR includes building blocks and principles for creating
+FHIR includes building blocks and principles for creating
 secure, privacy-oriented health IT systems; FHIR does not mandate a single
 technical approach to security and privacy.
 </p>
@@ -491,23 +494,14 @@ technical approach to security and privacy.
 
 <ul>
 <li>
-incorporate the SMART on FHIR authorization specification,
-for user-authorized apps, 
-</li>
-<li>
-methods for organization-to-organization authorization,
-</li>
-<li>
 more details about how to use digital Signatures for data integrity and
 non-repudiation, including an approach that supports some level of manipulation
 of resources (e.g. separating the entries in a bundle, or conversion between
 XML and JSON during processing),
 </li>
 <li>
-more detailed Consent management, including support for specific consent use cases.
-</li>
-<li>
-guidance and methods to support GDPR or other emerging Privacy regulations.
+develop a <a href="permission.html">Permission</a> resource and show relationship to Consent, 
+and distributed Access Control and Enforcement
 </li>
 </ul>
 

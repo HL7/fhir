@@ -7,7 +7,7 @@
             <resource value="Canonical identifier for this measure, represented as a URI (globally unique)"/>
         </shortUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+            <_pattern value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
             <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
         </commentsUnmatched>
     </divergentElement>
@@ -26,9 +26,6 @@
             <_pattern value="There may be different measures that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
             <resource value="There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
         </commentsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.versionAlgorithm[x]" resourcePath="Measure.versionAlgorithm[x]">
-        <bindingStrength _pattern="required" _resource="extensible" reason="Unknown"/>
     </divergentElement>
     <divergentElement patternPath="Definition.name" resourcePath="Measure.name">
         <commentsUnmatched reason="Unknown">

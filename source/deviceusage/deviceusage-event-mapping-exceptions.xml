@@ -3,7 +3,7 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="DeviceUsage.identifier">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Business Identifier for device usage"/>
+            <_pattern value="Business identifier for device usage"/>
             <resource value="External identifier for this record"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -41,7 +41,7 @@
             <resource value="A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#xd;&#xd;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -56,7 +56,7 @@
             <resource value="The patient who used the device."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the device usage to the Patient context."/>
+            <_pattern value="Links the device usage to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -75,7 +75,7 @@
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the device usage to the Encounter context."/>
+            <_pattern value="Links the device usage to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

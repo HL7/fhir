@@ -53,17 +53,17 @@
   <concept>
     <code value="measurement"/>
     <display value="Measurement"/>
-    <definition value="DeviceObservations generated for this DeviceMetric are measured."/>
+    <definition value="Observations generated for this DeviceMetric are measured."/>
   </concept>
   <concept>
     <code value="setting"/>
     <display value="Setting"/>
-    <definition value="DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device."/>
+    <definition value="Observations generated for this DeviceMetric is a setting that will influence the behavior of the Device."/>
   </concept>
   <concept>
     <code value="calculation"/>
     <display value="Calculation"/>
-    <definition value="DeviceObservations generated for this DeviceMetric are calculated."/>
+    <definition value="Observations generated for this DeviceMetric are calculated."/>
   </concept>
   <concept>
     <code value="unspecified"/>

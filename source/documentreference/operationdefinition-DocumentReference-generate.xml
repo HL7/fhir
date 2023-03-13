@@ -79,11 +79,11 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <name value="docRef"/>
+    <name value="return"/>
     <use value="out"/>
-    <min value="0"/>
+    <min value="1"/>
     <max value="1"/>
-    <documentation value="The server either returns a single document reference, or it returns an error. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error."/>
-    <type value="DocumentReference"/>
+    <documentation value="The bundle type is &quot;searchset&quot;containing [DocumentReference](documentreference.html) resource and may include a Binary. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error."/>
+    <type value="Bundle"/>
   </parameter>
 </OperationDefinition>
