@@ -18,7 +18,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
     <valueString value="This is a test summary [lipids](observation.html)"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/lipidprofile"/>

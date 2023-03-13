@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML>
+
+
+[%settitle Dosage Profiles%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+
+<%dtxheader profiles Dosage%>
+    <h2>Dosage Profiles</h2>
+    <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+        
+    <p>
+        This table lists profiles for the Dosage datatype. For background information, see
+        <a href="profiling.html#resources">Profiling Resources</a>.
+        Additional profiles may be found in published
+        <a href="https://www.fhir.org/guides/registry/">Implementation Guides</a>, or in the
+        <a href="http://registry.fhir.org">Conformance resource registry</a>.
+    </p>
+
+    <table class="list">
+<%dtprofiles Dosage%>
+</table>
+[%file newfooter%]
+</body>
+</html>

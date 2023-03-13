@@ -40,7 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+      <system value="http://hl7.org/fhir/certainty-rating"/>
     </include>
   </compose>
 </ValueSet>

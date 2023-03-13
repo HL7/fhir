@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-[%settitle ProductShelfLife  Mappings%]
+[%settitle ProductShelfLife  Profiles%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -12,19 +12,22 @@
 
 
 <%dtxheader profiles ProductShelfLife%>
-    <h2>ProductShelfLife MarketingStatus Profiles &amp; Extensions</h2>
+    <h2>ProductShelfLife Profiles</h2>
     <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 
     <p>
-        This table lists profiles and extensions for the Product Shelf Life datatype. For background information, see
-        <a href="profiling.html#resources">Profiling Resources</a> and <a href="extensibility.html">Extensibility</a>.
-        Additional profiles and extensions may be found in published
-        <a href="https://registry.fhir.org/guides">Implementation Guides</a>, or in the
+        This table lists profiles for the ProductShelfLife datatype. For background information, see
+        <a href="profiling.html#resources">Profiling Resources</a>.
+        Additional profiles may be found in published
+        <a href="https://www.fhir.org/guides/registry/">Implementation Guides</a>, or in the
         <a href="http://registry.fhir.org">Conformance resource registry</a>.
     </p>
-<%dtextras ProductShelfLife%>
+    
 
+    <table class="list">    
+<%dtprofiles ProductShelfLife%>
+</table>
 [%file newfooter%]
 </body>
 </html>

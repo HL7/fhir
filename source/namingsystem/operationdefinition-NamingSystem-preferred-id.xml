@@ -80,7 +80,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
         <valueString value="NamingSystemIdentifierType"/>
       </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
         <valueString value="Identifies the style of unique identifier used to identify a namespace."/>
       </extension>
       <strength value="required"/>

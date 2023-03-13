@@ -910,7 +910,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The scoring type of the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1333,7 +1333,7 @@
           <valueString value="MeasureScoring"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
       </binding>
       <mapping>
         <identity value="rim"/>

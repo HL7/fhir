@@ -670,7 +670,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="messageheader-response-request"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message."/>
         </extension>
         <strength value="required"/>

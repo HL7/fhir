@@ -2,7 +2,8 @@
 <Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
 	<id value="example"/>
 <contained>
-	<Practitioner id="a1">
+	<Practitioner>
+	  <id value="a1"/>
 		<name>
 			<family value="Hippocrates"/>
 			<given value="Harold"/>

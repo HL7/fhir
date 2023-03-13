@@ -591,7 +591,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The quality of how direct the match is."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/directness"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/directness"/>
       </binding>
     </element>
     <element id="Evidence.synthesisType">
@@ -609,7 +609,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Types of combining results from a body of evidence (e.g. summary data meta-analysis)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/synthesis-type"/>
       </binding>
     </element>
     <element id="Evidence.studyDesign">
