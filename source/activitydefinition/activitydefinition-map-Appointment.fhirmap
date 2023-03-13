@@ -1,0 +1,80 @@
+map "http://research.philips.com/fhir/r4/mapping/AdToAppointment" =
+    "R3 Parameters of Activitydefinition.$apply to Appointment"
+
+uses "http://hl7.org/fhir/StructureDefinition/Parameters"       as source
+uses "http://hl7.org/fhir/StructureDefinition/Appointment" as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    "subject" : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.participant as participant then {
+            doActor: for sbj as sbj make participant.actor=sbj
+            doStatus: for sbj as sbj make participant.status ="needs-action"
+        }
+    }
+
+//    "practitioner" : for src.parameter as p where name='practitioner' then{
+//                do: for p.value as prac make tgt.requester = prac
+//    }
+
+    "organization" : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+        }
+
+
+//    "encounter" : for src.parameter as p where name='encounter' then {
+//        do: for p.value as enc make tgt.encounter = enc
+//    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ServiceRequest as target
+
+//    "refAd"        : for src.url      as vvv make tgt.basedOn = vvv
+//    "ad.code"      : for src.code     as vvv make tgt.code = vvv          // could be serviceCategory or specialty --> unclear
+    //    "intent"       : for src                 make tgt.intent = "proposal"
+    "ad.priority"  : for src  where priority='routine' then {
+            prio: for src make tgt.priority = 9
+    }
+    "ad.priority"  : for src.priority  as priority where priority='urgent' then {
+            prio: for priority make tgt.priority = 7
+    }
+    "ad.priority"  : for src.priority  as priority where priority='asap' then {
+            prio: for priority make tgt.priority = 4
+    }
+    "ad.priority"  : for src.priority  as priority where priority='stat' then {
+            prio: for priority make tgt.priority = 1
+    }
+//    "ad.doNotPerform"  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    "ad.timingP1"   : for src.timing :Period   as period   make tgt.start = period.start
+    "ad.timingP2"   : for src.timing :Period   as period   make tgt.end = period.end
+    "ad.timingD"    : for src.timing :Duration as duration make tgt.minutesDuration = duration
+    "ad.timingDT"   : for src.timing :dateTime as dt       make tgt.start = dt
+
+    "ad.location"  : for src.location as location make tgt.participant as participant then {
+            doActor:  for location make participant.actor = location
+            doStatus: for location make participant.status = "needs-action"
+    }
+//    "ad.product"   : for src          as vvv check product.empty()
+//    "ad.quantity"  : for src          as vvv check quantity.empty()
+//    "ad.bodysite"  : for src.bodySite as vvv make tgt.bodySite = vvv
+//    "ad.dosage"    : for src          as vvv check dosage.empty()
+
+//    "intent"       : for src                 make tgt.intent = "proposal"
+    "status"       : for src                 make tgt.status = "proposed"
+    "created"      : for src                 make tgt.created = evaluate( src, now() )
+endgroup
+
+
