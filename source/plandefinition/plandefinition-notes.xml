@@ -26,7 +26,7 @@
 			<li>Create an <code>action</code> element in the RequestOrchestration. If the element has a <code>linkId</code>, set the <code>linkId></code> element of the new action to the same value. Note that for legacy PlanDefinitions, this action linking was accomplished with the <code>id</code> element, so for backwards compatibility, implementations may set the <code>id</code> element of the newly created action as well.</li>
 			<li>Apply the elements of the <code>action</code> to the corresponding elements of the newly created <code>action</code> in the RequestOrchestration such as <code>title</code>, <code>description</code>, <code>textEquivalent</code>, <code>timing</code>, and so on</li>
 			<li>Carry any <i>start</i> and <i>stop</i> conditions defined in the plan action forward to the request group action.</li>
-			<li>There are three possibilities for the <code>definition</code> element:
+			<li>There are multiple possibilities for the <code>definition</code> element, but for the ones that specifically refer to another definitional resource, the behavior is:
 				<ul>
 					<li>ActivityDefinition:
 						<ol>
@@ -36,6 +36,8 @@
 							<li>Apply any overrides based on the elements of the <code>action</code> (see the section on Overlap below for details)</li>
 						</ol>
 					</li>
+					<li>MessageDefinition: Construct a <a href="messaging.html">Message</a> according to the definition given by the target</li>
+					<li>ObservationDefinition: Support the documentation of an <a href="observation.html">Observation</a> as defined by the target</li>
 					<li>PlanDefinition:
 						<ol>
 							<li>Create a RequestOrchestration by applying the target PlanDefinition</li>
@@ -45,11 +47,12 @@
 						</ol>
 					</li>
 					<li>Questionnaire: Set the <code>resource</code> element of the action to the Questionnaire, indicating that the activity to be performed is filling out the given questionnaire.</li>
+					<li>SpecimenDefinition: Support the collection of a <a href="specimen.html">Specimen</a> as defined by the target</li>
 				</ul>
 			</li>
 		</ul>
 	</li>
-	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases, either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary.</li>
+	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases, either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary. If no behaviors are specified, default behavior for each behavior element is assumed (i.e. logical-group, all actions apply and are optional, no action is pre-selected, and all actions are assumed singular).</li>
 </ol>
 
 <p>The parameters to the $apply operation are available within dynamicValue CQL and FHIRPath expressions as context variables, accessible by the name of the parameter prefixed with a percent (%) symbol. For example, to access the subject given to the apply, use the expression <code>%subject</code>. The value of the %subject context variable in a dynamicValue expression is determined using the current <i>subject</i>, as specified by the <code>subject</code> element on the PlanDefinition, current PlanDefinition.action, or ActivityDefinition.</p>
@@ -57,6 +60,9 @@
 <p>In addition to the $apply operation parameters, the context variable %action can be used within the path element of a dynamicValue to specify the current action target. For example, to specify the path to the description element of the current action, use <code>%action.description</code>.</p>
 
 <p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
+
+<h3>Event Resources</h3>
+<p>The ActivityDefinition resource may only specify Request resource types to facilitate considering user input as part of processing the result of any automated clinical reasoning processes. To support creation of event resources, such as Observations, RiskAssessments, and DetectedIssues, use a Task resource with the focus of the task set to the event resource to be created.</p>
 
 <h3>Overlap with ActivityDefinition</h3>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value="additional-data-example"/>
+  <!-- This example demonstrates the response to a decision support guidance request where additional information is requested using the GuidanceResponse resource. -->
+  <requestIdentifier>
+    <system value="http://example.org"/>
+    <value value="guidanceRequest2"/>
+  </requestIdentifier>
+  <identifier>
+    <system value="http://example.org"/>
+    <value value="guidanceResponse2"/>
+  </identifier>
+  <moduleUri value="http://someguidelineprovider.org/diabetes-guidelines.html"/>
+  <status value="data-required"/>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <occurrenceDateTime value="2017-03-10T16:02:00Z"/>
+  <performer>
+    <reference value="Device/software"/>
+  </performer>
+  <reason>
+    <concept>
+      <text value="Diabetes Guideline"/>
+    </concept>
+  </reason>
+  <dataRequirement>
+    <type value="Observation"/>
+    <mustSupport value="value"/>
+    <codeFilter>
+      <path value="code"/>
+      <code>
+        <system value="http://loinc.org"/>
+        <code value="4548-4"/>
+        <display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+      </code>
+    </codeFilter>
+  </dataRequirement>
+</GuidanceResponse>

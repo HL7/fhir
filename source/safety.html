@@ -179,14 +179,24 @@ Note: Users/Clients may be identified and authenticated in any way desired. For 
 With regard to #38, Systems SHOULD check the narrative status. Specifically, if the status is 'additional', then narrative SHOULD always be available for human consumption, if 'extensions' and the system does not render all human-relevant received extensions the narrative SHOULD be available and if 'generated' and the system does not render all human-relevant received core elements, the narrative SHOULD be available.  
 </p>
 
-<p>Integrity:</p>
+<a name="integrity"> </a>
+<h3>Integrity Related Safety Checks</h3>
 <ol start="42">
  <li title="check-validation"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check=validation"> </a>My system <a href="validation.html">validates all input received</a> (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior</li>
  <li title="use-provenance"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system makes the right <a href="provenance.html">Provenance</a> statements and <a href="auditevent.html">AuditEvent</a> logs, and uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
  <li title="decimal"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system manages decimal precision correctly when using JSON (see <a href="json.html#decimal">JSON representation of primitive elements</a>)</li>
 </ol>
 
- 
+<a name="decision-support"> </a>
+<h3>Decision Support Related Safety Checks</h3>
+<ol start="45">
+  <li title="confirm-data-validity"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#confirm-data-validity"> </a>My system allows providers to confirm validity of source data before using it in risk models or other decision support tools.</li>
+  <li title="clinician-judgement"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#clinician-judgement"> </a>My system allows providers to exercise appropriate clinical judgement as part of accepting or rejecting guidance received from clinical decision support tools.</li>
+  <li title="minimum-necessary"><input type="checkbox"/><a name="https://hl7.org/fhir/safety-entries#minimum-necessary"> </a>My system ensures that the minimum necessary information is provided to decision support tools.</li>
+  <li title="secure-access"><input type="checkbox"/><a name="https://hl7.org/fhir/safety-entries#secure-access"> </a>My system ensures that integrations with decision support and other related services communicate using appropriate authenticated channels and that only authorized information is sent via those channels.</li>
+  <li title="appropriate-use"><input type="checkbox"/><a name="https://hl7.org/fhir/safety-entries#appropriate-use"> </a>My system ensures that data exchanged with decision support and other related services respects the appropriate use of information, including patient privacy and consent considerations.</li>
+</ol>
+
 <a name="other"> </a>
 <h3>Other Safety Checks</h3> 
 <p>
@@ -195,7 +205,7 @@ Obviously, this list is only a small part of the overall safety checklist for an
 <p>
 In addition, server developers should check these specific additional checks for client convenience:
 </p>
-<ol start="44">
+<ol start="50">
  <li title="enable-cors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#enable-cors"> </a>Server: CORS (<a href="http://enable-cors.org/">cross-origin resource sharing</a>) is appropriately enabled (many clients are Javascript apps running in a browser)</li>
  <li title="use-json"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-json"> </a>JSON is supported (many clients are Javascript apps running in a browser; XML is inconvenient at best)</li>
  <li title="json-for-errors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#json-for-errors"> </a>JSON is returned correctly when errors happen (clients often don't handle HTML errors well)</li>

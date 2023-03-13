@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="example"/>
-  <!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. -->
+  <!-- This example demonstrates the response to a decision support guidance request using the GuidanceResponse resource. -->
   <contained>
     <Parameters >
       <id value="outputParameters1"/>
