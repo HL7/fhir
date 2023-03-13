@@ -4,6 +4,7 @@
 		<status value="empty"/>
 		<div xmlns="http://www.w3.org/1999/xhtml"/>
 	</text>
+	<status value="partial"/>
 	<code>
 		<coding>
 			<system value="http://mater.org.au/brisbane/pathology/tests"/>
@@ -11,22 +12,12 @@
 			<display value="Blood Cultures"/>
 		</coding>
 	</code>
-	<status value="partial"/>
-	<issued value="2013-10-07T17:18:16"/>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
+	<effectiveDateTime value="2013-03-04T18:00:00+10:00"/>
+	<issued value="2013-10-07T17:18:16+10:00"/>
 	<performer>
 		<reference value="Organization/acme-lab"/>
 	</performer>
-	<effectiveDateTime value="2013-03-04T18:00:00"/>
-	<group>
-		<code>
-			<text value="Streptococcus lactis"/>
-		</code>
-		<result>
-			<reference value="#c1-id"/><!-- 11475-1^Culture^LN|1|Streptococcus lactis --></result><result>
-			<reference value="#c1-count"/><!-- 699-9^Culture Count^LN|1|100 --></result><result>
-			<reference value="#c1-s1"/><!-- 18864-9^Ampi(amoxy)cillin^LN^AMO^Ampi(amoxy)cillin^PLS|1|R --></result><result>
-			<reference value="#c1-s2"/><!-- 18897-9^Cephalexin^LN^CPX^Cephalexin^PLS|1|R|||R --></result><result>
-			<reference value="#c1-s3"/><!-- 18997-7^Trimethoprim^LN^TRI^Trimethoprim^PLS|1|R --></result></group><!-- repeat for group 2 --></DiagnosticReport>
+</DiagnosticReport>
