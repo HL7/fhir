@@ -22,16 +22,16 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"></a>
 <h3>Introduction</h3>
 <p>
-This Clinical Module focuses on the FHIR Resources that represent core clinical
-information for a patient. The information contained in these Resources are those
+This Clinical Module focuses on the FHIR resources that represent core clinical
+information for a patient. The information contained in these resources are those
 frequently documented, created or retrieved by healthcare providers during the course
 of clinical care. Resources generated during the course of diagnostic studies can be
 found in the <a href="diagnostics-module.html">Diagnostics Module</a>, whereas the
-Resources related to medication ordering and administration process can be found
+resources related to medication ordering and administration process can be found
 in the <a href="medications-module.html">Medications Module</a>.
 </p>
 <p>
-As an introduction to FHIR APIs and Resources, please see the
+As an introduction to FHIR APIs and resources, please see the
 <a href="overview-dev.html">Developer's Introduction</a> or
 <a href="overview-clinical.html">Clinical Introduction</a> in the
 Overview section of the <a href="foundation-module.html">Foundation Module</a>.
@@ -48,15 +48,19 @@ The Clinical Module covers the following resources:
   <li><a title="[%resdesc Condition%]" href="condition.html">Condition</a> (Problem)</li>
   <li><a title="[%resdesc Procedure%]" href="procedure.html">Procedure</a></li>
   <li><a title="[%resdesc FamilyMemberHistory%]" href="familymemberhistory.html">FamilyMemberHistory</a></li>
+  <li><a title="[%resdesc AdverseEvent%]" href="adverseevent.html">AdverseEvent</a></li>
  </ul></td><td><ul>
   <li><a title="[%resdesc CarePlan%]" href="careplan.html">CarePlan</a></li>
   <li><a title="[%resdesc Goal%]" href="goal.html">Goal</a></li>
   <li><a title="[%resdesc CareTeam%]" href="careteam.html">CareTeam</a></li>
   <li><a title="[%resdesc ClinicalImpression%]" href="clinicalimpression.html">ClinicalImpression</a></li>
- </ul></td><td><ul>
-  <li><a title="[%resdesc AdverseEvent%]" href="adverseevent.html">AdverseEvent</a></li>
   <li><a title="[%resdesc DetectedIssue%]" href="detectedissue.html">DetectedIssue</a></li>
+ </ul></td><td><ul>
+  <li><a title="[%resdesc ServiceRequest%]" href="servicerequest.html">ServiceRequest</a></li>
+  <li><a title="[%resdesc VisionPrescription%]" href="visionprescription.html">VisionPrescription</a></li>
   <li><a title="[%resdesc RiskAssessment%]" href="riskassessment.html">RiskAssessment</a></li>
+  <li><a title="[%resdesc NutritionIntake%]" href="nutritionintake.html">NutritionIntake</a></li>
+  <li><a title="[%resdesc NutritionOrder%]" href="nutritionorder.html">NutritionOrder</a></li>
 
  </ul></td>
 </tr></table>
@@ -68,7 +72,7 @@ beginning with the lower complexity, core resources such as
 <a href="patient.html">Patient</a>,
 <a href="condition.html">Condition</a>, and
 <a href="familymemberhistory.html">FamilyMemberHistory</a> before addressing a high
-complexity Resource such as <a href="careplan.html">CarePlan</a>.
+complexity resource such as <a href="careplan.html">CarePlan</a>.
 </p>
 
 <a name="secpriv"></a>
@@ -84,9 +88,9 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
 <h3>Common use Cases</h3>
 <ul>
  <li>
-  <b>Documenting a patient's condition</b> - The <a href="condition.html">Condition</a> Resource
-  is used extensively throughout FHIR Resources to associate information and activities with
-  specific conditions. The <a href="condition.html">Condition</a> Resource is broadly defined
+  <b>Documenting a patient's condition</b> - The <a href="condition.html">Condition</a> resource
+  is used extensively throughout FHIR resources to associate information and activities with
+  specific conditions. The <a href="condition.html">Condition</a> resource is broadly defined
   to include problems, diagnoses and health concerns.
  </li>
  <li>
@@ -96,16 +100,20 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
   <b>Documenting and retrieving the patient's allergies</b> -  The <a href="allergyintolerance.html">AllergyIntolerance</a> resource
   is used to represent the patient's allergy or intolerance to a substance. There is vibrant debate within the clinical community
   regarding what is appropriate to document as an allergy or intolerance. These terms are used both formally by the Allergy and
-  Immunology community as well as informally by patients leading to confusion. Readers are referred to the Resource definition
-  for the Scope and Usage of this resource. The AllergyIntolerance Resource also supports the documenting of the absence of an allergy.
+  Immunology community as well as informally by patients leading to confusion. Readers are referred to the resource definition
+  for the Scope and Usage of this resource. The AllergyIntolerance resource also supports the documenting of the absence of an allergy.
+ </li>
+  <li>
+  <b>Documenting and retrieving the patient's procedures</b> -  The <a href="procedure.html">Procedure</a> resource is used to represent 
+  physical interventions on a patient like an operation or less invasive interventions like long term services, counseling, or hypnotherapy.
  </li>
  <li>
- <b>Family History</b> - The <a href="familymemberhistory.html">FamilyMemberHistory</a> Resource can be used to document known conditions of family members and support
+ <b>Family History</b> - The <a href="familymemberhistory.html">FamilyMemberHistory</a> resource can be used to document known conditions of family members and support
  the creation of pedigrees.
  </li>
  <li>
   <b>Care Plans</b> - The <a href="careplan.html">CarePlan</a> resource supports a problem based care plan with references
-  to other Resources including <a href="careteam.html">CareTeam</a>, <a href="condition.html">Condition</a>, <a href="goal.html">Goal</a>,
+  to other resources including <a href="careteam.html">CareTeam</a>, <a href="condition.html">Condition</a>, <a href="goal.html">Goal</a>,
   and activities such as <a href="servicerequest.html">ServiceRequest</a>
  </li>
 </ul>
@@ -113,12 +121,11 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 <p>
-Over the next 18 months, we will continue to advance the resources through the <a href="versions.html#maturity">Maturity Levels</a>
-through the process of development and testing of the Resources. We anticipate more widespread implementation of core Resources such as Condition.
-Complex Resources such as CarePlan are dependent on the maturation of its referred Resources and are expected to mature more gradually.
-The clinical community will need to develop use cases to test and further mature the
-<a href="servicerequest.html">ServiceRequest</a> Resource at opportunities such as the
-<a href="https://confluence.hl7.org/display/FHIR/Clinicians+on+FHIR">Clinicians on FHIR sessions</a> at the HL7 Working Group Meetings.
+We will continue to advance the resources through the <a href="versions.html#maturity">Maturity Levels</a>
+through the process of development and testing of the resources. We anticipate more widespread implementation of core resources such as Condition, AllergyIntolerance, and Procedure.
+Complex resources, such as CarePlan, are dependent on the maturation of its referenced resources and are expected to mature more gradually.
+The clinical community will develop use cases to test during
+<a href="https://confluence.hl7.org/display/PC/Clinicians+on+FHIR">Clinicians on FHIR sessions</a> at the HL7 Working Group Meetings.
 </p>
 
 [%file newfooter%]
