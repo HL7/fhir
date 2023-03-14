@@ -8,7 +8,7 @@ A single vaccine administration event (as communicated via the Immunization reso
 <p>For example a dose of Twinrix contains antigen against both Hepatitis A and Hepatitis B. The evaluation of such a dose should happen against recommendations for both types of Hepatitis. Furthermore, the dose may be evaluated against both national and local recommendation or may be evaluated against either set of recommendations at multiple points in time (yearly as the patient comes in for standard "well person" appointment with their care provider).
 </p>
 
-<p>Typically a single "recommendation" is prepared for the patient based on the evaluation of all of the vaccine administration events in the patient's history. This "recommendation" may include individual recommendations for multiple vaccines/vaccine groups. For example, a recommendation may be generated that includes recommendations for both influenza and diphtheria/tetanus vaccinations. Such recommendations use the ImmunizationRecommedation resource.
+<p>Typically a single "recommendation" is prepared for the patient based on the evaluation of all of the vaccine administration events in the patient's history. This "recommendation" may include individual recommendations for multiple vaccines/vaccine groups. For example, a recommendation may be generated that includes recommendations for both influenza and diphtheria/tetanus vaccinations. Such recommendations use the ImmunizationRecommendation resource.
 </p>
 
 </div>
