@@ -5,7 +5,12 @@
 	<text>
 		<status value="generated" />
 		<div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @example</div>
-	</text> 
+	</text>
+	<contained>
+		<Patient>
+			<id value="example"/>
+		</Patient>
+	</contained>
 	<status value="in-progress" />
 	<class>
 		<coding>
@@ -25,7 +30,7 @@
 	</subjectStatus>
     <participant>
         <actor>
-            <reference value="Patient/example"/>
+            <reference value="#example"/>
         </actor>
 		<type>
 			<coding>
