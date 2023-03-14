@@ -30,7 +30,7 @@ draw the attention of reviewers and implementers to the following issues:
 <a name="dstu"></a>
 </p>
 <ul>
- <li>When is an existing clinical impression revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the impression? (e.g. for a 'provisional' impression, which bit is provisional?)</li>
+ <li>When is an existing clinical impression revised, rather than a new one created (that references the existing one)? How does that affect the status? What's the interplay between the status of the diagnosis and the status of the impression? (e.g. for a 'provisional' impression, which bit is provisional?)</li>
  <li>This structure doesn't differentiate between a working and a final diagnosis. Given an answer to the previous question, should it?</li>
  <li>Further clarify around the relationship between care plan and impression is needed. Both answers to the previous questions and ongoing discussions around revisions to the care plan will influence the design of clinical impression</li>
  <li>Should prognosis be represented, and if so, how much structure should it have?</li>

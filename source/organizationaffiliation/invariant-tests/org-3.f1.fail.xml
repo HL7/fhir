@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrganizationAffiliation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitionerrole.xsd">
+	<id value="example"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				HL7 Payer Network services for Acme Hospital from 1-Jan 2012 to 31-Mar 2012
+			</p>
+		</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.acme.org/practitioners"/>
+		<value value="23"/>
+	</identifier>
+	<active value="true"/>
+	<period>
+		<start value="2012-01-01"/>
+		<end value="2012-03-31"/>
+	</period>
+	<organization>
+		<reference value="Organization/hl7pay"/>
+	</organization>
+	<participatingOrganization>
+		<!-- Organization that will provide services to the affiliated organization -->
+		<reference value="Organization/f001"/>
+	</participatingOrganization>
+	<network>
+		<reference value="Organization/hl7pay"/>
+		<display value="HL7 Payer Network"/>
+	</network>
+
+	<!-- General Practice Provider for the first 3 months of 2012 -->
+	<code>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/organization-role"/>
+			<code value="provider"/>
+		</coding>
+	</code>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="408443003"/>
+			<display value="General medical practice" />
+		</coding>
+	</specialty>
+	<location>
+		<reference value="Location/1"/>
+		<display value="South Wing, second floor"/>
+	</location>
+	<healthcareService>
+		<reference value="HealthcareService/example"/>
+	</healthcareService>
+	<contact>
+		<telecom>
+			<system value="email" />
+			<value value="general.practice@example.org" />
+			<use value="home"/>
+		</telecom>
+	</contact>
+	<endpoint>
+    <!-- Endpoint that handles the v2 messaging for the network -->
+    <reference value="Endpoint/example"/>
+  </endpoint>
+</OrganizationAffiliation>
