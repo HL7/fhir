@@ -1,5 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-This example illustrates the use of the GuidanceResponse resource to represent the response returned by an $evaluate operation against the Guideline Appropriate Ordering decision support service module.
+These examples illustrate the use of the GuidanceResponse resource to represent the response returned from a request for guidance in different scenarios
 
 </div>

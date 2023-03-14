@@ -53,7 +53,7 @@
   <concept>
     <code value="on"/>
     <display value="On"/>
-    <definition value="The DeviceMetric is operating and will generate DeviceObservations."/>
+    <definition value="The DeviceMetric is operating and will generate Observations."/>
   </concept>
   <concept>
     <code value="off"/>
@@ -63,7 +63,7 @@
   <concept>
     <code value="standby"/>
     <display value="Standby"/>
-    <definition value="The DeviceMetric is operating, but will not generate any DeviceObservations."/>
+    <definition value="The DeviceMetric is operating, but will not generate any Observations."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>

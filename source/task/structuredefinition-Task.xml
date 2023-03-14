@@ -361,7 +361,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The task's priority."/>
         </extension>
         <strength value="required"/>

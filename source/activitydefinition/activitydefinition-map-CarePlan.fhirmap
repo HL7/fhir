@@ -1,0 +1,57 @@
+map "http://research.philips.com/fhir/r4/mapping/AdToCarePlan" =
+    "R3 Parameters of Activitydefinition.$apply to CarePlan"
+
+uses "http://hl7.org/fhir/StructureDefinition/Parameters"       as source
+uses "http://hl7.org/fhir/StructureDefinition/CarePlan" as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    "subject" : for src.parameter as p where name='subject' then {
+        do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    "practitioner" : for src.parameter as p where name='practitioner' then{
+            do: for p.value as prac make tgt.author = prac
+        }
+
+    "organization" : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.author = org
+            }
+        }
+
+    "encounter" : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: ServiceRequest as target
+
+    "ad.code"      : for src.code     as vvv  make tgt.category = vvv
+//    "ad.priority"  : for src.priority as prio make tgt.priority = vvv
+//    "ad.doNotPerform"  : for src.doNotPerform as doNotPerform make tgt.priority as priority
+    "ad.timing"    : for src.timing   as timing make tgt.period = timing
+//    "ad.location"  : for src.location as location make tgt.location=location
+//    "ad.product"   : for src          as vvv check product.empty()
+//    "ad.quantity"  : for src          as vvv check quantity.empty()
+//    "ad.bodysite"  : for src.bodySite as vvv make tgt.bodySite = vvv
+//    "ad.dosage"    : for src          as vvv check dosage.empty()
+
+    "refAd"        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    "status"       : for src                 make tgt.status = "draft"
+    "intent"       : for src                 make tgt.intent = "proposal"
+    "created"      : for src                 make tgt.created = evaluate( src, now() )
+endgroup
+
+

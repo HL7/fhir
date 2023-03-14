@@ -6,9 +6,9 @@
 not including allergies in the record (for example an episodic document where the allergies are not considered 
 relevant to the document); or asserting that allergies were not reviewed and are unknown.</p>
 
-<p>Allergies with the verificationStatus "entered-in-error" indicates that the allergy or intolerance statement is entered by mistake and hence invalid.</p>
+<p>Allergies with the verificationStatus "entered-in-error" indicate that the allergy or intolerance statement is entered by mistake and hence invalid.</p>
 <p>Allergies with the verificationStatus "refuted" must be displayed to indicate that a reaction to a substance has been ruled out
-with the high level of clinical certainty (e.g. additional testing, re-challenging). When the allergy or intolerance is refuted, other elements may be retained for legal reasons, but those other elements are no longer clinically relevant.</p>
+with a high level of clinical certainty (e.g. additional testing, re-challenging). When the allergy or intolerance is refuted, other elements may be retained for legal reasons, but those other elements are no longer clinically relevant.</p>
 <p>Prior to adding a new allergy/intolerance, a list of existing negated and refuted reactions should be reviewed
 and reconciled.</p>
   

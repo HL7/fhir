@@ -348,7 +348,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorization.Legal Status of Supply (moved here for practicality)"/>
+        <map value="Marketing Authorisation.Legal Status of Supply (moved here for practicality)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

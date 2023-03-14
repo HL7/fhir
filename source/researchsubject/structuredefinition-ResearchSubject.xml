@@ -256,7 +256,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates why the state of the subject changed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/state-change-reason"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/state-change-reason"/>
       </binding>
     </element>
     <element id="ResearchSubject.progress.startDate">

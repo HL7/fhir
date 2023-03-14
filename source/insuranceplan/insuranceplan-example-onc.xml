@@ -1,70 +1,74 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <InsurancePlan xmlns="http://hl7.org/fhir">
-	<id value="example-onc" />
-	<text>
-		<status value="generated" />
-		<div xmlns="http://www.w3.org/1999/xhtml">
+    <id value="example-onc" />
+    <text>
+        <status value="generated" />
+        <div xmlns="http://www.w3.org/1999/xhtml">
 			Sample Plan
-		</div>
-	</text>
+        </div>
+    </text>
     <status value="active" />
-	<name value="Sample Plan" />
-	<alias value="PPO Sample Plan" />
-	<period>
-		<start value="2017-01-01" />
-	</period>
-	<ownedBy>
-		<reference value="Organization/Test" />
-		<display value="Test" />
-	</ownedBy>
-	<administeredBy>
-		<reference value="Organization/Test" />
-		<display value="Test" />
-	</administeredBy>
-	<address>
-		<line value="123 Fake Street" />
-		<city value="Washington" />
-		<state value="DC" />
-		<postalCode value="20005" />
-		<country value="USA" />
-	</address>
-	<coverageArea>
-		<reference value="Location/2" />
-		<display value="National" />
-	</coverageArea>
-	<coverage>
-		<type>
-			<text value="Medical" />
-		</type>
-		<benefit>
-			<type>
-				<text value="Diagnostic and treatment services" />
-			</type>
-			<item>
-				<code>
-					<text value="primary care visit" />
-				</code>
-			</item>
-            <item>
-				<code>
-					<text value="specialty care visit" />
-				</code>
-			</item>
-		</benefit>
-	</coverage>
+    <name value="Sample Plan" />
+    <alias value="PPO Sample Plan" />
+    <period>
+        <start value="2017-01-01" />
+    </period>
+    <ownedBy>
+        <reference value="Organization/Test" />
+        <display value="Test" />
+    </ownedBy>
+    <administeredBy>
+        <reference value="Organization/Test" />
+        <display value="Test" />
+    </administeredBy>
+    <contact>
+        <address>
+            <line value="123 Fake Street" />
+            <city value="Washington" />
+            <state value="DC" />
+            <postalCode value="20005" />
+            <country value="USA" />
+        </address>
+    </contact>
+    <coverageArea>
+        <reference value="Location/2" />
+        <display value="National" />
+    </coverageArea>
+    <coverage>
+        <type>
+            <text value="Medical" />
+        </type>
+        <benefit>
+            <type>
+                <text value="Diagnostic and treatment services" />
+            </type>
+            <limit>
+                <code>
+                    <text value="primary care visit" />
+                </code>
+            </limit>
+            <limit>
+                <code>
+                    <text value="specialty care visit" />
+                </code>
+            </limit>
+        </benefit>
+    </coverage>
     <!-- May need to change the data type for the value elements. We don't necessarily use currency each time (this example has values as currency and values as a percentage) -->
-	<plan>
-		<type>
-			<text value="Standard" />
-		</type>
-		<premium>
-			<value value="2000" />
-			<currency value="USD" />
-		</premium>
-        <category>
-            <code>
+    <plan>
+        <type>
+            <text value="Standard" />
+        </type>
+        <generalCost>
+            <cost>
+                <value value="2000" />
+                <currency value="USD" />
+            </cost>
+        </generalCost>
+        <specificCost>
+            <category>
                 <text value="Medical" />
-            </code>
+            </category>
             <benefit>
                 <type>
                     <text value="primary care office visit" />
@@ -74,21 +78,29 @@
                         <text value="copay" />
                     </type>
                     <applicability>
-                        <code value="preferred" />
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/applicability" />
+                            <code value="in-network" />
+                        </coding>
+                        <text value="preferred" />
                     </applicability>
-                    <value> 
+                    <value>
                         <value value="25" />
-                        <currency value="USD" />
+                        <unit value="USD" />
                     </value>
-                </cost>    
+                </cost>
                 <cost>
                     <type>
                         <text value="coinsurance" />
                     </type>
                     <applicability>
-                        <code value="participating" />
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/applicability" />
+                            <code value="in-network" />
+                        </coding>
+                        <text value="participating" />
                     </applicability>
-                    <value> 
+                    <value>
                         <value value="35" />
                         <unit value="%" />
                     </value>
@@ -98,9 +110,13 @@
                         <text value="coinsurance" />
                     </type>
                     <applicability>
-                        <code value="non-participating" />
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/applicability" />
+                            <code value="out-of-network" />
+                        </coding>
+                        <text value="non-participating" />
                     </applicability>
-                    <value> 
+                    <value>
                         <value value="35" />
                         <unit value="%" />
                     </value>
@@ -115,21 +131,29 @@
                         <text value="copay" />
                     </type>
                     <applicability>
-                        <code value="preferred" />
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/applicability" />
+                            <code value="in-network" />
+                        </coding>
+                        <text value="preferred" />
                     </applicability>
-                    <value> 
+                    <value>
                         <value value="35" />
-                        <currency value="USD" />
+                        <unit value="USD" />
                     </value>
-                </cost>    
+                </cost>
                 <cost>
                     <type>
                         <text value="coinsurance" />
                     </type>
                     <applicability>
-                        <code value="participating" />
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/applicability" />
+                            <code value="in-network" />
+                        </coding>
+                        <text value="participating" />
                     </applicability>
-                    <value> 
+                    <value>
                         <value value="35" />
                         <unit value="%" />
                     </value>
@@ -139,17 +163,21 @@
                         <text value="coinsurance" />
                     </type>
                     <applicability>
-                        <code value="non-participating" />
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/applicability" />
+                            <code value="out-of-network" />
+                        </coding>
+                        <text value="non-participating" />
                     </applicability>
-                    <value> 
+                    <value>
                         <value value="35" />
                         <unit value="%" />
                     </value>
                 </cost>
             </benefit>
-        </category> 
-	</plan>
-	<endpoint>
-		<reference value="Endpoint/example" />
-	</endpoint>
+        </specificCost>
+    </plan>
+    <endpoint>
+        <reference value="Endpoint/example" />
+    </endpoint>
 </InsurancePlan>

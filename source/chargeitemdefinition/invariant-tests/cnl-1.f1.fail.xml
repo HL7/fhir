@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><ChargeItemDefinition xmlns="http://hl7.org/fhir">
+	<id value="ebm"/>
+	<url value="http://fhir.de/ChargeItemDefinition/kbv/ebm-30110#"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.29.1"/>
+  </identifier>
+  <version value="2-2018"/>
+	<status value="active"/> 
+	<description value="Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten"/>
+	<code>	
+		<coding>
+			<system value="http://fhir.de/CodingSystem/kbv/ebm"/>
+			<code value="30110"/> 
+			<display value="Allergologiediagnostik I"/>
+		</coding>
+	</code>
+	<applicability>
+		<condition>
+			<description value="Excludes billing code 13250 for same Encounter"/>
+			<language value="text/cql"/>
+			<expression value="[some CQL expression]"/>
+		</condition>
+		<effectivePeriod>
+			<start value="2018-04-01"/>
+			<end value="2018-06-30"/>
+		</effectivePeriod>
+	</applicability>
+	<applicability>
+		<condition>
+			<description value="Applies only once per Encounter"/>
+			<language value="text/CQL"/>
+			<expression value="[some CQL expression]"/>
+		</condition>
+		<effectivePeriod>
+			<start value="2018-04-01"/>
+			<end value="2018-06-30"/>
+		</effectivePeriod>
+	</applicability>
+	<!-- a group of static properties (no additional rules apply)-->
+	<propertyGroup>
+		<priceComponent>
+			<type value="base"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/kbv/ebm-attribute"/>
+					<code value="gesamt-euro"/>
+					<display value="Gesamt (Euro)"/>
+				</coding>
+			</code>
+			<amount>
+				<value value="67.44"/>
+				<currency value="EUR"/>
+			</amount>
+		</priceComponent>
+		<priceComponent>
+			<type value="informational"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/kbv/ebm-attribute"/>
+					<code value="gesamt-punkte"/>
+					<display value="Gesamt (Punkte)"/>
+				</coding>
+			</code>
+			<factor value="633"/>						
+		</priceComponent>
+	</propertyGroup>
+</ChargeItemDefinition>

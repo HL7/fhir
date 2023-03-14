@@ -119,7 +119,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceAssociationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A coded concept specifying the state of the device association."/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
@@ -139,6 +139,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAssociationStatusReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the reason for status change."/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the reason for changing the status of the association."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status-reason"/>
+      </binding>
+
     </element>
     <element id="DeviceAssociation.subject">
       <path value="DeviceAssociation.subject"/>
@@ -199,7 +211,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceAssociationOperationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A coded concept specifying the status of the association operation."/>
         </extension>
         <strength value="example"/>

@@ -18,7 +18,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
     <valueString value="&quot;#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One status in `Observation.status` which has a [required](terminologies.html#extensible) binding to:&#xA;    -    [ObservationStatus] value set.&#xA;1.  A category in `Observation.category` which must have:&#xA;    -   a fixed `Observation.category.coding.system`=&quot;http://terminology.hl7.org/CodeSystem/observation-category&quot;&#xA;    -   a fixed `Observation.category.coding.code`= &quot;vital-signs&quot;&#xA;&#xA;1.  A code in `Observation.code`&#xA;    -   a fixed `Observation.code.coding.system`= &quot;http://loinc.org&quot;&quot;&#xA;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](terminologies.html#extensible) binding to:&#xA;         -   [Vital Signs] value set.&#xA;                &#xA;1.  One patient in `Observation.subject`&#xA;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#xA;1.  Either one `Observation.value[x]` or, if there is no value, one code in `Observation.DataAbsentReason`&#xA;    -   if a vital sign measure then:&#xA;        -  One numeric value in Observation.valueQuantity.value&#xA;        - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xA;        - a UCUM unit code in Observation.valueQuantity.code which has a required binding to the [Vital Signs Units] value set.&#xA;    -   Observation.DataAbsentReason is bound to [Observation Value&#xA;        Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group component observations (Note: See&#xA;    the comments regarding blood pressure in the table above), one or&#xA;    more `Observation.component.code` each of which must have:&#xA;    -   a fixed&#xA;        `Observation.component.code.coding.system` =&quot;&quot;http://loinc.org&quot;&quot;&#xA;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#xA;             -   [Vital Signs Units] value set.&#xA;&#xA;1.  Either one `Observation.component.valueQuantity` or, if there is&#xA;    no value, one code in `Observation.component.DataAbsentReason`&#xA;    -   Observation.component.DataAbsentReason is bound to [Observation&#xA;        Value Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group observations, one or more reference&#xA;    to Vitals Signs Observations in `Observation.related.target`&#xA;    -   a fixed `Observation.related.type`= &quot;has-member&quot;&quot;&#xA;&#xA; [Vital Signs]: valueset-observation-vitalsignresult.html&#xA;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#xA;  [extensible]: terminologies.html#extensible&#xA;  [ObservationStatus]: valueset-observation-status.html&#xA; [Observation Value Absent Reason]: valueset-data-absent-reason.html&#xA;[required]: terminologies.html#required&quot;"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
@@ -183,7 +183,7 @@
       </type>
       <mustSupport value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="This identifies the vital sign result type."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -290,7 +290,7 @@
       </type>
       <mustSupport value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="This identifies the vital sign result type."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -311,7 +311,7 @@
       <condition value="vs-3"/>
       <mustSupport value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Common UCUM units for recording Vital Signs."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
