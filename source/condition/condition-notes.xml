@@ -63,7 +63,7 @@ The Condition.evidence provides the basis for whatever is present in Condition.c
 <h3>Use of Condition.abatementRange</h3>
 
 <p>
-A range is used to communicate age period of subject at time of abatement. 
+A range is used to communicate an imprecise age of the subject at the time of abatement. 
 </p>
 
 <h3>Use of Condition.asserter</h3>
