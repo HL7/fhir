@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TerminologyCapabilities xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+
+<!-- ======= Fail  invariant ======== -->
+  <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311|123"/>
+<!-- ======================================== -->
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.6.2"/>
+  </identifier>
+  <version value="20130510"/>
+  <name value="ACMEEHR"/>
+  <title value="ACME EHR capability statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-01-04"/>
+  <publisher value="ACME Corporation"/>
+  <contact>
+    <name value="System Administrator"/>
+    <telecom>
+      <system value="email"/>
+      <value value="wile@acme.org"/>
+    </telecom>
+  </contact>
+  <description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <kind value="instance"/>
+  <software>
+    <name value="TxServer"/>
+    <version value="0.1.2"/>
+  </software>
+  <implementation>
+    <description value="Acme Terminology Server"/>
+    <url value="http://example.org/tx"/>
+  </implementation>
+  <codeSearch value="in-compose-or-expansion"/>
+</TerminologyCapabilities>
