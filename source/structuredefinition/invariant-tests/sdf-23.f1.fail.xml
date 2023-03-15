@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/example"/>
+  <version value="2"/>
+  <name value="LipidProfileExample"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <derivation value="constraint"/>
+  <snapshot>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport"/>
+      <sliceName value="oops"/>
+      <short value="Lipid Lab Report"/>
+      <definition value="The findings and interpretation of a general lipd lab profile."/>
+      <comment value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+    <element id="DiagnosticReport.representation">
+      <path value="DiagnosticReport.representation"/>
+      <short value="Entire Report as issued"/>
+      <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
+      <comment value="Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document. Application/pdf is recommended as the most reliable and interoperable in this context."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DiagnosticReport.representation"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+  </snapshot>
+</StructureDefinition>

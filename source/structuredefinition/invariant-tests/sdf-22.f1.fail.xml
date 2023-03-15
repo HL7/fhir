@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/example"/>
+  <version value="2"/>
+  <name value="LipidProfileExample"/>
+  <title value="Example Lipid Profile"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <derivation value="constraint"/>
+  <snapshot>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport"/>
+      <short value="Lipid Lab Report"/>
+      <definition value="The findings and interpretation of a general lipd lab profile."/>
+      <comment value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+    <element id="DiagnosticReport.subject">
+      <path value="DiagnosticReport.subject"/>
+      <short value="The subject of the report"/>
+      <definition value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport.subject"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <aggregation value="bundled"/>
+        <versioning value="either"/>
+      </type>
+      <defaultValueString value="demo string"/>
+      <isModifier value="false"/>
+    </element>
+
+  </snapshot>
+</StructureDefinition>
