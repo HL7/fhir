@@ -20,7 +20,6 @@ signatures.html
       <page title="Resources" filename="resourcelist.html"/>
       <page title="Patterns" filename="patterns.html"/>
       <page title="Profiles" filename="profilelist.html"/>
-      <page title="Extensions" filename="extensibility-registry.html"/>
       <page title="Operations" filename="operationslist.html">
         <page title="Operations for Large Resources" filename="operations-for-large-resources.html"/>
       </page>
@@ -39,7 +38,7 @@ signatures.html
       -->
       </page>
       <page title="CI Build Search" filename="search-build.html"/>
-      <page title="Ballot Introduction" filename="ballot-intro.html"/>
+    <!--  <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -52,7 +51,6 @@ signatures.html
         <page title="References between Resources" filename="references.html">
           <page title="Definitions" filename="references-definitions.html"/>
           <page title="Profiles" filename="references-profiles.html"/>
-          <page title="Extensions" filename="references-extensions.html"/>
           <page title="R4 Conversions" filename="references-version-maps.html"/>
         </page>
         <page title="Narrative" filename="narrative.html">
@@ -101,7 +99,6 @@ signatures.html
         <page title="Type Framework" filename="types.html">
           <page title="Detailed Descriptions" filename="types-definitions.html"/>
           <page title="Profiles" filename="types-profiles.html"/>
-          <page title="Extensions" filename="types-extensions.html"/>
           <page title="Mappings" filename="types-mappings.html"/>
           <page title="R4 Conversions" filename="types-version-maps.html"/>
           <page type="resource" resource="Resource">
@@ -116,14 +113,12 @@ signatures.html
           <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
           <page title="Mappings" filename="datatypes-mappings.html"/>
           <page title="Profiles" filename="datatypes-profiles.html"/>
-          <page title="Extensions" filename="datatypes-extensions.html"/>
           <page title="R4 Conversions" filename="datatypes-version-maps.html"/>
           <page title="MetaData Types" filename="metadatatypes.html">
             <page title="Examples" filename="metadatatypes-examples.html"/>
             <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
             <page title="Mappings" filename="metadatatypes-mappings.html"/>
             <page title="Profiles" filename="metadatatypes-profiles.html"/>
-            <page title="Extensions" filename="metadatatypes-extensions.html"/>
             <page title="R4 Conversions" filename="metadatatypes-version-maps.html"/>
           </page>
           <page title="ElementDefinition" filename="elementdefinition.html">
@@ -131,7 +126,6 @@ signatures.html
             <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
             <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
             <page title="Profiles" filename="elementdefinition-profiles.html"/>
-            <page title="Extensions" filename="elementdefinition-extensions.html"/>
             <page title="R4 Conversions" filename="elementdefinition-version-maps.html"/>
           </page>
         </page>
@@ -368,7 +362,6 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
         <page title="Dosage Profiles" filename="dosage-profiles.html"/>
-        <page title="Dosage Extensions" filename="dosage-extensions.html"/>
         <page title="R4 Conversions" filename="dosage-version-maps.html"/>
       </page>
       <page type="resource" resource="FormularyItem"/>
@@ -475,7 +468,6 @@ signatures.html
         <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
         <page title="Mappings" filename="marketingstatus-mappings.html"/>
         <page title="Profiles" filename="marketingstatus-profiles.html"/>
-        <page title="Extensions" filename="marketingstatus-extensions.html"/>
         <page title="R4 Conversions" filename="marketingstatus-version-maps.html"/>
       </page>
       <!--page title="Population" filename="population.html">
@@ -483,7 +475,6 @@ signatures.html
         <page title="Detailed Descriptions" filename="population-definitions.html"/>
         <page title="Mappings" filename="population-mappings.html"/>
         <page title="Profiles" filename="population-profiles.html"/>
-        <page title="Extensions" filename="population-extensions.html"/>
         <page title="R4 Conversions" filename="population-version-maps.html"/>
       </page-->
       <page title="ProductShelfLife" filename="productshelflife.html">
@@ -491,7 +482,6 @@ signatures.html
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
         <page title="Mappings" filename="productshelflife-mappings.html"/>
         <page title="Profiles" filename="productshelflife-profiles.html"/>
-        <page title="Extensions" filename="productshelflife-extensions.html"/>
         <page title="R4 Conversions" filename="productshelflife-version-maps.html"/>
       </page>
     </page>

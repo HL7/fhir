@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="101"/>
+  <url value="http://hl7.org/fhir/ConceptMap/101"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.14.1"/>
+  </identifier>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b"/>
+  </identifier>
+  <version value="20120613"/>
+  <name value="FHIRv3AddressUse"/>
+  <title value="FHIR/v3 Address Use Mapping"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-06-13"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <name value="FHIR project team (example)"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="venue"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="for CCDA Usage"/>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="To help implementers map from FHIR to HL7 v3/CDA"/>
+  <copyright value="Creative Commons 0"/>
+  <sourceScopeUri value="http://hl7.org/fhir/ValueSet/address-use"/>
+  <targetScopeUri value="http://terminology.hl7.org/ValueSet/v3-AddressUse"/>
+  <group>
+    <source value="http://hl7.org/fhir/address-use"/>
+    <target value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
+    <element>
+      <code value="home"/>
+      <display value="Home"/>
+      <target>
+        <code value="H"/>
+        <display value="home address"/>
+        <relationship value="source-is-broader-than-target"/>
+      </target>
+    </element>
+    <element>
+      <code value="work"/>
+      <display value="Work"/>
+      <target>
+        <code value="WP"/>
+        <display value="work place"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="temp"/>
+      <display value="Temporary"/>
+      <target>
+        <code value="TMP"/>
+        <display value="temporary address"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="old"/>
+      <display value="Old / Incorrect"/>
+      <target>
+        <code value="BAD"/>
+        <display value="bad address"/>
+        <relationship value="not-related-to"/>
+        <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
+      </target>
+    </element>
+    <unmapped>
+      <mode value="fixed"/>
+      <code value="temp"/>
+      <display value="temp"/>
+      <relationship value="related-to"/>
+    </unmapped>
+  </group>
+</ConceptMap>
