@@ -11,13 +11,13 @@
                 "genomeAssembly": {
                     "text": "hg38"
                 },
-                "chromosome": [
+                "chromosome": 
                     {
                         "coding": {
                             "code": "LA21254-0"
                         }
                     }
-                ]
+                
             }
         }
     ]
