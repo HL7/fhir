@@ -79,7 +79,10 @@
 				<display value="Cholesterol [Percentile]"/>
 				<designation>
 					<language value="en"/>
-					<use value="http://terminology.hl7.org/CodeSystem/designation-use"/>
+					<use>
+                                           <system value="http://terminology.hl7.org/CodeSystem/designation-use"/>
+                                            <code value="http://terminology.hl7.org/CodeSystem/designation-use"/>
+                                       </use>
 					<additionalUse>
 						<system value="http://terminology.hl7.org/CodeSystem/designation-use"/>
 						<code value="http://terminology.hl7.org/CodeSystem/designation-use"/>
