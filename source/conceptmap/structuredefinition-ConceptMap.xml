@@ -805,7 +805,7 @@
         <key value="cmd-4"/>
         <severity value="error"/>
         <human value="If noMap is present, target SHALL NOT be present"/>
-        <expression value="(noMap.exists() and target.empty()) or noMap.empty()"/>
+        <expression value="(noMap.exists() and noMap=true) implies target.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
