@@ -99,6 +99,22 @@
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
       <constraint>
+        <key value="nsd-2"/>
+        <severity value="error"/>
+        <human value="Can't have more than one preferred identifier for a type"/>
+        <expression value="uniqueId.where(preferred = true).select(type).isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+      </constraint>
+
+      <constraint>
+        <key value="nsd-3"/>
+        <severity value="error"/>
+        <human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
+        <expression value="uniqueId.where(authoritative = 'true').select(type.toString() &amp; period.start.toString() &amp; period.end.toString()).isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+      </constraint>
+
+      <constraint>
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
@@ -646,20 +662,9 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="nsd-1"/>
-      <constraint>
-        <key value="nsd-2"/>
-        <severity value="error"/>
-        <human value="Can't have more than one preferred identifier for a type"/>
-        <expression value="$this.where(preferred = true).select(type).isDistinct()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
-      </constraint>
-      <constraint>
-        <key value="nsd-3"/>
-        <severity value="error"/>
-        <human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
-        <expression value="$this.where(authoritative = true).select(type | period).isDistinct()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
-      </constraint>
+      <condition value="nsd-2"/>
+      <condition value="nsd-3"/>
+
       <isSummary value="true"/>
     </element>
     <element id="NamingSystem.uniqueId.type">
