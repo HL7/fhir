@@ -23,7 +23,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="632-0"/>
-						<display value="Culture, MRSA"/>
+						<display value="Bacteria identified in Wound by Aerobe culture"/>
 					</coding> 
 				</code>
 				<subject>
