@@ -1,102 +1,69 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../publish/chargeitem.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<ChargeItem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/chargeitem.xsd">
-	<id value="example"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Example of ChargeItem Usage in Context of the German EBM Billing code system</div>
-	</text>
+<ChargeItemDefinition xmlns="http://hl7.org/fhir">
+	<id value="ebm"/>
+	<url value="http://fhir.de/ChargeItemDefinition/kbv/ebm-30110"/>
 	<identifier>
-		<system value="http://myHospital.org/ChargeItems"/>
-		<value value="654321"/>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.29.1"/>
 	</identifier>
-	<definition value = "http://www.kbv.de/tools/ebm/html/01520_2904360860826220813632.html"/>
-	<status value = "billable"/>
-
+	<version value="2-2018"/>
+	<status value="active"/>
+	<description value="Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten"/>
 	<code>
 		<coding>
-			<code  value="01510"/>
-			<display value= "Zusatzpauschale für Beobachtung nach diagnostischer Koronarangiografie"/>
+			<system value="http://fhir.de/CodingSystem/kbv/ebm"/>
+			<code value="30110"/>
+			<display value="Allergologiediagnostik I"/>
 		</coding>
 	</code>
-	<subject>
-		<reference value="Patient/example"/>
-	</subject>
-	<context>
-		<reference value="Encounter/example"/>
-	</context>
-	<occurrencePeriod>
-		<start value ="2017-01-25T08:00:00+01:00"/>
-		<end value ="2017-01-25T12:35:00+01:00"/>
-	</occurrencePeriod>
-	<participant>
-		<role>
-			<coding>
-				<system value= "http://snomed.info/sct"/>
-				<code value= "17561000"/>
-				<display value="Cardiologist"/>	
-			</coding>
-		</role>
-		<actor>
-			<reference value="Practitioner/example"/>
-		</actor>
-	</participant>
-	<participant>
-		<role>
-			<coding>
-				<system value= "http://snomed.info/sct"/>
-				<code value= "224542009"/>
-				<display value="Coronary Care Nurse"/>	
-			</coding>
-		</role>
-		<actor>
-			<reference value="Practitioner/example"/>
-		</actor>
-	</participant>
-	<performingOrganization>
-		<identifier>
-			<system value= "http://myhospital/NamingSystem/departments"/>
-			<value value= "CARD_INTERMEDIATE_CARE"/>
-		</identifier>
-	</performingOrganization>
-	<requestingOrganization>
-		<identifier>
-			<system value= "http://myhospital/NamingSystem/departments"/>
-			<value value= "CARD_U1"/>
-		</identifier>
-	</requestingOrganization>
-	<quantity>
-		<value value= "1"/>
-	</quantity> 
-	<factorOverride value="0.8"/>
-	<priceOverride>
-    <value value="40"/>
-    <currency value="EUR"/>
-	</priceOverride>
-	<overrideReason value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
-	<enterer>
-		<reference value="Practitioner/example"/>
-	</enterer>
-	<enteredDate value= "2017-01-25T23:55:04+01:00"/>
-	<reason>
-			<coding>
-				<system value= "http://hl7.org/fhir/sid/icd-10"/>
-				<code value= "123456"/>
-				<display value="DIAG-1"/>	
-			</coding>
-	</reason>
-	<service>
-		<reference value="Procedure/example"/>
-	</service>
-	<account>
-		<reference value="Account/example"/>
-	</account>
-	<note>
-		<authorReference>
-			<reference value="Practitioner/example"/>
-		</authorReference> 
-		<time value= "2017-01-25T23:55:04+01:00"/>
-		<text value= "The code is only applicable for periods longer than 4h"/>
-	</note>
-
-</ChargeItem> 
+	<applicability>
+		<condition>
+			<description value="Excludes billing code 13250 for same Encounter"/>
+			<language value="text/cql"/>
+			<expression value="[some CQL expression]"/>
+		</condition>
+		<effectivePeriod>
+			<start value="2018-04-01"/>
+			<end value="2018-06-30"/>
+		</effectivePeriod>
+	</applicability>
+	<applicability>
+		<condition>
+			<description value="Applies only once per Encounter"/>
+			<language value="text/CQL"/>
+			<expression value="[some CQL expression]"/>
+		</condition>
+		<effectivePeriod>
+			<start value="2018-04-01"/>
+			<end value="2018-06-30"/>
+		</effectivePeriod>
+	</applicability>
+	<!-- a group of static properties (no additional rules apply)-->
+	<propertyGroup>
+		<priceComponent>
+			<type value="base"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/kbv/ebm-attribute"/>
+					<code value="gesamt-euro"/>
+					<display value="Gesamt (Euro)"/>
+				</coding>
+			</code>
+			<amount>
+				<value value="67.44"/>
+				<currency value="EUR"/>
+			</amount>
+		</priceComponent>
+		<priceComponent>
+			<type value="informational"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/kbv/ebm-attribute"/>
+					<code value="gesamt-punkte"/>
+					<display value="Gesamt (Punkte)"/>
+				</coding>
+			</code>
+			<factor value="633"/>
+		</priceComponent>
+	</propertyGroup>
+</ChargeItemDefinition>

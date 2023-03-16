@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/example"/>
+  <version value="2"/>
+  <name value="LipidProfileExample"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <ordered value="false"/>
+        <rules value="open"/>
+      </slicing>
+      <short value="Lipid Lab Report"/>
+      <definition value="The findings and interpretation of a general lipd lab profile."/>
+      <comment value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="DiagnosticReport"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+  </differential>
+</StructureDefinition>

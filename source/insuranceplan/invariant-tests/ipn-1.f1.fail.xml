@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InsurancePlan xmlns="http://hl7.org/fhir"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[insuranceplan.xsd">
+    <id value = "example"></id>
+    <alias value="PPO Sample Plan" />
+    <period>
+        <start value="2017-01-01" />
+    </period>
+    <ownedBy>
+        <reference value="Organization/Test" />
+        <display value="Test" />
+    </ownedBy>
+    <administeredBy>
+        <reference value="Organization/Test" />
+        <display value="Test" />
+    </administeredBy>
+</InsurancePlan>

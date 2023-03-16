@@ -22,10 +22,5 @@
         <reference value="StructureDefinition/composition-clinicaldocument-otherConfidentiality"/>
       </reference>
     </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/composition-clinicaldocument-versionNumber"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>
