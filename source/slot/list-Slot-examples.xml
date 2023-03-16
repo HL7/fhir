@@ -52,4 +52,16 @@
       <display value="Unavailable Example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a slot constrained to a specific HealthcareService reference"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="slot-example-hcs"/>
+    </extension>
+    <item>
+      <reference value="Slot/example-hcs"/>
+      <display value="HealthcareService reference Example"/>
+    </item>
+  </entry>
 </List>
