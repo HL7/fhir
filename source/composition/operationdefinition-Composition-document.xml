@@ -57,20 +57,11 @@
   <description value="A client can ask a server to generate a fully bundled document from a composition resource. The server takes the composition resource, locates all the referenced resources and other additional resources as configured or requested and either returns a full document bundle, or returns an error. If some of the resources are located on other servers, it is at the discretion of the  server whether to retrieve them or return an error. If the correct version of the document  that would be generated already exists, then the server can return the existing one."/>
   <affectsState value="false"/>
   <code value="document"/>
-  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#xA;* this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
+  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#xA;* This operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
   <resource value="Composition"/>
   <system value="false"/>
-  <type value="true"/>
+  <type value="false"/>
   <instance value="true"/>
-  <parameter>
-    <name value="id"/>
-    <use value="in"/>
-    <scope value="type"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Identifies the composition to use. This can either be a simple id, which identifies a composition, or it can be a full URL, which identifies a composition on another server. &#xA;&#xA;Notes: &#xA;&#xA;* GET [base]/Composition/[id]/$document is identical in meaning to GET [base]/Composition/$document?id=[id]&#xA;* the id parameter SHALL NOT be used if the operation is requested on a particular composition (e.g.  GET [base]/Composition/[id]/$document?id=[id] is not allowed)&#xA;* Servers are not required to support generating documents on Compositions located on another server"/>
-    <type value="uri"/>
-  </parameter>
   <parameter>
     <name value="persist"/>
     <use value="in"/>
