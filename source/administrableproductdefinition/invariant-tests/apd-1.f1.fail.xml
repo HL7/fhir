@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdministrableProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
+  <id value="example"/>
+<!-- ======= Fail apd-1 invariant ======== -->
+  <contained>
+    <MedicinalProductDefinition>
+      <id value="mdp"/>
+      <name value="Example Medicinal Product Definition"/>
+      <route>
+        <coding>
+          <system value="http://ema.europa.eu/example/routeofadministration"/>
+          <code value="OralUse"/>
+        </coding>
+      </route>
+    </MedicinalProductDefinition>
+  </contained>
+<!-- ======================================== -->
+  <identifier>
+    <system value="http://ema.europa.eu/example/phpididentifiersets"/>
+    <value value="{PhPID}"/>
+  </identifier>
+  <status value="active"/>
+  <formOf>
+  <reference value="#mdp"/>
+  </formOf>
+  <administrableDoseForm>
+    <coding>
+      <system value="http://ema.europa.eu/example/administrabledoseform"/>
+      <code value="Film-coatedtablet"/>
+    </coding>
+  </administrableDoseForm>
+  <unitOfPresentation>
+    <coding>
+      <system value="http://ema.europa.eu/example/unitofpresentation"/>
+      <code value="Tablet"/>
+    </coding>
+  </unitOfPresentation>
+<!-- ======= Fail apd-1 invariant ======== -->
+  <routeOfAdministration>
+     <code>
+       <coding>
+         <system value="http://ema.europa.eu/example/routeofadministration"/>
+         <code value="OralUse"/>
+       </coding>
+     </code>
+  </routeOfAdministration>
+<!-- ======================================== -->
+</AdministrableProductDefinition>
