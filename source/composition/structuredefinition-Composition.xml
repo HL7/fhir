@@ -635,7 +635,7 @@
       <path value="Composition.relatesTo"/>
       <short value="Relationships to other compositions/documents"/>
       <definition value="Relationships that this composition has with other compositions or documents that already exist."/>
-      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a resourceReference with an identifier.&#xA;Here is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&quot;replaces&quot; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&quot;...&quot; /&gt;&#xA;&lt;value value=&quot;...&quot; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
+      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a resourceReference with an identifier.\&#xA;When a Composition is an alternate representation of another type of document e.g. CDA, the other document could be referenced in a DocumentReference resource.  &#xA;Here is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&quot;relatesTo&quot;: [{&#xA;  &quot;type&quot;: &quot;replaces&quot;,&#xA;  &quot;resourceReference&quot;: {&#xA;    &quot;identifier&quot;: { &#xA;      &quot;system&quot;: &quot;...&quot;, &#xA;      &quot;value&quot;: &quot;...&quot;&#xA;    }&#xA;  } &#xA;}]&#xA;```"/>
       <min value="0"/>
       <max value="*"/>
       <type>
