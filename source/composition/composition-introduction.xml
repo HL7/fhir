@@ -30,8 +30,15 @@ See also the <a href="comparison-cda.html">comparison with CDA</a>.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Composition is a structure for grouping information for purposes of persistence and attestability.  There
-are several other grouping structures in FHIR with distinct purposes:
+Composition is a structure for grouping information for purposes of persistence and attestability.  
+The Composition resource defines a set of healthcare-related information that is assembled 
+together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
+that has clinical attestation with regard to who is making the statement. The Composition resource provides the basic structure 
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a <a href="bundle.html">Bundle</a> 
+containing the Composition and its entries. 
+</p>
+<p>
+There are several other grouping structures in FHIR with distinct purposes:
 </p>
 <ul>
 <li>
@@ -53,11 +60,12 @@ and is used to group collections of resources for transmission, persistence or p
 query responses, etc.).  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
 </li>
 <li>
-The <a href="composition.html">Composition</a> resource - defines a set of healthcare-related information that is assembled 
-together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
-that has clinical attestation with regard to who is making the statement. The Composition resource provides the basic structure 
-of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a <a href="bundle.html">Bundle</a> 
-containing the Composition and its entries. 
+The <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource - is similar to Composition in that both organize collections of items and can have a hierarchical structure. 
+<a href="questionnaire.html">Questionnaires</a> are also intended to help guide 'human' presentation of data. However, Compositions organize resources, while Questionnaires/QuestionnaireResponses organize specific elements. 
+Also, a Questionnaire represents data 'to be gathered' and is subject-independent, while Compositions represent collections of data that are complete and are about a particular subject. 
+It is possible for <a href="structuredefinition.html">StructureDefinitions</a> or <a href="graphdefinition.html">GraphDefinitions</a> to act as 'templates' for FHIR documents that guide what data is collected for a 
+particular purpose (e.g. a referral), but this differs from the gathering process that a Questionnaire provides where there are specific 
+questions that must be asked and answered and rules that guide which questions are enabled in which circumstances.
 </li>
 </ul>
 <p>
