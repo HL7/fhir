@@ -42,7 +42,7 @@ the Procedure resource is used to describe the activity.
 there is a need to capture information about the physical intervention that was performed to capture the diagnostic 
 information (e.g. anesthetic, incision, scope size, etc.)</p>
 <p>
-A <a href="task.html">Task</a> is a workflow step such as cancelling an order, fulfilling an order, signing an order, merging a set of records, admitting a patient. 
+A <a href="task.html">Task</a> is a workflow step such as canceling an order, fulfilling an order, signing an order, merging a set of records, admitting a patient. 
 Procedures are actions that are intended to result in a physical or mental change to or for the subject (e.g. surgery, physiotherapy, training, counseling). 
 A <a href="task.html">Task</a> resource often exists in parallel with clinical resources. For example, a <a href="task.html">Task</a> might request fulfillment of a <a href="servicerequest.html">ServiceRequest</a> ordering a Procedure.
 </p>

@@ -21,13 +21,16 @@
 		<reference value="Organization/hl7" />
 		<display value="Health Level Seven International" />
 	</administeredBy>
-	<address>
-		<line value="3300 Washtenaw Avenue, Suite 227" />
-		<city value="Ann Arbor" />
-		<state value="MI" />
-		<postalCode value="48104" />
-		<country value="USA" />
-	</address>
+	<contact>
+
+		<address>
+			<line value="3300 Washtenaw Avenue, Suite 227" />
+			<city value="Ann Arbor" />
+			<state value="MI" />
+			<postalCode value="48104" />
+			<country value="USA" />
+		</address>
+	</contact>
 	<coverageArea>
 		<reference value="Location/2" />
 		<display value="USSS Enterprise-D" />
@@ -40,25 +43,27 @@
 			<type>
 				<text value="Primary Care" />
 			</type>
-			<item>
+			<limit>
+				<value>
+					<value value="450.23" />
+					<unit value="USD" />
+				</value>
 				<code>
 					<text value="day" />
 				</code>
-				<benefitValue>
-					<value value="450.23" />
-					<currency value="USD" />
-				</benefitValue>
-			</item>
+			</limit>
 		</benefit>
 	</coverage>
 	<plan>
 		<type>
 			<text value="Silver" />
 		</type>
-		<premium>
-			<value value="2000" />
-			<currency value="USD" />
-		</premium>
+		<generalCost>
+			<cost>
+				<value value="2000" />
+				<currency value="USD" />
+			</cost>
+		</generalCost>
 	</plan>
 	<endpoint>
 		<!-- Endpoint that handles the v2 messaging for the external organization -->

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/NamingSystem/example"/>
+
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.22.1"/>
+  </identifier>
+
+  <name value="SNOMEDCT"/>
+  <title value="SNOMED CT"/>
+  <status value="active"/>
+
+
+  <kind value="root"/>
+
+
+  <date value="2014-12-13"/>
+  <publisher value="HL7 International on behalf of IHTSDO"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <responsible value="IHTSDO &amp; affiliates"/>
+  <description value="SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid &quot;semantic drift&quot; so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.    SNOMED CT's concepts are interrelated hierarchically and using description logic.    SNOMED CT concepts have a unique &quot;fully-specified name&quot;, a preferred term, and, optionally, synonyms.  The description languages include English and Spanish."/>
+
+  <!--=== Fail nsd-3 invariant =====-->
+
+   <uniqueId>
+    <type value="uri"/>
+    <value value="http://ns.electronichealth.net.au/id/hi/ihi/1.0"/>
+    <preferred value="true"/>
+    <period>
+      <start value="2015-08-21"/>
+    </period>
+    <authoritative value="true"/>
+  </uniqueId>
+
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://ns.electronichealth.net.au/id/hi/ihi/1.0"/>
+    <!-- <preferred value="true"/> -->
+    <period>
+      <start value="2015-08-21"/>
+    </period>
+    <authoritative value="true"/>
+  </uniqueId>
+  <!--=== Fail nsd-3 invariant =====-->
+</NamingSystem>
