@@ -371,7 +371,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.context.encounter"/>
+        <map value="DocumentReference.context"/>
       </mapping>
     </element>
     <element id="Composition.date">
