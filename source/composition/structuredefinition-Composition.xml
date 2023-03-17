@@ -911,38 +911,6 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="Composition.section.mode">
-      <path value="Composition.section.mode"/>
-      <short value="working | snapshot | changes"/>
-      <definition value="How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted."/>
-      <comment value="This element is labeled as a modifier because a change list must not be misunderstood as a complete list."/>
-      <requirements value="Sections are used in various ways, and it must be known in what way it is safe to use the entries in them."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SectionMode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The processing mode that applies to this section."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
     <element id="Composition.section.orderedBy">
       <path value="Composition.section.orderedBy"/>
       <short value="Order of section entries"/>

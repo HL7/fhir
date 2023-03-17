@@ -143,7 +143,6 @@
 				</table>
 			</div>
 		</text>
-		<mode value="snapshot"/>
 		<orderedBy>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/list-order"/>
@@ -176,7 +175,6 @@
 				<p>History of family member diseases - not available</p>
 			</div>
 		</text>
-		<mode value="snapshot"/>
 		<emptyReason>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/list-empty-reason"/>
