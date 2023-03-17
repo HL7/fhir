@@ -82,7 +82,7 @@
         <key value="ing-1"/>
         <severity value="error"/>
         <human value="If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allegen information should be documented in that resource"/>
-        <expression value="(Ingredient.allergenicIndicator.where(value='true').count() + Ingredient.substance.code.reference.count())  &lt; 2"/>
+        <expression value="Ingredient.where(allergenicIndicator=true).count() + Ingredient.substance.code.reference.count()  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
       </constraint>
       <mapping>

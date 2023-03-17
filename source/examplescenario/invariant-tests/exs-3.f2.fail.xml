@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ExampleScenario xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/ExampleScenario/example"/>
+  <name value="Example Scenario"/>
+  
+<!-- ======= Fail exs-3 invariant ======== -->
+  <status value="retired"/>
+  <purpose value="Purpose:"/>
+
+  <!-- <actor>
+    <key value="Nurse"/>
+    <type value="person"/>
+    <title value="Nurse"/>
+    <description value="The Nurse"/>
+  </actor> -->
+
+<!-- ======================================== -->
+
+  <instance>
+    <key value="iherx001"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="MedicationRequest"/>
+    </structureType>
+    <title value="Initial Prescription"/>
+    <description value="The initial prescription"/>
+  </instance>
+
+
+
+  <instance>
+    <key value="iheadm002"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="MedicationAdministration"/>
+    </structureType>
+    <title value="Lunch meds - taken"/>
+    <description value="Administration report for day 1, lunch: Taken"/>
+    <version>
+      <key value="iheadm002v2"/>
+      <title value="Administration - v2"/>
+      <description value="Medication rejected"/>
+    </version>
+  </instance>
+
+  <process>
+    <title value="Mobile Medication Administration"/>
+    <description value="This scenario demonstrates"/>
+    <preConditions value="Medication administration"/>
+    <postConditions value="Medication administration"/>
+    <step>
+      <number value="1"/>
+      <operation>
+        <title value="Get today's schedule"/>
+        <initiator value="Nurse"/>
+        <receiver value="MAP"/>
+      </operation>
+    </step>
+    <step>
+      <number value="2"/>
+      <operation>
+        <title value="Query administration orders"/>
+        <initiator value="MAP"/>
+        <receiver value="OP"/>
+        <description value="Query for medication administration"/>
+        <request>
+          <instanceReference value="iherxqry"/>
+        </request>
+        <response>
+          <instanceReference value="iherx001bundle"/>
+        </response>
+      </operation>
+      <pause value="true"/>
+    </step>
+</process>
+ 
+</ExampleScenario>
