@@ -92,6 +92,7 @@ Every composition has a status element, which describes the status of the conten
 Composition status generally only moves down through this list - it moves from <code>registered</code> or <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
 Note that in many workflows, only <code>final</code> compositions are made available and the <code>preliminary</code> status is not used. 
 </p>
+<img src="composition-state-machine.png" alt="Diagram showing typical transitions of clinical status for the Composition resource" style="max-width:100%"/>
 <p>
 A very few compositions are created entirely in error in the workflow - usually the composition concerns the wrong patient or is written by the wrong author,
 and the error is only detected after the composition has been used or documents have been derived from it. To support resolution of this case, 
