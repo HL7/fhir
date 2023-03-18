@@ -470,10 +470,6 @@
         <identity value="cda"/>
         <map value="ClinicalDocument/recordTarget/"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="DocumentReference.context">
       <path value="DocumentReference.context"/>

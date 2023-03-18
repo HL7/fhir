@@ -195,10 +195,6 @@
         <identity value="rim"/>
         <map value="subject.role"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="VisionPrescription.encounter">
       <path value="VisionPrescription.encounter"/>

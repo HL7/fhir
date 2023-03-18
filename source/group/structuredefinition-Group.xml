@@ -415,7 +415,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject"/>
+        <map value="FiveWs.subject[x]"/>
       </mapping>
     </element>
     <element id="Group.member.entity">

@@ -265,10 +265,6 @@
         <identity value="openehr"/>
         <map value="Subject of Care"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="RiskAssessment.encounter">
       <path value="RiskAssessment.encounter"/>

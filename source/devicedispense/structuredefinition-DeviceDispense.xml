@@ -269,10 +269,6 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=SBJ].role[classCode=PAT]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="DeviceDispense.receiver">
       <path value="DeviceDispense.receiver"/>

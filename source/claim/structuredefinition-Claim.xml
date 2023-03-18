@@ -247,10 +247,6 @@
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Claim.billablePeriod">
       <path value="Claim.billablePeriod"/>

@@ -647,7 +647,7 @@
           <valueString value="UsageContextType"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/usage-context-type"/>
       </binding>
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.method">

@@ -187,10 +187,6 @@
         <identity value="cdanetv4"/>
         <map value="C06,C07,C08, C05, C04"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="CoverageEligibilityResponse.event">
       <path value="CoverageEligibilityResponse.event"/>

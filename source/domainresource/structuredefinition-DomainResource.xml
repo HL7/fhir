@@ -102,7 +102,7 @@
       </constraint>
       <mapping>
         <identity value="rim"/>
-        <map value="Entity. Role, or Act"/>
+        <map value="Entity, Role, or Act"/>
       </mapping>
     </element>
     <element id="DomainResource.text">

@@ -506,10 +506,6 @@
         <identity value="rim"/>
         <map value="participation[typeCode=RTGT]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Observation.focus">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -540,10 +536,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Observation.encounter">

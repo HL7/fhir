@@ -503,10 +503,6 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=RCT].role"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Task.encounter">
       <path value="Task.encounter"/>
