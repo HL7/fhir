@@ -1158,7 +1158,8 @@
     <element id="Device.gateway">
       <path value="Device.gateway"/>
       <short value="Linked device acting as a communication/data collector, translator or controller"/>
-      <definition value="The linked device acting as a communication/data collector, translator or controller for the current device (e.g., mobile phone application that relays a blood pressure device's data)."/>
+      <definition value="The linked device acting as a communication controller, data collector, translator, or concentrator for the current device (e.g., mobile phone application that relays a blood pressure device's data)."/>
+      <comment value="The Device.gateway may be used when the Device being referenced has a gateway and/or to capture one or more gateways associated with the device. If the Gateway is included in the Observation resource, the Observation.gatewayDevice should be used instead."/>
       <min value="0"/>
       <max value="*"/>
       <type>
