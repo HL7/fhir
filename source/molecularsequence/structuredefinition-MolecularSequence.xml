@@ -261,14 +261,14 @@
         <key value="msq-6"/>
         <severity value="error"/>
         <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
-        <expression value="(genomeAssembly.count()+sequence.count()) = 1"/>
+        <expression value="genomeAssembly.exists() xor sequence.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
         <key value="msq-5"/>
         <severity value="error"/>
         <human value="Both genomeAssembly and chromosome must be both contained if either one of them is contained"/>
-        <expression value="(chromosome.empty() and genomeAssembly.empty()) or (chromosome.exists() and genomeAssembly.exists())"/>
+        <expression value="chromosome.exists() = genomeAssembly.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <isSummary value="true"/>

@@ -10,7 +10,7 @@
         <system value="http://example.org/www.monumentHIE.com"/>
         <value value="hosp32"/>
         <assigner>
-            <reference value="http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE"/>
+            <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE"/> -->
             <display value="Monument Health Information Exchange"/>
         </assigner>
     </identifier>
@@ -18,12 +18,12 @@
     <active value="true"/> <!-- this record is active -->
 
     <organization> <!-- Reference to the resource describing the HIE -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE"/> -->
         <display value="Monument Health Information Exchange"/>
     </organization>
 
     <participatingOrganization> <!-- Founding Fathers participates in the HIE -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/> -->
         <display value="Founding Fathers Memorial Hospital"/>
     </participatingOrganization>
 
@@ -37,7 +37,7 @@
     </code>
 
     <endpoint> <!-- Reference to the endpoint for sending data to Founding Fathers through the HIE -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Endpoint/foundingfathersHIE"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Endpoint/foundingfathersHIE"/> -->
         <display value="Founding Fathers Memorial Hospital HIE endpoint"/>
     </endpoint>
 

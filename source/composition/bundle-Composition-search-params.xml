@@ -70,18 +70,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Composition-context"/>
+        <id value="Composition-event-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Composition.event.code"/>
+          <valueString value="Composition.event.detail.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-context"/>
-        <description value="Code(s) that apply to the event being documented"/>
-        <code value="context"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-event-code"/>
+        <description value="Main clinical acts documented as codes"/>
+        <code value="event-code"/>
         <type value="token"/>
-        <expression value="Composition.event.code"/>
+        <expression value="Composition.event.detail.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-event-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.event.detail.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-event-reference"/>
+        <description value="Main clinical acts documented as references"/>
+        <code value="event-reference"/>
+        <type value="reference"/>
+        <expression value="Composition.event.detail.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

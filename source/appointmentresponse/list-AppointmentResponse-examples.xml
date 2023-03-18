@@ -18,7 +18,19 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Response to renegotiate an appointmet request"/>
+      <valueString value="General Person Example - Location Auto Accept"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="appointmentresponse-example-loc"/>
+    </extension>
+    <item>
+      <reference value="AppointmentResponse/example-loc"/>
+      <display value="Example-Loc"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Response to renegotiate an appointment request"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="appointmentresponse-example-req"/>

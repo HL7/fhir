@@ -1,0 +1,17 @@
+{
+    "resourceType": "MolecularSequence",
+    "id": "example",
+    "type": "dna",
+    "relative": [
+        {
+            "coordinateSystem": {
+                "text": "hg38"
+            },
+            "startingSequence": {
+                "genomeAssembly": {
+                    "text": "hg38"
+                }
+            }
+        }
+    ]
+}
