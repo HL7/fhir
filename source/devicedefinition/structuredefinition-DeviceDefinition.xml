@@ -706,8 +706,9 @@
         <valueCode value="50,650"/>
       </extension>
       <path value="DeviceDefinition.property"/>
-      <short value="The potential, valid configuration settings of a device, e.g., regulation status, time properties"/>
-      <definition value="The potential, valid configuration settings of a device, e.g., regulation status, time properties."/>
+      <short value="Inherent, essentially fixed, characteristics of this kind of device, e.g., time properties, size, etc"/>
+      <definition value="Static or essentially fixed characteristics or features of this kind of device that are otherwise not captured in more specific attributes, e.g., time or timing attributes, resolution, accuracy, and physical attributes."/>
+      <comment value="Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific DeviceMetric and recorded using Observation.  Static characteristics of an individual device could also be documented in a [Device] instance. The Device instance's properties, and their values, could be, but need not be, the same as in the associated DeviceDefinition."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -716,8 +717,8 @@
     </element>
     <element id="DeviceDefinition.property.type">
       <path value="DeviceDefinition.property.type"/>
-      <short value="Code that specifies the property"/>
-      <definition value="Code that specifies the property."/>
+      <short value="Code that specifies the property being represented"/>
+      <definition value="Code that specifies the property such as a resolution or color being represented."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -734,9 +735,9 @@
     </element>
     <element id="DeviceDefinition.property.value[x]">
       <path value="DeviceDefinition.property.value[x]"/>
-      <short value="Property value - as a code or quantity"/>
-      <definition value="Property value - the data type depends on the property type."/>
-      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
+      <short value="Value of the property"/>
+      <definition value="The value of the property specified by the associated property.type code."/>
+      <comment value="The text element of the valueCodeableConcept choice type is used for properties which would usually be coded (such as the size of an implant, or a security classification) but for which there is not currently an appropriate concept in the vocabulary (e.g., a custom implant size, or a security classification which depends on configuration. Otherwise the valueString choice type is used for textual descriptive device properties that cannot be expressed in other elements."/>
       <min value="1"/>
       <max value="1"/>
       <type>
