@@ -404,7 +404,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.content.attachment.date, DocumentReference.created"/>
+        <map value="DocumentReference.content.attachment.date, DocumentReference.date"/>
       </mapping>
     </element>
     <element id="Composition.useContext">
