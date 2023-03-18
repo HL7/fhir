@@ -2,7 +2,7 @@
 
 <!-- content goes here -->
 	[%stu-note dstu2%]
-		customaryUnit and conversionFactor are deprecated and will be removed from ObservationDefinition.quantitativeDetails, as from the next release of FHIR.
+		<code>customaryUnit</code> and <code>conversionFactor</code> have been deprecated and will be removed from ObservationDefinition.quantitativeDetails in a future release of FHIR.
 		</p>
 		<p>
 		Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
