@@ -57,6 +57,12 @@
 
 <a name="bnr"></a>
 <h3>Boundaries and Relationships</h3>
+
+[%stu-note dstu%]
+The module pages under development by Orders and Observations will further describe the variations of device use cases across the device resources, e.g., Device, DeviceDefinition, DeviceAssociation, DeviceDispense, DeviceMetric, DeviceRequest, and Device Usage.
+</p>
+[%end-note-np%]
+
 <p>These are the device related resources</p>
 <ul>
 <li>Device (this resource)</li>
