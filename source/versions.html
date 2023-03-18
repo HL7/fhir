@@ -341,6 +341,15 @@ The following kinds of changes may be made to the specification:
  <li><b>Non-substantive changes</b> should not cause changes in any conformant application. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
     In addition, this covers corrections that are judged not to create any expectation of change to a conformant application</li>
 </ul>
+[%dragons-start%]
+<p>
+Yes, this this is the second dragon in as many paragraphs.  Inter-version compatibility is complicated...
+</p>
+<p>
+The assertion around non-breaking change does NOT mean that the types of changes permitted here cannot cause existing systems to fail, even if they make allowances for the types of changes permitted.  (Though those that make allowances will hopefully fail more gracefully.)  Because the requirements of healthcare continue to evolve, the rules defined here allow for new content to be introduced - new codes, new elements, etc.  Depending on the design of a receiving system, such new content may cause failure.  A system that relies on schema validation will fail because of a new element.  A system that relies on a select statement iterating through 'status' codes might fail or behave unexpectedly due to incorrect fall-through when a new status code is introduced.  Systems designers are strongly encouraged to consider the types of changes permitted here and consider how these types of changes will impact their ability to safely function when dealing with newer versions of FHIR.
+</p>
+[%dragons-end%]
+
 <p>
 NOTE: The examples provided as part of this specification are never substantive. While every effort is made to ensure that FHIR examples are correct, changes to the examples in the specification are not considered substantive.
 </p>
