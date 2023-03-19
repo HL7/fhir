@@ -2132,7 +2132,11 @@ patient=23</span>
 <p>
 For the ordered parameter types of <a href="#number">number</a>, <a href="#date">date</a>, and <a href="#quantity">quantity</a>,
 a prefix to the parameter value may be used to control the nature of the matching. To avoid URL escaping and visual confusion,
-the following prefixes are used:
+the prefixes described in the table below are used.  Note that in the following table:
+<ul>
+  <li><code>parameter value</code> refers to the value provided to search against (e.g., the parameter value in the request)</li>
+  <li><code>resource value</code> refers to the value being tested against in a resource (e.g., an element value in a data store)</li>
+</ul>
 </p>
 <table class="grid">
   <tr>
@@ -2142,49 +2146,49 @@ the following prefixes are used:
    </tr>
   <tr>
 	<td><code>eq</code></td>
-	<td>the value for the parameter in the resource is equal to the provided value</td>
-	<td>the range of the search value fully contains the range of the target value</td>
+	<td>the resource value is equal to or fully contained by the parameter value</td>
+	<td>the range of the parameter value fully contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>ne</code></td>
-	<td>the value for the parameter in the resource exists and is not equal to the provided value</td>
-  <td>the range of the search value does not fully contain the range of the target value</td>
+	<td>the resource value exists and is not equal to the parameter value</td>
+  <td>the range of the parameter value does not fully contain the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>gt</code></td>
-	<td>the value for the parameter in the resource exists and is greater than the provided value</td>
-  <td>the range above the search value intersects (i.e. overlaps) with the range of the target value</td>
+	<td>the resource value exists and is greater than the parameter value</td>
+  <td>the range above the parameter value intersects (i.e. overlaps) with the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>lt</code></td>
-	<td>the value for the parameter in the resource exists and is less than the provided value</td>
-  <td>the range below the search value intersects (i.e. overlaps) with the range of the target value</td>
+	<td>the resource value exists and is less than the parameter value</td>
+  <td>the range below the parameter value intersects (i.e. overlaps) with the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>ge</code></td>
-	<td>the value for the parameter in the resource exists and is greater or equal to the provided value</td>
-  <td>the range above the search value intersects (i.e. overlaps) with the range of the target value, or the range of the search value fully contains the range of the target value</td>
+	<td>the resource value exists and is greater or equal to the parameter value</td>
+  <td>the range above the parameter value  intersects (i.e. overlaps) with the range of the resource value, or the range of the parameter value fully contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>le</code></td>
-	<td>the value for the parameter in the resource exists and is less or equal to the provided value</td>
-  <td>the range below the search value intersects (i.e. overlaps) with the range of the target value or the range of the search value fully contains the range of the target value</td>
+	<td>the resource value exists and is less or equal to the parameter value</td>
+  <td>the range below the parameter value intersects (i.e. overlaps) with the range of the resource value or the range of the parameter value fully contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>sa</code></td>
-	<td>the value for the parameter in the resource exists and starts after the provided value</td>
-  <td>the range of the search value does not overlap with the range of the target value, and the range above the search value contains the range of the target value</td>
+	<td>the resource value exists and starts after the parameter value</td>
+  <td>the range of the parameter value does not overlap with the range of the resource value, and the range above the parameter value contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>eb</code></td>
-	<td>the value for the parameter in the resource exists and ends before the provided value</td>
-  <td>the range of the search value does not overlap with the range of the target value, and the range below the search value contains the range of the target value</td>
+	<td>the resource value exists and ends before the parameter value</td>
+  <td>the range of the parameter value does not overlap with the range of the resource value, and the range below the parameter value contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>ap</code></td>
-	<td>the value for the parameter in the resource exists and is approximately the same to the provided value.<br/>
+	<td>the resource value exists and is approximately the same to the parameter value.<br/>
 	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
-  <td>the range of the search value overlaps with the range of the target value</td>
+  <td>the range of the parameter value overlaps with the range of the resource value</td>
  </tr>
 </table>
 <p>
@@ -2203,7 +2207,7 @@ interpretation of the parameter when applied to ranges. The range interpretation
 for decimals and dates.  Searches are always performed on values that are implicitly
 or explicitly a range. For instance, the number 2.0 has an implicit range of
 1.95 to 2.05, and the date 2015-08-12 has an implicit range of all the time during that day.
-If the target value is a <a href="datatypes.html#range">Range</a>, a <a href="datatypes.html#period">Period</a>,
+If the resource value is a <a href="datatypes.html#range">Range</a>, a <a href="datatypes.html#period">Period</a>,
 or a <a href="datatypes.html#timing">Timing</a>, then the target is explicitly a range. Three ranges
 are identified:
 </p>
