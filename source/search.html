@@ -54,6 +54,9 @@ search declarations</a>, and clients are encouraged to do this too.
   </li>
   <li><a href="#ptypes">Search Parameters</a>
     <ul>
+      <li><a href="#matching-basics">Search Test Basics</a></li>
+      <li><a href="#matching-cardinality">Matching and Cardinality</a></li>
+      <li><a href="#matching-backbones">Matching and Sub-Elements</a></li>
       <li><a href="#multivalue">Searching Multiple Values (joining with AND or OR)</a></li>
       <li><a href="#modifiers">Modifiers</a></li>
       <li><a href="#prefix">Prefixes</a></li>
@@ -65,7 +68,6 @@ search declarations</a>, and clients are encouraged to do this too.
 	    <li>Extended Parameter Types: <a href="#composite">composite</a>, <a href="#special">special</a></li>
     </ul>
   </li>
-
   <li><a href="#specialconditions">Special Search Conditions</a>
     <ul>
       <li><a href="#specialidentifiers">Searching Identifiers</a>
@@ -188,6 +190,9 @@ search declarations</a>, and clients are encouraged to do this too.
   <code>POST [base]/_search</code> or <code>POST [base]/Patient/_search</code> with no body, a server SHOULD
   return all records in scope of the search context.  Servers MAY reject a search as overly-broad, and SHOULD
   return an appropriate error in that situation (e.g., <a href="codesystem-issue-type.html#issue-type-too-costly">too-costly</a>).
+</p>
+<p>
+  For more information about how search inputs are tested against resources, please see <a href="#ptypes">Search Parameters</a>.
 </p>
 
 <a name="searchcontexts"></a>
@@ -681,7 +686,7 @@ GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;
 <h3>Search Parameters</h3>
 <p>
   While search parameters are typically transmitted as URL-Encoded strings (e.g., HTTP Parameters or <code>x-www-form-urlencoded</code> body content),
-  FHIR is modeled with a rich set of <a href="datatypes.html#primitive">primitive</a> and <a href="datatypes.html#complex">complex</a> datatypes to describe the data encountered in healthcare.  To provide consistent
+  FHIR is modeled with a rich set of <a href="datatypes.html#primitive">primitive</a> and <a href="datatypes.html#complex">complex</a> data types to describe the data encountered in healthcare.  To provide consistent
   mapping between the two formats, each search parameter is defined by a type that specifies how the search parameter
   behaves.  These are the defined search parameter types:
 </p>
@@ -691,12 +696,73 @@ GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;
   depend on the type of the search parameter.  More details can be found in the <a href="#modifiers">Modifiers</a> section
   of the search page.
 </p>
+<p>
+  Some search parameter types allow "prefixes" (or "comparators") which can be used to request different match-testing functionality
+  (e.g., greater-than instead of equality).  The kinds of comparators allowed depends on the type of the search parameter.  More
+  details can be found in the <a href="#prefix">Prefixes</a> section of the search page.
+</p>
+
+<a name="matching-basics"></a>
+<h4>Search Test Basics</h4>
+<p>
+  Generally, an single search test can be broken down into a few parts:
+  <ul>
+    <li>a search input value to test with,</li>
+    <li>the type of test being used, and</li>
+    <li>zero or more values from a resource to test against.</li>
+  </ul>
+  For example, a search against the Patient resource for <code>given=value</code> is a request to a server to compare values
+  in the given name of a patient against "value", using the default string test (see <a href="#string">string</a> for details).
+  Each of these 'parts' of a search test have a lot of flexibility.
+</p>
+<p>
+  Search input values are parsed according to the search parameter type, as defined in the relevant 
+  <a href="searchparameter.html">SearchParameter</a> resource.  The rules for parsing a search input value into the equivalent
+  FHIR type can be found on the search page (e.g., converting a <code><a href="#token">token</a></code> input into a 
+  <a href="datatypes.html#Coding">Coding</a>).
+</p>
+<p>
+  The type of test used to compare values are controlled by the search parameter type and a search modifier OR a search prefix, 
+  if present.  For example, the <a href="#number">number</a> search parameter type describes the default search test as an
+  equality test (i.e., <code>{element value} equals {input value}</code>).  A <a href="#modifiers">Search Modifier</a>,
+  such as <code><a href="search.html#modifiernot">not</a></code> changes the test - in this case negating the default
+  behavior (i.e., <code>not({element value} equals {input value})</code>).  Finally, a 
+  <a href="search.html#prefix">Search Prefix</a>, allowed on the <code>number</code> search type, can be used to change
+  the test to something like a 'greater than' (i.e., <code>{element value} is greater than {input value}</code>).  Note
+  that a single test cannot contain both a modifier and a prefix.
+</p>
+
+<a name="matching-cardinality"></a>
+<h4>Matching and Cardinality</h4>
+<p>
+  Many elements in FHIR are defined as arrays (or collections) of values (e.g., a patient can have more than one
+  name or address).  When performing a search test against elements that have a cardinality of more than one, the test
+  is considered a 'contains' type test against the collection of values.  For example, if a patient has two <code>name</code>
+  elements with values, a test is considered a match if at least one of the values is a match.
+</p>
+
+<a name="matching-backbones"></a>
+<h4>Matching and Sub-Elements</h4>
+<p>
+  When a search parameter points to a complex or backbone element (an element that contains sub-elements), by default the 
+  search is interpreted as a search against one or more values in sub-elements with an appropriate type, as selected by the 
+  implementation. A search parameter MAY instead explicitly choose elements by using an expression that instead points directly 
+  to the sub-elements <span class="stu">TU</span>.
+</p>
 
 <a name="multivalue"></a>
 <a name="combining"></a>
 <h4>Searching Multiple Values (joining with AND or OR)</h4>
 <p>
-  Multiple search parameters passed to a single search are used to create an intersection of the results.  In other words,
+  Search combination logic is defined by an equivalent set logic on the results of individual tests, performed
+  at the resource level.  "OR" joined parameters are "unions of sets" and "AND" joined parameters are "intersections of sets".
+  Note that the joins are considered at the resource level and search parameters are unordered.  This means that complex
+  combinations of "AND" and "OR" are not possible using the basic search syntax.  Uses requiring advanced combination logic
+  should consider the use of the <code><a href="search.html#filter">_filter</a></code> parameter or 
+  <a href="search.html#advanced">Named Queries</a>.
+</p>
+<p>
+  When multiple search parameters passed to a single search, they are used to create an intersection of the results - in other words,
   multiple parameters are joined via "AND".  For example, a search for a patient that includes a given name and a
   family name will only return records that match BOTH:
 <span class="http-search-example">
@@ -709,6 +775,56 @@ given=valueGiven&amp;family=valueFamily</span>
   </span>
 </span>
   will return only Patient records with a family name of "valueFamily" and a given name of "valueGiven".
+</p>
+<p>
+  It is also possible to use an "AND" join repeated on the same element.  When doing so, the join behavior
+  is the same as when using different elements.  For example, a search that asks for having two specific 
+  given names:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Patient?given=valueGivenA&amp;given=valueGivenB</span>
+      <span class="http-verb-display-post">POST [base]/Patient/_search
+  Content-Type: application/x-www-form-urlencoded
+  given=valueGivenA&amp;given=valueGivenB</span>
+    </span>
+  </span>
+    will return records that have BOTH a match for the given name of "valueGivenA" AND a match for the given
+    name of "valueGivenB".  Note that this will match both patient records that have a single <code>name</code>
+    containing multiple <code>given</code> elements as well as records that have a multiple <code>name</code>
+    elements that, <i>in total</i>, contain the values:
+
+    <span class="fhir-example">
+      <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+      <span class="example-format-display">
+        <span class="example-format-display-json">"Patient": {
+  "name": [{
+    "given": [ "valueA", "valueB" ]
+  }]
+}</span>
+<span class="example-format-display-json">"Patient": {
+  "name": [{
+    "given": [ "valueA" ]
+  }, {
+    "given": [ "valueB" ]
+  }]
+}</span>
+        <span class="example-format-display-xml">&lt;Patient&gt;
+  &lt;name&gt;
+    &lt;given value="valueA"/&gt;
+    &lt;given value="valueB"/&gt;
+  &lt;/name&gt;
+&lt;/Patient&gt;</span>
+        <span class="example-format-display-xml">&lt;Patient&gt;
+  &lt;name&gt;
+    &lt;given value="valueA"/&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;given value="valueB"/&gt;
+  &lt;/name&gt;
+&lt;/Patient&gt;</span>
+      </span>
+    </span>
 </p>
 <p>
   In order to search for unions of results (values joined by "OR"), values can be separated by a comma (",") character.
@@ -753,6 +869,141 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   parameter defined or supported on a server, the results can be retrieved by issuing multiple queries, 
   either serially or in a batch.
 </p>
+
+<p>
+  The following table contains examples of how joins work depending on their element types <span class="stu">TU</span>.
+  Note that this table is illustrative and not comprehensive.  Additionally, the joins listed below can be combined in a 
+  single request to form more complicated logic.  For brevity, this table demonstrates the joins only against the same element type, 
+  though this is not a requirement.  For example, it is common to join one parameter against a simple scalar element with 
+  another that is an array of complex elements.
+  In this table, the following definitions are used:
+  * <code>Scalar</code> refers to elements that have a maximum cardinality of one.
+  * <code>Array</code> refers to elements that have a maximum cardinality greater than one.
+  * <code>Simple</code> refers to elements that do not contain additional elements (e.g., <a href="datatypes.html#primitive">Primitive Types</a>).
+  * <code>Complex</code> refers to elements that contain additional elements (e.g., <a href="datatypes.html#HumanName">HumanName</a>, etc.)
+</p>
+
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <table class="grid">
+    <tr>
+      <td><b>Context</b></td>
+      <td><b>Short</b></td>
+      <td><b>Example</b></td>
+    </tr>
+
+    <tr>
+      <td><code>AND</code>, <code>Scalar</code>, <code>Simple</code></td>
+      <td>Intersection of records that match each of the search criteria</td>
+      <td><span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?death-date=ge2022-01-01&amp;death-date=lt2023-01-01</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+death-date=ge2022-01-01&amp;death-date=lt2023-01-01</span>
+      </span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        The search is asking for patients with a <code>death-date</code> on or after January 1, 2022 and a <code>death-date</code>
+        before January 1, 2023.  The results are the intersection of patients with a <code>deceasedDateTime</code> on or 
+        after January 1, 2022 and patients with a <code>deceasedDateTime</code> before January 1, 2023.  Each match
+        will contain a single value in the requested range.
+      </td>
+    </tr>
+    <tr>
+      <td><code>OR</code>, <code>Scalar</code>, <code>Simple</code></td>
+      <td>Union of records that match each of the search criteria</td>
+      <td><span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?death-date=ge2030-01-01,lt1980-01-01</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+death-date=ge2030-01-01,lt1900-01-01</span>
+      </span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        The search is asking for patients with a <code>death-date</code> on or after January 1, 2030 or a <code>death-date</code>
+        before January 1, 1900.  The results are the union of patients with a <code>deceasedDateTime</code> on or 
+        after January 1, 2030 and patients with a <code>deceasedDateTime</code> before January 1, 1900.  Each match
+        will contain a single value in the requested range (e.g., checking for dates outside the allowed range).
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>AND</code>, <code>Array</code>, <code>Simple</code></td>
+      <td>Intersection of records that contain at least one match for each search criteria</td>
+      <td><span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/AllergyIntolerance?category=medication&amp;category=biologic</span>
+        <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
+Content-Type: application/x-www-form-urlencoded
+category=medication&amp;category=biologic</span>
+      </span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        The search is asking for allergies or intolerances with a <code>category</code> of <code>medication</code> and a <code>category</code>
+        of <code>biologic</code>.  The results are the intersection of AllergyIntolerance records records with each of the requested 
+        <code>category</code> values.  Each matching record will contain at least one of each of the requested category values.
+      </td>
+    </tr>
+    <tr>
+      <td><code>OR</code>, <code>Array</code>, <code>Simple</code></td>
+      <td>Union of records that contain at least one match for each search criteria</td>
+      <td><span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/AllergyIntolerance?category=medication,biologic</span>
+        <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
+Content-Type: application/x-www-form-urlencoded
+category=medication,biologic</span>
+      </span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        The search is asking for allergies or intolerances with a <code>category</code> of either <code>medication</code> or
+        <code>biologic</code>.  The results are the union of AllergyIntolerance records records with any of the requested 
+        <code>category</code> values.  Each matching record will contain at least one of either of the requested category values,
+        and can contain both.
+      </td>
+    </tr>
+
+    <tr>
+      <td><code>AND</code>, <code>Array</code>, <code>Complex</code></td>
+      <td>Intersection of records that contain at least one match for each search criteria</td>
+      <td><span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?name=valueA&amp;name=valueB</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+name=valueA&amp;name=valueB</span>
+      </span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        The search is asking for patients with a <code>name</code> of 'valueA' a <code>name</code> of 'valueB'.
+        The results are the intersection of patients that have each of the requested values in any component of
+        their name.  Each match will contain each of the requested values in some form.  E.g., a patient with
+        the given names of both 'valueA' and 'valueB' will match, as well as a patient with a given name of 
+        'valueA' and a family name of 'valueB', etc..
+      </td>
+    </tr>
+    <tr>
+      <td><code>OR</code>, <code>Array</code>, <code>Complex</code></td>
+      <td>Union of records that contain at least one match for any search criteria</td>
+      <td><span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?name=valueA,valueB</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+name=valueA,valueB</span>
+      </span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        The search is asking for patients with a <code>name</code> of either 'valueA' or 'valueB'.  The results are 
+        the union of patients with 'valueA' anywhere in their name and patients with 'valueB' anywhere in their name.  
+        Each matching record will contain at least one of the search criteria.
+      </td>
+    </tr>
+
+  </table>
+</span>
 
 <a name="modifiers"></a>
 <h4>Modifiers</h4>
@@ -2054,7 +2305,7 @@ characters in the URL, and servers SHALL handle this correctly.
 <p>
   Date searches are intrinsically matches against 'periods', regardless of the underlying element type.  For more 
   information about how the different search prefixes work when comparing periods/ranges, refer to the 
-  <a href="#prefix">Prefixes</a> section.  Date parameters may be used with the following datatypes:
+  <a href="#prefix">Prefixes</a> section.  Date parameters may be used with the following data types:
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
@@ -2096,6 +2347,8 @@ Date searches can be controlled through the use of prefixes as described in the 
    <td>
     <ul>
      <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14 matches, because it includes the part of 14-Jan 2013 before 10am</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"2013-01-13T12:00 to 2013-01-14T12:00" matches, because it includes the part of 14-Jan 2013 until noon</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"2013-01-14T08:00 to 2013-01-15T08:00" matches, because it includes the part of 14-Jan 2013 before 10:00</li>
     </ul>
    </td>
  </tr>
@@ -2104,6 +2357,8 @@ Date searches can be controlled through the use of prefixes as described in the 
    <td>
     <ul>
      <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14 matches, because it includes the part of 14-Jan 2013 after 10am</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"2013-01-13T12:00 to 2013-01-14T12:00" matches, because it includes the part of 14-Jan 2013 until noon</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"2013-01-14T12:00 to 2013-01-15T12:00" matches, because it includes the part of 14-Jan 2013 after noon</li>
     </ul>
    </td>
  </tr>
@@ -2130,6 +2385,8 @@ Date searches can be controlled through the use of prefixes as described in the 
      <li style="list-style-image: url('assets/images/tick2.gif')">"from 15-Mar 2013 onwards" is included because that period starts after 14-Mar 2013</li>
      <li style="list-style-image: url('assets/images/cross.png')">"from 21-Jan 2013 onwards" is not included because that period starts before 14-Mar 2013</li>
      <li style="list-style-image: url('assets/images/cross.png')">"before and including 21-Jan 2013" is not included because that period starts (and ends) before 14-Mar 2013</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"2013-01-13T12:00 to 2013-01-14T12:00" does not match, because it starts before 14-Jan 2013 begins</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"2013-01-14T12:00 to 2013-01-15T12:00" does not match, because it starts before 14-Jan 2013 ends</li>
     </ul>
    </td>
   </tr>
@@ -2140,6 +2397,8 @@ Date searches can be controlled through the use of prefixes as described in the 
      <li style="list-style-image: url('assets/images/cross.png')">"from 15-Mar 2013 onwards" is not included because that period starts after 14-Mar 2013</li>
      <li style="list-style-image: url('assets/images/cross.png')">"from 21-Jan 2013 onwards" is not included because that period starts before 14-Mar 2013, but does not end before it</li>
      <li style="list-style-image: url('assets/images/tick2.gif')">"before and including 21-Jan 2013" is included because that period ends before 14-Mar 2013</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"2013-01-13T12:00 to 2013-01-14T12:00" does not match, because it ends after 14-Jan 2013 begins</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"2013-01-14T12:00 to 2013-01-15T12:00" does not match, because it starts before 14-Jan 2013 ends</li>
     </ul>
    </td>
   </tr>
@@ -2154,6 +2413,13 @@ Date searches can be controlled through the use of prefixes as described in the 
    </td>
   </tr>
 </table>
+<p>
+  Please note in particular the differences between range comparison and boundary comparison prefixes when comparing ranges on both sides.  Tests such as 
+  'greater than' are evaluated true if <i>any part</i> of the value range is higher than the test range.  Similarly, a test such as 'starts after' is non-inclusive
+  of the range of the test value, so a request such as <code>sa2013-01-14</code> is requesting values that start after January 14th has passed,
+  not after January 14th started.  In order to avoid unintentional overlapping of ranges, requests can increase the specificity of their request.  For example,
+  the test for <code>sa2013-01-14T00:00:00</code> is a much clearer test.
+</p>
 <p>
 Other notes:
 </p>
