@@ -224,10 +224,6 @@
       <path value="Bundle.entry.response" />
       <max value="0" />
     </element>
-    <element id="Bundle.entry:head.search">
-      <path value="Bundle.entry.search" />
-      <max value="0" />
-    </element>
     <element id="Bundle.issues">
       <path value="Bundle.issues" />
     </element>
