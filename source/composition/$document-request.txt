@@ -1,16 +1,12 @@
 // generate a document from a composition
 GET http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57/$document?persist=true
 
-// same, as a post request using the id parameter
-POST http://fhir.healthintersections.com.au/open/Composition/$document
+// same, as a post request
+POST http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57/$document
 
 <Parameters xmlns="http://hl7.org/fhir">
   <parameter>
     <name value="persist"/>
     <valueBoolean value="true"/>
   </parameter>
-  <parameter>
-    <name value="id"/>
-    <valueUri value="180f219f-97a8-486d-99d9-ed631fe4fc57"/>
-  </parameter>  
 </Parameters>

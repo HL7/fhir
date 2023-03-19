@@ -303,12 +303,20 @@
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
-      <short value="Vital Sign Value recorded with UCUM"/>
-      <definition value="Vital Sign Value recorded with UCUM."/>
+      <short value="Vital Sign Value"/>
+      <definition value="Vital Sign Value."/>
       <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
       <min value="0"/>
       <max value="1"/>
       <condition value="vs-3"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.component.valueQuantity">
+      <path value="Observation.component.valueQuantity"/>
+      <short value="Vital Sign Value recorded with UCUM"/>
+      <definition value="Vital Sign Value recorded with UCUM."/>
+      <min value="0"/>
+      <max value="1"/>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">

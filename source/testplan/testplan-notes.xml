@@ -1,5 +1,12 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+	[%stu-note dstu2%]
+		TestPlan is a draft resource. Implementation is needed to assess its viability and implementer feedback is welcome. If no implementation feedback is available, the resource may be removed in future releases of FHIR.
+		</p>
+		<p>
+		Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+	[%end-note%]
+
 
 </div>
