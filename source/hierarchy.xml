@@ -341,7 +341,6 @@ signatures.html
       <page type="resource" resource="ImagingSelection"/>
       <page type="resource" resource="MolecularSequence"/>
       <page type="resource" resource="Specimen"/>
-      <page type="resource" resource="SpecimenDefinition"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
     </page>
