@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<!-- template-profiles.html -->
+<!-- template-resource-profiles.html -->
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -12,7 +12,7 @@
 <div class="col-12">
 
 <%resheader profiles%>
-<h2>Resource <%title%> - Extensions &amp; Profiles</h2>
+<h2>Resource <%title%> - Profiles</h2>
 <table class="colsi"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>: Informative</td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
 
 <p>
@@ -31,35 +31,15 @@ Additional profiles and extensions may be found in published
 <%profilelist%>
 
 
-<a name="extensions"></a>
-<h3>Extensions</h3>
-
-<table class="list">
-<%extensionlist%>
-</table>
-
-<p>Extensions that reference this resource:</p>
-
-<table class="list">
-<%extensionreflist%>
-</table>
-
-
-<a name="search"></a>
-<h3>Search Extensions</h3>
-
-<table class="list">
-<%searchextensionlist%>
-</table>
-
+<a name="Meta"></a>
 <a name="meta"></a>
-<h3>Meta Profiles and Extensions</h3>
+<h3 style="margin-bottom: 1px">Meta</h3>
+[%dtstatus Meta%]
+<p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
+<!--xlp:Meta-->See also <a no-external="true" href="references.html#CodeableReference">Base Definition</a>, <a no-external="true" href="references-profiles.html#CodeableReference">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-references.html#CodeableReference">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-references.html#CodeableReference">R4 Conversions</a>
+</p>
 
-
-<table class="list">
-  <%dtextensions Meta%>
-</table>
-
+<%profilelist Meta%>
 
 </div>
 

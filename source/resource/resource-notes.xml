@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="identification"></a>
 <h3>Resource Identity</h3>
@@ -328,6 +328,14 @@ in particular implementations or contexts of use.
 		
 </table>
   
+<a name="Meta"></a>
+<a name="meta"></a>
+<h3 style="margin-bottom: 1px">Meta</h3>
+[%dtstatus Meta%]
+<p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
+<!--xlp:Meta-->See also <a no-external="true" href="resource.html#Meta">Base Definition</a>, <a no-external="true" href="resource-examples.html#Meta">Examples</a>, <a no-external="true" href="resource-definitions.html#Meta">Detailed Descriptions</a>, <a no-external="true" href="resource-mappings.html#Meta">Mappings</a>, <a no-external="true" href="resource-profiles.html#Meta">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-resource.html#Meta">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-resource.html#Meta">R4 Conversions</a>
+</p>
+
 [%edt Meta resource.html 1%]
 
 <p>
@@ -644,5 +652,3 @@ function store(currentTab) {
 </script>
 
 </div>
-
-
