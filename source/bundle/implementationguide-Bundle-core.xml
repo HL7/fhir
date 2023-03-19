@@ -8,4 +8,46 @@
   <date value="2015-03-11T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR Core WG"/>
   <description value="Defines &quot;common&quot; extensions for use with the Bundle resource and contained elements"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/history-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/search-set-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/subscription-notification-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/batch-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/batch-response-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/transaction-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/transaction-response-bundle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/document-bundle"/>
+      </reference>
+    </resource>
+  </definition>
 </ImplementationGuide>
