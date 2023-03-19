@@ -384,6 +384,22 @@ are frequently re-used in multiple places within a single definition, and this r
 is easier with a flat structure.
 </p>
 
+<a name="recurse"></a>
+<h3>Recursive Elements</h3>
+<p>
+Some backbone elements recurse.  E.g. Questionnaire.item.  When a profile defines
+constraints on such elements, the constraints apply to the recursive references to
+those elements as well.  I.e. If Questionnaire.item is constrained to have a type
+of 'group', that will cause Questionnaire.item.item, Questionnaire.item.item.item, etc.
+to all have the same constraint.
+</p>
+<p>
+If there is a need to enforce constraints on a recursive item that apply at some levels
+but not others (e.g. only the root, or everything except the root), formal constraints
+using FHIRPath can be used that limit their behavior to only the root or other specific
+levels of nesting can be used.
+</p>
+
 <a name="snapshot"></a>
 <h3>Differential vs Snapshot</h3>
 
