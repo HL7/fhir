@@ -842,6 +842,22 @@ given=valueGivenA,valueGivenB</span>
   record that have BOTH "valueGivenA" and "valueGivenB" (e.g., inclusive or).
 </p>
 <p>
+  Note that each value of an "OR" query MAY contain a prefix if allowed by the search type.  For example,
+  a search for a heart rate value (<a href="https://loinc.org/8867-4/">LOINC 8867-4</a>) outside of the 
+  'normal resting range of adults':
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Observation?code=http://loinc.org|8867-4&amp;value-quantity=lt60,gt100</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+code=http://loinc.org|8867-4&amp;value-quantity=lt60,gt100</span>
+  </span>
+</span>
+  will match against Observations that have the LOINC code for a Heart Rate and have a value that is EITHER
+  less than 60 OR greater than 100.
+</p>
+<p>
   It is possible to combine both "AND" and "OR" type queries together in a single request.  For example, a 
   search that includes a family name and either of two given names:
 <span class="http-search-example">
