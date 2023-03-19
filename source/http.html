@@ -1271,46 +1271,156 @@ update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="
 <p>
 This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP commands.
 </p>
-<pre class="http">
-  GET [base]/[type]{?[parameters]{&amp;_format=[mime-type]}}
-</pre>
 <p>
-This searches all resources of a particular type using the criteria represented in the parameters.
+  This specification defines FHIR Search operations in both HTTP <code>POST</code> and <code>GET</code>.
+  Servers supporting Search via HTTP SHALL support both modes of operation, though MAY return a 
+  <code>HTTP 405</code> (Method Not Allowed) for <b>either</b> <code>POST</code> or <code>GET</code>, 
+  but not both <span class="stu">TU</span>.
 </p>
 <p>
-Because of the way that some user agents and proxies treat <code>GET</code> and <code>POST</code> requests, in addition
-to the get based search method above, servers that support <i>search</i> SHALL also support a <code>POST</code> based search:
+  All these search interactions take a series of parameters that
+  are a series of <code>name=value</code> pairs encoded in the URL (or as an <code>application/x-www-form-urlencoded</code> (<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">Specification</a>) submission for a <code>POST</code>).
+  (See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms</a>).
 </p>
-<pre class="http">
-POST [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
-Content-Type: application/x-www-form-urlencoded
 
-param1=value&amp;param2=value
-</pre>
+<a name="search-post"></a>
+<h4>HTTP POST</h4>
 <p>
-This has exactly the same semantics as the equivalent <code>GET</code> command. Note that in the POST variant,
-parameters may appear in both the URL and the body. Parameters have the same meaning in either place. Since
-parameters can repeat, putting them in both places is the same as repeating them (which is valid for some
-parameters and not for others).
+  Clients perform searches via HTTP POST by making an HTTP POST request to the appropriate context, with 
+  search parameters included as <code>x-www-form-urlencoded</code> content for the post.  For example:
+  <table>
+    <tr>
+      <td>Server Root</td>
+      <td>
+<pre>
+POST [base]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Resource Type Search</td>
+      <td>
+<pre>
+POST [base]/[resource-type]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment Search</td>
+      <td>
+<pre>
+POST [base]/[compartment-type]/[compartment-id]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment and Resource Type Search</td>
+      <td>
+<pre>
+POST [base]/[compartment-type]/[compartment-id]/[resource-type]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+  </table>
 </p>
 <p>
-Note: Supporting <code>GET</code> means that PHI (Personal health information) might appear in search
+  While servers SHALL support search parameters encoded in the POST body (as shown above), servers MAY also support
+  including some or all parameters as query parameters on a POST request <span class="stu">TU</span>, e.g.:
+</p>
+<pre>
+POST [base]/[type]/_search?param1=value&amp;...{&amp;_format=[mime-type]}
+Content-Type: application/x-www-form-urlencoded
+param2=value2&amp;...
+</pre>
+<p>
+  Note that servers MAY impose restrictions on what parameters are allowed to be passed as query parameters on POST
+  requests <span class="stu">TU</span>.  For example, a server could allow the <code>_format</code> query parameter
+  but reject searches with a <code>Patient.name</code> query parameter.
+</p>
+
+<a name="search-get"></a>
+<h4>HTTP GET</h4>
+<p>
+  Clients perform searches via HTTP GET by making an HTTP GET request to the appropriate context, with 
+  search parameters included as HTTP Query Parameters.  For example:
+  <table>
+    <tr>
+      <td>Server Root</td>
+      <td>
+<pre>
+GET [base]?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Resource Type Search</td>
+      <td>
+<pre>
+GET [base]/[resource-type]/?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment Search - All Contained Resource Types</td>
+      <td>
+<pre>
+  GET [base]/[compartment-type]/[compartment-id]/*?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment Search - Specific Resource Type</td>
+      <td>
+<pre>
+GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+  </table>
+</p>
+
+<a name="search-get-vs-post"></a>
+<h4>Choosing an HTTP Method</h4>
+<p>
+  As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code>
+  methods <span class="stu">TU</span>. However, there are known use cases that prevent one or the other method from being desirable in production.
+  For example, in the case of a large set of Endpoint resources (e.g., FHIR servers), infrastructure could be 
+  configured to take advantage of HTTP caching mechanisms that do not function correctly on HTTP POST requests.
+  Conversely, an implementation might not be able to properly secure Personal Health Information (PHI) that appears in request query parameters (e.g., 
+  in HTTP logs made by infrastructure) and wants to require the use of HTTP POST for mitigation.
+</p>
+<p>
+  Note that neither <code>GET</code> nor <code>POST</code> have any inherent benefits with respect to security or 
+  privacy.  The use of various default software configurations in production have led some to believe that 
+  <code>POST</code> is more secure because HTTP Body contents are not logged.  This is not due to any protocol 
+  restrictions and should not be relied on.  Implementers should verify that their logging processes adequately protect PHI
+  and other sensitive data.
+</p>
+<p>
+  Given the above considerations, server implementers SHOULD be sure to test both <code>GET</code> and 
+  <code>POST</code> search operations to ensure they are correct on their servers <span class="stu">TU</span>.  For example, a read-only server
+  may prohibit the HTTP POST verb universally (returning a <code>405</code> - Method Not Allowed) and must then ensure 
+  correct implementation of HTTP GET.
+</p>
+<p>
+  Search requests may include sensitive information in the search parameters.  Therefore,
+  secure communications and endpoint management are recommended, see <a href="security.html#http">Security Communications</a>
+</p>
+<p>
+Note: Supporting search means that PHI (Personal health information) might appear in search
 parameters, and therefore in HTTP logs. For this reason logs should be regarded as being as sensitive
 as the resources themselves. This is a general requirement irrespective of the use of <code>GET</code>
 - see the <a href="security.html#audit">security page</a> for further commentary.
 </p>
 
-<p>
-All these search interactions take a series of parameters that
-are a series of <code>name=value</code> pairs encoded in the URL (or as an <code>application/x-www-form-urlencoded</code> (<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">Specification</a>) submission for a <code>POST</code>).
-(See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms</a>).
-</p>
-<blockquote>
-<p>
-For further considerations on choosing between HTTP <code>GET</code> and <code>POST</code> for search interactions, 
-see <a href="search.html#getvspost">the search page</a>.
-</p>
-</blockquote>
 <p>
 A HEAD request can also be used - <a href="#head">see below</a>.
 </p>

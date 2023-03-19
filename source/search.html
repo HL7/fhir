@@ -45,9 +45,6 @@ search declarations</a>, and clients are encouraged to do this too.
   </li>
   <li><a href="#transportprotocols">Transport Protocols</a>
     <ul>
-      <li><a href="#basicspost">HTTP POST</a></li>
-      <li><a href="#basicsget">HTTP GET</a></li>
-      <li><a href="#getvspost">Choosing an HTTP Method</a></li>
       <li><a href="#batching">Batching Searches</a></li>
       <li><a href="#messaging">Search in Messaging</a></li>
     </ul>
@@ -149,7 +146,8 @@ search declarations</a>, and clients are encouraged to do this too.
 <p>
   Though search operations are typically performed via REST, search is defined to be useful independently of HTTP.  
   Note that while different formats of search requests are functionally equivalent, there MAY be differences inherent 
-  to searching via a particular protocol. Details can be found in <a href="#transportprotocols">Search Protocols</a>.
+  to searching via a particular protocol. Details can be found on the <a href="http.html#search">Search section</a>
+  of the HTTP page.
 </p>
 
 <a name="searchinputs"></a>
@@ -518,141 +516,8 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
 <h3>Transport Protocols</h3>
 <p>
   This specification defines FHIR Search operations in both HTTP <code>POST</code> and <code>GET</code>.
-  Servers supporting Search via HTTP SHALL support both modes of operation, though MAY return a 
-  <code>HTTP 405</code> (Method Not Allowed) for <b>either</b> <code>POST</code> or <code>GET</code>, 
-  but not both <span class="stu">TU</span>.
-</p>
-
-<a name="basicspost"></a>
-<h4>HTTP POST</h4>
-<p>
-  Clients perform searches via HTTP POST by making an HTTP POST request to the appropriate context, with 
-  search parameters included as <code>x-www-form-urlencoded</code> content for the post.  For example:
-  <table>
-    <tr>
-      <td>Server Root</td>
-      <td>
-<pre>
-POST [base]/_search
-Content-Type: application/x-www-form-urlencoded
-param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-    <tr>
-      <td>Resource Type Search</td>
-      <td>
-<pre>
-POST [base]/[resource-type]/_search
-Content-Type: application/x-www-form-urlencoded
-param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-    <tr>
-      <td>Compartment Search</td>
-      <td>
-<pre>
-POST [base]/[compartment-type]/[compartment-id]/_search
-Content-Type: application/x-www-form-urlencoded
-param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-    <tr>
-      <td>Compartment and Resource Type Search</td>
-      <td>
-<pre>
-POST [base]/[compartment-type]/[compartment-id]/[resource-type]/_search
-Content-Type: application/x-www-form-urlencoded
-param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-  </table>
-</p>
-<p>
-  While servers SHALL support search parameters encoded in the POST body (as shown above), servers MAY also support
-  including some or all parameters as query parameters on a POST request <span class="stu">TU</span>, e.g.:
-</p>
-<pre>
-POST [base]/[type]/_search?param1=value&amp;...{&amp;_format=[mime-type]}
-Content-Type: application/x-www-form-urlencoded
-param2=value2&amp;...
-</pre>
-<p>
-  Note that servers MAY impose restrictions on what parameters are allowed to be passed as query parameters on POST
-  requests <span class="stu">TU</span>.  For example, a server could allow the <code>_format</code> query parameter
-  but reject searches with a <code>Patient.name</code> query parameter.
-</p>
-
-<a name="basicsget"></a>
-<h4>HTTP GET</h4>
-<p>
-  Clients perform searches via HTTP GET by making an HTTP GET request to the appropriate context, with 
-  search parameters included as HTTP Query Parameters.  For example:
-  <table>
-    <tr>
-      <td>Server Root</td>
-      <td>
-<pre>
-GET [base]?param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-    <tr>
-      <td>Resource Type Search</td>
-      <td>
-<pre>
-GET [base]/[resource-type]/?param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-    <tr>
-      <td>Compartment Search - All Contained Resource Types</td>
-      <td>
-<pre>
-  GET [base]/[compartment-type]/[compartment-id]/*?param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-    <tr>
-      <td>Compartment Search - Specific Resource Type</td>
-      <td>
-<pre>
-GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;...{&amp;_format=[mime-type]}
-</pre>
-      </td>
-    </tr>
-  </table>
-</p>
-
-<a name="getvspost"></a>
-<h4>Choosing an HTTP Method</h4>
-<p>
-  As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code>
-  methods <span class="stu">TU</span>. However, there are known use cases that prevent one or the other method from being desirable in production.
-  For example, in the case of a large set of Endpoint resources (e.g., FHIR servers), infrastructure could be 
-  configured to take advantage of HTTP caching mechanisms that do not function correctly on HTTP POST requests.
-  Conversely, an implementation might not be able to properly secure Personal Health Information (PHI) that appears in request query parameters (e.g., 
-  in HTTP logs made by infrastructure) and wants to require the use of HTTP POST for mitigation.
-</p>
-<p>
-  Note that neither <code>GET</code> nor <code>POST</code> have any inherent benefits with respect to security or 
-  privacy.  The use of various default software configurations in production have led some to believe that 
-  <code>POST</code> is more secure because HTTP Body contents are not logged.  This is not due to any protocol 
-  restrictions and should not be relied on.  Implementers should verify that their logging processes adequately protect PHI
-  and other sensitive data.
-</p>
-<p>
-  Given the above considerations, server implementers SHOULD be sure to test both <code>GET</code> and 
-  <code>POST</code> search operations to ensure they are correct on their servers <span class="stu">TU</span>.  For example, a read-only server
-  may prohibit the HTTP POST verb universally (returning a <code>405</code> - Method Not Allowed) and must then ensure 
-  correct implementation of HTTP GET.
-</p>
-<p>
-  Search requests may include sensitive information in the search parameters.  Therefore,
-  secure communications and endpoint management are recommended, see <a href="security.html#http">Security Communications</a>
+  For details about the HTTP methods regarding search, please see the 
+  <a href="http.html#search">Search section</a> of the HTTP page.
 </p>
 
 <a name="batching"></a>
