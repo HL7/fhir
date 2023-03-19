@@ -269,10 +269,6 @@
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ].role"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="FamilyMemberHistory.date">
       <path value="FamilyMemberHistory.date"/>
