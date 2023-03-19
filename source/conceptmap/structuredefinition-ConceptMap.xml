@@ -843,8 +843,9 @@
     </element>
     <element id="ConceptMap.group.element.valueSet">
       <path value="ConceptMap.group.element.valueSet"/>
-      <short value="Identifies elements being mapped"/>
-      <definition value="The set of codes being mapped."/>
+      <short value="Identifies the set of concepts being mapped."/>
+      <definition value="The set of concepts from the ConceptMap.group.source code system which are all being mapped to the target as part of this mapping rule."/>
+      <comment value="If the value set expansion is empty then there are no source concepts to map in this rule."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -855,8 +856,9 @@
     </element>
     <element id="ConceptMap.group.element.noMap">
       <path value="ConceptMap.group.element.noMap"/>
-      <short value="No mapping to a target concept for this source concept"/>
+      <short value="No mapping to a target concept for this source concept."/>
       <definition value="If noMap = true this indicates that no mapping to a target concept exists for this source concept."/>
+      <comment value="If noMap = true, then the behavior of ConceptMap.group.unmapped (if present) does not apply."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -923,8 +925,9 @@
     </element>
     <element id="ConceptMap.group.element.target.valueSet">
       <path value="ConceptMap.group.element.target.valueSet"/>
-      <short value="Identifies the set of target elements"/>
-      <definition value="The set of codes that the map refers to."/>
+      <short value="Identifies the set of target concepts."/>
+      <definition value="The set of concepts from the ConceptMap.group.target code system which are all being mapped to as part of this mapping rule. The effect of using this data element is the same as having multiple ConceptMap.group.element.target elements with one for each concept in the ConceptMap.group.element.target.valueSet value set."/>
+      <comment value="If the the value set expansion is empty then the source concept(s) are unmapped and the behavior of ConceptMap.group.unmapped (if present) applies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1114,9 +1117,9 @@
         <valueCode value="150,300"/>
       </extension>
       <path value="ConceptMap.group.unmapped"/>
-      <short value="What to do when there is no mapping target for the source concept"/>
-      <definition value="What to do when there is no mapping to a target concept from the source concept.  This provides the &quot;default&quot; to be applied when there is no target concept mapping specified.  The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to."/>
-      <comment value="This only applies if the source code has a system value that matches the system defined for the group."/>
+      <short value="What to do when there is no mapping target for the source concept and ConceptMap.group.element.noMap is not true."/>
+      <definition value="What to do when there is no mapping to a target concept from the source concept and ConceptMap.group.element.noMap is not true. This provides the &quot;default&quot; to be applied when there is no target concept mapping specified or the expansion of ConceptMap.group.element.target.valueSet is empty."/>
+      <comment value="The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to or if ConceptMap.group.element.noMap = true."/>
       <min value="0"/>
       <max value="1"/>
       <type>
