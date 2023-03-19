@@ -225,10 +225,6 @@
         <identity value="rim"/>
         <map value=".scoper  or  .scoper.playsRole"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Specimen.receivedTime">
       <path value="Specimen.receivedTime"/>

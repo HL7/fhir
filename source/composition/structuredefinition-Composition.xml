@@ -332,10 +332,6 @@
         <identity value="fhirdocumentreference"/>
         <map value="DocumentReference.subject"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Composition.encounter">
       <path value="Composition.encounter"/>

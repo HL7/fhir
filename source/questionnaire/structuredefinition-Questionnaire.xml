@@ -389,7 +389,7 @@
       </mapping>
       <mapping>
 				<identity value="w5"/>
-				<map value="FiveWs.subject,FiveWs.what[x]"/>
+				<map value="FiveWs.subject[x],FiveWs.what[x]"/>
 			</mapping>
 			<mapping>
         <identity value="rim"/>

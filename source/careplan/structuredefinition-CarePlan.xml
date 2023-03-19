@@ -394,10 +394,6 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=PAT].role[classCode=PAT]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="CarePlan.encounter">
       <path value="CarePlan.encounter"/>

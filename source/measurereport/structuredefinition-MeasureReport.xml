@@ -265,10 +265,6 @@
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="MeasureReport.date">
       <path value="MeasureReport.date"/>
@@ -519,10 +515,6 @@
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="MeasureReport.group.population">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -641,10 +633,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.measureScore[x]">
@@ -989,10 +977,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.measureScore[x]">
