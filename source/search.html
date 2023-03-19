@@ -4168,6 +4168,52 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
 &lt;/OperationDefinition&gt;</span>
     </span>
   </span>
+  can be executed via:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <table class="grid">
+    <tr><td width="50%"><b>Request</b></td><td><b>Description</b></td></tr>
+
+    <tr>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Patient?_query=current-high-risk</span>
+          <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_query=current-high-risk</span>
+        </span>
+      </td>
+      <td>Query with no additional parameters</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Patient?_query=current-high-risk&amp;ward=Location/A1</span>
+          <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_query=current-high-risk&amp;ward=Location/A1</span>
+        </span>
+      </td>
+      <td>Query with a <code>ward</code> parameter value passed to the filter</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Patient?_query=current-high-risk&amp;birthdate=ge1970-01-1</span>
+          <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_query=current-high-risk&amp;birthdate=ge1970-01-01</span>
+        </span>
+      </td>
+      <td>
+        Query with a no additional parameters, filter results according to a standard patient birthdate query.<br/>
+        Note that servers SHOULD accept query parameters that are not enumerated in named queries based on their standard
+        support (e.g., parameters that are supported for a given resource type), but servers MAY choose to ignore parameters
+        not specified by the OperationDefinition <span class="stu">TU</span>.
+      </td>
+    </tr>
+  </table>
+ </span>  
 </p>
 <p>
   Note that operations defined as named queries (using a <code>OperationDefinition.kind</code> of <code>query</code>)
