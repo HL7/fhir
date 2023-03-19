@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="focus-characteristic-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,9 +19,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1960"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="FocusCharacteristicCode"/>
-  <title value="FocusCharacteristicCode"/>
+  <title value="Focus Characteristic Code"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -46,7 +48,7 @@
   <concept>
     <code value="clinical-outcomes-observed"/>
     <display value="Observed outcomes are clinical outcomes"/>
-    <definition value="Used to denote a focus on clinical outcomes, ie evidence variable in role of outcome (measured variable) as observed is considered a &#34;clinical outcome&#34; (patient-important outcome such as mortality, symptoms, function or quality of life)."/>
+    <definition value="Used to denote a focus on clinical outcomes, ie evidence variable in role of outcome (measured variable) as observed is considered a &quot;clinical outcome&quot; (patient-important outcome such as mortality, symptoms, function or quality of life)."/>
   </concept>
   <concept>
     <code value="population"/>

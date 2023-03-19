@@ -174,7 +174,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of an order for an physical therapy evaluation procedure"/>
+      <valueString value="Example of an order for a physical therapy evaluation procedure"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="servicerequest-example-pt"/>

@@ -44,15 +44,18 @@ The Security and Privacy module includes the following materials:
  <tr>
    <td>
 <ul>
-<li>
-  <a href="consent.html">Consent</a>
-</li>
-<li>
-  <a href="provenance.html">Provenance</a>
-</li>
-<li>
-  <a href="auditevent.html">Audit Event</a>
-</li>
+  <li>
+    <a href="auditevent.html">Audit Event</a>
+  </li>
+  <li>
+    <a href="consent.html">Consent</a>
+  </li>
+  <li>
+    <a href="permission.html">Permission</a>
+  </li>
+  <li>
+    <a href="provenance.html">Provenance</a>
+  </li>
 </ul>
    </td>
    <td>
@@ -265,7 +268,7 @@ For details, see
 </p><p>
 <em>Approach:</em> The AuditEvent resource can inform this report.
 </p><p>
-There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
+There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma-separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
 </p><p>
 In order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis, <a href="auditevent.html#patient">all AuditEvent records should include a reference to the Patient/Subject</a> of the activity being recorded. Reasonable efforts should be taken to assure the Patient/Subject is recorded, but it is recognized that there are times when this is not reasonable. See deeper details on AuditEvent.
 </p><p>
@@ -480,7 +483,7 @@ Use-Case: There are times when data will have different authorization requiremen
 <h3>Developmental Roadmap</h3>
 
 <p>
-In the STU3 release, FHIR includes building blocks and principles for creating
+FHIR includes building blocks and principles for creating
 secure, privacy-oriented health IT systems; FHIR does not mandate a single
 technical approach to security and privacy.
 </p>
@@ -491,23 +494,14 @@ technical approach to security and privacy.
 
 <ul>
 <li>
-incorporate the SMART on FHIR authorization specification,
-for user-authorized apps, 
-</li>
-<li>
-methods for organization-to-organization authorization,
-</li>
-<li>
 more details about how to use digital Signatures for data integrity and
 non-repudiation, including an approach that supports some level of manipulation
 of resources (e.g. separating the entries in a bundle, or conversion between
 XML and JSON during processing),
 </li>
 <li>
-more detailed Consent management, including support for specific consent use cases.
-</li>
-<li>
-guidance and methods to support GDPR or other emerging Privacy regulations.
+develop a <a href="permission.html">Permission</a> resource and show relationship to Consent, 
+and distributed Access Control and Enforcement
 </li>
 </ul>
 

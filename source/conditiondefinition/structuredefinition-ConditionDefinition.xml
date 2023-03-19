@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ConditionDefinition"/>
-  <title value="ConditionDefinition"/>
+  <title value="Condition Definition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -87,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConditionDefinition"/>
       </constraint>
       <mapping>
@@ -110,7 +110,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -155,6 +155,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="ConditionDefinition.versionAlgorithm[x]">
+       <path value="ConditionDefinition.versionAlgorithm[x]"/>
+       <short value="How to compare versions"/>
+       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+       <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+       <min value="0"/>
+       <max value="1"/>
+       <type>
+         <code value="string"/>
+       </type>
+       <type>
+         <code value="Coding"/>
+       </type>
+       <isSummary value="true"/>
+       <binding>
+         <strength value="extensible"/>
+         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+       </binding>
     </element>
     <element id="ConditionDefinition.name">
       <path value="ConditionDefinition.name"/>
@@ -385,7 +404,7 @@
       <path value="ConditionDefinition.bodySite"/>
       <short value="Anatomical location, if relevant"/>
       <definition value="The anatomical location where this condition manifests itself."/>
-      <comment value="Only used if not implicit in code found in ConditionDefinition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="Only used if not implicit in code found in ConditionDefinition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -396,7 +415,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
         </extension>
         <strength value="example"/>

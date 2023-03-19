@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -51,7 +51,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -170,7 +170,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="No equivalent in HL7 v2"/>
+        <map value="No equivalent in HL7 V2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -282,7 +282,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -340,7 +340,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="No equivalent in HL7 v2"/>
+        <map value="No equivalent in HL7 V2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -372,7 +372,7 @@
         <valueCode value="350,0"/>
       </extension>
       <path value="Organization.qualification"/>
-      <short value="Qualifications, certifications, accreditations, licenses, training, etc pertaining to the provision of care"/>
+      <short value="Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care"/>
       <definition value="The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.&#xD;&#xD;For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization."/>
       <min value="0"/>
       <max value="*"/>

@@ -1,0 +1,64 @@
+map "http://research.philips.com/fhir/r4/mapping/AdToMedicationRequest" =
+    "R3 Parameters of Activitydefinition.$apply to MedicationRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/Parameters"       as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" as target
+
+group main
+    input src: Parameters as source
+    input tgt: ReferralRequest as target
+
+    "subject" : for src.parameter as p where name='subject' then {
+            do: for p.value as sbj make tgt.subject = sbj
+    }
+
+    "practitioner" : for src.parameter as p where name='practitioner' then{
+            doReq: for p.value as prac make tgt.requester = prac
+            doRec: for p.value as prac make tgt.recorder = prac
+        }
+
+    "organization" : for src as src where
+            parameter.where( name='practitioner').exists().not() and parameter.where( name='organization').exists()
+        then{
+            do: for src.parameter as p where name='organization' then{
+                do: for p.value as org make tgt.requester = org
+            }
+        }
+
+    "encounter" : for src.parameter as p where name='encounter' then {
+        do: for p.value as enc make tgt.encounter = enc
+    }
+
+    actded: for src.parameter as p where name='source' then {
+        do: for p.resource as ad then createActDef( ad, tgt )
+    }
+    
+endgroup
+
+group createActDef
+    input src: ActivityDefinition as source
+    input tgt: MedicationRequest as target
+
+    "ad.code"      : for src.code     as code     make tgt.reasonCode = code
+    "ad.priority"  : for src.priority as priority make tgt.priority = priority
+    "ad.doNotPerform"  : for src.doNotPerform as doNotPerform make tgt.doNotPerform as doNotPerform
+//    "ad.timing"    : for src.timing   as timing   make tgt.occurrence = timing
+//    "ad.location"  : for src.location as location make tgt.site = location
+    "ad.product"   : for src.product  as product  make tgt.medication = product
+//    "ad.quantity"  : for src.quantity as quantity make tgt.quantity as tgt
+//    "ad.bodysite"  : for src.bodySite as bodysite make tgt.bodySite = bodysite
+    "ad.dosage"    : for src.dosage   as dosage   make tgt.dosageInstruction = dosage
+
+    dispenseRequest: for src make tgt.dispenseRequest as dispenseRequest then {
+        dr.q:   for src.quantity as quantity make dispenseRequest.quantity = quantity
+        dr.di:  for src.timing : Duration as timing make dispenseRequest.dispenseInterval = timing
+        dr.di:  for src.timing : Period   as timing make dispenseRequest.validityPeriod   = timing
+    }
+
+    "refAd"        : for src.url      as vvv make tgt.instantiatesCanonical = vvv
+    "intent"       : for src                 make tgt.intent = "proposal"
+    "status"       : for src                 make tgt.status = "active"
+    "created"      : for src                 make tgt.authoredOn = evaluate( src, now() )
+endgroup
+
+

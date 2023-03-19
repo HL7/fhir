@@ -29,9 +29,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.337"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="DeviceMetricOperationalStatus"/>
-  <title value="DeviceMetricOperationalStatus"/>
+  <title value="Device Metric Operational Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -53,7 +53,7 @@
   <concept>
     <code value="on"/>
     <display value="On"/>
-    <definition value="The DeviceMetric is operating and will generate DeviceObservations."/>
+    <definition value="The DeviceMetric is operating and will generate Observations."/>
   </concept>
   <concept>
     <code value="off"/>
@@ -63,7 +63,7 @@
   <concept>
     <code value="standby"/>
     <display value="Standby"/>
-    <definition value="The DeviceMetric is operating, but will not generate any DeviceObservations."/>
+    <definition value="The DeviceMetric is operating, but will not generate any Observations."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>

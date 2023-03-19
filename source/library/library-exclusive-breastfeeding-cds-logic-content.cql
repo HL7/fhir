@@ -64,7 +64,7 @@ define "Should Create Assessment Order":
     and not exists ( "Breastfeeding Readiness Assessment Order" ) // Effectively captures all statuses
 
 define "Should Create Lactation Consult":
-  not exists ( "Breastfeeding Exlusions" )
+  not exists ( "Breastfeeding Exclusions" )
     and exists ( "Intention not to Breastfeed" )
     and exists ( "Completed Breastfeeding Readiness Assessment" )
     and not exists ( "Lactation Consult Request" )

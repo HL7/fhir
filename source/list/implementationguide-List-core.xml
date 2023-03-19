@@ -3,27 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="List-core"/>
   <version value="0.01"/>
-  <name value="List HL7 Extensions"/>
-  <title value="List HL7 Extensions"/>
+  <name value="ListHL7Extensions"/>
+  <title value="List  H L7  Extensions"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
   <description value="Defines common extensions used with or related to the List resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/list-changeBase"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/list-category"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/list-for"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

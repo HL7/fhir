@@ -48,14 +48,10 @@
   <reference value="Practitioner/example"/>
   <display value="Dr. Adam Careful"/>
 </requester>
-<performerType>
-  <coding>
-    <display value='Qualified nurse'/>
-  </coding>
-  <text value='Nurse'/>
-</performerType>
 <performer>
-  <display value="Nurse Rossignol"/>
+  <reference>
+    <display value="Nurse Rossignol"/>
+  </reference>
 </performer>
 <reason>
   <concept>

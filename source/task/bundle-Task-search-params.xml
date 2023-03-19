@@ -206,7 +206,7 @@
         <description value="Search by task output"/>
         <code value="output"/>
         <type value="reference"/>
-        <expression value="Task.output"/>
+        <expression value="Task.output.value.ofType(Reference)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -291,18 +291,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Task-performer"/>
+        <id value="Task-requestedPerformer-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Task.requestedPerformer.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer-reference"/>
         <description value="Search by specific requested performer."/>
-        <code value="performer"/>
+        <code value="requestedperformer-reference"/>
         <type value="reference"/>
         <expression value="Task.requestedPerformer.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Task-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Task.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer"/>
+        <description value="Search by specific performer."/>
+        <code value="actor"/>
+        <type value="reference"/>
+        <expression value="Task.performer.actor"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MessageDefinition"/>
-  <title value="MessageDefinition"/>
+  <title value="Message Definition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Infrastructure And Messaging)"/>
@@ -55,7 +55,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -97,7 +97,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
       </constraint>
       <mapping>
@@ -119,7 +119,7 @@
     </element>
     <element id="MessageDefinition.url">
       <path value="MessageDefinition.url"/>
-      <short value="Business Identifier for a given MessageDefinition"/>
+      <short value="The cannonical URL for a given MessageDefinition"/>
       <definition value="The business identifier that is used to reference the MessageDefinition and *is* expected to be consistent from server to server."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the message definition to be referenced by a single globally unique identifier."/>
@@ -132,7 +132,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -147,7 +147,7 @@
     </element>
     <element id="MessageDefinition.identifier">
       <path value="MessageDefinition.identifier"/>
-      <short value="Primary key for the message definition on a given server"/>
+      <short value="Business Identifier for a given MessageDefinition"/>
       <definition value="A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this message definition outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
@@ -189,6 +189,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="MessageDefinition.versionAlgorithm[x]">
+       <path value="MessageDefinition.versionAlgorithm[x]"/>
+       <short value="How to compare versions"/>
+       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+       <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+       <min value="0"/>
+       <max value="1"/>
+       <type>
+         <code value="string"/>
+       </type>
+       <type>
+         <code value="Coding"/>
+       </type>
+       <isSummary value="true"/>
+       <binding>
+         <strength value="extensible"/>
+         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+       </binding>
     </element>
     <element id="MessageDefinition.name">
       <path value="MessageDefinition.name"/>
@@ -469,6 +488,21 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="MessageDefinition.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="MessageDefinition.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="MessageDefinition.base">
       <path value="MessageDefinition.base"/>
       <short value="Definition this one is based on"/>
@@ -636,7 +670,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="messageheader-response-request"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message."/>
         </extension>
         <strength value="required"/>
@@ -686,7 +720,7 @@
     <element id="MessageDefinition.graph">
       <path value="MessageDefinition.graph"/>
       <short value="Canonical reference to a GraphDefinition"/>
-      <definition value="Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [GraphDefinition](graphdefinition.html) that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources."/>
+      <definition value="Graph is Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a GraphDefinition that it controls what additional resources are to be added to the Bundle when building the message. The GraphDefinition can also specify profiles that apply to the various resources."/>
       <min value="0"/>
       <max value="1"/>
       <type>

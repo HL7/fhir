@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="week-of-month"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -14,7 +16,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="WeekOfMonth"/>
-  <title value="WeekOfMonth"/>
+  <title value="Week Of Month"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-06-14"/>
@@ -36,21 +38,26 @@
   <concept>
     <code value="first"/>
     <display value="First"/>
+    <definition value="First week of the month."/>
   </concept>
   <concept>
     <code value="second"/>
     <display value="Second"/>
+    <definition value="Second week of the month."/>
   </concept>
   <concept>
     <code value="third"/>
     <display value="Third"/>
+    <definition value="Third week of the month."/>
   </concept>
   <concept>
     <code value="fourth"/>
     <display value="Fourth"/>
+    <definition value="Fourth week of the month."/>
   </concept>
   <concept>
     <code value="last"/>
     <display value="Last"/>
+    <definition value="Last week of the month."/>
   </concept>
 </CodeSystem>

@@ -16,7 +16,7 @@
         <description value="A use context assigned to the citation"/>
         <code value="context"/>
         <type value="token"/>
-        <expression value="(Citation.useContext.value as CodeableConcept)"/>
+        <expression value="(Citation.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="A quantity- or range-valued use context assigned to the citation"/>
         <code value="context-quantity"/>
         <type value="quantity"/>
-        <expression value="(Citation.useContext.value as Quantity) | (Citation.useContext.value as Range)"/>
+        <expression value="(Citation.useContext.value.ofType(Quantity)) | (Citation.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -313,6 +313,68 @@
         <type value="token"/>
         <expression value="Citation.version"/>
         <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-classifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.classification.classifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-classifier"/>
+        <description value="A classifier assigned to the citation"/>
+        <code value="classifier"/>
+        <type value="token"/>
+        <expression value="(Citation.classification.classifier)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-classification-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.classification.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-classification-type"/>
+        <description value="A type of classification assigned to the citation"/>
+        <code value="classification-type"/>
+        <type value="token"/>
+        <expression value="(Citation.classification.type)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-classification"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-classification"/>
+        <description value="A classification type and value assigned to the citation"/>
+        <code value="classification"/>
+        <type value="composite"/>
+        <expression value="Citation.classification"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="classification-type"/>
+          <expression value="type"/>
+        </component>
+        <component>
+          <definition value="classifier"/>
+          <expression value="classifier"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>

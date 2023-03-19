@@ -74,15 +74,19 @@
       </coding>
     </function>
     <actor>
-      <reference value="Practitioner/f007"/>
-      <display value="Patrick Pump"/>
+      <reference>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+      </reference>
     </actor>
   </performer>
   <request>
     <reference value="MedicationRequest/medrx0323"/>
   </request>
   <device>
-    <reference value="Device/f001"></reference>
+    <reference>
+      <reference value="Device/f001"></reference>
+    </reference>
   </device>
   <dosage>
     <text value="1000mL infused at 50ml/hour for 4 hours - hung at 2200 hours" />

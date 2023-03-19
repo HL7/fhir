@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 [%settitle Type Framework%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -50,7 +50,7 @@ This page defines the base abstract types that provide the foundation for all th
 <h2 style="margin-bottom: 1px">Base</h2>
 [%dtstatus Base%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="types-definitions.html#Base">Detailed Descriptions</a>, <a href="types-mappings.html#Base">Mappings</a>, <a href="types-extras.html#Base">Profiles &amp; Extensions</a> and <a href="types-version-maps.html#Base">R4 Conversions</a>.
+<!--xlp:Base-->See also <a no-external="true" href="types-definitions.html#Base">Detailed Descriptions</a>, <a no-external="true" href="types-mappings.html#Base">Mappings</a>, <a no-external="true" href="types-profiles.html#Base">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-types.html#Base">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-types.html#Base">R4 Conversions</a>
 </p>
 
 <p>
@@ -78,7 +78,7 @@ defined in the <a href="http://hl7.org/fhirpath/R2/index.html#navigation-model">
 <h2 style="margin-bottom: 1px">Element</h2>
 [%dtstatus Element%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="types-definitions.html#Element">Detailed Descriptions</a>, <a href="types-mappings.html#Element">Mappings</a>, <a href="types-extras.html#Element">Profiles &amp; Extensions</a> and <a href="types-version-maps.html#Element">R4 Conversions</a>.
+<!--xlp:Element-->See also <a no-external="true" href="types-definitions.html#Element">Detailed Descriptions</a>, <a no-external="true" href="types-mappings.html#Element">Mappings</a>, <a no-external="true" href="types-profiles.html#Element">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-types.html#Element">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-types.html#Element">R4 Conversions</a>
 </p>
 
 <p>
@@ -97,7 +97,7 @@ There are 3 kinds of descendant types that specialize <code>Element</code>:
 <ul>
  <li><a href="datatypes.html#primitive">Primitive datatypes</a>, that add a primitive value property of the specified type</li>
  <li><a href="datatypes.html#complex">Complex datatypes</a>, that add their own children (all of which are also elements)</li>
- <li><a href="#BackboneElement">BackboneElement</a>, A specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
+ <li><a href="#BackboneElement">BackboneElement</a>, a specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
 </ul>
 <p>
 Note that resources themselves all specialize the base type <a href="resource.html">Resource</a>.
@@ -129,7 +129,7 @@ The <code>id</code> property of the element is defined to allow implementers
 to build implementation functionality that makes use of internal references
 inside the resource. This specification does not define any general use for
 the internal id, though some resources (e.g. <a href="elementdefinition.html#id">StructureDefinition</a>) and
-extensions (e.g. <a href="extension-originaltext.html">originalText</a>, <a href="extension-narrativelink.html">narrativeLink</a>) make use of it.
+extensions (e.g. <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a>, <a href="[%extensions-location%]StructureDefinition-narrativeLink.html">narrativeLink</a>) make use of it.
 </p>
 <p>
 The internal id is unique within the scope of the resource that contains it.
@@ -151,7 +151,7 @@ These rules ensure that there is no need to change internal identifiers while ex
 <h2 style="margin-bottom: 1px">BackboneElement</h2>
 [%dtstatus BackboneElement%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="types-definitions.html#BackboneElement">Detailed Descriptions</a>, <a href="types-mappings.html#BackboneElement">Mappings</a>, <a href="types-extras.html#BackboneElement">Profiles &amp; Extensions</a> and <a href="types-version-maps.html#BackboneElement">R4 Conversions</a>.
+<!--xlp:BackboneElement-->See also <a no-external="true" href="types-definitions.html#BackboneElement">Detailed Descriptions</a>, <a no-external="true" href="types-mappings.html#BackboneElement">Mappings</a>, <a no-external="true" href="types-profiles.html#BackboneElement">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-types.html#BackboneElement">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-types.html#BackboneElement">R4 Conversions</a>
 </p>
 
 
@@ -176,7 +176,7 @@ part of the definitions of the resources.
 <h2 style="margin-bottom: 1px">DataType</h2>
 [%dtstatus DataType%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="types-definitions.html#DataType">Detailed Descriptions</a>, <a href="types-mappings.html#DataType">Mappings</a>, <a href="types-extras.html#DataType">Profiles &amp; Extensions</a> and <a href="types-version-maps.html#DataType">R4 Conversions</a>.
+<!--xlp:DataType-->See also <a no-external="true" href="types-definitions.html#DataType">Detailed Descriptions</a>, <a no-external="true" href="types-mappings.html#DataType">Mappings</a>, <a no-external="true" href="types-profiles.html#DataType">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-types.html#DataType">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-types.html#DataType">R4 Conversions</a>
 </p>
 
 
@@ -196,7 +196,7 @@ See <a href="datatypes.html">FHIR Datatypes</a> for specialization of this type.
 <h2 style="margin-bottom: 1px">BackboneType</h2>
 [%dtstatus BackboneType%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="types-definitions.html#BackboneType">Detailed Descriptions</a>, <a href="types-mappings.html#BackboneType">Mappings</a>, <a href="types-extras.html#BackboneType">Profiles &amp; Extensions</a> and <a href="types-version-maps.html#BackboneType">R4 Conversions</a>.
+<!--xlp:BackboneType-->See also <a no-external="true" href="types-definitions.html#BackboneType">Detailed Descriptions</a>, <a no-external="true" href="types-mappings.html#BackboneType">Mappings</a>, <a no-external="true" href="types-profiles.html#BackboneType">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-types.html#BackboneType">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-types.html#BackboneType">R4 Conversions</a>
 </p>
 
 
@@ -218,7 +218,7 @@ The base definition for the few datatypes that allow modifier extensions:
 <h2 style="margin-bottom: 1px">PrimitiveType</h2>
 [%dtstatus PrimitiveType%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="types-definitions.html#PrimitiveType">Detailed Descriptions</a>, <a href="types-mappings.html#PrimitiveType">Mappings</a>, <a href="types-extras.html#PrimitiveType">Profiles &amp; Extensions</a> and <a href="types-version-maps.html#PrimitiveType">R4 Conversions</a>.
+<!--xlp:PrimitiveType-->See also <a no-external="true" href="types-definitions.html#PrimitiveType">Detailed Descriptions</a>, <a no-external="true" href="types-mappings.html#PrimitiveType">Mappings</a>, <a no-external="true" href="types-profiles.html#PrimitiveType">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-types.html#PrimitiveType">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-types.html#PrimitiveType">R4 Conversions</a>
 </p>
 
 <p>

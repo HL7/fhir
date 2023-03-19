@@ -1,0 +1,52 @@
+map "http://hl7.org/fhir/StructureMap/DocumentReference3to4" = "R3 to R4 Conversions for DocumentReference"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentReference" alias DocumentReferenceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group DocumentReference(source src : DocumentReferenceR3, target tgt : DocumentReference) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.masterIdentifier;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.docStatus -> tgt.docStatus;
+  src.type -> tgt.type;
+  src.class -> tgt.category;
+  src.subject -> tgt.subject;
+  src.indexed -> tgt.date;
+  src.created as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created',  ext.value = vs;
+  src.author -> tgt.author;
+  src.authenticator -> tgt.authenticator;
+  src.custodian -> tgt.custodian;
+  src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
+  src.description -> tgt.description;
+  src.securityLabel -> tgt.securityLabel;
+  src.content as vs0 -> tgt.content as vt0 then content(vs0, vt0);
+  src.context as vs0 -> tgt.context as vt0 then context(vs0, vt0);
+}
+
+group relatesTo(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.target -> tgt.target;
+}
+
+group content(source src, target tgt) extends BackboneElement {
+  src.attachment -> tgt.attachment;
+  src.format -> tgt.format;
+}
+
+group context(source src, target tgt) extends BackboneElement {
+  src.encounter -> tgt.encounter;
+  src.event -> tgt.event;
+  src.period -> tgt.period;
+  src.facilityType -> tgt.facilityType;
+  src.practiceSetting -> tgt.practiceSetting;
+  src.sourcePatientInfo -> tgt.sourcePatientInfo;
+  src.related as vs0 -> tgt.related as vt0 then related(vs0, vt0);
+}
+
+group related(source src, target tgt) {
+  src.identifier as vs0 then Identifier2Reference(vs0, tgt);
+  src.ref as vs0 then Reference(vs0, tgt);
+}
+

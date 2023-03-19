@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1175"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Profile for Catalog"/>
-  <title value="Profile for Catalog"/>
+  <name value="ProfileForCatalog"/>
+  <title value="Profile for  Catalog"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2014-01-31"/>

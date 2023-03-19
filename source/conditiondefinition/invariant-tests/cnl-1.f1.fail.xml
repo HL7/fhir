@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConditionDefinition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+
+  <url value="http://hl7.org/fhir/ConditionDefinition/example|2"/>
+
+
+
+  <!-- <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.25.1"/>
+  </identifier> -->
+
+  <!-- <name value="Hyperlipidemia (disorder)"/> -->
+
+
+  <!-- <title value="Hyperlipidemia Status"/> -->
+  
+  
+  <status value="draft"/>
+
+  <!-- <date value="2019-05-26T10:44:00+10:00"/>
+  <description value="Hyperlipidemia Status"/> -->
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="55822004"/>
+      <display value="Hyperlipidemia (disorder)"/>
+    </coding>
+  </code>
+
+
+  <!-- <hasSeverity value="false"/>
+  <hasBodySite value="false"/>
+  <hasStage value="false"/>
+  <definition value="https://med.stanford.edu/content/dam/sm/cerc/documents/Hyperlipidemia%20Management%20Protocol.pdf"/>
+  <observation>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="24331-1"/>
+        <display value="Lipid 1996 panel - Serum or Plasma"/>
+      </coding>
+      <text value="Lipid Panel"/>
+    </code>
+  </observation>
+  <observation>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="35200-5"/>
+        <display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
+      </coding>
+      <text value="Cholesterol"/>
+    </code>
+  </observation>
+  <observation>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="35217-9"/>
+        <display value="Triglyceride [Moles/​volume] in Serum or Plasma"/>
+      </coding>
+      <text value="Triglyceride"/>
+    </code>
+  </observation>
+  <observation>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="2085-9"/>
+        <display value="HDL Cholesterol"/>
+      </coding>
+      <text value="Cholesterol in HDL"/>
+    </code>
+  </observation>
+  <observation>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="13457-7"/>
+        <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
+      </coding>
+      <text value="LDL Chol. (Calc)"/>
+    </code>
+  </observation>
+  <medication>
+    <code>
+      <coding>
+        <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+        <code value="203151"/>
+        <display value="Gemfibrozil"/>
+      </coding>
+    </code>
+  </medication>
+  <plan>
+    <reference>
+      <reference value="http://acme.com/fhir/PlanDefinition/fd0e32d8-2ebd-4211-9e50-8983efddc2c6"/>
+    </reference>
+  </plan> -->
+</ConditionDefinition>

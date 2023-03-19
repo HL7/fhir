@@ -16,7 +16,7 @@
         <description value="The situation that is being documented as contraindicating against this item, as a code"/>
         <code value="contraindication"/>
         <type value="token"/>
-        <expression value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
+        <expression value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="The situation that is being documented as contraindicating against this item, as a reference"/>
         <code value="contraindication-reference"/>
         <type value="reference"/>
-        <expression value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
+        <expression value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -54,7 +54,7 @@
         <description value="The situation in which the undesirable effect may manifest, as a code"/>
         <code value="effect"/>
         <type value="token"/>
-        <expression value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
+        <expression value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -73,7 +73,7 @@
         <description value="The situation in which the undesirable effect may manifest, as a reference"/>
         <code value="effect-reference"/>
         <type value="reference"/>
-        <expression value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
+        <expression value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -111,7 +111,7 @@
         <description value="The situation that is being documented as an indicaton for this item, as a code"/>
         <code value="indication"/>
         <type value="token"/>
-        <expression value="ClinicalUseDefinition.indication.diseaseSymptomProcedure"/>
+        <expression value="ClinicalUseDefinition.indication.diseaseSymptomProcedure.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -130,7 +130,7 @@
         <description value="The situation that is being documented as an indicaton for this item, as a reference"/>
         <code value="indication-reference"/>
         <type value="reference"/>
-        <expression value="ClinicalUseDefinition.indication.diseaseSymptomProcedure"/>
+        <expression value="ClinicalUseDefinition.indication.diseaseSymptomProcedure.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -223,7 +223,7 @@
           <valueString value="ClinicalUseDefinition.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-status"/>
-        <description value="Whether this is a current issue or one that has been retired etc"/>
+        <description value="Whether this is a current issue or one that has been retired etc."/>
         <code value="status"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.status"/>

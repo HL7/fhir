@@ -20,6 +20,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StatisticsCode"/>
+  <title value="Statistics Code"/>
   <experimental value="true"/>
   <description value="Description Needed Here"/>
   <compose>

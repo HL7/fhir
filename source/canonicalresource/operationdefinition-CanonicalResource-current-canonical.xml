@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CanonicalResource-current-canonical"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -32,11 +34,11 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="If none of the instances define the versionAlgorithm to use, a server may  dynamically attempt to determine which versioning system is implied by the data.&#xD;&#xD;If the instances found with the provided canonical URL define different versionAlgorithm values the server may return an error.&#xD;&#xD;Note that the *CanonicalResource* is an interface and not an actual resource type, as such the operation is actually called on the canonical resource types such as CodeSystem, Questionnaire etc." />
+    <valueMarkdown value="If none of the instances define the versionAlgorithm to use, a server may  dynamically attempt to determine which versioning system is implied by the data.&#xD;&#xD;If the instances found with the provided canonical URL define different versionAlgorithm values the server may return an error.&#xD;&#xD;Note that the *CanonicalResource* is an interface and not an actual resource type, as such the operation is actually called on the canonical resource types such as CodeSystem, Questionnaire etc."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CanonicalResource-current-canonical"/>
   <version value="5.0.0"/>
-  <name value="current-canonical"/>
+  <name value="Currentcanonical"/>
   <title value="Fetch the current version of a canonical resource (based on canonical versioning)"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -52,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Returns the most current version of the canonical resource with the specified url available on the server.  It optionally also allows filtering to only expose the most current version with a particular status or set of statuses.&#xD;&#xD;Note that 'current' is determined by comparing version values using the specified versionAlgorithm, NOT by looking at lastUpdated." />
+  <description value="Returns the most current version of the canonical resource with the specified url available on the server.  It optionally also allows filtering to only expose the most current version with a particular status or set of statuses.&#xD;&#xD;Note that 'current' is determined by comparing version values using the specified versionAlgorithm, NOT by looking at lastUpdated."/>
   <affectsState value="false"/>
   <code value="current-canonical"/>
   <resource value="CanonicalResource"/>

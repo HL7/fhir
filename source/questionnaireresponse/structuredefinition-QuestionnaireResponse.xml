@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="QuestionnaireResponse"/>
-  <title value="QuestionnaireResponse"/>
+  <title value="Questionnaire Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -97,9 +97,10 @@
     </element>
     <element id="QuestionnaireResponse.identifier">
       <path value="QuestionnaireResponse.identifier"/>
-      <short value="Unique id for this set of answers"/>
-      <definition value="A business identifier assigned to a particular completed (or partially completed) questionnaire."/>
-      <requirements value="Used for tracking, registration and other business purposes."/>
+      <short value="Business identifier for this set of answers"/>
+      <definition value="Business identifiers assigned to this questionnaire response by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers))."/>
+      <requirements value="Allows identification of the questionnaire response as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -122,8 +123,8 @@
     <element id="QuestionnaireResponse.basedOn">
       <path value="QuestionnaireResponse.basedOn"/>
       <short value="Request fulfilled by this QuestionnaireResponse"/>
-      <definition value="The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression."/>
-      <requirements value="Supports traceability of responsibility for the action and allows linkage of an action to the recommendations acted upon."/>
+      <definition value="A plan, proposal or order that is fulfilled in whole or in part by this questionnaire response.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression."/>
+      <requirements value="Supports traceability of responsibility for the questionnaire response and allows linkage of the response to the proposals/recommendations acted upon."/>
       <alias value="order"/>
       <min value="0"/>
       <max value="*"/>
@@ -144,9 +145,9 @@
     </element>
     <element id="QuestionnaireResponse.partOf">
       <path value="QuestionnaireResponse.partOf"/>
-      <short value="Part of this action"/>
+      <short value="Part of referenced event"/>
       <definition value="A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of."/>
-      <comment value="Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn."/>
+      <comment value="Not to be used to link an questionnaire response to an Encounter - use 'context' for that.&#xa;&#xa;Composition of questionnaire responses will be handled using the Assemble operation defined in the SDC IG.  For relationships to referrals, and other types of requests, use basedOn."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -179,10 +180,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"/>
       </mapping>
@@ -193,8 +190,8 @@
       </extension>
       <path value="QuestionnaireResponse.status"/>
       <short value="in-progress | completed | amended | entered-in-error | stopped"/>
-      <definition value="The position of the questionnaire response within its overall lifecycle."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <definition value="The current state of the questionnaire response."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <requirements value="The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished."/>
       <min value="1"/>
       <max value="1"/>
@@ -230,7 +227,7 @@
       <short value="The subject of the questions"/>
       <definition value="The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information."/>
       <comment value="If the Questionnaire declared a subjectType, the resource pointed to by this element must be an instance of one of the listed types."/>
-      <requirements value="Allows linking the answers to the individual the answers describe.  May also affect access control."/>
+      <requirements value="Links the questionnaire response to the Patient context.  May also affect access control."/>
       <alias value="Patient"/>
       <alias value="Focus"/>
       <min value="0"/>
@@ -259,10 +256,10 @@
     </element>
     <element id="QuestionnaireResponse.encounter">
       <path value="QuestionnaireResponse.encounter"/>
-      <short value="Encounter created as part of"/>
+      <short value="Encounter the questionnaire response is part of"/>
       <definition value="The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated."/>
-      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter."/>
-      <requirements value="Provides context for the information that was captured.  May also affect access control."/>
+      <comment value="This will typically be the encounter the questionnaire response was created during, but some questionnaire responses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission forms).  A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter."/>
+      <requirements value="Links the questionnaire response to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -301,7 +298,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.occurrence[x]"/>
+        <map value="Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -338,7 +335,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer"/>
+        <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -421,6 +418,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="qrs-2"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
@@ -471,6 +469,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="qrs-1"/>
+      <condition value="qrs-2"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value[type=LIST_ANY]"/>
@@ -480,7 +480,7 @@
       <path value="QuestionnaireResponse.item.answer.value[x]"/>
       <short value="Single-valued answer to the question"/>
       <definition value="The answer (or one of the answers) provided by the respondent to the question."/>
-      <comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.     Note that a question is answered using one of the possible choices defined with answerOption, answerValueSet or some other means and the answer has a complex data type, all elements within the answer in the QuestionnaireResponse **SHOULD** match the elements defined corresponding choice value in the Questionnaire.  However, it is possible that not all elements will be propagated.  Also, some systems might use language translations resulting in different displays.  Comparison of value to the values defined in the Questionnaire (whether by answerOption, answerValueSet or answerExpression) **SHALL NOT** pay attention to Coding.display, Reference.display, Quantity.unit unless those are the only elements present.  As well, systems are not required to check for a match on any extensions (e.g. ordinal values, translations, etc).  Systems **MAY** enforce that if extensions such as ordinal values are present in both Questionnaire and QuestionnaireResponse, they match."/>
+      <comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.     Note that a question is answered using one of the possible choices defined with answerOption, answerValueSet or some other means and the answer has a complex data type, all elements within the answer in the QuestionnaireResponse **SHOULD** match the elements defined corresponding choice value in the Questionnaire.  However, it is possible that not all elements will be propagated.  Also, some systems might use language translations resulting in different displays.  Comparison of value to the values defined in the Questionnaire (whether by answerOption, answerValueSet or answerExpression) **SHALL NOT** pay attention to Coding.display, Reference.display, Quantity.unit unless those are the only elements present.  As well, systems are not required to check for a match on any extensions (e.g. ordinal values, translations, etc.).  Systems **MAY** enforce that if extensions such as ordinal values are present in both Questionnaire and QuestionnaireResponse, they match."/>
       <requirements value="Ability to retain a single-valued answer to a question."/>
       <min value="1"/>
       <max value="1"/>
@@ -521,11 +521,12 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="qrs-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireAnswer"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Code indicating the response provided for a question."/>
         </extension>
         <strength value="example"/>

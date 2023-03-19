@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n464"
+   version="1.1"
+   width="878.8000000000001"
+   height="297.0"
+   sodipodi:docname="allergyintolerance.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview208"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4178425"
+     inkscape:cx="439.39999"
+     inkscape:cy="149.1703"
+     inkscape:window-width="1390"
+     inkscape:window-height="1027"
+     inkscape:window-x="2825"
+     inkscape:window-y="1132"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n464" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.019746647"
+       y="-0.067948718"
+       width="1.0506706"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n465">
+    <rect
+       id="AllergyIntolerance"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="290.40000000000003"
+       height="246.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n466"
+       x1="0.0"
+       y1="28.0"
+       x2="290.40000000000003"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n467"
+       x="145.20000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">AllergyIntolerance<tspan
+   class="diagram-class-title-link"
+   id="tspan23"> (<a
+   id="n468"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n469"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n470"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.identifier"><title
+   id="title26">Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n471"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n475"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n476"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus"><title
+   id="title31">The clinical status of the allergy or intolerance (this element modifies the meaning of other elements)</title>clinicalStatus</a> : <a
+   id="n477"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n478"
+   xlink:href="valueset-allergyintolerance-clinical.html"><title
+     id="n479">null (Strength=Required)</title></a></text>
+    <text
+       id="n480"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n481"
+   xlink:href="valueset-allergyintolerance-clinical.html">AllergyIntoleranceClinicalSta...</a>! »</text>
+    <text
+       id="n489"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n490"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus"><title
+   id="title40">Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).  The verification status pertains to the allergy or intolerance, itself, not to any specific AllergyIntolerance attribute (this element modifies the meaning of other elements)</title>verificationStatus</a> : <a
+   id="n491"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n492"
+   xlink:href="valueset-allergyintolerance-verification.html"><title
+     id="n493">null (Strength=Required)</title></a></text>
+    <text
+       id="n494"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n495"
+   xlink:href="valueset-allergyintolerance-verification.html">AllergyIntoleranceVerificatio...</a>! »</text>
+    <rect
+       id="n503"
+       x="1.0"
+       y="102.0"
+       width="288.40000000000003"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n504"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n505"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.type"><title
+   id="title50">Identification of the underlying physiological mechanism for the reaction risk</title>type</a> : <a
+   id="n506"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n507"
+   xlink:href="valueset-allergy-intolerance-type.html"><title
+   id="title54">null (Strength=Preferred)</title>AllergyIntoleranceType</a>? »</text>
+    <text
+       id="n513"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n514"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.category"><title
+   id="title58">Category of the identified substance</title>category</a> : <a
+   id="n515"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n516"
+   xlink:href="valueset-allergy-intolerance-category.html"><title
+   id="n517">null (Strength=Required)</title>AllergyIntoleranceCategory</a>! »</text>
+    <text
+       id="n523"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n524"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.criticality"><title
+   id="title65">Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance</title>criticality</a> : <a
+   id="n525"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n526"
+   xlink:href="valueset-allergy-intolerance-criticality.html"><title
+   id="n527">null (Strength=Required)</title>AllergyIntoleranceCriticality</a>! »</text>
+    <text
+       id="n533"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n534"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.code"><title
+   id="title72">Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., &quot;Latex&quot;), an allergy or intolerance condition (e.g., &quot;Latex allergy&quot;), or a negated/excluded code for a specific substance or class (e.g., &quot;No latex allergy&quot;) or a general or categorical negated statement (e.g.,  &quot;No known allergy&quot;, &quot;No known drug allergies&quot;).  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance</title>code</a> : <a
+   id="n535"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n536"
+   xlink:href="valueset-allergyintolerance-code.html"><title
+   id="n537">null (Strength=Example)</title>SubstanceProductAndConditionA...</a>?? »</text>
+    <text
+       id="n543"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n544"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.patient"><title
+   id="title79">The patient who has the allergy or intolerance</title>patient</a> : <a
+   id="n545"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n546"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n551"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n552"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.encounter"><title
+   id="title85">The encounter when the allergy or intolerance was asserted</title>encounter</a> : <a
+   id="n553"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n554"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n559"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n560"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.onset_x_"><title
+   id="title91">Estimated or actual date,  date-time, or age when allergy or intolerance was identified</title>onset[x]</a> : <a
+   id="n561"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n562"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n563"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n564"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n565"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n566"
+   xlink:href="datatypes.html#string">string</a> »</text>
+    <text
+       id="n575"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n576"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.recordedDate"><title
+   id="title101">The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date</title>recordedDate</a> : <a
+   id="n577"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n581"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n582"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.lastOccurrence"><title
+   id="title106">Represents the date and/or time of the last known occurrence of a reaction event</title>lastOccurrence</a> : <a
+   id="n583"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n587"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n588"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.note"><title
+   id="title111">Additional narrative about the propensity for the Adverse Reaction, not captured in other fields</title>note</a> : <a
+   id="n589"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n593"
+     transform="translate(110.02632,15.516533)">
+    <rect
+       id="AllergyIntolerance.participant"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="286"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n594"
+       x1="320"
+       y1="28"
+       x2="606"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n595"
+       x="463"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Participant</text>
+    <text
+       id="n596"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.participant.function"><title
+   id="title120">Distinguishes the type of involvement of the actor in the activities related to the allergy or intolerance</title>function</a> : <a
+   id="n598"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n599"
+   xlink:href="valueset-participation-role-type.html"><title
+   id="n600">null (Strength=Extensible)</title>ParticipationRoleType</a>+ »</text>
+    <text
+       id="n606"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n607"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.participant.actor"><title
+   id="title127">Indicates who or what participated in the activities related to the allergy or intolerance</title>actor</a> : <a
+   id="n608"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n609"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n610"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n611"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n612"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n613"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n614"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n615"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n616"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+  </g>
+  <g
+     id="n628"
+     transform="translate(50.076083,11.990048)">
+    <rect
+       id="AllergyIntolerance.reaction"
+       x="410.39999"
+       y="129"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="148"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n629"
+       x1="410.39999"
+       y1="157"
+       x2="678.79999"
+       y2="157"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n630"
+       x="544.59998"
+       y="149"
+       fill="#000000"
+       class="diagram-class-title">Reaction</text>
+    <text
+       id="n631"
+       x="416.39999"
+       y="171"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n632"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.substance"><title
+   id="title144">Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance</title>substance</a> : <a
+   id="n633"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n634"
+   xlink:href="valueset-substance-code.html"><title
+   id="n635">null (Strength=Example)</title>SubstanceCode</a>?? »</text>
+    <text
+       id="n641"
+       x="416.39999"
+       y="185"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n642"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"><title
+   id="title151">Clinical symptoms and/or signs that are observed or associated with the adverse reaction event</title>manifestation</a> : <a
+   id="n643"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..*] « <a
+   id="n644"
+   xlink:href="observation.html#Observation">Observation</a>; <a
+   id="n645"
+   xlink:href="valueset-clinical-findings.html"><title
+     id="n646">null (Strength=Example)</title></a></text>
+    <text
+       id="n647"
+       x="436.39999"
+       y="199"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n648"
+   xlink:href="valueset-clinical-findings.html">SNOMEDCTClinicalFindings</a>?? »</text>
+    <text
+       id="n657"
+       x="416.39999"
+       y="213"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n658"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.description"><title
+   id="title161">Text description about the reaction as a whole, including details of the manifestation if required</title>description</a> : <a
+   id="n659"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n663"
+       x="416.39999"
+       y="227"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n664"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.onset"><title
+   id="title166">Record of the date and/or time of the onset of the Reaction</title>onset</a> : <a
+   id="n665"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n669"
+       x="416.39999"
+       y="241"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n670"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity"><title
+   id="title171">Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations</title>severity</a> : <a
+   id="n671"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n672"
+   xlink:href="valueset-reaction-event-severity.html"><title
+   id="n673">null (Strength=Required)</title>AllergyIntoleranceSeverity</a>! »</text>
+    <text
+       id="n679"
+       x="416.39999"
+       y="255"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n680"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.exposureRoute"><title
+   id="title178">Identification of the route by which the subject was exposed to the substance</title>exposureRoute</a> : <a
+   id="n681"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n682"
+   xlink:href="valueset-route-codes.html"><title
+   id="n683">null (Strength=Example)</title>SNOMEDCTRouteCodes</a>?? »</text>
+    <text
+       id="n689"
+       x="416.39999"
+       y="269"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n690"
+   xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction.note"><title
+   id="title185">Additional text about the adverse reaction event not captured in other fields</title>note</a> : <a
+   id="n691"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <line
+     id="n695"
+     x1="290.40000000000003"
+     y1="84.62114537444933"
+     x2="320.0"
+     y2="76.79735682819383"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n696"
+     points="290.40000000000003,84.62114537444933 296.40000000000003,88.62114537444933 302.40000000000003,84.62114537444933 296.40000000000003,80.62114537444933 290.40000000000003,84.62114537444933"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-14.805665326255692 290.40000000000003 84.62114537444933)" />
+  <rect
+     id="n697"
+     x="281.0"
+     y="73.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n698"
+     x="305.0"
+     y="83.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n699"
+       xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.participant"><title
+   id="title194">Indicates who or what participated in the activities related to the allergy or intolerance and how they were involved</title>participant</a></text>
+  <text
+     id="n700"
+     x="300.0"
+     y="72.79735682819383"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n701"
+     x1="290.40000000000003"
+     y1="152.08362543815724"
+     x2="410.40000000000003"
+     y2="176.11967951927892"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n702"
+     points="290.40000000000003,152.08362543815724 296.40000000000003,156.08362543815724 302.40000000000003,152.08362543815724 296.40000000000003,148.08362543815724 290.40000000000003,152.08362543815724"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(11.326483974622798 290.40000000000003 152.08362543815724)" />
+  <rect
+     id="n703"
+     x="332.5"
+     y="157.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n704"
+     x="350.0"
+     y="167.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n705"
+       xlink:href="allergyintolerance-definitions.html#AllergyIntolerance.reaction"><title
+   id="title202">Details about each adverse reaction event linked to exposure to the identified substance</title>reaction</a></text>
+  <text
+     id="n706"
+     x="390.40000000000003"
+     y="172.11967951927892"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

@@ -1,773 +1,1327 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n434"
+   id="n791"
    version="1.1"
-   width="940.5843"
-   height="292.09587999999997"
+   width="1109.79864"
+   height="592.51941"
    sodipodi:docname="specimendefinition.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata219">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview113984"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview217"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.2077599"
-     inkscape:cx="470.29214"
-     inkscape:cy="146.04794"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n434" />
+     inkscape:zoom="1.1227262"
+     inkscape:cx="554.89929"
+     inkscape:cy="297.04481"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n791" />
   <defs
-     id="defs11">
+     id="defs113640">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.020768025"
+       y="-0.0828125"
+       width="1.0532915"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset113631" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix113633" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur113635" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend113637" />
     </filter>
   </defs>
   <g
-     id="n435">
+     id="n792"
+     transform="translate(3.5627563,3.5627563)">
     <rect
        id="SpecimenDefinition"
-       x="0.0"
-       y="0.0"
+       x="0"
+       y="0"
        rx="4"
        ry="4"
-       width="272.8"
-       height="106.0"
+       width="293.04001"
+       height="428"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n793"
+       x1="0"
+       y1="28"
+       x2="293.04001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n794"
+       x="146.52"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">SpecimenDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan113646">(<a
+   id="n795"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n796"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n797"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n798"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.url"><title
+   id="title113649">An absolute URL that is used to identify this SpecimenDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this SpecimenDefinition is (or will be) published. The URL SHOULD include the major version of the SpecimenDefinition. For more information see Technical and Business Versions</title>url</a> : <a
+   id="n799"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n803"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n804"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.identifier"><title
+   id="title113654">A business identifier assigned to this SpecimenDefinition</title>identifier</a> : <a
+   id="n805"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n809"
+       x="6"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n810"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.version"><title
+   id="title113659">The identifier that is used to identify this version of the SpecimenDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the SpecimenDefinition author and is not expected to be globally unique</title>version</a> : <a
+   id="n811"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n815"
+       x="6"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n816"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.versionAlgorithm_x_"><title
+   id="title113664">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n817"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n818"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n819"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n820"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n821">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n822"
+       x="26"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n823"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n833"
+       x="6"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n834"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.name"><title
+   id="title113675">A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n835"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n839"
+       x="6"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n840"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.title"><title
+   id="title113680">A short, descriptive, user-friendly title for the SpecimenDefinition</title>title</a> : <a
+   id="n841"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n845"
+       x="6"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n846"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.derivedFromCanonical"><title
+   id="title113685">The canonical URL pointing to another FHIR-defined SpecimenDefinition that is adhered to in whole or in part by this definition</title>derivedFromCanonical</a> : <a
+   id="n847"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n848"
+   xlink:href="specimendefinition.html#SpecimenDefinition">SpecimenDefinition</a> »</text>
+    <text
+       id="n853"
+       x="6"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n854"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.derivedFromUri"><title
+   id="title113691">The URL pointing to an externally-defined type of specimen, guideline or other definition that is adhered to in whole or in part by this definition</title>derivedFromUri</a> : <a
+   id="n855"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n859"
+       x="6"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n860"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.status"><title
+   id="title113696">The current state of theSpecimenDefinition (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n861"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n862"
+   xlink:href="valueset-publication-status.html"><title
+   id="n863">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n869"
+       x="6"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n870"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.experimental"><title
+   id="title113703">A flag to indicate that this SpecimenDefinition is not authored for  genuine usage</title>experimental</a> : <a
+   id="n871"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n875"
+       x="6"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n876"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.subject_x_"><title
+   id="title113708">A code or group definition that describes the intended subject  from which this kind of specimen is to be collected</title>subject[x]</a> : <a
+   id="n877"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n878"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n879"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n880"
+   xlink:href="group.html#Group">Group</a>) »</text>
+    <text
+       id="n887"
+       x="6"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n888"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.date"><title
+   id="title113716">For draft definitions, indicates the date of initial creation. For active definitions, represents the date of activation. For withdrawn definitions, indicates the date of withdrawal</title>date</a> : <a
+   id="n889"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n893"
+       x="6"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n894"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.publisher"><title
+   id="title113721">Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact</title>publisher</a> : <a
+   id="n895"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n899"
+       x="6"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n900"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.contact"><title
+   id="title113726">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n901"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n905"
+       x="6"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n906"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.description"><title
+   id="title113731">A free text natural language description of the SpecimenDefinition from the consumer's perspective</title>description</a> : <a
+   id="n907"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n911"
+       x="6"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n912"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.useContext"><title
+   id="title113736">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of specimen definitions</title>useContext</a> : <a
+   id="n913"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n917"
+       x="6"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n918"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.jurisdiction"><title
+   id="title113741">A jurisdiction in which the SpecimenDefinition is intended to be used</title>jurisdiction</a> : <a
+   id="n919"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n920"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n921">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n927"
+       x="6"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n928"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.purpose"><title
+   id="title113748">Explains why this SpecimeDefinition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n929"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n933"
+       x="6"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n934"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.copyright"><title
+   id="title113753">Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SpecimenDefinition</title>copyright</a> : <a
+   id="n935"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n939"
+       x="6"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n940"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.copyrightLabel"><title
+   id="title113758">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n941"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n945"
+       x="6"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n946"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.approvalDate"><title
+   id="title113763">The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n947"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n951"
+       x="6"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n952"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.lastReviewDate"><title
+   id="title113768">The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date</title>lastReviewDate</a> : <a
+   id="n953"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n957"
+       x="6"
+       y="364"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n958"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.effectivePeriod"><title
+   id="title113773">The period during which the SpecimenDefinition content was or is planned to be effective</title>effectivePeriod</a> : <a
+   id="n959"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n963"
+       x="6"
+       y="378"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n964"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeCollected"><title
+   id="title113778">The kind of material to be collected</title>typeCollected</a> : <a
+   id="n965"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n966"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0487.html"><title
+   id="n967">null (Strength=Example)</title>Hl7VSSpecimenType</a>?? »</text>
+    <text
+       id="n973"
+       x="6"
+       y="392"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n974"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.patientPreparation"><title
+   id="title113785">Preparation of the patient for specimen collection</title>patientPreparation</a> : <a
+   id="n975"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n976"
+   xlink:href="valueset-prepare-patient-prior-specimen-collection.html"><title
+   id="n977">null (Strength=Example)</title>PreparePatient</a>?? »</text>
+    <text
+       id="n983"
+       x="6"
+       y="406"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n984"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.timeAspect"><title
+   id="title113792">Time aspect of specimen collection (duration or offset)</title>timeAspect</a> : <a
+   id="n985"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n989"
+       x="6"
+       y="420"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n990"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.collection"><title
+   id="title113797">The action to be performed for collecting the specimen</title>collection</a> : <a
+   id="n991"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n992"
+   xlink:href="valueset-specimen-collection.html"><title
+   id="n993">null (Strength=Example)</title>SpecimenCollection</a>?? »</text>
+  </g>
+  <g
+     id="n999">
+    <rect
+       id="SpecimenDefinition.typeTested"
+       x="455.509047"
+       y="134.9628092"
+       rx="4"
+       ry="4"
+       width="290.40000000000003"
+       height="162.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n436"
-       x1="0.0"
-       y1="28.0"
-       x2="272.8"
-       y2="28.0"
+       id="n1000"
+       x1="455.509047"
+       y1="162.9628092"
+       x2="745.9090470000001"
+       y2="162.9628092"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n437"
-       x="136.4"
-       y="20.0"
+       id="n1001"
+       x="600.709047"
+       y="154.9628092"
        fill="black"
-       class="diagram-class-title  diagram-class-resource">SpecimenDefinition<tspan
-   class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
-   class="diagram-class-reference"
-   id="n438">DomainResource</a>
-)</tspan>
-</text>
+       class="diagram-class-title">TypeTested</text>
     <text
-       id="n439"
-       x="6.0"
-       y="42.0"
+       id="n1002"
+       x="461.509047"
+       y="176.9628092"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.identifier"
-   id="n440"><title
-   id="title19">A business identifier associated with the kind of specimen</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n441">Identifier</a>
- [0..1]</text>
+   id="n1003"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.isDerived"><title
+   id="title113808">Primary of secondary specimen</title>isDerived</a> : <a
+   id="n1004"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n445"
-       x="6.0"
-       y="56.0"
+       id="n1008"
+       x="461.509047"
+       y="190.9628092"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeCollected"
-   id="n446"><title
-   id="title24">The kind of material to be collected</title>
-typeCollected</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n447">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="v2/0487/index.html"
-   id="n448"><title
-   id="n449">The type of the specimen to be collected. (Strength=Example)</title>
-v2.0487</a>
-?? »</text>
+   id="n1009"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.type"><title
+   id="title113813">The kind of specimen conditioned for testing expected by lab</title>type</a> : <a
+   id="n1010"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1011"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0487.html"><title
+   id="n1012">null (Strength=Example)</title>Hl7VSSpecimenType</a>?? »</text>
     <text
-       id="n455"
-       x="6.0"
-       y="70.0"
+       id="n1018"
+       x="461.509047"
+       y="204.9628092"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.patientPreparation"
-   id="n456"><title
-   id="title31">Preparation of the patient for specimen collection</title>
-patientPreparation</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n457">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-prepare-patient-prior-specimen-collection.html"
-   id="n458"><title
-   id="n459">Checks on the patient prior specimen collection. (Strength=Example)</title>
-PreparePatient</a>
-?? »</text>
+   id="n1019"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.preference"><title
+   id="title113820">The preference for this type of conditioned specimen</title>preference</a> : <a
+   id="n1020"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1021"
+   xlink:href="valueset-specimen-contained-preference.html"><title
+   id="n1022">null (Strength=Required)</title>SpecimenContainedPreference</a>! »</text>
     <text
-       id="n465"
-       x="6.0"
-       y="84.0"
+       id="n1028"
+       x="461.509047"
+       y="218.9628092"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.timeAspect"
-   id="n466"><title
-   id="title38">Time aspect of specimen collection (duration or offset)</title>
-timeAspect</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n467">string</a>
- [0..1]</text>
+   id="n1029"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.requirement"><title
+   id="title113827">Requirements for delivery and special handling of this kind of conditioned specimen</title>requirement</a> : <a
+   id="n1030"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n471"
-       x="6.0"
-       y="98.0"
+       id="n1034"
+       x="461.509047"
+       y="232.9628092"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.collection"
-   id="n472"><title
-   id="title43">The action to be performed for collecting the specimen</title>
-collection</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n473">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-specimen-collection.html"
-   id="n474"><title
-   id="n475">The action to collect a type of specimen. (Strength=Example)</title>
-SpecimenCollection</a>
-?? »</text>
+   id="n1035"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.retentionTime"><title
+   id="title113832">The usual time that a specimen of this kind is retained after the ordered tests are completed, for the purpose of additional testing</title>retentionTime</a> : <a
+   id="n1036"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
+    <text
+       id="n1040"
+       x="461.509047"
+       y="246.9628092"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1041"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.singleUse"><title
+   id="title113837">Specimen can be used by only one test or panel if the value is &quot;true&quot;</title>singleUse</a> : <a
+   id="n1042"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1046"
+       x="461.509047"
+       y="260.96280920000004"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1047"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.rejectionCriterion"><title
+   id="title113842">Criterion for rejection of the specimen in its container by the laboratory</title>rejectionCriterion</a> : <a
+   id="n1048"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1049"
+   xlink:href="valueset-rejection-criteria.html"><title
+   id="n1050">null (Strength=Example)</title>RejectionCriterion</a>?? »</text>
+    <text
+       id="n1056"
+       x="461.509047"
+       y="274.96280920000004"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1057"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.testingDestination"><title
+   id="title113849">Where the specimen will be tested: e.g., lab, sector, device or any combination of these</title>testingDestination</a> : <a
+   id="n1058"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1059"
+   xlink:href="valueset-diagnostic-service-sections.html"><title
+     id="n1060">null (Strength=Example)</title></a></text>
+    <text
+       id="n1061"
+       x="481.509047"
+       y="288.96280920000004"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1062"
+   xlink:href="valueset-diagnostic-service-sections.html">DiagnosticServiceSectionCodes</a>?? »</text>
   </g>
   <g
-     id="n481"
-     transform="translate(683.91076,283.99684)">
-    <rect
-       id="SpecimenDefinition.typeTested"
-       x="-258.19424"
-       y="-145.72375"
-       rx="4"
-       ry="4"
-       width="290.39999"
-       height="120"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
-    <line
-       id="n482"
-       x1="-258.19424"
-       y1="-117.72375"
-       x2="32.205761"
-       y2="-117.72375"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n483"
-       x="-112.99424"
-       y="-125.72375"
-       class="diagram-class-title"
-       style="fill:#000000">TypeTested</text>
-    <text
-       id="n484"
-       x="-252.19424"
-       y="-103.72375"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.isDerived"
-   id="n485"><title
-   id="title54">Primary of secondary specimen</title>
-isDerived</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n486">boolean</a>
- [0..1]</text>
-    <text
-       id="n490"
-       x="-252.19424"
-       y="-89.723747"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.type"
-   id="n491"><title
-   id="title59">The kind of specimen conditioned for testing expected by lab</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n492">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="v2/0487/index.html"
-   id="n493"><title
-   id="n494">The type of specimen conditioned in a container for lab testing. (Strength=Example)</title>
-v2.0487</a>
-?? »</text>
-    <text
-       id="n500"
-       x="-252.19424"
-       y="-75.723747"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.preference"
-   id="n501"><title
-   id="title66">The preference for this type of conditioned specimen</title>
-preference</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n502">code</a>
- [1..1] « <a
-   xlink:href="valueset-specimen-contained-preference.html"
-   id="n503"><title
-   id="n504">Degree of preference of a type of conditioned specimen. (Strength=Required)</title>
-SpecimenContainedPreference</a>
-! »</text>
-    <text
-       id="n510"
-       x="-252.19424"
-       y="-61.723751"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.requirement"
-   id="n511"><title
-   id="title73">Requirements for delivery and special handling of this kind of conditioned specimen</title>
-requirement</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n512">string</a>
- [0..1]</text>
-    <text
-       id="n516"
-       x="-252.19424"
-       y="-47.723751"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.retentionTime"
-   id="n517"><title
-   id="title78">The usual time that a specimen of this kind is retained after the ordered tests are completed, for the purpose of additional testing</title>
-retentionTime</a>
- : <a
-   xlink:href="datatypes.html#Duration"
-   id="n518">Duration</a>
- [0..1]</text>
-    <text
-       id="n522"
-       x="-252.19424"
-       y="-33.723751"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.rejectionCriterion"
-   id="n523"><title
-   id="title83">Criterion for rejection of the specimen in its container by the laboratory</title>
-rejectionCriterion</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n524">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-rejection-criteria.html"
-   id="n525"><title
-   id="n526">Criterion for rejection of the specimen by laboratory. (Strength=Example)</title>
-RejectionCriterion</a>
-?? »</text>
-  </g>
-  <g
-     id="n532"
-     transform="translate(245.08182,31.463207)">
+     id="n1070"
+     transform="translate(14.251025,-81.052706)">
     <rect
        id="SpecimenDefinition.typeTested.container"
-       x="-243.74405"
-       y="128.09589"
+       x="432.50183"
+       y="428.51941"
        rx="4"
        ry="4"
-       width="290.39999"
+       width="308"
        height="134"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n533"
-       x1="-243.74405"
-       y1="156.09589"
-       x2="46.655949"
-       y2="156.09589"
+       id="n1071"
+       x1="432.50183"
+       y1="456.51941"
+       x2="740.50183"
+       y2="456.51941"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n534"
-       x="-98.544052"
-       y="148.09589"
-       class="diagram-class-title"
-       style="fill:#000000">Container</text>
+       id="n1072"
+       x="586.50183"
+       y="448.51941"
+       fill="#000000"
+       class="diagram-class-title">Container</text>
     <text
-       id="n535"
-       x="-237.74405"
-       y="170.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.material"
-   id="n536"><title
-   id="title94">The type of material of the container</title>
-material</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n537">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-container-material.html"
-   id="n538"><title
-   id="n539">Types of material for specimen containers. (Strength=Example)</title>
-ContainerMaterials</a>
-?? »</text>
+       id="n1073"
+       x="438.50183"
+       y="470.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1074"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.material"><title
+   id="title113862">The type of material of the container</title>material</a> : <a
+   id="n1075"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1076"
+   xlink:href="valueset-container-material.html"><title
+   id="n1077">null (Strength=Example)</title>ContainerMaterials</a>?? »</text>
     <text
-       id="n545"
-       x="-237.74405"
-       y="184.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.type"
-   id="n546"><title
-   id="title101">The type of container used to contain this kind of specimen</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n547">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-specimen-container-type.html"
-   id="n548"><title
-   id="n549">Type of specimen container. (Strength=Example)</title>
-SpecimenContainerType</a>
-?? »</text>
+       id="n1083"
+       x="438.50183"
+       y="484.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1084"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.type"><title
+   id="title113869">The type of container used to contain this kind of specimen</title>type</a> : <a
+   id="n1085"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1086"
+   xlink:href="valueset-specimen-container-type.html"><title
+   id="n1087">null (Strength=Example)</title>SpecimenContainerType</a>?? »</text>
     <text
-       id="n555"
-       x="-237.74405"
-       y="198.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.cap"
-   id="n556"><title
-   id="title108">Color of container cap</title>
-cap</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n557">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-container-cap.html"
-   id="n558"><title
-   id="n559">Color of the container cap. (Strength=Example)</title>
-ContainerCap</a>
-?? »</text>
+       id="n1093"
+       x="438.50183"
+       y="498.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1094"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.cap"><title
+   id="title113876">Color of container cap</title>cap</a> : <a
+   id="n1095"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1096"
+   xlink:href="valueset-container-cap.html"><title
+   id="n1097">null (Strength=Example)</title>ContainerCap</a>?? »</text>
     <text
-       id="n565"
-       x="-237.74405"
-       y="212.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.description"
-   id="n566"><title
-   id="title115">The textual description of the kind of container</title>
-description</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n567">string</a>
- [0..1]</text>
+       id="n1103"
+       x="438.50183"
+       y="512.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1104"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.description"><title
+   id="title113883">The textual description of the kind of container</title>description</a> : <a
+   id="n1105"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n571"
-       x="-237.74405"
-       y="226.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.capacity"
-   id="n572"><title
-   id="title120">The capacity (volume or other measure) of this kind of container</title>
-capacity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n573">Quantity</a>
-(<a
+       id="n1109"
+       x="438.50183"
+       y="526.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1110"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.capacity"><title
+   id="title113888">The capacity (volume or other measure) of this kind of container</title>capacity</a> : <a
+   id="n1111"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a124">SimpleQuantity</a>
-) [0..1]</text>
+   id="a113892">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n577"
-       x="-237.74405"
-       y="240.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.minimumVolume_x_"
-   id="n578"><title
-   id="title127">The minimum volume to be conditioned in the container</title>
-minimumVolume[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n579">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#Quantity"
-   id="n580">Quantity</a>
-(<a
+       id="n1115"
+       x="438.50183"
+       y="540.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1116"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.minimumVolume_x_"><title
+   id="title113895">The minimum volume to be conditioned in the container</title>minimumVolume[x]</a> : <a
+   id="n1117"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1118"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a132">SimpleQuantity</a>
-)|<a
-   xlink:href="datatypes.html#string"
-   id="n581">string</a>
- »</text>
+   id="a113900">SimpleQuantity</a>)|<a
+   id="n1119"
+   xlink:href="datatypes.html#string">string</a> »</text>
     <text
-       id="n587"
-       x="-237.74405"
-       y="254.09589"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.preparation"
-   id="n588"><title
-   id="title136">Special processing that should be applied to the container for this kind of specimen</title>
-preparation</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n589">string</a>
- [0..1]</text>
+       id="n1125"
+       x="438.50183"
+       y="554.51941"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1126"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.preparation"><title
+   id="title113904">Special processing that should be applied to the container for this kind of specimen</title>preparation</a> : <a
+   id="n1127"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n593"
-     transform="translate(9.1077744,450.42064)">
+     id="n1131"
+     transform="translate(-364.29183,149.63577)">
     <rect
        id="SpecimenDefinition.typeTested.container.additive"
-       x="250.1843"
-       y="-123.39511"
+       x="454.59863"
+       y="317.92227"
        rx="4"
        ry="4"
-       width="290.39999"
+       width="255.2"
        height="64"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n594"
-       x1="250.1843"
-       y1="-95.395111"
-       x2="540.58429"
-       y2="-95.395111"
+       id="n1132"
+       x1="454.59863"
+       y1="345.92227"
+       x2="709.79865"
+       y2="345.92227"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n595"
-       x="395.38431"
-       y="-103.39511"
-       class="diagram-class-title"
-       style="fill:#000000">Additive</text>
+       id="n1133"
+       x="582.19867"
+       y="337.92227"
+       fill="#000000"
+       class="diagram-class-title">Additive</text>
     <text
-       id="n596"
-       x="256.1843"
-       y="-81.395111"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.additive.additive_x_"
-   id="n597"><title
-   id="title145">Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA</title>
-additive[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n598">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n599">CodeableConcept</a>
-|<a
-   xlink:href="references.html#Reference"
-   id="n600">Reference</a>
-(<a
-   xlink:href="substance.html#Substance"
-   id="n601">Substance</a>
-); <a
-   xlink:href="v2/0371/index.html"
-   id="n602">
-  <title
-     id="n603">Substance added to specimen container. (Strength=Example)</title>
-</a>
-</text>
+       id="n1134"
+       x="460.59863"
+       y="359.92227"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1135"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.additive.additive_x_"><title
+   id="title113913">Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA</title>additive[x]</a> : <a
+   id="n1136"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1137"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1138"
+   xlink:href="references.html#Reference">Reference</a>(</text>
     <text
-       id="n604"
-       x="276.1843"
-       y="-67.395111"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="v2/0371/index.html"
-   id="n605">v2.0371</a>
-?? »</text>
+       id="n1139"
+       x="480.59863"
+       y="373.92227"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1140"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>); <a
+   id="n1141"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0371.html"><title
+   id="n1142">null (Strength=Example)</title>Hl7VSAdditivePreservative</a>?? »</text>
   </g>
   <g
-     id="n616"
-     transform="translate(179.67147,-144.06837)">
+     id="n1152"
+     transform="translate(12.469647,8.9068907)">
     <rect
        id="SpecimenDefinition.typeTested.handling"
-       x="243.481"
-       y="142.19818"
+       x="423.15247"
+       y="-1.87019"
        rx="4"
        ry="4"
        width="308"
        height="92"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n617"
-       x1="243.481"
-       y1="170.19818"
-       x2="551.48102"
-       y2="170.19818"
+       id="n1153"
+       x1="423.15247"
+       y1="26.12981"
+       x2="731.15247"
+       y2="26.12981"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n618"
-       x="397.48099"
-       y="162.19818"
-       class="diagram-class-title"
-       style="fill:#000000">Handling</text>
+       id="n1154"
+       x="577.15247"
+       y="18.12981"
+       fill="#000000"
+       class="diagram-class-title">Handling</text>
     <text
-       id="n619"
-       x="249.481"
-       y="184.19818"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.temperatureQualifier"
-   id="n620"><title
-   id="title161">It qualifies the interval of temperature, which characterizes an occurrence of handling. Conditions that are not related to temperature may be handled in the instruction element</title>
-temperatureQualifier</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n621">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-handling-condition.html"
-   id="n622"><title
-   id="n623">Set of handling instructions prior testing of the specimen. (Strength=Example)</title>
-HandlingConditionSet</a>
-?? »</text>
+       id="n1155"
+       x="429.15247"
+       y="40.12981"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1156"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.temperatureQualifier"><title
+   id="title113928">It qualifies the interval of temperature, which characterizes an occurrence of handling. Conditions that are not related to temperature may be handled in the instruction element</title>temperatureQualifier</a> : <a
+   id="n1157"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1158"
+   xlink:href="valueset-handling-condition.html"><title
+   id="n1159">null (Strength=Example)</title>HandlingConditionSet</a>?? »</text>
     <text
-       id="n629"
-       x="249.481"
-       y="198.19818"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.temperatureRange"
-   id="n630"><title
-   id="title168">The temperature interval for this set of handling instructions</title>
-temperatureRange</a>
- : <a
-   xlink:href="datatypes.html#Range"
-   id="n631">Range</a>
- [0..1]</text>
+       id="n1165"
+       x="429.15247"
+       y="54.12981"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1166"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.temperatureRange"><title
+   id="title113935">The temperature interval for this set of handling instructions</title>temperatureRange</a> : <a
+   id="n1167"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
     <text
-       id="n635"
-       x="249.481"
-       y="212.19818"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.maxDuration"
-   id="n636"><title
-   id="title173">The maximum time interval of preservation of the specimen with these conditions</title>
-maxDuration</a>
- : <a
-   xlink:href="datatypes.html#Duration"
-   id="n637">Duration</a>
- [0..1]</text>
+       id="n1171"
+       x="429.15247"
+       y="68.129807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1172"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.maxDuration"><title
+   id="title113940">The maximum time interval of preservation of the specimen with these conditions</title>maxDuration</a> : <a
+   id="n1173"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
     <text
-       id="n641"
-       x="249.481"
-       y="226.19818"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.instruction"
-   id="n642"><title
-   id="title178">Additional textual instructions for the preservation or transport of the specimen. For instance, 'Protect from light exposure'</title>
-instruction</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n643">string</a>
- [0..1]</text>
+       id="n1177"
+       x="429.15247"
+       y="82.129807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1178"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling.instruction"><title
+   id="title113945">Additional textual instructions for the preservation or transport of the specimen. For instance, 'Protect from light exposure'</title>instruction</a> : <a
+   id="n1179"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <line
-     id="n647"
-     x1="16.968132250478458"
-     y1="128.09588"
-     x2="340.21430250723415"
-     y2="-59.39511000000002"
+     id="n1183"
+     x1="584.5216198140571"
+     y1="428.5194100000008"
+     x2="583.144416805226"
+     y2="381.92226780000055"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n648"
-     points="16.968132250478458,128.09588 22.968132250478458,132.09588 28.968132250478458,128.09588 22.968132250478458,124.09588 16.968132250478458,128.09588"
+     id="n1184"
+     points="584.5216198140571,428.5194100000008 590.5216198140571,432.5194100000008 596.5216198140571,428.5194100000008 590.5216198140571,424.5194100000008 584.5216198140571,428.5194100000008"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-30.11482222481022 16.968132250478458 128.09588)" />
+     transform="rotate(-91.69291403138534 584.5216198140571 428.5194100000008)" />
   <rect
-     id="n649"
-     x="160.5"
-     y="27.0"
+     id="n1185"
+     x="565.5"
+     y="398.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n650"
-     x="178.0"
-     y="37.0"
+     id="n1186"
+     x="583.0"
+     y="408.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.additive"
-       id="n651"><title
-   id="title187">Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA</title>
-additive</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1187"
+       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container.additive"><title
+   id="title113954">Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA</title>additive</a></text>
   <text
-     id="n652"
-     x="340.21430250723415"
-     y="-45.39511000000002"
+     id="n1188"
+     x="583.144416805226"
+     y="395.92226780000055"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n653"
-     x1="-109.9068083984414"
-     y1="-25.72375000000011"
-     x2="-101.9916819550738"
-     y2="128.09588000000008"
+     id="n1189"
+     x1="596.592586277174"
+     y1="296.96280920000027"
+     x2="589.906813684313"
+     y2="428.5194100000026"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n654"
-     points="-109.9068083984414,-25.72375000000011 -103.9068083984414,-21.72375000000011 -97.9068083984414,-25.72375000000011 -103.9068083984414,-29.72375000000011 -109.9068083984414,-25.72375000000011"
+     id="n1190"
+     points="596.592586277174,296.96280920000027 602.592586277174,300.96280920000027 608.592586277174,296.96280920000027 602.592586277174,292.96280920000027 596.592586277174,296.96280920000027"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(87.05431806254947 -109.9068083984414 -25.72375000000011)" />
+     transform="rotate(92.9092974061151 596.592586277174 296.96280920000027)" />
   <rect
-     id="n655"
-     x="-124.5"
-     y="44.0"
+     id="n1191"
+     x="573.5"
+     y="355.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n656"
-     x="-105.0"
-     y="54.0"
+     id="n1192"
+     x="593.0"
+     y="365.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container"
-       id="n657"><title
-   id="title195">The specimen's container</title>
-container</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1193"
+       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.container"><title
+   id="title113962">The specimen's container</title>container</a></text>
   <text
-     id="n658"
-     x="-101.9916819550738"
-     y="124.09588000000008"
+     id="n1194"
+     x="589.906813684313"
+     y="424.5194100000026"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n659"
-     x1="-1.1794816854685692"
-     y1="-25.723749999999995"
-     x2="311.7563519588592"
-     y2="142.19818"
+     id="n1195"
+     x1="589.6047611766517"
+     y1="134.96280920000027"
+     x2="583.4586076280744"
+     y2="90.12981000000036"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n660"
-     points="-1.1794816854685692,-25.723749999999995 4.820518314531431,-21.723749999999995 10.82051831453143,-25.723749999999995 4.820518314531431,-29.723749999999995 -1.1794816854685692,-25.723749999999995"
+     id="n1196"
+     points="589.6047611766517,134.96280920000027 595.6047611766517,138.96280920000027 601.6047611766517,134.96280920000027 595.6047611766517,130.96280920000027 589.6047611766517,134.96280920000027"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(28.218086724437633 -1.1794816854685692 -25.723749999999995)" />
+     transform="rotate(-97.80601695688264 589.6047611766517 134.96280920000027)" />
   <rect
-     id="n661"
-     x="137.5"
-     y="51.0"
+     id="n1197"
+     x="568.5"
+     y="105.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n662"
-     x="155.0"
-     y="61.0"
+     id="n1198"
+     x="586.0"
+     y="115.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling"
-       id="n663"><title
-   id="title203">Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process</title>
-handling</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1199"
+       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested.handling"><title
+   id="title113970">Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process</title>handling</a></text>
   <text
-     id="n664"
-     x="311.7563519588592"
-     y="138.19818"
+     id="n1200"
+     x="583.4586076280744"
+     y="104.12981000000036"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n665"
-     x1="41.117867560529454"
-     y1="0.0"
-     x2="-5.127674974184318"
-     y2="-25.723749999999995"
+     id="n1201"
+     x1="293.04"
+     y1="214.6331962557961"
+     x2="455.509047"
+     y2="215.33531741497683"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n666"
-     points="41.117867560529454,0.0 47.117867560529454,4.0 53.117867560529454,0.0 47.117867560529454,-4.0 41.117867560529454,0.0"
+     id="n1202"
+     points="293.04,214.6331962557961 299.04,218.6331962557961 305.04,214.6331962557961 299.04,210.6331962557961 293.04,214.6331962557961"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-150.91531537817687 41.117867560529454 0.0)" />
+     transform="rotate(0.24760610982695427 293.04 214.6331962557961)" />
   <rect
-     id="n667"
-     x="-5.0"
-     y="-19.0"
+     id="n1203"
+     x="352.0"
+     y="207.0"
      width="44.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n668"
-     x="17.0"
-     y="-9.0"
+     id="n1204"
+     x="374.0"
+     y="217.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested"
-       id="n669"><title
-   id="title211">Specimen conditioned in a container as expected by the testing laboratory</title>
-typeTested</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1205"
+       xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeTested"><title
+   id="title113978">Specimen conditioned in a container as expected by the testing laboratory</title>typeTested</a></text>
   <text
-     id="n670"
-     x="-5.127674974184318"
-     y="-11.723749999999995"
+     id="n1206"
+     x="435.509047"
+     y="211.33531741497683"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
+  <g
+     id="g114254"
+     transform="translate(3.5627563,3.5627563)">
+    <rect
+       id="rect113986"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="293.04001"
+       height="428"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="line113988"
+       x1="0"
+       y1="28"
+       x2="293.04001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="text113996"
+       x="146.52"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">SpecimenDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan113994">(<a
+   id="a113990"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="a113992"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="text114004"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114000"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.url"><title
+   id="title113998">An absolute URL that is used to identify this SpecimenDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this SpecimenDefinition is (or will be) published. The URL SHOULD include the major version of the SpecimenDefinition. For more information see Technical and Business Versions</title>url</a> : <a
+   id="a114002"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="text114012"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114008"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.identifier"><title
+   id="title114006">A business identifier assigned to this SpecimenDefinition</title>identifier</a> : <a
+   id="a114010"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="text114020"
+       x="6"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114016"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.version"><title
+   id="title114014">The identifier that is used to identify this version of the SpecimenDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the SpecimenDefinition author and is not expected to be globally unique</title>version</a> : <a
+   id="a114018"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="text114036"
+       x="6"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114024"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.versionAlgorithm_x_"><title
+   id="title114022">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="a114026"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="a114028"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="a114030"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="a114034"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="title114032">null (Strength=Extensible)</title></a></text>
+    <text
+       id="text114040"
+       x="26"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114038"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="text114048"
+       x="6"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114044"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.name"><title
+   id="title114042">A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="a114046"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="text114056"
+       x="6"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114052"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.title"><title
+   id="title114050">A short, descriptive, user-friendly title for the SpecimenDefinition</title>title</a> : <a
+   id="a114054"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="text114066"
+       x="6"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114060"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.derivedFromCanonical"><title
+   id="title114058">The canonical URL pointing to another FHIR-defined SpecimenDefinition that is adhered to in whole or in part by this definition</title>derivedFromCanonical</a> : <a
+   id="a114062"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="a114064"
+   xlink:href="specimendefinition.html#SpecimenDefinition">SpecimenDefinition</a> »</text>
+    <text
+       id="text114074"
+       x="6"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114070"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.derivedFromUri"><title
+   id="title114068">The URL pointing to an externally-defined type of specimen, guideline or other definition that is adhered to in whole or in part by this definition</title>derivedFromUri</a> : <a
+   id="a114072"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="text114086"
+       x="6"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114078"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.status"><title
+   id="title114076">The current state of theSpecimenDefinition (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="a114080"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="a114084"
+   xlink:href="valueset-publication-status.html"><title
+   id="title114082">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="text114094"
+       x="6"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114090"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.experimental"><title
+   id="title114088">A flag to indicate that this SpecimenDefinition is not authored for  genuine usage</title>experimental</a> : <a
+   id="a114092"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="text114108"
+       x="6"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114098"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.subject_x_"><title
+   id="title114096">A code or group definition that describes the intended subject  from which this kind of specimen is to be collected</title>subject[x]</a> : <a
+   id="a114100"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="a114102"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="a114104"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="a114106"
+   xlink:href="group.html#Group">Group</a>) »</text>
+    <text
+       id="text114116"
+       x="6"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114112"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.date"><title
+   id="title114110">For draft definitions, indicates the date of initial creation. For active definitions, represents the date of activation. For withdrawn definitions, indicates the date of withdrawal</title>date</a> : <a
+   id="a114114"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="text114124"
+       x="6"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114120"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.publisher"><title
+   id="title114118">Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact</title>publisher</a> : <a
+   id="a114122"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="text114132"
+       x="6"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114128"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.contact"><title
+   id="title114126">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="a114130"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="text114140"
+       x="6"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114136"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.description"><title
+   id="title114134">A free text natural language description of the SpecimenDefinition from the consumer's perspective</title>description</a> : <a
+   id="a114138"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="text114148"
+       x="6"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114144"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.useContext"><title
+   id="title114142">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of specimen definitions</title>useContext</a> : <a
+   id="a114146"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="text114160"
+       x="6"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114152"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.jurisdiction"><title
+   id="title114150">A jurisdiction in which the SpecimenDefinition is intended to be used</title>jurisdiction</a> : <a
+   id="a114154"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="a114158"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="title114156">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="text114168"
+       x="6"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114164"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.purpose"><title
+   id="title114162">Explains why this SpecimeDefinition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="a114166"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="text114176"
+       x="6"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114172"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.copyright"><title
+   id="title114170">Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SpecimenDefinition</title>copyright</a> : <a
+   id="a114174"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="text114184"
+       x="6"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114180"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.copyrightLabel"><title
+   id="title114178">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="a114182"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="text114192"
+       x="6"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114188"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.approvalDate"><title
+   id="title114186">The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="a114190"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="text114200"
+       x="6"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114196"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.lastReviewDate"><title
+   id="title114194">The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date</title>lastReviewDate</a> : <a
+   id="a114198"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="text114208"
+       x="6"
+       y="364"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114204"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.effectivePeriod"><title
+   id="title114202">The period during which the SpecimenDefinition content was or is planned to be effective</title>effectivePeriod</a> : <a
+   id="a114206"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="text114220"
+       x="6"
+       y="378"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114212"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.typeCollected"><title
+   id="title114210">The kind of material to be collected</title>typeCollected</a> : <a
+   id="a114214"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="a114218"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0487.html"><title
+   id="title114216">null (Strength=Example)</title>Hl7VSSpecimenType</a>?? »</text>
+    <text
+       id="text114232"
+       x="6"
+       y="392"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114224"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.patientPreparation"><title
+   id="title114222">Preparation of the patient for specimen collection</title>patientPreparation</a> : <a
+   id="a114226"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="a114230"
+   xlink:href="valueset-prepare-patient-prior-specimen-collection.html"><title
+   id="title114228">null (Strength=Example)</title>PreparePatient</a>?? »</text>
+    <text
+       id="text114240"
+       x="6"
+       y="406"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114236"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.timeAspect"><title
+   id="title114234">Time aspect of specimen collection (duration or offset)</title>timeAspect</a> : <a
+   id="a114238"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="text114252"
+       x="6"
+       y="420"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="a114244"
+   xlink:href="specimendefinition-definitions.html#SpecimenDefinition.collection"><title
+   id="title114242">The action to be performed for collecting the specimen</title>collection</a> : <a
+   id="a114246"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="a114250"
+   xlink:href="valueset-specimen-collection.html"><title
+   id="title114248">null (Strength=Example)</title>SpecimenCollection</a>?? »</text>
+  </g>
 </svg>

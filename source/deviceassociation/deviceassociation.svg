@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n207"
+   version="1.1"
+   width="819.2"
+   height="172.0"
+   sodipodi:docname="deviceassociation.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview29116"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5209961"
+     inkscape:cx="409.60001"
+     inkscape:cy="86.456502"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n207" />
+  <defs
+     id="defs29024">
+    <filter
+       id="shadow1"
+       x="-0.019682115"
+       y="-0.067948718"
+       width="1.0505051"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset29015" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix29017" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur29019" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend29021" />
+    </filter>
+  </defs>
+  <g
+     id="n208">
+    <rect
+       id="DeviceAssociation"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="269.28000000000003"
+       height="162.0"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:black;stroke-width:1" />
+    <line
+       id="n209"
+       x1="0.0"
+       y1="28.0"
+       x2="269.28000000000003"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n210"
+       x="134.64000000000001"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DeviceAssociation<tspan
+   class="diagram-class-title-link"
+   id="tspan29029"> (<a
+   id="n211"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n212"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n213"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.identifier"><title
+   id="title29032">Instance identifier</title>identifier</a> : <a
+   id="n214"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n218"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n219"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.device"><title
+   id="title29037">Reference to the devices associated with the patient or group</title>device</a> : <a
+   id="n220"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n221"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n226"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n227"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.category"><title
+   id="title29043">Describes the relationship between the device and subject</title>category</a> : <a
+   id="n228"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n232"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n233"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.status"><title
+   id="title29048">Indicates the state of the Device association</title>status</a> : <a
+   id="n234"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n235"
+   xlink:href="valueset-deviceassociation-status.html"><title
+   id="n236">null (Strength=Required)</title>DeviceAssociationCodes</a>! »</text>
+    <text
+       id="n242"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n243"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.statusReason"><title
+   id="title29055">The reasons given for the current association status</title>statusReason</a> : <a
+   id="n244"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n248"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n249"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.subject"><title
+   id="title29060">The individual, group of individuals or device that the device is on or associated with</title>subject</a> : <a
+   id="n250"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n251"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n252"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n253"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n254"
+       x="26.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n255"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n256"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n266"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n267"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.bodyStructure"><title
+   id="title29071">Current anatomical location of the device in/on subject</title>bodyStructure</a> : <a
+   id="n268"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n269"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a> »</text>
+    <text
+       id="n274"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n275"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.period"><title
+   id="title29077">Begin and end dates and times for the device association</title>period</a> : <a
+   id="n276"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n280"
+     transform="translate(76.923276,47.994864)">
+    <rect
+       id="DeviceAssociation.operation"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n281"
+       x1="320"
+       y1="28"
+       x2="619.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n282"
+       x="469.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Operation</text>
+    <text
+       id="n283"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n284"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.operation.status"><title
+   id="title29086">Device operational condition corresponding to the association</title>status</a> : <a
+   id="n285"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n286"
+   xlink:href="valueset-deviceassociation-operationstatus.html"><title
+   id="n287">null (Strength=Example)</title>FHIRDeviceAssociationOperatio...</a>?? »</text>
+    <text
+       id="n293"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n294"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.operation.operator"><title
+   id="title29093">The individual performing the action enabled by the device</title>operator</a> : <a
+   id="n295"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n296"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n297"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n298"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n305"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n306"
+   xlink:href="deviceassociation-definitions.html#DeviceAssociation.operation.period"><title
+   id="title29101">Begin and end dates and times for the device's operation</title>period</a> : <a
+   id="n307"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <line
+     id="n311"
+     x1="269.28000000000003"
+     y1="64.1177454024361"
+     x2="320.0"
+     y2="57.75806066395987"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n312"
+     points="269.28000000000003,64.1177454024361 275.28000000000003,68.1177454024361 281.28000000000003,64.1177454024361 275.28000000000003,60.1177454024361 269.28000000000003,64.1177454024361"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-7.146910035078502 269.28000000000003 64.1177454024361)" />
+  <rect
+     id="n313"
+     x="274.5"
+     y="53.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n314"
+     x="294.0"
+     y="63.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n315"
+       xlink:href="deviceassociation-definitions.html#DeviceAssociation.operation"><title
+   id="title29110">The details about the device when it is in use to describe its operation</title>operation</a></text>
+  <text
+     id="n316"
+     x="300.0"
+     y="53.75806066395987"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

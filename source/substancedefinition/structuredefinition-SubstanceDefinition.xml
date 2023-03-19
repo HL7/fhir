@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -28,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceDefinition"/>
-  <title value="SubstanceDefinition"/>
+  <title value="Substance Definition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -47,8 +49,8 @@
   <description value="The detailed description of a substance, typically at a level beyond what is used for prescribing."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
-    <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <identity value="idmp-substance"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11238"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -77,7 +79,7 @@
       <min value="0"/>
       <max value="*"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance (and derived classes: Chemical, Polymer, Protein, Nucleic_Acid, Structurally_Diverse)"/>
       </mapping>
       <mapping>
@@ -96,7 +98,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Substance_Id"/>
       </mapping>
     </element>
@@ -111,7 +113,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Version.Version_Number"/>
       </mapping>
     </element>
@@ -134,7 +136,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -149,7 +151,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Classification.Substance_Classification and Substance_classification.Substance_Classification_Subtype"/>
       </mapping>
     </element>
@@ -172,7 +174,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-domain"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Classification.Substance_Classification (and Code and Type) and Substance_Classification.Substance_Classification_Subtype"/>
       </mapping>
     </element>
@@ -195,7 +197,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-grade"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Specified_Substance_Group_3.Grade"/>
       </mapping>
     </element>
@@ -210,7 +212,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Comment"/>
       </mapping>
     </element>
@@ -226,7 +228,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Reference_Source"/>
       </mapping>
     </element>
@@ -241,7 +243,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -257,7 +259,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -273,7 +275,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -291,7 +293,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Moiety"/>
       </mapping>
     </element>
@@ -306,7 +308,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Moiety_Role"/>
       </mapping>
     </element>
@@ -321,7 +323,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Moiety_Id"/>
       </mapping>
     </element>
@@ -336,7 +338,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Moiety_Name"/>
       </mapping>
     </element>
@@ -359,7 +361,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-stereochemistry"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Stereochemistry"/>
       </mapping>
     </element>
@@ -382,7 +384,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-optical-activity"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Optical_Activity"/>
       </mapping>
     </element>
@@ -397,7 +399,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Molecular_Formula"/>
       </mapping>
     </element>
@@ -415,7 +417,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Moiety.Amount"/>
       </mapping>
     </element>
@@ -438,112 +440,106 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-amount-type"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Amount.Amount_Type"/>
       </mapping>
     </element>
-    
-      <element id="SubstanceDefinition.characterization">
-          <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-          	<valueCode value="450,558"/> 
-          </extension>
-          <path value="SubstanceDefinition.characterization"/>
-          <short value="General specifications for this substance"/>
-          <definition value="General specifications for this substance."/>
-          <min value="0"/>
-          <max value="*"/>
-          <type>
-              <code value="BackboneElement"/>
-          </type>
-          <isSummary value="true"/>
-          <mapping>
-              <identity value="idmp"/>
-              <map value="n/a"/>
-          </mapping>
-      </element>
-      <element id="SubstanceDefinition.characterization.technique">
-          <path value="SubstanceDefinition.characterization.technique"/>
-  		<short value="The method used to find the characterization e.g. HPLC"/>
-  		<definition value="The method used to elucidate the characterization of the drug substance. Example: HPLC."/>
-  		<min value="0"/>
-          <max value="1"/>
-          <type>
-              <code value="CodeableConcept"/>
-          </type>
-          <isSummary value="true"/>
-  		<binding>
-  			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-  				<valueString value="SubstanceStructureTechnique"/>
-  			</extension>
-  			<strength value="example"/>
-  			<description value="The method used to elucidate the characterization of the drug substance."/>
-  			<valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
-  		</binding>
-  		<mapping>
-              <identity value="idmp"/>
-              <map value="n/a"/>
-          </mapping>
-      </element>
-  	<element id="SubstanceDefinition.characterization.form">
-  		<path value="SubstanceDefinition.characterization.form"/>
-  		<short value="The specific chemical entity of the substance being characterized, to distinguish for example salt or base"/>
-  		<definition value="The specific chemical entity of the substance being characterized, to distinguish for example salt or base."/>
-  		<min value="0"/>
-  		<max value="1"/>
-  		<type>
-  			<code value="CodeableConcept"/>
-  		</type>
-  		<isSummary value="true"/>
-  		<binding>
-  			<!--extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-  				<valueString value="SNOMEDCTCharacteristicCodes"/>
-  			</extension-->
-  			<strength value="example"/>
-  			<!--description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/-->
-  			<valueSet value="http://hl7.org/fhir/ValueSet/substance-form"/>
-  		</binding>
-  		<mapping>
-  			<identity value="idmp"/>
-  			<map value="n/a"/>
-  		</mapping>
-  	</element>
-  	<element id="SubstanceDefinition.characterization.description">
-  		<path value="SubstanceDefinition.characterization.description"/>
-  		<short value="Narrative text, data, tables about the characterization"/>
-  		<definition value="Narrative text, data, tables about the characterization."/>
-  		<min value="0"/>
-  		<max value="1"/>
-  		<type>
-  			<code value="markdown"/>
-  		</type>
-  		<isSummary value="true"/>
-  		<mapping>
-  			<identity value="idmp"/>
-  			<map value="n/a"/>
-  		</mapping>
-  	</element>
-  	<element id="SubstanceDefinition.characterization.file">
-  		<path value="SubstanceDefinition.characterization.file"/>
-  		<short value="An image or data file that characterizes this substance"/>
-  		<definition value="An image or data file that characterizes this substance."/>
-  		<min value="0"/>
-  		<max value="*"/>
-  		<type>
-  			<code value="Attachment"/>
-  		</type>
-  		<!--type>
-  			<code value="Reference"/>
-  			<targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
-  		</type-->
-  		<isSummary value="true"/>
-  		<mapping>
-  			<identity value="idmp"/>
-  			<map value="n/a"/>
-  		</mapping>
-  	</element>
-  	<element id="SubstanceDefinition.property">
+    <element id="SubstanceDefinition.characterization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="375,835"/>      
+        <valueCode value="450,558"/>
+      </extension>
+      <path value="SubstanceDefinition.characterization"/>
+      <short value="General specifications for this substance"/>
+      <definition value="General specifications for this substance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.characterization.technique">
+      <path value="SubstanceDefinition.characterization.technique"/>
+      <short value="The method used to find the characterization e.g. HPLC"/>
+      <definition value="The method used to elucidate the characterization of the drug substance. Example: HPLC."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceStructureTechnique"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The method used to elucidate the characterization of the drug substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.characterization.form">
+      <path value="SubstanceDefinition.characterization.form"/>
+      <short value="Describes the nature of the chemical entity and explains, for instance, whether this is a base or a salt form"/>
+      <definition value="Describes the nature of the chemical entity and explains, for instance, whether this is a base or a salt form."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceForm"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-form"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.characterization.description">
+      <path value="SubstanceDefinition.characterization.description"/>
+      <short value="The description or justification in support of the interpretation of the data file"/>
+      <definition value="The description or justification in support of the interpretation of the data file."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.characterization.file">
+      <path value="SubstanceDefinition.characterization.file"/>
+      <short value="The data produced by the analytical instrument or a pictorial representation of that data. Examples: a JCAMP, JDX, or ADX file, or a chromatogram or spectrum analysis"/>
+      <definition value="The data produced by the analytical instrument or a pictorial representation of that data. Examples: a JCAMP, JDX, or ADX file, or a chromatogram or spectrum analysis."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.property">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="375,835"/>
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -555,7 +551,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Property"/>
       </mapping>
     </element>
@@ -578,7 +574,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Property.Property_Type"/>
       </mapping>
     </element>
@@ -605,7 +601,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
@@ -621,17 +617,17 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Reference_Information"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,640"/><!-- 650,660 -->
+        <valueCode value="750,640"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
-        <short value="The average mass of a molecule of a compound"/>
-        <definition value="The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms."/>
+      <short value="The average mass of a molecule of a compound"/>
+      <definition value="The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -658,7 +654,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Molecular_Weight.Molecular_Weight_Method"/>
       </mapping>
     </element>
@@ -681,7 +677,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-type"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Molecular_Weight.Molecular_Weight_Type"/>
       </mapping>
     </element>
@@ -696,15 +692,13 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Molecular_Weight.Amount"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.structure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-          <!--valueCode value="520,508"/--> <!-- 350,569 -->
-      	<valueCode value="405,690"/>      
-      	
+        <valueCode value="405,690"/>
       </extension>
       <path value="SubstanceDefinition.structure"/>
       <short value="Structural information"/>
@@ -716,7 +710,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Structure"/>
       </mapping>
     </element>
@@ -739,7 +733,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-stereochemistry"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Stereochemistry"/>
       </mapping>
     </element>
@@ -762,14 +756,14 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-optical-activity"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Optical_Activity"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.structure.molecularFormula">
       <path value="SubstanceDefinition.structure.molecularFormula"/>
-        <short value="An expression which states the number and type of atoms present in a molecule of a substance"/>
-        <definition value="An expression which states the number and type of atoms present in a molecule of a substance."/>
+      <short value="An expression which states the number and type of atoms present in a molecule of a substance"/>
+      <definition value="An expression which states the number and type of atoms present in a molecule of a substance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -777,7 +771,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Molecular_Formula"/>
       </mapping>
     </element>
@@ -792,7 +786,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Molecular_Formula_By_Moiety"/>
       </mapping>
     </element>
@@ -805,7 +799,7 @@
       <contentReference value="#SubstanceDefinition.molecularWeight"/>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Molecular_Weight"/>
       </mapping>
     </element>
@@ -828,7 +822,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -844,7 +838,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Reference_Source"/>
       </mapping>
     </element>
@@ -862,7 +856,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structure.Structural_Representation"/>
       </mapping>
     </element>
@@ -884,9 +878,8 @@
         <description value="A format of a substance representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-type"/>
       </binding>
-      
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structural_Representation.Structural_Representation_Type"/>
       </mapping>
     </element>
@@ -901,7 +894,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structural_Representation.Structural_Representation"/>
       </mapping>
     </element>
@@ -923,9 +916,8 @@
         <description value="A format of a substance representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-format"/>
       </binding>
-      
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -941,13 +933,13 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Structural_Representation.Structural_Representation_Attachment"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="290,922"/> <!-- was 290,972 -->
+        <valueCode value="290,922"/>
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -959,7 +951,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Substance_Code"/>
       </mapping>
     </element>
@@ -974,7 +966,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Code.Code, Substance_Code.Code_System, Substance_Code.Code_System_Id"/>
       </mapping>
     </element>
@@ -997,7 +989,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Code.Code_System_Status"/>
       </mapping>
     </element>
@@ -1012,7 +1004,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Code.Code_Change_Date"/>
       </mapping>
     </element>
@@ -1027,7 +1019,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Code.Comment"/>
       </mapping>
     </element>
@@ -1043,13 +1035,13 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Code.Reference_Source"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="544,350"/> <!-- 570 --> 
+        <valueCode value="544,350"/>
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
@@ -1061,7 +1053,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Substance_Name"/>
       </mapping>
     </element>
@@ -1076,7 +1068,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Substance_Name"/>
       </mapping>
     </element>
@@ -1099,7 +1091,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-type"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Substance_Name_Type"/>
       </mapping>
     </element>
@@ -1121,9 +1113,8 @@
         <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
-      
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -1139,7 +1130,7 @@
       <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is the preferred name or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -1154,24 +1145,22 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Language"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Language"/>
       </mapping>
     </element>
@@ -1194,7 +1183,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-domain"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Substance_Name_Domain"/>
       </mapping>
     </element>
@@ -1217,7 +1206,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Jurisdiction"/>
       </mapping>
     </element>
@@ -1230,7 +1219,7 @@
       <contentReference value="#SubstanceDefinition.name"/>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -1243,13 +1232,13 @@
       <contentReference value="#SubstanceDefinition.name"/>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="n/a"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.name.official">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,525"/> <!-- 757,472 --> 
+        <valueCode value="750,525"/>
       </extension>
       <path value="SubstanceDefinition.name.official"/>
       <short value="Details of the official nature of this name"/>
@@ -1261,7 +1250,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Official_Name"/>
       </mapping>
     </element>
@@ -1284,7 +1273,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-authority"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Official_Name.Official_Name_Type"/>
       </mapping>
     </element>
@@ -1307,7 +1296,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Official_Name.Official_Name_Status"/>
       </mapping>
     </element>
@@ -1322,7 +1311,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Official_Name.Official_Name_Status_Change_Date"/>
       </mapping>
     </element>
@@ -1338,7 +1327,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Name.Reference_Source"/>
       </mapping>
     </element>
@@ -1356,7 +1345,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Reference_Information.Relationship"/>
       </mapping>
     </element>
@@ -1375,7 +1364,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Related_Substance_Id"/>
       </mapping>
     </element>
@@ -1398,7 +1387,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-relationship-type"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Relationship_Type"/>
       </mapping>
     </element>
@@ -1414,7 +1403,7 @@
       <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is a defining relationship or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Is_Defining"/>
       </mapping>
     </element>
@@ -1435,7 +1424,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Amount.Quantity"/>
       </mapping>
     </element>
@@ -1450,7 +1439,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Amount.Quantity.High_Limit"/>
       </mapping>
     </element>
@@ -1473,7 +1462,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-amount-type"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Amount_Type"/>
       </mapping>
     </element>
@@ -1489,7 +1478,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Reference_Source"/>
       </mapping>
     </element>
@@ -1505,7 +1494,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="(used to add specifics of Nucleic Acids to Substances)"/>
       </mapping>
     </element>
@@ -1521,7 +1510,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="(used to  add specifics of Polymers to Substances)"/>
       </mapping>
     </element>
@@ -1537,13 +1526,13 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="(used to  add specifics of Proteins to Substances)"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.sourceMaterial">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="270,350"/> <!-- was 285 -->
+        <valueCode value="270,350"/>
       </extension>
       <path value="SubstanceDefinition.sourceMaterial"/>
       <short value="Material or taxonomic/anatomical source"/>
@@ -1555,7 +1544,7 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Substance.Source_Material"/>
       </mapping>
     </element>
@@ -1578,7 +1567,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-type"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Source_Material.Source_Material_Type"/>
       </mapping>
     </element>
@@ -1601,7 +1590,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-genus"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Source_Material.Organism.Genus"/>
       </mapping>
     </element>
@@ -1624,7 +1613,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-species"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Source_Material.Organism.Species"/>
       </mapping>
     </element>
@@ -1647,7 +1636,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-part"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Source_Material.Part_Description.Part"/>
       </mapping>
     </element>
@@ -1670,7 +1659,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
       </binding>
       <mapping>
-        <identity value="idmp"/>
+        <identity value="idmp-substance"/>
         <map value="Source_Material.Country_Of_Origin"/>
       </mapping>
     </element>

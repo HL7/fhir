@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="ActorDefinition"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -33,7 +32,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ActorDefinition"/>
-  <title value="ActorDefinition"/>
+  <title value="Actor Definition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -80,7 +79,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
       </constraint>
       <mapping>
@@ -103,7 +102,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -144,6 +143,28 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+ 		<element id="ActorDefinition.versionAlgorithm[x]">
+ 			<path value="ActorDefinition.versionAlgorithm[x]"/>
+ 			<short value="How to compare versions"/>
+ 			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+ 			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="string"/>
+ 			</type>
+ 			<type>
+ 				<code value="Coding"/>
+ 			</type>
+ 			<isSummary value="true"/>
+ 			<binding>
+ 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+ 					<valueString value="??"/>
+ 				</extension>
+ 				<strength value="extensible"/>
+ 				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+ 			</binding>
+ 		</element>
     <element id="ActorDefinition.name">
       <path value="ActorDefinition.name"/>
       <short value="Name for this actor definition (computer friendly)"/>
@@ -431,7 +452,7 @@
     <element id="ActorDefinition.derivedFrom">
       <path value="ActorDefinition.derivedFrom"/>
       <short value="Definition of this actor in another context / IG"/>
-      <definition value="A url that identifies the definition of this actor in another IG (which IG must be listed in the dependencies). This actor inherits all the obligations etc as defined in the other IG."/>
+      <definition value="A url that identifies the definition of this actor in another IG (which IG must be listed in the dependencies). This actor inherits all the obligations etc. as defined in the other IG."/>
       <min value="0"/>
       <max value="*"/>
       <type>

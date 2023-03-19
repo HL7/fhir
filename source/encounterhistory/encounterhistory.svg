@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n259"
+   version="1.1"
+   width="772.4"
+   height="228.0"
+   sodipodi:docname="encounterhistory.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview148639"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.6131538"
+     inkscape:cx="386.20001"
+     inkscape:cy="114.37223"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n259" />
+  <defs
+     id="defs148528">
+    <filter
+       id="shadow1"
+       x="-0.026185772"
+       y="-0.0828125"
+       width="1.0671937"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset148519" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix148521" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur148523" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend148525" />
+    </filter>
+  </defs>
+  <g
+     id="n260">
+    <rect
+       id="EncounterHistory"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="218.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n261"
+       x1="0.0"
+       y1="28.0"
+       x2="286.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n262"
+       x="143.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">EncounterHistory<tspan
+   class="diagram-class-title-link"
+   id="tspan148533"> (<a
+   id="n263"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n264"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n265"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.encounter"><title
+   id="title148536">The Encounter associated with this set of historic values</title>encounter</a> : <a
+   id="n266"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n267"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n272"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n273"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.identifier"><title
+   id="title148542">Identifier(s) by which this encounter is known</title>identifier</a> : <a
+   id="n274"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n278"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n279"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.status"><title
+   id="title148547">planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n280"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n281"
+   xlink:href="valueset-encounter-status.html"><title
+   id="n282">null (Strength=Required)</title>EncounterStatus</a>! »</text>
+    <text
+       id="n288"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n289"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.class"><title
+   id="title148554">Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations</title>class</a> : <a
+   id="n290"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n291"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActEncounterCode.html"><title
+   id="n292">null (Strength=Extensible)</title>ActEncounterCode</a>+ »</text>
+    <text
+       id="n298"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n299"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.type"><title
+   id="title148561">Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</title>type</a> : <a
+   id="n300"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n301"
+   xlink:href="valueset-encounter-type.html"><title
+   id="n302">null (Strength=Example)</title>EncounterType</a>?? »</text>
+    <text
+       id="n308"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n309"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.serviceType"><title
+   id="title148568">Broad categorization of the service that is to be provided (e.g. cardiology)</title>serviceType</a> : <a
+   id="n310"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n311"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>; <a
+   id="n312"
+   xlink:href="valueset-service-type.html"><title
+     id="n313">null (Strength=Example)</title></a></text>
+    <text
+       id="n314"
+       x="26.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n315"
+   xlink:href="valueset-service-type.html">ServiceType</a>?? »</text>
+    <text
+       id="n324"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n325"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.subject"><title
+   id="title148578">The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam</title>subject</a> : <a
+   id="n326"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n327"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n328"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n334"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n335"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.subjectStatus"><title
+   id="title148585">The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status</title>subjectStatus</a> : <a
+   id="n336"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n337"
+   xlink:href="valueset-encounter-subject-status.html"><title
+   id="n338">null (Strength=Example)</title>EncounterSubjectStatus</a>?? »</text>
+    <text
+       id="n344"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n345"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.actualPeriod"><title
+   id="title148592">The start and end time associated with this set of values associated with the encounter, may be different to the planned times for various reasons</title>actualPeriod</a> : <a
+   id="n346"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n350"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n351"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.plannedStartDate"><title
+   id="title148597">The planned start date/time (or admission date) of the encounter</title>plannedStartDate</a> : <a
+   id="n352"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n356"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n357"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.plannedEndDate"><title
+   id="title148602">The planned end date/time (or discharge date) of the encounter</title>plannedEndDate</a> : <a
+   id="n358"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n362"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n363"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.length"><title
+   id="title148607">Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.
+
+When missing it is the time in between the start and end values</title>length</a> : <a
+   id="n364"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
+  </g>
+  <g
+     id="n368"
+     transform="translate(96.704979,-11.158267)">
+    <rect
+       id="EncounterHistory.location"
+       x="370"
+       y="100"
+       rx="4"
+       ry="4"
+       width="202.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n369"
+       x1="370"
+       y1="128"
+       x2="572.40002"
+       y2="128"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n370"
+       x="471.20001"
+       y="120"
+       fill="#000000"
+       class="diagram-class-title">Location</text>
+    <text
+       id="n371"
+       x="376"
+       y="142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n372"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.location.location"><title
+   id="title148616">The location where the encounter takes place</title>location</a> : <a
+   id="n373"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n374"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n379"
+       x="376"
+       y="156"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n380"
+   xlink:href="encounterhistory-definitions.html#EncounterHistory.location.form"><title
+   id="title148622">This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query</title>form</a> : <a
+   id="n381"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n382"
+   xlink:href="valueset-location-form.html"><title
+   id="n383">null (Strength=Example)</title>LocationForm</a>?? »</text>
+  </g>
+  <line
+     id="n389"
+     x1="286.0"
+     y1="119.02132845825714"
+     x2="370.0"
+     y2="124.90798293723338"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n390"
+     points="286.0,119.02132845825714 292.0,123.02132845825714 298.0,119.02132845825714 292.0,115.02132845825714 286.0,119.02132845825714"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(4.008689754220972 286.0 119.02132845825714)" />
+  <rect
+     id="n391"
+     x="310.5"
+     y="114.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n392"
+     x="328.0"
+     y="124.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n393"
+       xlink:href="encounterhistory-definitions.html#EncounterHistory.location"><title
+   id="title148633">The location of the patient at this point in the encounter, the multiple cardinality permits de-normalizing the levels of the location hierarchy, such as site/ward/room/bed</title>location</a></text>
+  <text
+     id="n394"
+     x="350.0"
+     y="120.90798293723338"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

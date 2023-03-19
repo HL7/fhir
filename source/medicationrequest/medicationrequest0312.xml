@@ -43,7 +43,7 @@
     <note>
         <text value="Patient should be counselled to ensure good dental hygiene"/>
     </note>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="100mg (4ml) three times daily" />
@@ -78,7 +78,7 @@
         </doseAndRate>
         
     </dosageInstruction> 
-    </dose>
+    
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

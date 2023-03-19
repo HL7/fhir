@@ -29,7 +29,7 @@ This page is a draft. For ongoing discussion, see <a href="https://chat.fhir.org
 <a name="status"></a>
 <h3>Status of GraphQL</h3>
 <p>
-Implementers should note that GraphQL is not a formal standard, and no standards path has been dscribed for it. 
+Implementers should note that GraphQL is not a formal standard, and no standards path has been described for it. 
 At present, <a href="http://facebook.github.io/graphql/">GraphQL</a> is copyright 
 by <a href="http://facebook.com">Facebook</a>, and licensed under a standard BSD-3 license. The GraphQL 
 language is still under development.
@@ -89,8 +89,8 @@ mutations that provide additional functionality.
   Clients that use the FHIR/GraphQL specification make requests 
   using graphQL statements that select subsets of the resources to 
   retrieve. Clients SHOULD always be retrieving mandatory and 
-  modifier elements and checking their values (see the <a href="safety.html#conformance>safety 
-  check list</a>).
+  modifier elements and checking their values (see the <a href="safety.html#conformance">safety 
+  checklist</a>).
 </p>
   
 <a name="errors"></a>
@@ -678,7 +678,7 @@ Gives the output:
 @singleton
 </pre>
 <p>
-This directive indicates that an field collates to a single node, not a list. It is only used in association 
+This directive indicates that a field collates to a single node, not a list. It is only used in association 
 with fields on which a parent has <code>@flatten</code>, and overrides the impact of flattening the parent in 
 making it a list. The server SHALL return an error if there is more than one value when flattening
 </p>

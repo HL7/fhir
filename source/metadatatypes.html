@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 [%settitle MetaDatatypes%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -64,7 +64,7 @@ For an index of all datatypes, see <a href="datatypes.html">the Datatypes page</
 <h2 style="margin-bottom: 1px">ContactDetail</h2>
 [%dtstatus ContactDetail%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#ContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ContactDetail">Mappings</a>.
+<!--xlp:ContactDetail-->See also <a no-external="true" href="metadatatypes-examples.html#ContactDetail">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#ContactDetail">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#ContactDetail">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#ContactDetail">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#ContactDetail">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#ContactDetail">R4 Conversions</a>
 </p>
 [%StandardsStatus normative DataType infrastructure%]
 
@@ -86,7 +86,7 @@ ContactDetail is used in the following places: [%dtusage ContactDetail%]
 <h2 style="margin-bottom: 1px">DataRequirement</h2>
 [%dtstatus DataRequirement%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a href="metadatatypes-definitions.html#DataRequirement">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#DataRequirement">Mappings</a>.
+<!--xlp:DataRequirement-->See also <a no-external="true" href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#DataRequirement">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#DataRequirement">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#DataRequirement">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#DataRequirement">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#DataRequirement">R4 Conversions</a>
 </p>
 
 <p>The DataRequirement structure defines a general data requirement for a knowledge asset such as a decision support rule or quality measure.</p>
@@ -102,7 +102,7 @@ See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a 
 
 <p>DataRequirements are used by knowledge modules to communicate the set of required data to a consumer in a way that is computable (as opposed to a set of named parameters which must be integrated by hand based on the meaning of the parameter as communicated through the documentation).</p>
 
-<p>DataRequirements are typically used to communicate patient-dependent information such as MedicationUsages and Encounters, whereas Parameters are typically used to communicate patient-independent information such as configuration values.</p>
+<p>DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters, whereas Parameters are typically used to communicate patient-independent information such as configuration values.</p>
 
 <p>For example, consider the following CQL expression:</p>
 
@@ -120,7 +120,7 @@ See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a 
 		&lt;valueSetString value=&quot;Total Colectomy Value Set&quot;/&gt;
 	&lt;/codeFilter&gt;
 	&lt;dateFilter&gt;
-		&lt;path value=&quot;performedPeriod&quot;/&gt;
+		&lt;path value=&quot;performed&quot;/&gt;
 		&lt;valuePeriod&gt;
 			&lt;start value=&quot;2016-01-01&quot;/&gt;
 			&lt;end value=&quot;2016-12-31&quot;/&gt;
@@ -146,8 +146,7 @@ See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a 
 		&lt;valueSetString value=&quot;Total Colectomy Value Set&quot;/&gt;
 	&lt;/codeFilter&gt;
 	&lt;dateFilter&gt;
-		&lt;path value=&quot;performedPeriod&quot;/&gt;
-		&lt;path value=&quot;performedDateTime&quot;/&gt;
+		&lt;path value=&quot;performed&quot;/&gt;
 	&lt;/dateFilter&gt;
 &lt;/dataRequirement&gt;
 </code></pre>
@@ -163,12 +162,12 @@ DataRequirement is used in the following places: [%dtusage DataRequirement%]
 <h2 style="margin-bottom: 1px">ParameterDefinition</h2>
 [%dtstatus ParameterDefinition%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>, <a href="metadatatypes-definitions.html#ParameterDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ParameterDefinition">Mappings</a>.
+<!--xlp:ParameterDefinition-->See also <a no-external="true" href="metadatatypes-examples.html#ParameterDefinition">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#ParameterDefinition">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#ParameterDefinition">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#ParameterDefinition">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#ParameterDefinition">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#ParameterDefinition">R4 Conversions</a>
 </p>
 
 <p>The ParameterDefinition structure defines a parameter to a knowledge asset such as a decision support rule or quality measure.</p>
 
-<p>Parameters are typically used to communicate patient-independent information such as configuration values, whereas DataRequirements are typically used to communicate patient-dependent information such as MedicationUsages and Encounters.</p>
+<p>Parameters are typically used to communicate patient-independent information such as configuration values, whereas DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters.</p>
 
 [%dt ParameterDefinition 1%]
 <div class="use">
@@ -185,7 +184,7 @@ See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>,
 <h2 style="margin-bottom: 1px">RelatedArtifact</h2>
 [%dtstatus RelatedArtifact%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#RelatedArtifact">Examples</a>, <a href="metadatatypes-definitions.html#RelatedArtifact">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#RelatedArtifact">Mappings</a>.
+<!--xlp:RelatedArtifact-->See also <a no-external="true" href="metadatatypes-examples.html#RelatedArtifact">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#RelatedArtifact">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#RelatedArtifact">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#RelatedArtifact">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#RelatedArtifact">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#RelatedArtifact">R4 Conversions</a>
 </p>
 
 
@@ -236,7 +235,7 @@ The RelatedArtifact type is used in a variety of contexts, and supports flexible
 <h2 style="margin-bottom: 1px">TriggerDefinition</h2>
 [%dtstatus TriggerDefinition%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#TriggerDefinition">Examples</a>, <a href="metadatatypes-definitions.html#TriggerDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#TriggerDefinition">Mappings</a>.
+<!--xlp:TriggerDefinition-->See also <a no-external="true" href="metadatatypes-examples.html#TriggerDefinition">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#TriggerDefinition">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#TriggerDefinition">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#TriggerDefinition">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#TriggerDefinition">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#TriggerDefinition">R4 Conversions</a>
 </p>
 
 
@@ -253,9 +252,9 @@ depending on the value of <code>type</code>:</p>
 A named event is an event identified by the implementation environment. This allows
 any event generated within the implementation environment to be used as a trigger,
 but it requires pre-coordination of the names involved with the consuming environments.
-<a href="v2/0003/index.html">HL7 v2 events</a> are assigned the URI http://terminology.hl7.org/CodeSystem/v2-0003#[code]
+<a href="v2/0003/index.html">HL7 V2 events</a> are assigned the URI http://terminology.hl7.org/CodeSystem/v2-0003#[code]
 e.g. http://terminology.hl7.org/CodeSystem/v2-0003/A01, and reference any data change that would trigger
-the sending of the matching HL7 v2 version, if the application providing the FHIR API
+the sending of the matching HL7 V2 version, if the application providing the FHIR API
 supports v2 events internally.
 </p>
 
@@ -288,7 +287,7 @@ TriggerDefinition is used in the following places: [%dtusage TriggerDefinition%]
 <h2 style="margin-bottom: 1px">Expression</h2>
 [%dtstatus Expression%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#Expression">Examples</a>, <a href="metadatatypes-definitions.html#Expression">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Expression">Mappings</a>.
+<!--xlp:Expression-->See also <a no-external="true" href="metadatatypes-examples.html#Expression">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#Expression">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#Expression">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#Expression">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#Expression">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#Expression">R4 Conversions</a>
 </p>
 
 
@@ -339,7 +338,7 @@ Expression is used in the following places: [%dtusage Expression%]
 <h2 style="margin-bottom: 1px">UsageContext</h2>
 [%dtstatus UsageContext%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#UsageContext">Examples</a>, <a href="metadatatypes-definitions.html#UsageContext">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#UsageContext">Mappings</a>.
+<!--xlp:UsageContext-->See also <a no-external="true" href="metadatatypes-examples.html#UsageContext">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#UsageContext">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#UsageContext">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#UsageContext">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#UsageContext">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#UsageContext">R4 Conversions</a>
 </p>
 
 
@@ -363,7 +362,7 @@ UsageContext is used in the following places: [%dtusage UsageContext%]
 <h2 style="margin-bottom: 1px">ExtendedContactDetail</h2>
 [%dtstatus ExtendedContactDetail%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ExtendedContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ExtendedContactDetail">Mappings</a>.
+<!--xlp:ExtendedContactDetail-->See also <a no-external="true" href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#ExtendedContactDetail">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#ExtendedContactDetail">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#ExtendedContactDetail">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#ExtendedContactDetail">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#ExtendedContactDetail">R4 Conversions</a>
 </p>
 
 <p>The ExtendedContactDetail structure defines extended contact details for a named, or unnamed individual/purpose.</p>
@@ -383,7 +382,7 @@ See also <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a
   The period provides the general start and end of the contact's applicability for usage.
   This is not intended to store a history of usages over time, but a convenient way to 
   record upcoming relevant changes to the content when it is being published.<br/>
-  This permits the a contact to be marked as becoming available from X, or is expected
+  This permits a contact to be marked as becoming available from X, or is expected
   to no longer be available from Y. An extension may be used to mark a contact's general 
   availability times (9am - 5pm) and also exceptions where the contact is not available
   (e.g. Public holidays)
@@ -406,7 +405,7 @@ ExtendedContactDetail is used in the following places: [%dtusage ExtendedContact
 <h2 style="margin-bottom: 1px">VirtualServiceDetail</h2>
 [%dtstatus VirtualServiceDetail%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#VirtualServiceDetail">Examples</a>, <a href="metadatatypes-definitions.html#VirtualServiceDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#VirtualServiceDetail">Mappings</a>.
+<!--xlp:VirtualServiceDetail-->See also <a no-external="true" href="metadatatypes-examples.html#VirtualServiceDetail">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#VirtualServiceDetail">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#VirtualServiceDetail">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#VirtualServiceDetail">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#VirtualServiceDetail">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#VirtualServiceDetail">R4 Conversions</a>
 </p>
 
 <p>The VirtualServiceDetail structure defines details of a virtual communication capability, such as a web conference call.</p>
@@ -428,7 +427,7 @@ VirtualServiceDetail is used in the following places: [%dtusage VirtualServiceDe
 <h2 style="margin-bottom: 1px">Availability</h2>
 [%dtstatus Availability%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a href="metadatatypes-definitions.html#Availability">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Availability">Mappings</a>.
+<!--xlp:Availability-->See also <a no-external="true" href="metadatatypes-examples.html#Availability">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#Availability">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#Availability">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#Availability">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#Availability">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#Availability">R4 Conversions</a>
 </p>
 
 <p>The Availability structure defines a pattern of availability data typically used in directory resources.</p>
@@ -450,7 +449,7 @@ See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a hre
 <h2 style="margin-bottom: 1px">MonetaryComponent</h2>
 [%dtstatus MonetaryComponent%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#MonetaryComponent">Examples</a>, <a href="metadatatypes-definitions.html#MonetaryComponent">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#MonetaryComponent">Mappings</a>.
+<!--xlp:MonetaryComponent-->See also <a no-external="true" href="metadatatypes-examples.html#MonetaryComponent">Examples</a>, <a no-external="true" href="metadatatypes-definitions.html#MonetaryComponent">Detailed Descriptions</a>, <a no-external="true" href="metadatatypes-mappings.html#MonetaryComponent">Mappings</a>, <a no-external="true" href="metadatatypes-profiles.html#MonetaryComponent">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-metadatatypes.html#MonetaryComponent">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-metadatatypes.html#MonetaryComponent">R4 Conversions</a>
 </p>
 
 <p>The MonetaryComponent structure defines a the set of properties across the financial resources.</p>

@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -124,6 +124,13 @@
         <severity value="warning"/>
         <human value="An appointment may have an originatingAppointment or recurrenceTemplate, but not both"/>
         <expression value="originatingAppointment.exists().not() or recurrenceTemplate.exists().not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </constraint>
+      <constraint>
+        <key value="app-7"/>
+        <severity value="error"/>
+        <human value="Cancellation date is only used for appointments that have been cancelled, or noshow"/>
+        <expression value="cancellationDate.exists() implies (status='noshow' or status='cancelled')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <mapping>
@@ -184,6 +191,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="app-4"/>
+      <condition value="app-3"/>
+      <condition value="app-7"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
@@ -225,6 +235,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="app-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -407,7 +418,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -432,7 +443,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Priority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Indicates the urgency of the appointment."/>
         </extension>
         <strength value="example"/>
@@ -462,7 +473,7 @@
     <element id="Appointment.description">
       <path value="Appointment.description"/>
       <short value="Shown on a subject line in a meeting request, or appointment list"/>
-      <definition value="The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field."/>
+      <definition value="The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the note field."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -580,6 +591,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </type>
+      <condition value="app-6"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
@@ -593,11 +605,15 @@
       <path value="Appointment.start"/>
       <short value="When appointment is to take place"/>
       <definition value="Date/Time that the appointment is to take place."/>
+      <comment value="If actual start/end times are not known then the requested period start/end can be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="instant"/>
       </type>
+      <condition value="app-5"/>
+      <condition value="app-3"/>
+      <condition value="app-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -624,11 +640,15 @@
       <path value="Appointment.end"/>
       <short value="When appointment is to conclude"/>
       <definition value="Date/Time that the appointment is to conclude."/>
+      <comment value="If actual start/end times are not known then the requested period start/end can be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="instant"/>
       </type>
+      <condition value="app-5"/>
+      <condition value="app-3"/>
+      <condition value="app-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -674,6 +694,29 @@
       <mapping>
         <identity value="ical"/>
         <map value="DURATION (e.g. PT15M)"/>
+      </mapping>
+    </element>
+    <element id="Appointment.requestedPeriod">
+      <path value="Appointment.requestedPeriod"/>
+      <short value="Potential date/time interval(s) requested to allocate the appointment within"/>
+      <definition value="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.&#xA;&#xA;The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system."/>
+      <comment value="This does not introduce a capacity for recurring appointments."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ARQ-11"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".activityTime[@xsi:type = ('SXPR_TS', 'PIVL_TS')]"/>
       </mapping>
     </element>
     <element id="Appointment.slot">
@@ -729,6 +772,18 @@
         <identity value="ical"/>
         <map value="CREATED"/>
       </mapping>
+    </element>
+    <element id="Appointment.cancellationDate">
+      <path value="Appointment.cancellationDate"/>
+      <short value="When the appointment was cancelled"/>
+      <definition value="The date/time describing when the appointment was cancelled."/>
+      <comment value="If the appointment was cancelled multiple times, this would reflect the most recent cancellation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <condition value="app-7"/>
     </element>
     <element id="Appointment.note">
       <path value="Appointment.note"/>
@@ -876,6 +931,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="app-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -931,6 +987,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <condition value="app-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -1000,29 +1057,6 @@
         <map value="ATTENDEE;CN=&quot;John Doe&quot;;RSVP=TRUE:mailto:john@doe.com (rsvpparam | partstatparam)"/>
       </mapping>
     </element>
-    <element id="Appointment.requestedPeriod">
-      <path value="Appointment.requestedPeriod"/>
-      <short value="Potential date/time interval(s) requested to allocate the appointment within"/>
-      <definition value="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.&#xA;&#xA;The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system."/>
-      <comment value="This does not introduce a capacity for recurring appointments."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.occurrence[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ARQ-11"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".activityTime[@xsi:type = ('SXPR_TS', 'PIVL_TS')]"/>
-      </mapping>
-    </element>
     <element id="Appointment.recurrenceId">
       <path value="Appointment.recurrenceId"/>
       <short value="The sequence number in the recurrence"/>
@@ -1041,7 +1075,7 @@
       <path value="Appointment.occurrenceChanged"/>
       <short value="Indicates that this appointment varies from a recurrence pattern"/>
       <definition value="This appointment varies from the recurring pattern."/>
-      <comment value="For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, an single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday."/>
+      <comment value="For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, a single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1064,6 +1098,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="app-6"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -1082,7 +1117,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="IANATimezone"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="IANA Timezones (BCP 175)."/>
         </extension>
         <strength value="required"/>

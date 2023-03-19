@@ -17,4 +17,13 @@
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
+	<subjectStatus>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/encounter-subject-status"/>
+			<code value="receiving-care"/>
+		</coding>
+	</subjectStatus>
+	<careTeam>
+		<reference value="Encounter/example"/>
+	</careTeam>
 </Encounter>

@@ -29,9 +29,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.338"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="DeviceMetricCategory"/>
-  <title value="DeviceMetricCategory"/>
+  <title value="Device Metric Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -53,17 +53,17 @@
   <concept>
     <code value="measurement"/>
     <display value="Measurement"/>
-    <definition value="DeviceObservations generated for this DeviceMetric are measured."/>
+    <definition value="Observations generated for this DeviceMetric are measured."/>
   </concept>
   <concept>
     <code value="setting"/>
     <display value="Setting"/>
-    <definition value="DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device."/>
+    <definition value="Observations generated for this DeviceMetric is a setting that will influence the behavior of the Device."/>
   </concept>
   <concept>
     <code value="calculation"/>
     <display value="Calculation"/>
-    <definition value="DeviceObservations generated for this DeviceMetric are calculated."/>
+    <definition value="Observations generated for this DeviceMetric are calculated."/>
   </concept>
   <concept>
     <code value="unspecified"/>

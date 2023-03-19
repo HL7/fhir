@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="color-rgb"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/color-rgb"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2121"/>
+  </identifier>
+  <name value="ColorRGB"/>
+  <title value="RGB Values for Color"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="RGB values for color. Valid codes are #RRGGBB where RR, GG, and BB are two letter hex codes, values 00..ff. codes are case insensitive. This code system does not define the 16million+ valid RGB codes (terminology servers will need code to support the RGB grammar)."/>
+  <copyright value="[Copyright](https://www.w3.org/Consortium/Legal/ipr-notice) ©2022 World Wide Web Consortium. All Rights Reserved. This work is distributed under the [W3C® Software and Document License](https://www.w3.org/Consortium/Legal/copyright-software) in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."/>
+  <caseSensitive value="false"/>
+  <compositional value="true"/>
+  <content value="not-present"/>
+</CodeSystem>

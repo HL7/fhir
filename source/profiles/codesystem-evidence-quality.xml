@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="QualityOfEvidenceRating"/>
+  <title value="Quality Of Evidence Rating"/>
   <experimental value="true"/>
   <description value="QualityOfEvidenceRating"/>
   <concept>

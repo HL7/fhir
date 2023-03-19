@@ -1,0 +1,15 @@
+map "http://hl7.org/fhir/StructureMap/Quantity3to4" = "R3 to R4 Conversions for Quantity"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Quantity" alias QuantityR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Quantity" alias Quantity as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Quantity(source src : QuantityR3, target tgt : Quantity) extends Element <<type+>> {
+  src.value -> tgt.value;
+  src.comparator -> tgt.comparator;
+  src.unit -> tgt.unit;
+  src.system -> tgt.system;
+  src.code -> tgt.code;
+}
+

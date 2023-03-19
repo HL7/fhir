@@ -1,0 +1,37 @@
+map "http://hl7.org/fhir/StructureMap/OrganizationRole3to4" = "R3 to R4 Conversions for OrganizationRole"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/OrganizationRole" alias OrganizationRoleR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/OrganizationRole" alias OrganizationRole as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group OrganizationRole(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.period -> tgt.period;
+  src.organization -> tgt.organization;
+  src.participatingOrganization -> tgt.participatingOrganization;
+  src.network -> tgt.network;
+  src.code -> tgt.code;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.healthcareService -> tgt.healthcareService;
+  src.telecom -> tgt.telecom;
+  src.availableTime as s -> tgt.availableTime as t then OrganizationRoleAvailableTime(s, t);
+  src.notAvailable as s -> tgt.notAvailable as t then OrganizationRoleNotAvailable(s, t);
+  src.availabilityExceptions -> tgt.availabilityExceptions;
+  src.endpoint -> tgt.endpoint;
+}
+
+group OrganizationRoleAvailableTime(source src, target tgt) extends BackboneElement {
+  src.daysOfWeek -> tgt.daysOfWeek;
+  src.allDay -> tgt.allDay;
+  src.availableStartTime -> tgt.availableStartTime;
+  src.availableEndTime -> tgt.availableEndTime;
+}
+
+group OrganizationRoleNotAvailable(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.during -> tgt.during;
+}
+

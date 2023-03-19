@@ -137,7 +137,35 @@
       <SearchParameter>
         <id value="clinical-date"/>
         <code value="date"/>
-        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="ClinicalImpression"/><base value="Composition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DiagnosticReport"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Flag"/><base value="Immunization"/><base value="List"/><base value="Observation"/><base value="Procedure"/><base value="RiskAssessment"/><base value="SupplyRequest"/>
+        <base value="AdverseEvent"/>
+        <base value="AllergyIntolerance"/>
+        <base value="Appointment"/>
+        <base value="AuditEvent"/>
+        <base value="CarePlan"/>
+        <base value="CareTeam"/>
+        <base value="ClinicalImpression"/>
+        <base value="Composition"/>
+        <base value="Consent"/>
+        <base value="DetectedIssue"/>
+        <base value="DiagnosticReport"/>
+        <base value="DocumentReference"/>
+        <base value="Encounter"/>
+        <base value="EpisodeOfCare"/>
+        <base value="FamilyMemberHistory"/>
+        <base value="Flag"/>
+        <base value="Immunization"/>
+        <base value="ImmunizationEvaluation"/>
+        <base value="ImmunizationRecommendation"/>
+        <base value="Invoice"/>
+        <base value="List"/>
+        <base value="MeasureReport"/>
+        <base value="MedicationAdministration"/>
+        <base value="NutritionIntake"/>
+        <base value="Observation"/>
+        <base value="Procedure"/>
+        <base value="ResearchSubject"/>
+        <base value="RiskAssessment"/>
+        <base value="SupplyRequest"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,8 +174,29 @@
       <SearchParameter>
         <id value="clinical-code"/>
         <code value="code"/>
-        <base value="AllergyIntolerance"/><base value="Condition"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="FamilyMemberHistory"/><base value="List"/><base value="Observation"/><base value="Procedure"/>
-        <base value="Medication"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
+        <base value="AdverseEvent"/>
+        <base value="AllergyIntolerance"/>
+        <base value="AuditEvent"/>
+        <base value="Basic"/>
+        <base value="ChargeItem"/>
+        <base value="Condition"/>
+        <base value="DetectedIssue"/>
+        <base value="DeviceRequest"/>
+        <base value="DiagnosticReport"/>
+        <base value="FamilyMemberHistory"/>
+        <base value="ImagingSelection"/>
+        <base value="List"/>
+        <base value="Medication"/>
+        <base value="MedicationAdministration"/>
+        <base value="MedicationDispense"/>
+        <base value="MedicationRequest"/>
+        <base value="MedicationStatement"/>
+        <base value="NutritionIntake"/>
+        <base value="Observation"/>
+        <base value="Procedure"/>
+        <base value="RequestOrchestration"/>
+        <base value="ServiceRequest"/>
+        <base value="Task"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -156,7 +205,37 @@
       <SearchParameter>
         <id value="clinical-encounter"/>
         <code value="encounter"/>
-        <base value="Composition"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentReference"/><base value="Flag"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="VisionPrescription"/>
+        <base value="AuditEvent"/>
+        <base value="CarePlan"/>
+        <base value="ChargeItem"/>
+        <base value="Claim"/>
+        <base value="ClinicalImpression"/>
+        <base value="Communication"/>
+        <base value="CommunicationRequest"/>
+        <base value="Composition"/>
+        <base value="Condition"/>
+        <base value="DeviceRequest"/>
+        <base value="DiagnosticReport"/>
+        <base value="DocumentReference"/>
+        <base value="EncounterHistory"/>
+        <base value="ExplanationOfBenefit"/>
+        <base value="Flag"/>
+        <base value="ImagingStudy"/>
+        <base value="List"/>
+        <base value="MedicationDispense"/>
+        <base value="MedicationStatement"/>
+        <base value="NutritionIntake"/>
+        <base value="NutritionOrder"/>
+        <base value="Observation"/>
+        <base value="Procedure"/>
+        <base value="Provenance"/>
+        <base value="QuestionnaireResponse"/>
+        <base value="RequestOrchestration"/>
+        <base value="RiskAssessment"/>
+        <base value="ServiceRequest"/>
+        <base value="ServiceRequest"/>
+        <base value="Task"/>
+        <base value="VisionPrescription"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,8 +244,72 @@
       <SearchParameter>
         <id value="clinical-identifier"/>
         <code value="identifier"/>
-        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
-        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
+        <base value="Account"/>
+        <base value="AdverseEvent"/>
+        <base value="AllergyIntolerance"/>
+        <base value="Appointment"/>
+        <base value="AppointmentResponse"/>
+        <base value="Basic"/>
+        <base value="BodyStructure"/>
+        <base value="CarePlan"/>
+        <base value="CareTeam"/>
+        <base value="ChargeItem"/>
+        <base value="Claim"/>
+        <base value="ClaimResponse"/>
+        <base value="ClinicalImpression"/>
+        <base value="Communication"/>
+        <base value="CommunicationRequest"/>
+        <base value="Composition"/>
+        <base value="Condition"/>
+        <base value="Consent"/>
+        <base value="Contract"/>
+        <base value="Coverage"/>
+        <base value="CoverageEligibilityRequest"/>
+        <base value="CoverageEligibilityResponse"/>
+        <base value="DetectedIssue"/>
+        <base value="DeviceRequest"/>
+        <base value="DeviceUsage"/>
+        <base value="DiagnosticReport"/>
+        <base value="DocumentReference"/>
+        <base value="Encounter"/>
+        <base value="EnrollmentRequest"/>
+        <base value="EpisodeOfCare"/>
+        <base value="ExplanationOfBenefit"/>
+        <base value="FamilyMemberHistory"/>
+        <base value="Flag"/>
+        <base value="Goal"/>
+        <base value="GuidanceResponse"/>
+        <base value="ImagingSelection"/>
+        <base value="ImagingStudy"/>
+        <base value="Immunization"/>
+        <base value="ImmunizationEvaluation"/>
+        <base value="ImmunizationRecommendation"/>
+        <base value="Invoice"/>
+        <base value="List"/>
+        <base value="MeasureReport"/>
+        <base value="Medication"/>
+        <base value="MedicationAdministration"/>
+        <base value="MedicationDispense"/>
+        <base value="MedicationRequest"/>
+        <base value="MedicationStatement"/>
+        <base value="MolecularSequence"/>
+        <base value="NutritionIntake"/>
+        <base value="NutritionOrder"/>
+        <base value="Observation"/>
+        <base value="Person"/>
+        <base value="Procedure"/>
+        <base value="QuestionnaireResponse"/>
+        <base value="RelatedPerson"/>
+        <base value="RequestOrchestration"/>
+        <base value="ResearchSubject"/>
+        <base value="RiskAssessment"/>
+        <base value="ServiceRequest"/>
+        <base value="ServiceRequest"/>
+        <base value="Specimen"/>
+        <base value="SupplyDelivery"/>
+        <base value="SupplyRequest"/>
+        <base value="Task"/>
+        <base value="VisionPrescription"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -175,8 +318,72 @@
       <SearchParameter>
         <id value="clinical-patient"/>
         <code value="patient"/>
-        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="ClinicalImpression"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DeviceUsage"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Flag"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
-        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
+        <base value="Account"/>
+        <base value="AdverseEvent"/>
+        <base value="AllergyIntolerance"/>
+        <base value="Appointment"/>
+        <base value="AppointmentResponse"/>
+        <base value="AuditEvent"/>
+        <base value="Basic"/>
+        <base value="BodyStructure"/>
+        <base value="CarePlan"/>
+        <base value="CareTeam"/>
+        <base value="ChargeItem"/>
+        <base value="Claim"/>
+        <base value="ClaimResponse"/>
+        <base value="ClinicalImpression"/>
+        <base value="Communication"/>
+        <base value="CommunicationRequest"/>
+        <base value="Composition"/>
+        <base value="Condition"/>
+        <base value="Consent"/>
+        <base value="Contract"/>
+        <base value="Coverage"/>
+        <base value="CoverageEligibilityRequest"/>
+        <base value="CoverageEligibilityResponse"/>
+        <base value="DetectedIssue"/>
+        <base value="DeviceRequest"/>
+        <base value="DeviceUsage"/>
+        <base value="DiagnosticReport"/>
+        <base value="DocumentReference"/>
+        <base value="Encounter"/>
+        <base value="EnrollmentRequest"/>
+        <base value="EpisodeOfCare"/>
+        <base value="ExplanationOfBenefit"/>
+        <base value="FamilyMemberHistory"/>
+        <base value="Flag"/>
+        <base value="Goal"/>
+        <base value="GuidanceResponse"/>
+        <base value="ImagingSelection"/>
+        <base value="ImagingStudy"/>
+        <base value="Immunization"/>
+        <base value="ImmunizationEvaluation"/>
+        <base value="ImmunizationRecommendation"/>
+        <base value="Invoice"/>
+        <base value="List"/>
+        <base value="MeasureReport"/>
+        <base value="MedicationAdministration"/>
+        <base value="MedicationDispense"/>
+        <base value="MedicationRequest"/>
+        <base value="MedicationStatement"/>
+        <base value="MolecularSequence"/>
+        <base value="NutritionIntake"/>
+        <base value="NutritionOrder"/>
+        <base value="Observation"/>
+        <base value="Person"/>
+        <base value="Procedure"/>
+        <base value="Provenance"/>
+        <base value="QuestionnaireResponse"/>
+        <base value="RelatedPerson"/>
+        <base value="RequestOrchestration"/>
+        <base value="ResearchSubject"/>
+        <base value="RiskAssessment"/>
+        <base value="ServiceRequest"/>
+        <base value="Specimen"/>
+        <base value="SupplyDelivery"/>
+        <base value="SupplyRequest"/>
+        <base value="Task"/>
+        <base value="VisionPrescription"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,7 +392,17 @@
       <SearchParameter>
         <id value="clinical-type"/>
         <code value="type"/>
-        <base value="AllergyIntolerance"/><base value="Composition"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/>
+        <base value="Account"/>
+        <base value="AllergyIntolerance"/>
+        <base value="Composition"/>
+        <base value="Coverage"/>
+        <base value="DocumentReference"/>
+        <base value="Encounter"/>
+        <base value="EpisodeOfCare"/>
+        <base value="Invoice"/>
+        <base value="MedicationDispense"/>
+        <base value="MolecularSequence"/>
+        <base value="Specimen"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,7 +442,7 @@
       <SearchParameter>
         <id value="medications-medication"/>
         <code value="medication"/>
-        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -244,7 +461,7 @@
       <SearchParameter>
         <id value="medications-status"/>
         <code value="status"/>
-        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -262,7 +479,7 @@
       <SearchParameter>
         <id value="medications-date"/>
         <code value="date"/>
-        <base value="MedicationRequest"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationUsage"/>
+        <base value="MedicationRequest"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>

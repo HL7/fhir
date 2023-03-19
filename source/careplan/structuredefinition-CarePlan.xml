@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CarePlan"/>
-  <title value="CarePlan"/>
+  <title value="Care Plan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -413,7 +413,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context"/>
+        <map value="Request.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -582,7 +582,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -654,6 +654,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <!--
       <constraint>
         <key value="cpl-3"/>
         <severity value="error"/>
@@ -661,6 +662,7 @@
         <expression value="plannedActivityDetail.empty() or plannedActivityReference.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
       </constraint>
+	  -->
       <mapping>
         <identity value="workflow"/>
         <map value="{no mapping&#xA;NOTE: This is a list of contained Request-Event tuples!}"/>
@@ -675,8 +677,8 @@
         <valueString value="J#26064."/>
       </extension>
       <path value="CarePlan.activity.performedActivity"/>
-      <short value="Results of the activity (concept, or Appointment, Encounter, Procedure, etc)"/>
-      <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using CarePlan.activity.plannedActivityDetail OR using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
+      <short value="Results of the activity (concept, or Appointment, Encounter, Procedure, etc.)"/>
+      <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
       <comment value="Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
       <requirements value="Links plan to resulting actions."/>
       <min value="0"/>
@@ -729,7 +731,7 @@
       <path value="CarePlan.activity.plannedActivityReference"/>
       <short value="Activity that is intended to be part of the care plan"/>
       <definition value="The details of the proposed activity represented in a specific resource."/>
-      <comment value="Standard extension exists ([resource-pertainsToGoal](extension-resource-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.  &#xA;The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the &quot;basedOn&quot; element.  i.e. Requests that are part of a CarePlan are not &quot;based on&quot; the CarePlan."/>
+      <comment value="Standard extension exists ([[[http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal]]]) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.  &#xA;The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the &quot;basedOn&quot; element.  i.e. Requests that are part of a CarePlan are not &quot;based on&quot; the CarePlan."/>
       <requirements value="Details in a form consistent with other applications and contexts of use."/>
       <min value="0"/>
       <max value="1"/>
@@ -747,7 +749,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
-      <condition value="cpl-3"/>
+      <!-- <condition value="cpl-3"/> -->
       <mapping>
         <identity value="workflow"/>
         <map value="{Request that resulted in Event in activity.performedActivity}"/>
@@ -757,6 +759,7 @@
         <map value=".outboundRelationship[typeCode=COMP].target"/>
       </mapping>
     </element>
+	<!--
     <element id="CarePlan.activity.plannedActivityDetail">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#26064."/>
@@ -902,7 +905,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
     </element>
     <element id="CarePlan.activity.plannedActivityDetail.goal">
@@ -1224,6 +1227,7 @@
         <map value=".text"/>
       </mapping>
     </element>
+	-->
     <element id="CarePlan.note">
       <path value="CarePlan.note"/>
       <short value="Comments about the plan"/>

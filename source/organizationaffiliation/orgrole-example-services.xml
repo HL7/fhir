@@ -7,7 +7,7 @@
         <system value="http://example.org/www.foundingfathersmemorial.com"/>
         <value value="service002"/>
         <assigner>
-            <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/>
+            <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/> -->
             <display value="Founding Fathers Memorial Hospital"/>
         </assigner>
     </identifier>
@@ -20,17 +20,17 @@
     </period>
 
     <organization> <!-- The organization receiving services, Founding Fathers Memorial Hospital -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/> -->
         <display value="Founding Fathers Memorial Hospital"/>
     </organization>
 
     <participatingOrganization> <!-- The organization providing services, Independence Rehabilitation Services, Inc. -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Organization/independencerehab"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Organization/independencerehab"/> -->
         <display value="Independence Rehabilitation Services, Inc."/>
     </participatingOrganization>
 
     <network> <!-- Independence and Founding Father providers participate in the Patriot Preferred Provider Network -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Network/patriotppo"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Network/patriotppo"/> -->
         <display value="Patriot Preferred Provider Network"/>
     </network>
 
@@ -54,17 +54,17 @@
     </specialty>
 
     <location> <!-- Rehab services are provided at Founding Fathers Memorial Hospital -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/Location/foundingfathers1"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/Location/foundingfathers1"/> -->
         <display value="Founding Fathers Memorial Hospital"/>
     </location>
 
     <healthcareService> <!-- Reference to inpatient rehabilitation services provided by Independence -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab1"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab1"/> -->
         <display value="Inpatient rehabilitation services"/>
     </healthcareService>
 
     <healthcareService> <!-- Reference to outpatient rehabilitation services provided by Independence -->
-        <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab2"/>
+        <!-- <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab2"/> -->
         <display value="Outpatient rehabilitation services"/>
     </healthcareService>
     <contact>

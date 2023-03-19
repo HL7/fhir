@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RegulatedAuthorization"/>
-  <title value="RegulatedAuthorization"/>
+  <title value="Regulated Authorization"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -50,7 +50,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -70,9 +70,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="RegulatedAuthorization">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,0"/>
-      </extension>
       <path value="RegulatedAuthorization"/>
       <short value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity e.g. Market Authorization for a Medicinal Product"/>
       <definition value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
@@ -80,7 +77,7 @@
       <max value="*"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation, Clinical Trial Authorisation"/>
+        <map value="Marketing Authorization, Clinical Trial Authorization"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -99,7 +96,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Marketing Authorisation Number"/>
+        <map value="Marketing Authorization.Marketing Authorization Number"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -194,7 +191,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Country"/>
+        <map value="Marketing Authorization.Country"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.status">
@@ -217,7 +214,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Authorisation Status"/>
+        <map value="Marketing Authorization.Authorization Status"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.statusDate">
@@ -232,7 +229,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Authorisation Status Date"/>
+        <map value="Marketing Authorization.Authorization Status Date"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.validityPeriod">
@@ -247,7 +244,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Validity Period Start, Marketing Authorisation.Validity Period End"/>
+        <map value="Marketing Authorization.Validity Period Start, Marketing Authorization.Validity Period End"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.indication">
@@ -309,7 +306,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Status Reasons.Legal Grounds"/>
+        <map value="Marketing Authorization.Status Reasons.Legal Grounds"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.holder">
@@ -325,7 +322,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Marketing Authorisation Holder (Organisation)"/>
+        <map value="Marketing Authorization.Marketing Authorization Holder (Organisation)"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.regulator">
@@ -341,7 +338,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Medicines Regulatory Agency (Organisation)"/>
+        <map value="Marketing Authorization.Medicines Regulatory Agency (Organisation)"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.attachedDocument">
@@ -361,9 +358,6 @@
       </mapping>
     </element>
     <element id="RegulatedAuthorization.case">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="650,0"/>
-      </extension>
       <path value="RegulatedAuthorization.case"/>
       <short value="The case or regulatory procedure for granting or amending a regulated authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)"/>
       <definition value="The case or regulatory procedure for granting or amending a regulated authorization. An authorization is granted in response to submissions/applications by those seeking authorization. A case is the administrative process that deals with the application(s) that relate to this and assesses them. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)."/>
@@ -375,7 +369,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Marketing Authorisation Procedure, Marketing Authorisation Procedure.Marketing Authorisation Application"/>
+        <map value="Marketing Authorization.Marketing Authorization Procedure, Marketing Authorization Procedure.Marketing Authorization Application"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.case.identifier">
@@ -390,7 +384,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation Procedure.Procedure Identifier / Number, Marketing Authorisation Application.Application Identifier / Number"/>
+        <map value="Marketing Authorization Procedure.Procedure Identifier / Number, Marketing Authorization Application.Application Identifier / Number"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.case.type">
@@ -413,7 +407,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation Procedure.Procedure Type, Marketing Authorisation Application.Application Type"/>
+        <map value="Marketing Authorization Procedure.Procedure Type, Marketing Authorization Application.Application Type"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.case.status">
@@ -454,7 +448,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation Procedure.Procedure Date Start, Marketing Authorisation Procedure.Procedure Date End, Marketing Authorisation Application.Application Date"/>
+        <map value="Marketing Authorization Procedure.Procedure Date Start, Marketing Authorization Procedure.Procedure Date End, Marketing Authorization Application.Application Date"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.case.application">
@@ -467,7 +461,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Marketing Authorisation Application"/>
+        <map value="Marketing Authorization.Marketing Authorization Application"/>
       </mapping>
     </element>
   </differential>

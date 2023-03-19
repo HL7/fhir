@@ -29,6 +29,11 @@
 
 <p>However, this level of conceptual description often does not carry enough information to enable computable description of activities. For example, medication activities will often involve specific drug and dosage information that must be captured as part of the definition. Further, it is often the case that the values for the elements of resources to be created cannot be specified exactly as part of the definition, but must be specified using a formula that allows for the calculation to be based on patient- or context-specific information.</p>
 
+<p>Note to implementers: Although there are currently very few <i>definitional</i> resources defined (ActivityDefinition, ObservationDefinition, SpecimenDefinition), the concept is general, and this is a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, additional definitional resources may be defined.</p>
+
+<a name="activitydefinition"> </a>
+<h4>ActivityDefinition</h4>
+
 <p>The <a href="activitydefinition.html">ActivityDefinition</a> resource supports the description of definitional resources within FHIR:</p>
 
 <table class="grid">
@@ -40,6 +45,9 @@
 		<tr><td>Why</td><td>reason, documentation</td><td>Specifies why the activity should be performed.</td></tr>
 	</tbody>
 </table>
+
+<a name="referral-request"> </a>
+<h5>Referral Request</h5>
 
 <p>For example, the following fragment illustrates a definition to create a referral request:</p>
 
@@ -70,6 +78,9 @@
 
 <p>Note the use of an expression to represent the value of the timing element as <code>Now()</code>.</p>
 
+<a name="medication-request"> </a>
+<h5>Medication Request</h5>
+
 <p>For medication activities, the <a href="activitydefinition.html">ActivityDefinition</a> resource has some basic elements such as the <code>product</code> and <code>quantity</code>, and <code>dosageInstruction</code> but there are cases where elements that need to be set on the resulting MedicationRequest are not present on the ActivityDefinition (such as <code>dispenseRequest</code>). In those cases, the <code>dynamicValue</code> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
 
 <a name="medication-activity-definition"> </a>
@@ -97,7 +108,33 @@
 &lt;/ActivityDefinition&gt;
 </code></pre>
 
-<p>Note to implementers: Although there is currently only one <i>definitional</i> resource defined above (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split.</p>
+<a name="observation"> </a>
+<h5>Observation</h5>
+
+<p>The <a href="observationdefinition.html">ObservationDefinition</a> resource supports the definition of an observation to be taken.</p>
+
+<a name="specimen"> </a>
+<h5>Specimen</h5>
+
+<p>The <a href="specimendefinition.html">SpecimenDefinition</a> resource supports the definition of a specimen to be collected.</p>
+
+<a name="message"> </a>
+<h5>Message</h5>
+
+<p>The <a href="messagedefinition.html">MessageDefinition</a> resource supports the definition of a message to be communicated. NOTE: This is a system-level message, as opposed to a human-to-human message, which would be modeled using the CommunicationRequest and Communication resources.</p>
+
+<a name="questionnaire"> </a>
+<h5>Questionnaire</h5>
+
+<p>The <a href="questionnaire.html">Questionnaire</a> resource can be used to directly support describing information to be collected as part of a process. The <a href="http://hl7.org/fhir/uv/sdc">Structured Data Capture</a> implementation guide provides detailed information for supporting this use case.</p>
+
+<a name="event-resources"> </a>
+<h5>Event Resources</h5>
+
+<p>Note that the ActivityDefinition resource is specifically designed to support <i>request</i> resources, typically with an intent of <i>proposal</i> to ensure that clinician interaction can be part of interpreting the results of any automated reasoning processes. However, it is possible to construct <i>event</i> resources as part of the reasoning process, such as Observations, Procedures, RiskAssessments, DetectedIssues, etc. To support this case, implementations should make use of a Task resource with <i>proposal</i> intent, where the <code>focus</code> of the Task would be the computed event resource.</p>
+
+<a name="evidencevariable"> </a>
+<h5>EvidenceVariable</h5>
 
 <p>The <a href="evidencevariable.html">EvidenceVariable</a> resource supports the description of definitional resources for variables to be referenced from an Evidence resource:</p>
 

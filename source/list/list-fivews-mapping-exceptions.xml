@@ -1,0 +1,19 @@
+<mappingExceptions pattern="FiveWs" resource="List"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="FiveWs.class" resourcePath="List.mode">
+        <modifier _pattern="false" _resource="true" reason="Indicates whether this is a complete list or not"/>
+    </divergentElement>
+    <unmappedElement patternPath="FiveWs.actor" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.cause" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.version" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.witness" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.where" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.init" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.why" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.source" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.who" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.grade" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.planned" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.done" reason="Not relevant for this resource"/>
+</mappingExceptions>

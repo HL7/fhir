@@ -1,145 +1,279 @@
-﻿<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="exclusive-breastfeeding-intervention-02"/>
   <text>
     <status value="generated"/>
-	<div xmlns="http://www.w3.org/1999/xhtml">
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Id: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/exclusive-breastfeeding-intervention-02</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Identifier: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>value: </b>
-                  <span>exclusive-breastfeeding-intervention-02</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Title: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Exclusive Breastfeeding Intervention-02</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Status: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">active</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Description: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by notifying the provider to sign the breastmilk feeding readiness assessment order, if necessary.</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Topic: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <span>
-                     <b>text: </b>
-                     <span>Exclusive Breastfeeding</span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Library: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>reference: </b>
-                  <span>Library/library-exclusive-breastfeeding-cds-logic</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <h2>Actions</h2>
-         <p style="width: 100%;" class="hierarchy">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Id: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/exclusive-breastfeeding-intervention-02</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Identifier: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>value: </b>
+                  
+            <span>exclusive-breastfeeding-intervention-02</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Title: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Exclusive Breastfeeding Intervention-02</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Status: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">active</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Description: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by notifying the provider to sign the breastmilk feeding readiness assessment order, if necessary.</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Topic: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
             <span>
-               <b>Step: </b>
-               <br/>
-               <span style="padding-left: 25px;">
-                  <b>title: </b>
-                  <span>Mother should be administered a breastfeeding readiness assessment.</span>
-                  <br/>
-               </span>
-               <span style="padding-left: 25px;">
-                  <b>condition: </b>
-                  <br/>
-                  <span style="padding-left: 50px;">
-                     <b>type: </b>
-                     <span>applicability</span>
-                     <br/>
-                  </span>
-                  <span style="padding-left: 50px;">
-                     <b>expression: </b>
-                     <span>Should Notify Provider to Sign Assessment Order</span>
-                     <br/>
-                  </span>
-               </span>
-               <span style="padding-left: 25px;">
-                  <span>
-                     <b>Step: </b>
-                     <br/>
-                     <span style="padding-left: 50px;">
-                        <b>title: </b>
-                        <span>Notify the provider to sign the order.</span>
-                        <br/>
-                     </span>
-                     <span style="padding-left: 50px;">
-                        <b>text: </b>
-                        <span>A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order.</span>
-                        <br/>
-                     </span>
-                  </span>
-               </span>
+                     
+              <b>text: </b>
+                     
+              <span>Exclusive Breastfeeding</span>
+                  
             </span>
-         </p>
-      </div>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Library: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>reference: </b>
+                  
+            <span>Library/library-exclusive-breastfeeding-cds-logic</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <h2>Actions</h2>
+         
+      <p style="width: 100%;" class="hierarchy">
+            
+        <span>
+               
+          <b>Step: </b>
+               
+          <br/>
+               
+          <span style="padding-left: 25px;">
+                  
+            <b>title: </b>
+                  
+            <span>Mother should be administered a breastfeeding readiness assessment.</span>
+                  
+            <br/>
+               
+          </span>
+               
+          <span style="padding-left: 25px;">
+                  
+            <b>condition: </b>
+                  
+            <br/>
+                  
+            <span style="padding-left: 50px;">
+                     
+              <b>type: </b>
+                     
+              <span>applicability</span>
+                     
+              <br/>
+                  
+            </span>
+                  
+            <span style="padding-left: 50px;">
+                     
+              <b>expression: </b>
+                     
+              <span>Should Notify Provider to Sign Assessment Order</span>
+                     
+              <br/>
+                  
+            </span>
+               
+          </span>
+               
+          <span style="padding-left: 25px;">
+                  
+            <span>
+                     
+              <b>Step: </b>
+                     
+              <br/>
+                     
+              <span style="padding-left: 50px;">
+                        
+                <b>title: </b>
+                        
+                <span>Notify the provider to sign the order.</span>
+                        
+                <br/>
+                     
+              </span>
+                     
+              <span style="padding-left: 50px;">
+                        
+                <b>text: </b>
+                        
+                <span>A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order.</span>
+                        
+                <br/>
+                     
+              </span>
+                  
+            </span>
+               
+          </span>
+            
+        </span>
+         
+      </p>
+      
+    </div>
   </text>
   <identifier>
     <use value="official"/>
     <value value="exclusive-breastfeeding-intervention-02"/>
   </identifier>
   <version value="1.0.0"/>
+  <name value="ExclusiveBreastfeedingIntervention02"/>
   <title value="Exclusive Breastfeeding Intervention-02"/>
   <status value="active"/>
   <date value="2015-03-08"/>
@@ -171,7 +305,7 @@
       <name value="Transfer to Post-Partum"/>
     </trigger>
     <condition>
-	  <kind value="applicability"/>
+      <kind value="applicability"/>
       <expression>
         <language value="text/cql"/>
         <expression value="Should Notify Provider to Sign Assessment Order"/>
@@ -181,7 +315,9 @@
       <title value="Notify the provider to sign the order."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
       <type>
-        <coding><code value="create"/></coding>
+        <coding>
+          <code value="create"/>
+        </coding>
       </type>
       <dynamicValue>
         <path value="/"/>

@@ -1,1387 +1,358 @@
-<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-example-cms"/>
-	<url value="http://hl7.org/fhir/Questionnaire/questionnaire-example-cms"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Questionnaire xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-example-cms"/>
+  <url value="http://hl7.org/fhir/Questionnaire/questionnaire-example-cms"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.20.3"/>
   </identifier>
   <identifier>
-		<!-- There should be a system, but not sure what URI will choose to use -->
-		<use value="official"/>
-		<value value="0938-070"/>
-	</identifier>
-	<title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
-	<status value="active"/>
-	<date value="2009-08"/>
-	<publisher value="Centers for Medicare &amp; Medicaid Services"/>
-	<item>
-		<linkId value="ROOT"/>
-		<type value="group"/>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
-				<valueCodeableConcept>
-					<coding>
-						<system value="http://hl7.org/fhir/questionnaire-display-category"/>
-						<code value="instructions"/>
-					</coding>
-				</valueCodeableConcept>
-			</extension>
-			<linkId value="INSTR"/>
-			<text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
-			<type value="display"/>
-		</item>
-		<item>
-			<linkId value="M0010"/>
-			<text value="C M S Certification Number"/>
-			<type value="string"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<linkId value="M0014"/>
-			<text value="Branch State"/>
-			<type value="string"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<linkId value="M0018"/>
-			<text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
-			<type value="string"/>
-			<item>
-				<linkId value="M0018.1"/>
-				<type value="coding"/>
-				<required value="true"/>
-				<answerOption>
-					<valueCoding>
-						<code value="NA"/>
-						<display value="Not Applicable"/>
-					</valueCoding>
-				</answerOption>
-			</item>
-		</item>
-		<item>
-			<linkId value="M0020"/>
-			<text value="Patient I D Number"/>
-			<type value="string"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-				<valueString value="month / day / year"/>
-			</extension>
-			<linkId value="M0030"/>
-			<text value="Start of Care Date"/>
-			<type value="date"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-				<valueString value="month / day / year"/>
-			</extension>
-			<linkId value="M0030"/>
-			<text value="Resumption of Care Date"/>
-			<type value="date"/>
-			<required value="true"/>
-			<item>
-				<linkId value="M0030.1"/>
-				<type value="coding"/>
-				<required value="true"/>
-				<answerOption>
-					<valueCoding>
-						<code value="NA"/>
-						<display value="Not Applicable"/>
-					</valueCoding>
-				</answerOption>
-			</item>
-		</item>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-				<valueString value="First  M I  Last  Suffix"/>
-			</extension>
-			<linkId value="M0040"/>
-			<text value="Patient Name"/>
-			<type value="string"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<linkId value="M0050"/>
-			<text value="Patient State of Residence"/>
-			<type value="string"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-				<valueString value="nnnnn-nnnn"/>
-			</extension>
-			<linkId value="M0060"/>
-			<text value="Patient Zip Code"/>
-			<type value="string"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<linkId value="M0063"/>
-			<text value="Medicare Number"/>
-			<type value="string"/>
-			<item>
-				<linkId value="M0063.1"/>
-				<type value="coding"/>
-				<required value="true"/>
-				<answerOption>
-					<valueCoding>
-						<code value="NA"/>
-						<display value="No Medicare"/>
-					</valueCoding>
-				</answerOption>
-			</item>
-		</item>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-				<valueString value="nnn-nn-nnnn"/>
-			</extension>
-			<linkId value="M0064"/>
-			<text value="Social Security Number"/>
-			<type value="string"/>
-			<item>
-				<linkId value="M0064.1"/>
-				<type value="coding"/>
-				<required value="true"/>
-				<answerOption>
-					<valueCoding>
-						<code value="UK"/>
-						<display value="Unknown or Not Available"/>
-					</valueCoding>
-				</answerOption>
-			</item>
-		</item>
-		<item>
-			<linkId value="M0065"/>
-			<text value="Medicaid Number"/>
-			<type value="string"/>
-			<item>
-				<linkId value="M0065.1"/>
-				<type value="coding"/>
-				<required value="true"/>
-				<answerOption>
-					<valueCoding>
-						<code value="NA"/>
-						<display value="No Medicaid"/>
-					</valueCoding>
-				</answerOption>
-			</item>
-		</item>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-				<valueString value="month / day / year"/>
-			</extension>
-			<linkId value="M0066"/>
-			<text value="Birth Date"/>
-			<type value="date"/>
-			<required value="true"/>
-		</item>
-		<item>
-			<linkId value="M0069"/>
-			<text value="Gender"/>
-			<type value="coding"/>
-			<required value="true"/>
-			<answerOption>
-				<valueCoding>
-					<code value="1"/>
-					<display value="Male"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="2"/>
-					<display value="Female"/>
-				</valueCoding>
-			</answerOption>
-		</item>
-		<item>
-			<linkId value="M0140"/>
-			<text value="Race/Ethnicity"/>
-			<type value="coding"/>
-			<required value="true"/>
-			<repeats value="true"/>
-			<answerOption>
-				<valueCoding>
-					<code value="1"/>
-					<display value="American Indian or Alaska Native"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="2"/>
-					<display value="Asian"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="3"/>
-					<display value="Black or African-American"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="4"/>
-					<display value="Hispanic or Latino"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="5"/>
-					<display value="Native Hawaiian or Pacific Islander"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="6"/>
-					<display value="White"/>
-				</valueCoding>
-			</answerOption>
-		</item>
-		<item>
-			<linkId value="M0150"/>
-			<text value="Current Payment Sources for Home Care"/>
-			<type value="coding"/>
-			<required value="true"/>
-			<repeats value="true"/>
-			<answerOption>
-				<valueCoding>
-					<code value="0"/>
-					<display value="None; no charge for current services"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="1"/>
-					<display value="Medicare (traditional fee-for-service)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="2"/>
-					<display value="Medicare (HMO/managed care/Advantage plan)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="3"/>
-					<display value="Medicaid (traditional fee-for-service)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="4"/>
-					<display value="Medicaid (HMO/managed care)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="5"/>
-					<display value="Workers' compensation"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="6"/>
-					<display value="Title programs (e.g. Title III, V, or XX)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="7"/>
-					<display value="Other government (e.g. TriCare, VA, etc.)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="8"/>
-					<display value="Private insurance"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="9"/>
-					<display value="Private HMO/managed care"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="10"/>
-					<display value="Self-pay"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="11"/>
-					<display value="Other (specify)"/>
-				</valueCoding>
-			</answerOption>
-			<answerOption>
-				<valueCoding>
-					<code value="UK"/>
-					<display value="Unknown"/>
-				</valueCoding>
-			</answerOption>
-			<item>
-				<linkId value="M0140.1"/>
-				<type value="string"/>
-				<enableWhen>
-					<question value="M0150"/>
-					<operator value="exists"/>
-					<answerBoolean value="true"/>
-				</enableWhen>
-				<required value="true"/>
-			</item>
-		</item>
-	</item>
-	<item>
-		<linkId value="timing"/>
-		<text value="Items to be Used at Specific Time Points"/>
-		<type value="group"/>
-		<item>
-			<extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
-				<valueCodeableConcept>
-					<coding>
-						<system value="http://hl7.org/fhir/questionnaire-display-category"/>
-						<code value="instructions"/>
-					</coding>
-				</valueCodeableConcept>
-			</extension>
-			<linkId value="footer"/>
-			<text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
-			<type value="display"/>
-		</item>
-	</item>
-</Questionnaire><!--
-
-
-CLINICAL RECORD ITEMS
-(M0080) Discipline of Person Completing Assessment:
-⃞ 1-RN ⃞ 2-PT ⃞ 3-SLP/ST ⃞ 4-OT
-(M0090) Date Assessment Completed: __ __ /__ __ /__ __ __ __
-month / day / year
-(M0100) This Assessment is Currently Being Completed for the Following Reason:
-Start/Resumption of Care
-⃞ 1 – Start of care—further visits planned
-⃞ 3 – Resumption of care (after inpatient stay)
-Follow-Up
-⃞ 4 – Recertification (follow-up) reassessment [ Go to M0110 ]
-⃞ 5 – Other follow-up [ Go to M0110 ]
-Transfer to an Inpatient Facility
-⃞ 6 – Transferred to an inpatient facility—patient not discharged from agency [ Go to M1040]
-⃞ 7 – Transferred to an inpatient facility—patient discharged from agency [ Go to M1040 ]
-Discharge from Agency — Not to an Inpatient Facility
-⃞ 8 – Death at home [ Go to M0903 ]
-⃞ 9 – Discharge from agency [ Go to M1040 ]
-
-(M0102) Date of Physician-ordered Start of Care (Resumption of Care): If the physician indicated a specific start
-of care (resumption of care) date when the patient was referred for home health services, record the date
-specified.
- __ __ /__ __ /__ __ __ __ [ Go to M0110, if date entered ]
-month / day / year
-⃞ NA –No specific SOC date ordered by physician
-(M0104) Date of Referral: Indicate the date that the written or verbal referral for initiation or resumption of care was
-received by the HHA.
- __ __ /__ __ /__ __ __ __
-month / day / year
-(M0110) Episode Timing: Is the Medicare home health payment episode for which this assessment will define a
-case mix group an ―early‖ episode or a ―later‖ episode in the patient’s current sequence of adjacent Medicare
-home health payment episodes?
-⃞ 1 - Early
-⃞ 2 - Later
-⃞ UK - Unknown
-⃞ NA - Not Applicable: No Medicare case mix group to be defined by this assessment.
-PATIENT HISTORY AND DIAGNOSES
-(M1000) From which of the following Inpatient Facilities was the patient discharged during the past 14 days? (Mark
-all that apply.)
-⃞ 1 - Long-term nursing facility (NF)
-⃞ 2 - Skilled nursing facility (SNF / TCU)
-⃞ 3 - Short-stay acute hospital (IPP S)
-⃞ 4 - Long-term care hospital (LTCH)
-⃞ 5 - Inpatient rehabilitation hospital or unit (IRF)
-⃞ 6 - Psychiatric hospital or unit
-⃞ 7 - Other (specify)
-⃞ NA - Patient was not discharged from an inpatient facility [Go to M1016 ]
-(M1005) Inpatient Discharge Date (most recent):
- __ __ /__ __ /__ __ __ __
-month / day / year
-⃞ UK - Unknown
-
-(M1010) List each Inpatient Diagnosis and ICD-9-C M code at the level of highest specificity for only those conditions
-treated during an inpatient stay within the last 14 days (no E-codes, or V-codes):
-Inpatient Facility Diagnosis ICD-9-C M Code
-a. __ __ __ . __ __
-b. __ __ __ . __ __
-c. __ __ __ . __ __
-d. __ __ __ . __ __
-e. __ __ __ . __ __
-f. __ __ __ . __ __
-
-(M1012) List each Inpatient Procedure and the associated ICD-9-C M procedure code relevant to the plan of care.
-Inpatient Procedure Procedure Code
-a. __ __ . __ __
-b. __ __ . __ __
-c. __ __ . __ __
-d. __ __ . __ __
-⃞ NA - Not applicable
-⃞ UK - Unknown
-(M1016) Diagnoses Requiring Medical or Treatment Regimen Change Within Past 14 Days: List the patient's
-Medical Diagnoses and ICD-9-C M codes at the level of highest specificity for those conditions requiring
-changed medical or treatment regimen within the past 14 days (no surgical, E-codes, or V-codes):
-Changed Medical Regimen Diagnosis ICD-9-C M Code
-a. __ __ __ . __ __
-b. __ __ __ . __ __
-c. __ __ __ . __ __
-d. __ __ __ . __ __
-e. __ __ __ . __ __
-f. __ __ __ . __ __
-⃞ NA - Not applicable (no medical or treatment regimen changes within the past 14 days)
-(M1018) Conditions Prior to Medical or Treatment Regimen Change or Inpatient Stay Within Past 14 Days: If
-this patient experienced an inpatient facility discharge or change in medical or treatment regimen within the
-past 14 days, indicate any conditions which existed prior to the inpatient stay or change in medical or
-treatment regimen. (Mark all that apply.)
-⃞ 1 - Urinary incontinence
-⃞ 2 - Indwelling/suprapubic catheter
-⃞ 3 - Intractable pain
-⃞ 4 - Impaired decision-making
-⃞ 5 - Disruptive or socially inappropriate behavior
-⃞ 6 - Memory loss to the extent that supervision required
-⃞ 7 - None of the above
-⃞ NA - No inpatient facility discharge and no change in medical or treatment regimen in past 14 days
-⃞ UK - Unknown
-
-(M1020/1022/1024) Diagnoses, Symptom Control, and Payment Diagnoses: List each diagnosis for which the
-patient is receiving home care (Column 1) and enter its ICD-9-C M code at the level of highest specificity (no
-surgical/procedure codes) (Column 2). Diagnoses are listed in the order that best reflect the seriousness of each condition
-and support the disciplines and services provided. Rate the degree of symptom control for each condition (Column 2).
-Choose one value that represents the degree of symptom control appropriate for each diagnosis: V-codes (for M1020 or
-M1022) or E-codes (for M1022 only) may be used. ICD-9-C M sequencing requirements must be followed if multiple
-coding is indicated for any diagnoses. If a V-code is reported in place of a case mix diagnosis, then optional item M1024
-Payment Diagnoses (Columns 3 and 4) may be completed. A case mix diagnosis is a diagnosis that determines the
-Medicare P P S case mix group. Do not assign symptom control ratings for V- or E-codes.
-Code each row according to the following directions for each column:
-Column 1: Enter the description of the diagnosis.
-Column 2: Enter the ICD-9-C M code for the diagnosis described in Column 1;
-Rate the degree of symptom control for the condition listed in Column 1 using the following scale:
-0 - Asymptomatic, no treatment needed at this time
-1 - Symptoms well controlled with current therapy
-2 - Symptoms controlled with difficulty, affecting daily functioning; patient needs ongoing monitoring
-3 - Symptoms poorly controlled; patient needs frequent adjustment in treatment and dose monitoring
-4 - Symptoms poorly controlled; history of re-hospitalizations
-Note that in Column 2 the rating for symptom control of each diagnosis should not be used to determine the
-sequencing of the diagnoses listed in Column 1. These are separate items and sequencing might not coincide.
-Sequencing of diagnoses should reflect the seriousness of each condition and support the disciplines and services
-provided.
-Column 3: (OPTIONAL) If a V-code is assigned to any row in Column 2, in place of a case mix diagnosis, it may be
-necessary to complete optional item M1024 Payment Diagnoses (Columns 3 and 4). See OASIS-C Guidance
-Manual.
-Column 4: (OPTIONAL) If a V-code in Column 2 is reported in place of a case mix diagnosis that requires multiple
-diagnosis codes under ICD-9-C M coding guidelines, enter the diagnosis descriptions and the ICD-9-C M codes in
-the same row in Columns 3 and 4. For example, if the case mix diagnosis is a manifestation code, record the
-diagnosis description and ICD-9-C M code for the underlying condition in Column 3 of that row and the diagnosis
-description and ICD-9-C M code for the manifestation in Column 4 of that row. Otherwise, leave Column 4 blank in
-that row.
-(Form on next page)
-
-(M1020) Primary Diagnosis & (M1022) Other Diagnoses (M1024) Payment Diagnoses (OPTIONAL)
-Column 1 Column 2 Column 3 Column 4
-Diagnoses
-(Sequencing of diagnoses should
-reflect the seriousness of each
-condition and support the
-disciplines and services provided.)
-ICD-9-C M and symptom
-control rating for each
-condition.
-Note that the sequencing of
-these ratings might not match
-the sequencing of the
-diagnoses
-Complete if a V-code is
-assigned under certain
-circumstances to Column 2
-in place of a case mix
-diagnosis.
-Complete only if the V-code
-in Column 2 is reported in
-place of a case mix
-diagnosis that is a multiple
-coding situation (e.g. a
-manifestation code).
-Description ICD-9-C M /
-Symptom Control Rating
-Description/
-ICD-9-C M
-Description/
-ICD-9-C M
-(M1020) Primary Diagnosis
-a.
-(V-codes are allowed)
-a. (__ __ __ . __ __)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4
-(V- or E-codes NOT allowed)
-a.
-(__ __ __ . __ __)
-(V- or E-codes NOT allowed)
-a.
-(__ __ __ . __ __)
-(M1022) Other Diagnoses
-b.
-(V- or E-codes are allowed)
-b. (__ __ __ __ . __ __)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4
-(V- or E-codes NOT allowed)
-b.
-(__ __ __ . __ __)
-(V- or E-codes NOT allowed)
-b.
-(__ __ __ . __ __)
-c.
-c. (__ __ __ __ . __ __)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4
-c.
-(__ __ __ . __ __)
-c.
-(__ __ __ . __ __)
-d.
-d. (__ __ __ __ . __ __)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4
-d.
-(__ __ __ . __ __)
-d.
-(__ __ __ . __ __)
-e.
-e. (__ __ __ __ . __ __)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4
-e.
-(__ __ __ . __ __)
-e.
-(__ __ __ . __ __)
-f.
-f. (__ __ __ __ . __ __)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4
-f.
-(__ __ __ . __ __)
-f.
-(__ __ __ . __ __)
-(M1030) Therapies the patient receives at home: (Mark all that apply.)
-⃞ 1 - Intravenous or infusion therapy (excludes TPN)
-⃞ 2 - Parenteral nutrition (TPN or lipids)
-⃞ 3 - Enteral nutrition (nasogastric, gastrostomy, jejunostomy, or any other artificial entry into the
-alimentary canal)
-⃞ 4 - None of the above
-(M1032) Risk for Hospitalization: Which of the following signs or symptoms characterize this patient as at risk for
-hospitalization? (Mark all that apply.)
-⃞ 1 - Recent decline in mental, emotional, or behavioral status
-⃞ 2 - Multiple hospitalizations (2 or more) in the past 12 months
-⃞ 3 - History of falls (2 or more falls - or any fall with an injury - in the past year)
-⃞ 4 - Taking five or more medications
-⃞ 5 - Frailty indicators, e.g. weight loss, self-reported exhaustion
-⃞ 6 - Other
-⃞ 7 - None of the above
-
-(M1034) Overall Status: Which description best fits the patient’s overall status? (Check one)
-⃞ 0 - The patient is stable with no heightened risk(s) for serious complications and death (beyond those
-typical of the patient’s age).
-⃞ 1 - The patient is temporarily facing high health risk(s) but is likely to return to being stable without
-heightened risk(s) for serious complications and death (beyond those typical of the patient’s age).
-⃞ 2 - The patient is likely to remain in fragile health and have ongoing high risk(s) of serious complications
-and death.
-⃞ 3 - The patient has serious progressive conditions that could lead to death within a year.
-⃞ UK - The patient’s situation is unknown or unclear.
-(M1036) Risk Factors, either present or past, likely to affect current health status and/or outcome: (Mark all
-that apply.)
-⃞ 1 - Smoking
-⃞ 2 - Obesity
-⃞ 3 - Alcohol dependency
-⃞ 4 - Drug dependency
-⃞ 5 - None of the above
-⃞ UK - Unknown
-(M1040) Influenza Vaccine: Did the patient receive the influenza vaccine from your agency for this year’s influenza
-season (October 1 through March 31) during this episode of care?
-⃞ 0 - No
-⃞ 1 - Yes [ Go to M1050 ]
-⃞ NA - Does not apply because entire episode of care (SOC/ROC to Transfer/Discharge) is outside this
-influenza season. [ Go to M1050 ]
-(M1045) Reason Influenza Vaccine not received: If the patient did not receive the influenza vaccine from your
-agency during this episode of care, state reason:
-⃞ 1 - Received from another health care provider (e.g. physician)
-⃞ 2 - Received from your agency previously during this year’s flu season
-⃞ 3 - Offered and declined
-⃞ 4 - Assessed and determined to have medical contraindication(s)
-⃞ 5 - Not indicated; patient does not meet age/condition guidelines for influenza vaccine
-⃞ 6 - Inability to obtain vaccine due to declared shortage
-⃞ 7 - None of the above
-(M1050) Pneumococcal Vaccine: Did the patient receive pneumococcal polysaccharide vaccine (PPV) from your
-agency during this episode of care (SOC/ROC to Transfer/Discharge)?
-⃞ 0 - No
-⃞ 1 - Yes [ Go to M1500 at TRN; Go to M1230 at DC ]
-(M1055) Reason PPV not received: If patient did not receive the pneumococcal polysaccharide vaccine (PPV) from
-your agency during this episode of care (SOC/ROC to Transfer/Discharge), state reason:
-⃞ 1 - Patient has received PPV in the past
-⃞ 2 - Offered and declined
-⃞ 3 - Assessed and determined to have medical contraindication(s)
-⃞ 4 - Not indicated; patient does not meet age/condition guidelines for PPV
-⃞ 5 - None of the above
-
-LIVING ARRANGEMENTS
-(M1100) Patient Living Situation: Which of the following best describes the patient's residential circumstance and
-availability of assistance? (Check one box only.)
-Living Arrangement
-Availability of Assistance
-Around the
-clock
-Regular
-daytime
-Regular
-nighttime
-Occasional /
-short-term
-assistance
-No
-assistance
-available
-a. Patient lives alone ⃞ 01 ⃞ 02 ⃞ 03 ⃞ 04 ⃞ 05
-b. Patient lives with other
-person(s) in the home ⃞ 06 ⃞ 07 ⃞ 08 ⃞ 09 ⃞ 10
-c. Patient lives in congregate
-situation (e.g. assisted living) ⃞ 11 ⃞ 12 ⃞ 13 ⃞ 14 ⃞ 15
-
-SENSORY STATUS
-(M1200) Vision (with corrective lenses if the patient usually wears them):
-⃞ 0 - Normal vision: sees adequately in most situations; can see medication labels, newsprint.
-⃞ 1 - Partially impaired: cannot see medication labels or newsprint, but can see obstacles in path, and the
-surrounding layout; can count fingers at arm's length.
-⃞ 2 - Severely impaired: cannot locate objects without hearing or touching them or patient nonresponsive.
-(M1210) Ability to hear (with hearing aid or hearing appliance if normally used):
-⃞ 0 - Adequate: hears normal conversation without difficulty.
-⃞ 1 - Mildly to Moderately Impaired: difficulty hearing in some environments or speaker may need to
-increase volume or speak distinctly.
-⃞ 2 - Severely Impaired: absence of useful hearing.
-⃞ UK - Unable to assess hearing.
-(M1220) Understanding of Verbal Content in patient's own language (with hearing aid or device if used):
-⃞ 0 - Understands: clear comprehension without cues or repetitions.
-⃞ 1 - Usually Understands: understands most conversations, but misses some part/intent of message.
-Requires cues at times to understand.
-⃞ 2 - Sometimes Understands: understands only basic conversations or simple, direct phrases.
-Frequently requires cues to understand.
-⃞ 3 - Rarely/Never Understands
-⃞ UK - Unable to assess understanding.
-(M1230) Speech and Oral (Verbal) Expression of Language (in patient's own language):
-⃞ 0 - Expresses complex ideas, feelings, and needs clearly, completely, and easily in all situations with no
-observable impairment.
-⃞ 1 - Minimal difficulty in expressing ideas and needs (may take extra time; makes occasional errors in
-word choice, grammar or speech intelligibility; needs minimal prompting or assistance).
-⃞ 2 - Expresses simple ideas or needs with moderate difficulty (needs prompting or assistance, errors in
-word choice, organization or speech intelligibility). Speaks in phrases or short sentences.
-⃞ 3 - Has severe difficulty expressing basic ideas or needs and requires maximal assistance or guessing
-by listener. Speech limited to single words or short phrases.
-⃞ 4 - Unable to express basic needs even with maximal prompting or assistance but is not comatose or
-unresponsive (e.g. speech is nonsensical or unintelligible).
-⃞ 5 - Patient nonresponsive or unable to speak.
-
-(M1240) Has this patient had a formal Pain Assessment using a standardized pain assessment tool (appropriate to
-the patient’s ability to communicate the severity of pain)?
-⃞ 0 - No standardized assessment conducted
-⃞ 1 - Yes, and it does not indicate severe pain
-⃞ 2 - Yes, and it indicates severe pain
-(M1242) Frequency of Pain Interfering with patient's activity or movement:
-⃞ 0 - Patient has no pain
-⃞ 1 - Patient has pain that does not interfere with activity or movement
-⃞ 2 - Less often than daily
-⃞ 3 - Daily, but not constantly
-⃞ 4 - All of the time
-INTEGUMENTARY STATUS
-(M1300) Pressure Ulcer Assessment: Was this patient assessed for Risk of Developing Pressure Ulcers?
-⃞ 0 - No assessment conducted [ Go to M1306 ]
-⃞ 1 - Yes, based on an evaluation of clinical factors, e.g. mobility, incontinence, nutrition, etc., without use
-of standardized tool
-⃞ 2 - Yes, using a standardized tool, e.g. Braden, Norton, other
-(M1302) Does this patient have a Risk of Developing Pressure Ulcers?
-⃞ 0 - No
-⃞ 1 - Yes
-(M1306) Does this patient have at least one Unhealed Pressure Ulcer at Stage II or Higher or designated as
-"unstageable"?
-⃞ 0 - No [ Go to M1322 ]
-⃞ 1 - Yes
-(M1307) The Oldest Non-epithelialized Stage II Pressure Ulcer that is present at discharge
-⃞ 1 - Was present at the most recent SOC/ROC assessment
-⃞ 2 - Developed since the most recent SOC/ROC assessment: record date pressure ulcer first identified:
-__ __ /__ __ /____ __ __
-month / day / year
-⃞ NA - No non-epithelialized Stage II pressure ulcers are present at discharge
-
-(M1308) Current Number of Unhealed (non-epithelialized) Pressure Ulcers at Each Stage:
-(Enter ―0‖ if none; excludes Stage I pressure ulcers)
-Column 1
-Complete at
-SOC/ROC/FU & D/C
-Column 2
-Complete at FU & D/C
-Stage description – unhealed pressure ulcers Number Currently
-Present
-Number of those listed in
-Column 1 that were present
-on admission (most recent
-SOC / ROC)
-a. Stage II: Partial thickness loss of dermis
-presenting as a shallow open ulcer with red
-pink wound bed, without slough. May also
-present as an intact or open/ruptured serumfilled
-blister.
-___ ___
-b. Stage III: Full thickness tissue loss.
-Subcutaneous fat may be visible but bone,
-tendon, or muscles are not exposed. Slough
-may be present but does not obscure the
-depth of tissue loss. May include undermining
-and tunneling.
-___ ___
-c. Stage IV: Full thickness tissue loss with
-visible bone, tendon, or muscle. Slough or
-eschar may be present on some parts of the
-wound bed. Often includes undermining and
-tunneling.
-___ ___
-d.1 Unstageable: Known or likely but unstageable
-due to non-removable dressing or device ___ ___
-d.2 Unstageable: Known or likely but unstageable
-due to coverage of wound bed by slough and/or
-eschar.
-___ ___
-d.3 Unstageable: Suspected deep tissue injury in
-evolution. ___ ___
-Directions for M1310, M1312, and M1314: If the patient has one or more unhealed (non-epithelialized) Stage III or IV
-pressure ulcers, identify the Stage III or IV pressure ulcer with the largest surface dimension (length x width) and
-record in centimeters. If no Stage III or Stage IV pressure ulcers, go to M1320.
-(M1310) Pressure Ulcer Length: Longest length ―head-to-toe‖ | ___ | ___ | . | ___ | (cm)
-(M1312) Pressure Ulcer Width: Width of the same pressure ulcer; greatest width perpendicular to the length
-| ___ | ___ | . | ___ | (cm)
-(M1314) Pressure Ulcer Depth: Depth of the same pressure ulcer; from visible surface to the deepest area
-| ___ | ___ | . | ___ | (cm)
-(M1320) Status of Most Problematic (Observable) Pressure Ulcer:
-⃞ 0 - Newly epithelialized
-⃞ 1 - Fully granularing
-⃞ 2 - Early/partial granulation
-⃞ 3 - Not healing
-⃞ NA - No observable pressure ulcer
-
-(M1322) Current Number of Stage I Pressure Ulcers: Intact skin with non-blanchable redness of a localized area
-usually over a bony prominence. The area may be painful, firm, soft, warmer or cooler as compared to
-adjacent tissue.
-⃞ 0 ⃞ 1 ⃞ 2 ⃞ 3 ⃞ 4 or more
-(M1324) Stage of Most Problematic Unhealed (Observable) Pressure Ulcer:
-⃞ 1 - Stage I
-⃞ 2 - Stage II
-⃞ 3 - Stage III
-⃞ 4 - Stage IV
-⃞ NA - No observable pressure ulcer or unhealed pressure ulcer
-(M1330) Does this patient have a Stasis Ulcer?
-⃞ 0 - No [ Go to M1340 ]
-⃞ 1 - Yes, patient has BOTH observable and unobservable stasis ulcers
-⃞ 2 - Yes, patient has observable stasis ulcers ONLY
-⃞ 3 - Yes, patient has unobservable stasis ulcers ONLY (known but not observable due to non-removable
-dressing) [ Go to M1340 ]
-(M1332) Current Number of (Observable) Stasis Ulcer(s):
-⃞ 1 - One
-⃞ 2 - Two
-⃞ 3 - Three
-⃞ 4 - Four or more
-(M1334) Status of Most Problematic (Observable) Stasis Ulcer:
-⃞ 0 - Newly epithelialized
-⃞ 1 - Fully granularing
-⃞ 2 - Early/partial granulation
-⃞ 3 - Not healing
-(M1340) Does this patient have a Surgical Wound?
-⃞ 0 - No [ Go to M1350 ]
-⃞ 1 - Yes, patient has at least one (observable) surgical wound
-⃞ 2 - Surgical wound known but not observable due to non-removable dressing [ Go to M1350 ]
-(M1342) Status of Most Problematic (Observable) Surgical Wound:
-⃞ 0 - Newly epithelialized
-⃞ 1 - Fully granularing
-⃞ 2 - Early/partial granulation
-⃞ 3 - Not healing
-(M1350) Does this patient have a Skin Lesion or Open Wound, excluding bowel ostomy, other than those described
-above that is receiving intervention by the home health agency?
-⃞ 0 - No
-⃞ 1 - Yes
-
-RESPIRATORY STATUS
-(M1400) When is the patient dyspneic or noticeably Short of Breath?
-⃞ 0 - Patient is not short of breath
-⃞ 1 - When walking more than 20 feet, climbing stairs
-⃞ 2 - With moderate exertion (e.g. while dressing, using commode or bedpan, walking distances less
-than 20 feet)
-⃞ 3 - With minimal exertion (e.g. while eating, talking, or performing other ADLs) or with agitation
-⃞ 4 - At rest (during day or night)
-(M1410) Respiratory Treatments utilized at home: (Mark all that apply.)
-⃞ 1 - Oxygen (intermittent or continuous)
-⃞ 2 - Ventilator (continually or at night)
-⃞ 3 - Continuous / Bi-level positive airway pressure
- ⃞ 4 - None of the above
-CARDIAC STATUS
-(M1500) Symptoms in Heart Failure Patients: If patient has been diagnosed with heart failure, did the patient exhibit
-symptoms indicated by clinical heart failure guidelines (including dyspnea, orthopnea, edema, or weight gain)
-at any point since the previous OASIS assessment?
-⃞ 0 - No [ Go to M2004 at TRN; Go to M1600 at DC ]
-⃞ 1 - Yes
-⃞ 2 - Not assessed [Go to M2004 at TRN; Go to M1600 at DC ]
-⃞ NA - Patient does not have diagnosis of heart failure [Go to M2004 at TRN; Go to M1600 at DC ]
-(M1510) Heart Failure Follow-up: If patient has been diagnosed with heart failure and has exhibited symptoms
-indicative of heart failure since the previous OASIS assessment, what action(s) has (have) been taken to
-respond? (Mark all that apply.)
-⃞ 0 - No action taken
-⃞ 1 - Patient’s physician (or other primary care practitioner) contacted the same day
-⃞ 2 - Patient advised to get emergency treatment (e.g. call 911 or go to emergency room)
-⃞ 3 - Implemented physician-ordered patient-specific established parameters for treatment
-⃞ 4 - Patient education or other clinical interventions
-⃞ 5 - Obtained change in care plan orders (e.g. increased monitoring by agency, change in visit
-frequency, telehealth, etc.)
-ELIMINATION STATUS
-(M1600) Has this patient been treated for a Urinary Tract Infection in the past 14 days?
-⃞ 0 - No
-⃞ 1 - Yes
-⃞ NA - Patient on prophylactic treatment
-⃞ UK - Unknown [Omit ―UK‖ answerOption on DC]
-(M1610) Urinary Incontinence or Urinary Catheter Presence:
-⃞ 0 - No incontinence or catheter (includes anuria or ostomy for urinary drainage) [ Go to M1620 ]
-⃞ 1 - Patient is incontinent
-⃞ 2 - Patient requires a urinary catheter (i.e., external, indwelling, intermittent, suprapubic)
-[ Go to M1620 ] 
-
-(M1615) When does Urinary Incontinence occur?
-⃞ 0 - Timed-voiding defers incontinence
-⃞ 1 - Occasional stress incontinence
-⃞ 2 - During the night only
-⃞ 3 - During the day only
-⃞ 4 - During the day and night
-(M1620) Bowel Incontinence Frequency:
-⃞ 0 - Very rarely or never has bowel incontinence
-⃞ 1 - Less than once weekly
-⃞ 2 - One to three times weekly
-⃞ 3 - Four to six times weekly
-⃞ 4 - On a daily basis
-⃞ 5 - More often than once daily
-⃞ NA - Patient has ostomy for bowel elimination
-⃞ UK - Unknown [Omit ―UK‖ answerOption on FU, DC]
-(M1630) Ostomy for Bowel Elimination: Does this patient have an ostomy for bowel elimination that (within the last
-14 days): a) was related to an inpatient facility stay, or b) necessitated a change in medical or treatment
-regimen?
-⃞ 0 - Patient does not have an ostomy for bowel elimination.
-⃞ 1 - Patient's ostomy was not related to an inpatient stay and did not necessitate change in medical or
-treatment regimen.
-⃞ 2 - The ostomy was related to an inpatient stay or did necessitate change in medical or treatment
-regimen.
-NEURO/EMOTIONAL/BEHAVIORAL STATUS
-(M1700) Cognitive Functioning: Patient's current (day of assessment) level of alertness, orientation,
-comprehension, concentration, and immediate memory for simple commands.
-⃞ 0 - Alert/oriented, able to focus and shift attention, comprehends and recalls task directions
-independently.
-⃞ 1 - Requires prompting (cuing, repetition, reminders) only under stressful or unfamiliar conditions.
-⃞ 2 - Requires assistance and some direction in specific situations (e.g. on all tasks involving shifting of
-attention), or consistently requires low stimulus environment due to distractibility.
-⃞ 3 - Requires considerable assistance in routine situations. Is not alert and oriented or is unable to shift
-attention and recall directions more than half the time.
-⃞ 4 - Totally dependent due to disturbances such as constant disorientation, coma, persistent vegetative
-state, or delirium.
-(M1710) When Confused (Reported or Observed Within the Last 14 Days):
-⃞ 0 - Never
-⃞ 1 - In new or complex situations only
-⃞ 2 - On awakening or at night only
-⃞ 3 - During the day and evening, but not constantly
-⃞ 4 - Constantly
-⃞ NA - Patient nonresponsive
-
-(M1720) When Anxious (Reported or Observed Within the Last 14 Days):
-⃞ 0 - None of the time
-⃞ 1 - Less often than daily
-⃞ 2 - Daily, but not constantly
-⃞ 3 - All of the time
-⃞ NA - Patient nonresponsive
-(M1730) Depression Screening: Has the patient been screened for depression, using a standardized depression
-screening tool?
-⃞ 0 - No
-⃞ 1 - Yes, patient was screened using the PHQ-2©* scale. (Instructions for this two-question tool: Ask
-patient: ―Over the last two weeks, how often have you been bothered by any of the following
-problems‖)
-Not at all
-0 - 1 day
-Several
-days
-2 - 6 days
-More than
-half of the
-days
-7 – 11 days
-Nearly
-every day
-12 – 14
-days
-N/A
-Unable to
-respond
-PHQ-2©*
-a) Little interest or pleasure in
-doing things ⃞0 ⃞1 ⃞2 ⃞3 ⃞na
-b) Feeling down, depressed, or
-hopeless? ⃞0 ⃞1 ⃞2 ⃞3 ⃞na
-⃞ 2 - Yes, with a different standardized assessment-and the patient meets criteria for further evaluation for
-depression.
-⃞ 3 - Yes, patient was screened with a different standardized assessment-and the patient does not meet
-criteria for further evaluation for depression.
-*Copyright© Pfizer Inc. All rights reserved. Reproduced with permission.
-(M1740) Cognitive, behavioral, and psychiatric symptoms that are demonstrated at least once a week (Reported
-or Observed): (Mark all that apply.)
-⃞ 1 - Memory deficit: failure to recognize familiar persons/places, inability to recall events of past 24
-hours, significant memory loss so that supervision is required
-⃞ 2 - Impaired decision-making: failure to perform usual ADLs or IADLs, inability to appropriately stop
-activities, jeopardizes safety through actions
-⃞ 3 - Verbal disruption: yelling, threatening, excessive profanity, sexual references, etc.
-⃞ 4 - Physical aggression: aggressive or combative to self and others (e.g. hits self, throws objects,
-punches, dangerous maneuvers with wheelchair or other objects)
-⃞ 5 - Disruptive, infantile, or socially inappropriate behavior (excludes verbal actions)
-⃞ 6 - Delusional, hallucinatory, or paranoid behavior
-⃞ 7 - None of the above behaviors demonstrated
-(M1745) Frequency of Disruptive Behavior Symptoms (Reported or Observed) Any physical, verbal, or other
-disruptive/dangerous symptoms that are injurious to self or others or jeopardize personal safety.
-⃞ 0 - Never
-⃞ 1 - Less than once a month
-⃞ 2 - Once a month
-⃞ 3 - Several times each month
-⃞ 4 - Several times a week
-⃞ 5 - At least daily
-
-(M1750) Is this patient receiving Psychiatric Nursing Services at home provided by a qualified psychiatric nurse?
-⃞ 0 - No
-⃞ 1 - Yes
-ADL/IADLs
-(M1800) Grooming: Current ability to tend safely to personal hygiene needs (i.e., washing face and hands, hair care,
-shaving or make up, teeth or denture care, fingernail care).
-⃞ 0 - Able to groom self unaided, with or without the use of assistive devices or adapted methods.
-⃞ 1 - Grooming utensils must be placed within reach before able to complete grooming activities.
-⃞ 2 - Someone must assist the patient to groom self.
-⃞ 3 - Patient depends entirely upon someone else for grooming needs.
-(M1810) Current Ability to Dress Upper Body safely (with or without dressing aids) including undergarments,
-pullovers, front-opening shirts and blouses, managing zippers, buttons, and snaps:
-⃞ 0 - Able to get clothes out of closets and drawers, put them on and remove them from the upper body
-without assistance.
-⃞ 1 - Able to dress upper body without assistance if clothing is laid out or handed to the patient.
-⃞ 2 - Someone must help the patient put on upper body clothing.
-⃞ 3 - Patient depends entirely upon another person to dress the upper body.
-(M1820) Current Ability to Dress Lower Body safely (with or without dressing aids) including undergarments, slacks,
-socks or nylons, shoes:
-⃞ 0 - Able to obtain, put on, and remove clothing and shoes without assistance.
-⃞ 1 - Able to dress lower body without assistance if clothing and shoes are laid out or handed to the
-patient.
-⃞ 2 - Someone must help the patient put on undergarments, slacks, socks or nylons, and shoes.
-⃞ 3 - Patient depends entirely upon another person to dress lower body.
-(M1830) Bathing: Current ability to wash entire body safely. Excludes grooming (washing face, washing hands,
-and shampooing hair).
-⃞ 0 - Able to bathe self in shower or tub independently, including getting in and out of tub/shower.
-⃞ 1 - With the use of devices, is able to bathe self in shower or tub independently, including getting in and
-out of the tub/shower.
-⃞ 2 - Able to bathe in shower or tub with the intermittent assistance of another person:
-(a) for intermittent supervision or encouragement or reminders, OR
-(b) to get in and out of the shower or tub, OR
-(c) for washing difficult to reach areas.
-⃞ 3 - Able to participate in bathing self in shower or tub, but requires presence of another person
-throughout the bath for assistance or supervision.
-⃞ 4 - Unable to use the shower or tub, but able to bathe self independently with or without the use of
-devices at the sink, in chair, or on commode.
-⃞ 5 - Unable to use the shower or tub, but able to participate in bathing self in bed, at the sink, in bedside
-chair, or on commode, with the assistance or supervision of another person throughout the bath.
-⃞ 6 - Unable to participate effectively in bathing and is bathed totally by another person.
-
-(M1840) Toilet Transferring: Current ability to get to and from the toilet or bedside commode safely and transfer on
-and off toilet/commode.
-⃞ 0 - Able to get to and from the toilet and transfer independently with or without a device.
-⃞ 1 - When reminded, assisted, or supervised by another person, able to get to and from the toilet and
-transfer.
-⃞ 2 - Unable to get to and from the toilet but is able to use a bedside commode (with or without
-assistance).
-⃞ 3 - Unable to get to and from the toilet or bedside commode but is able to use a bedpan/urinal
-independently.
-⃞ 4 - Is totally dependent in toileting.
-(M1845) Toileting Hygiene: Current ability to maintain perineal hygiene safely, adjust clothes and/or incontinence
-pads before and after using toilet, commode, bedpan, urinal. If managing ostomy, includes cleaning area
-around stoma, but not managing equipment.
-⃞ 0 - Able to manage toileting hygiene and clothing management without assistance.
-⃞ 1 - Able to manage toileting hygiene and clothing management without assistance if
-supplies/implements are laid out for the patient.
-⃞ 2 - Someone must help the patient to maintain toileting hygiene and/or adjust clothing.
-⃞ 3 - Patient depends entirely upon another person to maintain toileting hygiene.
-(M1850) Transferring: Current ability to move safely from bed to chair, or ability to turn and position self in bed if
-patient is bedfast.
-⃞ 0 - Able to independently transfer.
-⃞ 1 - Able to transfer with minimal human assistance or with use of an assistive device.
-⃞ 2 - Able to bear weight and pivot during the transfer process but unable to transfer self.
-⃞ 3 - Unable to transfer self and is unable to bear weight or pivot when transferred by another person.
-⃞ 4 - Bedfast, unable to transfer but is able to turn and position self in bed.
-⃞ 5 - Bedfast, unable to transfer and is unable to turn and position self.
-(M1860) Ambulation/Locomotion: Current ability to walk safely, once in a standing position, or use a wheelchair,
-once in a seated position, on a variety of surfaces.
-⃞ 0 - Able to independently walk on even and uneven surfaces and negotiate stairs with or without railings
-(i.e., needs no human assistance or assistive device).
-⃞ 1 - With the use of a one-handed device (e.g. cane, single crutch, hemi-walker), able to
-independently walk on even and uneven surfaces and negotiate stairs with or without railings.
-⃞ 2 - Requires use of a two-handed device (e.g. walker or crutches) to walk alone on a level surface
-and/or requires human supervision or assistance to negotiate stairs or steps or uneven surfaces.
-⃞ 3 - Able to walk only with the supervision or assistance of another person at all times.
-⃞ 4 - Chairfast, unable to ambulate but is able to wheel self independently.
-⃞ 5 - Chairfast, unable to ambulate and is unable to wheel self.
-⃞ 6 - Bedfast, unable to ambulate or be up in a chair.
-(M1870) Feeding or Eating: Current ability to feed self meals and snacks safely. Note: This refers only to the
-process of eating, chewing, and swallowing, not preparing the food to be eaten.
-⃞ 0 - Able to independently feed self.
-⃞ 1 - Able to feed self independently but requires:
-(a) meal set-up; OR
-(b) intermittent assistance or supervision from another person; OR
-(c) a liquid, pureed or ground meat diet.
-⃞ 2 - Unable to feed self and must be assisted or supervised throughout the meal/snack.
-⃞ 3 - Able to take in nutrients orally and receives supplemental nutrients through a nasogastric tube or
-gastrostomy.
-⃞ 4 - Unable to take in nutrients orally and is fed nutrients through a nasogastric tube or gastrostomy.
-⃞ 5 - Unable to take in nutrients orally or by tube feeding.
-
-(M1880) Current Ability to Plan and Prepare Light Meals (e.g. cereal, sandwich) or reheat delivered meals safely:
-⃞ 0 - (a) Able to independently plan and prepare all light meals for self or reheat delivered meals; OR
-(b) Is physically, cognitively, and mentally able to prepare light meals on a regular basis but has not
-routinely performed light meal preparation in the past (i.e., prior to this home care admission).
-⃞ 1 - Unable to prepare light meals on a regular basis due to physical, cognitive, or mental limitations.
-⃞ 2 - Unable to prepare any light meals or reheat any delivered meals.
-(M1890) Ability to Use Telephone: Current ability to answer the phone safely, including dialing numbers, and
-effectively using the telephone to communicate.
-⃞ 0 - Able to dial numbers and answer calls appropriately and as desired.
-⃞ 1 - Able to use a specially adapted telephone (i.e., large numbers on the dial, teletype phone for the
-deaf) and call essential numbers.
-⃞ 2 - Able to answer the telephone and carry on a normal conversation but has difficulty with placing calls.
-⃞ 3 - Able to answer the telephone only some of the time or is able to carry on only a limited conversation.
-⃞ 4 - Unable to answer the telephone at all but can listen if assisted with equipment.
-⃞ 5 - Totally unable to use the telephone.
-⃞ NA - Patient does not have a telephone.
-(M1900) Prior Functioning ADL/IADL: Indicate the patient’s usual ability with everyday activities prior to this current
-illness, exacerbation, or injury. Check only one box in each row.
-Functional Area Independent Needed Some
-Help Dependent
-a. Self-Care (e.g. grooming, dressing, and
-bathing) ⃞0 ⃞1 ⃞2
-b. Ambulation ⃞0 ⃞1 ⃞2
-c. Transfer ⃞0 ⃞1 ⃞2
-d. Household tasks (e.g. light meal
-preparation, laundry, shopping ) ⃞0 ⃞1 ⃞2
-(M1910) Has this patient had a multi-factor Fall Risk Assessment (such as falls history, use of multiple medications,
-mental impairment, toileting frequency, general mobility/transferring impairment, environmental hazards)?
-⃞ 0 - No multi-factor falls risk assessment conducted.
-⃞ 1 - Yes, and it does not indicate a risk for falls.
-⃞ 2 - Yes, and it indicates a risk for falls.
-MEDICATIONS
-(M2000) Drug Regimen Review: Does a complete drug regimen review indicate potential clinically significant
-medication issues, e.g. drug reactions, ineffective drug therapy, side effects, drug interactions, duplicate
-therapy, omissions, dosage errors, or noncompliance?
-⃞ 0 - Not assessed/reviewed [ Go to M2010 ]
-⃞ 1 - No problems found during review [ Go to M2010 ]
-⃞ 2 - Problems found during review
-⃞ NA - Patient is not taking any medications [ Go to M2040 ]
-
-(M2002) Medication Follow-up: Was a physician or the physician-designee contacted within one calendar day to
-resolve clinically significant medication issues, including reconciliation?
-⃞ 0 - No
-⃞ 1 - Yes
-
-(M2004) Medication Intervention: If there were any clinically significant medication issues since the previous OASIS
-assessment, was a physician or the physician-designee contacted within one calendar day of the assessment
-to resolve clinically significant medication issues, including reconciliation?
-⃞ 0 - No
-⃞ 1 - Yes
-⃞ NA - No clinically significant medication issues identified since the previous OASIS assessment
-(M2010) Patient/Caregiver High Risk Drug Education: Has the patient/caregiver received instruction on special
-precautions for all high-risk medications (such as hypoglycemics, anticoagulants, etc.) and how and when to
-report problems that may occur?
-⃞ 0 - No
-⃞ 1 - Yes
-⃞ NA - Patient not taking any high risk drugs OR patient/caregiver fully knowledgeable about special
-precautions associated with all high-risk medications
-(M2015) Patient/Caregiver Drug Education Intervention: Since the previous OASIS assessment, was the
-patient/caregiver instructed by agency staff or other health care provider to monitor the effectiveness of drug
-therapy, drug reactions, and side effects, and how and when to report problems that may occur?
-⃞ 0 - No
-⃞ 1 - Yes
-⃞ NA - Patient not taking any drugs
-(M2020) Management of Oral Medications: Patient's current ability to prepare and take all oral medications reliably
-and safely, including administration of the correct dosage at the appropriate times/intervals. Excludes
-injectable and IV medications. (NOTE: This refers to ability, not compliance or willingness.)
-⃞ 0 - Able to independently take the correct oral medication(s) and proper dosage(s) at the correct times.
-⃞ 1 - Able to take medication(s) at the correct times if:
-(a) individual dosages are prepared in advance by another person; OR
-(b) another person develops a drug diary or chart.
-⃞ 2 - Able to take medication(s) at the correct times if given reminders by another person at the
-appropriate times
-⃞ 3 - Unable to take medication unless administered by another person.
-⃞ NA - No oral medications prescribed.
-(M2030) Management of Injectable Medications: Patient's current ability to prepare and take all prescribed
-injectable medications reliably and safely, including administration of correct dosage at the appropriate
-times/intervals. Excludes IV medications.
-⃞ 0 - Able to independently take the correct medication(s) and proper dosage(s) at the correct times.
-⃞ 1 - Able to take injectable medication(s) at the correct times if:
-(a) individual syringes are prepared in advance by another person; OR
-(b) another person develops a drug diary or chart.
-⃞ 2 - Able to take medication(s) at the correct times if given reminders by another person based on the
-frequency of the injection
-⃞ 3 - Unable to take injectable medication unless administered by another person.
-⃞ NA - No injectable medications prescribed.
-(M2040) Prior Medication Management: Indicate the patient’s usual ability with managing oral and injectable
-medications prior to this current illness, exacerbation, or injury. Check only one box in each row.
-Functional Area Independent Needed Some
-Help Dependent Not Applicable
-a. Oral medications ⃞0 ⃞1 ⃞2 ⃞na
-b. Injectable medications ⃞0 ⃞1 ⃞2 ⃞na
-
-CARE MANAGEMENT
-(M2100) Types and Sources of Assistance: Determine the level of caregiver ability and willingness to provide
-assistance for the following activities, if assistance is needed. (Check only one box in each row.)
-Type of Assistance
-No
-assistance
-needed in
-this area
-Caregiver(s)
-currently
-provide
-assistance
-Caregiver(s)
-need training/
-supportive
-services to
-provide
-assistance
-Caregiver(s)
-not likely to
-provide
-assistance
-Unclear if
-Caregiver(s)
-will provide
-assistance
-Assistance
-needed, but
-no
-Caregiver(s)
-available
-a. ADL assistance
-(e.g. transfer/
-ambulation, bathing,
-dressing, toileting,
-eating/feeding)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-b. IADL assistance
-(e.g. meals,
-housekeeping,
-laundry, telephone,
-shopping, finances)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-c. Medication
-administration (e.g.
-oral, inhaled or
-injectable)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-d. Medical procedures/
-treatments (e.g.
-changing wound
-dressing)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-e. Management of
-Equipment (includes
-oxygen, IV/infusion
-equipment, enteral/
-parenteral nutrition,
-ventilator therapy
-equipment or
-supplies)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-f. Supervision and
-safety (e.g. due to
-cognitive impairment)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-g. Advocacy or
-facilitation of
-patient's participation
-in appropriate
-medical care
-(includes transportation
-to or from
-appointments)
-⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
-
-(M2110) How Often does the patient receive ADL or IADL assistance from any caregiver(s) (other than home health
-agency staff)?
-⃞ 1 - At least daily
-⃞ 2 - Three or more times per week
-⃞ 3 - One to two times per week
-⃞ 4 - Received, but less often than weekly
-⃞ 5 - No assistance received
-⃞ UK - Unknown [Omit ―UK‖ answerOption on DC]
-THERAPY NEED AND PLAN OF CARE
-(M2200) Therapy Need: In the home health plan of care for the Medicare payment episode for which this assessment
-will define a case mix group, what is the indicated need for therapy visits (total of reasonable and necessary
-physical, occupational, and speech-language pathology visits combined)? (Enter zero [ ―000‖ ] if no
-therapy visits indicated.)
-(__ __ __) Number of therapy visits indicated (total of physical, occupational and speech-language pathology
-combined).
- ⃞ NA - Not Applicable: No case mix group defined by this assessment.
-(M2250) Plan of Care Synopsis: (Check only one box in each row.) Does the physician-ordered plan of care
-include the following:
-Plan / Intervention No Yes Not Applicable
-a. Patient-specific parameters for notifying
-physician of changes in vital signs or other
-clinical findings
-⃞0 ⃞1 ⃞na Physician has chosen not to
-establish patient-specific
-parameters for this patient. Agency
-will use standardized clinical
-guidelines accessible for all care
-providers to reference
-b. Diabetic foot care including monitoring for
-the presence of skin lesions on the lower
-extremities and patient/caregiver education
-on proper foot care
-⃞0 ⃞1 ⃞na Patient is not diabetic or is bilateral
-amputee
-c. Falls prevention interventions ⃞0 ⃞1 ⃞na Patient is not assessed to be at risk
-for falls
-d. Depression intervention(s) such as
-medication, referral for other treatment, or a
-monitoring plan for current treatment
-⃞0 ⃞1 ⃞na Patient has no diagnosis or
-symptoms of depression
-e. Intervention(s) to monitor and mitigate pain ⃞0 ⃞1 ⃞na No pain identified
-f. Intervention(s) to prevent pressure ulcers ⃞0 ⃞1 ⃞na Patient is not assessed to be at risk
-for pressure ulcers
-g. Pressure ulcer treatment based on
-principles of moist wound healing OR order
-for treatment based on moist wound
-healing has been requested from physician
-⃞0 ⃞1 ⃞na Patient has no pressure ulcers with
-need for moist wound healing 
-
-EMERGENT CARE
-(M2300) Emergent Care: Since the last time OASIS data were collected, has the patient utilized a hospital
-emergency department (includes holding/observation)?
-⃞ 0 - No [ Go to M2400 ]
-⃞ 1 - Yes, used hospital emergency department WITHOUT hospital admission
-⃞ 2 - Yes, used hospital emergency department WITH hospital admission
-⃞ UK - Unknown [ Go to M2400 ]
-(M2310) Reason for Emergent Care: For what reason(s) did the patient receive emergent care (with or without
-hospitalization)? (Mark all that apply.)
-⃞ 1 - Improper medication administration, medication side effects, toxicity, anaphylaxis
-⃞ 2 - Injury caused by fall
-⃞ 3 - Respiratory infection (e.g. pneumonia, bronchitis)
-⃞ 4 - Other respiratory problem
-⃞ 5 - Heart failure (e.g. fluid overload)
-⃞ 6 - Cardiac dysrhythmia (irregular heartbeat)
-⃞ 7 - Myocardial infarction or chest pain
-⃞ 8 - Other heart disease
-⃞ 9 - Stroke (CVA) or TIA
-⃞ 10 - Hypo/Hyperglycemia, diabetes out of control
-⃞ 11 - GI bleeding, obstruction, constipation, impaction
-⃞ 12 - Dehydration, malnutrition
-⃞ 13 - Urinary tract infection
-⃞ 14 - IV catheter-related infection or complication
-⃞ 15 - Wound infection or deterioration
-⃞ 16 - Uncontrolled pain
-⃞ 17 - Acute mental/behavioral health problem
-⃞ 18 - Deep vein thrombosis, pulmonary embolus
-⃞ 19 - Other than above reasons
-⃞ UK - Reason unknown
-
-DATA ITEMS COLLECTED AT INPATIENT FACILITY ADMISSION OR AGENCY
-DISCHARGE ONLY
-(M2400) Intervention Synopsis: (Check only one box in each row.) Since the previous OASIS assessment, were the
-following interventions BOTH included in the physician-ordered plan of care AND implemented?
-Plan / Intervention No Yes Not Applicable
-a. Diabetic foot care including monitoring for
-the presence of skin lesions on the lower
-extremities and patient/caregiver education
-on proper foot care
-⃞0 ⃞1 ⃞na Patient is not diabetic or is bilateral
-amputee
-b. Falls prevention interventions ⃞0 ⃞1 ⃞na Formal multi-factor Fall Risk
-Assessment indicates the patient
-was not at risk for falls since the last
-OASIS assessment
-c. Depression intervention(s) such as
-medication, referral for other treatment, or a
-monitoring plan for current treatment
-⃞0 ⃞1 ⃞na Formal assessment indicates
-patient did not meet criteria for
-depression AND patient did not
-have diagnosis of depression since
-the last OASIS assessment
-d. Intervention(s) to monitor and mitigate pain ⃞0 ⃞1 ⃞na Formal assessment did not indicate
-pain since the last OASIS
-assessment
-e. Intervention(s) to prevent pressure ulcers ⃞0 ⃞1 ⃞na Formal assessment indicates the
-patient was not at risk of pressure
-ulcers since the last OASIS
-assessment
-f. Pressure ulcer treatment based on
-principles of moist wound healing ⃞0 ⃞1 ⃞na Dressings that support the
-principles of moist wound healing
-not indicated for this patient’s
-pressure ulcers OR patient has no
-pressure ulcers with need for moist
-wound healing
-(M2410) To which Inpatient Facility has the patient been admitted?
-⃞ 1 - Hospital [ Go to M2430 ]
-⃞ 2 - Rehabilitation facility [ Go to M0903 ]
-⃞ 3 - Nursing home [ Go to M2440 ]
-⃞ 4 - Hospice [ Go to M0903 ]
-⃞ NA - No inpatient facility admission [Omit ―NA‖ answerOption on TRN]
-(M2420) Discharge Disposition: Where is the patient after discharge from your agency? (Choose only one
-answer.)
-⃞ 1 - Patient remained in the community (without formal assistive services)
-⃞ 2 - Patient remained in the community (with formal assistive services)
-⃞ 3 - Patient transferred to a non-institutional hospice
-⃞ 4 - Unknown because patient moved to a geographic location not served by this agency
-⃞ UK - Other unknown
- [ Go to M0903 ] 
-
-(M2430) Reason for Hospitalization: For what reason(s) did the patient require hospitalization? (Mark all that
-apply.)
-⃞ 1 - Improper medication administration, medication side effects, toxicity, anaphylaxis
-⃞ 2 - Injury caused by fall
-⃞ 3 - Respiratory infection (e.g. pneumonia, bronchitis)
-⃞ 4 - Other respiratory problem
-⃞ 5 - Heart failure (e.g. fluid overload)
-⃞ 6 - Cardiac dysrhythmia (irregular heartbeat)
-⃞ 7 - Myocardial infarction or chest pain
-⃞ 8 - Other heart disease
-⃞ 9 - Stroke (CVA) or TIA
-⃞ 10 - Hypo/Hyperglycemia, diabetes out of control
-⃞ 11 - GI bleeding, obstruction, constipation, impaction
-⃞ 12 - Dehydration, malnutrition
-⃞ 13 - Urinary tract infection
-⃞ 14 - IV catheter-related infection or complication
-⃞ 15 - Wound infection or deterioration
-⃞ 16 - Uncontrolled pain
-⃞ 17 - Acute mental/behavioral health problem
-⃞ 18 - Deep vein thrombosis, pulmonary embolus
-⃞ 19 - Scheduled treatment or procedure
-⃞ 20 - Other than above reasons
-⃞ UK - Reason unknown
- [ Go to M0903 ]
-(M2440) For what Reason(s) was the patient Admitted to a Nursing Home? (Mark all that apply.)
-⃞ 1 - Therapy services
-⃞ 2 - Respite care
-⃞ 3 - Hospice care
-⃞ 4 - Permanent placement
-⃞ 5 - Unsafe for care at home
-⃞ 6 - Other
-⃞ UK - Unknown
- [ Go to M0903 ]
-(M0903) Date of Last (Most Recent) Home Visit:
-__ __ /__ __ / __ __ __ __
-month / day / year
-(M0906) Discharge/Transfer/Death Date: Enter the date of the discharge, transfer, or death (at home) of the patient.
-__ __ /__ __ / __ __ __ __
-month / day / year 
--->
+    <use value="official"/>
+    <value value="0938-070"/>
+  </identifier>
+  <name value="OACISCAllItemsHomeHealthPatientTrackingSheet"/>
+  <title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
+  <status value="active"/>
+  <date value="2009-08"/>
+  <publisher value="Centers for Medicare &amp; Medicaid Services"/>
+  <description value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
+  <item>
+    <linkId value="ROOT"/>
+    <type value="group"/>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/questionnaire-display-category"/>
+            <code value="instructions"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <linkId value="INSTR"/>
+      <text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
+      <type value="display"/>
+    </item>
+    <item>
+      <linkId value="M0010"/>
+      <text value="C M S Certification Number"/>
+      <type value="string"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <linkId value="M0014"/>
+      <text value="Branch State"/>
+      <type value="string"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <linkId value="M0018"/>
+      <text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
+      <type value="string"/>
+      <item>
+        <linkId value="M0018.1"/>
+        <type value="coding"/>
+        <required value="true"/>
+        <answerOption>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="Not Applicable"/>
+          </valueCoding>
+        </answerOption>
+      </item>
+    </item>
+    <item>
+      <linkId value="M0020"/>
+      <text value="Patient I D Number"/>
+      <type value="string"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+        <valueString value="month / day / year"/>
+      </extension>
+      <linkId value="M0030"/>
+      <text value="Start of Care Date"/>
+      <type value="date"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+        <valueString value="month / day / year"/>
+      </extension>
+      <linkId value="M0031"/>
+      <text value="Resumption of Care Date"/>
+      <type value="date"/>
+      <required value="true"/>
+      <item>
+        <linkId value="M0030.1"/>
+        <type value="coding"/>
+        <required value="true"/>
+        <answerOption>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="Not Applicable"/>
+          </valueCoding>
+        </answerOption>
+      </item>
+    </item>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+        <valueString value="First  M I  Last  Suffix"/>
+      </extension>
+      <linkId value="M0040"/>
+      <text value="Patient Name"/>
+      <type value="string"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <linkId value="M0050"/>
+      <text value="Patient State of Residence"/>
+      <type value="string"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+        <valueString value="nnnnn-nnnn"/>
+      </extension>
+      <linkId value="M0060"/>
+      <text value="Patient Zip Code"/>
+      <type value="string"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <linkId value="M0063"/>
+      <text value="Medicare Number"/>
+      <type value="string"/>
+      <item>
+        <linkId value="M0063.1"/>
+        <type value="coding"/>
+        <required value="true"/>
+        <answerOption>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="No Medicare"/>
+          </valueCoding>
+        </answerOption>
+      </item>
+    </item>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+        <valueString value="nnn-nn-nnnn"/>
+      </extension>
+      <linkId value="M0064"/>
+      <text value="Social Security Number"/>
+      <type value="string"/>
+      <item>
+        <linkId value="M0064.1"/>
+        <type value="coding"/>
+        <required value="true"/>
+        <answerOption>
+          <valueCoding>
+            <code value="UK"/>
+            <display value="Unknown or Not Available"/>
+          </valueCoding>
+        </answerOption>
+      </item>
+    </item>
+    <item>
+      <linkId value="M0065"/>
+      <text value="Medicaid Number"/>
+      <type value="string"/>
+      <item>
+        <linkId value="M0065.1"/>
+        <type value="coding"/>
+        <required value="true"/>
+        <answerOption>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="No Medicaid"/>
+          </valueCoding>
+        </answerOption>
+      </item>
+    </item>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+        <valueString value="month / day / year"/>
+      </extension>
+      <linkId value="M0066"/>
+      <text value="Birth Date"/>
+      <type value="date"/>
+      <required value="true"/>
+    </item>
+    <item>
+      <linkId value="M0069"/>
+      <text value="Gender"/>
+      <type value="coding"/>
+      <required value="true"/>
+      <answerOption>
+        <valueCoding>
+          <code value="1"/>
+          <display value="Male"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="2"/>
+          <display value="Female"/>
+        </valueCoding>
+      </answerOption>
+    </item>
+    <item>
+      <linkId value="M0140"/>
+      <text value="Race/Ethnicity"/>
+      <type value="coding"/>
+      <required value="true"/>
+      <repeats value="true"/>
+      <answerOption>
+        <valueCoding>
+          <code value="1"/>
+          <display value="American Indian or Alaska Native"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="2"/>
+          <display value="Asian"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="3"/>
+          <display value="Black or African-American"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="4"/>
+          <display value="Hispanic or Latino"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="5"/>
+          <display value="Native Hawaiian or Pacific Islander"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="6"/>
+          <display value="White"/>
+        </valueCoding>
+      </answerOption>
+    </item>
+    <item>
+      <linkId value="M0150"/>
+      <text value="Current Payment Sources for Home Care"/>
+      <type value="coding"/>
+      <required value="true"/>
+      <repeats value="true"/>
+      <answerOption>
+        <valueCoding>
+          <code value="0"/>
+          <display value="None; no charge for current services"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="1"/>
+          <display value="Medicare (traditional fee-for-service)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="2"/>
+          <display value="Medicare (HMO/managed care/Advantage plan)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="3"/>
+          <display value="Medicaid (traditional fee-for-service)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="4"/>
+          <display value="Medicaid (HMO/managed care)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="5"/>
+          <display value="Workers' compensation"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="6"/>
+          <display value="Title programs (e.g. Title III, V, or XX)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="7"/>
+          <display value="Other government (e.g. TriCare, VA, etc.)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="8"/>
+          <display value="Private insurance"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="9"/>
+          <display value="Private HMO/managed care"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="10"/>
+          <display value="Self-pay"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="11"/>
+          <display value="Other (specify)"/>
+        </valueCoding>
+      </answerOption>
+      <answerOption>
+        <valueCoding>
+          <code value="UK"/>
+          <display value="Unknown"/>
+        </valueCoding>
+      </answerOption>
+      <item>
+        <linkId value="M0140.1"/>
+        <type value="string"/>
+        <enableWhen>
+          <question value="M0150"/>
+          <operator value="exists"/>
+          <answerBoolean value="true"/>
+        </enableWhen>
+        <required value="true"/>
+      </item>
+    </item>
+  </item>
+  <item>
+    <linkId value="timing"/>
+    <text value="Items to be Used at Specific Time Points"/>
+    <type value="group"/>
+    <item>
+      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://hl7.org/fhir/questionnaire-display-category"/>
+            <code value="instructions"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <linkId value="footer"/>
+      <text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
+      <type value="display"/>
+    </item>
+  </item>
+</Questionnaire>

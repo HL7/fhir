@@ -53,7 +53,7 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
-    <dose>
+    
 
     <dosageInstruction>
         <sequence value="1"/>
@@ -191,7 +191,7 @@
         
     </dosageInstruction>
         
-    </dose>
+    
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

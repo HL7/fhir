@@ -1,0 +1,246 @@
+<mappingExceptions pattern="Definition" resource="SubscriptionTopic"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Definition.url" resourcePath="SubscriptionTopic.url">
+        <lowerCardinality _pattern="0" _resource="1" reason="SubscriptionTopics are not ever expected to be contained"/>
+    </divergentElement>
+    <divergentElement patternPath="Definition.identifier" resourcePath="SubscriptionTopic.identifier">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A formal identifier that is used to identify this subscription topic when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+            <resource value="Business identifiers assigned to this subscription topic by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this subscription topic outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the subscription topic."/>
+            <resource value="Allows identification of the subscription topic as it is known by various participating systems and in a way that remains consistent across servers."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.version" resourcePath="SubscriptionTopic.version">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the subscription topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+            <resource value="The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="There may be different subscription topics that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the subscription topic with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+            <resource value="There may be multiple different instances of a subscription topic that have the same identifier but different versions."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.name" resourcePath="SubscriptionTopic.name">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A natural language name identifying the subscription topic. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+            <resource value="A natural language name identifying the subscription topic This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The name is not expected to be globally unique. The name should be a simple alphanumeric type no-whitespace name to ensure that it is machine-processing friendly."/>
+            <resource value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Supports code generation."/>
+            <resource value="Support human navigation and code generation."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.derivedFromCanonical" resourcePath="SubscriptionTopic.derivedFrom">
+        <missingTypes _pattern="canonical(Definition)" reason="Unknown"/>
+        <extraTypes _resource="canonical(SubscriptionTopic)" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The canonical URL pointing to another FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition."/>
+            <resource value="The canonical URL pointing to another FHIR-defined SubscriptionTopic that is adhered to in whole or in part by this SubscriptionTopic."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Protocols and order sets may be refinements of more generic protocols and order sets."/>
+            <resource value="SubscriptionTopics may be refinements of more generic topics."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.status" resourcePath="SubscriptionTopic.status">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of this subscription topic."/>
+            <resource value="The current state of the SubscriptionTopic."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Enables tracking the lifecycle of the content and filtering of subscription topics that are appropriate for use versus not."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.experimental" resourcePath="SubscriptionTopic.experimental">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="For testing purposes, not real usage"/>
+            <resource value="If for testing purposes, not real usage"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A Boolean value to indicate that this subscription topic is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <resource value="A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Allows filtering of subscription topics that are appropriate for use versus not."/>
+            <resource value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level subscription topic."/>
+            <resource value="Enables experimental content to be developed following the same life-cycle as a production-level SubscriptionTopic would."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.date" resourcePath="SubscriptionTopic.date">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Date last changed"/>
+            <resource value="Date status first applied"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date  (and optionally time) when the subscription topic was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the subscription topic changes."/>
+            <resource value="For draft definitions, indicates the date of initial creation.  For active definitions, represents the date of activation.  For withdrawn definitions, indicates the date of withdrawal."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the subscription topic. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.publisher" resourcePath="SubscriptionTopic.publisher">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Name of the publisher/steward (organization or individual)"/>
+            <resource value="The name of the individual or organization that published the SubscriptionTopic"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The name of the organization or individual responsible for the release and ongoing maintenance of the subscription topic."/>
+            <resource value="Helps establish the &quot;authority/credibility&quot; of the SubscriptionTopic.  May also allow for contact."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Usually an organization but may be an individual. The publisher (or steward) of the subscription topic is the organization or individual primarily responsible for the maintenance and upkeep of the subscription topic. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the subscription topic. This item SHOULD be populated unless the information is available from context."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Helps establish the &quot;authority/credibility&quot; of the subscription topic.  May also allow for contact."/>
+            <resource value="Usually an organization, but may be an individual. The publisher (or steward) of the SubscriptionTopic is the organization or individual primarily responsible for the maintenance and upkeep of the Topic. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Topic. This item SHOULD be populated unless the information is available from context."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.description" resourcePath="SubscriptionTopic.description">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Natural language description of the subscription topic"/>
+            <resource value="Natural language description of the SubscriptionTopic"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A free text natural language description of the subscription topic from a consumer's perspective."/>
+            <resource value="A free text natural language description of the Topic from the consumer's perspective."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the subscription topic as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
+            <resource value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.useContext" resourcePath="SubscriptionTopic.useContext">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="The context that the content is intended to support"/>
+            <resource value="Content intends to support these contexts"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate subscription topics."/>
+            <resource value="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
+            <resource value="When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.jurisdiction" resourcePath="SubscriptionTopic.jurisdiction">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Intended jurisdiction for subscription topic (if applicable)"/>
+            <resource value="Intended jurisdiction of the SubscriptionTopic (if applicable)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A legal or geographic region in which the subscription topic is intended to be used."/>
+            <resource value="A jurisdiction in which the Topic is intended to be used."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="It may be possible for the subscription topic to be used in jurisdictions other than those for which it was originally designed or intended."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.purpose" resourcePath="SubscriptionTopic.purpose">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why this subscription topic is defined"/>
+            <resource value="Why this SubscriptionTopic is defined"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Explanation of why this subscription topic is needed and why it has been designed as it has."/>
+            <resource value="Explains why this Topic is needed and why it has been designed as it has."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element does not describe the usage of the subscription topic. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this subscription topic."/>
+            <resource value="This element does not describe the usage of the Topic.  Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Topic."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.copyright" resourcePath="SubscriptionTopic.copyright">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A copyright statement relating to the subscription topic and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the subscription topic."/>
+            <resource value="A copyright statement relating to the SubscriptionTopic and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SubscriptionTopic."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Consumers of the subscription topic must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
+            <resource value="Consumers of the TSubscriptionTopicopic must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.approvalDate" resourcePath="SubscriptionTopic.approvalDate">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When the subscription topic was approved by publisher"/>
+            <resource value="When SubscriptionTopic is/was approved by publisher"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+            <resource value="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
+            <resource value="The date may be more recent than the approval date because of minor changes / editorial corrections."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.lastReviewDate" resourcePath="SubscriptionTopic.lastReviewDate">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When the subscription topic was last reviewed"/>
+            <resource value="Date the Subscription Topic was last reviewed by the publisher"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+            <resource value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="If specified, this date follows the original approval date."/>
+            <resource value="If specified, this is usually after the approval date."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.effectivePeriod" resourcePath="SubscriptionTopic.effectivePeriod">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When the subscription topic is expected to be used"/>
+            <resource value="The effective date range for the SubscriptionTopic"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The period during which the subscription topic content was or is planned to be in active use."/>
+            <resource value="The period during which the SubscriptionTopic content was or is planned to be effective."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The effective period for a subscription topic  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+            <resource value="The effective period for a SubscriptionTopic  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the subscription topic are or are expected to be used instead."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Definition.copyrightLabel" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.product" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.code" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.topic" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,32 @@
+map "http://hl7.org/fhir/StructureMap/MedicinalProductDeviceSpec4to3" = "R4 to R3 Conversion for MedicinalProductDeviceSpec"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductDeviceSpec" alias MedicinalProductDeviceSpec as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductDeviceSpec" alias MedicinalProductDeviceSpecR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group MedicinalProductDeviceSpec(source src : MedicinalProductDeviceSpec, target tgt : MedicinalProductDeviceSpecR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.tradeName -> tgt.tradeName;
+  src.quantity -> tgt.quantity;
+  src.listingNumber -> tgt.listingNumber;
+  src.modelNumber -> tgt.modelNumber;
+  src.sterilityIndicator -> tgt.sterilityIndicator;
+  src.sterilisationRequirement -> tgt.sterilisationRequirement;
+  src.usage -> tgt.usage;
+  src.nomenclature -> tgt.nomenclature;
+  src.shelfLife -> tgt.shelfLife;
+  src.physicalCharacteristics -> tgt.physicalCharacteristics;
+  src.otherCharacteristics -> tgt.otherCharacteristics;
+  src.batchIdentifier -> tgt.batchIdentifier;
+  src.manufacturer -> tgt.manufacturer;
+  src.material as s -> tgt.material as t then MedicinalProductDeviceSpecMaterial(s, t);
+}
+
+group MedicinalProductDeviceSpecMaterial(source src, target tgt) extends BackboneElement {
+  src.substance -> tgt.substance;
+  src.alternate -> tgt.alternate;
+  src.allergenicIndicator -> tgt.allergenicIndicator;
+}
+

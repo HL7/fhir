@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/Substance3to4" = "R3 to R4 Conversions for Substance"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Substance" alias SubstanceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Substance(source src : SubstanceR3, target tgt : Substance) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.instance as vs0 -> tgt.instance as vt0 then instance(vs0, vt0);
+  src.ingredient as vs0 -> tgt.ingredient as vt0 then ingredient(vs0, vt0);
+}
+
+group instance(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.expiry -> tgt.expiry;
+  src.quantity -> tgt.quantity;
+}
+
+group ingredient(source src, target tgt) extends BackboneElement {
+  src.quantity -> tgt.quantity;
+  src.substance : CodeableConcept as vs -> tgt.substance = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.substance : Reference as vs -> tgt.substance = create('Reference') as vt then Reference(vs, vt);
+}
+

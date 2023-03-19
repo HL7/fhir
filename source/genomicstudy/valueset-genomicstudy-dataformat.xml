@@ -12,7 +12,9 @@
       
       
       
+      
       <ul>
+        
         
         
         
@@ -20,7 +22,9 @@
           
           
           
+          
           <a href="http://hl7.org/fhir/genomicstudy-dataformat">
+            
             
             
             
@@ -28,7 +32,9 @@
           
           
           
+          
           </a>
+        
         
         
         
@@ -36,7 +42,9 @@
       
       
       
+      
       </ul>
+    
     
     
     
@@ -49,16 +57,16 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3084"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="GenomicStudyDataFormat"/>
-  <title value="GenomicStudyDataFormat"/>
+  <title value="Genomic Study Data Format"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2022-08-17T15:02:11-05:00"/>

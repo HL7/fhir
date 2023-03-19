@@ -175,7 +175,7 @@
         </extension>
         <system value="http://loinc.org"/>
         <code value="LA6715-2"/>
-        <display value="Active motion "/>
+        <display value="Active motion"/>
       </coding>
       <coding>
         <system value="http://acme.ped/apgarmuscletone"/>
@@ -206,7 +206,7 @@
         </extension>
         <system value="http://loinc.org"/>
         <code value="LA6727-7"/>
-        <display value="Good, strong cry; normal rate and effort of breathing    "/>
+        <display value="Good, strong cry; normal rate and effort of breathing"/>
       </coding>
       <coding>
         <system value="http://acme.ped/apgarrespiratoryeffort"/>

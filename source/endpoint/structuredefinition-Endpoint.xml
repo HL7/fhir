@@ -180,7 +180,7 @@
     <element id="Endpoint.description">
       <path value="Endpoint.description"/>
       <short value="Additional details about the endpoint that could be displayed as further information to identify the description beyond its name"/>
-      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing it's usage/purpose)."/>
+      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing its usage/purpose)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -195,7 +195,7 @@
     <element id="Endpoint.environmentType">
       <path value="Endpoint.environmentType"/>
       <short value="The type of environment(s) exposed at this endpoint"/>
-      <definition value="The type of environment(s) exposed at this endpoint (dev, prod, test, etc)."/>
+      <definition value="The type of environment(s) exposed at this endpoint (dev, prod, test, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -268,11 +268,25 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Endpoint.payloadType">
-      <path value="Endpoint.payloadType"/>
+    <element id="Endpoint.payload">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Endpoint.payload"/>
+      <short value="Set of payloads that are provided by this endpoint"/>
+      <definition value="The set of payloads that are provided/available at this endpoint."/>
+      <comment value="Note that not all mimetypes or types will be listed under the one endpoint resource, there may be multiple instances that information for cases where other header data such as the endpoint address, active status/period etc. is different."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Endpoint.payload.type">
+      <path value="Endpoint.payload.type"/>
       <short value="The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)"/>
       <definition value="The payload type describes the acceptable content that can be communicated on the endpoint."/>
-      <comment value="The payloadFormat describes the serialization format of the data, where the payloadType indicates the specific document/schema that is being transferred; e.g. DischargeSummary or CarePlan."/>
+      <comment value="The mimeType describes the serialization format of the data, where the payload.type indicates the specific document/schema that is being transferred; e.g. DischargeSummary or CarePlan."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -291,8 +305,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Endpoint.payloadMimeType">
-      <path value="Endpoint.payloadMimeType"/>
+    <element id="Endpoint.payload.mimeType">
+      <path value="Endpoint.payload.mimeType"/>
       <short value="Mimetype to send. If not specified, the content could be anything (including no payload, if the connectionType defined this)"/>
       <definition value="The mime type to send the payload in - e.g. application/fhir+xml, application/fhir+json. If the mime type is not specified, then the sender could send any content (including no content depending on the connectionType)."/>
       <comment value="Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured."/>
@@ -309,7 +323,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
         <strength value="required"/>

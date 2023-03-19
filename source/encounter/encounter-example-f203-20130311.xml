@@ -7,12 +7,6 @@
         <value value="Encounter_Roel_20130311"/>
     </identifier>
     <status value="completed"/>
-    <statusHistory>
-        <status value="in-progress"/>
-        <period>
-            <start value="2013-03-08"/>
-        </period>
-    </statusHistory>
     <!--Encounter has been completed-->
     <class>
 		<coding>
@@ -72,13 +66,17 @@
         <end value="2013-03-20"/>
     </actualPeriod>
     <reason>
-      <concept>
-        <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
-      </concept>
+        <value>
+            <concept>
+                <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
+            </concept>
+        </value>
     </reason>
     <diagnosis>
       <condition>
-          <reference value="Condition/stroke"/>
+        <reference>
+            <reference value="Condition/stroke"/>
+        </reference>
       </condition>
       <use>
         <coding>
@@ -87,11 +85,12 @@
           <display value="Admission diagnosis"/>
         </coding>
       </use>
-      <rank value="1"/>
     </diagnosis>
     <diagnosis>
       <condition>
-          <reference value="Condition/f201"/>
+        <reference>
+            <reference value="Condition/f201"/>
+        </reference>
       </condition>
       <use>
         <coding>
@@ -105,6 +104,27 @@
         <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
+    <dietPreference>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="276026009"/>
+            <display value="Fluid balance regulation"/>
+        </coding>
+    </dietPreference>
+    <specialArrangement>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/encounter-special-arrangements"/>
+            <code value="wheel"/>
+            <display value="Wheelchair"/>
+        </coding>
+    </specialArrangement>
+    <specialCourtesy>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy"/>
+            <code value="NRM"/>
+            <display value="normal courtesy"/>
+        </coding>
+    </specialCourtesy>
     <admission>
         <origin>
             <reference value="Location/2"/>
@@ -122,27 +142,6 @@
             </coding>
         </reAdmission>
         <!--accomodation details are not available-->
-        <dietPreference>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="276026009"/>
-                <display value="Fluid balance regulation"/>
-            </coding>
-        </dietPreference>
-        <specialCourtesy>
-            <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy"/>
-                <code value="NRM"/>
-                <display value="normal courtesy"/>
-            </coding>
-        </specialCourtesy>
-        <specialArrangement>
-            <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/encounter-special-arrangements"/>
-                <code value="wheel"/>
-                <display value="Wheelchair"/>
-            </coding>
-        </specialArrangement>
         <destination>
             <!--Fictive-->
             <reference value="Location/2"/>

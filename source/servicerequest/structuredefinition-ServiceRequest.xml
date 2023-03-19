@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ServiceRequest"/>
-  <title value="ServiceRequest"/>
+  <title value="Service Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -99,6 +99,13 @@
         <expression value="orderDetail.empty() or code.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
+      <constraint>
+        <key value="bdystr-1"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
@@ -123,7 +130,7 @@
       <path value="ServiceRequest.identifier"/>
       <short value="Identifiers assigned to this order"/>
       <definition value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
-      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
+      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 V2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 V2).  For further discussion and examples see the resource notes section below."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -158,7 +165,7 @@
       <path value="ServiceRequest.instantiatesCanonical"/>
       <short value="Instantiates FHIR protocol or definition"/>
       <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <comment value="The PlanDefinition resource is used to describe series, sequences, or groups of actions to be taken, while the ActivityDefinition resource is used to define each specific step or activity to be performed. More information can be found in the [Boundaries and Relationships](plandefinition.html#12.23.2) section for PlanDefinition."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -501,6 +508,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
+      <condition value="prr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -531,7 +539,7 @@
         <map value="Procedure.procedureCode"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.orderDetail">
+    <!-- <element id="ServiceRequest.orderDetail">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14002][#12966]."/>
       </extension>
@@ -567,7 +575,108 @@
         <identity value="quick"/>
         <map value="Procedure.procedureCode"/>
       </mapping>
+    </element> -->
+    <element id="ServiceRequest.orderDetail">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#14002][#12966]."/>
+      </extension>
+      <path value="ServiceRequest.orderDetail"/>
+      <short value="Additional order information"/>
+      <definition value="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied."/>
+      <comment value="For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element."/>
+      <alias value="detailed instructions"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="prr-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
     </element>
+    <element id="ServiceRequest.orderDetail.parameterFocus">
+      <path value="ServiceRequest.orderDetail.parameterFocus"/>
+      <short value="The context of the order details by reference"/>
+      <definition value="Indicates the context of the order details by reference."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+    </element>    
+    <element id="ServiceRequest.orderDetail.parameter">
+      <path value="ServiceRequest.orderDetail.parameter"/>
+      <short value="The parameter details for the service being requested"/>
+      <definition value="The parameter details for the service being requested."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>    
+    <element id="ServiceRequest.orderDetail.parameter.code">
+      <path value="ServiceRequest.orderDetail.parameter.code"/>
+      <short value="The detail of the order being requested"/>
+      <definition value="A value representing the additional detail or instructions for the order (e.g., catheter insertion, body elevation, descriptive device configuration and/or setting instructions)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceRequestOrderDetailParameterCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for order detail parameters."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
+      </binding>
+    </element>    
+    <element id="ServiceRequest.orderDetail.parameter.value[x]">
+      <path value="ServiceRequest.orderDetail.parameter.value[x]"/>
+      <short value="The value for the order detail"/>
+      <definition value="Indicates a value for the order detail."/>
+      <comment value="CodeableConcept values are indented to express concepts that would normally be coded - when a code is not available for a concept, CodeableConcept.text can be used. When the data is a text or not a single identifiable concept, string should be used."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+    </element>    
+
+    
     <element id="ServiceRequest.quantity[x]">
       <path value="ServiceRequest.quantity[x]"/>
       <short value="Service amount"/>
@@ -881,7 +990,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PRT, RF!-3"/>
+        <map value="PRT, RF1-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -895,7 +1004,7 @@
       <path value="ServiceRequest.performer"/>
       <short value="Requested performer"/>
       <definition value="The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc."/>
-      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [request-performerOrder extension](extension-request-performerorder.html).  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
+      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
       <alias value="request recipient"/>
       <min value="0"/>
       <max value="*"/>
@@ -982,7 +1091,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceRequestReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Diagnosis or problem codes justifying the reason for requesting the service investigation."/>
         </extension>
         <strength value="example"/>
@@ -1043,7 +1152,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>
@@ -1090,7 +1199,7 @@
       <path value="ServiceRequest.bodySite"/>
       <short value="Coded location on Body"/>
       <definition value="Anatomic location where the procedure should be performed. This is the target site."/>
-      <comment value="Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](extension-procedure-targetbodystructure.html)."/>
+      <comment value="Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure]]]."/>
       <requirements value="Knowing where the procedure is performed is important for tracking if multiple sites are possible."/>
       <alias value="location"/>
       <min value="0"/>
@@ -1098,12 +1207,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="bdystr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
         </extension>
         <strength value="example"/>
@@ -1135,13 +1245,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <constraint>
-        <key value="bdystr-1"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if bodySite is not present"/>
-        <expression value="bodySite.exists() or bodyStructure.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-      </constraint>
+      <condition value="bdystr-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -1190,9 +1294,31 @@
       <short value="Patient or consumer-oriented instructions"/>
       <definition value="Instructions in terms that are understood by the patient or consumer."/>
       <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.patientInstruction.instruction[x]">
+      <path value="ServiceRequest.patientInstruction.instruction[x]"/>
+      <short value="Patient or consumer-oriented instructions"/>
+      <definition value="Instructions in terms that are understood by the patient or consumer."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
       <mapping>

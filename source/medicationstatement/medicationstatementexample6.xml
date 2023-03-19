@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is a fully populated example where a care giver reports they are taking a certain medication and has the bottle  -->
+<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="example006"/>
+  <status value="recorded"/>
+  <medication>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="27658006"/>
+        <display value="Amoxicillin (product)"/>
+      </coding>
+    </concept>
+  </medication>  
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
+  <effectiveDateTime value="2014-02-01"></effectiveDateTime>
+  <dateAsserted value="2014-02-22"/>
+  <informationSource>
+    <reference value="RelatedPerson/peter"/>
+    <display value="Peter Chalmers"/> 
+    </informationSource>
+
+
+  <note>
+    <text value="Father indicates they miss the occasional dose"/>
+  </note>
+  <dosage>
+    <sequence value="1"/>
+    <text value="5ml three times daily" />
+    <asNeeded value="false" />
+    <route>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+      <code value="260548002"/>
+      <display value="Oral"/>
+      </coding>
+    </route>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+          <code value="ordered"/>
+          <display value="Ordered"/>
+        </coding>
+      </type>
+      <doseQuantity>
+        <value value="5" />
+        <unit value="mL"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+      </doseQuantity>
+    </doseAndRate>
+    
+    <maxDosePerPeriod>
+      <numerator>
+        <value value="3"/>
+      </numerator>
+      <denominator>
+      <value value="1"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="d"/>
+      </denominator>
+    </maxDosePerPeriod>
+  </dosage>
+</MedicationStatement>

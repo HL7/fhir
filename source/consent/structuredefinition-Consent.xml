@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
@@ -198,7 +198,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.patient"/>
+        <map value="Event.subject"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -504,6 +504,27 @@
         <code value="dateTime"/>
       </type>
     </element>
+    <element id="Consent.decision">
+      <path value="Consent.decision"/>
+      <short value="deny | permit"/>
+      <definition value="Action to take - permit or deny - as default."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Sets context for the values in .provision"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConsentProvisionType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Sets the base decision for Consent to be either permit or deny, with provisions assumed to be a negation of the previous level."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
+      </binding>
+    </element>
     <element id="Consent.provision">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="provision"/>
@@ -515,32 +536,11 @@
       <short value="Constraints to the base Consent.policyRule/Consent.policy"/>
       <definition value="An exception to the base policy of this consent. An exception can be an addition or removal of access permissions."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
-    </element>
-    <element id="Consent.provision.type">
-      <path value="Consent.provision.type"/>
-      <short value="deny | permit"/>
-      <definition value="Action  to take - permit or deny - when the provision conditions are met."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="Sets context for the other values in .provision"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConsentProvisionType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="How a provision statement is applied, such as adding additional consent or removing consent."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
-      </binding>
     </element>
     <element id="Consent.provision.period">
       <path value="Consent.provision.period"/>
@@ -677,7 +677,7 @@
     </element>
     <element id="Consent.provision.documentType">
       <path value="Consent.provision.documentType"/>
-      <short value="e.g. Resource Type, Profile, CDA, etc."/>
+      <short value="e.g. Resource Type, Profile, CDA, etc"/>
       <definition value="The documentType(s) covered by this provision. The type can be a CDA document, or some other type that indicates what sort of information the consent relates to."/>
       <comment value="Multiple types are or'ed together. The intention of the documentType element is that the codes refer to document types defined in a standard somewhere."/>
       <min value="0"/>
@@ -697,7 +697,7 @@
     </element>
     <element id="Consent.provision.resourceType">
       <path value="Consent.provision.resourceType"/>
-      <short value="e.g. Resource Type, Profile, etc."/>
+      <short value="e.g. Resource Type, Profile, etc"/>
       <definition value="The resourceType(s) covered by this provision. The type can be a FHIR resource type or a profile on a type that indicates what information the consent relates to."/>
       <comment value="Multiple types are or'ed together. The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
       <min value="0"/>

@@ -21,7 +21,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1229"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Family member history for genetics analysis"/>
+  <name value="FamilyMemberHistoryForGeneticsAnalysis"/>
   <title value="Family member history for genetics analysis"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -43,7 +43,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>

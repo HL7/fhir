@@ -6,13 +6,6 @@
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>Hello world</p>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
@@ -27,9 +20,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.827"/>
   </identifier>
-  <version value="5.0.0"/>
   <name value="ResearchStudyPrimaryPurposeType"/>
-  <title value="ResearchStudyPrimaryPurposeType"/>
+  <title value="Research Study Primary Purpose Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -48,12 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-      <filter>
-        <property value="concept"/>
-        <op value="descendent-of"/>
-        <value value="research-study-prim-purp-type"/>
-      </filter>
+      <system value="http://hl7.org/fhir/research-study-prim-purp-type"/>
     </include>
   </compose>
 </ValueSet>

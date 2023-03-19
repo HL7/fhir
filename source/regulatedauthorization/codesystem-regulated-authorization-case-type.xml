@@ -22,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RegulatedAuthorizationCaseType"/>
-  <title value="RegulatedAuthorizationCaseType"/>
+  <title value="Regulated Authorization Case Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -43,7 +43,7 @@
   <content value="complete"/>
   <concept>
     <code value="InitialMAA"/>
-    <display value="Initial Marketing Authorisation Application"/>
+    <display value="Initial Marketing Authorization Application"/>
   </concept>
   <concept>
     <code value="Variation"/>
@@ -83,7 +83,7 @@
   </concept>
   <concept>
     <code value="TransferMA"/>
-    <display value="Transfer of a marketing authorisation"/>
+    <display value="Transfer of a marketing authorization"/>
   </concept>
   <concept>
     <code value="LiftingSuspension"/>

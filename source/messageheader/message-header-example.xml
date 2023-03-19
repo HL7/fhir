@@ -56,7 +56,7 @@
 		    <target>
 		      <reference value="Device/example"/>
 		    </target>
-		    <endpoint value="llp:10.11.12.14:5432"/>
+		    <endpointUrl value="llp:10.11.12.14:5432"/>
 		    <receiver>
 		      <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
 		     </receiver>
@@ -79,7 +79,7 @@
 		      <system value="phone"/>
 		      <value value="+1 (555) 123 4567"/>
 		    </contact>
-		    <endpoint value="llp:10.11.12.13:5432"/>
+		    <endpointUrl value="llp:10.11.12.13:5432"/>
 		  </source>
 		  <reason>
 		    <coding>

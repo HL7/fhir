@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/regulatedauthorization.xsd">
   <id value="example"/>
   <identifier>
-    <system value="http://ema.europa.eu/example/marketingAuthorisationNumber"/>
+    <system value="http://ema.europa.eu/example/marketingAuthorizationNumber"/>
     <value value="EU/1/11/999/001"/>
   </identifier>
   <region>
@@ -15,7 +15,7 @@
   </region>
   <status>
     <coding>
-      <system value="http://ema.europa.eu/example/authorisationstatus"/>
+      <system value="http://ema.europa.eu/example/authorizationstatus"/>
       <code value="active"/>
     </coding>
   </status>
@@ -46,7 +46,7 @@
     </identifier>
     <type>
       <coding>
-        <system value="http://ema.europa.eu/example/marketingAuthorisationProcedureType"/>
+        <system value="http://ema.europa.eu/example/marketingAuthorizationProcedureType"/>
         <code value="VariationTypeIA"/>
       </coding>
     </type>
@@ -61,7 +61,7 @@
       </identifier>
       <type>
         <coding>
-          <system value="http://ema.europa.eu/example/marketingAuthorisationApplicationType"/>
+          <system value="http://ema.europa.eu/example/marketingAuthorizationApplicationType"/>
           <code value="GroupTypeIAVariationNotification"/>
         </coding>
       </type>
@@ -74,7 +74,7 @@
       </identifier>
       <type>
         <coding>
-          <system value="http://ema.europa.eu/example/marketingAuthorisationApplicationType"/>
+          <system value="http://ema.europa.eu/example/marketingAuthorizationApplicationType"/>
           <code value="GroupTypeIAVariationNotification"/>
         </coding>
       </type>

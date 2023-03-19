@@ -1,20 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
   <id value="example-reference"/>
   <url value="http://hl7.org/fhir/SearchParameter/example-reference"/>
-  <name value="Example Search Parameter"/>
+  <name value="ExampleSearchParameter"/>
+  <title value="Example Search Parameter"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2013-10-23"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
   <contact>
-  <name value="[string]"/><!-- 0..1 Name of an individual to contact -->
+    <name value="[string]"/>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
   <description value="Search by condition subject"/>
-  
   <purpose value="Need to search Condition by subject"/>
   <code value="subject"/>
   <base value="Condition"/>
@@ -24,5 +26,5 @@
   <target value="Organization"/>
   <modifier value="missing"/>
   <chain value="name"/>
-  <chain value="identifier"/>  
+  <chain value="identifier"/>
 </SearchParameter>

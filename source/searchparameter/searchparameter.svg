@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n508"
+   version="1.1"
+   width="735.6"
+   height="438.0"
+   sodipodi:docname="searchparameter.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview96642"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.6938554"
+     inkscape:cx="367.79999"
+     inkscape:cy="219.32214"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n508" />
+  <defs
+     id="defs96438">
+    <filter
+       id="shadow1"
+       x="-0.02458256"
+       y="-0.0828125"
+       width="1.0630798"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset96429" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix96431" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur96433" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend96435" />
+    </filter>
+  </defs>
+  <g
+     id="n509">
+    <rect
+       id="SearchParameter"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="277.20000000000005"
+       height="428.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n510"
+       x1="0.0"
+       y1="28.0"
+       x2="277.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n511"
+       x="138.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">SearchParameter<tspan
+   class="diagram-class-title-link"
+   id="tspan96444"> (<a
+   id="n512"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n513"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
+    <text
+       id="n514"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n515"
+   xlink:href="searchparameter-definitions.html#SearchParameter.url"><title
+   id="title96447">An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers</title>url</a> : <a
+   id="n516"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+    <text
+       id="n520"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n521"
+   xlink:href="searchparameter-definitions.html#SearchParameter.version"><title
+   id="title96452">The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n522"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n526"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n527"
+   xlink:href="searchparameter-definitions.html#SearchParameter.versionAlgorithm_x_"><title
+   id="title96457">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n528"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n529"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n530"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n531"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n532">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n533"
+       x="26.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n534"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n544"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n545"
+   xlink:href="searchparameter-definitions.html#SearchParameter.name"><title
+   id="title96468">A natural language name identifying the search parameter. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n546"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n547"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n548">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n554"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n555"
+   xlink:href="searchparameter-definitions.html#SearchParameter.title"><title
+   id="title96475">A short, descriptive, user-friendly title for the search parameter</title>title</a> : <a
+   id="n556"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n560"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n561"
+   xlink:href="searchparameter-definitions.html#SearchParameter.derivedFrom"><title
+   id="title96480">Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. i.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter</title>derivedFrom</a> : <a
+   id="n562"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n563"
+   xlink:href="searchparameter.html#SearchParameter">SearchParameter</a> »</text>
+    <text
+       id="n568"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n569"
+   xlink:href="searchparameter-definitions.html#SearchParameter.status"><title
+   id="title96486">The status of this search parameter. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n570"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n571"
+   xlink:href="valueset-publication-status.html"><title
+   id="n572">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n578"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n579"
+   xlink:href="searchparameter-definitions.html#SearchParameter.experimental"><title
+   id="title96493">A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n580"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n584"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n585"
+   xlink:href="searchparameter-definitions.html#SearchParameter.date"><title
+   id="title96498">The date  (and optionally time) when the search parameter was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes</title>date</a> : <a
+   id="n586"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n590"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="searchparameter-definitions.html#SearchParameter.publisher"><title
+   id="title96503">The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter</title>publisher</a> : <a
+   id="n592"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n596"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="searchparameter-definitions.html#SearchParameter.contact"><title
+   id="title96508">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n598"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n602"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n603"
+   xlink:href="searchparameter-definitions.html#SearchParameter.description"><title
+   id="title96513">And how it used</title>description</a> : <a
+   id="n604"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
+    <text
+       id="n608"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n609"
+   xlink:href="searchparameter-definitions.html#SearchParameter.useContext"><title
+   id="title96518">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate search parameter instances</title>useContext</a> : <a
+   id="n610"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n614"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n615"
+   xlink:href="searchparameter-definitions.html#SearchParameter.jurisdiction"><title
+   id="title96523">A legal or geographic region in which the search parameter is intended to be used</title>jurisdiction</a> : <a
+   id="n616"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n617"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n618">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n624"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n625"
+   xlink:href="searchparameter-definitions.html#SearchParameter.purpose"><title
+   id="title96530">Explanation of why this search parameter is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n626"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n630"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n631"
+   xlink:href="searchparameter-definitions.html#SearchParameter.code"><title
+   id="title96535">The label that is recommended to be used in the URL or the parameter name in a parameters resource for this search parameter.  In some cases, servers may need to use a different CapabilityStatement searchParam.name to differentiate between multiple SearchParameters that happen to have the same code</title>code</a> : <a
+   id="n632"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n636"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n637"
+   xlink:href="searchparameter-definitions.html#SearchParameter.base"><title
+   id="title96540">The base resource type(s) that this search parameter can be used against</title>base</a> : <a
+   id="n638"
+   xlink:href="datatypes.html#code">code</a> [1..*] « <a
+   id="n639"
+   xlink:href="valueset-version-independent-all-resource-types.html"><title
+   id="n640">null (Strength=Required)</title>VersionIndependentResourceTyp...</a>! »</text>
+    <text
+       id="n646"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n647"
+   xlink:href="searchparameter-definitions.html#SearchParameter.type"><title
+   id="title96547">The type of value that a search parameter may contain, and how the content is interpreted</title>type</a> : <a
+   id="n648"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n649"
+   xlink:href="valueset-search-param-type.html"><title
+   id="n650">null (Strength=Required)</title>SearchParamType</a>! » « <a
+   id="n651"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n652">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n660"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n661"
+   xlink:href="searchparameter-definitions.html#SearchParameter.expression"><title
+   id="title96556">A FHIRPath expression that returns a set of elements for the search parameter</title>expression</a> : <a
+   id="n662"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n663"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n664">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n670"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="searchparameter-definitions.html#SearchParameter.processingMode"><title
+   id="title96563">How the search parameter relates to the set of elements returned by evaluating the expression query</title>processingMode</a> : <a
+   id="n672"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n673"
+   xlink:href="valueset-search-processingmode.html"><title
+   id="n674">null (Strength=Required)</title>SearchProcessingModeType</a>! » « <a
+   id="n675"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n676">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n684"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n685"
+   xlink:href="searchparameter-definitions.html#SearchParameter.constraint"><title
+   id="title96572">FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable</title>constraint</a> : <a
+   id="n686"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n690"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n691"
+   xlink:href="searchparameter-definitions.html#SearchParameter.target"><title
+   id="title96577">Types of resource (if a resource is referenced)</title>target</a> : <a
+   id="n692"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n693"
+   xlink:href="valueset-version-independent-all-resource-types.html"><title
+   id="n694">null (Strength=Required)</title>VersionIndependentResourceTyp...</a>! »</text>
+    <text
+       id="n700"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n701"
+   xlink:href="searchparameter-definitions.html#SearchParameter.multipleOr"><title
+   id="title96584">Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match</title>multipleOr</a> : <a
+   id="n702"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n706"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n707"
+   xlink:href="searchparameter-definitions.html#SearchParameter.multipleAnd"><title
+   id="title96589">Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match</title>multipleAnd</a> : <a
+   id="n708"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n712"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n713"
+   xlink:href="searchparameter-definitions.html#SearchParameter.comparator"><title
+   id="title96594">Comparators supported for the search parameter</title>comparator</a> : <a
+   id="n714"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n715"
+   xlink:href="valueset-search-comparator.html"><title
+   id="n716">null (Strength=Required)</title>SearchComparator</a>! » « <a
+   id="n717"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n718">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n726"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n727"
+   xlink:href="searchparameter-definitions.html#SearchParameter.modifier"><title
+   id="title96603">A modifier supported for the search parameter</title>modifier</a> : <a
+   id="n728"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n729"
+   xlink:href="valueset-search-modifier-code.html"><title
+   id="n730">null (Strength=Required)</title>SearchModifierCode</a>! »</text>
+    <text
+       id="n736"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n737"
+   xlink:href="searchparameter-definitions.html#SearchParameter.chain"><title
+   id="title96610">Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type</title>chain</a> : <a
+   id="n738"
+   xlink:href="datatypes.html#string">string</a> [0..*] « <a
+   id="n739"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n740">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n746"
+     transform="translate(98.001281,172.97816)">
+    <rect
+       id="SearchParameter.component"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n747"
+       x1="320"
+       y1="28"
+       x2="535.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n748"
+       x="427.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Component</text>
+    <text
+       id="n749"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n750"
+   xlink:href="searchparameter-definitions.html#SearchParameter.component.definition"><title
+   id="title96621">The definition of the search parameter that describes this part</title>definition</a> : <a
+   id="n751"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n752"
+   xlink:href="searchparameter.html#SearchParameter">SearchParameter</a> »</text>
+    <text
+       id="n757"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n758"
+   xlink:href="searchparameter-definitions.html#SearchParameter.component.expression"><title
+   id="title96627">A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression</title>expression</a> : <a
+   id="n759"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <line
+     id="n763"
+     x1="277.20000000000005"
+     y1="126.77593360995851"
+     x2="376.9516483516484"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n764"
+     points="277.20000000000005,126.77593360995851 283.20000000000005,130.7759336099585 289.20000000000005,126.77593360995851 283.20000000000005,122.77593360995851 277.20000000000005,126.77593360995851"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-32.183121127568945 277.20000000000005 126.77593360995851)" />
+  <rect
+     id="n765"
+     x="307.5"
+     y="88.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n766"
+     x="327.0"
+     y="98.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n767"
+       xlink:href="searchparameter-definitions.html#SearchParameter.component"><title
+   id="title96636">Used to define the parts of a composite search parameter</title>component</a></text>
+  <text
+     id="n768"
+     x="376.9516483516484"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

@@ -1,0 +1,46 @@
+map "http://hl7.org/fhir/StructureMap/PaymentReconciliation3to4" = "R3 to R4 Conversions for PaymentReconciliation"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias PaymentReconciliation as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group PaymentReconciliation(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+  src.created -> tgt.created;
+  src.organization -> tgt.paymentIssuer;
+  src.request -> tgt.request;
+  src.outcome as vs then {
+    vs.coding as c where code in ('complete' | 'error' | 'partial') then {
+      c.code -> tgt.outcome;
+    };
+  };
+  src.disposition -> tgt.disposition;
+  src.requestProvider -> tgt.requestor;
+  src.detail as s -> tgt.detail as t then PaymentReconciliationDetail(s, t);
+  src.form -> tgt.formCode;
+  src.total -> tgt.paymentAmount;
+  src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s, t);
+}
+
+group PaymentReconciliationDetail(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.request -> tgt.request;
+  src.response -> tgt.response;
+  src.submitter -> tgt.submitter;
+  src.payee -> tgt.payee;
+  src.date -> tgt.date;
+  src.amount -> tgt.amount;
+}
+
+group PaymentReconciliationProcessNote(source src, target tgt) extends BackboneElement {
+  src.type as vs then {
+    vs.coding as c then {
+      c.code -> tgt.type;
+    };
+  };
+  src.text -> tgt.text;
+}
+

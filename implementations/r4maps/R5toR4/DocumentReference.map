@@ -1,0 +1,54 @@
+map "http://hl7.org/fhir/StructureMap/DocumentReference4to3" = "R4 to R3 Conversion for DocumentReference"
+
+uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentReference" alias DocumentReferenceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DocumentReference(source src : DocumentReference, target tgt : DocumentReferenceR3) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.masterIdentifier;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.docStatus -> tgt.docStatus;
+  src.type -> tgt.type;
+  src.category -> tgt.class;
+  src.subject -> tgt.subject;
+  src.date -> tgt.indexed;
+  src.extension as ext where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created' then {
+    ext.value as vs0 -> tgt.created = vs0 "created2";
+  } "created";
+  src.author -> tgt.author;
+  src.authenticator -> tgt.authenticator;
+  src.custodian -> tgt.custodian;
+  src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
+  src.description -> tgt.description;
+  src.securityLabel -> tgt.securityLabel;
+  src.content as vs0 -> tgt.content as vt0 then content(vs0, vt0);
+  src.context as vs0 -> tgt.context as vt0 then context(vs0, vt0);
+}
+
+group relatesTo(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.target -> tgt.target;
+}
+
+group content(source src, target tgt) extends BackboneElement {
+  src.attachment -> tgt.attachment;
+  src.format -> tgt.format;
+}
+
+group context(source src, target tgt) extends BackboneElement {
+  src.encounter -> tgt.encounter;
+  src.event -> tgt.event;
+  src.period -> tgt.period;
+  src.facilityType -> tgt.facilityType;
+  src.practiceSetting -> tgt.practiceSetting;
+  src.sourcePatientInfo -> tgt.sourcePatientInfo;
+  src.related as vs0 -> tgt.related as vt0 then related(vs0, vt0);
+}
+
+group related(source src, target tgt) {
+  src where reference.exists() -> tgt.ref as vt0 then ReferenceNoIdentifier(src, vt0) "reference";
+  src where identifier.exists() -> tgt.identifier as vt0 then Reference2Identifier(src, vt0) "identifier";
+}
+

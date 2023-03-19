@@ -1,0 +1,55 @@
+<Questionnaire xmlns="http://hl7.org/fhir">
+    <id value="child-rel-demo" />
+    <meta>
+        <versionId value="1" />
+        <lastUpdated value="2023-03-03T03:05:07.9531803+00:00" />
+    </meta>
+    <url value="http://example.org/Questionnaire/child-rel-demo" />
+    <title value="Demo form on R5 spec QR page" />
+    <status value="draft" />
+    <item>
+        <linkId value="grp1" />
+        <text value="grp1" />
+        <type value="group" />
+        <required value="true" />
+        <repeats value="true" />
+        <item>
+            <linkId value="grp2" />
+            <text value="grp2" />
+            <type value="group" />
+            <item>
+                <linkId value="Q1" />
+                <text value="Q1" />
+                <type value="string" />
+                <repeats value="true" />
+            </item>
+            <item>
+                <linkId value="Q2" />
+                <text value="Q2" />
+                <type value="string" />
+            </item>
+        </item>
+        <item>
+            <linkId value="Q3" />
+            <text value="Q3" />
+            <type value="string" />
+            <required value="true" />
+            <repeats value="true" />
+            <item>
+                <linkId value="Q4" />
+                <text value="Q4" />
+                <type value="string" />
+            </item>
+            <item>
+                <linkId value="grp3" />
+                <text value="grp3" />
+                <type value="string" />
+                <item>
+                    <linkId value="Q5" />
+                    <text value="Q5" />
+                    <type value="string" />
+                </item>
+            </item>
+        </item>
+    </item>
+</Questionnaire>

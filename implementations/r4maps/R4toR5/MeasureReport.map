@@ -1,0 +1,61 @@
+map "http://hl7.org/fhir/StructureMap/MeasureReport3to4" = "R3 to R4 Conversions for MeasureReport"
+
+conceptmap "MeasureReportType" {
+  prefix s = "http://hl7.org/fhir/measure-report-type"
+  prefix t = "http://hl7.org/fhir/measure-report-type"
+
+  s:"'patient-list'" - t:"'subject-list'"
+  s:individual - t:individual
+  s:summary - t:summary
+}
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MeasureReport" alias MeasureReportR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReport as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group MeasureReport(source src : MeasureReportR3, target tgt : MeasureReport) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type as v -> tgt.type = translate(v, '#MeasureReportType', 'code');
+  src.measure -> tgt.measure;
+  src.patient -> tgt.subject;
+  src.date -> tgt.date;
+  src.reportingOrganization -> tgt.reporter;
+  src.period -> tgt.period;
+  src.group as s -> tgt.group as t then group(s, t);
+  src.evaluatedResources -> tgt.evaluatedResource;
+}
+
+group group(source src, target tgt) extends BackboneElement {
+  src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
+  src.population as s -> tgt.population as t then population(s, t);
+  src.measureScore -> tgt.measureScore;
+  src.stratifier as s -> tgt.stratifier as t then stratifier(s, t);
+}
+
+group population(source src, target tgt) extends BackboneElement {
+  src.identifier as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MeasureReport.group.identifier',  vt.value = v;
+  src.code -> tgt.code;
+  src.count -> tgt.count;
+  src.patients -> tgt.subjectResults;
+}
+
+group stratifier(source src, target tgt) extends BackboneElement {
+  src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
+  src.stratum as s -> tgt.stratum as t then stratum(s, t);
+}
+
+group stratum(source src, target tgt) extends BackboneElement {
+  src.value as s ->  tgt.value as cc,  cc.text = s;
+  src.population as s -> tgt.population as t then population2(s, t);
+  src.measureScore -> tgt.measureScore;
+}
+
+group population2(source src, target tgt) extends BackboneElement {
+  src.identifier as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MeasureReport.group.stratifier.stratum.population.identifier',  vt.value = v;
+  src.code -> tgt.code;
+  src.count -> tgt.count;
+  src.patients -> tgt.subjectResults;
+}
+

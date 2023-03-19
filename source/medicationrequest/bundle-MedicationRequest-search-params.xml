@@ -67,13 +67,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationRequest.dose.dosageInstruction.timing.event,MedicationRequest.dose.dosageInstruction.timing.repeat.boundsPeriod"/>
+          <valueString value="MedicationRequest.dosageInstruction.timing.event,MedicationRequest.dosageInstruction.timing.repeat.boundsPeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-combo-date"/>
         <description value="Returns medication request to be administered on a specific date or within a date range"/>
         <code value="combo-date"/>
         <type value="date"/>
-        <expression value="MedicationRequest.dose.dosageInstruction.timing.event | (MedicationRequest.dose.dosageInstruction.timing.repeat.bounds as Period)"/>
+        <expression value="MedicationRequest.dosageInstruction.timing.event | (MedicationRequest.dosageInstruction.timing.repeat.bounds.ofType(Period))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -93,6 +93,26 @@
         <code value="encounter"/>
         <type value="reference"/>
         <expression value="MedicationRequest.encounter"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.groupIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-group-identifier"/>
+        <description value="Composite request this is part of"/>
+        <code value="group-identifier"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.groupIdentifier"/>
+        <!--<xpath value="f:MedicationRequest/f:groupIdentifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

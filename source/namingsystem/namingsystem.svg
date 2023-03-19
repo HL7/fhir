@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n564"
+   version="1.1"
+   width="842.0"
+   height="480.0"
+   sodipodi:docname="namingsystem.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview153307"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.47981"
+     inkscape:cx="421"
+     inkscape:cy="240.23355"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n564" />
+  <defs
+     id="defs153073">
+    <filter
+       id="shadow1"
+       x="-0.021900826"
+       y="-0.044166667"
+       width="1.0561983"
+       height="1.1133333">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset153064" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix153066" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur153068" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend153070" />
+    </filter>
+  </defs>
+  <g
+     id="n565">
+    <rect
+       id="NamingSystem"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="290.40000000000003"
+       height="470.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n566"
+       x1="0.0"
+       y1="28.0"
+       x2="290.40000000000003"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n567"
+       x="145.20000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">NamingSystem<tspan
+   class="diagram-class-title-link"
+   id="tspan153079"> (<a
+   id="n568"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n569"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n570"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n571"
+   xlink:href="namingsystem-definitions.html#NamingSystem.url"><title
+   id="title153082">An absolute URI that is used to identify this naming system when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this naming system is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the naming system is stored on different servers</title>url</a> : <a
+   id="n572"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n576"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n577"
+   xlink:href="namingsystem-definitions.html#NamingSystem.identifier"><title
+   id="title153087">A formal identifier that is used to identify this naming system when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n578"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n582"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n583"
+   xlink:href="namingsystem-definitions.html#NamingSystem.version"><title
+   id="title153092">The identifier that is used to identify this version of the naming system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the naming system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n584"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n588"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n589"
+   xlink:href="namingsystem-definitions.html#NamingSystem.versionAlgorithm_x_"><title
+   id="title153097">Indicates the mechanism used to compare versions to determine which NamingSystem is more current</title>versionAlgorithm[x]</a> : <a
+   id="n590"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n591"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n592"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n593"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n594">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n595"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n596"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n606"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n607"
+   xlink:href="namingsystem-definitions.html#NamingSystem.name"><title
+   id="title153108">A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n608"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n609"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n610">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n616"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n617"
+   xlink:href="namingsystem-definitions.html#NamingSystem.title"><title
+   id="title153115">A short, descriptive, user-friendly title for the naming system</title>title</a> : <a
+   id="n618"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n622"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n623"
+   xlink:href="namingsystem-definitions.html#NamingSystem.status"><title
+   id="title153120">The status of this naming system. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n624"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n625"
+   xlink:href="valueset-publication-status.html"><title
+   id="n626">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n632"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n633"
+   xlink:href="namingsystem-definitions.html#NamingSystem.kind"><title
+   id="title153127">Indicates the purpose for the naming system - what kinds of things does it make unique?</title>kind</a> : <a
+   id="n634"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n635"
+   xlink:href="valueset-namingsystem-type.html"><title
+   id="n636">null (Strength=Required)</title>NamingSystemType</a>! » « <a
+   id="n637"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n638">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n646"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n647"
+   xlink:href="namingsystem-definitions.html#NamingSystem.experimental"><title
+   id="title153136">A Boolean value to indicate that this naming system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n648"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n652"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n653"
+   xlink:href="namingsystem-definitions.html#NamingSystem.date"><title
+   id="title153141">The date  (and optionally time) when the naming system was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes</title>date</a> : <a
+   id="n654"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
+    <text
+       id="n658"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n659"
+   xlink:href="namingsystem-definitions.html#NamingSystem.publisher"><title
+   id="title153146">The name of the organization or individual responsible for the release and ongoing maintenance of the naming system</title>publisher</a> : <a
+   id="n660"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n664"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n665"
+   xlink:href="namingsystem-definitions.html#NamingSystem.contact"><title
+   id="title153151">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n666"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n670"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="namingsystem-definitions.html#NamingSystem.responsible"><title
+   id="title153156">The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision</title>responsible</a> : <a
+   id="n672"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n676"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n677"
+   xlink:href="namingsystem-definitions.html#NamingSystem.type"><title
+   id="title153161">Categorizes a naming system for easier search by grouping related naming systems</title>type</a> : <a
+   id="n678"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n679"
+   xlink:href="valueset-namingsystem-identifier-system-type.html"><title
+   id="title153165">null (Strength=Preferred)</title>NamingSystemIdentifierSystemT...</a>? »</text>
+    <text
+       id="n684"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n685"
+   xlink:href="namingsystem-definitions.html#NamingSystem.description"><title
+   id="title153169">A free text natural language description of the naming system from a consumer's perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc</title>description</a> : <a
+   id="n686"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n690"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n691"
+   xlink:href="namingsystem-definitions.html#NamingSystem.useContext"><title
+   id="title153174">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate naming system instances</title>useContext</a> : <a
+   id="n692"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n696"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n697"
+   xlink:href="namingsystem-definitions.html#NamingSystem.jurisdiction"><title
+   id="title153179">A legal or geographic region in which the naming system is intended to be used</title>jurisdiction</a> : <a
+   id="n698"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n699"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n700">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n706"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n707"
+   xlink:href="namingsystem-definitions.html#NamingSystem.purpose"><title
+   id="title153186">Explanation of why this naming system is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n708"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n712"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n713"
+   xlink:href="namingsystem-definitions.html#NamingSystem.copyright"><title
+   id="title153191">A copyright statement relating to the naming system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the naming system</title>copyright</a> : <a
+   id="n714"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n718"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n719"
+   xlink:href="namingsystem-definitions.html#NamingSystem.copyrightLabel"><title
+   id="title153196">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n720"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n724"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n725"
+   xlink:href="namingsystem-definitions.html#NamingSystem.approvalDate"><title
+   id="title153201">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n726"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n730"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n731"
+   xlink:href="namingsystem-definitions.html#NamingSystem.lastReviewDate"><title
+   id="title153206">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n732"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n736"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n737"
+   xlink:href="namingsystem-definitions.html#NamingSystem.effectivePeriod"><title
+   id="title153211">The period during which the NamingSystem content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n738"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n742"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n743"
+   xlink:href="namingsystem-definitions.html#NamingSystem.topic"><title
+   id="title153216">Descriptions related to the content of the NamingSystem. Topics provide a high-level categorization as well as keywords for the NamingSystem that can be useful for filtering and searching</title>topic</a> : <a
+   id="n744"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n745"
+   xlink:href="valueset-definition-topic.html"><title
+   id="n746">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
+    <text
+       id="n752"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n753"
+   xlink:href="namingsystem-definitions.html#NamingSystem.author"><title
+   id="title153223">An individiual or organization primarily involved in the creation and maintenance of the NamingSystem</title>author</a> : <a
+   id="n754"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n758"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n759"
+   xlink:href="namingsystem-definitions.html#NamingSystem.editor"><title
+   id="title153228">An individual or organization primarily responsible for internal coherence of the NamingSystem</title>editor</a> : <a
+   id="n760"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n764"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n765"
+   xlink:href="namingsystem-definitions.html#NamingSystem.reviewer"><title
+   id="title153233">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the NamingSystem</title>reviewer</a> : <a
+   id="n766"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n770"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n771"
+   xlink:href="namingsystem-definitions.html#NamingSystem.endorser"><title
+   id="title153238">An individual or organization asserted by the publisher to be responsible for officially endorsing the NamingSystem for use in some setting</title>endorser</a> : <a
+   id="n772"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n776"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n777"
+   xlink:href="namingsystem-definitions.html#NamingSystem.relatedArtifact"><title
+   id="title153243">Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts</title>relatedArtifact</a> : <a
+   id="n778"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n782"
+       x="6.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n783"
+   xlink:href="namingsystem-definitions.html#NamingSystem.usage"><title
+   id="title153248">Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc</title>usage</a> : <a
+   id="n784"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n788"
+     transform="translate(88.52488,91.903692)">
+    <rect
+       id="NamingSystem.uniqueId"
+       x="400"
+       y="120"
+       rx="4"
+       ry="4"
+       width="242"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n789"
+       x1="400"
+       y1="148"
+       x2="642"
+       y2="148"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n790"
+       x="521"
+       y="140"
+       fill="#000000"
+       class="diagram-class-title">UniqueId</text>
+    <text
+       id="n791"
+       x="406"
+       y="162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n792"
+   xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId.type"><title
+   id="title153257">Identifies the unique identifier scheme used for this particular identifier</title>type</a> : <a
+   id="n793"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n794"
+   xlink:href="valueset-namingsystem-identifier-type.html"><title
+   id="n795">null (Strength=Required)</title>NamingSystemIdentifierType</a>! » « <a
+   id="n796"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n797">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n805"
+       x="406"
+       y="176"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n806"
+   xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId.value"><title
+   id="title153266">The string that should be sent over the wire to identify the code system or identifier system</title>value</a> : <a
+   id="n807"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n811"
+       x="406"
+       y="190"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n812"
+   xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId.preferred"><title
+   id="title153271">Indicates whether this identifier is the &quot;preferred&quot; identifier of this type</title>preferred</a> : <a
+   id="n813"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n814"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n815">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n821"
+       x="406"
+       y="204"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n822"
+   xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId.comment"><title
+   id="title153278">Notes about the past or intended usage of this identifier</title>comment</a> : <a
+   id="n823"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n827"
+       x="406"
+       y="218"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n828"
+   xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId.period"><title
+   id="title153283">Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic</title>period</a> : <a
+   id="n829"
+   xlink:href="datatypes.html#Period">Period</a> [0..1] « <a
+   id="n830"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n831">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n837"
+       x="406"
+       y="232"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n838"
+   xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId.authoritative"><title
+   id="title153290">Indicates whether this identifier ie endorsed by the official owner of the associated naming system</title>authoritative</a> : <a
+   id="n839"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n840"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n841">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <line
+     id="n847"
+     x1="290.40000000000003"
+     y1="213.74933475252797"
+     x2="400.0"
+     y2="197.70888770622676"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n848"
+     points="290.40000000000003,213.74933475252797 296.40000000000003,217.74933475252797 302.40000000000003,213.74933475252797 296.40000000000003,209.74933475252797 290.40000000000003,213.74933475252797"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.326378459892323 290.40000000000003 213.74933475252797)" />
+  <rect
+     id="n849"
+     x="327.5"
+     y="198.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n850"
+     x="345.0"
+     y="208.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n851"
+       xlink:href="namingsystem-definitions.html#NamingSystem.uniqueId"><title
+   id="title153301">Indicates how the system may be identified when referenced in electronic exchange</title>uniqueId</a></text>
+  <text
+     id="n852"
+     x="380.0"
+     y="193.70888770622676"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+</svg>

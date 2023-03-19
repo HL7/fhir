@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="conceptmap-property-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/conceptmap-property-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2118"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="ConceptMapPropertyType"/>
+  <title value="ConceptMap Property Type"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of a ConceptMap mapping property value."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-property-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="Coding"/>
+    <display value="Coding (external reference)"/>
+    <definition value="The property  value is a code defined in an external code system. This may be used for translations, but is not the intent."/>
+  </concept>
+  <concept>
+    <code value="string"/>
+    <display value="string"/>
+    <definition value="The property value is a string."/>
+  </concept>
+  <concept>
+    <code value="integer"/>
+    <display value="integer"/>
+    <definition value="The property value is an integer (often used to assign ranking values to concepts for supporting score assessments)."/>
+  </concept>
+  <concept>
+    <code value="boolean"/>
+    <display value="boolean"/>
+    <definition value="The property value is a boolean true | false."/>
+  </concept>
+  <concept>
+    <code value="dateTime"/>
+    <display value="dateTime"/>
+    <definition value="The property is a date or a date + time."/>
+  </concept>
+  <concept>
+    <code value="decimal"/>
+    <display value="decimal"/>
+    <definition value="The property value is a decimal number."/>
+  </concept>
+  <concept>
+    <code value="code"/>
+    <display value="code"/>
+    <definition value="The property value is a code as defined in the CodeSystem in ConceptMap.property.system."/>
+  </concept>
+</CodeSystem>

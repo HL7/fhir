@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="DocumentReference-generate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,7 +38,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/DocumentReference-generate"/>
   <version value="5.0.0"/>
-  <name value="generate"/>
+  <name value="Generate"/>
   <title value="Generate a DocumentReference from a document"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -77,11 +79,11 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <name value="docRef"/>
+    <name value="return"/>
     <use value="out"/>
-    <min value="0"/>
+    <min value="1"/>
     <max value="1"/>
-    <documentation value="The server either returns a single document reference, or it returns an error. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error."/>
-    <type value="DocumentReference"/>
+    <documentation value="The bundle type is &quot;searchset&quot;containing [DocumentReference](documentreference.html) resource and may include a Binary. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error."/>
+    <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

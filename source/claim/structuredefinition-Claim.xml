@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Claim"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -111,6 +111,17 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+    </element>
+    <element id="Claim.traceNumber">
+      <path value="Claim.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
     </element>
     <element id="Claim.status">
       <path value="Claim.status"/>
@@ -318,7 +329,7 @@
       <path value="Claim.provider"/>
       <short value="Party responsible for the claim"/>
       <definition value="The provider which is responsible for the claim, predetermination or preauthorization."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <comment value="Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -557,8 +568,8 @@
     </element>
     <element id="Claim.encounter">
       <path value="Claim.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
@@ -603,6 +614,46 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
       </binding>
+    </element>
+    <element id="Claim.event">
+      <path value="Claim.event"/>
+      <short value="Event information"/>
+      <definition value="Information code for an event with a corresponding date or period."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Claim.event.type">
+      <path value="Claim.event.type"/>
+      <short value="Specific event"/>
+      <definition value="A coded event such as when a service is expected or a card printed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DatesType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
+      </binding>
+    </element>
+    <element id="Claim.event.when[x]">
+      <path value="Claim.event.when[x]"/>
+      <short value="Occurance date or period"/>
+      <definition value="A date or period in the past or future indicating when the event occurred or is expectd to occur."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
     </element>
     <element id="Claim.careTeam">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -1245,6 +1296,17 @@
         <code value="positiveInt"/>
       </type>
     </element>
+    <element id="Claim.item.traceNumber">
+      <path value="Claim.item.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
     <element id="Claim.item.careTeamSequence">
       <path value="Claim.item.careTeamSequence"/>
       <short value="Applicable careTeam members"/>
@@ -1366,8 +1428,25 @@
           <valueString value="ServiceProduct"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/> 
       </binding>
+    </element> 
+    <element id="Claim.item.request">
+      <path value="Claim.item.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
     </element>
     <element id="Claim.item.modifier">
       <path value="Claim.item.modifier"/>
@@ -1517,7 +1596,7 @@
     <element id="Claim.item.net">
       <path value="Claim.item.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the line item. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -1594,8 +1673,8 @@
     </element>
     <element id="Claim.item.encounter">
       <path value="Claim.item.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
@@ -1635,6 +1714,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.traceNumber">
+      <path value="Claim.item.detail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="Claim.item.detail.revenue">
@@ -1817,7 +1907,7 @@
     <element id="Claim.item.detail.net">
       <path value="Claim.item.detail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the line item.detail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -1864,6 +1954,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.subDetail.traceNumber">
+      <path value="Claim.item.detail.subDetail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="Claim.item.detail.subDetail.revenue">
@@ -2043,7 +2144,7 @@
     <element id="Claim.item.detail.subDetail.net">
       <path value="Claim.item.detail.subDetail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for line item.detail.subDetail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>

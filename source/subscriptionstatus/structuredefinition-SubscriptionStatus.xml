@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubscriptionStatus"/>
-  <title value="SubscriptionStatus"/>
+  <title value="Subscription Status"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -73,8 +73,15 @@
       <constraint>
         <key value="sst-1"/>
         <severity value="error"/>
-        <human value="events listed in event notifications"/>
-        <expression value="type = 'event-notification' implies (notificationEvent.exists() and notificationEvent.first().exists())"/>
+        <human value="Event notifications must contain events"/>
+        <expression value="(type = 'event-notification' or type = 'query-event') implies notificationEvent.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
+      </constraint>
+      <constraint>
+        <key value="sst-2"/>
+        <severity value="error"/>
+        <human value="Status messages must contain status"/>
+        <expression value="type = 'query-status' implies status.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
       </constraint>
       <mapping>
@@ -95,6 +102,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sst-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -112,12 +120,14 @@
     <element id="SubscriptionStatus.type">
       <path value="SubscriptionStatus.type"/>
       <short value="handshake | heartbeat | event-notification | query-status | query-event"/>
-      <definition value="The type of event being conveyed with this notificaiton."/>
+      <definition value="The type of event being conveyed with this notification."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="sst-1"/>
+      <condition value="sst-2"/>
       <isModifier value="true"/>
       <isModifierReason value="Not known why this is labelled a modifier"/>
       <isSummary value="true"/>
@@ -154,11 +164,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sst-1"/>
     </element>
     <element id="SubscriptionStatus.notificationEvent.eventNumber">
       <path value="SubscriptionStatus.notificationEvent.eventNumber"/>
-      <short value="Event number"/>
-      <definition value="The sequential number of this event in this subscription context."/>
+      <short value="Sequencing index of this event"/>
+      <definition value="Either the sequential number of this event in this subscription context or a relative event number for this notification."/>
+      <comment value="In subscriptions where delivery of notifications IS NOT guaranteed (e.g., REST-Hook), this number is a unique and monotonically-increasing event number for a subscription. In channels where delivery of notifications IS guaranteed, this number is a relative index for the events present in the notification (e.g., 1, 2, etc.)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -168,7 +180,7 @@
     <element id="SubscriptionStatus.notificationEvent.timestamp">
       <path value="SubscriptionStatus.notificationEvent.timestamp"/>
       <short value="The instant this event occurred"/>
-      <definition value="The actual time this event occured on the server."/>
+      <definition value="The actual time this event occurred on the server."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -177,7 +189,7 @@
     </element>
     <element id="SubscriptionStatus.notificationEvent.focus">
       <path value="SubscriptionStatus.notificationEvent.focus"/>
-      <short value="The focus of this event"/>
+      <short value="Reference to the primary resource or information of this event"/>
       <definition value="The focus of this event. While this will usually be a reference to the focus resource of the event, it MAY contain a reference to a non-FHIR object."/>
       <min value="0"/>
       <max value="1"/>
@@ -188,7 +200,7 @@
     </element>
     <element id="SubscriptionStatus.notificationEvent.additionalContext">
       <path value="SubscriptionStatus.notificationEvent.additionalContext"/>
-      <short value="Additional context for this event"/>
+      <short value="References related to the focus resource and/or context of this event"/>
       <definition value="Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
       <min value="0"/>
       <max value="*"/>

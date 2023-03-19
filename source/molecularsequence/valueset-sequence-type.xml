@@ -24,9 +24,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.214"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
-  <name value="sequenceType"/>
-  <title value="sequenceType"/>
+  <version value="5.0.0"/>
+  <name value="SequenceType"/>
+  <title value="sequence Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

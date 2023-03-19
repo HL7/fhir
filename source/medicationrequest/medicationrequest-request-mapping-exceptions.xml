@@ -1,0 +1,290 @@
+<mappingExceptions pattern="Request" resource="MedicationRequest"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.identifier" resourcePath="MedicationRequest.identifier">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for medication request"/>
+            <resource value="External ids for this request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this medication request by the author and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the medication request as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.basedOn" resourcePath="MedicationRequest.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,ImmunizationRecommendation)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="A plan or request that is fulfilled in whole or in part by this medication request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this medication request.  Authorization from the 'basedOn' request flows through to the referencing medication request."/>
+            <resource value="A plan or request that is fulfilled in whole or in part by this medication request."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.replaces" resourcePath="MedicationRequest.priorPrescription">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(MedicationRequest)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Request(s) replaced by this medication request"/>
+            <resource value="Reference to an order/prescription that is being replaced by this MedicationRequest"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Completed or terminated request(s) whose function is taken by this new medication request."/>
+            <resource value="Reference to an order/prescription that is being replaced by this MedicationRequest."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.groupIdentifier" resourcePath="MedicationRequest.groupIdentifier">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
+            <resource value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.status" resourcePath="MedicationRequest.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="active | on-hold | ended | stopped | completed | cancelled | entered-in-error | draft | unknown"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the medication request."/>
+            <resource value="A code specifying the current state of the order.  Generally, this will be active or completed state."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xa;&#xa;Clinical decision support systems should take the status into account when determining which medications to include in their algorithms."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.statusReason" resourcePath="MedicationRequest.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the medication request."/>
+            <resource value="Captures the reason for the current state of the MedicationRequest."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the medication request was created at all is captured in reasonCode, not here. ."/>
+            <resource value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;. The reason why the MedicationRequest was created at all is captured in reasonCode, not here."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.intent" resourcePath="MedicationRequest.intent">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="proposal | plan | order (immutable)"/>
+            <resource value="proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the level of authority/intentionality associated with the medication request and where the request fits into the workflow chain."/>
+            <resource value="Whether the request is a proposal, plan, or an original order."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#xa;&#xa;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <resource value="It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xd;&#xd;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xd;&#xd;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.priority" resourcePath="MedicationRequest.priority">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates how quickly the medication request should be addressed with respect to other requests."/>
+            <resource value="Indicates how quickly the Medication Request should be addressed with respect to other requests."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.code" resourcePath="MedicationRequest.medication">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Medication)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Service requested/ordered"/>
+            <resource value="Medication to be taken"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <resource value="Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="MedicationRequest.subject">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="Individual or group for whom the medication has been requested"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The individual or group for whom the medication has been requested."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.encounter" resourcePath="MedicationRequest.encounter">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the medication request is tied to"/>
+            <resource value="Encounter created as part of encounter/admission/stay"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this medication request was created or to which the creation of this record is tightly associated."/>
+            <resource value="The Encounter during which this [x] was created or to which the creation of this record is tightly associated."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter during which the medication request was created.  However, some {{title}s may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission activities)."/>
+            <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter.&quot;    If there is a need to link to episodes of care they will be handled with an extension."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the medication request to the Encounter context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.authoredOn" resourcePath="MedicationRequest.authoredOn">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When request was created/transitioned to active"/>
+            <resource value="When request was initially authored"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="For draft medication requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+            <resource value="The date (and perhaps time) when the prescription was initially written or authored on."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.requester" resourcePath="MedicationRequest.requester">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who/what is requesting service"/>
+            <resource value="Who/What requested the Request"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
+            <resource value="The individual, organization, or device that initiated the request and has responsibility for its activation."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performerType" resourcePath="MedicationRequest.performerType">
+        <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Desired kind of service performer"/>
+            <resource value="Desired kind of performer of the medication administration"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The type of individual that is desired to act upon/ not act upon the {{request}}."/>
+            <resource value="Indicates the type of performer of the administration of the medication."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="If specified without indicating a performer, this indicates that the performer must be (or can't be) of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.  If doNotPerform is true, then only one of performerType and performer should be present."/>
+            <resource value="If specified without indicating a performer, this indicates that the performer must be of the specified type. If specified with a performer then it indicates the requirements of the performer if the designated performer is not available."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="MedicationRequest.performer">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(DeviceDefinition)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Intended performer of administration"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The specified desired performer of the medication treatment (e.g. the performer of the medication administration).  For devices, this is the device that is intended to perform the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.reason" resourcePath="MedicationRequest.reason">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why is service (not) needed?"/>
+            <resource value="Reason or indication for ordering or not ordering the medication"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the request is being made in coded or textual form, or Indicates another resource whose existence justifies this request."/>
+            <resource value="The reason or the indication for ordering or not ordering the medication."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>
+            <resource value="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.insurance" resourcePath="MedicationRequest.insurance">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant in delivering the requested service."/>
+            <resource value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="MedicationRequest.supportingInformation">
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Information to support fulfilling of the medication"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this medication request."/>
+            <resource value="Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient)."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value="This attribute can be used to reference a MedicationStatement about the patients' medication use."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.note" resourcePath="MedicationRequest.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about medication request"/>
+            <resource value="Information about the prescription"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the medication request by the requester, performer, subject or other participants."/>
+            <resource value="Extra information about the prescription that could not be conveyed by the other attributes."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.relevantHistory" resourcePath="MedicationRequest.eventHistory">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Key events in history of medication request"/>
+            <resource value="A list of events of interest in the lifecycle"/>
+        </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances SHOULD adhere to the [provenance-relevant-history profile](provenance-relevant-history.html).&#xa;&#xa;See additional guidance [here](request.html#history)."/>
+            <resource value="This might not include provenances for all versions of the request – only those deemed &quot;relevant&quot; or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a &quot;relevant&quot; change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

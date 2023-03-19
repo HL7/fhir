@@ -32,9 +32,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.224"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="IssueType"/>
-  <title value="IssueType"/>
+  <title value="Issue Type"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -208,5 +208,10 @@
     <code value="informational"/>
     <display value="Informational Note"/>
     <definition value="A message unrelated to the processing success of the completed operation (examples of the latter include things like reminders of password expiry, system maintenance times, etc.)."/>
+  </concept>
+  <concept>
+    <code value="success"/>
+    <display value="Operation Successful"/>
+    <definition value="The operation completed successfully."/>
   </concept>
 </CodeSystem>

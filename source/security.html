@@ -34,7 +34,7 @@ in one section. A summary:
      Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met.</li>
  <li><a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
- <li><a href="#input">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#input">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behavior. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
  <li><a href="#oauth">When using OAuth</a> - Consider the draft <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics">Best-Current-Practice for OAuth</a></li>
  <li><b>Security / Privacy Event Reporting</b> - Consider legal obligations and ethical obligations to provide a means for Security and/or Privacy Event Reporting such as security vulnerability, or breach.  </li>
 </ol>
@@ -228,7 +228,7 @@ Authorization/Access Control
 Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
 Most applications of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
 the relevant resources and the underlying systems. Note that this isn't necessary. There is nothing in FHIR that requires or relies 
-on any security being in place, or any particular security implementation. However, real world usage will generally require this. 
+on any security being in place, or any particular security implementation. However, real-world usage will generally require this. 
 </p>
 <p>
 A holder of data should not allow the data to be communicated unless there are enough assurances that the 

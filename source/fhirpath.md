@@ -1,7 +1,7 @@
 FHIR Path
 ==========
 
-FHIRPath is a path based extraction language, somewhat like XPath. It is optimised to work on FHIR resources. Operations are expressed in terms of the logical content of the resources, rather than their XML or JSON reprsentation. The expressions can (in theory) be converted to XPath, JSON or OCL equivalents
+FHIRPath is a path based extraction language, somewhat like XPath. It is optimized to work on FHIR resources. Operations are expressed in terms of the logical content of the resources, rather than their XML or JSON reprsentation. The expressions can (in theory) be converted to XPath, JSON or OCL equivalents
 
 All FHIRPath operations result in a collection of Elements of various
 types. When the expression begins evaluating, there is a collection with one element in focus. 
@@ -86,7 +86,7 @@ Note: string constants are surrounded by either " or ', and use json type escapi
 4. Boolean evaluations
 ----------------------
 
-Collections can be evaluated as booleans in logical tests in criteria. When a collection is implicited converted to a boolean then:
+Collections can be evaluated.ofType(boolean)s in logical tests in criteria. When a collection is implicited converted to a boolean then:
 
 * if it has a single item that is a boolean:
   - it has the value of the boolean
@@ -256,7 +256,7 @@ Operator precedence:
 7. Fixed constants
 -------------------
 
-A token introduced by a % defines a fixed constant that is automatically expanded into it's agreed value by the parser. Tokens consist of an introducing %, and then a sequence of characters that conforms to the id data type (1-64, a..z, A..Z, 0..9, -, .)
+A token introduced by a % defines a fixed constant that is automatically expanded into its agreed value by the parser. Tokens consist of an introducing %, and then a sequence of characters that conforms to the id data type (1-64, a..z, A..Z, 0..9, -, .)
 
 The following fixed values are set for all contexts:
 
@@ -289,13 +289,13 @@ param_list  = expression ("," expression)*
 funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains" | "substring" | "skip" | "take"
 op          = "*" | "/" | "+" | "-" | "|" | "&" | "=" | "~" | "!=" | "!~" | ">" | "<" | "<=" | ">=" | "in" | "and" | "or" | "xor" 
 number      = number as used in json
-string      = sequence of unicode characters, surrounded by either ' or ", using json escaping.
+string      = sequence of Unicode characters, surrounded by either ' or ", using json escaping.
 constant    = "%" ("a"-"z" | "A-Z" | "0-9") ("a-z" | "A-Z" | "0-9" | "-" | ".")* 
 ```
 
 Note:
 * Unicode whitespace is not explicitly shown in the grammar, but may be present around all terms and tokens in the grammar.
-* Non ascii (e.g. unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
+* Non ascii (e.g. Unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
 
 
 9. Mapping Extensions

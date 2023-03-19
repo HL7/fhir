@@ -1,822 +1,677 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="n509"
    version="1.1"
-   width="823.6"
-   height="272.11558"
+   width="1219.44999"
+   height="304.015589"
    sodipodi:docname="verificationresult.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata248">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview99273"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview246"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.3793104"
-     inkscape:cx="411.79999"
-     inkscape:cy="136.05779"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
+     inkscape:zoom="1.0217722"
+     inkscape:cx="609.72498"
+     inkscape:cy="152.18657"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
      inkscape:current-layer="n509" />
   <defs
-     id="defs11">
+     id="defs99038">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.025094697"
+       y="-0.067948718"
+       width="1.0643939"
+       height="1.174359">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset99029" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix99031" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur99033" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend99035" />
     </filter>
   </defs>
   <g
      id="n510"
-     transform="translate(362.49999,4.3499999)">
+     transform="translate(-349.39296,11.744301)">
     <rect
        id="VerificationResult"
-       x="0"
-       y="0"
+       x="362.5"
+       y="4.3499999"
        rx="4"
        ry="4"
-       width="286"
+       width="281.60001"
        height="190"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n511"
-       x1="0"
-       y1="28"
-       x2="286"
-       y2="28"
+       x1="362.5"
+       y1="32.349998"
+       x2="644.09998"
+       y2="32.349998"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n512"
-       x="143"
-       y="20"
-       class="diagram-class-title  diagram-class-resource"
-       style="fill:#000000">VerificationResult<tspan
+       x="503.29999"
+       y="24.35"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">VerificationResult<tspan
    class="diagram-class-title-link"
-   id="tspan16">(<a
-   xlink:href="domainresource.html"
+   id="tspan99043">(<a
+   id="n513"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n513">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
        id="n514"
-       x="6"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.target"
-   id="n515"><title
-   id="title19">A resource that was validated</title>
-target</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n516">Reference</a>
- [0..*] « <a
-   xlink:href="resourcelist.html#Any"
-   id="n517">Any</a>
- »</text>
+       x="368.5"
+       y="46.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n515"
+   xlink:href="verificationresult-definitions.html#VerificationResult.target"><title
+   id="title99046">A resource that was validated</title>target</a> : <a
+   id="n516"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n517"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
        id="n522"
-       x="6"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.targetLocation"
-   id="n523"><title
-   id="title25">The fhirpath location(s) within the resource that was validated</title>
-targetLocation</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n524">string</a>
- [0..*]</text>
+       x="368.5"
+       y="60.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n523"
+   xlink:href="verificationresult-definitions.html#VerificationResult.targetLocation"><title
+   id="title99052">The fhirpath location(s) within the resource that was validated</title>targetLocation</a> : <a
+   id="n524"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
     <text
        id="n528"
-       x="6"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.need"
-   id="n529"><title
-   id="title30">The frequency with which the target must be validated (none; initial; periodic)</title>
-need</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n530">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-verificationresult-need.html"
-   id="n531"><title
-   id="title34">The frequency with which the target must be validated. (Strength=Preferred)</title>
-need</a>
-? »</text>
+       x="368.5"
+       y="74.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n529"
+   xlink:href="verificationresult-definitions.html#VerificationResult.need"><title
+   id="title99057">The frequency with which the target must be validated (none; initial; periodic)</title>need</a> : <a
+   id="n530"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n531"
+   xlink:href="valueset-verificationresult-need.html"><title
+   id="title99061">null (Strength=Preferred)</title>Need</a>? »</text>
     <text
        id="n536"
-       x="6"
-       y="84"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.status"
-   id="n537"><title
-   id="title38">The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n538">code</a>
- [1..1] « <a
-   xlink:href="valueset-verificationresult-status.html"
-   id="n539"><title
-   id="n540">The validation status of the target. (Strength=Required)</title>
-status</a>
-! »</text>
+       x="368.5"
+       y="88.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n537"
+   xlink:href="verificationresult-definitions.html#VerificationResult.status"><title
+   id="title99065">The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed)</title>status</a> : <a
+   id="n538"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n539"
+   xlink:href="valueset-verificationresult-status.html"><title
+   id="n540">null (Strength=Required)</title>Status</a>! »</text>
     <text
        id="n546"
-       x="6"
-       y="98"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.statusDate"
-   id="n547"><title
-   id="title45">When the validation status was updated</title>
-statusDate</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n548">dateTime</a>
- [0..1]</text>
+       x="368.5"
+       y="102.35"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n547"
+   xlink:href="verificationresult-definitions.html#VerificationResult.statusDate"><title
+   id="title99072">When the validation status was updated</title>statusDate</a> : <a
+   id="n548"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
        id="n552"
-       x="6"
-       y="112"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.validationType"
-   id="n553"><title
-   id="title50">What the target is validated against (nothing; primary source; multiple sources)</title>
-validationType</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n554">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-verificationresult-validation-type.html"
-   id="n555"><title
-   id="title54">What the target is validated against. (Strength=Preferred)</title>
-validation-type</a>
-? »</text>
+       x="368.5"
+       y="116.35"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n553"
+   xlink:href="verificationresult-definitions.html#VerificationResult.validationType"><title
+   id="title99077">What the target is validated against (nothing; primary source; multiple sources)</title>validationType</a> : <a
+   id="n554"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n555"
+   xlink:href="valueset-verificationresult-validation-type.html"><title
+   id="title99081">null (Strength=Preferred)</title>ValidationType</a>? »</text>
     <text
        id="n560"
-       x="6"
-       y="126"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.validationProcess"
-   id="n561"><title
-   id="title58">The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)</title>
-validationProcess</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n562">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-verificationresult-validation-process.html"
-   id="n563"><title
-   id="n564">The primary process by which the target is validated. (Strength=Example)</title>
-validation-process</a>
-?? »</text>
+       x="368.5"
+       y="130.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n561"
+   xlink:href="verificationresult-definitions.html#VerificationResult.validationProcess"><title
+   id="title99085">The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)</title>validationProcess</a> : <a
+   id="n562"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n563"
+   xlink:href="valueset-verificationresult-validation-process.html"><title
+   id="n564">null (Strength=Example)</title>ValidationProcess</a>?? »</text>
     <text
        id="n570"
-       x="6"
-       y="140"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.frequency"
-   id="n571"><title
-   id="title65">Frequency of revalidation</title>
-frequency</a>
- : <a
-   xlink:href="datatypes.html#Timing"
-   id="n572">Timing</a>
- [0..1]</text>
+       x="368.5"
+       y="144.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n571"
+   xlink:href="verificationresult-definitions.html#VerificationResult.frequency"><title
+   id="title99092">Frequency of revalidation</title>frequency</a> : <a
+   id="n572"
+   xlink:href="datatypes.html#Timing">Timing</a> [0..1]</text>
     <text
        id="n576"
-       x="6"
-       y="154"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.lastPerformed"
-   id="n577"><title
-   id="title70">The date/time validation was last completed (including failed validations)</title>
-lastPerformed</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n578">dateTime</a>
- [0..1]</text>
+       x="368.5"
+       y="158.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n577"
+   xlink:href="verificationresult-definitions.html#VerificationResult.lastPerformed"><title
+   id="title99097">The date/time validation was last completed (including failed validations)</title>lastPerformed</a> : <a
+   id="n578"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
        id="n582"
-       x="6"
-       y="168"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.nextScheduled"
-   id="n583"><title
-   id="title75">The date when target is next validated, if appropriate</title>
-nextScheduled</a>
- : <a
-   xlink:href="datatypes.html#date"
-   id="n584">date</a>
- [0..1]</text>
+       x="368.5"
+       y="172.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n583"
+   xlink:href="verificationresult-definitions.html#VerificationResult.nextScheduled"><title
+   id="title99102">The date when target is next validated, if appropriate</title>nextScheduled</a> : <a
+   id="n584"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
        id="n588"
-       x="6"
-       y="182"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.failureAction"
-   id="n589"><title
-   id="title80">The result if validation fails (fatal; warning; record only; none)</title>
-failureAction</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n590">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-verificationresult-failure-action.html"
-   id="n591"><title
-   id="title84">The result if validation fails. (Strength=Preferred)</title>
-failure-action</a>
-? »</text>
+       x="368.5"
+       y="186.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n589"
+   xlink:href="verificationresult-definitions.html#VerificationResult.failureAction"><title
+   id="title99107">The result if validation fails (fatal; warning; record only; none)</title>failureAction</a> : <a
+   id="n590"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n591"
+   xlink:href="valueset-verificationresult-failure-action.html"><title
+   id="title99111">null (Strength=Preferred)</title>FailureAction</a>? »</text>
   </g>
   <g
      id="n596"
-     transform="translate(395.84999,4.3499999)">
+     transform="translate(-300.45837,19.573835)">
     <rect
        id="VerificationResult.primarySource"
-       x="320"
-       y="0"
+       x="715.84998"
+       y="4.3499999"
        rx="4"
        ry="4"
        width="303.60001"
        height="148"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n597"
-       x1="320"
-       y1="28"
-       x2="623.59998"
-       y2="28"
+       x1="715.84998"
+       y1="32.349998"
+       x2="1019.45"
+       y2="32.349998"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n598"
-       x="471.79999"
-       y="20"
-       class="diagram-class-title"
-       style="fill:#000000">PrimarySource</text>
+       x="867.64996"
+       y="24.35"
+       fill="#000000"
+       class="diagram-class-title">PrimarySource</text>
     <text
        id="n599"
-       x="326"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.who"
-   id="n600"><title
-   id="title92">Reference to the primary source</title>
-who</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n601">Reference</a>
- [0..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n602">Organization</a>
-|<a
-   xlink:href="practitioner.html#Practitioner"
-   id="n603">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n604">PractitionerRole</a>
- »</text>
+       x="721.84998"
+       y="46.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n600"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.who"><title
+   id="title99119">Reference to the primary source</title>who</a> : <a
+   id="n601"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n602"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n603"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n604"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
     <text
        id="n611"
-       x="326"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.type"
-   id="n612"><title
-   id="title100">Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n613">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-verificationresult-primary-source-type.html"
-   id="n614"><title
-   id="n615">Type of the validation primary source. (Strength=Example)</title>
-primary-source-type</a>
-?? »</text>
+       x="721.84998"
+       y="60.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n612"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.type"><title
+   id="title99127">Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)</title>type</a> : <a
+   id="n613"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n614"
+   xlink:href="valueset-verificationresult-primary-source-type.html"><title
+   id="n615">null (Strength=Example)</title>PrimarySourceType</a>?? »</text>
     <text
        id="n621"
-       x="326"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.communicationMethod"
-   id="n622"><title
-   id="title107">Method for communicating with the primary source (manual; API; Push)</title>
-communicationMethod</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n623">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-verificationresult-communication-method.html"
-   id="n624">
-  <title
-     id="n625">Method for communicating with the data source (manual; API; Push). (Strength=Example)</title>
-</a>
-</text>
+       x="721.84998"
+       y="74.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n622"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.communicationMethod"><title
+   id="title99134">Method for communicating with the primary source (manual; API; Push)</title>communicationMethod</a> : <a
+   id="n623"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n624"
+   xlink:href="valueset-verificationresult-communication-method.html"><title
+     id="n625">null (Strength=Example)</title></a></text>
     <text
        id="n626"
-       x="346"
-       y="84"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-verificationresult-communication-method.html"
-   id="n627">verificationresult-communicat...</a>
-?? »</text>
+       x="741.84998"
+       y="88.349998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n627"
+   xlink:href="valueset-verificationresult-communication-method.html">VerificationresultCommunicati...</a>?? »</text>
     <text
        id="n635"
-       x="326"
-       y="98"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.validationStatus"
-   id="n636"><title
-   id="title116">Status of the validation of the target against the primary source (successful; failed; unknown)</title>
-validationStatus</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n637">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-verificationresult-validation-status.html"
-   id="n638"><title
-   id="title120">Status of the validation of the target against the primary source. (Strength=Preferred)</title>
-validation-status</a>
-? »</text>
+       x="721.84998"
+       y="102.35"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n636"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.validationStatus"><title
+   id="title99143">Status of the validation of the target against the primary source (successful; failed; unknown)</title>validationStatus</a> : <a
+   id="n637"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n638"
+   xlink:href="valueset-verificationresult-validation-status.html"><title
+   id="title99147">null (Strength=Preferred)</title>ValidationStatus</a>? »</text>
     <text
        id="n643"
-       x="326"
-       y="112"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.validationDate"
-   id="n644"><title
-   id="title124">When the target was validated against the primary source</title>
-validationDate</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n645">dateTime</a>
- [0..1]</text>
+       x="721.84998"
+       y="116.35"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n644"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.validationDate"><title
+   id="title99151">When the target was validated against the primary source</title>validationDate</a> : <a
+   id="n645"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
        id="n649"
-       x="326"
-       y="126"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.canPushUpdates"
-   id="n650"><title
-   id="title129">Ability of the primary source to push updates/alerts (yes; no; undetermined)</title>
-canPushUpdates</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n651">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-verificationresult-can-push-updates.html"
-   id="n652"><title
-   id="title133">Ability of the primary source to push updates/alerts. (Strength=Preferred)</title>
-can-push-updates</a>
-? »</text>
+       x="721.84998"
+       y="130.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n650"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.canPushUpdates"><title
+   id="title99156">Ability of the primary source to push updates/alerts (yes; no; undetermined)</title>canPushUpdates</a> : <a
+   id="n651"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n652"
+   xlink:href="valueset-verificationresult-can-push-updates.html"><title
+   id="title99160">null (Strength=Preferred)</title>CanPushUpdates</a>? »</text>
     <text
        id="n657"
-       x="326"
-       y="140"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.pushTypeAvailable"
-   id="n658"><title
-   id="title137">Type of alerts/updates the primary source can send (specific requested changes; any changes; as defined by source)</title>
-pushTypeAvailable</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n659">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-verificationresult-push-type-available.html"
-   id="n660"><title
-   id="title141">Type of alerts/updates the primary source can send. (Strength=Preferred)</title>
-push-type-available</a>
-? »</text>
+       x="721.84998"
+       y="144.35001"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n658"
+   xlink:href="verificationresult-definitions.html#VerificationResult.primarySource.pushTypeAvailable"><title
+   id="title99164">Type of alerts/updates the primary source can send (specific requested changes; any changes; as defined by source)</title>pushTypeAvailable</a> : <a
+   id="n659"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n660"
+   xlink:href="valueset-verificationresult-push-type-available.html"><title
+   id="title99168">null (Strength=Preferred)</title>PushTypeAvailable</a>? »</text>
   </g>
   <g
      id="n665"
-     transform="translate(362.49999,4.3499999)">
+     transform="translate(-0.97869177,269.14024)">
     <rect
        id="VerificationResult.attestation"
-       x="-353.483"
-       y="0.85350776"
+       x="9.0169897"
+       y="5.2035074"
        rx="4"
        ry="4"
        width="303.60001"
        height="176"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n666"
-       x1="-353.483"
-       y1="28.853508"
-       x2="-49.882999"
-       y2="28.853508"
+       x1="9.0169897"
+       y1="33.203506"
+       x2="312.617"
+       y2="33.203506"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n667"
-       x="-201.683"
-       y="20.853508"
-       class="diagram-class-title"
-       style="fill:#000000">Attestation</text>
+       x="160.81699"
+       y="25.203508"
+       fill="#000000"
+       class="diagram-class-title">Attestation</text>
     <text
        id="n668"
-       x="-347.483"
-       y="42.853508"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.who"
-   id="n669"><title
-   id="title149">The individual or organization attesting to information</title>
-who</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n670">Reference</a>
- [0..1] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n671">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n672">PractitionerRole</a>
-|<a
-   xlink:href="organization.html#Organization"
-   id="n673">Organization</a>
- »</text>
+       x="15.01699"
+       y="47.203506"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n669"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.who"><title
+   id="title99176">The individual or organization attesting to information</title>who</a> : <a
+   id="n670"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n671"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n672"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n673"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
        id="n680"
-       x="-347.483"
-       y="56.853508"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.onBehalfOf"
-   id="n681"><title
-   id="title157">When the who is asserting on behalf of another (organization or individual)</title>
-onBehalfOf</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n682">Reference</a>
- [0..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n683">Organization</a>
-|<a
-   xlink:href="practitioner.html#Practitioner"
-   id="n684">Practitioner</a>
-|</text>
+       x="15.01699"
+       y="61.203506"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n681"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.onBehalfOf"><title
+   id="title99184">When the who is asserting on behalf of another (organization or individual)</title>onBehalfOf</a> : <a
+   id="n682"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n683"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n684"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
     <text
        id="n685"
-       x="-327.483"
-       y="70.853508"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n686">PractitionerRole</a>
- »</text>
+       x="35.016991"
+       y="75.203506"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n686"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
     <text
        id="n694"
-       x="-347.483"
-       y="84.853508"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.communicationMethod"
-   id="n695"><title
-   id="title166">The method by which attested information was submitted/retrieved (manual; API; Push)</title>
-communicationMethod</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n696">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-verificationresult-communication-method.html"
-   id="n697">
-  <title
-     id="n698">Method for communicating with the data source (manual; API; Push). (Strength=Example)</title>
-</a>
-</text>
+       x="15.01699"
+       y="89.203506"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n695"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.communicationMethod"><title
+   id="title99193">The method by which attested information was submitted/retrieved (manual; API; Push)</title>communicationMethod</a> : <a
+   id="n696"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n697"
+   xlink:href="valueset-verificationresult-communication-method.html"><title
+     id="n698">null (Strength=Example)</title></a></text>
     <text
        id="n699"
-       x="-327.483"
-       y="98.853508"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-verificationresult-communication-method.html"
-   id="n700">verificationresult-communicat...</a>
-?? »</text>
+       x="35.016991"
+       y="103.20351"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n700"
+   xlink:href="valueset-verificationresult-communication-method.html">VerificationresultCommunicati...</a>?? »</text>
     <text
        id="n708"
-       x="-347.483"
-       y="112.85351"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.date"
-   id="n709"><title
-   id="title175">The date the information was attested to</title>
-date</a>
- : <a
-   xlink:href="datatypes.html#date"
-   id="n710">date</a>
- [0..1]</text>
+       x="15.01699"
+       y="117.20351"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n709"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.date"><title
+   id="title99202">The date the information was attested to</title>date</a> : <a
+   id="n710"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
        id="n714"
-       x="-347.483"
-       y="126.85351"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.sourceIdentityCertificate"
-   id="n715"><title
-   id="title180">A digital identity certificate associated with the attestation source</title>
-sourceIdentityCertificate</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n716">string</a>
- [0..1]</text>
+       x="15.01699"
+       y="131.20351"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.sourceIdentityCertificate"><title
+   id="title99207">A digital identity certificate associated with the attestation source</title>sourceIdentityCertificate</a> : <a
+   id="n716"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
        id="n720"
-       x="-347.483"
-       y="140.8535"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.proxyIdentityCertificate"
-   id="n721"><title
-   id="title185">A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source</title>
-proxyIdentityCertificate</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n722">string</a>
- [0..1]</text>
+       x="15.01699"
+       y="145.20351"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n721"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.proxyIdentityCertificate"><title
+   id="title99212">A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source</title>proxyIdentityCertificate</a> : <a
+   id="n722"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
        id="n726"
-       x="-347.483"
-       y="154.8535"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.proxySignature"
-   id="n727"><title
-   id="title190">Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source</title>
-proxySignature</a>
- : <a
-   xlink:href="datatypes.html#Signature"
-   id="n728">Signature</a>
- [0..1]</text>
+       x="15.01699"
+       y="159.20351"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n727"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.proxySignature"><title
+   id="title99217">Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source</title>proxySignature</a> : <a
+   id="n728"
+   xlink:href="datatypes.html#Signature">Signature</a> [0..1]</text>
     <text
        id="n732"
-       x="-347.483"
-       y="168.8535"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.sourceSignature"
-   id="n733"><title
-   id="title195">Signed assertion by the attestation source that they have attested to the information</title>
-sourceSignature</a>
- : <a
-   xlink:href="datatypes.html#Signature"
-   id="n734">Signature</a>
- [0..1]</text>
+       x="15.01699"
+       y="173.20351"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n733"
+   xlink:href="verificationresult-definitions.html#VerificationResult.attestation.sourceSignature"><title
+   id="title99222">Signed assertion by the attestation source that they have attested to the information</title>sourceSignature</a> : <a
+   id="n734"
+   xlink:href="datatypes.html#Signature">Signature</a> [0..1]</text>
   </g>
   <g
      id="n738"
-     transform="translate(360.32499,31.899999)">
+     transform="translate(-268.16155,33.27552)">
     <rect
        id="VerificationResult.validator"
-       x="360.83755"
-       y="174.11559"
+       x="721.16254"
+       y="206.01559"
        rx="4"
        ry="4"
        width="211.2"
        height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n739"
-       x1="360.83755"
-       y1="202.11559"
-       x2="572.0376"
-       y2="202.11559"
+       x1="721.16254"
+       y1="234.01559"
+       x2="932.36255"
+       y2="234.01559"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n740"
-       x="466.43756"
-       y="194.11559"
-       class="diagram-class-title"
-       style="fill:#000000">Validator</text>
+       x="826.76251"
+       y="226.01559"
+       fill="#000000"
+       class="diagram-class-title">Validator</text>
     <text
        id="n741"
-       x="366.83755"
-       y="216.11559"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.validator.organization"
-   id="n742"><title
-   id="title204">Reference to the organization validating information</title>
-organization</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n743">Reference</a>
- [1..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n744">Organization</a>
- »</text>
+       x="727.16254"
+       y="248.01559"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n742"
+   xlink:href="verificationresult-definitions.html#VerificationResult.validator.organization"><title
+   id="title99231">Reference to the organization validating information</title>organization</a> : <a
+   id="n743"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n744"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
        id="n749"
-       x="366.83755"
-       y="230.11559"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.validator.identityCertificate"
-   id="n750"><title
-   id="title210">A digital identity certificate associated with the validator</title>
-identityCertificate</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n751">string</a>
- [0..1]</text>
+       x="727.16254"
+       y="262.01559"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n750"
+   xlink:href="verificationresult-definitions.html#VerificationResult.validator.identityCertificate"><title
+   id="title99237">A digital identity certificate associated with the validator</title>identityCertificate</a> : <a
+   id="n751"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
        id="n755"
-       x="366.83755"
-       y="244.11559"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="verificationresult-definitions.html#VerificationResult.validator.attestationSignature"
-   id="n756"><title
-   id="title215">Signed assertion by the validator that they have validated the information</title>
-attestationSignature</a>
- : <a
-   xlink:href="datatypes.html#Signature"
-   id="n757">Signature</a>
- [0..1]</text>
+       x="727.16254"
+       y="276.01559"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n756"
+   xlink:href="verificationresult-definitions.html#VerificationResult.validator.attestationSignature"><title
+   id="title99242">Signed assertion by the validator that they have validated the information</title>attestationSignature</a> : <a
+   id="n757"
+   xlink:href="datatypes.html#Signature">Signature</a> [0..1]</text>
   </g>
   <line
      id="n761"
-     x1="648.5"
-     y1="90.216789"
-     x2="682.5"
-     y2="88.045258"
-     style="stroke:#000080;stroke-width:1" />
+     x1="644.09999"
+     y1="91.23472612478386"
+     x2="715.8499899999999"
+     y2="87.09927943890489"
+     style="stroke:navy;stroke-width:1" />
   <polygon
      id="n762"
-     points="292,89.866788 298,85.866788 292,81.866788 286,85.866788 "
-     style="fill:#000080;stroke:#000080;stroke-width:1"
-     transform="rotate(-3.6544383,535.42795,-5593.4545)" />
+     points="644.09999,91.23472612478386 650.09999,95.23472612478386 656.09999,91.23472612478386 650.09999,87.23472612478386 644.09999,91.23472612478386"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.2987008611642046 644.09999 91.23472612478386)" />
   <rect
      id="n763"
-     x="637"
-     y="81.349998"
-     width="57"
-     height="18"
-     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+     x="650.5"
+     y="82.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n764"
-     x="665.5"
-     y="91.349998"
-     class="diagram-class-linkage"
-     style="fill:#000000">
-    <a
-       xlink:href="verificationresult-definitions.html#VerificationResult.primarySource"
-       id="n765"><title
-   id="title224">Information about the primary source(s) involved in validation</title>
-primarySource</a>
-  </text>
+     x="679.0"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n765"
+       xlink:href="verificationresult-definitions.html#VerificationResult.primarySource"><title
+   id="title99251">Information about the primary source(s) involved in validation</title>primarySource</a></text>
   <text
      id="n766"
-     x="662.5"
-     y="84.045258"
-     class="diagram-class-linkage"
-     style="fill:#000000">[0..*]</text>
+     x="695.8499899999999"
+     y="83.09927943890489"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
   <line
      id="n767"
-     x1="362.5"
-     y1="96.79998"
-     x2="312.617"
-     y2="95.910454"
-     style="stroke:#000080;stroke-width:1" />
+     x1="362.49999"
+     y1="96.82308292195438"
+     x2="312.61699000000004"
+     y2="95.92784002695545"
+     style="stroke:navy;stroke-width:1" />
   <polygon
      id="n768"
-     points="6,96.44998 12,92.44998 6,88.44998 0,92.44998 "
-     style="fill:#000080;stroke:#000080;stroke-width:1"
-     transform="rotate(-178.97839,181.26939,93.009056)" />
+     points="362.49999,96.82308292195438 368.49999,100.82308292195438 374.49999,96.82308292195438 368.49999,92.82308292195438 362.49999,96.82308292195438"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-178.97183141474915 362.49999 96.82308292195438)" />
   <rect
      id="n769"
-     x="314.5"
-     y="89.349998"
-     width="48"
-     height="18"
-     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+     x="313.0"
+     y="89.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n770"
-     x="338.5"
-     y="99.349998"
-     class="diagram-class-linkage"
-     style="fill:#000000">
-    <a
-       xlink:href="verificationresult-definitions.html#VerificationResult.attestation"
-       id="n771"><title
-   id="title232">Information about the entity attesting to information</title>
-attestation</a>
-  </text>
+     x="337.0"
+     y="99.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n771"
+       xlink:href="verificationresult-definitions.html#VerificationResult.attestation"><title
+   id="title99259">Information about the entity attesting to information</title>attestation</a></text>
   <text
      id="n772"
-     x="327.617"
-     y="91.910454"
-     class="diagram-class-linkage"
-     style="fill:#000000">[0..1]</text>
+     x="327.61699000000004"
+     y="91.92784002695545"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
   <line
      id="n773"
-     x1="648.5"
-     y1="151.57191"
-     x2="723.33752"
-     y2="178.90172"
-     style="stroke:#000080;stroke-width:1" />
+     x1="644.09999"
+     y1="162.7567681496165"
+     x2="740.1597978702874"
+     y2="206.01558900000003"
+     style="stroke:navy;stroke-width:1" />
   <polygon
      id="n774"
-     points="292,151.22191 298,147.22191 292,143.22191 286,147.22191 "
-     style="fill:#000080;stroke:#000080;stroke-width:1"
-     transform="rotate(20.061596,454.95361,1174.0955)" />
+     points="644.09999,162.7567681496165 650.09999,166.7567681496165 656.09999,162.7567681496165 650.09999,158.7567681496165 644.09999,162.7567681496165"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(24.24356989158558 644.09999 162.7567681496165)" />
   <rect
      id="n775"
-     x="666"
-     y="157.35001"
-     width="39"
-     height="18"
-     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+     x="672.5"
+     y="177.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n776"
-     x="685.5"
-     y="167.35001"
-     class="diagram-class-linkage"
-     style="fill:#000000">
-    <a
-       xlink:href="verificationresult-definitions.html#VerificationResult.validator"
-       id="n777"><title
-   id="title240">Information about the entity validating information</title>
-validator</a>
-  </text>
+     x="692.0"
+     y="187.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n777"
+       xlink:href="verificationresult-definitions.html#VerificationResult.validator"><title
+   id="title99267">Information about the entity validating information</title>validator</a></text>
   <text
      id="n778"
-     x="703.33752"
-     y="174.90172"
-     class="diagram-class-linkage"
-     style="fill:#000000">[0..*]</text>
+     x="740.1597978702874"
+     y="202.01558900000003"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
 </svg>

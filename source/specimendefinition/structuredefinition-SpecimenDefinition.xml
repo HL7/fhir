@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SpecimenDefinition"/>
-  <title value="SpecimenDefinition"/>
+  <title value="Specimen Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -127,6 +127,38 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="SpecimenDefinition.versionAlgorithm[x]">
+      <path value="SpecimenDefinition.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.name">
+      <path value="SpecimenDefinition.name"/>
+      <short value="Name for this {{title}} (computer friendly)"/>
+      <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="SpecimenDefinition.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
@@ -136,7 +168,7 @@
       <definition value="A short, descriptive, user-friendly title for the SpecimenDefinition."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
+      <type> 
         <code value="string"/>
       </type>
       <isSummary value="true"/>
@@ -329,6 +361,21 @@
         <code value="markdown"/>
       </type>
     </element>
+    <element id="SpecimenDefinition.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="SpecimenDefinition.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="SpecimenDefinition.approvalDate">
       <path value="SpecimenDefinition.approvalDate"/>
       <short value="When SpecimenDefinition was approved by publisher"/>
@@ -342,7 +389,7 @@
     </element>
     <element id="SpecimenDefinition.lastReviewDate">
       <path value="SpecimenDefinition.lastReviewDate"/>
-      <short value="The date on which the asset content was last reviewed"/>
+      <short value="The date on which the asset content was last reviewed by the publisher"/>
       <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>
@@ -400,7 +447,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PreparePatient"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Checks on the patient prior specimen collection."/>
         </extension>
         <strength value="example"/>
@@ -445,7 +492,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCollection"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The action to collect a type of specimen."/>
         </extension>
         <strength value="example"/>
@@ -498,6 +545,10 @@
         <description value="The type of specimen conditioned in a container for lab testing."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
       </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
     </element>
     <element id="SpecimenDefinition.typeTested.preference">
       <path value="SpecimenDefinition.typeTested.preference"/>
@@ -549,7 +600,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContainerMaterial"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Types of material for specimen containers."/>
         </extension>
         <strength value="example"/>
@@ -570,7 +621,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContainerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Type of specimen container."/>
         </extension>
         <strength value="example"/>
@@ -604,7 +655,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <example>
         <label value="General"/>
@@ -695,7 +746,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -709,7 +760,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -821,7 +872,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <example>
         <label value="General"/>

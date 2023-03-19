@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ManufacturedItemDefinition"/>
-  <title value="ManufacturedItemDefinition"/>
+  <title value="Manufactured Item Definition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -50,7 +50,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -179,8 +179,8 @@
     </element>
     <element id="ManufacturedItemDefinition.unitOfPresentation">
       <path value="ManufacturedItemDefinition.unitOfPresentation"/>
-      <short value="The “real world” units in which the quantity of the item is described"/>
-      <definition value="The “real world” units in which the quantity of the manufactured item is described."/>
+      <short value="The “real-world” units in which the quantity of the item is described"/>
+      <definition value="The “real-world” units in which the quantity of the manufactured item is described."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -314,7 +314,14 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="markdown"/>
+      </type>
+      <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -382,8 +389,8 @@
         <valueCode value="230,300"/>
       </extension>
       <path value="ManufacturedItemDefinition.component.constituent"/>
-      <short value="A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
-      <definition value="A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
+      <short value="A reference to a constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
+      <definition value="A reference to a constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -404,9 +411,9 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.location">
       <path value="ManufacturedItemDefinition.component.constituent.location"/>
-    	<short value="The physical location of the constituent/ingredient within the component"/>
-    	<definition value="The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc."/>
-    	<min value="0"/>
+      <short value="The physical location of the constituent/ingredient within the component"/>
+      <definition value="The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc."/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
@@ -426,8 +433,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.hasIngredient">
       <path value="ManufacturedItemDefinition.component.constituent.hasIngredient"/>
-    	<short value="The ingredient that is the constituent of the given component"/>
-    	<definition value="The ingredient that is the constituent of the given component."/>
+      <short value="The ingredient that is the constituent of the given component"/>
+      <definition value="The ingredient that is the constituent of the given component."/>
       <min value="0"/>
       <max value="*"/>
       <type>

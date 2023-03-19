@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n516"
+   version="1.1"
+   width="798.0"
+   height="382.0"
+   sodipodi:docname="diagnosticreport.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview30461"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5614035"
+     inkscape:cx="399"
+     inkscape:cy="191.17416"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n516" />
+  <defs
+     id="defs30256">
+    <filter
+       id="shadow1"
+       x="-0.026767677"
+       y="-0.0828125"
+       width="1.0686869"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset30247" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix30249" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur30251" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend30253" />
+    </filter>
+  </defs>
+  <g
+     id="n517">
+    <rect
+       id="DiagnosticReport"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="299.20000000000005"
+       height="372.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n518"
+       x1="0.0"
+       y1="28.0"
+       x2="299.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n519"
+       x="149.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DiagnosticReport<tspan
+   class="diagram-class-title-link"
+   id="tspan30261"> (<a
+   id="n520"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n521"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n522"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.identifier"><title
+   id="title30264">Identifiers assigned to this report by the performer or other systems</title>identifier</a> : <a
+   id="n523"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n527"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n528"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.basedOn"><title
+   id="title30269">Details concerning a service requested</title>basedOn</a> : <a
+   id="n529"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n530"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n531"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a>|</text>
+    <text
+       id="n532"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n533"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n534"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n535"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n545"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n546"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.status"><title
+   id="title30280">The status of the diagnostic report (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n547"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n548"
+   xlink:href="valueset-diagnostic-report-status.html"><title
+   id="n549">null (Strength=Required)</title>DiagnosticReportStatus</a>! »</text>
+    <text
+       id="n555"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n556"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.category"><title
+   id="title30287">A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes</title>category</a> : <a
+   id="n557"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n558"
+   xlink:href="valueset-diagnostic-service-sections.html"><title
+   id="n559">null (Strength=Example)</title>DiagnosticServiceSectionCodes</a>?? »</text>
+    <text
+       id="n565"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n566"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.code"><title
+   id="title30294">A code or name that describes this diagnostic report</title>code</a> : <a
+   id="n567"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n568"
+   xlink:href="valueset-report-codes.html"><title
+   id="title30298">null (Strength=Preferred)</title>LOINCDiagnosticReportCodes</a>? »</text>
+    <text
+       id="n573"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n574"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.subject"><title
+   id="title30302">The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources</title>subject</a> : <a
+   id="n575"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n576"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n577"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n578"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n579"
+   xlink:href="location.html#Location">Location</a>|</text>
+    <text
+       id="n580"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n581"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n582"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n583"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n584"
+   xlink:href="substance.html#Substance">Substance</a>|</text>
+    <text
+       id="n585"
+       x="26.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n586"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a> »</text>
+    <text
+       id="n601"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n602"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.encounter"><title
+   id="title30318">The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about</title>encounter</a> : <a
+   id="n603"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n604"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n609"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n610"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_"><title
+   id="title30324">The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself</title>effective[x]</a> : <a
+   id="n611"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n612"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n613"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n619"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n620"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.issued"><title
+   id="title30331">The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified</title>issued</a> : <a
+   id="n621"
+   xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
+    <text
+       id="n625"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n626"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.performer"><title
+   id="title30336">The diagnostic service that is responsible for issuing the report</title>performer</a> : <a
+   id="n627"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n628"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n629"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n630"
+       x="26.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n631"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n632"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n641"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n642"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.resultsInterpreter"><title
+   id="title30346">The practitioner or organization that is responsible for the report's conclusions and interpretations</title>resultsInterpreter</a> : <a
+   id="n643"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n644"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n645"
+       x="26.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n646"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n647"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n648"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n657"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n658"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.specimen"><title
+   id="title30356">Details about the specimens on which this diagnostic report is based</title>specimen</a> : <a
+   id="n659"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n660"
+   xlink:href="specimen.html#Specimen">Specimen</a> »</text>
+    <text
+       id="n665"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n666"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.result"><title
+   id="title30362">[Observations](observation.html)  that are part of this diagnostic report</title>result</a> : <a
+   id="n667"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n668"
+   xlink:href="observation.html#Observation">Observation</a> » « <a
+   id="n669"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n670">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n677"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n678"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.note"><title
+   id="title30370">Comments about the diagnostic report</title>note</a> : <a
+   id="n679"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n683"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n684"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.study"><title
+   id="title30375">One or more links to full details of any study performed during the diagnostic investigation. An ImagingStudy might comprise a set of radiologic images obtained via a procedure that are analyzed as a group. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted</title>study</a> : <a
+   id="n685"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n686"
+   xlink:href="genomicstudy.html#GenomicStudy">GenomicStudy</a>|<a
+   id="n687"
+   xlink:href="imagingstudy.html#ImagingStudy">ImagingStudy</a> »</text>
+    <text
+       id="n693"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n694"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.composition"><title
+   id="title30382">Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport</title>composition</a> : <a
+   id="n695"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n696"
+   xlink:href="composition.html#Composition">Composition</a> » « <a
+   id="n697"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n698">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n705"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n706"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.conclusion"><title
+   id="title30390">Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report</title>conclusion</a> : <a
+   id="n707"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n711"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n712"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.conclusionCode"><title
+   id="title30395">One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report</title>conclusionCode</a> : <a
+   id="n713"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n714"
+   xlink:href="valueset-clinical-findings.html"><title
+   id="n715">null (Strength=Example)</title>SNOMEDCTClinicalFindings</a>?? »</text>
+    <text
+       id="n721"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n722"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.presentedForm"><title
+   id="title30402">Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent</title>presentedForm</a> : <a
+   id="n723"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text>
+  </g>
+  <g
+     id="n727"
+     transform="translate(137.05618,89.662921)">
+    <rect
+       id="DiagnosticReport.supportingInfo"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n728"
+       x1="320"
+       y1="28"
+       x2="566.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n729"
+       x="443.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">SupportingInfo</text>
+    <text
+       id="n730"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n731"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.supportingInfo.type"><title
+   id="title30411">The code value for the role of the supporting information in the diagnostic report</title>type</a> : <a
+   id="n732"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n733"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0936.html"><title
+   id="n734">null (Strength=Example)</title>Hl7VSVSObservationType</a>?? »</text>
+    <text
+       id="n740"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n741"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.supportingInfo.reference"><title
+   id="title30418">The reference for the supporting information in the diagnostic report</title>reference</a> : <a
+   id="n742"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n743"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n744"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n745"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n746"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n747"
+   xlink:href="citation.html#Citation">Citation</a> »</text>
+  </g>
+  <g
+     id="n756"
+     transform="translate(37.146067,66.606742)">
+    <rect
+       id="DiagnosticReport.media"
+       x="400"
+       y="125"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n757"
+       x1="400"
+       y1="153"
+       x2="598"
+       y2="153"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n758"
+       x="499"
+       y="145"
+       fill="#000000"
+       class="diagram-class-title">Media</text>
+    <text
+       id="n759"
+       x="406"
+       y="167"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n760"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.media.comment"><title
+   id="title30432">A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer's attention to important features</title>comment</a> : <a
+   id="n761"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n765"
+       x="406"
+       y="181"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.media.link"><title
+   id="title30437">Reference to the image or data source</title>link</a> : <a
+   id="n767"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n768"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+  </g>
+  <line
+     id="n773"
+     x1="299.20000000000005"
+     y1="111.09809264305179"
+     x2="365.3061224489797"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n774"
+     points="299.20000000000005,111.09809264305179 305.20000000000005,115.09809264305179 311.20000000000005,111.09809264305179 305.20000000000005,107.09809264305179 299.20000000000005,111.09809264305179"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-26.596266526489185 299.20000000000005 111.09809264305179)" />
+  <rect
+     id="n775"
+     x="301.5"
+     y="87.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n776"
+     x="332.0"
+     y="97.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n777"
+       xlink:href="diagnosticreport-definitions.html#DiagnosticReport.supportingInfo"><title
+   id="title30447">This backbone element contains supporting information that was used in the creation of the report not included in the results already included in the report</title>supportingInfo</a></text>
+  <text
+     id="n778"
+     x="365.3061224489797"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n779"
+     x1="299.20000000000005"
+     y1="173.58328563251285"
+     x2="400.0"
+     y2="165.21694333142528"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n780"
+     points="299.20000000000005,173.58328563251285 305.20000000000005,177.58328563251285 311.20000000000005,173.58328563251285 305.20000000000005,169.58328563251285 299.20000000000005,173.58328563251285"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.744641717165603 299.20000000000005 173.58328563251285)" />
+  <rect
+     id="n781"
+     x="338.0"
+     y="162.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n782"
+     x="349.0"
+     y="172.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n783"
+       xlink:href="diagnosticreport-definitions.html#DiagnosticReport.media"><title
+   id="title30455">A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)</title>media</a></text>
+  <text
+     id="n784"
+     x="380.0"
+     y="161.21694333142528"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

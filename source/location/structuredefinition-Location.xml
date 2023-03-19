@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
+  <description value="Details and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -71,8 +71,8 @@
   <differential>
     <element id="Location">
       <path value="Location"/>
-      <short value="Details and position information for a physical place"/>
-      <definition value="Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
+      <short value="Details and position information for a place"/>
+      <definition value="Details and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -219,7 +219,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -354,7 +354,7 @@
       <path value="Location.position"/>
       <short value="The absolute geographic location"/>
       <definition value="The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML)."/>
-      <comment value="To define a boundary shape for this location use the standard extension [`location-boundary-geojson`](extension-location-boundary-geojson.html), and search using the `contains` special search parameter."/>
+      <comment value="To define a boundary shape for this location use the standard extension `[[[http://hl7.org/fhir/StructureDefinition/location-boundary-geojson]]]`, and search using the `contains` special search parameter."/>
       <requirements value="For mobile applications and automated route-finding knowing the exact location of the Location is required."/>
       <min value="0"/>
       <max value="1"/>

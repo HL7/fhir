@@ -152,7 +152,6 @@
 
             </div>
           </text>
-          <mode value="working"/>
           <!--   This is an entry that refers to a MedicationRequest resource in this document.
                 It is a new medication (as indicated by the flag)  -->
           <entry>
@@ -398,7 +397,6 @@
         </reason>
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
-             <dose>
         <dosageInstruction>
           <additionalInstruction>
             <text value="Take with Food"/>
@@ -436,7 +434,6 @@
                </doseAndRate>
 
         </dosageInstruction>
-             </dose>
       </MedicationRequest>
     </resource>
   </entry>
@@ -444,7 +441,7 @@
   <entry>
     <fullUrl value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
     <resource>
-      <MedicationUsage>
+      <MedicationStatement>
       <!--   The Human readible version of the medication statement  -->
         <text>
           <status value="generated"/>
@@ -474,7 +471,7 @@
           <text value="Management of Asthma"/>
 				</concept>
         </reason>
-       </MedicationUsage>
+       </MedicationStatement>
     </resource>
   </entry>
 <!--   The Allergy.  -->
@@ -553,7 +550,7 @@
     <onBehalfOf>
       <reference value="Organization/example"/>
     </onBehalfOf>
-    <!-- a real document would typically have an digital signature, but
+    <!-- a real document would typically have a digital signature, but
       the publishing tools are not yet setup to produce a valid digital
       signature. For now, an image of a signature -->
     <sigFormat value="image/jpg"/>

@@ -1,1580 +1,1466 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n781"
+   id="n910"
    version="1.1"
-   width="1638.9976689999999"
-   height="417.17857100000003"
+   width="1194.01713"
+   height="602.02932"
    sodipodi:docname="implementationguide.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata424">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview61558"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     id="namedview422"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.3862131"
-     inkscape:cx="1418.1449"
-     inkscape:cy="208.58928"
-     inkscape:window-x="2558"
-     inkscape:window-y="10"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n781" />
+     inkscape:zoom="1.0435362"
+     inkscape:cx="597.00852"
+     inkscape:cy="302.33738"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n910" />
   <defs
-     id="defs11">
+     id="defs61102">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.066919194"
+       y="-0.14722222"
+       width="1.1717172"
+       height="1.3777778">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset61093" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix61095" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur61097" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend61099" />
     </filter>
   </defs>
   <g
-     id="n782">
+     id="n911">
     <rect
        id="ImplementationGuide"
-       x="640.7800500000001"
-       y="10.829109"
+       x="275.60162"
+       y="27.861620000000002"
        rx="4"
        ry="4"
-       width="277.20000000000005"
-       height="260.0"
+       width="308.88000000000005"
+       height="302.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n783"
-       x1="640.7800500000001"
-       y1="38.829109"
-       x2="917.9800500000001"
-       y2="38.829109"
+       id="n912"
+       x1="275.60162"
+       y1="55.86162"
+       x2="584.48162"
+       y2="55.86162"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n784"
-       x="779.3800500000001"
-       y="30.829109000000003"
+       id="n913"
+       x="430.0416200000001"
+       y="47.86162"
        fill="black"
        class="diagram-class-title  diagram-class-resource">ImplementationGuide<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan61108"> (<a
+   id="n914"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n785">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n915"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
     <text
-       id="n786"
-       x="646.7800500000001"
-       y="52.829109"
+       id="n916"
+       x="281.60162"
+       y="69.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.url"
-   id="n787"><title
-   id="title19">An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers</title>
-url</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n788">uri</a>
- [1..1]</text>
+   id="n917"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.url"><title
+   id="title61111">An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers</title>url</a> : <a
+   id="n918"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
     <text
-       id="n792"
-       x="646.7800500000001"
-       y="66.829109"
+       id="n922"
+       x="281.60162"
+       y="83.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.version"
-   id="n793"><title
-   id="title24">The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>
-version</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n794">string</a>
- [0..1]</text>
+   id="n923"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.version"><title
+   id="title61116">The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n924"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n798"
-       x="646.7800500000001"
-       y="80.829109"
+       id="n928"
+       x="281.60162"
+       y="97.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.name"
-   id="n799"><title
-   id="title29">A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n800">string</a>
- [1..1]</text>
+   id="n929"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.versionAlgorithm_x_"><title
+   id="title61121">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n930"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n931"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n932"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n933"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n934">null (Strength=Extensible)</title></a></text>
     <text
-       id="n804"
-       x="646.7800500000001"
-       y="94.829109"
+       id="n935"
+       x="301.60162"
+       y="111.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.title"
-   id="n805"><title
-   id="title34">A short, descriptive, user-friendly title for the implementation guide</title>
-title</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n806">string</a>
- [0..1]</text>
+   id="n936"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
     <text
-       id="n810"
-       x="646.7800500000001"
-       y="108.829109"
+       id="n946"
+       x="281.60162"
+       y="125.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.status"
-   id="n811"><title
-   id="title39">The status of this implementation guide. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n812">code</a>
- [1..1] « <a
-   xlink:href="valueset-publication-status.html"
-   id="n813"><title
-   id="n814">The lifecycle status of an artifact. (Strength=Required)</title>
-PublicationStatus</a>
-! »</text>
+   id="n947"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.name"><title
+   id="title61132">A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n948"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n949"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n950">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n820"
-       x="646.7800500000001"
-       y="122.829109"
+       id="n956"
+       x="281.60162"
+       y="139.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.experimental"
-   id="n821"><title
-   id="title46">A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>
-experimental</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n822">boolean</a>
- [0..1]</text>
+   id="n957"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.title"><title
+   id="title61139">A short, descriptive, user-friendly title for the implementation guide</title>title</a> : <a
+   id="n958"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n826"
-       x="646.7800500000001"
-       y="136.82910900000002"
+       id="n962"
+       x="281.60162"
+       y="153.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.date"
-   id="n827"><title
-   id="title51">The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes</title>
-date</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n828">dateTime</a>
- [0..1]</text>
+   id="n963"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.status"><title
+   id="title61144">The status of this implementation guide. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n964"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n965"
+   xlink:href="valueset-publication-status.html"><title
+   id="n966">null (Strength=Required)</title>PublicationStatus</a>! »</text>
     <text
-       id="n832"
-       x="646.7800500000001"
-       y="150.82910900000002"
+       id="n972"
+       x="281.60162"
+       y="167.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.publisher"
-   id="n833"><title
-   id="title56">The name of the organization or individual that published the implementation guide</title>
-publisher</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n834">string</a>
- [0..1]</text>
+   id="n973"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.experimental"><title
+   id="title61151">A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n974"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n838"
-       x="646.7800500000001"
-       y="164.82910900000002"
+       id="n978"
+       x="281.60162"
+       y="181.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.contact"
-   id="n839"><title
-   id="title61">Contact details to assist a user in finding and communicating with the publisher</title>
-contact</a>
- : <a
-   xlink:href="metadatatypes.html#ContactDetail"
-   id="n840">ContactDetail</a>
- [0..*]</text>
+   id="n979"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.date"><title
+   id="title61156">The date  (and optionally time) when the implementation guide was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes</title>date</a> : <a
+   id="n980"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n844"
-       x="646.7800500000001"
-       y="178.82910900000002"
+       id="n984"
+       x="281.60162"
+       y="195.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.description"
-   id="n845"><title
-   id="title66">A free text natural language description of the implementation guide from a consumer's perspective</title>
-description</a>
- : <a
-   xlink:href="datatypes.html#markdown"
-   id="n846">markdown</a>
- [0..1]</text>
+   id="n985"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.publisher"><title
+   id="title61161">The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide</title>publisher</a> : <a
+   id="n986"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n850"
-       x="646.7800500000001"
-       y="192.82910900000002"
+       id="n990"
+       x="281.60162"
+       y="209.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.useContext"
-   id="n851"><title
-   id="title71">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate implementation guide instances</title>
-useContext</a>
- : <a
-   xlink:href="metadatatypes.html#UsageContext"
-   id="n852">UsageContext</a>
- [0..*]</text>
+   id="n991"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.contact"><title
+   id="title61166">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n992"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text
-       id="n856"
-       x="646.7800500000001"
-       y="206.82910900000002"
+       id="n996"
+       x="281.60162"
+       y="223.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.jurisdiction"
-   id="n857"><title
-   id="title76">A legal or geographic region in which the implementation guide is intended to be used</title>
-jurisdiction</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n858">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-jurisdiction.html"
-   id="n859"><title
-   id="n860">Countries and regions within which this artifact is targeted for use. (Strength=Extensible)</title>
-Jurisdiction ValueSet</a>
-+ »</text>
+   id="n997"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.description"><title
+   id="title61171">A free text natural language description of the implementation guide from a consumer's perspective</title>description</a> : <a
+   id="n998"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n866"
-       x="646.7800500000001"
-       y="220.82910900000002"
+       id="n1002"
+       x="281.60162"
+       y="237.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.copyright"
-   id="n867"><title
-   id="title83">A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide</title>
-copyright</a>
- : <a
-   xlink:href="datatypes.html#markdown"
-   id="n868">markdown</a>
- [0..1]</text>
+   id="n1003"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.useContext"><title
+   id="title61176">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate implementation guide instances</title>useContext</a> : <a
+   id="n1004"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
     <text
-       id="n872"
-       x="646.7800500000001"
-       y="234.82910900000002"
+       id="n1008"
+       x="281.60162"
+       y="251.86162000000002"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.packageId"
-   id="n873"><title
-   id="title88">The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care</title>
-packageId</a>
- : <a
-   xlink:href="datatypes.html#id"
-   id="n874">id</a>
- [1..1]</text>
+   id="n1009"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.jurisdiction"><title
+   id="title61181">A legal or geographic region in which the implementation guide is intended to be used</title>jurisdiction</a> : <a
+   id="n1010"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1011"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1012">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
     <text
-       id="n878"
-       x="646.7800500000001"
-       y="248.82910900000002"
+       id="n1018"
+       x="281.60162"
+       y="265.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.license"
-   id="n879"><title
-   id="title93">The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'</title>
-license</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n880">code</a>
- [0..1] « <a
-   xlink:href="valueset-spdx-license.html"
-   id="n881"><title
-   id="n882">The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/). (Strength=Required)</title>
-SPDXLicense</a>
-! »</text>
+   id="n1019"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.copyright"><title
+   id="title61188">A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide</title>copyright</a> : <a
+   id="n1020"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n888"
-       x="646.7800500000001"
-       y="262.829109"
+       id="n1024"
+       x="281.60162"
+       y="279.86162"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.fhirVersion"
-   id="n889"><title
-   id="title100">The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version</title>
-fhirVersion</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n890">code</a>
- [1..*] « <a
-   xlink:href="valueset-FHIR-version.html"
-   id="n891"><title
-   id="n892">All published FHIR Versions. (Strength=Required)</title>
-FHIRVersion</a>
-! »</text>
+   id="n1025"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.copyrightLabel"><title
+   id="title61193">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1026"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1030"
+       x="281.60162"
+       y="293.86162"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1031"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.packageId"><title
+   id="title61198">The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care</title>packageId</a> : <a
+   id="n1032"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n1036"
+       x="281.60162"
+       y="307.86162"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1037"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.license"><title
+   id="title61203">The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'</title>license</a> : <a
+   id="n1038"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1039"
+   xlink:href="valueset-spdx-license.html"><title
+   id="n1040">null (Strength=Required)</title>SPDXLicense</a>! »</text>
+    <text
+       id="n1046"
+       x="281.60162"
+       y="321.86162"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1047"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.fhirVersion"><title
+   id="title61210">The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version</title>fhirVersion</a> : <a
+   id="n1048"
+   xlink:href="datatypes.html#code">code</a> [1..*] « <a
+   id="n1049"
+   xlink:href="valueset-FHIR-version.html"><title
+   id="n1050">null (Strength=Required)</title>FHIRVersion</a>! » « <a
+   id="n1051"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1052">This element has or is affected by some invariants</title>C</a> »</text>
   </g>
   <g
-     id="n898"
-     transform="translate(993.35379,66.367864)">
+     id="n1060">
     <rect
        id="ImplementationGuide.dependsOn"
-       x="32.124283"
-       y="196.16679"
+       x="673.8958700000001"
+       y="16.495750000000015"
        rx="4"
        ry="4"
-       width="202.39999"
-       height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="202.4"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n899"
-       x1="32.124283"
-       y1="224.16679"
-       x2="234.52428"
-       y2="224.16679"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1061"
+       x1="673.8958700000001"
+       y1="44.495750000000015"
+       x2="876.29587"
+       y2="44.495750000000015"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n900"
-       x="133.32428"
-       y="216.16679"
-       class="diagram-class-title"
-       style="fill:#000000">DependsOn</text>
+       id="n1062"
+       x="775.0958700000001"
+       y="36.495750000000015"
+       fill="black"
+       class="diagram-class-title">DependsOn</text>
     <text
-       id="n901"
-       x="38.124283"
-       y="238.16679"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.uri"
-   id="n902"><title
-   id="title111">A canonical reference to the Implementation guide for the dependency</title>
-uri</a>
- : <a
-   xlink:href="datatypes.html#canonical"
-   id="n903">canonical</a>
- [1..1] « <a
-   xlink:href="implementationguide.html#ImplementationGuide"
-   id="n904">ImplementationGuide</a>
- »</text>
+       id="n1063"
+       x="679.8958700000001"
+       y="58.495750000000015"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1064"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.uri"><title
+   id="title61223">A canonical reference to the Implementation guide for the dependency</title>uri</a> : <a
+   id="n1065"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n1066"
+   xlink:href="implementationguide.html#ImplementationGuide">ImplementationGuide</a> »</text>
     <text
-       id="n909"
-       x="38.124283"
-       y="252.16679"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.packageId"
-   id="n910"><title
-   id="title117">The NPM package name for the Implementation Guide that this IG depends on</title>
-packageId</a>
- : <a
-   xlink:href="datatypes.html#id"
-   id="n911">id</a>
- [0..1]</text>
+       id="n1071"
+       x="679.8958700000001"
+       y="72.49575000000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1072"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.packageId"><title
+   id="title61229">The NPM package name for the Implementation Guide that this IG depends on</title>packageId</a> : <a
+   id="n1073"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
     <text
-       id="n915"
-       x="38.124283"
-       y="266.16681"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.version"
-   id="n916"><title
-   id="title122">The version of the IG that is depended on, when the correct version is required to understand the IG correctly</title>
-version</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n917">string</a>
- [0..1]</text>
+       id="n1077"
+       x="679.8958700000001"
+       y="86.49575000000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1078"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.version"><title
+   id="title61234">The version of the IG that is depended on, when the correct version is required to understand the IG correctly</title>version</a> : <a
+   id="n1079"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1083"
+       x="679.8958700000001"
+       y="100.49575000000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1084"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn.reason"><title
+   id="title61239">A description explaining the nature of the dependency on the listed IG</title>reason</a> : <a
+   id="n1085"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n921"
-     transform="translate(78.631491,10.099458)">
+     id="n1089">
     <rect
        id="ImplementationGuide.global"
-       x="329.6893"
-       y="300.98447"
+       x="674.01586"
+       y="149.96891999999997"
        rx="4"
        ry="4"
-       width="220"
-       height="64"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
-    <line
-       id="n922"
-       x1="329.6893"
-       y1="328.98447"
-       x2="549.68927"
-       y2="328.98447"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n923"
-       x="439.6893"
-       y="320.98447"
-       class="diagram-class-title"
-       style="fill:#000000">Global</text>
-    <text
-       id="n924"
-       x="335.6893"
-       y="342.98447"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.global.type"
-   id="n925"><title
-   id="title131">The type of resource that all instances must conform to</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n926">code</a>
- [1..1] « <a
-   xlink:href="valueset-resource-types.html"
-   id="n927"><title
-   id="n928">One of the resource types defined as part of this version of FHIR. (Strength=Required)</title>
-ResourceType</a>
-! »</text>
-    <text
-       id="n934"
-       x="335.6893"
-       y="356.98447"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.global.profile"
-   id="n935"><title
-   id="title138">A reference to the profile that all instances must conform to</title>
-profile</a>
- : <a
-   xlink:href="datatypes.html#canonical"
-   id="n936">canonical</a>
- [1..1] « <a
-   xlink:href="structuredefinition.html#StructureDefinition"
-   id="n937">StructureDefinition</a>
- »</text>
-  </g>
-  <g
-     id="n942"
-     transform="translate(59.207275,26.314789)">
-    <rect
-       id="ImplementationGuide.definition"
-       x="358.29272"
-       y="146.68521"
-       rx="4"
-       ry="4"
-       width="79.199997"
-       height="36"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
-    <line
-       id="n943"
-       x1="358.29272"
-       y1="174.68521"
-       x2="437.49274"
-       y2="174.68521"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n944"
-       x="397.89273"
-       y="166.68521"
-       class="diagram-class-title"
-       style="fill:#000000">Definition</text>
-  </g>
-  <g
-     id="n945">
-    <rect
-       id="ImplementationGuide.definition.grouping"
-       x="44.32181"
-       y="119.96688900000001"
-       rx="4"
-       ry="4"
-       width="118.80000000000001"
+       width="220.00000000000003"
        height="64.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n946"
-       x1="44.32181"
-       y1="147.966889"
-       x2="163.12181"
-       y2="147.966889"
+       id="n1090"
+       x1="674.01586"
+       y1="177.96891999999997"
+       x2="894.01586"
+       y2="177.96891999999997"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n947"
-       x="103.72181"
-       y="139.966889"
+       id="n1091"
+       x="784.01586"
+       y="169.96891999999997"
+       fill="black"
+       class="diagram-class-title">Global</text>
+    <text
+       id="n1092"
+       x="680.01586"
+       y="191.96891999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1093"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.global.type"><title
+   id="title61248">The type of resource that all instances must conform to</title>type</a> : <a
+   id="n1094"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1095"
+   xlink:href="valueset-resource-types.html"><title
+   id="n1096">null (Strength=Required)</title>ResourceType</a>! »</text>
+    <text
+       id="n1102"
+       x="680.01586"
+       y="205.96891999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1103"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.global.profile"><title
+   id="title61255">A reference to the profile that all instances must conform to</title>profile</a> : <a
+   id="n1104"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n1105"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+  </g>
+  <g
+     id="n1110">
+    <rect
+       id="ImplementationGuide.definition"
+       x="380.680583"
+       y="383.17327"
+       rx="4"
+       ry="4"
+       width="79.2"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1111"
+       x1="380.680583"
+       y1="411.17327"
+       x2="459.880583"
+       y2="411.17327"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1112"
+       x="420.28058300000004"
+       y="403.17327"
+       fill="black"
+       class="diagram-class-title">Definition</text>
+  </g>
+  <g
+     id="n1113">
+    <rect
+       id="ImplementationGuide.definition.grouping"
+       x="86.3181438"
+       y="485.73635199999995"
+       rx="4"
+       ry="4"
+       width="127.60000000000001"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1114"
+       x1="86.3181438"
+       y1="513.7363519999999"
+       x2="213.9181438"
+       y2="513.7363519999999"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1115"
+       x="150.1181438"
+       y="505.73635199999995"
        fill="black"
        class="diagram-class-title">Grouping</text>
     <text
-       id="n948"
-       x="50.32181"
-       y="161.966889"
+       id="n1116"
+       x="92.3181438"
+       y="527.7363519999999"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.grouping.name"
-   id="n949"><title
-   id="title152">The human-readable title to display for the package of resources when rendering the implementation guide</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n950">string</a>
- [1..1]</text>
+   id="n1117"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.grouping.name"><title
+   id="title61269">The human-readable title to display for the package of resources when rendering the implementation guide</title>name</a> : <a
+   id="n1118"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n954"
-       x="50.32181"
-       y="175.966889"
+       id="n1122"
+       x="92.3181438"
+       y="541.7363519999999"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.grouping.description"
-   id="n955"><title
-   id="title157">Human readable text describing the package</title>
-description</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n956">string</a>
- [0..1]</text>
+   id="n1123"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.grouping.description"><title
+   id="title61274">Human readable text describing the package</title>description</a> : <a
+   id="n1124"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n960"
-     transform="translate(27.412813,7.2138983)">
+     id="n1128">
     <rect
        id="ImplementationGuide.definition.resource"
-       x="247.93314"
-       y="-1.42586"
+       x="674.01713"
+       y="256.49019"
        rx="4"
        ry="4"
-       width="294.79999"
-       height="120"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="220.00000000000003"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n961"
-       x1="247.93314"
-       y1="26.574141"
-       x2="542.73315"
-       y2="26.574141"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1129"
+       x1="674.01713"
+       y1="284.49019"
+       x2="894.01713"
+       y2="284.49019"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n962"
-       x="395.33313"
-       y="18.574141"
-       class="diagram-class-title"
-       style="fill:#000000">Resource</text>
+       id="n1130"
+       x="784.01713"
+       y="276.49019"
+       fill="black"
+       class="diagram-class-title">Resource</text>
     <text
-       id="n963"
-       x="253.93314"
-       y="40.574139"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.reference"
-   id="n964"><title
-   id="title166">Where this resource is found</title>
-reference</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n965">Reference</a>
- [1..1] « <a
-   xlink:href="resourcelist.html#Any"
-   id="n966">Any</a>
- »</text>
+       id="n1131"
+       x="680.01713"
+       y="298.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1132"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.reference"><title
+   id="title61283">Where this resource is found</title>reference</a> : <a
+   id="n1133"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1134"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n971"
-       x="253.93314"
-       y="54.574139"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.fhirVersion"
-   id="n972"><title
-   id="title172">Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion</title>
-fhirVersion</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n973">code</a>
- [0..*] « <a
-   xlink:href="valueset-FHIR-version.html"
-   id="n974"><title
-   id="n975">All published FHIR Versions. (Strength=Required)</title>
-FHIRVersion</a>
-! »</text>
+       id="n1139"
+       x="680.01713"
+       y="312.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1140"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.fhirVersion"><title
+   id="title61289">Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion</title>fhirVersion</a> : <a
+   id="n1141"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n1142"
+   xlink:href="valueset-FHIR-version.html"><title
+   id="n1143">null (Strength=Required)</title>FHIRVersion</a>! » « <a
+   id="n1144"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1145">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n981"
-       x="253.93314"
-       y="68.574142"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.name"
-   id="n982"><title
-   id="title179">A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n983">string</a>
- [0..1]</text>
+       id="n1153"
+       x="680.01713"
+       y="326.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1154"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.name"><title
+   id="title61298">A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)</title>name</a> : <a
+   id="n1155"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n987"
-       x="253.93314"
-       y="82.574142"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.description"
-   id="n988"><title
-   id="title184">A description of the reason that a resource has been included in the implementation guide</title>
-description</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n989">string</a>
- [0..1]</text>
+       id="n1159"
+       x="680.01713"
+       y="340.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1160"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.description"><title
+   id="title61303">A description of the reason that a resource has been included in the implementation guide</title>description</a> : <a
+   id="n1161"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n993"
-       x="253.93314"
-       y="96.574142"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.example_x_"
-   id="n994"><title
-   id="title189">If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile</title>
-example[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n995">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#boolean"
-   id="n996">boolean</a>
-|<a
-   xlink:href="datatypes.html#canonical"
-   id="n997">canonical</a>
-(<a
-   xlink:href="structuredefinition.html#StructureDefinition"
-   id="n998">StructureDefinition</a>
-) »</text>
+       id="n1165"
+       x="680.01713"
+       y="354.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1166"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.isExample"><title
+   id="title61308">If true, indicates the resource is an example instance</title>isExample</a> : <a
+   id="n1167"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1005"
-       x="253.93314"
-       y="110.57414"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.groupingId"
-   id="n1006"><title
-   id="title197">Reference to the id of the grouping this resource appears in</title>
-groupingId</a>
- : <a
-   xlink:href="datatypes.html#id"
-   id="n1007">id</a>
- [0..1]</text>
+       id="n1171"
+       x="680.01713"
+       y="368.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1172"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.profile"><title
+   id="title61313">If present, indicates profile(s) the instance is valid against</title>profile</a> : <a
+   id="n1173"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1174"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+    <text
+       id="n1179"
+       x="680.01713"
+       y="382.49019"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1180"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.groupingId"><title
+   id="title61319">Reference to the id of the grouping this resource appears in</title>groupingId</a> : <a
+   id="n1181"
+   xlink:href="datatypes.html#id">id</a> [0..1] « <a
+   id="n1182"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1183">This element has or is affected by some invariants</title>C</a> »</text>
   </g>
   <g
-     id="n1011">
+     id="n1189">
     <rect
        id="ImplementationGuide.definition.page"
-       x="45.81944000000001"
-       y="309.17857100000003"
+       x="525.755911"
+       y="464.17337999999995"
        rx="4"
        ry="4"
-       width="211.20000000000002"
+       width="272.8"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1190"
+       x1="525.755911"
+       y1="492.17337999999995"
+       x2="798.5559109999999"
+       y2="492.17337999999995"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1191"
+       x="662.155911"
+       y="484.17337999999995"
+       fill="black"
+       class="diagram-class-title">Page</text>
+    <text
+       id="n1192"
+       x="531.755911"
+       y="506.17337999999995"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1193"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.source_x_"><title
+   id="title61330">Indicates the URL or the actual content to provide for the page</title>source[x]</a> : <a
+   id="n1194"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n1195"
+   xlink:href="datatypes.html#url">url</a>|<a
+   id="n1196"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1197"
+   xlink:href="datatypes.html#markdown">markdown</a> » « <a
+   id="n1198"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1199">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1208"
+       x="531.755911"
+       y="520.17338"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1209"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.name"><title
+   id="title61340">The url by which the page should be known when published</title>name</a> : <a
+   id="n1210"
+   xlink:href="datatypes.html#url">url</a> [1..1]</text>
+    <text
+       id="n1214"
+       x="531.755911"
+       y="534.17338"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1215"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.title"><title
+   id="title61345">A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc</title>title</a> : <a
+   id="n1216"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1220"
+       x="531.755911"
+       y="548.17338"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1221"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.generation"><title
+   id="title61350">A code that indicates how the page is generated</title>generation</a> : <a
+   id="n1222"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1223"
+   xlink:href="valueset-guide-page-generation.html"><title
+   id="n1224">null (Strength=Required)</title>GuidePageGeneration</a>! » « <a
+   id="n1225"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1226">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1234"
+     transform="translate(-15.332482,22.040443)">
+    <rect
+       id="ImplementationGuide.definition.parameter"
+       x="52.852097"
+       y="374.4942"
+       rx="4"
+       ry="4"
+       width="189.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1235"
+       x1="52.852097"
+       y1="402.4942"
+       x2="242.05209"
+       y2="402.4942"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1236"
+       x="147.4521"
+       y="394.4942"
+       fill="#000000"
+       class="diagram-class-title">Parameter</text>
+    <text
+       id="n1237"
+       x="58.852097"
+       y="416.4942"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1238"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.parameter.code"><title
+   id="title61363">A tool-specific code that defines the parameter</title>code</a> : <a
+   id="n1239"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n1240"
+   xlink:href="valueset-guide-parameter-code.html"><title
+   id="n1241">null (Strength=Extensible)</title>GuideParameterCode</a>+ »</text>
+    <text
+       id="n1247"
+       x="58.852097"
+       y="430.4942"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1248"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.parameter.value"><title
+   id="title61370">Value for named type</title>value</a> : <a
+   id="n1249"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n1253">
+    <rect
+       id="ImplementationGuide.definition.template"
+       x="337.763307"
+       y="494.02932"
+       rx="4"
+       ry="4"
+       width="96.80000000000001"
        height="78.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n1012"
-       x1="45.81944000000001"
-       y1="337.17857100000003"
-       x2="257.01944000000003"
-       y2="337.17857100000003"
+       id="n1254"
+       x1="337.763307"
+       y1="522.02932"
+       x2="434.563307"
+       y2="522.02932"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1013"
-       x="151.41944"
-       y="329.17857100000003"
+       id="n1255"
+       x="386.16330700000003"
+       y="514.02932"
        fill="black"
-       class="diagram-class-title">Page</text>
+       class="diagram-class-title">Template</text>
     <text
-       id="n1014"
-       x="51.81944000000001"
-       y="351.17857100000003"
+       id="n1256"
+       x="343.763307"
+       y="536.02932"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.name_x_"
-   id="n1015"><title
-   id="title206">The source address for the page</title>
-name[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1016">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#url"
-   id="n1017">url</a>
-|<a
-   xlink:href="references.html#Reference"
-   id="n1018">Reference</a>
-(<a
-   xlink:href="binary.html#Binary"
-   id="n1019">Binary</a>
-) »</text>
+   id="n1257"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template.code"><title
+   id="title61379">Type of template specified</title>code</a> : <a
+   id="n1258"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
     <text
-       id="n1026"
-       x="51.81944000000001"
-       y="365.17857100000003"
+       id="n1262"
+       x="343.763307"
+       y="550.02932"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.title"
-   id="n1027"><title
-   id="title214">A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc</title>
-title</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1028">string</a>
- [1..1]</text>
+   id="n1263"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template.source"><title
+   id="title61384">The source location for the template</title>source</a> : <a
+   id="n1264"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n1032"
-       x="51.81944000000001"
-       y="379.17857100000003"
+       id="n1268"
+       x="343.763307"
+       y="564.02932"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.generation"
-   id="n1033"><title
-   id="title219">A code that indicates how the page is generated</title>
-generation</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1034">code</a>
- [1..1] « <a
-   xlink:href="valueset-guide-page-generation.html"
-   id="n1035"><title
-   id="n1036">A code that indicates how the page is generated. (Strength=Required)</title>
-GuidePageGeneration</a>
-! »</text>
+   id="n1269"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template.scope"><title
+   id="title61389">The scope in which the template applies</title>scope</a> : <a
+   id="n1270"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
   <g
-     id="n1042"
-     transform="translate(9.3780677,10.099458)">
+     id="n1274"
+     transform="translate(-33.539804)">
     <rect
-       id="ImplementationGuide.definition.parameter"
-       x="32.396702"
-       y="32.650101"
-       rx="4"
-       ry="4"
-       width="180.39999"
-       height="64"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
-    <line
-       id="n1043"
-       x1="32.396702"
-       y1="60.650101"
-       x2="212.79671"
-       y2="60.650101"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1044"
-       x="122.5967"
-       y="52.650101"
-       class="diagram-class-title"
-       style="fill:#000000">Parameter</text>
-    <text
-       id="n1045"
-       x="38.396702"
-       y="74.650101"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.parameter.code"
-   id="n1046"><title
-   id="title230">apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1047">code</a>
- [1..1] « <a
-   xlink:href="valueset-guide-parameter-code.html"
-   id="n1048"><title
-   id="n1049">Code of parameter that is input to the guide. (Strength=Required)</title>
-GuideParameterCode</a>
-! »</text>
-    <text
-       id="n1055"
-       x="38.396702"
-       y="88.650101"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.parameter.value"
-   id="n1056"><title
-   id="title237">Value for named type</title>
-value</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1057">string</a>
- [1..1]</text>
-  </g>
-  <g
-     id="n1061"
-     transform="translate(-414.07776,-1.4427797)">
-    <rect
-       id="ImplementationGuide.definition.template"
-       x="500.76089"
-       y="204.96454"
+       id="ImplementationGuide.manifest"
+       x="72.306648"
+       y="132.00301"
        rx="4"
        ry="4"
        width="96.800003"
        height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1062"
-       x1="500.76089"
-       y1="232.96454"
-       x2="597.56091"
-       y2="232.96454"
+       id="n1275"
+       x1="72.306648"
+       y1="160.00301"
+       x2="169.10664"
+       y2="160.00301"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1063"
-       x="549.16089"
-       y="224.96454"
-       class="diagram-class-title"
-       style="fill:#000000">Template</text>
-    <text
-       id="n1064"
-       x="506.76089"
-       y="246.96454"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template.code"
-   id="n1065"><title
-   id="title246">Type of template specified</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1066">code</a>
- [1..1]</text>
-    <text
-       id="n1070"
-       x="506.76089"
-       y="260.96454"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template.source"
-   id="n1071"><title
-   id="title251">The source location for the template</title>
-source</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1072">string</a>
- [1..1]</text>
-    <text
-       id="n1076"
-       x="506.76089"
-       y="274.96454"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template.scope"
-   id="n1077"><title
-   id="title256">The scope in which the template applies</title>
-scope</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1078">string</a>
- [0..1]</text>
-  </g>
-  <g
-     id="n1082">
-    <rect
-       id="ImplementationGuide.manifest"
-       x="1034.2502100000002"
-       y="22.642682"
-       rx="4"
-       ry="4"
-       width="96.80000000000001"
-       height="78.0"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
-    <line
-       id="n1083"
-       x1="1034.2502100000002"
-       y1="50.642682"
-       x2="1131.05021"
-       y2="50.642682"
-       style="stroke:dimgrey;stroke-width:1" />
-    <text
-       id="n1084"
-       x="1082.6502100000002"
-       y="42.642682"
-       fill="black"
+       id="n1276"
+       x="120.70665"
+       y="152.00301"
+       fill="#000000"
        class="diagram-class-title">Manifest</text>
     <text
-       id="n1085"
-       x="1040.2502100000002"
-       y="64.64268200000001"
-       fill="black"
+       id="n1277"
+       x="78.306648"
+       y="174.00301"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.rendering"
-   id="n1086"><title
-   id="title265">A pointer to official web page, PDF or other rendering of the implementation guide</title>
-rendering</a>
- : <a
-   xlink:href="datatypes.html#url"
-   id="n1087">url</a>
- [0..1]</text>
+   id="n1278"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.rendering"><title
+   id="title61398">A pointer to official web page, PDF or other rendering of the implementation guide</title>rendering</a> : <a
+   id="n1279"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
     <text
-       id="n1091"
-       x="1040.2502100000002"
-       y="78.64268200000001"
-       fill="black"
+       id="n1283"
+       x="78.306648"
+       y="188.00301"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.image"
-   id="n1092"><title
-   id="title270">Indicates a relative path to an image that exists within the IG</title>
-image</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1093">string</a>
- [0..*]</text>
+   id="n1284"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.image"><title
+   id="title61403">Indicates a relative path to an image that exists within the IG</title>image</a> : <a
+   id="n1285"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
     <text
-       id="n1097"
-       x="1040.2502100000002"
-       y="92.64268200000001"
-       fill="black"
+       id="n1289"
+       x="78.306648"
+       y="202.00301"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.other"
-   id="n1098"><title
-   id="title275">Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG</title>
-other</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1099">string</a>
- [0..*]</text>
+   id="n1290"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.other"><title
+   id="title61408">Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG</title>other</a> : <a
+   id="n1291"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>
   <g
-     id="n1103">
+     id="n1295"
+     transform="translate(-9.5828012,7.666241)">
     <rect
        id="ImplementationGuide.manifest.resource"
-       x="1044.197669"
-       y="142.764676"
+       x="33.216511"
+       y="265.11847"
        rx="4"
        ry="4"
-       width="294.8"
-       height="78.0"
+       width="220"
+       height="92"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1104"
-       x1="1044.197669"
-       y1="170.764676"
-       x2="1338.9976689999999"
-       y2="170.764676"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n1296"
+       x1="33.216511"
+       y1="293.11847"
+       x2="253.21651"
+       y2="293.11847"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1105"
-       x="1191.597669"
-       y="162.764676"
-       fill="black"
+       id="n1297"
+       x="143.21651"
+       y="285.11847"
+       fill="#000000"
        class="diagram-class-title">ManifestResource</text>
     <text
-       id="n1106"
-       x="1050.197669"
-       y="184.764676"
-       fill="black"
+       id="n1298"
+       x="39.216511"
+       y="307.11847"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.reference"
-   id="n1107"><title
-   id="title284">Where this resource is found</title>
-reference</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1108">Reference</a>
- [1..1] « <a
-   xlink:href="resourcelist.html#Any"
-   id="n1109">Any</a>
- »</text>
+   id="n1299"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.reference"><title
+   id="title61417">Where this resource is found</title>reference</a> : <a
+   id="n1300"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1301"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n1114"
-       x="1050.197669"
-       y="198.764676"
-       fill="black"
+       id="n1306"
+       x="39.216511"
+       y="321.11847"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.example_x_"
-   id="n1115"><title
-   id="title290">If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile</title>
-example[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1116">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#boolean"
-   id="n1117">boolean</a>
-|<a
-   xlink:href="datatypes.html#canonical"
-   id="n1118">canonical</a>
-(<a
-   xlink:href="structuredefinition.html#StructureDefinition"
-   id="n1119">StructureDefinition</a>
-) »</text>
+   id="n1307"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.isExample"><title
+   id="title61423">If true, indicates the resource is an example instance</title>isExample</a> : <a
+   id="n1308"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1126"
-       x="1050.197669"
-       y="212.764676"
-       fill="black"
+       id="n1312"
+       x="39.216511"
+       y="335.11847"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.relativePath"
-   id="n1127"><title
-   id="title298">The relative path for primary page for this resource within the IG</title>
-relativePath</a>
- : <a
-   xlink:href="datatypes.html#url"
-   id="n1128">url</a>
- [0..1]</text>
+   id="n1313"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.profile"><title
+   id="title61428">If present, indicates profile(s) the instance is valid against</title>profile</a> : <a
+   id="n1314"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1315"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+    <text
+       id="n1320"
+       x="39.216511"
+       y="349.11847"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1321"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource.relativePath"><title
+   id="title61434">The relative path for primary page for this resource within the IG</title>relativePath</a> : <a
+   id="n1322"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
   </g>
   <g
-     id="n1132">
+     id="n1326"
+     transform="translate(-13.415922,-22.998724)">
     <rect
        id="ImplementationGuide.manifest.page"
-       x="1213.9395"
-       y="22.642682"
+       x="55.785404"
+       y="26.4942"
        rx="4"
        ry="4"
-       width="96.80000000000001"
-       height="78.0"
+       width="96.800003"
+       height="78"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1133"
-       x1="1213.9395"
-       y1="50.642682"
-       x2="1310.7395"
-       y2="50.642682"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n1327"
+       x1="55.785404"
+       y1="54.494198"
+       x2="152.5854"
+       y2="54.494198"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1134"
-       x="1262.3395"
-       y="42.642682"
-       fill="black"
+       id="n1328"
+       x="104.1854"
+       y="46.494198"
+       fill="#000000"
        class="diagram-class-title">ManifestPage</text>
     <text
-       id="n1135"
-       x="1219.9395"
-       y="64.64268200000001"
-       fill="black"
+       id="n1329"
+       x="61.785404"
+       y="68.494202"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page.name"
-   id="n1136"><title
-   id="title307">Relative path to the page</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1137">string</a>
- [1..1]</text>
+   id="n1330"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page.name"><title
+   id="title61443">Relative path to the page</title>name</a> : <a
+   id="n1331"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n1141"
-       x="1219.9395"
-       y="78.64268200000001"
-       fill="black"
+       id="n1335"
+       x="61.785404"
+       y="82.494202"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page.title"
-   id="n1142"><title
-   id="title312">Label for the page intended for human display</title>
-title</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1143">string</a>
- [0..1]</text>
+   id="n1336"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page.title"><title
+   id="title61448">Label for the page intended for human display</title>title</a> : <a
+   id="n1337"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1147"
-       x="1219.9395"
-       y="92.64268200000001"
-       fill="black"
+       id="n1341"
+       x="61.785404"
+       y="96.494202"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page.anchor"
-   id="n1148"><title
-   id="title317">The name of an anchor available on the page</title>
-anchor</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1149">string</a>
- [0..*]</text>
+   id="n1342"
+   xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page.anchor"><title
+   id="title61453">The name of an anchor available on the page</title>anchor</a> : <a
+   id="n1343"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>
   <line
-     id="n1153"
-     x1="640.7800500000001"
-     y1="161.0676157431589"
-     x2="234.5242842"
-     y2="220.38947761610615"
+     id="n1347"
+     x1="584.48162"
+     y1="126.77837522675063"
+     x2="673.8958700000001"
+     y2="96.62437193118913"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1154"
-     points="640.7800500000001,161.0676157431589 646.7800500000001,165.0676157431589 652.7800500000001,161.0676157431589 646.7800500000001,157.0676157431589 640.7800500000001,161.0676157431589"
+     id="n1348"
+     points="584.48162,126.77837522675063 590.48162,130.77837522675063 596.48162,126.77837522675063 590.48162,122.77837522675063 584.48162,126.77837522675063"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(171.69232828093732 640.7800500000001 161.0676157431589)" />
+     transform="rotate(-18.63613054515013 584.48162 126.77837522675063)" />
   <rect
-     id="n1155"
-     x="417.5"
-     y="191"
-     width="39"
-     height="18"
-     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
-  <text
-     id="n1156"
-     x="437.0"
-     y="193.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn"
-       id="n1157"><title
-   id="title326">Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides</title>
-dependsOn</a>
-  </text>
-  <text
-     id="n1158"
-     x="249.5242842"
-     y="216.38947761610615"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1159"
-     x1="640.7800500000001"
-     y1="219.23198388269964"
-     x2="496.2586432058963"
-     y2="300.98446422000006"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1160"
-     points="640.7800500000001,219.23198388269964 646.7800500000001,223.23198388269964 652.7800500000001,219.23198388269964 646.7800500000001,215.23198388269964 640.7800500000001,219.23198388269964"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(150.50414383000438 640.7800500000001 219.23198388269964)" />
-  <rect
-     id="n1161"
-     x="555.0"
-     y="253.0"
-     width="26.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1162"
-     x="568.0"
-     y="263.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.global"
-       id="n1163"><title
-   id="title334">A set of profiles that all resources covered by this implementation guide must conform to</title>
-global</a>
-  </text>
-  <text
-     id="n1164"
-     x="496.2586432058963"
-     y="296.98446422000006"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1165"
-     x1="358.29273"
-     y1="162.97312536702543"
-     x2="163.12181"
-     y2="154.53501594946192"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1166"
-     points="358.29273,162.97312536702543 364.29273,166.97312536702543 370.29273,162.97312536702543 364.29273,158.97312536702543 358.29273,162.97312536702543"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-177.5243896054394 358.29273 162.97312536702543)" />
-  <rect
-     id="n1167"
-     x="242.5"
-     y="151.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1168"
-     x="260.0"
-     y="161.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.grouping"
-       id="n1169"><title
-   id="title342">A logical group of resources. Logical groups can be used when building pages</title>
-grouping</a>
-  </text>
-  <text
-     id="n1170"
-     x="178.12181"
-     y="150.53501594946192"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1171"
-     x1="397.45853624434386"
-     y1="146.68521000000146"
-     x2="396.78044451885404"
-     y2="118.5741399999988"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1172"
-     points="397.45853624434386,146.68521000000146 403.45853624434386,150.68521000000146 409.45853624434386,146.68521000000146 403.45853624434386,142.68521000000146 397.45853624434386,146.68521000000146"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-91.38181368140721 397.45853624434386 146.68521000000146)" />
-  <rect
-     id="n1173"
-     x="379.5"
-     y="125.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1174"
-     x="397.0"
-     y="135.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource"
-       id="n1175"><title
-   id="title350">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>
-resource</a>
-  </text>
-  <text
-     id="n1176"
-     x="396.78044451885404"
-     y="132.5741399999988"
-     fill="black"
-     class="diagram-class-linkage">[1..*]</text>
-  <line
-     id="n1177"
-     x1="257.01944000000003"
-     y1="323.17857100000003"
-     x2="317.01944000000003"
-     y2="323.17857100000003"
-     style="stroke:navy;stroke-width:1" />
-  <line
-     id="n1178"
-     x1="317.01944000000003"
-     y1="323.17857100000003"
-     x2="317.01944000000003"
-     y2="373.17857100000003"
-     style="stroke:navy;stroke-width:1" />
-  <line
-     id="n1179"
-     x1="317.01944000000003"
-     y1="373.17857100000003"
-     x2="257.01944000000003"
-     y2="373.17857100000003"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1180"
-     points="257.01944000000003,323.17857100000003 263.01944000000003,327.17857100000003 269.01944000000003,323.17857100000003 263.01944000000003,319.17857100000003 257.01944000000003,323.17857100000003"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 257.01944000000003 323.17857100000003)" />
-  <rect
-     id="n1181"
-     x="308.5"
-     y="341.0"
-     width="17.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1182"
-     x="317.0"
-     y="351.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.page"
-       id="n1183"><title
-   id="title360">Nested Pages/Sections under this page</title>
-page</a>
-  </text>
-  <text
-     id="n1184"
-     x="272.01944000000003"
-     y="369.17857100000003"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1185"
-     x1="373.71463878284686"
-     y1="182.68521000000004"
-     x2="203.80530430383163"
-     y2="309.17857100000003"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1186"
-     points="373.71463878284686,182.68521000000004 379.71463878284686,186.68521000000004 385.71463878284686,182.68521000000004 379.71463878284686,178.68521000000004 373.71463878284686,182.68521000000004"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(143.3332144022601 373.71463878284686 182.68521000000004)" />
-  <rect
-     id="n1187"
-     x="279.5"
-     y="238.0"
-     width="17.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1188"
-     x="288.0"
-     y="248.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page"
-       id="n1189"><title
-   id="title368">A page / section in the implementation guide. The root page is the implementation guide home page</title>
-page</a>
-  </text>
-  <text
-     id="n1190"
-     x="203.80530430383163"
-     y="305.17857100000003"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
-  <line
-     id="n1191"
-     x1="358.29273"
-     y1="150.29564419274882"
-     x2="210.66051074830148"
-     y2="96.6501004"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1192"
-     points="358.29273,150.29564419274882 364.29273,154.29564419274882 370.29273,150.29564419274882 364.29273,146.29564419274882 358.29273,150.29564419274882"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-160.03022831936713 358.29273 150.29564419274882)" />
-  <rect
-     id="n1193"
-     x="264.5"
-     y="116.0"
+     id="n1349"
+     x="609.5"
+     y="104.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1194"
-     x="284.0"
-     y="126.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.parameter"
-       id="n1195"><title
-   id="title376">Defines how IG is built by tools</title>
-parameter</a>
-  </text>
-  <text
-     id="n1196"
-     x="210.66051074830148"
-     y="110.6501004"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1197"
-     x1="432.23745357336594"
-     y1="182.68521000000004"
-     x2="500.76089"
-     y2="218.59820411813942"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1198"
-     points="432.23745357336594,182.68521000000004 438.23745357336594,186.68521000000004 444.23745357336594,182.68521000000004 438.23745357336594,178.68521000000004 432.23745357336594,182.68521000000004"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(27.658942449493104 432.23745357336594 182.68521000000004)" />
-  <rect
-     id="n1199"
-     x="448.5"
-     y="193.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1200"
-     x="466.0"
-     y="203.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template"
-       id="n1201"><title
-   id="title384">A template for building resources</title>
-template</a>
-  </text>
-  <text
-     id="n1202"
-     x="480.76089"
-     y="214.59820411813942"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1203"
-     x1="640.7800500000001"
-     y1="149.49638422844012"
-     x2="437.49273"
-     y2="162.20884564901715"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1204"
-     points="640.7800500000001,149.49638422844012 646.7800500000001,153.49638422844012 652.7800500000001,149.49638422844012 646.7800500000001,145.49638422844012 640.7800500000001,149.49638422844012"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(176.42169928114976 640.7800500000001 149.49638422844012)" />
-  <rect
-     id="n1205"
-     x="517.0"
-     y="148.0"
-     width="44.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1206"
-     x="539.0"
-     y="158.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition"
-       id="n1207"><title
-   id="title392">The information needed by an IG publisher tool to publish the whole implementation guide</title>
-definition</a>
-  </text>
-  <text
-     id="n1208"
-     x="452.49273"
-     y="158.20884564901715"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
-  <line
-     id="n1209"
-     x1="1118.0221744464113"
-     y1="100.64268199999992"
-     x2="1156.2257045535894"
-     y2="142.764676"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1210"
-     points="1118.0221744464113,100.64268199999992 1124.0221744464113,104.64268199999992 1130.0221744464113,100.64268199999992 1124.0221744464113,96.64268199999992 1118.0221744464113,100.64268199999992"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(47.79280600597767 1118.0221744464113 100.64268199999992)" />
-  <rect
-     id="n1211"
-     x="1119.5"
+     id="n1350"
+     x="629.0"
      y="114.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1351"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn"><title
+   id="title61462">Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides</title>dependsOn</a></text>
+  <text
+     id="n1352"
+     x="653.8958700000001"
+     y="92.62437193118913"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1353"
+     x1="584.48162"
+     y1="180.21734411144945"
+     x2="674.01586"
+     y2="181.00330453600463"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1354"
+     points="584.48162,180.21734411144945 590.48162,184.21734411144945 596.48162,180.21734411144945 590.48162,176.21734411144945 584.48162,180.21734411144945"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.5029479061099822 584.48162 180.21734411144945)" />
+  <rect
+     id="n1355"
+     x="616.0"
+     y="173.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1356"
+     x="629.0"
+     y="183.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1357"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.global"><title
+   id="title61470">A set of profiles that all resources covered by this implementation guide must conform to</title>global</a></text>
+  <text
+     id="n1358"
+     x="654.01586"
+     y="177.00330453600463"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1359"
+     x1="380.680583"
+     y1="418.25890951698295"
+     x2="213.9181438"
+     y2="490.2094883337499"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1360"
+     points="380.680583,418.25890951698295 386.680583,422.25890951698295 392.680583,418.25890951698295 386.680583,414.25890951698295 380.680583,418.25890951698295"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(156.66194965757876 380.680583 418.25890951698295)" />
+  <rect
+     id="n1361"
+     x="279.5"
+     y="447.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1212"
-     x="1137.0"
-     y="124.0"
+     id="n1362"
+     x="297.0"
+     y="457.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource"
-       id="n1213"><title
-   id="title400">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>
-resource</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1363"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.grouping"><title
+   id="title61478">A logical group of resources. Logical groups can be used when building pages</title>grouping</a></text>
   <text
-     id="n1214"
-     x="1156.2257045535894"
-     y="138.764676"
+     id="n1364"
+     x="228.9181438"
+     y="486.2094883337499"
      fill="black"
-     class="diagram-class-linkage">[1..*]</text>
+     class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1215"
-     x1="1131.05021"
-     y1="61.64268199999998"
-     x2="1213.9395"
-     y2="61.64268199999998"
+     id="n1365"
+     x1="459.880583"
+     y1="392.71591262590033"
+     x2="674.01713"
+     y2="346.9828493724991"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1216"
-     points="1131.05021,61.64268199999998 1137.05021,65.64268199999998 1143.05021,61.64268199999998 1137.05021,57.64268199999998 1131.05021,61.64268199999998"
+     id="n1366"
+     points="459.880583,392.71591262590033 465.880583,396.71591262590033 471.880583,392.71591262590033 465.880583,388.71591262590033 459.880583,392.71591262590033"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 1131.05021 61.64268199999998)" />
+     transform="rotate(-12.055524011957276 459.880583 392.71591262590033)" />
   <rect
-     id="n1217"
-     x="1163.5"
-     y="54.0"
+     id="n1367"
+     x="548.5"
+     y="362.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1368"
+     x="566.0"
+     y="372.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1369"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource"><title
+   id="title61486">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>resource</a></text>
+  <text
+     id="n1370"
+     x="654.01713"
+     y="342.9828493724991"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1371"
+     x1="798.5559109999999"
+     y1="485.17337999999995"
+     x2="858.5559109999999"
+     y2="485.17337999999995"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1372"
+     x1="858.5559109999999"
+     y1="485.17337999999995"
+     x2="858.5559109999999"
+     y2="535.17338"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1373"
+     x1="858.5559109999999"
+     y1="535.17338"
+     x2="798.5559109999999"
+     y2="535.17338"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1374"
+     points="798.5559109999999,485.17337999999995 804.5559109999999,489.17337999999995 810.5559109999999,485.17337999999995 804.5559109999999,481.17337999999995 798.5559109999999,485.17337999999995"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 798.5559109999999 485.17337999999995)" />
+  <rect
+     id="n1375"
+     x="849.5"
+     y="503.0"
      width="17.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1218"
-     x="1172.0"
-     y="64.0"
+     id="n1376"
+     x="858.0"
+     y="513.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page"
-       id="n1219"><title
-   id="title408">Information about a page within the IG</title>
-page</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1377"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.page"><title
+   id="title61496">Nested Pages/Sections under this page</title>page</a></text>
   <text
-     id="n1220"
-     x="1193.9395"
-     y="57.64268199999998"
+     id="n1378"
+     x="813.5559109999999"
+     y="531.17338"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1221"
-     x1="917.9800500000001"
-     y1="104.63946613437821"
-     x2="1034.2502100000002"
-     y2="74.28033506418552"
+     id="n1379"
+     x1="459.880583"
+     y1="419.0188452047601"
+     x2="560.080187516785"
+     y2="464.17338"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1222"
-     points="917.9800500000001,104.63946613437821 923.9800500000001,108.63946613437821 929.9800500000001,104.63946613437821 923.9800500000001,100.63946613437821 917.9800500000001,104.63946613437821"
+     id="n1380"
+     points="459.880583,419.0188452047601 465.880583,423.0188452047601 471.880583,419.0188452047601 465.880583,415.0188452047601 459.880583,419.0188452047601"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-14.6336927590756 917.9800500000001 104.63946613437821)" />
+     transform="rotate(24.25851028746061 459.880583 419.0188452047601)" />
   <rect
-     id="n1223"
-     x="958.5"
-     y="82.0"
+     id="n1381"
+     x="500.5"
+     y="434.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1382"
+     x="509.0"
+     y="444.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1383"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page"><title
+   id="title61504">A page / section in the implementation guide. The root page is the implementation guide home page</title>page</a></text>
+  <text
+     id="n1384"
+     x="560.080187516785"
+     y="460.17338"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1385"
+     x1="380.680583"
+     y1="401.9455824183398"
+     x2="242.05209676"
+     y2="404.6492314450772"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1386"
+     points="380.680583,401.9455824183398 386.680583,405.9455824183398 392.680583,401.9455824183398 386.680583,397.9455824183398 380.680583,401.9455824183398"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(178.88271128876045 380.680583 401.9455824183398)" />
+  <rect
+     id="n1387"
+     x="291.5"
+     y="396.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1388"
+     x="311.0"
+     y="406.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1389"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.parameter"><title
+   id="title61512">A set of parameters that defines how the implementation guide is built. The parameters are defined by the relevant tools that build the implementation guides</title>parameter</a></text>
+  <text
+     id="n1390"
+     x="257.05209676000004"
+     y="400.6492314450772"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1391"
+     x1="415.6231481079341"
+     y1="419.1732699999998"
+     x2="396.2544159328097"
+     y2="494.0293200000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1392"
+     points="415.6231481079341,419.1732699999998 421.6231481079341,423.1732699999998 427.6231481079341,419.1732699999998 421.6231481079341,415.1732699999998 415.6231481079341,419.1732699999998"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(104.50691676758188 415.6231481079341 419.1732699999998)" />
+  <rect
+     id="n1393"
+     x="387.5"
+     y="449.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1224"
-     x="976.0"
-     y="92.0"
+     id="n1394"
+     x="405.0"
+     y="459.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest"
-       id="n1225"><title
-   id="title416">Information about an assembled implementation guide, created by the publication tooling</title>
-manifest</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1395"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.template"><title
+   id="title61520">A template for building resources</title>template</a></text>
   <text
-     id="n1226"
-     x="1014.2502100000002"
-     y="70.28033506418552"
+     id="n1396"
+     x="396.2544159328097"
+     y="490.0293200000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1397"
+     x1="423.4116634187772"
+     y1="329.8616199999997"
+     x2="421.07090895007957"
+     y2="383.1732699999993"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1398"
+     points="423.4116634187772,329.8616199999997 429.4116634187772,333.8616199999997 435.4116634187772,329.8616199999997 429.4116634187772,325.8616199999997 423.4116634187772,329.8616199999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(92.514070899468 423.4116634187772 329.8616199999997)" />
+  <rect
+     id="n1399"
+     x="400.0"
+     y="349.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1400"
+     x="422.0"
+     y="359.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1401"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.definition"><title
+   id="title61528">The information needed by an IG publisher tool to publish the whole implementation guide</title>definition</a></text>
+  <text
+     id="n1402"
+     x="421.07090895007957"
+     y="379.1732699999993"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1403"
+     x1="126.9720866620215"
+     y1="210.00300100000004"
+     x2="135.8265077832568"
+     y2="265.11846100000014"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1404"
+     points="126.9720866620215,210.00300100000004 132.9720866620215,214.00300100000004 138.9720866620215,210.00300100000004 132.9720866620215,206.00300100000004 126.9720866620215,210.00300100000004"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(80.87328999924077 126.9720866620215 210.00300100000004)" />
+  <rect
+     id="n1405"
+     x="113.5"
+     y="230.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1406"
+     x="131.0"
+     y="240.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1407"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource"><title
+   id="title61536">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>resource</a></text>
+  <text
+     id="n1408"
+     x="135.8265077832568"
+     y="261.11846100000014"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1409"
+     x1="114.59977984153389"
+     y1="132.00300100000004"
+     x2="110.29227515846615"
+     y2="104.49419890000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1410"
+     points="114.59977984153389,132.00300100000004 120.59977984153389,136.00300100000004 126.59977984153389,132.00300100000004 120.59977984153389,128.00300100000004 114.59977984153389,132.00300100000004"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-98.89947393616396 114.59977984153389 132.00300100000004)" />
+  <rect
+     id="n1411"
+     x="76.668159"
+     y="115.7914"
+     width="17"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n1412"
+     x="112.0"
+     y="121.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1413"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.page"><title
+   id="title61544">Information about a page within the IG</title>page</a></text>
+  <text
+     id="n1414"
+     x="110.29227515846615"
+     y="118.49419890000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1415"
+     x1="275.60162"
+     y1="174.9380897300147"
+     x2="169.10665000000003"
+     y2="172.2325973809071"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1416"
+     points="275.60162,174.9380897300147 281.60162,178.9380897300147 287.60162,174.9380897300147 281.60162,170.9380897300147 275.60162,174.9380897300147"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-178.54472040256255 275.60162 174.9380897300147)" />
+  <rect
+     id="n1417"
+     x="204.5"
+     y="166.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1418"
+     x="222.0"
+     y="176.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1419"
+       xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest"><title
+   id="title61552">Information about an assembled implementation guide, created by the publication tooling</title>manifest</a></text>
+  <text
+     id="n1420"
+     x="184.10665000000003"
+     y="168.2325973809071"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
 </svg>

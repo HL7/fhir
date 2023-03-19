@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n419"
+   version="1.1"
+   width="823.6"
+   height="326.0"
+   sodipodi:docname="supplyrequest.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview104568"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5128704"
+     inkscape:cx="411.79999"
+     inkscape:cy="163.5963"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n419" />
+  <defs
+     id="defs104409">
+    <filter
+       id="shadow1"
+       x="-0.017978291"
+       y="-0.0828125"
+       width="1.046133"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset104400" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix104402" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur104404" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend104406" />
+    </filter>
+  </defs>
+  <g
+     id="n420">
+    <rect
+       id="SupplyRequest"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="316.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n421"
+       x1="0.0"
+       y1="28.0"
+       x2="294.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n422"
+       x="147.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">SupplyRequest<tspan
+   class="diagram-class-title-link"
+   id="tspan104414"> (<a
+   id="n423"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n424"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n425"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.identifier"><title
+   id="title104417">Business identifiers assigned to this SupplyRequest by the author and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n426"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n430"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n431"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.status"><title
+   id="title104422">Status of the supply request (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n432"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n433"
+   xlink:href="valueset-supplyrequest-status.html"><title
+   id="n434">null (Strength=Required)</title>SupplyRequestStatus</a>! »</text>
+    <text
+       id="n440"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n441"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.basedOn"><title
+   id="title104429">Plan/proposal/order fulfilled by this request</title>basedOn</a> : <a
+   id="n442"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n443"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n448"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n449"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.category"><title
+   id="title104435">Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process</title>category</a> : <a
+   id="n450"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n451"
+   xlink:href="valueset-supplyrequest-kind.html"><title
+   id="n452">null (Strength=Example)</title>SupplyType</a>?? »</text>
+    <text
+       id="n458"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n459"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.priority"><title
+   id="title104442">Indicates how quickly this SupplyRequest should be addressed with respect to other requests</title>priority</a> : <a
+   id="n460"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n461"
+   xlink:href="valueset-request-priority.html"><title
+   id="n462">null (Strength=Required)</title>RequestPriority</a>! »</text>
+    <text
+       id="n468"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n469"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.deliverFor"><title
+   id="title104449">The patient to whom the supply will be given or for whom they will be used</title>deliverFor</a> : <a
+   id="n470"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n471"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n476"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n477"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.item"><title
+   id="title104455">The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list</title>item</a> : <a
+   id="n478"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n479"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n480"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n481"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n482"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n483"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|<a
+   id="n484"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a
+   id="n485"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>|</text>
+    <text
+       id="n486"
+       x="26.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n487"
+   xlink:href="inventoryitem.html#InventoryItem">InventoryItem</a>; <a
+   id="n488"
+   xlink:href="valueset-supply-item.html"><title
+   id="n489">null (Strength=Example)</title>SNOMEDCTSupplyItem</a>?? »</text>
+    <text
+       id="n504"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n505"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.quantity"><title
+   id="title104471">The amount that is being ordered of the indicated item</title>quantity</a> : <a
+   id="n506"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [1..1]</text>
+    <text
+       id="n510"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n511"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.occurrence_x_"><title
+   id="title104476">When the request should be fulfilled</title>occurrence[x]</a> : <a
+   id="n512"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n513"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n514"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n515"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n522"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n523"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.authoredOn"><title
+   id="title104484">When the request was made</title>authoredOn</a> : <a
+   id="n524"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n528"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n529"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.requester"><title
+   id="title104489">The device, practitioner, etc. who initiated the request</title>requester</a> : <a
+   id="n530"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n531"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n532"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n533"
+       x="26.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n534"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n535"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n536"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n537"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n538"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n550"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n551"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.supplier"><title
+   id="title104502">Who is intended to fulfill the request</title>supplier</a> : <a
+   id="n552"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n553"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n554"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> »</text>
+    <text
+       id="n560"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n561"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.reason"><title
+   id="title104509">The reason why the supply item was requested</title>reason</a> : <a
+   id="n562"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n563"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n564"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n565"
+       x="26.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n566"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n567"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>; <a
+   id="n568"
+   xlink:href="valueset-supplyrequest-reason.html"><title
+   id="n569">null (Strength=Example)</title>SupplyRequestReason</a>?? »</text>
+    <text
+       id="n580"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n581"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.deliverFrom"><title
+   id="title104521">Where the supply is expected to come from</title>deliverFrom</a> : <a
+   id="n582"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n583"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n584"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n590"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.deliverTo"><title
+   id="title104528">Where the supply is destined to go</title>deliverTo</a> : <a
+   id="n592"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n593"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n594"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n595"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n596"
+       x="26.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+  </g>
+  <g
+     id="n606"
+     transform="translate(100.47127,132.86003)">
+    <rect
+       id="SupplyRequest.parameter"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n607"
+       x1="320"
+       y1="28"
+       x2="623.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n608"
+       x="471.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Parameter</text>
+    <text
+       id="n609"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n610"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.parameter.code"><title
+   id="title104542">A code or string that identifies the device detail being asserted</title>code</a> : <a
+   id="n611"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <title
+   id="title104546">null (Strength=Example)</title>ParameterCode?? »</text>
+    <text
+       id="n615"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n616"
+   xlink:href="supplyrequest-definitions.html#SupplyRequest.parameter.value_x_"><title
+   id="title104549">The value of the device detail</title>value[x]</a> : <a
+   id="n617"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n618"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n619"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n620"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n621"
+   xlink:href="datatypes.html#boolean">boolean</a> »</text>
+  </g>
+  <line
+     id="n629"
+     x1="294.8"
+     y1="100.74845869297165"
+     x2="389.41269841269843"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n630"
+     points="294.8,100.74845869297165 300.8,104.74845869297165 306.8,100.74845869297165 300.8,96.74845869297165 294.8,100.74845869297165"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-21.226636529367976 294.8 100.74845869297165)" />
+  <rect
+     id="n631"
+     x="322.5"
+     y="75.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n632"
+     x="342.0"
+     y="85.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n633"
+       xlink:href="supplyrequest-definitions.html#SupplyRequest.parameter"><title
+   id="title104562">Specific parameters for the ordered item.  For example, the size of the indicated item</title>parameter</a></text>
+  <text
+     id="n634"
+     x="389.41269841269843"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

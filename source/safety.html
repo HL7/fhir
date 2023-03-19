@@ -25,21 +25,21 @@ This page, and the concept of <i>safety</i> in an API specification, needs furth
 Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
-<h3>Implementer's Safety Check List</h3>
+<h3>Implementer's Safety CheckList</h3>
 <p>
 FHIR is as simple to implement as we know how to make it. However, due to the nature of
 healthcare, and healthcare processes, and cultural concerns, there are a number of features in
 FHIR that implementers are obliged to consider in order to implement safe systems.
 </p>
 <p>
-This section is a check list to help implementers be sure that they've considered all the parts
+This section is a checklist to help implementers be sure that they've considered all the parts
 of FHIR that impact on their system design with regard to safety. Note that for this list, 
 safety is interpreted loosely, and the list covers security and privacy issues as well. 
 </p>
 
 <p>
-This safety check list is also available as a <a href="codesystem-safety-entries.html">Code System</a> to facilitate
-formal references to these check list items. For instance, application registration processes may wish to 
+This safety checklist is also available as a <a href="codesystem-safety-entries.html">Code System</a> to facilitate
+formal references to these checklist items. For instance, application registration processes may wish to 
 require applications to assert that they pass some of these checks. As an example, the formal URL for the first check 
 item is <code>http://hl7.org/fhir/safety-entries#life-cycle</code>.
 </p>
@@ -73,7 +73,7 @@ Dates and timezone issues are well-known sources of confusion and safety issues 
 </p>
 
 <ol start="12">
- <li title="time-zone"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#time-zone"> </a>My system checks for time zones and adjusts times appropriately. (note: time zones are extremely difficult to get correct - see <a href="https://www.w3.org/TR/timezone/">W3C Timezone Advice</a>, and note that some fields should be timezone corrected, and others should not be)</li>
+ <li title="time-zone"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#time-zone"> </a>My system checks for timezones and adjusts times appropriately. (note: timezones are extremely difficult to get correct - see <a href="https://www.w3.org/TR/timezone/">W3C Timezone Advice</a>, and note that some fields should be timezone corrected, and others should not be)</li>
  <li title="date-rendering"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#date-rendering"> </a>My system renders dates safely for changes in culture and language (the date formats D-M-Y and M-D-Y are not differentiated for many dates, and this is a well-known source of confusion. Systems should use the month name, or otherwise be specific for each date when rendering, unless
    there is solid confidence that such confusion cannot arise, even in the future when information/narrative from resources will be shared much more widely)</li>
 </ol>
@@ -90,7 +90,7 @@ appropriate, or much more seriously, missing resources out in search results tha
 <ol start="14">
  <li title="cross-resource"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#cross-resource"> </a>My system takes care to ensure that clients can (for servers) or will (for clients) find the information they need when content that might reasonably be exposed using more than one FHIR resource. Possible patterns: Support a single search across the applicable resources, or expose data through each applicable resource. See discussion on <a href="https://confluence.hl7.org/display/FHIR/Managing+Overlap+Between+Resources">Wiki Page</a> for further information</li>
  <li title="search-param-names"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-param-names">My client checks the names of search parameters and operation definitions in the HTTP server's <a href="capabilitystatement.html">CapabilityStatement</a> to see if they have been renamed on the local system</a></li>
- <li title="search-pages-client"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-client">My client application checks for the existence of pages in search results (<code>Bundle.link</code> of type <code>next</code>) in the response to a search. Note: failure to page through the data will cause an application or it's human user to be missing the full clinical picture for the patient</a></li>
+ <li title="search-pages-client"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-client">My client application checks for the existence of pages in search results (<code>Bundle.link</code> of type <code>next</code>) in the response to a search. Note: failure to page through the data will cause an application or its human user to be missing the full clinical picture for the patient</a></li>
  <li title="search-pages-server"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-server">My server clearly documents how sorting works when performing searches, and how concurrency works when clients move between pages (e.g. if data in a page can change/duplicate across pages)</a></li>
 </ol>
 
@@ -170,7 +170,7 @@ Note: Users/Clients may be identified and authenticated in any way desired. For 
 <h3>Narrative / Presentation Related Safety Checks</h3>
 <ol start="38">
   <li title="render-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>My system can <a href="narrative.html#css">render narratives properly</a> and <a href="security.html#narrative">securely</a>(where they are used)</li>
-  <li title="sending-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When creating resources, careful consideration has been given for when the system should generate resource narrative to serve as a safe failback for other systems that do not recognised all elements and extensions in them (either because of lack of community agreement or because of non-simultaneous evolution of discrete data interfaces among community participants))</li>
+  <li title="sending-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When creating resources, careful consideration has been given for when the system should generate resource narrative to serve as a safe failback for other systems that do not recognized all elements and extensions in them (either because of lack of community agreement or because of non-simultaneous evolution of discrete data interfaces among community participants))</li>
   <li title="generating-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When generating narrative, careful consideration has been given to the human readability of the narrative, trying to appropriately highlight 'important' information to make it likely that human readers unfamiliar with the narrative organization will still find such information</li>
   <li title="showing-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When consuming resources, my system checks the Narrative.status element to inform whether the narrative should be made available in the user interface</li>
  </ol>
@@ -179,23 +179,33 @@ Note: Users/Clients may be identified and authenticated in any way desired. For 
 With regard to #38, Systems SHOULD check the narrative status. Specifically, if the status is 'additional', then narrative SHOULD always be available for human consumption, if 'extensions' and the system does not render all human-relevant received extensions the narrative SHOULD be available and if 'generated' and the system does not render all human-relevant received core elements, the narrative SHOULD be available.  
 </p>
 
-<p>Integrity:</p>
+<a name="integrity"> </a>
+<h3>Integrity Related Safety Checks</h3>
 <ol start="42">
  <li title="check-validation"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check=validation"> </a>My system <a href="validation.html">validates all input received</a> (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior</li>
  <li title="use-provenance"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system makes the right <a href="provenance.html">Provenance</a> statements and <a href="auditevent.html">AuditEvent</a> logs, and uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
  <li title="decimal"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system manages decimal precision correctly when using JSON (see <a href="json.html#decimal">JSON representation of primitive elements</a>)</li>
 </ol>
 
- 
+<a name="decision-support"> </a>
+<h3>Decision Support Related Safety Checks</h3>
+<ol start="45">
+  <li title="confirm-data-validity"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#confirm-data-validity"> </a>My system allows providers to confirm validity of source data before using it in risk models or other decision support tools.</li>
+  <li title="clinician-judgement"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#clinician-judgement"> </a>My system allows providers to exercise appropriate clinical judgement as part of accepting or rejecting guidance received from clinical decision support tools.</li>
+  <li title="minimum-necessary"><input type="checkbox"/><a name="https://hl7.org/fhir/safety-entries#minimum-necessary"> </a>My system ensures that the minimum necessary information is provided to decision support tools.</li>
+  <li title="secure-access"><input type="checkbox"/><a name="https://hl7.org/fhir/safety-entries#secure-access"> </a>My system ensures that integrations with decision support and other related services communicate using appropriate authenticated channels and that only authorized information is sent via those channels.</li>
+  <li title="appropriate-use"><input type="checkbox"/><a name="https://hl7.org/fhir/safety-entries#appropriate-use"> </a>My system ensures that data exchanged with decision support and other related services respects the appropriate use of information, including patient privacy and consent considerations.</li>
+</ol>
+
 <a name="other"> </a>
 <h3>Other Safety Checks</h3> 
 <p>
-Obviously, this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
+Obviously, this list is only a small part of the overall safety checklist for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
 </p>
 <p>
 In addition, server developers should check these specific additional checks for client convenience:
 </p>
-<ol start="44">
+<ol start="50">
  <li title="enable-cors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#enable-cors"> </a>Server: CORS (<a href="http://enable-cors.org/">cross-origin resource sharing</a>) is appropriately enabled (many clients are Javascript apps running in a browser)</li>
  <li title="use-json"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-json"> </a>JSON is supported (many clients are Javascript apps running in a browser; XML is inconvenient at best)</li>
  <li title="json-for-errors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#json-for-errors"> </a>JSON is returned correctly when errors happen (clients often don't handle HTML errors well)</li>

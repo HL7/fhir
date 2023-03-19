@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="assert-manual-completion-codes"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/assert-manual-completion-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.703"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="AssertionManualCompletionType"/>
+  <title value="Assertion Manual Completion Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-12-20T09:24:24-05:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of manual completion to use for assertion."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/assert-manual-completion-codes"/>
+  <content value="complete"/>
+  <concept>
+    <code value="fail"/>
+    <display value="Fail"/>
+    <definition value="Mark the currently waiting test failed and proceed with the next assert if the stopTestOnFail is false or the next test in the TestScript if the stopTestOnFail is true."/>
+  </concept>
+  <concept>
+    <code value="pass"/>
+    <display value="Pass"/>
+    <definition value="Mark the currently waiting test passed (if the test is not failed already) and proceed with the next action in the TestScript."/>
+  </concept>
+  <concept>
+    <code value="skip"/>
+    <display value="Skip"/>
+    <definition value="Mark this assert as skipped and proceed with the next action in the TestScript."/>
+  </concept>
+  <concept>
+    <code value="stop"/>
+    <display value="Stop"/>
+    <definition value="Stop execution of this TestScript. The overall status of this TestScript is evaluated based on the status of the completed tests."/>
+  </concept>
+</CodeSystem>

@@ -2,6 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="SpecimenType"/>
+  <title value="Specimen Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -11,7 +12,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Specimen type : HL7 v2 table 0487.       An alternate value set could be all SNOMED CT descendants of 123038009 (Specimen)"/>
+  <description value="Specimen type : HL7 V2 table 0487.       An alternate value set could be all SNOMED CT descendants of 123038009 (Specimen)"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v2-0487"/>

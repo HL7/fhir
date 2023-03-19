@@ -124,7 +124,7 @@
 	<entity>
 		<!-- The Document Manifest exported -->
 		<what>
-			<reference value="DocumentManifest/example"/>
+			<reference value="DocumentReference/example"/>
 		</what>
 	</entity>
 	<!-- TODO need to make a new style entity with entity.agent for this media

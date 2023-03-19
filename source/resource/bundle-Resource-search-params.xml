@@ -51,7 +51,7 @@
         <code value="_in"/>
         <type value="reference"/>
         <expression value="Resource.id"/>
-        <processingMode value="normal"/>
+        <processingMode value="other"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -202,6 +202,21 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Resource-_has"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_has"/>
+        <description value="Provides limited support for reverse chaining - that is, selecting resources based on the properties of resources that refer to them (instead of chaining where resources can be selected based on the properties of resources that they refer to). See the FHIR search page for further documentation"/>
+        <code value="_has"/>
+        <type value="special"/>
+        <processingMode value="other"/>
+      </SearchParameter>
+    </resource>
+  </entry>  
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Resource-_type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -214,6 +229,21 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_filter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_filter"/>
+        <description value="Filter search parameter which supports a more sophisticated grammar for searching. See [documentation](search_filter.html) for further details"/>
+        <code value="_filter"/>
+        <type value="special"/>
+        <xpathUsage value="other"/>
+      </SearchParameter>
+    </resource>
+  </entry>  
   <entry>
     <resource>
       <SearchParameter>

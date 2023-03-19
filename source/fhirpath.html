@@ -66,7 +66,7 @@ In FHIRPath, choice elements are labeled according to the name without the '[x]'
 as a specific type using the <code>as</code> operation:</p>
 
 <pre class="fhirpath">
-(Observation.value as Quantity).unit
+(Observation.value.ofType(Quantity)).unit
 </pre>
 
 <p>
@@ -227,15 +227,20 @@ then %rootResource is the same as %resource.
 
 <a name="functions"></a>
 <h4>Additional functions</h4>
-<p>FHIR adds (compatible) functionality to the set of common FHIRPath functions:</p>
+<p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
+Some of these functions are candidates for elevation to the base version of 
+FHIRPath when the next version is released.
+</p>
 
-<p><b>extension(url : string) : collection</b></p>
+<p><b>extension(url : string) : collection</b><a name="fn-extension"> </a></p>
 <p>Will filter the input collection for items named "extension" with the given url. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. Will return an empty collection if the input collection is 
   empty or the url is empty.</p>
 
-<p><b>hasValue() : Boolean</b></p>
+<hr/>
+
+<p><b>hasValue() : Boolean</b><a name="fn-hasValue"> </a></p>
 <p>Returns true if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (e.g. as opposed to not having a value and just having extensions).
   Otherwise, the return value is empty.
@@ -247,11 +252,15 @@ then %rootResource is the same as %resource.
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
-<p><b>getValue() : System.[type]</b></p>
+<hr/>
+
+<p><b>getValue() : System.[type]</b><a name="fn-getValue"> </a></p>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise the return value is empty.</p>
 
-<p><b>resolve() : collection</b></p>
+  <hr/>
+
+<p><b>resolve() : collection</b><a name="fn-resolve"> </a></p>
 <p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
    (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
    target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
@@ -259,24 +268,30 @@ then %rootResource is the same as %resource.
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
   If the input is empty, the output will be empty.</p>
 
-<p><b>as(type : identifier) : collection</b></p>
+  <hr/>
+  
+<p><b>ofType(type : identifier) : collection</b><a name="fn-ofType1"> </a></p>
 <p>An alias for ofType() maintained purely for backwards compatibility.</p>
 
+<hr/>
   
-<p><b>ofType(type : identifier) : collection</b></p>
+<p><b>ofType(type : identifier) : collection</b><a name="fn-ofType2"> </a></p>
 <p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
   This works the same as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
+  <hr/>
 
-<p><b>elementDefinition() : collection</b></p>
+<p><b>elementDefinition() : collection</b><a name="fn-elementDefinition"> </a></p>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be empty.
 </p>
 
-<p><b>slice(structure : string, name : string) : collection</b></p>
+<hr/>
+
+<p><b>slice(structure : string, name : string) : collection</b><a name="fn-slice"> </a></p>
 <p>
   Returns the given slice as defined in the given structure definition. The 
   structure argument is a uri that resolves to the structure definition, and 
@@ -286,17 +301,23 @@ then %rootResource is the same as %resource.
 </p>
 <p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the result is an empty collection (<code>{ }</code>).</p>
 
-<p><b>checkModifiers(modifier : string) : collection</b></p>
+<hr/>
 
-<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument. 
+<p><b>checkModifiers(modifier : string) : collection</b><a name="fn-checkModifiers"> </a></p>
+
+<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma-separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
-<p><b>conformsTo(structure : string) : Boolean</b></p>
+  <hr/>
+
+<p><b>conformsTo(structure : string) : Boolean</b><a name="fn-conformsTo"> </a></p>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the result is empty.</p>
 
-<p><b>memberOf(valueset : string) : Boolean</b></p>
+  <hr/>
+
+<p><b>memberOf(valueset : string) : Boolean</b><a name="fn-memberOf"> </a></p>
 
 <p>When invoked on a single code-valued element, returns true if the code is a member of the given valueset.
 When invoked on a single concept-valued element, returns true if any code in the concept is a member of the given valueset.
@@ -314,7 +335,9 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
 
-<p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></p>
+<hr/>
+
+<p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b><a name="fn-subsumes"> </a></p>
 
 <p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is an empty value.</p>
@@ -322,7 +345,9 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
-<p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></p>
+<hr/>
+
+<p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b><a name="fn-subsumedBy"> </a></p>
 
 <p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
@@ -330,17 +355,73 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
-<p><b>htmlChecks : Boolean</b></p>
+<hr/>
+
+<p><b>htmlChecks : Boolean</b><a name="fn-htmlChecks"> </a></p>
 
 <p>When invoked on a single <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around
 HTML usage</a> are met, and false if they are not. The return value is empty on any other kind of element, or a collection of 
 xhtml elements.
 </p>
 
+<hr/>
+
+<p><b>lowBoundary : T</b><a name="fn-lowBoundary"> </a></p>
+
+<p>
+This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
+E.g. the lowBoundary of <code>1.0</code> is <code>0.95000000000</code>, and the lowBoundary of <code>2010-10-10</code> is 
+<code>2010-10-10T00:00:00.000+14:00</code>. This function can be invoked in any singleton primitive type that has a 
+value domain with a natural sort order: 
+<code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
+This function is defined for use with continuously distributed value domains to help deal with precision issues. The 
+return value is considered to have arbitrarily high precision (as precise as the underlying implementation can be).
+The function is not very useful on integer, since it is not a continuously distributed value domain, and the lowBoundary of an integer
+is always the same value, but it is defined on integer for language consistency.
+</p>
+<p>
+This function is intended to be added to the core FHIRPath specification in a future version.
+</p>
+
+
+<hr/>
+
+<p><b>highBoundary : T</b><a name="fn-highBoundary"> </a></p>
+
+<p>
+This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
+E.g. the highBoundary of <code>1.0</code> is <code>1.05000000000</code>, and the highBoundary of <code>2010-10-10</code> is 
+<code>2010-10-10T23:59:59.999-12:00</code>. This function can be invoked in any singleton primitive type that has a 
+value domain with a natural sort order: 
+<code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
+This function is defined for use with continuously distributed value domains to help deal with precision issues. The 
+return value is considered to have arbitrarily high precision (as precise as the underlying implementation can be).
+The function is not very useful on integer, since it is not a continuously distributed value domain, and the highBoundary of an integer
+is always the same value, but it is defined on integer for language consistency.
+</p>
+<p>
+This function is intended to be added to the core FHIRPath specification in a future version.
+</p>
+
+
+<hr/>
+
+<p><b>comparable(quantity) : boolean</b><a name="fn-comparable"> </a></p>
+
+<p>
+This function returns true if the engine executing the FHIRPath statement can compare the singleton Quantity
+with the singleton other Quantity and determine their relationship to each other. Comparable means that both 
+have values and that the code and system for the units are the same (irrespective of system) or both have code + system, 
+system is recognized by the FHIRPath implementation and the codes are comparable within that code system.  E.g. days and hours or inches and cm.
+</p>
+<p>
+This function is intended to be added to the core FHIRPath specification in a future version.
+</p>
+
 <a name="changes"></a>
 <h4>Changes to operators</h4>
 
-<p><b>~ (Equivalence)</b></p>
+<p><b>~ (Equivalence)</b><a name="fn-Equivalence"> </a></p>
 <p>Equivalence works in exactly the same manner, but with the addition that for complex types, equality requires all child properties to be equal, <strong>except for "id" elements</strong>.</p>
 <p>In addition, for Coding values, equivalence is defined based on the code and system elements only. The version, display, and userSelected elements are ignored for the purposes of determining Coding equivalence.</p>
 <p>For CodeableConcept values, equivalence is defined as a non-empty intersection of Coding elements, using equivalence. In other words, two CodeableConcepts are considered equivalent if any Coding in one is equivalent to any Coding in the other.</p>
@@ -409,13 +490,285 @@ The following locations use this restricted FHIRPath language:
 </ul>
 
 <div class="draft-content">
-<a name="txapi"></a>
-<h3>Terminology Service API</h3>
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the FHIR Terminology service API and the general server API (see below) are only draft (Maturity = 0). They will be advanced to a more
+Unlike this rest of this page, the Factory API, the FHIR Terminology service API and the general server API (see below) are only draft (Maturity = 0). They will be advanced to a more
 mature status following the usual <a href="versions.html#maturity">Maturity Model</a> for FHIR.
 </p>
+    
+<a name="factory"> </a>
+<h3>Type Factory</h3>
+<p>
+The variable %factory is a reference to a class factory that provides the following type methods.
+Note that a future version of FHIRPath may provide a factory framework directly, in which case 
+this factory API may be withdrawn or deprecated.
+</p>
+<p>
+This API provides specific methods for constructing common types, and some general methods for 
+constructing any type.
+</p>
+<p>
+For the specific type constructors, all the parameters are optional. Note that since all 
+variables / outputs in FHIRPath are collections, all the parameters are inherently collections,
+but when the underlying element referred to is a singleton element, the collection cannot 
+contain more than one item. Use the value <code>{}</code> if there is no value to provide.
+</p>
+
+<p><b>primitives</b><a name="fn-factory-primitives"> </a></p>
+
+<pre class="fhirpath">
+%factory.{primitive}(value, extensions) : {primitive}
+</pre>
+<p>
+Create an instance of the type with the value and possibly one or more extensions. e.g. <code>%factory.code('final')</code>.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+ <li><b>value</b>: a primitive type (string, or will be converted to a string if necessary) that contains the value for the primitive type.</li>
+ <li><b>extensions</b>: a collection of extensions for the primitive type</li>
+</ul>
+<p>
+<b>Return Value:</b> the primitive type, or an error.
+</p>
+
+<p><b></b><a name="fn-factory-"> </a></p>
+
+<pre class="fhirpath">
+%factory.Extension(url, value) : Extension
+</pre>
+<p>
+Creates an extension with the given url and value: <code>%factory.extension('http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel', 'CC0-1.0')</code>.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>url</b>: a string value that identifies the extension</li>
+  <li><b>value</b>: the value of the extension (<a href="datatypes.html#open">any valid type</a> for <a href="extensibility.html">extension.value[x]</a></li>
+</ul>
+<p>
+<b>Return Value:</b> An extension with the specified properties.
+</p>
+
+<p><b>Identifier</b><a name="fn-factory-Identifier"> </a></p>
+
+<pre class="fhirpath">
+%factory.Identifier{system, value, use, type) : Identifier
+</pre>
+<p>
+Creates an identifier with the given properties: <code>%factory.Identifier('urn:ietf:rfc:3986', 'urn:oid:1.2.3.4.5', 'official')</code>.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>system</b>: a string value that goes in Identifier.system</li>
+  <li><b>value</b>: a string value that goes in Identifier.value</li>
+  <li><b>use</b>: a string value that goes in Identifier.use</li>
+  <li><b>type</b>: a CodeableConcept that goes in Identifier.type</li>
+</ul>
+<p>
+<b>Return Value:</b> An identifier with the specified properties .
+</p>
+
+<p><b>HumanName</b><a name="fn-factory-HumanName"> </a></p>
+
+<pre class="fhirpath">
+%factory.HumanName(family, given, prefix, suffix, text, use) : HumanName
+</pre>
+<p>
+Create a human name with the given properties: <code>%factory.HumanName('Smith', 'Julia', {}, {}, 'Julia Smith')</code>.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>family</b>: a string value that goes in HumanName.system</li>
+  <li><b>given</b>: a collection of string values that goes in HumanName.given</li>
+  <li><b>prefix</b>: a string value that goes in HumanName.prefix</li>
+  <li><b>suffix</b>: a string value that goes in HumanName.suffix</li>
+  <li><b>text</b>: a string value that goes in HumanName.text</li>
+  <li><b>use</b>:a string value that goes in HumanName.use</li>
+</ul>
+<p>
+<b>Return Value:</b> a HumanName.
+</p>
+
+<p><b>ContactPoint</b><a name="fn-factory-ContactPoint"> </a></p>
+
+<pre class="fhirpath">
+%factory.ContactPoint(system, value, use) : ContactPoint
+</pre>
+<p>
+Creates a ContactPoint: <code>%factory.ContactPoint('email', 'coyote@acme.com', 'work')</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>system</b>: a string value that goes in ContactPoint.system</li>
+  <li><b>value</b>: a string value that goes in ContactPoint.value</li>
+  <li><b>use</b>: a string value that goes in ContactPoint.use</li>
+</ul>
+<p>
+<b>Return Value:</b> a ContactPoint.
+</p> 
+
+<p><b>Address</b><a name="fn-factory-Address"> </a></p>
+
+<pre class="fhirpath">
+%factory.Address(line, city, state, postalCode, country, use, type) : Address
+</pre>
+<p>
+  Creates an Address: <code>%factory.Address('5 Nowhere Road', 'coyote@acme.com', 'EW', '0000', {}, 'home', 'physical')</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>line</b>: a collection of string values that goes in Address.line</li>
+  <li><b>city</b>: a string value that goes in Address.city</li>
+  <li><b>state</b>: a string value that goes in Address.state</li>
+  <li><b>postalCode</b>: a string value that goes in Address.postalCode</li>
+  <li><b>country</b>: a string value that goes in Address.country</li>
+  <li><b>use</b>: a string value that goes in Address.use</li>
+  <li><b>type</b>: a string value that goes in Address.type</li>
+</ul>
+<p>
+<b>Return Value:</b> An address.
+</p>
+
+<p><b>Quantity</b><a name="fn-factory-Quantity"> </a></p>
+
+<pre class="fhirpath">
+%factory.Quantity(system, code, value, unit) : Quantity
+</pre>
+<p>
+  Creates a Quantity: <code>%factory.Quantity('http://unitsofmeasure.org', 'mg/dL', '5.03', 'mg/dL')</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>system</b>: a string value that goes in Quantity.system</li>
+  <li><b>code</b>: a string value that goes in Quantity.code</li>
+  <li><b>value</b>: a string or decimal value that goes in Quantity.value</li>
+  <li><b>unit</b>: a string value that goes in Quantity.unit</li>
+</ul>
+<p>
+<b>Return Value:</b> a Quantity.
+</p>
+
+<p><b>Coding</b><a name="fn-factory-Coding"> </a></p>
+
+<pre class="fhirpath">
+%factory.Coding(system, code, display, version) : Coding
+</pre>
+<p>
+  Creates a Coding: <code>%factory.Quantity('http://loinc.org', '1234-5, 'An example test', '1.02')</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>system</b>: a string value that goes in Coding.system</li>
+  <li><b>code</b>: a string value that goes in Coding.code</li>
+  <li><b>display</b>: a string value that goes in Coding.display</li>
+  <li><b>version</b>: a string value that goes in Coding.version</li>
+</ul>
+<p>
+<b>Return Value:</b> A coding.
+</p>
+
+<p><b>CodeableConcept</b><a name="fn-factory-CodeableConcept"> </a></p>
+
+<pre class="fhirpath">
+%factory.CodeableConcept(value, extensions) : 
+</pre>
+<p>
+  Creates a CodeableConcept: <code>%factory.CodeableConcept(%factory.Coding(...), "Example Test")</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>coding</b>: a collection of Coding that goes in CodeableConcept.coding</li>
+  <li><b>text</b>: a string value that goes in CodeableConcept.text</li>
+</ul>
+<p>
+<b>Return Value:</b> a CodeableConcept.
+</p>
+
+
+<p>
+  For the general type constructors, all the parameters are mandatory. Note that since all 
+  variables / outputs in FHIRPath are collections, all the parameters are inherently collections,
+  but when the underlying property referred to is a singleton element, the collection cannot 
+  contain more than one item. Use the value <code>{}</code> if there is no value to provide.
+</p>
+<p><b></b><a name="fn-factory-"> </a></p>
+
+<pre class="fhirpath">
+  %factory.create(type) : {type} 
+</pre>
+<p>
+Create an instance of the named type: <code>%factory.create(SampledData)</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>type</b>: a value that is the type to create. This is a FHIRPath type specifier, and the default namespace is 'FHIR'</li>
+</ul>
+<p>
+<b>Return Value:</b> an instance of the named type.
+</p>
+
+
+<p><b>withExtension</b><a name="fn-factory-withExtension"> </a></p>
+  
+<pre class="fhirpath">
+%factory.withExtension(instance, url, value) : 
+</pre>
+<p>
+Add an extension, and return the new type: <code>%factory.withExtension(%factory.create(Money), 'http:/acme.com/extension/example', %factory.code('test'))</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>instance</b>: The instance to add the URL to </li>
+  <li><b>url</b>: a string value that goes in Extension.url </li>
+  <li><b>value</b>: the value of the extension </li>
+</ul>
+<p>
+<b>Return Value:</b> A copy of the instance of the type with the extension added. Extensions that already exist with the same url are not removed.
+</p>
+
+<p><b>withProperty</b><a name="fn-factory-withProperty"> </a></p>
+
+<pre class="fhirpath">
+%factory.withProperty(instance, name, value) : T
+</pre>
+<p>
+  Set a property value, and return the new type: <code>%factory.withProperty(%factory.create(Address), 'http:/acme.com/extension/example', %factory.create(Period))</code>
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>instance</b>: The instance to set the property on </li>
+  <li><b>name</b>: a string value that identifies the property to set </li>
+  <li><b>value</b>: the value of the property </li>
+</ul>
+<p>
+<b>Return Value:</b> A copy of the instance of the type with the named property set. Any existing value(s) for the named property will be deleted.
+</p>
+
+<a name="txapi"></a>
+<h3>Terminology Service API</h3>
 
 <p>
 In order to support terminological reasoning in FHIRPath statements, FHIR defines
@@ -440,7 +793,7 @@ are empty, or a collection with more than one value, or one or
 more of the parameters are not valid.
 </p>
 
-<p><b>expand</b></p>
+<p><b>expand</b><a name="fn-expand"> </a></p>
 
 <pre class="fhirpath">
 %terminologes.expand(valueSet, params) : ValueSet
@@ -459,7 +812,7 @@ Parameters:
 <b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion, or an empty value if an error occurs.
 </p>
 
-<p><b>lookup</b></p>
+<p><b>lookup</b><a name="fn-lookup"> </a></p>
 
 <pre class="fhirpath">
 %terminologies.lookup(coded, params) : Parameters
@@ -478,7 +831,7 @@ Parameters:
 <b>Return Value:</b>
 </p>
 
-<p><b>validateVS</b></p>
+<p><b>validateVS</b><a name="fn-validateVS"> </a></p>
 
 <pre class="fhirpath">
 %terminologies.validateVS(valueSet, coded, params) : Parameters
@@ -499,7 +852,7 @@ Parameters:
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
 </p>
 
-<p><b>validateCS</b></p>
+<p><b>validateCS</b><a name="fn-validateCS"> </a></p>
 
 <pre class="fhirpath">
 %terminologies.validateCS(codeSystem, coded, params) : Parameters
@@ -520,7 +873,7 @@ Parameters:
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
 </p>
 
-<p><b>subsumes</b></p>
+<p><b>subsumes</b><a name="fn-subsumes"> </a></p>
 
 <pre class="fhirpath">
 %terminologies.subsumes(system, coded1, coded2, params) : code
@@ -541,7 +894,7 @@ Parameters:
 <b>Return Value:</b> a code as specified for the subsumes operation.
 </p>
 
-<p><b>translate</b></p>
+<p><b>translate</b><a name="fn-translate"> </a></p>
 
 <pre class="fhirpath">
 %terminologies.translate(conceptMap, coded, params) : Parameters
@@ -567,7 +920,7 @@ Parameters:
 <p>
 In order to support interaction with a server in FHIRPath statements, FHIR defines
 a general %server object that FHIRPath implementations should make available.
-Calls to this object are passed through a <a href="terminology-service.html">standard FHIR terminology service</a>.
+Calls to this object are passed through a <a href="http.html">FHIR RESTful framework</a>.
 </p>
 <p>
 Summary:
@@ -674,7 +1027,7 @@ Parameters:
 </p>
 <ul>
   <li><b>doPost</b>: A boolean value - true to use a POST, false to use a GET</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> A bundle with the search results, or null.</p>
 
@@ -718,7 +1071,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to validate.</li>
   <li><b>mode</b>: how to validate - see <a href="resource-operation-validate.html">Validation Operation</a>.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> An operation outcome with issues, or null if the validation couldn't be performed.</p>
 
@@ -749,7 +1102,7 @@ Parameters:
 <ul>
   <li><b>type</b>: The type of the resource to read.</li>
   <li><b>id</b>: The id of the resource to read.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> The Bundle for type/id, or null.</p>
 
@@ -765,7 +1118,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to drive the $apply operation (PlanDefinition, ActivityDefinition).</li>
   <li><b>subject</b>: The subject top apply to - can be a resource, or a string containing type/id for the subject.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> The bundle from $apply, or null.</p>
 

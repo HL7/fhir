@@ -35,7 +35,7 @@
 	<li>Mixed - The logic in this case is communicated using both a natural language description, as well as a computable expression in a formal language. This information is useful for communicating to environments that may support the computation as well as to environments that do not, or to environments that support the computation but desire human-readable information to more easily understand the logic.</li>
 </ul>
 
-<p>For example, the <code>dynamicValue</code> element of the ActivityDefinition and PlanDefinition resources contains an <code>expression</code> element directly. However, for resources that do not define these elements, the <a href="extension-cqf-expression.html">cqf-expression</a> extension can be used to enable expression information to be associated with any FHIR resource.</p>
+<p>For example, the <code>dynamicValue</code> element of the ActivityDefinition and PlanDefinition resources contains an <code>expression</code> element directly. However, for resources that do not define these elements, the <a href="[%extensions-location%]StructureDefinition-cqf-expression.html">cqf-expression</a> extension can be used to enable expression information to be associated with any FHIR resource.</p>
 
 <a name="expression-description"> </a>
 <h5>Description</h5>
@@ -82,7 +82,7 @@
     &lt;valueExpression&gt;
       &lt;language value=&quot;text/cql-expression&quot;/&gt;
       &lt;expression value=&quot;Now()&quot;/&gt;
-    &gt;/valueExpression&gt;
+    &lt;/valueExpression&gt;
   &lt;/extension&gt;
 &lt;/event&gt;
 </code></pre>
@@ -133,7 +133,7 @@
 ]
 </code></pre>
 
-<p>For resources that do not have a <code>library</code> element, the <a href="extension-cqf-library.html">library</a> <a href="extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
+<p>For resources that do not have a <code>library</code> element, the <a href="[%extensions-location%]StructureDefinition-cqf-library.html">library</a> <a href="extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
 
 <p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references. Take, for example, the case of updating a library reference in a resource. If the resource has multiple library references, then every expression qualifier that referred to the previous library must be updated. However, if the libraries were combined into a single reference, then only the reference would need to be updated.</p>
 
@@ -157,6 +157,10 @@
 
 <p>Note that the way that parameters are bound to the expression from the evaluation context varies based on where the evaluation is taking place, but in general, the parameters are bound by name to the parameters defined in the evaluation operation. For example, in the <code>$apply</code> operation, parameters defined by libraries can be provided as named parameters in the operation invocation. For more details on how parameter binding occurs within each context, refer to the specific documentation for the <code>$apply</code>, <code>$evaluate</code>, and <code>$evaluate-measure</code> operations.</p>
 
+<p>
+  To encourage consistency and facilitate usage, operations SHOULD make any parameters to the operation available as context variables accessible in the evaluation context for any expressions evaluated as part of operation processing.
+</p>
+
 <a name="data-requirements"> </a>
 <h5>Data Requirements</h5>
 <p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference laboratory test results for hemoglobin A1c tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
@@ -173,6 +177,27 @@
 
 <p>For CQL expressions that contain retrieves, a Library SHOULD be used to describe the data requirements. However, the <a href="operation-library-data-requirements.html">$data-requirements</a> operation can also be used to infer the data requirements based on usage within the expression.</p>
 
+<a name="quantities"> </a>
+<h5>Use of FHIR Quantity</h5>
+<p>The mapping from FHIR Quantity to CQL <code>System.Quantity</code> can only be applied if the FHIR Quantity has a UCUM code, i.e. a system of <code>http://unitsofmeausure.org</code> and a code is present.</p>
+
+<p>As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath and CQL, according to the following map:</p>
+
+<table>
+  <thead><tr><th>UCUM unit</th><th>Calendar Unit</th></tr></thead>
+  <tbody>
+    <tr><td>a</td><td>year</td></tr>
+    <tr><td>mo</td><td>month</td></tr>
+    <tr><td>d</td><td>day</td></tr>
+    <tr><td>h</td><td>hour</td></tr>
+    <tr><td>min</td><td>minute</td></tr>
+    <tr><td>s</td><td>second</td></tr>
+    <tr><td>ms</td><td>millisecond</td></tr>
+  </tbody>
+</table>
+
+<p>For example, the FHIR Quantity <code>1 'a'</code> would be implicitly converted to the CQL System.Quantity <code>1 year</code>.</p>
+
 <a name="fhirpath"> </a>
 <h4>FHIRPath</h4>
 <p><a href="fhirpath.html">FHIRPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fhirpath">here</a>.</p>
@@ -186,6 +211,8 @@
 <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1</a>.</p>
 
 <p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
+
+<p>For more guidance and best-practices for the use of CQL with FHIR-based knowledge artifacts, refer to the [Using CQL](https://build.fhir.org/ig/HL7/crmi-ig/using-cql.html) topic in the Canonical Resource Management Infrastructure Implementation Guide.</p>
 [%file newfooter%]
 </body>
 </html>

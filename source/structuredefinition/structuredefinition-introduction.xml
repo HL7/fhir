@@ -49,12 +49,22 @@ find the structure when registered in repositories.
  <tr><td>url</td><td>The identifier that is used to identify this structure when it is referenced in a specification, model, design or an instance. This URL is where the structure can be accessed</td></tr>
  <tr><td>identifier</td><td>Other identifiers that are used to identify this structure</td></tr>
  <tr><td>version</td><td>
-   <p>The identifier that is used to identify this version of the structure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure author manually and the value should be a timestamp.</p>
-   <p>Note that there may be multiple resource versions of the structure that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
+   <p>The identifier that is used to identify this version of the structure definition when it is 
+      referenced in a specification, model, design or instance. This is an arbitrary value managed 
+      by the structure definition author and is not expected to be globally unique. There is no 
+      expectation that versions can be placed in a lexicographical sequence, so authors are encouraged 
+      to populate the StructureDefinition.versionAlgorithm[x] element to enable comparisons. If 
+      there is no managed version available, authors can consider using ISO date/time syntax (e.g., "2023-01-01").
+      This is a business versionId, not a resource version id (see <a href="resource.html#versions">discussion</a>).
+    </p>
+    <p>Note that there may be multiple resource versions of the structure that have this same identifier. 
+     The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control.
+     The version can be appended to the url in a reference to allow a reference to a particular business version of the structure definition with the format [url]|[version]. 
+    </p>
    </td></tr>
  <tr><td>versionAlgorithm</td><td>Indicates the mechanism used to compare versions to determine which is more current</td></tr>
  <tr><td>name</td><td>A Computer-ready name (e.g. a token) that identifies the structure - suitable for code generation. 
-   Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
+   Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc.) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of StructureDefinitions that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>

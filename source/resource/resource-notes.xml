@@ -62,13 +62,13 @@ In general, identifiers are sometimes categorised into one of three
 categories: Business, informational, and instance.
 </p>
 <ul>
- <li>a <b>business identifier</b> that uniquely identifies a singleton thing in the real world, e.g. a patient Jane Dupont, a drug Amoxycillin, etc, and if there are records about this thing inside systems, such an id would be one way to search for such record(s)</li>
- <li>an <b>informational identifier</b> that is guaranteed unique for every informational entity known inside systems, including entities that appear to be not directly related to real world singleton entities (e.g. each med. rec. event on some patient's Rx list), aka things that don't have business identifiers;, aka things that are 'just information'</li>
+ <li>a <b>business identifier</b> that uniquely identifies a singleton thing in the real-world, e.g. a patient Jane Dupont, a drug Amoxycillin, etc., and if there are records about this thing inside systems, such an id would be one way to search for such record(s)</li>
+ <li>an <b>informational identifier</b> that is guaranteed unique for every informational entity known inside systems, including entities that appear to be not directly related to real-world singleton entities (e.g. each med. rec. event on some patient's Rx list), aka things that don't have business identifiers;, aka things that are 'just information'</li>
  <li>an <b>instance identifier</b>, guaranteed to be unique for any distinguishable instance of each logical informational entity (i.e. doesn't change for exact copies, but does change as soon as changes are made)</li>
 </ul>
 <p>
 In these terms, the <code>logical id</code> is an instance identifier, and all the other 
-identifiers are loosely called "business" identifiers. Note that due to real world practices 
+identifiers are loosely called "business" identifiers. Note that due to real-world practices 
 around IDs, business identifiers are often used to identify things by proxy e.g. identifying 
 multiple different patient records for the same person by the same driver's license number.
 </p>
@@ -78,15 +78,15 @@ multiple different patient records for the same person by the same driver's lice
 <p>
 Although the logical id of a resource changes as it moves from server to server, all copies 
 of the resource refer to the same underlying concept, and this concept may also be represented 
-in other formats (variously, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>,
+in other formats (variously, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>,
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, XDS, and many more). 
-Each representation carries common identifiers that identify the underlying concept (also called "real world entity") 
+Each representation carries common identifiers that identify the underlying concept (also called "real-world entity") 
 consistently across all contexts of use. This is known as the <code>business identifier</code>, and is found in
 the <i>identifier</i> element, which has the type <a href="datatypes.html#Identifier">Identifier</a>. 
 </p>
 <p>
 All resources that have an <code>identifier</code> element support searching by the identifier, so 
-that records can be located by that method. So if an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> 
+that records can be located by that method. So if an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> 
 message has the following OBR:
 </p>
 <pre>
@@ -164,7 +164,7 @@ Given that the identifier is the same, the patient resources are understood to m
 patient. For this reason, systems SHOULD:
 </p>
 <ul>
- <li>Only assign identifiers to resources when they uniquely identify the real world entity that the resources match (e.g. do not use account numbers as patient identifiers when multiple different patients share the same account number)</li>
+ <li>Only assign identifiers to resources when they uniquely identify the real-world entity that the resources match (e.g. do not use account numbers as patient identifiers when multiple different patients share the same account number)</li>
  <li>Preserve identifiers as much as possible and not throw them away. Even if the identifiers are not useful to the system itself, they are likely to be useful to downstream consumers</li>
  <li>When serving resources, use consistent identifiers from the master persistent store where ever possible (e.g. when a resource is created from a primary record, populate the identifier, and store the identifier somewhere so the same identifier is used next time)</li>
 </ul>
@@ -172,9 +172,9 @@ patient. For this reason, systems SHOULD:
 <p>
 Following these practices will make for consistent identification of concepts and real-world entities across 
 healthcare eco-systems. For example, medication orders can be represented as 
-<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationusage.html">MedicationUsage</a>. 
+<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationstatement.html">MedicationStatement</a>. 
 Some systems - primary sources - will provide the medication order as a MedicationRequest 
-while other secondary systems will provide them as a MedicationUsage. Any system processing 
+while other secondary systems will provide them as a MedicationStatement. Any system processing 
 the resources will need to reconcile these, and the presence of consistent identifiers will 
 considerably simplify the reconciliation process.
 </p>
@@ -189,7 +189,7 @@ Note that this specification provides two other related methods by which common 
 <p>
 The granularity of <a href="provenance-definitions.html#Provenance.entity.what_x_">Provenance.entity.what[x]</a> / <a href="resource-definitions.html#Meta.source">Resource.meta.source</a>
 is not fixed to a single resource - multiple resources can be derived from a single source entity (e.g. a single CDA document), so applications need to be careful assuming
-that matching entity source information means that the resources are identifying the same real world concept.
+that matching entity source information means that the resources are identifying the same real-world concept.
 </p>
 
 <a name="implicitRules"></a>  
@@ -240,7 +240,7 @@ Any valid language code as defined in <a href="http://tools.ietf.org/html/bcp47"
 language code system is complex, with parts for Primary Language, Script, Region, and other variants
 and extensions. In order to simplify implementations, the language element has a <a href="terminologies.html#preferred">preferred binding</a>
 to an enumerated list of common language codes encountered in applications, with translations, and also 
-a <a href="extension-elementdefinition-maxvalueset.html">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
+a <a href="terminologies.html#binding">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
 preventing the use of any language code. 
 </p>
 
@@ -284,7 +284,7 @@ in particular implementations or contexts of use.
    <td>If populated, this value changes each time the content of the resource 
     changes. It can be used by a system or a human to judge the currency of the resource content. 
     Note that <a href="http.html#update">version aware updates</a> do not depend on this element. Note that 
-    <a href="extension-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
+    <a href="[%extensions-location%]StructureDefinition-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
     If present, the timezone code applies to the server copy of the resource, and not necessarily to other 
     time related elements within the resource even if the timezone offsets are the same.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to the current time on the server</td>
@@ -510,7 +510,7 @@ of resources that need review.
 <p>
 In a general tag, the <a href="datatypes.html#coding">coded concept</a> may be a reference to a 
 healthcare vocabulary, including ones defined in this specification, or vocabularies such 
-as those defined by HL7 for other purposes (e.g. <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>), LOINC, or SNOMED CT. 
+as those defined by HL7 for other purposes (e.g. <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>), LOINC, or SNOMED CT. 
 Alternatively, the concept may be one defined by the implementation in the local context. 
 </p>
 <p>

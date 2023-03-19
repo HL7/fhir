@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="InventoryItem-search-params"/>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryItem-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryItem.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryItem-code"/>
+        <description value="Search for products that match this code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="InventoryItem.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryItem-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryItem.instance.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryItem-subject"/>
+        <description value="The identity of a patient for whom to list associations"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="InventoryItem.instance.subject"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryItem-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryItem.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryItem-status"/>
+        <description value="The status of the item"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="InventoryItem.status"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryItem-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryItem.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryItem-identifier"/>
+        <description value="The identifier of the item"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="InventoryItem.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+</Bundle>

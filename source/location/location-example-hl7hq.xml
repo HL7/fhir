@@ -40,14 +40,14 @@
       <system value="email"/>
       <value value="hq@HL7.org"/>
     </telecom>
-    <address>
-      <line value="3300 Washtenaw Avenue, Suite 227"/>
-      <city value="Ann Arbor"/>
-      <state value="MI"/>
-      <postalCode value="48104"/>
-      <country value="USA"/>
-    </address>  
   </contact>
+  <address>
+    <line value="3300 Washtenaw Avenue, Suite 227"/>
+    <city value="Ann Arbor"/>
+    <state value="MI"/>
+    <postalCode value="48104"/>
+    <country value="USA"/>
+  </address>  
   <form>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />

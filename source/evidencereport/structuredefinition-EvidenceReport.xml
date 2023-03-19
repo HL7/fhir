@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EvidenceReport"/>
-  <title value="EvidenceReport"/>
+  <title value="Evidence Report"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -86,13 +86,6 @@
       <definition value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/EvidenceReport"/>
-      </constraint>
       <mapping>
         <identity value="w5"/>
         <map value="clinical.general"/>
@@ -113,7 +106,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>

@@ -83,16 +83,17 @@ in order to support consistent definitions for schema and UML derived code.
 	</thead>
 	<tbody>
 		<tr><td><a href="activitydefinition.html">ActivityDefinition</a></td><td>A resource to represent definitional resources.</td></tr>
+		<tr><td><a href="artifactassessment.html">ArtifactAssessment</a></td><td>A resource to capture assessments of knowledge artifacts such as ratings, classifiers, reviews, and comments.</td></tr>
+		<tr><td><a href="citation.html">Citation</a></td><td>Represents the identification, location, and contributor attribution for a knowledge artifact.</td></tr>
 		<tr><td><a href="metadatatypes.html#DataRequirement.html">DataRequirement</a></td><td>A datatype that represents a general data requirement for a knowledge asset such as a decision support rule or quality measure.</td></tr>
+		<tr><td><a href="evidence.html">Evidence</a></td><td>Represents a single analytic result about a group.</td></tr>
+		<tr><td><a href="evidencevariable.html">EvidenceVariable</a></td><td>Represents the elements that evidence is about, such as the elements of a PICO question.</td></tr>
 		<tr><td><a href="guidanceresponse.html">GuidanceResponse</a></td><td>Represents the result from invoking a decision support service.</td></tr>
 		<tr><td><a href="library.html">Library</a></td><td>Provides a container for knowledge artifacts that includes logic libraries, model definitions, and asset collections.</td></tr>
 		<tr><td><a href="measure.html">Measure</a></td><td>Represents a clinical quality measure and provides evaluation through the $evaluate-measure operation.</td></tr>
 		<tr><td><a href="measurereport.html">MeasureReport</a></td><td>Represents the response to a specific measure evaluation request returned by the $evaluate-measure operation.</td></tr>
 		<tr><td><a href="plandefinition.html">PlanDefinition</a></td><td>Represents the description of a plan for accomplishing a particular goal. This resource is used to represent a broad variety of clinical knowledge artifacts including decision support rules, order sets, and protocols.</td></tr>
 		<tr><td><a href="requestorchestration.html">RequestOrchestration</a></td><td>Represents a group of options for a particular subject that can be used to accomplish a particular goal. This resource is often, but not always, the result of applying a PlanDefinition to a particular patient.</td></tr>
-		<tr><td><a href="evidence.html">Evidence</a></td><td>Represents a single analytic result about a group.</td></tr>
-		<tr><td><a href="citation.html">Citation</a></td><td>Represents the identification, location, and contributor attribution for a knowledge artifact.</td></tr>
-		<tr><td><a href="evidencereport.html">EvidenceReport</a></td><td>Represents a composition of non-individualized knowledge.</td></tr>
 	</tbody>
 </table>
 
@@ -104,21 +105,21 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><th>Extension</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="extension-cqf-cdshooksendpoint.html">cdsHooksEndpoint</a></td><td>An extension applied to a PlanDefinition to indicate that it provides the behavior for a CDS Hooks service endpoint.</td></tr>
-		<tr><td><a href="extension-cqf-expression.html">expression</a></td><td>A general purpose extension that supports the use of languages such as FHIRPath and Clinical Quality Language within FHIR.</td></tr>
-		<tr><td><a href="extension-cqf-library.html">library</a></td><td>A general purpose extension that supports the declaration of dependencies that can be accessed by expression logic.</td></tr>
-		<tr><td><a href="extension-cqf-measureinfo.html">measureInfo</a></td><td>An extension that can be applied to resources to indicate the measure criteria they satisfy. Used in evaluated resource bundles as part of reporting measure results for a patient to identify resources that contributed to the patient's membership in a particular population criteria.</td></tr>
-		<tr><td><a href="extension-cqf-qualityofevidence.html">qualityOfEvidence</a></td><td>An extension that can be applied to indicate the quality of evidence in support of a particular artifact or recommendation.</td></tr>
-		<tr><td><a href="extension-cqf-relativedatetime.html">relativeDateTime</a></td><td>[DEPRECATED] An extension that can be applied to define a date/time value relative to another event. This extension is deprecated, use the <a href="extension-relative-date.html">relative-date</a> extension instead</td></tr>
-		<tr><td><a href="extension-artifact-periodduration.html">periodDuration</a></td><td>Allows a period to be specified using a start date and duration rather than specifying an end date.</td></tr>
-		<tr><td><a href="extension-cqf-strengthofrecommendation.html">strengthOfRecommendation</a></td><td>An extension that can be applied to indicate the strength of a recommendation.</td></tr>
-		<tr><td><a href="extension-cqf-certainty.html">certainty</a></td><td>An extension that can be applied to a knowledge resource to indicate the certainty of some aspect of the resource such as confidence, strength, or quality.</td></tr>
-		<tr><td><a href="extension-cqf-contactreference.html">contactReference</a></td><td>An extension that can be applied to a ContactDetail to provide a reference to a resource that is the contact.</td></tr>
-		<tr><td><a href="extension-cqf-contactaddress.html">contactAddress</a></td><td>An extension that can be applied to a ContactDetail to indicate the address of a contributor.</td></tr>
-		<tr><td><a href="extension-cqf-contributiontime.html">contributionTime</a></td><td>An extension that can be applied to a ContactDetail to indicate the time when a contributor made their contribution.</td></tr>
-		<tr><td><a href="extension-cqf-parameterdefinition.html">parameterDefinition</a></td><td>An extension that can be applied to a TriggerDefinition to indicate a parameter that is supplied to the event handler for the trigger.</td></tr>
-		<tr><td><a href="extension-cqf-parameterdefinition.html">isPrefetchToken</a></td><td>An extension that can be applied to a ParameterDefinition to indicate whether the parameter may be used to parameterize prefetch queries.</td></tr>
-		<tr><td><a href="extension-cqf-supportedcqlversion.html">supportedCqlVersion</a></td><td>An extension that can be applied to a CapabilityStatement to indicate what versions of CQL a server supports processing.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-cdsHooksEndpoint.html">cdsHooksEndpoint</a></td><td>An extension applied to a PlanDefinition to indicate that it provides the behavior for a CDS Hooks service endpoint.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-expression.html">expression</a></td><td>A general purpose extension that supports the use of languages such as FHIRPath and Clinical Quality Language within FHIR.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-library.html">library</a></td><td>A general purpose extension that supports the declaration of dependencies that can be accessed by expression logic.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-measureInfo.html">measureInfo</a></td><td>An extension that can be applied to resources to indicate the measure criteria they satisfy. Used in evaluated resource bundles as part of reporting measure results for a patient to identify resources that contributed to the patient's membership in a particular population criteria.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-qualityOfEvidence.html">qualityOfEvidence</a></td><td>An extension that can be applied to indicate the quality of evidence in support of a particular artifact or recommendation.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-relativeDateTime.html">relativeDateTime</a></td><td>[DEPRECATED] An extension that can be applied to define a date/time value relative to another event. This extension is deprecated, use the <a href="[%extensions-location%]StructureDefinition-relative-date.html">relative-date</a> extension instead</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-artifact-periodDuration.html">periodDuration</a></td><td>Allows a period to be specified using a start date and duration rather than specifying an end date.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-strengthOfRecommendation.html">strengthOfRecommendation</a></td><td>An extension that can be applied to indicate the strength of a recommendation.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-certainty.html">certainty</a></td><td>An extension that can be applied to a knowledge resource to indicate the certainty of some aspect of the resource such as confidence, strength, or quality.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-contactReference.html">contactReference</a></td><td>An extension that can be applied to a ContactDetail to provide a reference to a resource that is the contact.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-contactAddress.html">contactAddress</a></td><td>An extension that can be applied to a ContactDetail to indicate the address of a contributor.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-contributionTime.html">contributionTime</a></td><td>An extension that can be applied to a ContactDetail to indicate the time when a contributor made their contribution.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-parameterDefinition.html">parameterDefinition</a></td><td>An extension that can be applied to a TriggerDefinition to indicate a parameter that is supplied to the event handler for the trigger.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-isPrefetchToken.html">isPrefetchToken</a></td><td>An extension that can be applied to a ParameterDefinition to indicate whether the parameter may be used to parameterize prefetch queries.</td></tr>
+		<tr><td><a href="[%extensions-location%]StructureDefinition-cqf-supportedCqlVersion.html">supportedCqlVersion</a></td><td>An extension that can be applied to a CapabilityStatement to indicate what versions of CQL a server supports processing.</td></tr>
 	</tbody>
 </table>
 
@@ -201,7 +202,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>In particular, because expression languages, depending on their power and scope, can provide the ability to access large amounts of data, as well as the potential for infinite recursion or looping, care should be taken to ensure that implementations adequately safeguard against Denial-of-Service-style attacks that leverage these capabilities to compromise systems by overloading capacity.</p>
 
-<p>For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
+<p>For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>, and in particular the <a href="safety.html">Implementer's Safety Checklist</a>.</p>
 
 <a name="uses"></a>
 <h3>Common use Cases</h3>
@@ -231,13 +232,24 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 
-<p>The resources defined for the Clinical Reasoning module are the result of the combined efforts of multiple communities working on the shared goal of harmonized standards and specifications for clinical decision support and quality measurement artifacts. The current state of the module reflects changes incorporated both from previous ballots on the FHIR-specific material, as well as content derived from several other balloted specifications in the CDS and CQM domains. The content at this point is capable of supporting the two primary use cases of sharing and evaluation in both domains and for a broad variety of artifacts.</p>
+<p>The resources defined for the Clinical Reasoning module are the result of the combined efforts of multiple communities working on the shared goal of harmonized standards and specifications for clinical decision support, quality measurement, public health reporting, evidence sharing, and other clinical reasoning use case artifacts. The current state of the module reflects changes incorporated both from previous ballots on the FHIR-specific material, as well as content derived from several other balloted specifications in the CDS and CQM domains. The content at this point is capable of supporting the two primary use cases of sharing and evaluation in multiple domains and for a broad variety of artifacts.</p>
 
 <p>In particular, the use of Clinical Quality Language (CQL) as a foundational mechanism for representing clinical quality logic enables decision support and quality measurement artifacts to share common definitions. For example, a Chlamydia Screening measure and related decision support artifacts focused on improving the measure can share a common library that describes the criteria for detecting when Chlamydia Screening is required in a patient. The decision support rule applies these criteria to determine when and how to impact a workflow, while the quality measure uses these same criteria to determine whether the screening goal has been met for a patient or population. In addition, the resources defined in this module use common patterns for describing the structure of artifacts and their associated metadata, enabling a consistent approach to the sharing and distribution of clinical knowledge artifacts.</p>
 
-<p>Over the past year of trial use, the Clinical Reasoning module has been used in both the quality measurement and decision support domains to represent, exchange, and evaluate knowledge artifacts. This usage has generated feedback resulting in the addition of several new profiles, as well as guidance for using the Clincal Reasoning module with CDS Hooks and for quality reporting. Although this feedback resulted in some substantive changes, there were comparatively few, and the goals of the module for the next year are to push towards higher maturity levels and continue to seek implementation feedback.</p>
+<p>Over the past several years of trial use, the Clinical Reasoning module has been used in both the quality measurement and decision support domains to represent, exchange, and evaluate knowledge artifacts. This usage has generated feedback resulting in the addition of several new profiles, as well as guidance for using the Clinical Reasoning module with CDS Hooks and for quality reporting. Although this feedback resulted in some substantive changes, there were comparatively few, and the goals of the module for the next several years are to continue to seek implementation feedback as part of reaching normative status for the module resources.</p>
 
-<p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing use case, as well as unification with the CDS Hooks specification in support of the evaluation use case. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year.</p>
+<p>In particular, the Clinical Quality Framework Initiative will continue to use these resources as the basis for implementation projects, targeting normative status for at least the Library, Measure, ActivityDefinition, and PlanDefinition resources as part of the next FHIR publication (R6).</p>
+
+<p>Some of these implementation guides include:</p>
+
+<ul>
+	<li><a href="https://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management Infrastructure</a>: This implementation guide provides universally applicable guidance related to the content development lifecycle, including authoring, packaging, publishing, distributing, and consuming conformance resources and knowledge artifacts.</li>
+	<li><a href="http://hl7.org/fhir/uv/cpg">Clinical Guidelines</a>: This implementation guide provides an approach and methodology for the representation and implementation of computable clinical guidelines using the resources and capabilities provided by the Clinical Reasoning module.</li>
+	<li><a href="http://hl7.org/fhir/us/cqfmeasures">Quality Measures</a>: This implementation guide provides detailed conformance requirements and guidance for the use of the Measure and Library resources to support the specification of quality measures.</li>
+	<li><a href="http://hl7.org/fhir/us/davinci-deqm">Data Exchange for Quality Measures</a>: This implementation guide provides detailed guidance to support reporting quality measures specified by the Quality Measures IG.</li>
+</ul>
+
+<p>Note that the Canonical Resource Management Infrastructure implementation guide in particular includes general guidance for the Shareable, Publishable, Computable, and Executable content patterns used in previously published versions of several of the above implementation guides and consolidated as the Shareable and Publishable patterns in this specification. The profiles in the CRMI have the same URL as the equivalent profiles in this specification, the intent being to use the CRMI profiles to continue maturing the patterns and related profiles, with the ultimate goal of including the matured profiles in a future version of the FHIR publication. Applications making use of the Shareable and Publishable patterns should use the profiles defined in CRMI.</p>
 
 [%stu-note crm-feedback%]
 We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:
@@ -259,7 +271,7 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 <a name="background"></a>
 <h3>Background</h3>
 
-<p>The FHIR Clinical Reasoning module is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
+<p>The FHIR Clinical Reasoning module is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure, Terminology Infrastructure, Service Oriented Architecture, Patient Care, Patient Administration, and Public Health HL7 Work Groups.</p>
 
 <p>The guidance in this module was prepared as a Universal Realm Specification with support from the <a href="https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home">Clinical Quality Framework (CQF) initiative</a>, which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to identify, develop, and harmonize standards for clinical decision support and electronic clinical quality measurement. The <a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">Clinical Quality Framework</a> effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Decision Support (CDS) Work Groups in 2016.</p>
 

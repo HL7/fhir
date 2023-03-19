@@ -1,0 +1,46 @@
+<mappingExceptions pattern="Participant" resource="Location"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Participant.identifier" resourcePath="Location.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business Identifier for location"/>
+            <resource value="Unique code or number identifying the location to its users"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this location by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Unique code or number identifying the location to its users."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the location as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value="Organization label locations in registries, need to keep track of those."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Participant.active" resourcePath="Location.status">
+        <missingTypes _pattern="boolean" reason="Unknown"/>
+        <extraTypes _resource="code" reason="Unknown"/>
+        <modifier _pattern="false" _resource="true" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Whether the location is currently active"/>
+            <resource value="active | suspended | inactive"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Whether this location record is in active use."/>
+            <resource value="The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Participant.name" resourcePath="Location.name">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="A name for the location"/>
+            <resource value="Name of the location as used by humans"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Description of the location as presented to a consumer while searching."/>
+            <resource value="Name of the location as used by humans. Does not need to be unique."/>
+        </definitionUnmatched>
+    </divergentElement>
+</mappingExceptions>

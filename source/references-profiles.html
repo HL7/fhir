@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML>
+
+
+[%settitle Reference Profiles%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+
+<%refheader profiles%>
+
+
+<h2>Reference Profiles</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<p>This profiles defined here can be used on any <code>Reference</code>. 
+Additional Profiles may be found in published
+<a href="https://www.fhir.org/guides/registry/">Implementation Guides</a>, or in the
+<a href="http://registry.fhir.org">Conformance resource registry</a>.
+</p>
+
+
+<a name="Reference"></a>
+<a name="reference"></a>
+<h3 style="margin-bottom: 1px">Reference</h3>
+[%dtstatus Reference%]
+<p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
+<!--xlp:Reference-->See also <a no-external="true" href="references.html#Reference">Base Definition</a>, <a no-external="true" href="references-definitions.html#Reference">Detailed Descriptions</a>, <a no-external="true" href="[%extensions-location%]extensions-references.html#Reference">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-references.html#Reference">R4 Conversions</a>
+</p>
+
+<table class="list">
+<%dtprofiles Reference%>
+</table>
+
+
+<hr/>
+<a name="CodeableReference"></a>
+<a name="codeablereference"></a>
+<h3 style="margin-bottom: 1px">CodeableReference</h3>
+[%dtstatus CodeableReference%]
+<p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
+<!--xlp:CodeableReference-->See also <a no-external="true" href="references.html#CodeableReference">Base Definition</a>, <a no-external="true" href="references-definitions.html#CodeableReference">Detailed Descriptions</a>, <a no-external="true" href="[%extensions-location%]extensions-references.html#CodeableReference">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-references.html#CodeableReference">R4 Conversions</a>
+</p>
+
+<table class="list">
+<%dtprofiles CodeableReference%>
+</table>
+
+[%file newfooter%]
+</body>
+</html>

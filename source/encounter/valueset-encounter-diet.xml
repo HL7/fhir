@@ -24,7 +24,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.2.142"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Diet"/>
+  <name value="EncounterDiet"/>
+  <title value="Diet"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

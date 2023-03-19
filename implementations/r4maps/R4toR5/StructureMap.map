@@ -1,0 +1,125 @@
+map "http://hl7.org/fhir/StructureMap/StructureMap3to4" = "R3 to R4 Conversions for StructureMap"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/StructureMap" alias StructureMapR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/StructureMap" alias StructureMap as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group StructureMap(source src : StructureMapR3, target tgt : StructureMap) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.structure as vs0 -> tgt.structure as vt0 then structure(vs0, vt0);
+  src.import -> tgt.import;
+  src.group as vs0 -> tgt.group as vt0 then group(vs0, vt0);
+}
+
+group structure(source src, target tgt) extends BackboneElement {
+  src.url -> tgt.url;
+  src.mode -> tgt.mode;
+  src.alias -> tgt.alias;
+  src.documentation -> tgt.documentation;
+}
+
+group group(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.extends -> tgt.extends;
+  src.typeMode -> tgt.typeMode;
+  src.documentation -> tgt.documentation;
+  src.input as vs0 -> tgt.input as vt0 then input(vs0, vt0);
+  src.rule as vs0 -> tgt.rule as vt0 then rule(vs0, vt0);
+}
+
+group input(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.mode -> tgt.mode;
+  src.documentation -> tgt.documentation;
+}
+
+group rule(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.source as vs0 -> tgt.source as vt0 then source(vs0, vt0);
+  src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
+}
+
+group source(source src, target tgt) extends BackboneElement {
+  src.context -> tgt.context;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.type -> tgt.type;
+  src.defaultValue : base64Binary as vs -> tgt.defaultValue = create('base64Binary') as vt then base64Binary(vs, vt) "valuebase64Binary";
+  src.defaultValue : boolean as vs -> tgt.defaultValue = create('boolean') as vt then boolean(vs, vt) "valueboolean";
+  src.defaultValue : code as vs -> tgt.defaultValue = create('code') as vt then code(vs, vt) "valuecode";
+  src.defaultValue : date as vs -> tgt.defaultValue = create('date') as vt then date(vs, vt) "valuedate";
+  src.defaultValue : dateTime as vs -> tgt.defaultValue = create('dateTime') as vt then dateTime(vs, vt) "valuedateTime";
+  src.defaultValue : decimal as vs -> tgt.defaultValue = create('decimal') as vt then decimal(vs, vt) "valuedecimal";
+  src.defaultValue : id as vs -> tgt.defaultValue = create('id') as vt then id(vs, vt) "valueid";
+  src.defaultValue : instant as vs -> tgt.defaultValue = create('instant') as vt then instant(vs, vt) "valueinstant";
+  src.defaultValue : integer as vs -> tgt.defaultValue = create('integer') as vt then integer(vs, vt) "valueinteger";
+  src.defaultValue : markdown as vs -> tgt.defaultValue = create('markdown') as vt then markdown(vs, vt) "valuemarkdown";
+  src.defaultValue : oid as vs -> tgt.defaultValue = create('oid') as vt then oid(vs, vt) "valueoid";
+  src.defaultValue : positiveInt as vs -> tgt.defaultValue = create('positiveInt') as vt then positiveInt(vs, vt) "valuepositiveInt";
+  src.defaultValue : string as vs -> tgt.defaultValue = create('string') as vt then string(vs, vt) "valuestring";
+  src.defaultValue : time as vs -> tgt.defaultValue = create('time') as vt then time(vs, vt) "valuetime";
+  src.defaultValue : unsignedInt as vs -> tgt.defaultValue = create('unsignedInt') as vt then unsignedInt(vs, vt) "valueunsignedInt";
+  src.defaultValue : uri as vs -> tgt.defaultValue = create('uri') as vt then uri(vs, vt) "valueuri";
+  src.defaultValue : Address as vs -> tgt.defaultValue = create('Address') as vt then Address(vs, vt) "valueAddress";
+  src.defaultValue : Age as vs -> tgt.defaultValue = create('Age') as vt then Age(vs, vt) "valueAge";
+  src.defaultValue : Annotation as vs -> tgt.defaultValue = create('Annotation') as vt then Annotation(vs, vt) "valueAnnotation";
+  src.defaultValue : Attachment as vs -> tgt.defaultValue = create('Attachment') as vt then Attachment(vs, vt) "valueAttachment";
+  src.defaultValue : CodeableConcept as vs -> tgt.defaultValue = create('CodeableConcept') as vt then CodeableConcept(vs, vt) "valueCodeableConcept";
+  src.defaultValue : Coding as vs -> tgt.defaultValue = create('Coding') as vt then Coding(vs, vt) "valueCoding";
+  src.defaultValue : ContactPoint as vs -> tgt.defaultValue = create('ContactPoint') as vt then ContactPoint(vs, vt) "valueContactPoint";
+  src.defaultValue : Count as vs -> tgt.defaultValue = create('Count') as vt then Count(vs, vt) "valueCount";
+  src.defaultValue : Distance as vs -> tgt.defaultValue = create('Distance') as vt then Distance(vs, vt) "valueDistance";
+  src.defaultValue : Duration as vs -> tgt.defaultValue = create('Duration') as vt then Duration(vs, vt) "valueDuration";
+  src.defaultValue : HumanName as vs -> tgt.defaultValue = create('HumanName') as vt then HumanName(vs, vt) "valueHumanName";
+  src.defaultValue : Identifier as vs -> tgt.defaultValue = create('Identifier') as vt then Identifier(vs, vt) "valueIdentifier";
+  src.defaultValue : Money as vs -> tgt.defaultValue = create('Money') as vt then Money(vs, vt) "valueMoney";
+  src.defaultValue : Period as vs -> tgt.defaultValue = create('Period') as vt then Period(vs, vt) "valuePeriod";
+  src.defaultValue : Quantity as vs -> tgt.defaultValue = create('Quantity') as vt then Quantity(vs, vt) "valueQuantity";
+  src.defaultValue : Range as vs -> tgt.defaultValue = create('Range') as vt then Range(vs, vt) "valueRange";
+  src.defaultValue : Ratio as vs -> tgt.defaultValue = create('Ratio') as vt then Ratio(vs, vt) "valueRatio";
+  src.defaultValue : Reference as vs -> tgt.defaultValue = create('Reference') as vt then Reference(vs, vt) "valueReference";
+  src.defaultValue : SampledData as vs -> tgt.defaultValue = create('SampledData') as vt then SampledData(vs, vt) "valueSampledData";
+  src.defaultValue : Signature as vs -> tgt.defaultValue = create('Signature') as vt then Signature(vs, vt) "valueSignature";
+  src.defaultValue : Timing as vs -> tgt.defaultValue = create('Timing') as vt then Timing(vs, vt) "valueTiming";
+  src.element -> tgt.element;
+  src.listMode -> tgt.listMode;
+  src.variable -> tgt.variable;
+  src.condition -> tgt.condition;
+  src.check -> tgt.check;
+}
+
+group target(source src, target tgt) extends BackboneElement {
+  src.context -> tgt.context;
+  src.contextType -> tgt.contextType;
+  src.element -> tgt.element;
+  src.variable -> tgt.variable;
+  src.listMode -> tgt.listMode;
+  src.listRuleId -> tgt.listRuleId;
+  src.transform -> tgt.transform;
+  src.parameter as vs0 -> tgt.parameter as vt0 then parameter(vs0, vt0);
+}
+
+group parameter(source src, target tgt) extends BackboneElement {
+  src.value : id as vs -> tgt.value = create('id') as vt then id(vs, vt) "valueid";
+  src.value : string as vs -> tgt.value = create('string') as vt then string(vs, vt) "valuestring";
+  src.value : boolean as vs -> tgt.value = create('boolean') as vt then boolean(vs, vt) "valueboolean";
+  src.value : integer as vs -> tgt.value = create('integer') as vt then integer(vs, vt) "valueinteger";
+  src.value : decimal as vs -> tgt.value = create('decimal') as vt then decimal(vs, vt) "valuedecimal";
+}
+

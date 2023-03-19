@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="Requirements"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -80,13 +79,17 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </constraint>
       <mapping>
         <identity value="w5"/>
         <map value="conformance.content"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
     </element>
     <element id="Requirements.url">
       <path value="Requirements.url"/>
@@ -103,7 +106,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -111,6 +114,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
     </element>
     <element id="Requirements.identifier">
       <path value="Requirements.identifier"/>
@@ -127,6 +134,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
     </element>
     <element id="Requirements.version">
       <path value="Requirements.version"/>
@@ -143,7 +154,34 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
+      </mapping>
     </element>
+    <element id="Requirements.versionAlgorithm[x]">
+       <path value="Requirements.versionAlgorithm[x]"/>
+       <short value="How to compare versions"/>
+       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+       <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+       <min value="0"/>
+       <max value="1"/>
+       <type>
+         <code value="string"/>
+       </type>
+       <type>
+         <code value="Coding"/>
+       </type>
+       <isSummary value="true"/>
+       <binding>
+         <strength value="extensible"/>
+         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+       </binding>
+       <mapping>
+         <identity value="workflow"/>
+         <map value="Definition.versionAlgorithm"/>
+       </mapping>
+     </element>
     <element id="Requirements.name">
       <path value="Requirements.name"/>
       <short value="Name for this Requirements (computer friendly)"/>
@@ -157,6 +195,10 @@
       </type>
       <condition value="cnl-0"/>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
     </element>
     <element id="Requirements.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -172,6 +214,10 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
     </element>
     <element id="Requirements.status">
       <path value="Requirements.status"/>
@@ -201,6 +247,10 @@
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
     </element>
     <element id="Requirements.experimental">
       <path value="Requirements.experimental"/>
@@ -219,6 +269,10 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
     </element>
     <element id="Requirements.date">
       <path value="Requirements.date"/>
@@ -236,6 +290,10 @@
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
     </element>
     <element id="Requirements.publisher">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -256,6 +314,10 @@
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
     </element>
     <element id="Requirements.contact">
       <path value="Requirements.contact"/>
@@ -268,15 +330,19 @@
         <code value="ContactDetail"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
     </element>
     <element id="Requirements.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
       <path value="Requirements.description"/>
-      <short value="Natural language description of the actor"/>
-      <definition value="A free text natural language description of the actor."/>
-      <comment value="This description can be used for a general description of the actor, and which covers why it was defined."/>
+      <short value="Natural language description of the requirements"/>
+      <definition value="A free text natural language description of the requirements."/>
+      <comment value="This description can be used for a general description of the requirements, and which covers why it was defined."/>
       <alias value="Scope"/>
       <alias value="Purpose"/>
       <min value="0"/>
@@ -284,6 +350,10 @@
       <type>
         <code value="markdown"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
     </element>
     <element id="Requirements.useContext">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -300,6 +370,10 @@
         <code value="UsageContext"/>
       </type>
       <isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
     </element>
     <element id="Requirements.jurisdiction">
       <path value="Requirements.jurisdiction"/>
@@ -323,6 +397,10 @@
         <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
     </element>
     <element id="Requirements.purpose">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -341,6 +419,10 @@
         <identity value="w5"/>
         <map value="FiveWs.why[x]"/>
       </mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
     </element>
     <element id="Requirements.copyright">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -358,6 +440,10 @@
       <type>
         <code value="markdown"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
     </element>
     <element id="Requirements.copyrightLabel">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -373,6 +459,10 @@
       <type>
         <code value="string"/>
       </type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyrightLabel"/>
+			</mapping>
     </element>
     <element id="Requirements.derivedFrom">
       <path value="Requirements.derivedFrom"/>
@@ -386,6 +476,20 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.derivedFromCanonical"/>
+      </mapping>
+    </element>
+    <element id="Requirements.reference">
+      <path value="Requirements.reference"/>
+      <short value="External artifact (rule/document etc. that) created this set of requirements"/>
+      <definition value="A reference to another artifact that created this set of requirements. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
     </element>
     <element id="Requirements.actor">
       <path value="Requirements.actor"/>
@@ -398,6 +502,10 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
       </type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.who"/>
+			</mapping>
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
@@ -481,7 +589,7 @@
       <path value="Requirements.statement.derivedFrom"/>
       <short value="Another statement this clarifies/restricts ([url#]key)"/>
       <definition value="Another statement on one of the requirements that this requirement clarifies or restricts."/>
-      <comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. if there is more than one, it should be in the format ```url#key```"/>
+      <comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. If there is more than one, it should be in the format ```url#key```"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -504,7 +612,7 @@
       <path value="Requirements.statement.satisfiedBy"/>
       <short value="Design artifact that satisfies this requirement"/>
       <definition value="A reference to another artifact that satisfies this requirement. This could be a Profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
-      <comment value="This is for use when the requirement is met be an pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
+      <comment value="This is for use when the requirement is met be a pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -513,8 +621,8 @@
     </element>
     <element id="Requirements.statement.reference">
       <path value="Requirements.statement.reference"/>
-      <short value="External artifact (rule/document etc that) created this requirement"/>
-      <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc, or external regulation, or business requirements expressed elsewhere."/>
+      <short value="External artifact (rule/document etc. that) created this requirement"/>
+      <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -529,11 +637,20 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.source"/>
+			</mapping>
     </element>
   </differential>
 </StructureDefinition>

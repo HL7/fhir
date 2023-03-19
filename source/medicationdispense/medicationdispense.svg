@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n616"
+   version="1.1"
+   width="927.2"
+   height="438.0"
+   sodipodi:docname="medicationdispense.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview82381"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3438309"
+     inkscape:cx="463.60001"
+     inkscape:cy="219.1496"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n616" />
+  <defs
+     id="defs82133">
+    <filter
+       id="shadow1"
+       x="-0.017713903"
+       y="-0.067948718"
+       width="1.0454545"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset82124" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix82126" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur82128" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend82130" />
+    </filter>
+  </defs>
+  <g
+     id="n617">
+    <rect
+       id="MedicationDispense"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="428.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n618"
+       x1="0.0"
+       y1="28.0"
+       x2="308.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n619"
+       x="154.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">MedicationDispense<tspan
+   class="diagram-class-title-link"
+   id="tspan82138"> (<a
+   id="n620"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n621"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n622"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.identifier"><title
+   id="title82141">Identifiers associated with this Medication Dispense that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n623"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n627"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n628"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.basedOn"><title
+   id="title82146">A plan that is fulfilled in whole or in part by this MedicationDispense</title>basedOn</a> : <a
+   id="n629"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n630"
+   xlink:href="careplan.html#CarePlan">CarePlan</a> »</text>
+    <text
+       id="n635"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n636"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.partOf"><title
+   id="title82152">The procedure or medication administration that triggered the dispense</title>partOf</a> : <a
+   id="n637"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n638"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n639"
+   xlink:href="medicationadministration.html#MedicationAdministration">MedicationAdministration</a> »</text>
+    <text
+       id="n645"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n646"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.status"><title
+   id="title82159">A code specifying the state of the set of dispense events (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n647"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n648"
+   xlink:href="valueset-medicationdispense-status.html"><title
+   id="n649">null (Strength=Required)</title>MedicationDispenseStatusCodes</a>! »</text>
+    <text
+       id="n655"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n656"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.notPerformedReason"><title
+   id="title82166">Indicates the reason why a dispense was not performed</title>notPerformedReason</a> : <a
+   id="n657"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n658"
+   xlink:href="detectedissue.html#DetectedIssue">DetectedIssue</a>; <a
+   id="n659"
+   xlink:href="valueset-medicationdispense-status-reason.html"><title
+     id="n660">null (Strength=Example)</title></a></text>
+    <text
+       id="n661"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n662"
+   xlink:href="valueset-medicationdispense-status-reason.html">MedicationDispenseStatusReaso...</a>?? »</text>
+    <text
+       id="n671"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n672"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.statusChanged"><title
+   id="title82176">The date (and maybe time) when the status of the dispense record changed</title>statusChanged</a> : <a
+   id="n673"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n677"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n678"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.category"><title
+   id="title82181">Indicates the type of medication dispense (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)</title>category</a> : <a
+   id="n679"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n680"
+   xlink:href="valueset-medicationdispense-admin-location.html"><title
+   id="n681">null (Strength=Example)</title>MedicationDispenseAdministrat...</a>?? »</text>
+    <text
+       id="n687"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n688"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.medication"><title
+   id="title82188">Identifies the medication supplied. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications</title>medication</a> : <a
+   id="n689"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n690"
+   xlink:href="medication.html#Medication">Medication</a>; <a
+   id="n691"
+   xlink:href="valueset-medication-codes.html"><title
+     id="n692">null (Strength=Example)</title></a></text>
+    <text
+       id="n693"
+       x="26.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n694"
+   xlink:href="valueset-medication-codes.html">SNOMEDCTMedicationCodes</a>?? »</text>
+    <text
+       id="n703"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n704"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.subject"><title
+   id="title82198">A link to a resource representing the person or the group to whom the medication will be given</title>subject</a> : <a
+   id="n705"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n706"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n707"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n713"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n714"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.encounter"><title
+   id="title82205">The encounter that establishes the context for this event</title>encounter</a> : <a
+   id="n715"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n716"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n721"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n722"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.supportingInformation"><title
+   id="title82211">Additional information that supports the medication being dispensed.  For example, there may be requirements that a specific lab test has been completed prior to dispensing or the patient's weight at the time of dispensing is documented</title>supportingInformation</a> : <a
+   id="n723"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n724"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n729"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n730"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.location"><title
+   id="title82217">The principal physical location where the dispense was performed</title>location</a> : <a
+   id="n731"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n732"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n737"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n738"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.authorizingPrescription"><title
+   id="title82223">Indicates the medication order that is being dispensed against</title>authorizingPrescription</a> : <a
+   id="n739"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n740"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a> »</text>
+    <text
+       id="n745"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n746"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.type"><title
+   id="title82229">Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc</title>type</a> : <a
+   id="n747"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n748"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActPharmacySupplyType.html"><title
+   id="n749">null (Strength=Example)</title>ActPharmacySupplyType</a>?? »</text>
+    <text
+       id="n755"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n756"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.quantity"><title
+   id="title82236">The amount of medication that has been dispensed. Includes unit of measure</title>quantity</a> : <a
+   id="n757"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a82240">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n761"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n762"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.daysSupply"><title
+   id="title82243">The amount of medication expressed as a timing amount</title>daysSupply</a> : <a
+   id="n763"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a82247">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n767"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n768"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.recorded"><title
+   id="title82250">The date (and maybe time) when the dispense activity started if whenPrepared or whenHandedOver is not populated</title>recorded</a> : <a
+   id="n769"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n773"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n774"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.whenPrepared"><title
+   id="title82255">The time when the dispensed product was packaged and reviewed</title>whenPrepared</a> : <a
+   id="n775"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1] « <a
+   id="n776"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n777">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n783"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n784"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.whenHandedOver"><title
+   id="title82262">The time the dispensed product was provided to the patient or their representative</title>whenHandedOver</a> : <a
+   id="n785"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1] « <a
+   id="n786"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n787">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n793"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n794"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.destination"><title
+   id="title82269">Identification of the facility/location where the medication was/will be shipped to, as part of the dispense event</title>destination</a> : <a
+   id="n795"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n796"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n801"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n802"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.receiver"><title
+   id="title82275">Identifies the person who picked up the medication or the location of where the medication was delivered.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location</title>receiver</a> : <a
+   id="n803"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n804"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n805"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n806"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|</text>
+    <text
+       id="n807"
+       x="26.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n808"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n809"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n819"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n820"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.note"><title
+   id="title82286">Extra information about the dispense that could not be conveyed in the other attributes</title>note</a> : <a
+   id="n821"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n825"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n826"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.renderedDosageInstruction"><title
+   id="title82291">The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses</title>renderedDosageInstruction</a> : <a
+   id="n827"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n831"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n832"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.dosageInstruction"><title
+   id="title82296">Indicates how the medication is to be used by the patient</title>dosageInstruction</a> : <a
+   id="n833"
+   xlink:href="dosage.html#Dosage">Dosage</a> [0..*]</text>
+    <text
+       id="n837"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n838"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.eventHistory"><title
+   id="title82301">A summary of the events of interest that have occurred, such as when the dispense was verified</title>eventHistory</a> : <a
+   id="n839"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n840"
+   xlink:href="provenance.html#Provenance">Provenance</a> »</text>
+  </g>
+  <g
+     id="n845"
+     transform="translate(122.03917,64.74029)">
+    <rect
+       id="MedicationDispense.performer"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n846"
+       x1="320"
+       y1="28"
+       x2="628"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n847"
+       x="474"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Performer</text>
+    <text
+       id="n848"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n849"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.performer.function"><title
+   id="title82311">Distinguishes the type of performer in the dispense.  For example, date enterer, packager, final checker</title>function</a> : <a
+   id="n850"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n851"
+   xlink:href="valueset-medicationdispense-performer-function.html"><title
+   id="n852">null (Strength=Example)</title>MedicationDispensePerformerFu...</a>?? »</text>
+    <text
+       id="n858"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n859"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.performer.actor"><title
+   id="title82318">The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication</title>actor</a> : <a
+   id="n860"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n861"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n862"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n863"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n864"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n865"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n866"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n867"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n868"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+  </g>
+  <g
+     id="n880"
+     transform="translate(17.85939,31.998074)">
+    <rect
+       id="MedicationDispense.substitution"
+       x="428"
+       y="161"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n881"
+       x1="428"
+       y1="189"
+       x2="727.20001"
+       y2="189"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n882"
+       x="577.59998"
+       y="181"
+       fill="#000000"
+       class="diagram-class-title">Substitution</text>
+    <text
+       id="n883"
+       x="434"
+       y="203"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n884"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.substitution.wasSubstituted"><title
+   id="title82335">True if the dispenser dispensed a different drug or product from what was prescribed</title>wasSubstituted</a> : <a
+   id="n885"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n889"
+       x="434"
+       y="217"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n890"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.substitution.type"><title
+   id="title82340">A code signifying whether a different drug was dispensed from what was prescribed</title>type</a> : <a
+   id="n891"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n892"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActSubstanceAdminSubstitutionCode.html"><title
+   id="n893">null (Strength=Example)</title>ActSubstanceAdminSubstitution...</a>?? »</text>
+    <text
+       id="n899"
+       x="434"
+       y="231"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n900"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.substitution.reason"><title
+   id="title82347">Indicates the reason for the substitution (or lack of substitution) from what was prescribed</title>reason</a> : <a
+   id="n901"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n902"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-SubstanceAdminSubstitutionReason.html"><title
+   id="n903">null (Strength=Example)</title>SubstanceAdminSubstitutionRea...</a>?? »</text>
+    <text
+       id="n909"
+       x="434"
+       y="245"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n910"
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.substitution.responsibleParty"><title
+   id="title82354">The person or organization that has primary responsibility for the substitution</title>responsibleParty</a> : <a
+   id="n911"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n912"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n913"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n914"
+       x="454"
+       y="259"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n915"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+  </g>
+  <line
+     id="n923"
+     x1="308.0"
+     y1="129.78125"
+     x2="402.6857142857143"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n924"
+     points="308.0,129.78125 314.0,133.78125 320.0,129.78125 314.0,125.78125 308.0,129.78125"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-28.673146489434988 308.0 129.78125)" />
+  <rect
+     id="n925"
+     x="335.5"
+     y="96.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n926"
+     x="355.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n927"
+       xlink:href="medicationdispense-definitions.html#MedicationDispense.performer"><title
+   id="title82367">Indicates who or what performed the event</title>performer</a></text>
+  <text
+     id="n928"
+     x="402.6857142857143"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n929"
+     x1="308.0"
+     y1="214.0"
+     x2="428.0"
+     y2="214.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n930"
+     points="308.0,214.0 314.0,218.0 320.0,214.0 314.0,210.0 308.0,214.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 308.0 214.0)" />
+  <rect
+     id="n931"
+     x="342.0"
+     y="207.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n932"
+     x="368.0"
+     y="217.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n933"
+       xlink:href="medicationdispense-definitions.html#MedicationDispense.substitution"><title
+   id="title82375">Indicates whether or not substitution was made as part of the dispense.  In some cases, substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done</title>substitution</a></text>
+  <text
+     id="n934"
+     x="408.0"
+     y="210.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

@@ -7,6 +7,16 @@
    <description value="Example inspired by UK extended complex map (999002271000000101)"/>
    <copyright value="Creative Commons 0"/>
    <sourceScopeUri value="http://snomed.info/sct?fhir_vs"/>
+   <property>
+     <code value="priority"/>
+     <description value="The priority with which to choose this mapping over the other mappings for the same code"/>
+     <type value="string"/> <!-- change to integer? -->
+   </property>
+   <property>
+     <code value="mapAdvice"/>
+     <description value="Additional advice for a user using these maps"/>
+     <type value="string"/> 
+   </property>
    <group>
       <source value="http://snomed.info./sct"/>
       <target value="http://hl7.org/fhir/sid/icd-10"/>
@@ -15,38 +25,38 @@
          <target>
             <code value="S59.7"/>
             <relationship value="source-is-narrower-than-target"/>
-            <product>
-               <property value="priority"/>
-               <valueInteger value="1"/>
-            </product>
-            <product>
-               <property value="mapAdvice"/>
+            <property>
+               <code value="priority"/>
+               <valueString value="1"/>
+            </property>
+            <property>
+               <code value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
-            </product>
+            </property>
          </target>
          <target>
             <code value="S59.9"/>
             <relationship value="source-is-narrower-than-target"/>
-            <product>
-               <property value="priority"/>
-               <valueInteger value="3"/>
-            </product>
-            <product>
-               <property value="mapAdvice"/>
+            <property>
+               <code value="priority"/>
+               <valueString value="3"/>
+            </property>
+            <property>
+               <code value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
-            </product>
+            </property> 
          </target>
          <target>
             <code value="S59.8"/>
             <relationship value="source-is-narrower-than-target"/>
-            <product>
-               <property value="priority"/>
-               <valueInteger value="2"/>
-            </product>
-            <product>
-               <property value="mapAdvice"/>
+            <property>
+               <code value="priority"/>
+               <valueString value="2"/>
+            </property>
+            <property>
+               <code value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
-            </product>
+            </property>
          </target>
       </element>
    </group>

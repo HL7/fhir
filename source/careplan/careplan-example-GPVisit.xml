@@ -100,7 +100,7 @@
   </contained>
 
 
-<contained>
+  <contained>
     <Goal>
       <id value="goal"/>
       <lifecycleStatus value="planned" />
@@ -113,6 +113,81 @@
       </subject>
     </Goal>
   </contained>
+  
+  <contained>
+    <Appointment>
+      <id value="activity-1"/>
+      <status value="fulfilled" />
+	  <description value="Nurse consultation"/> 
+	  <start value="2013-01-01T10:38:00+00:00"/>
+      <end value="2013-01-01T10:50:00+00:00"/>
+	  <subject>
+        <reference value="Patient/100"/>
+        <display value="Peter James Chalmers"/>
+      </subject>
+	  
+	  <participant> 
+		<actor> 
+		  <reference value="Patient/100"/>
+		  <display value="Peter James Chalmers"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+	  <participant> 
+		<type> 
+		  <coding> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/> 
+			<code value="ATND"/> 
+		  </coding> 
+		</type> 
+		<actor> 
+		  <reference value="Practitioner/13"/>
+          <display value="Nurse Nancy"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+    </Appointment>
+  </contained>
+  
+  <contained>
+    <Appointment>
+      <id value="activity-2"/>
+      <status value="proposed" />
+	  <description value="Doctor Consultation"/> 
+	  
+	  <subject>
+        <reference value="Patient/100"/>
+        <display value="Peter James Chalmers"/>
+      </subject>
+	  
+	  <participant> 
+		<actor> 
+		  <reference value="Patient/100"/>
+		  <display value="Peter James Chalmers"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+	  <participant> 
+		<type> 
+		  <coding> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/> 
+			<code value="ATND"/> 
+		  </coding> 
+		</type> 
+		<actor> 
+		  <reference value="Practitioner/14"/>
+		  <display value="Doctor Dave"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+  
+    </Appointment>
+  </contained>
+  
   <status value="active"/>
   <intent value="plan"/>
   <subject>
@@ -145,8 +220,12 @@
         <reference value="Encounter/example"/>
       </reference>
     </performedActivity>
-    <plannedActivityDetail>
-      <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
+    <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed. -->
+	<plannedActivityReference>
+		<reference value="#activity-1"/>
+	</plannedActivityReference>
+    <!-- moved to contained
+	<plannedActivityDetail>
       <kind value="Appointment"/>
       <code>
         <coding>
@@ -158,21 +237,25 @@
       <status value="completed"/>
       <doNotPerform value="false"/>
       <scheduledPeriod>
-        <!-- the nurse saw the patient between 10:38 and 10:50 -->
+        the nurse saw the patient between 10:38 and 10:50
         <start value="2013-01-01T10:38:00+00:00"/>
         <end value="2013-01-01T10:50:00+00:00"/>
       </scheduledPeriod>
       <performer>
-        <!-- refer to the participant (the nurse) in this resource-->
+        refer to the participant (the nurse) in this resource
         <reference value="Practitioner/13"/>
         <display value="Nurse Nancy"/>
       </performer>
     </plannedActivityDetail>
+	-->
   </activity>
   <activity>
+    <!-- This activity is for the encounter with the doctor -->
+    <plannedActivityReference>
+		<reference value="#activity-2"/>
+	</plannedActivityReference>
+    <!-- moved to contained
     <plannedActivityDetail>
-      <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
-              so there is no timing[x]  or actionTaken element yet -->
       <kind value="Appointment"/>
       <code>
         <coding>
@@ -183,12 +266,11 @@
       </code>
       <status value="scheduled"/>
       <doNotPerform value="false"/>
-      <!-- The status is 'scheduled' so the doctor knows the patient is waiting.  -->
       <performer>
-        <!-- refer to the participant (the nurse) in this resource-->
         <reference value="Practitioner/14"/>
         <display value="Doctor Dave"/>
       </performer>
     </plannedActivityDetail>
+	-->
   </activity>
 </CarePlan>

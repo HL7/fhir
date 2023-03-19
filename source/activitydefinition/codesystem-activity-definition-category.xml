@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ActivityDefinitionCategory"/>
+  <title value="Activity Definition Category"/>
   <experimental value="false"/>
   <description value="ActivityDefinitionCategory"/>
   <concept>

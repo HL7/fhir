@@ -4,13 +4,13 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-An instance of ObservationDefinition represents the definitional aspects of a kind of observation. This resource is used in a catalog of products or services for healthcare. It provides the definition of observations, which are used as input or produced as outcome of these products and services. The focus of the definitional aspects of ObservationDefinition is not on the action of performing observations of that kind. Rather, it is on the outcome of the observations. An instance of ObservationDefinition represents a set of constraints applicable to the value produced by observations of this kind. This set of constraints may have two utilities: 1) It guides the entry of the result of an observation of the kind defined. 2) It helps the consumer of the results of observations of that kind, to interpret properly these results.
+An instance of ObservationDefinition represents the definitional aspects of a kind of observation. This resource is used in a catalog of products or services for healthcare. It represents a set of constraints applicable to the value produced by observations of this kind. It helps the consumer of the results of observations of that kind, to interpret properly these results. If one wants to technically constrain an Observation resource for a particular use case across implementers, a profile is the preferred option and may include profiling on ObservationDefinition and Observation.
 </p>
 <p>
 For instance, in a catalog of laboratory in vitro diagnostic services, the ObservationDefinition resources describe the observations that should be provided by the orderer alongside with an ordered service (questions asked at order entry or at specimen collection, prior results) as well as the observations that will be reported once the service has been performed.
 </p>
 <p>
-In a catalog of medications, ObservationDefinition resources can be used to describe observations the result thereof need to be checked against the prescription of a particular medicinal product (therapeutic range, units ...)
+Observation Definition resources can be used to describe observations which may need to be evaluated in order to determine whether a specific medicine can be administered or held (e.g., weight, lab value result) and provide guidance on the dose to be administered (e.g., sliding scale insulin dose).
 </p>
 <p>
 In the catalog of tests of an in vitro diagnostic device, ObservationDefinition resources can be used to characterize (absolute range, unit, decimal precision, critical values ...) the observations that will be produced by the IVD tests performed by the device.
@@ -38,6 +38,9 @@ When an Observation instantiates an ObservationDefinition, the elements of the O
 </ul>
 <p>
 ObservationDefinition enables to express some Quantity results in two distinct units of measure: the primary or SI one, represented by element unit, and a converted one, provided for accommodation of some actors, represented by element customaryUnit. Observation may pick only the primary unit, or may express its result in both units, in two component results.</p>
+<p>
+ObservationDefinitions are only to be used when describing the contents of an observation (including observations in order catalogs or panels). When additional structure, sequence, or rules are needed, the Questionnaire resource should be used. 
+</p>
 </div>
 
 

@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Period4to3" = "R4 to R3 Conversion for Period"
+
+uses "http://hl7.org/fhir/StructureDefinition/Period" alias Period as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Period" alias PeriodR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Period(source src : Period, target tgt : PeriodR3) extends Element <<type+>> {
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+}
+

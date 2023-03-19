@@ -35,7 +35,7 @@
         <description value="The code of the substance or ingredient"/>
         <code value="code"/>
         <type value="token"/>
-        <expression value="Substance.code.concept | (Substance.ingredient.substance as CodeableConcept)"/>
+        <expression value="Substance.code.concept | (Substance.ingredient.substance.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -149,7 +149,7 @@
         <description value="A component of the substance"/>
         <code value="substance-reference"/>
         <type value="reference"/>
-        <expression value="(Substance.ingredient.substance as Reference)"/>
+        <expression value="(Substance.ingredient.substance.ofType(Reference))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

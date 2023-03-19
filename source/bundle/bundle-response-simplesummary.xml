@@ -410,7 +410,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="[%test-server%]/MedicationUsage?_format=application/fhir+xml&amp;search-id=0f08b401-5120-4444-9a83-3fd21d33df&amp;&amp;patient=example&amp;_sort=_id"/>
+                    <url value="[%test-server%]/MedicationStatement?_format=application/fhir+xml&amp;search-id=0f08b401-5120-4444-9a83-3fd21d33df&amp;&amp;patient=example&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>

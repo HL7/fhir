@@ -100,11 +100,11 @@ Resource Content
   <div id="tabs-diff">
 
 <div id="vdiff">
-<p><b>Changes since R4</b></p>
  <div id="diff-inner">
   <%diff-analysis%>
   <p>
-  This analysis is available as <a href="<%name%>.diff.xml">XML</a> or <a href="<%name%>.diff.json">JSON</a>.
+  This analysis is available for R4 as <a href="<%name%>.r4.diff.xml">XML</a> or <a href="<%name%>.r4.diff.json">JSON</a>
+  and for R4B  as <a href="<%name%>.r4b.diff.xml">XML</a> or <a href="<%name%>.r4b.diff.json">JSON</a>.
   </p>
   <%r4r5transforms%>
  </div>
@@ -117,7 +117,7 @@ Resource Content
 <a name="tbl"></a>
 <p><b>Structure</b></p>
  <div id="tbl-inner">
-  <%resource-table%>
+  <%resource-table-all%>
  </div>
 </div>
 
@@ -155,12 +155,12 @@ Resource Content
 </div>
 
 <div id="vdiff2">
-<p><b>Changes since Release 4</b></p>
  <div id="diff-inner2">
   <%diff-analysis%>
   <p>
-  This analysis is available as <a href="<%name%>.diff.xml">XML</a> or <a href="<%name%>.diff.json">JSON</a>.
-  </p>
+    This analysis is available for R4 as <a href="<%name%>.r4.diff.xml">XML</a> or <a href="<%name%>.r4.diff.json">JSON</a>
+    and for R4B  as <a href="<%name%>.r4b.diff.xml">XML</a> or <a href="<%name%>.r4b.diff.json">JSON</a>.
+    </p>
   <%r4r5transforms%>
  </div>
 </div>
@@ -183,8 +183,16 @@ Resource Content
 <%notes%>
 
 <a name="search"></a>
-<%search%>
+<h2>Search Parameters</h2>
 
+<p>
+Search parameters for this resource. See also the <a href="<%name%>-search.html">full list of search parameters for this resource</a>,
+and check the <a href="[%extensions-location%]extensions-[%title%].html#search">Extensions registry</a> for search parameters on extensions related to this resource.
+The <a href="search.html#all">common parameters</a> also apply. See <a href="search.html">Searching</a> for more 
+information about searching in REST, messaging, and services.
+</p>
+
+<%search%>
 
 </div>
 

@@ -52,6 +52,26 @@
       </subject>      
     </Goal>
   </contained>
+  <contained>
+    <ServiceRequest>
+      <id value="activity"/>
+	  <status value="completed"/>
+	  <intent value="order"/>
+	  <code>
+		<concept>
+			<coding>
+			  <system value="http://snomed.info/sct"/>
+			  <code value="306005"/>
+			  <display value="Echography of kidney"/>
+			</coding>
+		</concept>
+      </code>
+	  <subject>
+		<reference value="Patient/f201"/>
+		<display value="Roel"/>
+	  </subject>
+	</ServiceRequest>
+  </contained>
   <status value="draft"/>
   <intent value="proposal"/>
   <!--This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"-->
@@ -79,7 +99,11 @@
   </goal>
   <activity>
     <!--Potassium supplement-->
-    <plannedActivityDetail>
+    <plannedActivityReference>
+		<reference value="NutritionOrder/renaldiet"/>
+	</plannedActivityReference>
+    <!-- moved to reference
+	<plannedActivityDetail>
       <kind value="NutritionOrder"/>
       <code>
         <coding>
@@ -91,7 +115,6 @@
       <status value="completed"/>
       <doNotPerform value="false"/>
       <scheduledString value="daily"/>
-      <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
       <productReference>
         <reference value="Substance/f203"/>
         <display value="Potassium"/>
@@ -103,9 +126,15 @@
         <code value="258718000"/>
       </dailyAmount>
     </plannedActivityDetail>
+  -->
   </activity>
+
   <activity>
     <!--Echo of the kidney-->
+	<plannedActivityReference>
+		<reference value="#activity"/>
+	</plannedActivityReference>
+    <!-- moved to contained
     <plannedActivityDetail>
       <kind value="ServiceRequest"/>
       <code>
@@ -118,5 +147,6 @@
       <status value="completed"/>
       <doNotPerform value="false"/>
     </plannedActivityDetail>
+	-->
   </activity>
 </CarePlan>

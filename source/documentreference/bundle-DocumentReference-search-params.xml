@@ -282,7 +282,7 @@
         <description value="Format code content rules for the document"/>
         <code value="format-code"/>
         <type value="token"/>
-        <expression value="(DocumentReference.content.profile.value as Coding)"/>
+        <expression value="(DocumentReference.content.profile.value.ofType(Coding))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -301,7 +301,7 @@
         <description value="Profile URI content rules for the document"/>
         <code value="format-uri"/>
         <type value="uri"/>
-        <expression value="(DocumentReference.content.profile.value as uri)"/>
+        <expression value="(DocumentReference.content.profile.value.ofType(uri))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -320,7 +320,7 @@
         <description value="Profile canonical content rules for the document"/>
         <code value="format-canonical"/>
         <type value="reference"/>
-        <expression value="(DocumentReference.content.profile.value as canonical)"/>
+        <expression value="(DocumentReference.content.profile.value.ofType(canonical))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -612,6 +612,25 @@
         <code value="bodysite"/>
         <type value="token"/>
         <expression value="DocumentReference.bodySite.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-bodysite-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.bodySite.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-bodysite-reference"/>
+        <description value="The body site studied"/>
+        <code value="bodysite-reference"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.bodySite.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

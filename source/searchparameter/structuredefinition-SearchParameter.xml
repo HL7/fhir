@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="SearchParameter"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -33,7 +32,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SearchParameter"/>
-  <title value="SearchParameter"/>
+  <title value="Search Parameter"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -54,7 +53,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -96,7 +95,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <constraint>
@@ -148,7 +147,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -157,6 +156,22 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
+    <element id="SearchParameter.identifier">
+ 			<path value="SearchParameter.identifier"/>
+ 			<short value="Additional identifier for the search parameter (business identifier)"/>
+ 			<definition value="A formal identifier that is used to identify this search parameter when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+ 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+ 			<min value="0"/>
+ 			<max value="*"/>
+ 			<type>
+ 				<code value="Identifier"/>
+ 			</type>
+ 			<isSummary value="true"/>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.identifier"/>
+ 			</mapping>
+ 		</element>
     <element id="SearchParameter.version">
       <path value="SearchParameter.version"/>
       <short value="Business version of the search parameter"/>
@@ -405,6 +420,42 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+ 		<element id="SearchParameter.copyright">
+ 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+ 				<valueBoolean value="true"/>
+ 			</extension>
+ 			<path value="SearchParameter.copyright"/>
+ 			<short value="Use and/or publishing restrictions"/>
+ 			<definition value="A copyright statement relating to the search parameter and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the search parameter."/>
+ 			<comment value="..."/>
+ 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the search parameter and/or its content."/>
+ 			<alias value="License"/>
+ 			<alias value="Restrictions"/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="markdown"/>
+ 			</type>
+ 			<mapping>
+ 				<identity value="objimpl"/>
+ 				<map value="no-gen-base"/>
+ 			</mapping>
+ 		</element>
+ 		<element id="SearchParameter.copyrightLabel">
+ 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+ 				<valueBoolean value="true"/>
+ 			</extension>
+ 			<path value="SearchParameter.copyrightLabel"/>
+ 			<short value="Copyright holder and year(s)"/>
+ 			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+ 			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+ 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="string"/>
+ 			</type>
+ 		</element>    
     <element id="SearchParameter.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
@@ -433,14 +484,16 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AllResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
+          <valueString value="FHIRTypes"/>
         </extension>
         <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+        <additional>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additional>
       </binding>
     </element>
     <element id="SearchParameter.type">
@@ -452,6 +505,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="spd-2"/>
+      <condition value="spd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -518,14 +573,16 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
+          <valueString value="FHIRTypes"/>
         </extension>
         <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+        <additional>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additional>
       </binding>
     </element>
     <element id="SearchParameter.multipleOr">
@@ -558,6 +615,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="spd-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SearchComparator"/>
@@ -595,6 +653,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="spd-2"/>
     </element>
     <element id="SearchParameter.component">
       <path value="SearchParameter.component"/>

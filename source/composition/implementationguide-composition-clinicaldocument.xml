@@ -2,8 +2,8 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="composition-clinicaldocument"/>
-  <name value="Clinical Document"/>
-  <title value="Clinical Document"/>
+  <name value="ClinicalDocument"/>
+  <title value="Clinical  Document"/>
   <status value="draft"/>
   <date value="2015-03-17T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - Structured Documents WG"/>
@@ -20,11 +20,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/composition-clinicaldocument-otherConfidentiality"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/composition-clinicaldocument-versionNumber"/>
       </reference>
     </resource>
   </definition>

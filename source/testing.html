@@ -15,6 +15,50 @@
 <h2>Testing FHIR</h2>
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
+<a name="Contents"></a>
+<h3>Contents</h3>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#execution">Execution</a>
+    <ul>
+      <li><a href="#workflow">Workflow</a></li>
+      <li><a href="#fixtures">Fixtures</a></li>
+      <li><a href="#profiles">Profiles</a></li>
+      <li><a href="#variables">Variables</a></li>
+      <li><a href="#op">Operation Execution</a></li>
+      <li><a href="#assert">Assertion Execution</a></li>
+    </ul>
+  </li>
+  <li><a href="#howTos">How Tos</a>
+    <ul>
+      <li><a href="#mark">Mark a Resource as a Test</a></li>
+      <li><a href="#create">Test create operation</a></li>
+      <li><a href="#search">Test search operation</a></li>
+      <li><a href="#delete">Perform delete operation in teardown</a></li>
+      <li><a href="#deleted-setup">Perform delete operation in setup</a></li>
+      <li><a href="#delete-op">Test conditional delete operation</a></li>
+      <li><a href="#create-cond">Test conditional create operation</a></li>
+      <li><a href="#update">Test update operation</a></li>
+      <li><a href="#cond-update">Test conditional update operation</a></li>
+      <li><a href="#read">Test read operation</a></li>
+      <li><a href="#vread">Test vread operation</a></li>
+      <li><a href="#history">Test history operation</a></li>
+      <li><a href="#accept">Specify Accept header in request</a></li>
+      <li><a href="#contenttype">Specify Content-Type header in request</a></li>
+      <li><a href="#ctverify">Verify Content-Type header in response</a></li>
+      <li><a href="#profiles">Use Profiles</a></li>
+      <li><a href="#variables">Use Variables</a></li>
+      <li><a href="#expressions">Use Expressions</a></li>
+      <li><a href="#minimumId">Use minimumId</a></li>
+      <li><a href="#format">Test server support for '_format'</a></li>
+    </ul>
+  </li>
+  <li><a href="#operations-table">Operations (Table)</a></li>
+  <li><a href="#assertion-table">Assertions (Table)</a></li>
+</ul>
+
+<a name="introduction"></a>
+<h3>Introduction</h3>
 <p>
 The FHIR specification describes a set of <a href="resource.html">resources</a>,
 and several different frameworks for exchanging resources between different systems.
@@ -43,25 +87,25 @@ systems adhere to the specification.
   </p>
   <p>
 
-	<ul>
-	  <li>Name and description detailing the purpose of the test suite</li>
-	  <li>Links describing how the test suite relates to the FHIR specification</li>
-	  <li>A list of server interactions required to execute the test suite</li>
-	  <li>A list of server interactions that the test suite validates the correctness of</li>
-	  <li>The fixtures (required data or resources) the tests use during execution</li>
-	  <li>A set of operations to set up the test suite environment</li>
-	  <li>A list of tests each containing
-	    <ul>
-	      <li>Name and description of the test</li>
-	      <li>Links describing how the test relates to the FHIR specification</li>
-	      <li>A list of server interactions required to execute the test</li>
-	      <li>A list of server interactions that the test validates the correctness of</li>
-	      <li>A list of operations that provide the execution logic of the test</li>
-	      <li>A list of assertions that provide the verification logic of the test</li>
-	    </ul>
-	  </li>
-	  <li>A set of operations to tear down the test environment</li>
-	</ul>
+  <ul>
+    <li>Name and description detailing the purpose of the test suite</li>
+    <li>Links describing how the test suite relates to the FHIR specification</li>
+    <li>A list of server interactions required to execute the test suite</li>
+    <li>A list of server interactions that the test suite validates the correctness of</li>
+    <li>The fixtures (required data or resources) the tests use during execution</li>
+    <li>A set of operations to set up the test suite environment</li>
+    <li>A list of tests each containing
+      <ul>
+        <li>Name and description of the test</li>
+        <li>Links describing how the test relates to the FHIR specification</li>
+        <li>A list of server interactions required to execute the test</li>
+        <li>A list of server interactions that the test validates the correctness of</li>
+        <li>A list of operations that provide the execution logic of the test</li>
+        <li>A list of assertions that provide the verification logic of the test</li>
+      </ul>
+    </li>
+    <li>A set of operations to tear down the test environment</li>
+  </ul>
   </p>
 </div>
 
@@ -71,10 +115,10 @@ systems adhere to the specification.
 <h4 id="workflow">Workflow</h4>
 <p><b>Pre-Processing</b></p>
 <p>
-  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test�s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
+  The TestScript execution workflow begins by determining if the test suite is appropriate for the system under test. This is determined by evaluating if the interactions defined in the TestScript setup and test action.operation sections are supported by the <a href="capabilitystatement.html">CapabilityStatement</a> of the system under test. The test engine SHOULD provide a comparison of the system under test capabilities against the TestScript interactions.
 </p>
 <p>
-  If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the server(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
+  If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the system(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
 </p>
 <p><b>Setup Execution</b></p>
 <p>
@@ -96,7 +140,7 @@ systems adhere to the specification.
 </p>
 <p><b>Post-Processing</b></p>
 <p>
-  After the teardown section is executed, any fixtures that were marked 'autodelete' are removed from the server(s) under test. After this final stage, the execution of the TestScript is complete.
+  After the teardown section is executed, any fixtures that were marked 'autodelete' are removed from the server(s) under test. After this final stage, the execution of the TestScript is complete. The test engine SHALL provide the results of the TestScript execution with a generated <a href="testreport.html">TestReport</a> resource. The test engine MAY also provide the results via additional generated output.
 </p>
 
 <a name="fixtures"></a>
@@ -114,7 +158,7 @@ systems adhere to the specification.
   The profiles section of the TestScript defines a set of FHIR profiles (see <a href="structuredefinition.html">StructureDefinition</a> resource) that will be used as part of the setup or test sections during TestScript execution. Each profile defines a StructureDefinition instance by URI, and must be identified by an ID. The URI SHALL reference a known FHIR profile corresponding to the FHIR specification version being tested. As with Fixtures, the ID on the profile is considered the "source" identifier of the profile. Operations reference the ID of a profile to uniquely identify the profile instance the operation is using ("validateProfileId").
 </p>
 <p>
-  See <a href="#howToUseProfiles">Use Profiles</a> for more information.
+  See <a href="#profiles">Use Profiles</a> for more information.
 </p>
 
 <a name="variables"></a>
@@ -129,7 +173,7 @@ systems adhere to the specification.
   Using variables allows for the same test scripts to be executed against the same servers by different clients at the same time. Each client would change the fixture data (external to the test script) to make the data unique to that client. This ensures that the same delete/create/read operations executed concurrently by one client does not interfere with those of another client. That can be important within the context of a testing event such as a Connectathon. It can be very useful in year-round testing against public servers as well.
 </p>
 <p>
-  See <a href="#howToUseVariables">Use Variables</a> for more information.
+  See <a href="#variables">Use Variables</a> for more information.
 </p>
 
 <a name="op"></a>
@@ -157,22 +201,25 @@ The "assertion" evaluates the results of previous operations to determine if the
   The ability to conditionally evaluate an assert is not defined as part of the native behavior within the TestScript resource or execution engine. This means that all subsequent test asserts are not evaluated when a prior assert within the same test evaluates to a failure. The current workaround is to set warningOnly=true for those asserts that require conditional evaluation.
 </p>
 <p>
+  TestScript authors may use the <a href="testscript-definitions.html#TestScript.setup.action.assert.stopTestOnFail">assert.stopTestOnFail</a> boolean element to further control whether a failed assert will halt the current test's execution.
+</p>
+<p>
   Another optional workaround is to provide the TestScript execution engine with access to an external Rules engine. The TestScript execution engine author is encouraged to build and publish this functionality within an appropriate FHIR <a href="implementationguide.html">ImplementationGuide</a>.
 </p>
 
 <style>
-		.xmlCode {
-				border: 1px solid #CCCCCC;
-				background: #F0FFFF;
-				padding: 0px 2px 10px 50px;
-				margin: 0;
-        		margin-bottom: 20px;
-				font-size: 0.9em;
-		}
-		xmp {
-			margin: 0;
-			padding: 0;
-		}
+  .xmlCode {
+    border: 1px solid #CCCCCC;
+    background: #F0FFFF;
+    padding: 0px 2px 10px 50px;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+  }
+  xmp {
+    margin: 0;
+    padding: 0;
+  }
 </style>
 <a name="howTos"></a>
 <h3>How Tos</h3>
@@ -185,7 +232,7 @@ To mark a resource as a test resource, use the testing tag:
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
   &lt;meta&gt;
     &lt;security&gt;
-      &lt;system value="http://hl7.org/fhir/v3/ActReason"/&gt;
+      &lt;system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/&gt;
       &lt;code value="HTEST"/&gt;
       &lt;display value="test health data"/&gt;
     &lt;/security&gt;
@@ -193,9 +240,9 @@ To mark a resource as a test resource, use the testing tag:
 &lt;/Patient&gt;
 </pre>
 <p>
-Not all testing resources need to explicitly marked as 'HTEST', but it
-may be necessary when performing testing on a production system, for
-instance. Note: This is a security label because different access control rules may apply to test resources.
+Not all testing resources need to explicitly marked as 'HTEST' but, it may be necessary
+when performing testing on a production system. Note: This is a security label because
+different access control rules may apply to test resources.
 </p>
 
 
@@ -338,7 +385,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
   </assert>
 </action>
 </xmp></div>
-
+<p>See section <a href="#minimumId">Use minimumId</a> for a more complete description of the test engine's comparison logic.</p>
 </li>
 </ol>
 
@@ -1060,6 +1107,154 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </action>
 </xmp></div>
 
+<hr/><!-- =========================================================================================================================================================== -->
+<a name="expressions"></a>
+<h4 id="howToUseExpressions">Use Expressions</h4>
+<p>All of the previous assert examples illustrate the use of the <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> element for the evaluation of <a href="https://www.w3.org/TR/xpath">XPath</a> or <a href="https://github.com/json-path/JsonPath">JsonPath</a> formatted expressions. The use of <a href="http://hl7.org/fhirpath/r2">FHIRPath</a> expressions is also available and supported via the <a href="testscript-definitions.html#TestScript.variable.expression">TestScript.variable.expression</a>, <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceExpression">TestScript.setup.action.assert.compareToSourceExpression</a> and <a href="testscript-definitions.html#TestScript.setup.action.assert.expression">TestScript.setup.action.assert.expression</a> elements.</p>
+
+<p><a href="http://hl7.org/fhirpath/r2">FHIRPath</a> expressions evaluate the FHIR resources and data types using the Logical views (or the UML diagrams) rather than the JSON, XML or TTL formats. When used within the supported TestScript elements, the FHIRPath expressions can be evaluated as either a path to a specific value or as a boolean expression against the given FHIR resource.</p>
+
+<p>Using the previous search operation example, here are the 3 asserts re-written using FHIRPath expressions to extract the comparison element values. Note the use of the '[0]' index to extract the first instance of any repeating elements.</p>
+<div class="xmlCode"><xmp>
+<action>
+  <assert>
+    <expression value="Bundle.entry[0].resource.name[0].given[0]" />
+    <value value="${PatientGivenName}" />
+  </assert>
+</action>
+<action>
+  <assert>
+    <expression value="Bundle.entry[0].resource.name[0].family" />
+    <value value="${PatientFamilyName}" />
+  </assert>
+</action>
+<action>
+  <assert>
+    <expression value="Bundle.entry[0].resource.birthdate" />
+    <value value="${PatientDOB}" />
+  </assert>
+</action>
+</xmp></div>
+
+<p>Also using the previous search operation example, here is an assert using a FHIRPath expression that evaluates to a boolean testing for a specific number (count) of Bundle.entry instances equal to 1. In this case the assert.value element is not used.</p>
+<div class="xmlCode"><xmp>
+<action>
+  <assert>
+    <expression value="Bundle.entry.count() = 1" />
+  </assert>
+</action>
+</xmp></div>
+
+<hr/><!-- =========================================================================================================================================================== -->
+<a name="minimumId"></a>
+<h4 id="howToUseminimumId">Use minimumId</h4>
+
+<p>As previously stated, test engines will parse the 'body' of the minimumId fixture and verify that each element and its value matches the corresponding element and value in the 'body' of a source fixture. In other words, the source fixture is verified to be a 'superset' of the minimumId fixture. The resource id element in the body will be ignored during comparison. The headers will also be ignored.</p>
+<p>The minimumId fixture can be statically defined or it can be either the <a href="testscript-definitions.html#TestScript.setup.action.operation.requestId">requestId</a> or <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a> from another operation. If <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is not specified, then test engine SHALL use the response of the last operation. For example:</p>
+<div class="xmlCode"><xmp>
+<action>
+  <assert>
+    <minimumId value="F1"/>
+  </assert>
+</action>
+</xmp></div>
+
+<p>
+This is a high-level functional description that does not provide sufficient information regarding the test engine requirements of how the detailed comparison is to be performed. In order to provide more clarity a test engine SHALL provide the following structural comparison behaviors of the minimumId fixture and the fixture being evaluated.
+</p>
+<ul>
+  <li><b>Attribute or element ordering</b> - If the comparison encounters an order mismatch of an attribute or element between the minimumId fixture and the fixture being evaluated, this does not result in an error as long as the path to the attribute or element matches.
+    <ul>
+      <li>This is particularly important when comparing JSON formatted fixtures where attribute order is not significant.</li>
+      <li>For example, the following two fixtures are considered to be matching:
+        <div class="xmlCode"><xmp>
+{
+  name: "hello",
+  title: "goodbye"
+}
+
+{
+  title: "goodbye",
+  name: "hello"
+}
+        </xmp></div>
+      </li>
+    </ul>
+  </li>
+  <li><b>Array value ordering</b> - The order of an array of the same attribute or element is allowed to differ in the comparison; also, additional attribute or element instances are allowed in between the minimumId fixture attribute or element instances such that the index can differ.
+    <ul>
+      <li>For example, the following two fixtures are considered equal even though the order of array elements differs:
+        <div class="xmlCode"><xmp>
+min fixture:
+{
+  names: ["hello", "goodbye"]
+}
+
+compare fixture:
+{
+  names: ["goodbye", "hello"]
+}
+        </xmp></div>
+      </li>
+      <li>For example, these fixtures would match even though there are extra values:
+        <div class="xmlCode"><xmp>
+min fixture:
+{
+  names: ["hello", "goodbye"]
+}
+
+compare1 fixture:
+{
+  names: ["hello", "greeting", "goodbye"]
+}
+
+compare2 fixture:
+{
+  names: ["greeting", "hello", "goodbye"]
+}
+
+compare3 fixture:
+{
+  names: ["hello", "goodbye", "greeting"]
+}
+        </xmp></div>
+      </li>
+    </ul>
+  </li>
+  <li><b>Duplicate attributes or elements</b> - When the minimumId fixture has duplicate attributes or elements (in a JSON attribute array or XML repeated element) the fixture being evaluated must have the same number of duplicated attributes or elements.
+    <ul>
+      <li>For example, the following two fixtures would not match as the compare fixture does not have the same number of duplicate repeating attributes as the min fixture:
+        <div class="xmlCode"><xmp>
+min fixture:
+{
+  names: ["hello", "hello"]
+}
+
+compare1 fixture:
+{
+  names: ["hello"]
+}
+        </xmp></div>
+      </li>
+    </ul>
+  </li>
+  <li><b>Comparison results</b> - The test engine comparison results SHALL include all inconsistencies between the minimumId fixture and the fixture being evaluated.</li>
+  <li><b>Attribute or element present regardless of value</b> - The ability to allow for the existence of an attribute or element regardless of its value is <b>NOT</b> supported with the use of minimumID due to the FHIR data requirement that an attribute or element value must be present.
+    <ul>
+      <li>For example, this minimumId fixture XML element without a value is invalid:
+        <div class="xmlCode"><xmp>
+<novalueelement/>
+        </xmp></div>
+      </li>
+      <li>Likewise, this concept cannot be expressed in JSON syntax as JSON attributes must always have a value or child attributes.</li>
+      <li>Support for this concept can be defined in separate assert(s) that test for the existence or absence of specific attribute(s) or element(s).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+
+</p>
 
 <hr/><!-- =========================================================================================================================================================== -->
 <a name="format"></a>
@@ -1091,50 +1286,8 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
-<a name="metadata"></a>
-<h4 id="howToSpecifiyCapabilities">How to specify metadata capabilities</h4>
-<p>If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test�s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison..</p>
-<p>Here's how to specify that the test script requires the server to support Patient create and delete operations:</p>
-<div class="xmlCode"><xmp>
-<metadata>
-  <capabilities>
-    <required value="true"/>
-    <description value="Patient Create and Delete Operation"/>
-    <link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
-    <link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#delete"/>
-    <conformance>
-      <reference value="/Conformance/PatientCreateDelete.xml" />
-    </conformance>
-  </capabilities>
-</metadata>
-</xmp></div>
-
-<p>The contents of PatientCreateDelete.xml would be a minimal capability statement to indicate what sections need to be present in server capability statement:</p>
-<div class="xmlCode"><xmp>
-<Conformance xmlns="http://hl7.org/fhir">
-  <rest>
-    <mode value="server"/>
-    <resource>
-      <type value="Patient"/>
-      <interaction>
-        <code value="create"/>
-      </interaction>
-      <interaction>
-        <code value="delete"/>
-      </interaction>
-    </resource>
-  </rest>
-</Conformance>
-</xmp></div>
-
-<p>When the metadata capabilities section is defined at <a href="testscript-definitions.html#TestScript.metadata">TestScript.metadata</a> and the server's capability statement does not contain the elements defined in the minimal capability statement, then all the tests in the TestScript are skipped.</p>
-
-<p>The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not. The do not impact the skipping logic. Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.</p>
-
-<hr/><!-- =========================================================================================================================================================== -->
-<a name="ops"></a>
-
-<h2 id="operations-table">Operations</h2>
+<a name="operations-table"></a>
+<h3 id="operations-table">Operations</h3>
 
 <p>This table presents a summary of the constraints applicable to TestScript.setup.action.operation, TestScript.test.action.operation,
 and TestScript.teardown.action.operation elements. The operation elements should be configured consistently with the
@@ -1253,9 +1406,8 @@ and TestScript.teardown.action.operation elements. The operation elements should
   </tr>
 </table>
 
-<a name="assert"></a>
-
-<h2 id="assertion-table">Assertions</h2>
+<a name="assertion-table"></a>
+<h3 id="assertion-table">Assertions</h3>
 <table class="grid">
   <tr>
   	<th>Assertion</th>
@@ -1263,54 +1415,79 @@ and TestScript.teardown.action.operation elements. The operation elements should
     <th>Description</th>
   </tr>
   <tr>
+  	<td>compareToSourceExpression</td>
+    <td><b>equals</b> | notEquals</td>
+    <td>Asserts that the fhirpath <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceExpression">compareToSourceExpression</a> against the response body of <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceId">compareToSourceId</a> fixture evaluates to a value that is equal or notEqual to the evaluated value of the fhirpath <a href="testscript-definitions.html#TestScript.setup.action.assert.expression">expression</a> which must be present also.<br/>The default operator is "<b>equals</b>".</td>
+  </tr>
+  <tr>
   	<td>compareToSourcePath</td>
-    <td>equals | notEquals</td>
-    <td>Asserts that <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourcePath">compareToSourcePath</a> against the response body of <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceId">compareToSourceId</a> fixture evaluates to a value that is equal or notEqual to the evaluated value of <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> which must be present also.</td>
+    <td><b>equals</b> | notEquals</td>
+    <td>Asserts that <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourcePath">compareToSourcePath</a> against the response body of <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceId">compareToSourceId</a> fixture evaluates to a value that is equal or notEqual to the evaluated value of <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> which must be present also.<br/>The default operator is "<b>equals</b>".</td>
   </tr>
   <tr>
   	<td>contentType</td>
-    <td>equals | notEquals | contains | notContains</td>
-    <td>Asserts that the "Content-Type" in response header is or is not the specified value for <a href="testscript-definitions.html#TestScript.setup.action.assert.contentType">contentType</a> element depending on the operator used.</td>
+    <td>equals | notEquals | <b>contains</b> | notContains</td>
+    <td>Asserts that the "Content-Type" in response header is or is not the specified value for <a href="testscript-definitions.html#TestScript.setup.action.assert.contentType">contentType</a> element depending on the operator used.<br/>The default operator is "<b>contains</b>".</td>
+  </tr>
+  <tr>
+  	<td>defaultManualCompletion</td>
+    <td><b>manualEval</b></td>
+    <td>Manual completion is used to pause the test engine execution and evaluation allowing an external review of the defined assert condition. The <a href="testscript-definitions.html#TestScript.setup.action.assert.defaultManualCompletion">defaultManualCompletion</a> defines the default manual completion outcome applied if one of the enumerated values in <a href="valueset-assert-manual-completion-codes.html">valueset-assert-manual-completion-codes</a> is not applied.<br/>The default operator is "<b>manualEval</b>".</td>
+  </tr>
+  <tr>
+  	<td>expression</td>
+    <td>equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | <b>eval</b></td>
+    <td>Asserts that the fhirpath <a href="testscript-definitions.html#TestScript.setup.action.assert.expression">expression</a> against the response body evaluates to a value that contains, not contains, is equal, not equal, in, not in, greater than, or less than the value specified for the <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> element if present.<br/>If the <a href="testscript-definitions.html#TestScript.setup.action.assert.operator">operator</a> is "empty" or "notEmpty" then <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> will be ignored.<br/>If the <a href="testscript-definitions.html#TestScript.setup.action.assert.operator">operator</a> is "eval" or not defined then the fhirpath <a href="testscript-definitions.html#TestScript.setup.action.assert.expression">expression</a> will be evaluated as a boolean to determine the pass/fail status.<br/>If <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is not specified, then fhirpath <a href="testscript-definitions.html#TestScript.setup.action.assert.expression">expression</a> will be evaluated against the last operation's response body.<br/>The default operator is "<b>eval</b>".</td>
   </tr>
   <tr>
   	<td>headerField</td>
-    <td>equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains</td>
-    <td>Asserts that the header specified for <a href="testscript-definitions.html#TestScript.setup.action.assert.headerField">headerField</a> element in the response contains, not contains, is equal, not equal, in, not in, greater than, or less than the value specified for <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> element if present.<br/>If the <a href="testscript-definitions.html#TestScript.setup.action.assert.operator">operator</a> is "empty" or "notEmpty" then <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> will be ignored.<br/>If <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is not specified, then <a href="testscript-definitions.html#TestScript.setup.action.assert.headerField">headerField</a> will be evaluated against the last operation's response headers.</td>
+    <td><b>equals</b> | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains</td>
+    <td>Asserts that the header specified for <a href="testscript-definitions.html#TestScript.setup.action.assert.headerField">headerField</a> element in the response contains, not contains, is equal, not equal, in, not in, greater than, or less than the value specified for <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> element if present.<br/>If the <a href="testscript-definitions.html#TestScript.setup.action.assert.operator">operator</a> is "empty" or "notEmpty" then <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> will be ignored.<br/>If <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is not specified, then <a href="testscript-definitions.html#TestScript.setup.action.assert.headerField">headerField</a> will be evaluated against the last operation's response headers.<br/>The default operator is "<b>equals</b>".</td>
   </tr>
   <tr>
   	<td>minimumId</td>
     <td>N/A</td>
-    <td>Asserts that the response contains all the element/content in another fixture pointed to by <a href="testscript-definitions.html#TestScript.setup.action.assert.minimumId">minimumId</a> element. This can be a statically defined <a href="testscript-definitions.html#TestScript.fixture">fixture</a> or one that is dynamically set via <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a>.</td>
+    <td>Asserts that the response contains all the element/content in another fixture pointed to by <a href="testscript-definitions.html#TestScript.setup.action.assert.minimumId">minimumId</a> element. This can be a statically defined <a href="testscript-definitions.html#TestScript.fixture">fixture</a> or one that is dynamically set via <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a>.<br/>The default operation is not defined and if present will be ignored.</td>
   </tr>
   <tr>
   	<td>navigationLinks</td>
     <td>N/A</td>
-    <td>Asserts that the response Bundle contains or does NOT contain first, last, and next links depending on whether or not <a href="testscript-definitions.html#TestScript.setup.action.assert.navigationLinks">navigationLinks</a> element is set to true or false.</td>
+    <td>Asserts that the response Bundle contains or does NOT contain first, last, and next links depending on whether or not <a href="testscript-definitions.html#TestScript.setup.action.assert.navigationLinks">navigationLinks</a> element is set to true or false.<br/>The default operation is not defined and if present will be ignored.</td>
   </tr>
   <tr>
   	<td>path</td>
-    <td>equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains</td>
-    <td>Asserts that <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> against the response body evaluates to a value that contains, not contains, is equal, not equal, in, not in, greater than, or less than the value specified for <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> element if present.<br/>If the <a href="testscript-definitions.html#TestScript.setup.action.assert.operator">operator</a> is "empty" or "notEmpty" then <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> will be ignored.<br/>If <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is not specified, then <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> will be evaluated against the last operation's response body.</td>
+    <td><b>equals</b> | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains</td>
+    <td>Asserts that the <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> against the response body evaluates to a value that contains, not contains, is equal, not equal, in, not in, greater than, or less than the value specified for <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> element if present.<br/>If the <a href="testscript-definitions.html#TestScript.setup.action.assert.operator">operator</a> is "empty" or "notEmpty" then <a href="testscript-definitions.html#TestScript.setup.action.assert.value">value</a> will be ignored.<br/>If <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is not specified, then <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> will be evaluated against the last operation's response body.<br/>The default operator is "<b>equals</b>".</td>
+  </tr>
+  <tr>
+  	<td>requestMethod</td>
+    <td><b>equals</b> | notEquals</td>
+    <td>Asserts that the <a href="testscript-definitions.html#TestScript.setup.action.operation">operation</a> HTTP request method is or is not one of the enumerated values in <a href="valueset-http-operations.html">http-operations</a>.<br/>The default operator is "<b>equals</b>".</td>
+  </tr>
+  <tr>
+  	<td>requestUrl</td>
+    <td><b>equals</b> | notEquals | contains | notContains</td>
+    <td>Asserts that the <a href="testscript-definitions.html#TestScript.setup.action.operation">operation</a> HTTP request url path contains, does not contains, is equal, is not equal to the <a href="testscript-definitions.html#TestScript.setup.action.assert.requestUrl">requestUrl</a> value depending on the operator used.<br/>The default operator is "<b>equals</b>".</td>
   </tr>
   <tr>
   	<td>resource</td>
-    <td>equals | notEquals</td>
-    <td>Asserts that the resource returned in the response body is or is not of the specified value for <a href="testscript-definitions.html#TestScript.setup.action.assert.resource">resource</a> element.</td>
+    <td><b>equals</b> | notEquals</td>
+    <td>Asserts that the resource returned in the response body is or is not of the specified value for <a href="testscript-definitions.html#TestScript.setup.action.assert.resource">resource</a> element.<br/>The default operator is "<b>equals</b>".</td>
   </tr>
   <tr>
   	<td>response</td>
-    <td>equals | notEquals</td>
-    <td>Asserts that status code in the response is or is not one of the enumerated values in <a href="valueset-assert-response-code-types.html">response abbreviations</a>.</td>
+    <td><b>equals</b> | notEquals</td>
+    <td>Asserts that status code in the response is or is not one of the enumerated values in <a href="valueset-assert-response-code-types.html">response abbreviations</a>.<br/>The default operator is "<b>equals</b>".</td>
   </tr>
   <tr>
   	<td>responseCode</td>
-    <td>equals | notEquals | in | notIn | greaterThan | lessThan</td>
-    <td>Asserts that status code in the response is equal, notEqual, in, not in, greater than, or less than the specified value(s) for <a href="testscript-definitions.html#TestScript.setup.action.assert.responseCode">responseCode</a> element</td>
+    <td><b>equals</b> | notEquals | in | notIn | greaterThan | lessThan</td>
+    <td>Asserts that status code in the response is equal, notEqual, in, not in, greater than, or less than the specified value(s) for <a href="testscript-definitions.html#TestScript.setup.action.assert.responseCode">responseCode</a> element.<br/>The default operator is "<b>equals</b>".</td>
   </tr>
   <tr>
   	<td>validateProfileId</td>
     <td>N/A</td>
-    <td>Asserts that the response is valid according to the profile specified by <a href="testscript-definitions.html#TestScript.setup.action.assert.validateProfileId">validateProfileId</a> element.</td>
+    <td>Asserts that the response is valid according to the profile specified by <a href="testscript-definitions.html#TestScript.setup.action.assert.validateProfileId">validateProfileId</a> element.<br/>The default operation is not defined and if present will be ignored.</td>
   </tr>
 </table>
 

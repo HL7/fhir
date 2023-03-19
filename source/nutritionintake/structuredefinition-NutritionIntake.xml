@@ -27,7 +27,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NutritionIntake"/>
-  <title value="NutritionIntake"/>
+  <title value="Nutrition Intake"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -291,7 +291,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
     </element>
     <element id="NutritionIntake.occurrence[x]">
@@ -367,7 +367,7 @@
     <element id="NutritionIntake.consumedItem.type">
       <path value="NutritionIntake.consumedItem.type"/>
       <short value="The type of food or fluid product"/>
-      <definition value="Indicates what a category of item that was consumed: eg., food, fluid, enteral, etc."/>
+      <definition value="Indicates what a category of item that was consumed: e.g., food, fluid, enteral, etc."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -385,7 +385,7 @@
     </element>
     <element id="NutritionIntake.consumedItem.nutritionProduct">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="In MedicationUsage, this element was a choice of a resource reference or a codeable concept; however choice of data type fields can only have a maximum cardinality of 1. MedicationUsage included Reference(Medication), however there is currently no Reference(nutritionProduct) equivalent so this should be investigated in the future to determine if nutritionProduct needs a separate resource so that nutrients/ingredients can be captured through that resource (or if there is another way to capture nutrients/ingredients associated with this element. For the present, SNOMED terms can be used to capture food or fluid products without getting the detailed nutrients/ingredients of those food or fluid products."/>
+        <valueString value="In MedicationStatement, this element was a choice of a resource reference or a codeable concept; however choice of data type fields can only have a maximum cardinality of 1. MedicationStatement included Reference(Medication), however there is currently no Reference(nutritionProduct) equivalent so this should be investigated in the future to determine if nutritionProduct needs a separate resource so that nutrients/ingredients can be captured through that resource (or if there is another way to capture nutrients/ingredients associated with this element. For the present, SNOMED terms can be used to capture food or fluid products without getting the detailed nutrients/ingredients of those food or fluid products."/>
       </extension>
       <path value="NutritionIntake.consumedItem.nutritionProduct"/>
       <short value="Code that identifies the food or fluid product that was consumed"/>

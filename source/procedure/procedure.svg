@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n848"
+   version="1.1"
+   width="892.8"
+   height="578.0"
+   sodipodi:docname="procedure.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview92217"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3823529"
+     inkscape:cx="446.34043"
+     inkscape:cy="289"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n848" />
+  <defs
+     id="defs91911">
+    <filter
+       id="shadow1"
+       x="-0.019428153"
+       y="-0.0828125"
+       width="1.0498534"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset91902" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix91904" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur91906" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend91908" />
+    </filter>
+  </defs>
+  <g
+     id="n849">
+    <rect
+       id="Procedure"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="299.20000000000005"
+       height="568.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n850"
+       x1="0.0"
+       y1="28.0"
+       x2="299.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n851"
+       x="149.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Procedure<tspan
+   class="diagram-class-title-link"
+   id="tspan91916"> (<a
+   id="n852"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n853"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n854"
+   xlink:href="procedure-definitions.html#Procedure.identifier"><title
+   id="title91919">Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and is propagated from server to server</title>identifier</a> : <a
+   id="n855"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n859"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n860"
+   xlink:href="procedure-definitions.html#Procedure.instantiatesCanonical"><title
+   id="title91924">The URL pointing to a FHIR-defined protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure</title>instantiatesCanonical</a> : <a
+   id="n861"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n862"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a>|</text>
+    <text
+       id="n863"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n864"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|<a
+   id="n865"
+   xlink:href="measure.html#Measure">Measure</a>|<a
+   id="n866"
+   xlink:href="operationdefinition.html#OperationDefinition">OperationDefinition</a>|<a
+   id="n867"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a> »</text>
+    <text
+       id="n877"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n878"
+   xlink:href="procedure-definitions.html#Procedure.instantiatesUri"><title
+   id="title91935">The URL pointing to an externally maintained protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure</title>instantiatesUri</a> : <a
+   id="n879"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n883"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n884"
+   xlink:href="procedure-definitions.html#Procedure.basedOn"><title
+   id="title91940">A reference to a resource that contains details of the request for this procedure</title>basedOn</a> : <a
+   id="n885"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n886"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n887"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n893"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n894"
+   xlink:href="procedure-definitions.html#Procedure.partOf"><title
+   id="title91947">A larger event of which this particular procedure is a component or step</title>partOf</a> : <a
+   id="n895"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n896"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n897"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n898"
+       x="26.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n899"
+   xlink:href="medicationadministration.html#MedicationAdministration">MedicationAdministration</a> »</text>
+    <text
+       id="n907"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n908"
+   xlink:href="procedure-definitions.html#Procedure.status"><title
+   id="title91956">A code specifying the state of the procedure. Generally, this will be the in-progress or completed state (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n909"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n910"
+   xlink:href="valueset-event-status.html"><title
+   id="n911">null (Strength=Required)</title>EventStatus</a>! »</text>
+    <text
+       id="n917"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n918"
+   xlink:href="procedure-definitions.html#Procedure.statusReason"><title
+   id="title91963">Captures the reason for the current state of the procedure</title>statusReason</a> : <a
+   id="n919"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n920"
+   xlink:href="valueset-procedure-not-performed-reason.html"><title
+     id="n921">null (Strength=Example)</title></a></text>
+    <text
+       id="n922"
+       x="26.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n923"
+   xlink:href="valueset-procedure-not-performed-reason.html">ProcedureNotPerformedReasonSN...</a>?? »</text>
+    <text
+       id="n931"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n932"
+   xlink:href="procedure-definitions.html#Procedure.category"><title
+   id="title91972">A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)</title>category</a> : <a
+   id="n933"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n934"
+   xlink:href="valueset-procedure-category.html"><title
+   id="n935">null (Strength=Example)</title>ProcedureCategoryCodesSNOMEDCT</a>?? »</text>
+    <text
+       id="n941"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n942"
+   xlink:href="procedure-definitions.html#Procedure.code"><title
+   id="title91979">The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &quot;Laparoscopic Appendectomy&quot;)</title>code</a> : <a
+   id="n943"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n944"
+   xlink:href="valueset-procedure-code.html"><title
+   id="n945">null (Strength=Example)</title>ProcedureCodesSNOMEDCT</a>?? »</text>
+    <text
+       id="n951"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n952"
+   xlink:href="procedure-definitions.html#Procedure.subject"><title
+   id="title91986">On whom or on what the procedure was performed. This is usually an individual human, but can also be performed on animals, groups of humans or animals, organizations or practitioners (for licensing), locations or devices (for safety inspections or regulatory authorizations).  If the actual focus of the procedure is different from the subject, the focus element specifies the actual focus of the procedure</title>subject</a> : <a
+   id="n953"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n954"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n955"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n956"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n957"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n958"
+       x="26.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n959"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n960"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n971"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n972"
+   xlink:href="procedure-definitions.html#Procedure.focus"><title
+   id="title91998">Who is the target of the procedure when it is not the subject of record only.  If focus is not present, then subject is the focus.  If focus is present and the subject is one of the targets of the procedure, include subject as a focus as well. If focus is present and the subject is not included in focus, it implies that the procedure was only targeted on the focus. For example, when a caregiver is given education for a patient, the caregiver would be the focus and the procedure record is associated with the subject (e.g. patient).  For example, use focus when recording the target of the education, training, or counseling is the parent or relative of a patient</title>focus</a> : <a
+   id="n973"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n974"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n975"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n976"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n977"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n978"
+       x="26.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n979"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n980"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n981"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n982"
+   xlink:href="specimen.html#Specimen">Specimen</a> »</text>
+    <text
+       id="n995"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n996"
+   xlink:href="procedure-definitions.html#Procedure.encounter"><title
+   id="title92012">The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated</title>encounter</a> : <a
+   id="n997"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n998"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n1003"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1004"
+   xlink:href="procedure-definitions.html#Procedure.occurrence_x_"><title
+   id="title92018">Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured</title>occurrence[x]</a> : <a
+   id="n1005"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1006"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1007"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n1008"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1009"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n1010"
+   xlink:href="datatypes.html#Range">Range</a>|</text>
+    <text
+       id="n1011"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1012"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n1023"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1024"
+   xlink:href="procedure-definitions.html#Procedure.recorded"><title
+   id="title92030">The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event)</title>recorded</a> : <a
+   id="n1025"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1029"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1030"
+   xlink:href="procedure-definitions.html#Procedure.recorder"><title
+   id="title92035">Individual who recorded the record and takes responsibility for its content</title>recorder</a> : <a
+   id="n1031"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1032"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1033"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1034"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n1035"
+       x="26.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1036"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n1045"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1046"
+   xlink:href="procedure-definitions.html#Procedure.reported_x_"><title
+   id="title92045">Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report</title>reported[x]</a> : <a
+   id="n1047"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1048"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1049"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1050"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n1051"
+       x="26.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1052"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1053"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1054"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1055"
+   xlink:href="organization.html#Organization">Organization</a>) »</text>
+    <text
+       id="n1067"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1068"
+   xlink:href="procedure-definitions.html#Procedure.location"><title
+   id="title92058">The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant</title>location</a> : <a
+   id="n1069"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1070"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n1075"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1076"
+   xlink:href="procedure-definitions.html#Procedure.reason"><title
+   id="title92064">The coded reason or reference why the procedure was performed. This may be a coded entity of some type, be present as text, or be a reference to one of several resources that justify the procedure</title>reason</a> : <a
+   id="n1077"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1078"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n1079"
+   xlink:href="observation.html#Observation">Observation</a>|<a
+   id="n1080"
+   xlink:href="procedure.html#Procedure">Procedure</a>|</text>
+    <text
+       id="n1081"
+       x="26.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1082"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n1083"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>; <a
+   id="n1084"
+   xlink:href="valueset-procedure-reason.html"><title
+   id="n1085">null (Strength=Example)</title>ProcedureReasonCodes</a>?? »</text>
+    <text
+       id="n1097"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1098"
+   xlink:href="procedure-definitions.html#Procedure.bodySite"><title
+   id="title92077">Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion</title>bodySite</a> : <a
+   id="n1099"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1100"
+   xlink:href="valueset-body-site.html"><title
+   id="n1101">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n1107"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1108"
+   xlink:href="procedure-definitions.html#Procedure.outcome"><title
+   id="title92084">The outcome of the procedure - did it resolve the reasons for the procedure being performed?</title>outcome</a> : <a
+   id="n1109"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1110"
+   xlink:href="valueset-procedure-outcome.html"><title
+   id="n1111">null (Strength=Example)</title>ProcedureOutcomeCodesSNOMEDCT</a>?? »</text>
+    <text
+       id="n1117"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1118"
+   xlink:href="procedure-definitions.html#Procedure.report"><title
+   id="title92091">This could be a histology result, pathology report, surgical report, etc</title>report</a> : <a
+   id="n1119"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1120"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n1121"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|</text>
+    <text
+       id="n1122"
+       x="26.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1123"
+   xlink:href="composition.html#Composition">Composition</a> »</text>
+    <text
+       id="n1131"
+       x="6.0"
+       y="476.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1132"
+   xlink:href="procedure-definitions.html#Procedure.complication"><title
+   id="title92100">Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues</title>complication</a> : <a
+   id="n1133"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1134"
+   xlink:href="condition.html#Condition">Condition</a>; <a
+   id="n1135"
+   xlink:href="valueset-condition-code.html"><title
+     id="n1136">null (Strength=Example)</title></a></text>
+    <text
+       id="n1137"
+       x="26.0"
+       y="490.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1138"
+   xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n1147"
+       x="6.0"
+       y="504.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1148"
+   xlink:href="procedure-definitions.html#Procedure.followUp"><title
+   id="title92110">If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used</title>followUp</a> : <a
+   id="n1149"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1150"
+   xlink:href="valueset-procedure-followup.html"><title
+   id="n1151">null (Strength=Example)</title>ProcedureFollowUpCodesSNOMEDCT</a>?? »</text>
+    <text
+       id="n1157"
+       x="6.0"
+       y="518.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1158"
+   xlink:href="procedure-definitions.html#Procedure.note"><title
+   id="title92117">Any other notes and comments about the procedure</title>note</a> : <a
+   id="n1159"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1163"
+       x="6.0"
+       y="532.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1164"
+   xlink:href="procedure-definitions.html#Procedure.used"><title
+   id="title92122">Identifies medications, devices and any other substance used as part of the procedure</title>used</a> : <a
+   id="n1165"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1166"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1167"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n1168"
+   xlink:href="substance.html#Substance">Substance</a>|</text>
+    <text
+       id="n1169"
+       x="26.0"
+       y="546.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1170"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>; <a
+   id="n1171"
+   xlink:href="valueset-device-type.html"><title
+   id="n1172">null (Strength=Example)</title>DeviceType</a>?? »</text>
+    <text
+       id="n1183"
+       x="6.0"
+       y="560.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1184"
+   xlink:href="procedure-definitions.html#Procedure.supportingInfo"><title
+   id="title92134">Other resources from the patient record that may be relevant to the procedure.  The information from these resources was either used to create the instance or is provided to help with its interpretation. This extension should not be used if more specific inline elements or extensions are available</title>supportingInfo</a> : <a
+   id="n1185"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1186"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n1191"
+     transform="translate(73.06383,57.148936)">
+    <rect
+       id="Procedure.performer"
+       x="400"
+       y="80"
+       rx="4"
+       ry="4"
+       width="286"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1192"
+       x1="400"
+       y1="108"
+       x2="686"
+       y2="108"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1193"
+       x="543"
+       y="100"
+       fill="#000000"
+       class="diagram-class-title">Performer</text>
+    <text
+       id="n1194"
+       x="406"
+       y="122"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1195"
+   xlink:href="procedure-definitions.html#Procedure.performer.function"><title
+   id="title92144">Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaesthetist, endoscopist</title>function</a> : <a
+   id="n1196"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1197"
+   xlink:href="valueset-performer-role.html"><title
+   id="n1198">null (Strength=Example)</title>ProcedurePerformerRoleCodes</a>?? »</text>
+    <text
+       id="n1204"
+       x="406"
+       y="136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1205"
+   xlink:href="procedure-definitions.html#Procedure.performer.actor"><title
+   id="title92151">Indicates who or what performed the procedure</title>actor</a> : <a
+   id="n1206"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1207"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1208"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n1209"
+       x="426"
+       y="150"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1210"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1211"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1212"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1213"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1214"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|</text>
+    <text
+       id="n1215"
+       x="426"
+       y="164"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1216"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> » « <a
+   id="n1217"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1218">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1234"
+       x="406"
+       y="178"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1235"
+   xlink:href="procedure-definitions.html#Procedure.performer.onBehalfOf"><title
+   id="title92168">The Organization the Patient, RelatedPerson, Device, CareTeam, and HealthcareService was acting on behalf of</title>onBehalfOf</a> : <a
+   id="n1236"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1237"
+   xlink:href="organization.html#Organization">Organization</a> » « <a
+   id="n1238"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1239">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1246"
+       x="406"
+       y="192"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1247"
+   xlink:href="procedure-definitions.html#Procedure.performer.period"><title
+   id="title92176">Time period during which the performer performed the procedure</title>period</a> : <a
+   id="n1248"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n1252"
+     transform="translate(60.042553,122.97872)">
+    <rect
+       id="Procedure.focalDevice"
+       x="420"
+       y="180"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1253"
+       x1="420"
+       y1="208"
+       x2="692.79999"
+       y2="208"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1254"
+       x="556.40002"
+       y="200"
+       fill="#000000"
+       class="diagram-class-title">FocalDevice</text>
+    <text
+       id="n1255"
+       x="426"
+       y="222"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1256"
+   xlink:href="procedure-definitions.html#Procedure.focalDevice.action"><title
+   id="title92185">The kind of change that happened to the device during the procedure</title>action</a> : <a
+   id="n1257"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1258"
+   xlink:href="valueset-device-action.html"><title
+   id="title92189">null (Strength=Preferred)</title>ProcedureDeviceActionCodes</a>? »</text>
+    <text
+       id="n1263"
+       x="426"
+       y="236"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1264"
+   xlink:href="procedure-definitions.html#Procedure.focalDevice.manipulated"><title
+   id="title92193">The device that was manipulated (changed) during the procedure</title>manipulated</a> : <a
+   id="n1265"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1266"
+   xlink:href="device.html#Device">Device</a> »</text>
+  </g>
+  <line
+     id="n1271"
+     x1="299.20000000000005"
+     y1="229.24046771733606"
+     x2="400.0"
+     y2="192.34367056431117"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1272"
+     points="299.20000000000005,229.24046771733606 305.20000000000005,233.24046771733606 311.20000000000005,229.24046771733606 305.20000000000005,225.24046771733606 299.20000000000005,229.24046771733606"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-20.104629386323314 299.20000000000005 229.24046771733606)" />
+  <rect
+     id="n1273"
+     x="329.5"
+     y="203.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1274"
+     x="349.0"
+     y="213.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1275"
+       xlink:href="procedure-definitions.html#Procedure.performer"><title
+   id="title92203">Limited to &quot;real&quot; people rather than equipment</title>performer</a></text>
+  <text
+     id="n1276"
+     x="380.0"
+     y="188.34367056431117"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1277"
+     x1="299.20000000000005"
+     y1="257.5221238938053"
+     x2="420.0"
+     y2="236.14159292035396"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1278"
+     points="299.20000000000005,257.5221238938053 305.20000000000005,261.5221238938053 311.20000000000005,257.5221238938053 305.20000000000005,253.52212389380531 299.20000000000005,257.5221238938053"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-10.036902453963519 299.20000000000005 257.5221238938053)" />
+  <rect
+     id="n1279"
+     x="335.0"
+     y="239.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1280"
+     x="359.0"
+     y="249.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1281"
+       xlink:href="procedure-definitions.html#Procedure.focalDevice"><title
+   id="title92211">A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure</title>focalDevice</a></text>
+  <text
+     id="n1282"
+     x="400.0"
+     y="232.14159292035396"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

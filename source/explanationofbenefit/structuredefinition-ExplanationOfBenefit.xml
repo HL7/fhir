@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ExplanationOfBenefit"/>
-  <title value="ExplanationOfBenefit"/>
+  <title value="Explanation Of Benefit"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Financial Management)"/>
@@ -111,6 +111,17 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+    </element>
+    <element id="ExplanationOfBenefit.traceNumber">
+      <path value="ExplanationOfBenefit.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
     </element>
     <element id="ExplanationOfBenefit.status">
       <path value="ExplanationOfBenefit.status"/>
@@ -266,7 +277,6 @@
       <path value="ExplanationOfBenefit.created"/>
       <short value="Response creation date"/>
       <definition value="The date this resource was created."/>
-      <comment value="This field is independent of the date of creation of the resource as it may reflect the creation date of a source document prior to digitization. Typically for claims all services must be completed as of this date."/>
       <requirements value="Need to record a timestamp for use by both the recipient and the issuer."/>
       <min value="1"/>
       <max value="1"/>
@@ -331,7 +341,7 @@
       <path value="ExplanationOfBenefit.provider"/>
       <short value="Party responsible for the claim"/>
       <definition value="The provider which is responsible for the claim, predetermination or preauthorization."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <comment value="Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -505,6 +515,46 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.event">
+      <path value="ExplanationOfBenefit.event"/>
+      <short value="Event information"/>
+      <definition value="Information code for an event with a corresponding date or period."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.event.type">
+      <path value="ExplanationOfBenefit.event.type"/>
+      <short value="Specific event"/>
+      <definition value="A coded event such as when a service is expected or a card printed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DatesType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
+      </binding>
+    </element>
+    <element id="ExplanationOfBenefit.event.when[x]">
+      <path value="ExplanationOfBenefit.event.when[x]"/>
+      <short value="Occurance date or period"/>
+      <definition value="A date or period in the past or future indicating when the event occurred or is expectd to occur."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.payee">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Payee"/>
@@ -581,8 +631,8 @@
     </element>
     <element id="ExplanationOfBenefit.encounter">
       <path value="ExplanationOfBenefit.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="A billed item may include goods or services provided in multiple encounters."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
       <max value="*"/>
@@ -1363,6 +1413,17 @@
         <code value="positiveInt"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.item.traceNumber">
+      <path value="ExplanationOfBenefit.item.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.item.revenue">
       <path value="ExplanationOfBenefit.item.revenue"/>
       <short value="Revenue or cost center code"/>
@@ -1442,6 +1503,23 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
+    </element>
+    <element id="ExplanationOfBenefit.item.request">
+      <path value="ExplanationOfBenefit.item.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
     </element>
     <element id="ExplanationOfBenefit.item.modifier">
       <path value="ExplanationOfBenefit.item.modifier"/>
@@ -1591,7 +1669,7 @@
     <element id="ExplanationOfBenefit.item.net">
       <path value="ExplanationOfBenefit.item.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the line item. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -1671,8 +1749,8 @@
     </element>
     <element id="ExplanationOfBenefit.item.encounter">
       <path value="ExplanationOfBenefit.item.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="A billed item may include goods or services provided in multiple encounters."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
       <max value="*"/>
@@ -1692,11 +1770,21 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.decision">
-      <path value="ExplanationOfBenefit.item.decision"/>
+    <element id="ExplanationOfBenefit.item.reviewOutcome">
+      <path value="ExplanationOfBenefit.item.reviewOutcome"/>
+      <short value="Adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.reviewOutcome.decision">
+      <path value="ExplanationOfBenefit.item.reviewOutcome.decision"/>
       <short value="Result of the adjudication"/>
       <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
+      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amount will be paid (partial)."/>
       <requirements value="To advise the requestor of the result of the adjudication process."/>
       <min value="0"/>
       <max value="1"/>
@@ -1710,6 +1798,50 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
+    </element>
+    <element id="ExplanationOfBenefit.item.reviewOutcome.reason">
+      <path value="ExplanationOfBenefit.item.reviewOutcome.reason"/>
+      <short value="Reason for result of the adjudication"/>
+      <definition value="The reasons for the result of the claim, predetermination, or preauthorization adjudication."/>
+      <requirements value="To advise the requestor of the contributors to the result of the adjudication process."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdjudicationDecisionReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/website">
+          <valueUri value="https://x12.org/codes/service-review-decision-reason-codes"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision-reason"/>
+      </binding>
+    </element>
+    <element id="ExplanationOfBenefit.item.reviewOutcome.preAuthRef">
+      <path value="ExplanationOfBenefit.item.reviewOutcome.preAuthRef"/>
+      <short value="Preauthorization reference"/>
+      <definition value="Reference from the Insurer which is used in later communications which refers to this adjudication."/>
+      <comment value="This value is only present on preauthorization adjudications."/>
+      <requirements value="On subsequent claims, the insurer may require the provider to quote this value."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.reviewOutcome.preAuthPeriod">
+      <path value="ExplanationOfBenefit.item.reviewOutcome.preAuthPeriod"/>
+      <short value="Preauthorization reference effective period"/>
+      <definition value="The time frame during which this authorization is effective."/>
+      <requirements value="To convey to the provider when the authorized products and services must be supplied for the authorized adjudication to apply."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
     </element>
     <element id="ExplanationOfBenefit.item.adjudication">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -1768,7 +1900,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-reason"/>
       </binding>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.amount">
+    <element id="ExplanationOfBenefit.item.adjudication.amount"> 
       <path value="ExplanationOfBenefit.item.adjudication.amount"/>
       <short value="Monetary amount"/>
       <definition value="Monetary amount associated with the category."/>
@@ -1777,11 +1909,11 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Money"/>
+        <code value="Money"/> 
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.value">
-      <path value="ExplanationOfBenefit.item.adjudication.value"/>
+    <element id="ExplanationOfBenefit.item.adjudication.quantity">
+      <path value="ExplanationOfBenefit.item.adjudication.quantity"/>
       <short value="Non-monitary value"/>
       <definition value="A non-monetary value associated with the category. Mutually exclusive to the amount element above."/>
       <comment value="For example: eligible percentage or co-payment percentage."/>
@@ -1789,7 +1921,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="decimal"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail">
@@ -1817,6 +1949,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+   <element id="ExplanationOfBenefit.item.detail.traceNumber">
+      <path value="ExplanationOfBenefit.item.detail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail.revenue">
@@ -1999,7 +2142,7 @@
     <element id="ExplanationOfBenefit.item.detail.net">
       <path value="ExplanationOfBenefit.item.detail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the line item.detail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2031,24 +2174,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.detail.decision">
-      <path value="ExplanationOfBenefit.item.detail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ExplanationOfBenefit.item.detail.reviewOutcome">
+      <path value="ExplanationOfBenefit.item.detail.reviewOutcome"/>
+      <short value="Detail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ExplanationOfBenefit.item.reviewOutcome"/>
     </element>
     <element id="ExplanationOfBenefit.item.detail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -2086,6 +2218,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.detail.subDetail.traceNumber">
+      <path value="ExplanationOfBenefit.item.detail.subDetail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail.subDetail.revenue">
@@ -2268,7 +2411,7 @@
     <element id="ExplanationOfBenefit.item.detail.subDetail.net">
       <path value="ExplanationOfBenefit.item.detail.subDetail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the line item.detail.subDetail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2300,24 +2443,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.detail.subDetail.decision">
-      <path value="ExplanationOfBenefit.item.detail.subDetail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ExplanationOfBenefit.item.detail.subDetail.reviewOutcome">
+      <path value="ExplanationOfBenefit.item.detail.subDetail.reviewOutcome"/>
+      <short value="Subdetail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ExplanationOfBenefit.item.reviewOutcome"/>
     </element>
     <element id="ExplanationOfBenefit.item.detail.subDetail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -2384,6 +2516,17 @@
       <max value="*"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.traceNumber">
+      <path value="ExplanationOfBenefit.addItem.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.provider">
@@ -2463,6 +2606,23 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.request">
+      <path value="ExplanationOfBenefit.addItem.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.modifier">
       <path value="ExplanationOfBenefit.addItem.modifier"/>
@@ -2612,7 +2772,7 @@
     <element id="ExplanationOfBenefit.addItem.net">
       <path value="ExplanationOfBenefit.addItem.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the addItem. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2689,24 +2849,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.addItem.decision">
-      <path value="ExplanationOfBenefit.addItem.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ExplanationOfBenefit.addItem.reviewOutcome">
+      <path value="ExplanationOfBenefit.addItem.reviewOutcome"/>
+      <short value="Additem level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ExplanationOfBenefit.item.reviewOutcome"/>
     </element>
     <element id="ExplanationOfBenefit.addItem.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -2739,6 +2888,17 @@
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.detail.traceNumber">
+      <path value="ExplanationOfBenefit.addItem.detail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.revenue">
@@ -2881,7 +3041,7 @@
     <element id="ExplanationOfBenefit.addItem.detail.net">
       <path value="ExplanationOfBenefit.addItem.detail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the addItem.detail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2901,24 +3061,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.addItem.detail.decision">
-      <path value="ExplanationOfBenefit.addItem.detail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ExplanationOfBenefit.addItem.detail.reviewOutcome">
+      <path value="ExplanationOfBenefit.addItem.detail.reviewOutcome"/>
+      <short value="Additem detail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ExplanationOfBenefit.item.reviewOutcome"/>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -2951,6 +3100,17 @@
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.detail.subDetail.traceNumber">
+      <path value="ExplanationOfBenefit.addItem.detail.subDetail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.revenue">
@@ -3093,7 +3253,7 @@
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.net">
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the addItem.detail.subDetail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -3113,24 +3273,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.addItem.detail.subDetail.decision">
-      <path value="ExplanationOfBenefit.addItem.detail.subDetail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ExplanationOfBenefit.addItem.detail.subDetail.reviewOutcome">
+      <path value="ExplanationOfBenefit.addItem.detail.subDetail.reviewOutcome"/>
+      <short value="Additem subdetail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ExplanationOfBenefit.item.reviewOutcome"/>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -3385,13 +3534,13 @@
     </element>
     <element id="ExplanationOfBenefit.processNote.type">
       <path value="ExplanationOfBenefit.processNote.type"/>
-      <short value="display | print | printoper"/>
+      <short value="Note purpose"/>
       <definition value="The business purpose of the note text."/>
       <requirements value="To convey the expectation for when the text is used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -3400,7 +3549,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The presentation types of notes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/note-type"/>
       </binding>
@@ -3434,15 +3583,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.benefitPeriod">
@@ -3651,6 +3798,89 @@
       <type>
         <code value="Money"/>
       </type>
+    </element>
+    <element id="ExplanationOfBenefit.error">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Error"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ClaimResponse.error"/>
+      <short value="Processing errors"/>
+      <definition value="Errors encountered during the processing of the adjudication."/>
+      <comment value="If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present."/>
+      <requirements value="Need to communicate processing issues to the requestor."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.itemSequence">
+      <path value="ClaimResponse.error.itemSequence"/>
+      <short value="Item sequence number"/>
+      <definition value="The sequence number of the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure."/>
+      <requirements value="Provides references to the claim items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.detailSequence">
+      <path value="ClaimResponse.error.detailSequence"/>
+      <short value="Detail sequence number"/>
+      <definition value="The sequence number of the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure."/>
+      <requirements value="Provides references to the claim details within the claim item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.subDetailSequence">
+      <path value="ClaimResponse.error.subDetailSequence"/>
+      <short value="Subdetail sequence number"/>
+      <definition value="The sequence number of the sub-detail within the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure."/>
+      <requirements value="Provides references to the claim sub-details within the claim detail."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.code">
+      <path value="ClaimResponse.error.code"/>
+      <short value="Error code detailing processing issues"/>
+      <definition value="An error code, from a specified code system, which details why the claim could not be adjudicated."/>
+      <requirements value="Required to convey processing errors."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdjudicationError"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The adjudication error codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
+      </binding>
+    </element>
+    <element id="ExplanationOfBenefit.error.expression">
+      <path value="ExplanationOfBenefit.error.expression"/>
+      <short value="FHIRPath of element(s) related to issue"/>
+      <definition value="A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."/>
+      <comment value="The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>

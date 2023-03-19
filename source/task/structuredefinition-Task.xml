@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -163,7 +163,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.instantiatesUrl"/>
+        <map value="Event.instantiatesUri"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -194,7 +194,7 @@
     <element id="Task.groupIdentifier">
       <path value="Task.groupIdentifier"/>
       <short value="Requisition or grouper id"/>
-      <definition value="An identifier that links together multiple tasks and other requests that were created in the same context."/>
+      <definition value="A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
       <min value="0"/>
       <max value="1"/>
@@ -361,7 +361,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The task's priority."/>
         </extension>
         <strength value="required"/>
@@ -417,6 +417,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="tsk-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -466,6 +467,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="tsk-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -520,7 +522,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context, Event.context"/>
+        <map value="Request.encounter, Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -678,7 +680,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.role, Request.performerType"/>
+        <map value="Event.performer.function, Request.performerType"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -692,7 +694,7 @@
     <element id="Task.owner">
       <path value="Task.owner"/>
       <short value="Responsible individual"/>
-      <definition value="Individual organization or Device currently responsible for task execution."/>
+      <definition value="Party responsible for managing task execution."/>
       <comment value="Tasks may be created with an owner not yet identified."/>
       <requirements value="Identifies who is expected to perform this task."/>
       <alias value="Performer"/>
@@ -705,9 +707,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
@@ -724,10 +724,59 @@
         <map value=".participation[typeCode=PRF].role"/>
       </mapping>
     </element>
+    <element id="Task.performer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,225"/>
+      </extension>
+      <path value="Task.performer"/>
+      <short value="Who or what performed the task"/>
+      <definition value="The entity who performed the requested task."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Task.performer.function">
+      <path value="Task.performer.function"/>
+      <short value="Type of performance"/>
+      <definition value="A code or description of the performer of the task."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TaskPerformerFunctionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify types of task performers."/>
+      </binding>
+    </element>
+    <element id="Task.performer.actor">
+      <path value="Task.performer.actor"/>
+      <short value="Who performed the task"/>
+      <definition value="The actor or entity who performed the task."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="Task.location">
       <path value="Task.location"/>
       <short value="Where task occurs"/>
-      <definition value="Principal physical location where the this task is performed."/>
+      <definition value="Principal physical location where this task is performed."/>
       <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
       <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
@@ -737,10 +786,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.reasonCode, Event.reasonCode"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
@@ -861,6 +906,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tsk-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="Instead of pointing to request, would point to component of request, having these characteristics"/>

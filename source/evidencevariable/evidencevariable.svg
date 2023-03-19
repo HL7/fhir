@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n926"
+   version="1.1"
+   width="1002.375115"
+   height="643.02952"
+   sodipodi:docname="evidencevariable.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview67662"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2425557"
+     inkscape:cx="501.38599"
+     inkscape:cy="321.51477"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n926" />
+  <defs
+     id="defs67260">
+    <filter
+       id="shadow1"
+       x="-0.025094697"
+       y="-0.0828125"
+       width="1.0643939"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset67251" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix67253" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur67255" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend67257" />
+    </filter>
+  </defs>
+  <g
+     id="n927"
+     transform="translate(6.4383433,4.0239646)">
+    <rect
+       id="EvidenceVariable"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="442"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n928"
+       x1="0"
+       y1="28"
+       x2="277.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n929"
+       x="138.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">EvidenceVariable<tspan
+   class="diagram-class-title-link"
+   id="tspan67266">(<a
+   id="n930"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n931"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n932"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n933"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.url"><title
+   id="title67269">An absolute URI that is used to identify this evidence variable when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this evidence variable is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence variable is stored on different servers</title>url</a> : <a
+   id="n934"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n938"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n939"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.identifier"><title
+   id="title67274">A formal identifier that is used to identify this evidence variable when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n940"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n944"
+       x="6"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n945"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.version"><title
+   id="title67279">The identifier that is used to identify this version of the evidence variable when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the evidence variable author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts</title>version</a> : <a
+   id="n946"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n950"
+       x="6"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n951"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.versionAlgorithm_x_"><title
+   id="title67284">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n952"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n953"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n954"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n955"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n956">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n957"
+       x="26"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n958"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n968"
+       x="6"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n969"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.name"><title
+   id="title67295">A natural language name identifying the evidence variable. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n970"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n971"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n972">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n978"
+       x="6"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n979"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.title"><title
+   id="title67302">A short, descriptive, user-friendly title for the evidence variable</title>title</a> : <a
+   id="n980"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n984"
+       x="6"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n985"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.shortTitle"><title
+   id="title67307">The short title provides an alternate title for use in informal descriptive contexts where the full, formal title is not necessary</title>shortTitle</a> : <a
+   id="n986"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n990"
+       x="6"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n991"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.status"><title
+   id="title67312">The status of this evidence variable. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n992"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n993"
+   xlink:href="valueset-publication-status.html"><title
+   id="n994">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n1000"
+       x="6"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1001"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.experimental"><title
+   id="title67319">A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1002"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1006"
+       x="6"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1007"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.date"><title
+   id="title67324">The date  (and optionally time) when the evidence variable was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence variable changes</title>date</a> : <a
+   id="n1008"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1012"
+       x="6"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1013"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.publisher"><title
+   id="title67329">The name of the organization or individual responsible for the release and ongoing maintenance of the evidence variable</title>publisher</a> : <a
+   id="n1014"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1018"
+       x="6"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1019"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.contact"><title
+   id="title67334">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1020"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1024"
+       x="6"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1025"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.description"><title
+   id="title67339">A free text natural language description of the evidence variable from a consumer's perspective</title>description</a> : <a
+   id="n1026"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1030"
+       x="6"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1031"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.note"><title
+   id="title67344">A human-readable string to clarify or explain concepts about the resource</title>note</a> : <a
+   id="n1032"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1036"
+       x="6"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1037"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.useContext"><title
+   id="title67349">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence variable instances</title>useContext</a> : <a
+   id="n1038"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1042"
+       x="6"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1043"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.purpose"><title
+   id="title67354">Explanation of why this EvidenceVariable is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1044"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1048"
+       x="6"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1049"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.copyright"><title
+   id="title67359">A copyright statement relating to the resource and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the resource</title>copyright</a> : <a
+   id="n1050"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1054"
+       x="6"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1055"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.copyrightLabel"><title
+   id="title67364">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1056"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1060"
+       x="6"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1061"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.approvalDate"><title
+   id="title67369">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n1062"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1066"
+       x="6"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1067"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.lastReviewDate"><title
+   id="title67374">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n1068"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1072"
+       x="6"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1073"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.effectivePeriod"><title
+   id="title67379">The period during which the resource content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n1074"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1078"
+       x="6"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1079"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.author"><title
+   id="title67384">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="n1080"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1084"
+       x="6"
+       y="364"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1085"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.editor"><title
+   id="title67389">An individual or organization primarily responsible for internal coherence of the content</title>editor</a> : <a
+   id="n1086"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1090"
+       x="6"
+       y="378"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1091"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.reviewer"><title
+   id="title67394">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content</title>reviewer</a> : <a
+   id="n1092"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1096"
+       x="6"
+       y="392"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1097"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.endorser"><title
+   id="title67399">An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting</title>endorser</a> : <a
+   id="n1098"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1102"
+       x="6"
+       y="406"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1103"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.relatedArtifact"><title
+   id="title67404">Related artifacts such as additional documentation, justification, or bibliographic references</title>relatedArtifact</a> : <a
+   id="n1104"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1108"
+       x="6"
+       y="420"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1109"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.actual"><title
+   id="title67409">True if the actual variable measured, false if a conceptual representation of the intended variable</title>actual</a> : <a
+   id="n1110"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1114"
+       x="6"
+       y="434"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1115"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.handling"><title
+   id="title67414">The method of handling in statistical analysis</title>handling</a> : <a
+   id="n1116"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1117"
+   xlink:href="valueset-variable-handling.html"><title
+   id="n1118">null (Strength=Required)</title>EvidenceVariableHandling</a>! »</text>
+  </g>
+  <g
+     id="n1124"
+     transform="translate(-7.2431363,11.2671)">
+    <rect
+       id="EvidenceVariable.characteristic"
+       x="393.76587"
+       y="242.51938"
+       rx="4"
+       ry="4"
+       width="325.60001"
+       height="204"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1125"
+       x1="393.76587"
+       y1="270.51938"
+       x2="719.36591"
+       y2="270.51938"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1126"
+       x="556.56586"
+       y="262.51938"
+       fill="#000000"
+       class="diagram-class-title">Characteristic</text>
+    <text
+       id="n1127"
+       x="399.76587"
+       y="284.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1128"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.linkId"><title
+   id="title67425">Label used for when a characteristic refers to another characteristic</title>linkId</a> : <a
+   id="n1129"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+    <text
+       id="n1133"
+       x="399.76587"
+       y="298.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1134"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.description"><title
+   id="title67430">A short, natural language description of the characteristic that could be used to communicate the criteria to an end-user</title>description</a> : <a
+   id="n1135"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1139"
+       x="399.76587"
+       y="312.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1140"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.note"><title
+   id="title67435">A human-readable string to clarify or explain concepts about the characteristic</title>note</a> : <a
+   id="n1141"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1145"
+       x="399.76587"
+       y="326.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1146"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.exclude"><title
+   id="title67440">When true, this characteristic is an exclusion criterion. In other words, not matching this characteristic definition is equivalent to meeting this criterion</title>exclude</a> : <a
+   id="n1147"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1151"
+       x="399.76587"
+       y="340.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1152"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionReference"><title
+   id="title67445">Defines the characteristic using a Reference</title>definitionReference</a> : <a
+   id="n1153"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1154"
+   xlink:href="evidencevariable.html#EvidenceVariable">EvidenceVariable</a>|<a
+   id="n1155"
+   xlink:href="group.html#Group">Group</a>|</text>
+    <text
+       id="n1156"
+       x="419.76587"
+       y="354.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1157"
+   xlink:href="evidence.html#Evidence">Evidence</a> » « <a
+   id="n1158"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1159">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1169"
+       x="399.76587"
+       y="368.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1170"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionCanonical"><title
+   id="title67456">Defines the characteristic using Canonical</title>definitionCanonical</a> : <a
+   id="n1171"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1172"
+   xlink:href="evidencevariable.html#EvidenceVariable">EvidenceVariable</a>|<a
+   id="n1173"
+   xlink:href="evidence.html#Evidence">Evidence</a> » « <a
+   id="n1174"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1175">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1183"
+       x="399.76587"
+       y="382.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1184"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionCodeableConcept"><title
+   id="title67465">Defines the characteristic using CodeableConcept</title>definitionCodeableConcept</a> : <a
+   id="n1185"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1186"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1187">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1193"
+       x="399.76587"
+       y="396.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1194"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionExpression"><title
+   id="title67472">Defines the characteristic using Expression</title>definitionExpression</a> : <a
+   id="n1195"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+    <text
+       id="n1199"
+       x="399.76587"
+       y="410.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1200"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionId"><title
+   id="title67477">Defines the characteristic using id</title>definitionId</a> : <a
+   id="n1201"
+   xlink:href="datatypes.html#id">id</a> [0..1] « <a
+   id="n1202"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1203">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1209"
+       x="399.76587"
+       y="424.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1210"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.instances_x_"><title
+   id="title67484">Number of occurrences meeting the characteristic</title>instances[x]</a> : <a
+   id="n1211"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1212"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1213"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n1219"
+       x="399.76587"
+       y="438.51938"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1220"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.duration_x_"><title
+   id="title67491">Length of time in which the characteristic is met</title>duration[x]</a> : <a
+   id="n1221"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1222"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1223"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <g
+     id="n1229"
+     transform="translate(-12.876687,31.386924)">
+    <rect
+       id="EvidenceVariable.characteristic.definitionByTypeAndValue"
+       x="403.17511"
+       y="485.69901"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1230"
+       x1="403.17511"
+       y1="513.69897"
+       x2="702.37512"
+       y2="513.69897"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1231"
+       x="552.77509"
+       y="505.69901"
+       fill="#000000"
+       class="diagram-class-title">DefinitionByTypeAndValue</text>
+    <text
+       id="n1232"
+       x="409.17511"
+       y="527.69897"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1233"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByTypeAndValue.type"><title
+   id="title67502">Used to express the type of characteristic</title>type</a> : <a
+   id="n1234"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1235"
+   xlink:href="valueset-usage-context-type.html"><title
+   id="n1236">null (Strength=Example)</title>UsageContextType</a>?? »</text>
+    <text
+       id="n1242"
+       x="409.17511"
+       y="541.69897"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1243"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByTypeAndValue.method"><title
+   id="title67509">Method for how the characteristic value was determined</title>method</a> : <a
+   id="n1244"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1245"
+   xlink:href="valueset-definition-method.html"><title
+   id="n1246">null (Strength=Example)</title>DefinitionMethod</a>?? »</text>
+    <text
+       id="n1252"
+       x="409.17511"
+       y="555.69897"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1253"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByTypeAndValue.device"><title
+   id="title67516">Device used for determining characteristic</title>device</a> : <a
+   id="n1254"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1255"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1256"
+   xlink:href="devicemetric.html#DeviceMetric">DeviceMetric</a> »</text>
+    <text
+       id="n1262"
+       x="409.17511"
+       y="569.69897"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1263"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByTypeAndValue.value_x_"><title
+   id="title67523">Defines the characteristic when paired with characteristic.type</title>value[x]</a> : <a
+   id="n1264"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1265"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1266"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1267"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1268"
+   xlink:href="datatypes.html#Range">Range</a>|</text>
+    <text
+       id="n1269"
+       x="429.17511"
+       y="583.69897"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1270"
+   xlink:href="references.html#Reference">Reference</a>|<a
+   id="n1271"
+   xlink:href="datatypes.html#id">id</a> »</text>
+    <text
+       id="n1282"
+       x="409.17511"
+       y="597.69897"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1283"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByTypeAndValue.offset"><title
+   id="title67535">Defines the reference point for comparison when valueQuantity or valueRange is not compared to zero</title>offset</a> : <a
+   id="n1284"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1285"
+   xlink:href="valueset-characteristic-offset.html"><title
+   id="n1286">null (Strength=Example)</title>CharacteristicOffset</a>?? »</text>
+  </g>
+  <g
+     id="n1292"
+     transform="translate(11.267101,-25.753374)">
+    <rect
+       id="EvidenceVariable.characteristic.definitionByCombination"
+       x="429.34943"
+       y="138.3493"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1293"
+       x1="429.34943"
+       y1="166.3493"
+       x2="640.54944"
+       y2="166.3493"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1294"
+       x="534.94946"
+       y="158.3493"
+       fill="#000000"
+       class="diagram-class-title">DefinitionByCombination</text>
+    <text
+       id="n1295"
+       x="435.34943"
+       y="180.3493"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1296"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByCombination.code"><title
+   id="title67546">Used to specify if two or more characteristics are combined with OR or AND</title>code</a> : <a
+   id="n1297"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1298"
+   xlink:href="valueset-characteristic-combination.html"><title
+   id="n1299">null (Strength=Required)</title>CharacteristicCombination</a>! »</text>
+    <text
+       id="n1305"
+       x="435.34943"
+       y="194.3493"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1306"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByCombination.threshold"><title
+   id="title67553">Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used</title>threshold</a> : <a
+   id="n1307"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n1311"
+     transform="translate(6.4383433,-19.31503)">
+    <rect
+       id="EvidenceVariable.characteristic.timeFromEvent"
+       x="5.0953999"
+       y="493.02951"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1312"
+       x1="5.0953999"
+       y1="521.02954"
+       x2="304.29541"
+       y2="521.02954"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1313"
+       x="154.6954"
+       y="513.02954"
+       fill="#000000"
+       class="diagram-class-title">TimeFromEvent</text>
+    <text
+       id="n1314"
+       x="11.0954"
+       y="535.02954"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1315"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.timeFromEvent.description"><title
+   id="title67562">Human readable description</title>description</a> : <a
+   id="n1316"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1320"
+       x="11.0954"
+       y="549.02954"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1321"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.timeFromEvent.note"><title
+   id="title67567">A human-readable string to clarify or explain concepts about the timeFromEvent</title>note</a> : <a
+   id="n1322"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1326"
+       x="11.0954"
+       y="563.02954"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1327"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.timeFromEvent.event_x_"><title
+   id="title67572">The event used as a base point (reference point) in time</title>event[x]</a> : <a
+   id="n1328"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1329"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1330"
+   xlink:href="references.html#Reference">Reference</a>|<a
+   id="n1331"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1332"
+   xlink:href="datatypes.html#id">id</a>; <a
+   id="n1333"
+   xlink:href="valueset-evidence-variable-event.html"><title
+     id="n1334">null (Strength=Example)</title></a></text>
+    <text
+       id="n1335"
+       x="31.0954"
+       y="577.02954"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1336"
+   xlink:href="valueset-evidence-variable-event.html">EvidenceVariableEvent</a>?? »</text>
+    <text
+       id="n1348"
+       x="11.0954"
+       y="591.02954"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1349"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.timeFromEvent.quantity"><title
+   id="title67585">Used to express the observation at a defined amount of time before or after the event</title>quantity</a> : <a
+   id="n1350"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1354"
+       x="11.0954"
+       y="605.02954"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1355"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.timeFromEvent.range"><title
+   id="title67590">Used to express the observation within a period before and/or after the event</title>range</a> : <a
+   id="n1356"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
+  </g>
+  <g
+     id="n1360"
+     transform="translate(20.924616,-20.924616)">
+    <rect
+       id="EvidenceVariable.category"
+       x="405.28958"
+       y="31.32246"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1361"
+       x1="405.28958"
+       y1="59.32246"
+       x2="673.68958"
+       y2="59.32246"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1362"
+       x="539.48956"
+       y="51.32246"
+       fill="#000000"
+       class="diagram-class-title">Category</text>
+    <text
+       id="n1363"
+       x="411.28958"
+       y="73.322456"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1364"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.category.name"><title
+   id="title67599">Description of the grouping</title>name</a> : <a
+   id="n1365"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1369"
+       x="411.28958"
+       y="87.322456"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1370"
+   xlink:href="evidencevariable-definitions.html#EvidenceVariable.category.value_x_"><title
+   id="title67604">Definition of the grouping</title>value[x]</a> : <a
+   id="n1371"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1372"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1373"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1374"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <line
+     id="n1381"
+     x1="554.6439277673245"
+     y1="446.5193729999992"
+     x2="553.9056774898092"
+     y2="485.6990000000005"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1382"
+     points="554.6439277673245,446.5193729999992 560.6439277673245,450.5193729999992 566.6439277673245,446.5193729999992 560.6439277673245,442.5193729999992 554.6439277673245,446.5193729999992"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(91.07947990885606 554.6439277673245 446.5193729999992)" />
+  <rect
+     id="n1383"
+     x="501.5"
+     y="459.0"
+     width="105.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1384"
+     x="554.0"
+     y="469.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1385"
+       xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByTypeAndValue"><title
+   id="title67616">Defines the characteristic using both a type and value[x] elements</title>definitionByTypeAndValue</a></text>
+  <text
+     id="n1386"
+     x="553.9056774898092"
+     y="481.6990000000005"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1387"
+     x1="513.9209922015382"
+     y1="202.3493099999996"
+     x2="518.9065454200974"
+     y2="242.5193730000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1388"
+     points="513.9209922015382,202.3493099999996 519.9209922015382,206.3493099999996 525.9209922015382,202.3493099999996 519.9209922015382,198.3493099999996 513.9209922015382,202.3493099999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(82.92513227230278 513.9209922015382 202.3493099999996)" />
+  <rect
+     id="n1389"
+     x="485.5"
+     y="215.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1390"
+     x="516.0"
+     y="225.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1391"
+       xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByCombination.characteristic"><title
+   id="title67624">A defining factor of the characteristic</title>characteristic</a></text>
+  <text
+     id="n1392"
+     x="518.9065454200974"
+     y="238.5193730000001"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1393"
+     x1="568.9065454200974"
+     y1="242.5193730000001"
+     x2="563.9209922015382"
+     y2="202.3493099999996"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1394"
+     points="568.9065454200974,242.5193730000001 574.9065454200974,246.5193730000001 580.9065454200974,242.5193730000001 574.9065454200974,238.5193730000001 568.9065454200974,242.5193730000001"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-97.07486772769724 568.9065454200974 242.5193730000001)" />
+  <rect
+     id="n1395"
+     x="515.5"
+     y="229.0"
+     width="101.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1396"
+     x="566.0"
+     y="239.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1397"
+       xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.definitionByCombination"><title
+   id="title67632">Defines the characteristic as a combination of two or more characteristics</title>definitionByCombination</a></text>
+  <text
+     id="n1398"
+     x="563.9209922015382"
+     y="216.3493099999996"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1399"
+     x1="393.76588399999997"
+     y1="428.9880097451658"
+     x2="270.33595460571877"
+     y2="493.02952000000005"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1400"
+     points="393.76588399999997,428.9880097451658 399.76588399999997,432.9880097451658 405.76588399999997,428.9880097451658 399.76588399999997,424.9880097451658 393.76588399999997,428.9880097451658"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(152.57749817790165 393.76588399999997 428.9880097451658)" />
+  <rect
+     id="n1401"
+     x="303.5"
+     y="454.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1402"
+     x="332.0"
+     y="464.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1403"
+       xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic.timeFromEvent"><title
+   id="title67640">Timing in which the characteristic is determined</title>timeFromEvent</a></text>
+  <text
+     id="n1404"
+     x="270.33595460571877"
+     y="489.02952000000005"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1405"
+     x1="277.2"
+     y1="261.9597667014373"
+     x2="393.76588399999997"
+     y2="296.4079010014864"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1406"
+     points="277.2,261.9597667014373 283.2,265.9597667014373 289.2,261.9597667014373 283.2,257.9597667014373 277.2,261.9597667014373"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(16.46372804545713 277.2 261.9597667014373)" />
+  <rect
+     id="n1407"
+     x="304.5"
+     y="272.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1408"
+     x="335.0"
+     y="282.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1409"
+       xlink:href="evidencevariable-definitions.html#EvidenceVariable.characteristic"><title
+   id="title67648">A defining factor of the EvidenceVariable. Multiple characteristics are applied with &quot;and&quot; semantics</title>characteristic</a></text>
+  <text
+     id="n1410"
+     x="373.76588399999997"
+     y="292.4079010014864"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1411"
+     x1="277.2"
+     y1="166.48596750970603"
+     x2="458.1307015143553"
+     y2="95.32246000000004"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1412"
+     points="277.2,166.48596750970603 283.2,170.48596750970603 289.2,166.48596750970603 283.2,162.48596750970603 277.2,166.48596750970603"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-21.470663947118478 277.2 166.48596750970603)" />
+  <rect
+     id="n1413"
+     x="349.5"
+     y="123.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1414"
+     x="367.0"
+     y="133.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1415"
+       xlink:href="evidencevariable-definitions.html#EvidenceVariable.category"><title
+   id="title67656">A grouping for ordinal or polychotomous variables</title>category</a></text>
+  <text
+     id="n1416"
+     x="458.1307015143553"
+     y="109.32246000000004"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

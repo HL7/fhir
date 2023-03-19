@@ -49,7 +49,6 @@ the FHIR specification. In addition, the Foundation Module includes the followin
   <li><a href="list.html">List</a></li>
   <li><a href="composition.html">Composition</a></li>
   <li><a href="documentreference.html">DocumentReference</a></li>
-  <li><a href="documentmanifest.html">DocumentManifest</a></li>
 </ul>
 </td><td width="33%" style="border-left: 1px solid #eeeeee">
 <p>Data Exchange Resources.</p>
@@ -60,7 +59,6 @@ the FHIR specification. In addition, the Foundation Module includes the followin
   <li><a href="subscriptionstatus.html">SubscriptionStatus</a></li>
   <li><a href="subscriptiontopic.html">SubscriptionTopic</a></li>
   <li><a href="messageheader.html">MessageHeader</a></li>
-  <li><a href="messagedefinition.html">MessageDefinition</a></li>
 </ul>
 </td></tr>
 </table>
@@ -81,11 +79,41 @@ the FHIR specification. In addition, the Foundation Module includes the followin
 <h3>Developmental Roadmap</h3>
 <p>
 Several components of the foundation module have now reached normative status.  
-The focus over the next 18-24 months as the 5th release of FHIR is prepared is to focus on some of the non-normative elements
+The focus over the next 18-24 months as the 6th release of FHIR is prepared is to focus on some of the non-normative elements
 and move them towards normative status, such as Questionnaire, List, DocumentReference and Subscription.  Exactly which resources
 will be candidates for normative release will be driven, in part, by the degree of implementation - and whether that implementation
 is communicated back to HL7.
 </p>
+
+<p>
+These resources are stable, normative, and widely used. No additional scope or features have been proposed:
+</p>
+<ul>
+  <li><a href="resource.html">Resource</a></li>
+  <li><a href="domainresource.html">DomainResource</a></li>
+  <li><a href="binary.html">Binary</a></li>
+  <li><a href="bundle.html">Bundle</a></li>
+  <li><a href="parameters.html">Parameters</a></li>
+  <li><a href="operationoutcome.html">OperationOutcome</a></li>
+</ul>
+<p>These resources have been widely used, and are considered stable, but some new features are still in trial:</p>
+<ul>
+  <li><a href="questionnaire.html">Questionnaire</a></li>
+  <li><a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
+  <li><a href="list.html">List</a></li>
+  <li><a href="documentreference.html">DocumentReference</a> (note that here have been significant redesigns in this version).</li>
+</ul>
+<p>These resources have been used, and the use led to a significant redesign that is undergoing trial use:</p>
+<ul>
+  <li><a href="subscription.html">Subscription</a>: </li>
+  <li><a href="subscriptionstatus.html">SubscriptionStatus</a>: </li>
+  <li><a href="subscriptiontopic.html">SubscriptionTopic</a>: </li>
+</ul>
+<p>These resources have not been widely used:</p>
+<ul>
+  <li><a href="basic.html">Basic</a> (note that no additional requirements have been identified since R2)</li>
+  <li><a href="messageheader.html">MessageHeader</a></li>
+</ul>
 
 [%file newfooter%]
 </body>

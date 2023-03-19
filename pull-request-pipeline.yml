@@ -37,6 +37,7 @@ jobs:
 
 - job: buildAndPublishSpecification
   dependsOn: setupEnvironment
+  timeoutInMinutes: 120
   steps:
   # This task reports the CI_BRANCH_DIRECTORY variable for re-use in caching and
   # directory naming.

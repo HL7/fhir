@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EncounterHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounterhistory.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @example</div>
+	</text> 
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.amc.nl/zorgportal/identifiers/visits"/>
+        <value value="v2452"/>
+    </identifier>
+	<status value="in-progress" />
+	<class>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="IMP"/>
+			<display value="inpatient encounter"/>
+		</coding>
+	</class>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+</EncounterHistory>

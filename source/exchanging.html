@@ -48,7 +48,7 @@
   This section is also intended to have international scope and the terminology used here is used in its traditional English usage, not necessarily as it might be defined in particular jurisdictions.  For example, the term 'sensitive data' in some jurisdictions has a specific legal meaning.  When used here, it simply means that the data may need some additional level of protection, whether for privacy, business or other reasons.
   </p>
   <p>
-    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 v2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
+    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 V2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
   </p>
   <a name="organization"> </a>
   <h3>Organization of this section</h3>
@@ -108,7 +108,7 @@ shared in FHIR</li>
       Re-use indicates the amount of reusability is likely to be achieved from implementing a specific interoperability solution, where:
       <ol style="list-style-type: lower-roman">
         <li>
-          'High' indicates that the approach is likely to be applicable to a broad set of use-cases with minimal/no redevelopment and little/no negotiation required to establish a functional interopreable interface.
+          'High' indicates that the approach is likely to be applicable to a broad set of use-cases with minimal/no redevelopment and little/no negotiation required to establish a functional interoperable interface.
         </li>
         <li>
           'Medium' indicates that the approach has a reasonable chance of utility for at least some other use-cases, though additional development and/or negotiation or configuration may be required.
@@ -726,7 +726,7 @@ shared in FHIR</li>
   </p>
   <ul>
     <li>It uses less bandwidth and processing power because there is only an interaction between <i>data source</i> and <i>data consumer</i> when data is ready to flow, while polling requires regular interactions, even when there is nothing to send</li>
-    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more manageable than responding to regular polling queries from 100+ systems</li>
+    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more managable than responding to regular polling queries from 100+ systems</li>
     <li>Subscription offers the potential of more immediate notification when an event occurs.  With polling, the average time to receive a notification is half the polling interval and the maximum time to receive a notification is the full polling interval.  (With shorter polling intervals negatively affecting bandwidth and processing load.)</li>
   </ul>
   <p>
@@ -926,7 +926,16 @@ shared in FHIR</li>
     In synchronous queries, the results are determined and returned within the HTTP timeout period of the initiating GET.  The application will typically block and wait for a response before continuing with its action.  While it is possible to have very long timeout periods (100 seconds plus), typically the intention with synchronous responses is to return in tens of milliseconds to a few seconds at most to ensure appropriate system performance and user experience.  In cases where a search may take longer than this, the FHIR <a href="#synchronous">asynchronous</a> search mechanism can be used to allow a query to be initiated and subsequently monitored until a response is available - even if this takes minutes, hours, or potentially even days.  This may be necessary if the search is extremely complex or is slow for other reasons (e.g. if it involves accessing data sources with high latency or limited availability).
   </p>
   <p>
-    Details on invoking and processing RESTful requests in a synchronous manner is described separately for each major type of exchanges separately.  For RESTful exchanges, the synchronous flows are <a href="exchanging-rest.html#push">here</a> and <a href="exchanging-rest.html#pull">here</a>.  The asynchronous flow is covered <a href="exchanging-rest.html#async">here</a>.  For search the synchronous process is <a href="exchanging-search.html#sync">here</a> and the asynchronous process is <a href="exchanging-search.html#async">here</a>.  For operations, synchronous is <a href="exchanging-operation.html#sync">here</a> and asynchronous is <a href="exchanging-operation.html#async">here</a>.  Finally, for messaging synchronous is <a href="exchanging-messaging.html#sync">here</a> and asynchronous is <a href="exchanging-messaging.html#async">here</a>.  For all except messaging, the asynchronous process is similar, however there are small differences - such as who initiates the process.
+    Details on invoking and processing RESTful requests in a synchronous manner is described separately for each major type of exchanges separately.  
+    For RESTful exchanges, the synchronous flows are <a href="exchanging-rest.html#push">here</a> and <a href="exchanging-rest.html#pull">here</a>.  
+    The asynchronous flow is covered <a href="exchanging-rest.html#async">here</a>.  For search the synchronous process is <a href="exchanging-search.html#sync">here</a> 
+    and the asynchronous process is <a href="exchanging-search.html#async">here</a>.  For operations, synchronous is <a href="exchanging-operation.html#sync">here</a> 
+    and asynchronous is <a href="exchanging-operation.html#async">here</a>.  Finally, for messaging synchronous is <a href="exchanging-messaging.html#sync">here</a> and 
+    asynchronous is <a href="exchanging-messaging.html#async">here</a>.  For all except messaging, the asynchronous process is similar, however there are small 
+    differences - such as who initiates the process.
+  </p>
+  <p>
+    For an example of using an asynchronous approach, see the <a href="https://hl7.org/fhir/uv/bulkdata/index.html">Bulk Data Access IG</a>.
   </p>
   <p>
     <a style="color:gray" href="#tree">Return to diagram</a>
@@ -974,7 +983,7 @@ must consider a range of scenarios, depending on the data that is available:
       Applicable profiles may makes rules about what extensions are allowed 
       in the context, so implementers should consult them first. Otherwise, 
       implementers should look through the extension registries 
-      (<a href="extensibility-registry.html">FHIR Standard</a> and <a href="http://hl7.org/fhir/registry">FHIR Registry</a>) 
+      (<a href="[%extensions-location%]extension-registry.html">FHIR Standard</a> and <a href="http://hl7.org/fhir/registry">FHIR Registry</a>) 
       for appropriate extensions before creating their own.
     </td>
   </tr>
@@ -992,7 +1001,7 @@ must consider a range of scenarios, depending on the data that is available:
       Applicable profiles may makes rules about what extensions are allowed 
       in the context, so implementers should consult them first. Otherwise, 
       implementers should look through the extension registries 
-      (<a href="extensibility-registry.html">FHIR Standard</a> and <a href="http://hl7.org/fhir/registry">FHIR Registry</a>) 
+      (<a href="[%extensions-location%]extension-registry.html">FHIR Standard</a> and <a href="http://hl7.org/fhir/registry">FHIR Registry</a>) 
       for appropriate extensions before creating their own.      
       <br/><br/>
       Note that the difference between "extends" and "more-details" is a grey zone 
@@ -1007,7 +1016,7 @@ must consider a range of scenarios, depending on the data that is available:
       If the element minimum cardinality is 0, then the element can simply be omitted.
       If the element mininmum cardinality is 1, then the authoring system has a problem.
       In principle, the first question is why is an element that there is no data for 
-      mandatory? The authoring system may be required to change it's own workflow to procure 
+      mandatory? The authoring system may be required to change its own workflow to procure 
       a value for the element. However this is not always necessary (or possible). 
       <br/><br/>
       The first possibility is that that authoring system can provide a fixed value that 
@@ -1017,8 +1026,8 @@ must consider a range of scenarios, depending on the data that is available:
       filling out a fixed value.
       <br/><br/>
       Alternatively, the authoring application can provide an element with no value, and use one 
-      of the missing value extensions (<a href="extension-data-absent-reason.html">data-absent-reason</a> 
-      or <a href="extension-iso21090-nullflavor.html">nullflavor</a>). Applications
+      of the missing value extensions (<a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">data-absent-reason</a> 
+      or <a href="[%extensions-location%]StructureDefinition-iso21090-nullFlavor.html">nullflavor</a>). Applications
       can use their own extensions for this as well, but this is strongly discouraged, as 
       those existing extensions should cover all the reasons why data is missing.
       <br/><br/>
@@ -1046,13 +1055,13 @@ must consider a range of scenarios, depending on the data that is available:
       that is not correct for the source system.
       <br/><br/>
       In general, specification and profile designers try to avoid the situation 
-      where real world systems have data that is invalid, but all designs are a 
+      where real-world systems have data that is invalid, but all designs are a 
       trade-off between different pros and cons, and systems do not always have 
       valid data. Again, one solution is to redesign the system or the clinical 
       workflow to ensure that data is always valid, but this isn't always possible
       e.g. due to the existence of legacy data.
       <br/><br/>
-      Applications are able to provide alternative invalid data using the <a href="extension-originaltext.html">originalText</a>
+      Applications are able to provide alternative invalid data using the <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a>
       extension in place of a value. This signifies to any consuming application that 
       a valid value is not available, but if they wish, they are able to present the
       actual original data value to a human user along with the information that it 
@@ -1075,13 +1084,13 @@ must consider a range of scenarios, depending on the data that is available:
       are ubiquitous. 
       <br/><br/>
       If the applicable profiles include a required binding to a code/coding type, then the source system 
-      must choose one of the allowed codes from the relevant value set. It can still provide it's 
+      must choose one of the allowed codes from the relevant value set. It can still provide its 
       own code in an extension, and in general this is encouraged. There is no standard extension 
       for this purpose; look for applicable extensions in the <a href="http://hl7.org/fhir/registry">FHIR Registry</a>. 
       <br/><br/>
       If the binding is a required binding to a CodeableConcept, then the source system 
       must choose one of the applicable codes and put that in one of the codings, and
-      then it should provide it's own code in another coding. The same is true if the 
+      then it should provide its own code in another coding. The same is true if the 
       binding is an extensible binding, and one of the existing codes is applicable. 
       <br/><br/>
       As above, applicable profiles may influence an applications choices in this regard.
@@ -1104,7 +1113,7 @@ must consider a range of scenarios, depending on the data that is available:
       at N-1 characters, and the character # is appended. 
       <br/><br/>
       In addition, applications are able to preserve the correct untruncated text using 
-      the <a href="extension-originaltext.html">originalText</a> extension.
+      the <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a> extension.
     </td>
   </tr>
 </table>

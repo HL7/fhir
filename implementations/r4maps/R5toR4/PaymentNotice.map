@@ -1,0 +1,19 @@
+map "http://hl7.org/fhir/StructureMap/PaymentNotice4to3" = "R4 to R3 Conversion for PaymentNotice"
+
+uses "http://hl7.org/fhir/StructureDefinition/PaymentNotice" alias PaymentNotice as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentNotice" alias PaymentNoticeR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group PaymentNotice(source src : PaymentNotice, target tgt : PaymentNoticeR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.request -> tgt.request;
+  src.response -> tgt.response;
+  src.paymentDate -> tgt.statusDate;
+  src.created -> tgt.created;
+  src.recipient -> tgt.target;
+  src.provider -> tgt.provider;
+  src.paymentStatus -> tgt.paymentStatus;
+}
+

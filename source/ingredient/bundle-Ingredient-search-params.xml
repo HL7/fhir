@@ -73,7 +73,7 @@
         <description value="The organization that manufactures this ingredient"/>
         <code value="manufacturer"/>
         <type value="reference"/>
-        <expression value="Ingredient.manufacturer"/>
+        <expression value="Ingredient.manufacturer.manufacturer"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -173,4 +173,89 @@
       </SearchParameter>
     </resource>
   </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-strength-concentration-ratio"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-concentration-strength-ratio"/>
+        <description value="Ingredient concentration strength as ratio, numerator and denominator parameter pair"/>
+        <code value="strength-concentration-ratio"/>
+        <type value="composite"/>
+        <expression value="Ingredient.substance.strength.concentration.ofType(Ratio)"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="numerator"/>
+          <expression value="numerator"/>
+        </component>
+        <component>
+          <definition value="denominator"/>
+          <expression value="denominator"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-strength-presentation-ratio"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-presentation-strength-ratio"/>
+        <description value="Ingredient presentation strength as ratio, numerator and denominator parameter pair"/>
+        <code value="strength-presentation-ratio"/>
+        <type value="composite"/>
+        <expression value="Ingredient.substance.strength.presentation.ofType(Ratio)"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="numerator"/>
+          <expression value="numerator"/>
+        </component>
+        <component>
+          <definition value="denominator"/>
+          <expression value="denominator"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-concentration-strength-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-concentration-strength-quantity"/>
+        <description value="Ingredient concentration strength as quantity"/>
+        <code value="strength-concentration-quantity"/>
+        <type value="quantity"/>
+        <expression value="Ingredient.substance.strength.concentration.ofType(Quantity)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-strength-presentation-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-presentation-strength-quantity"/>
+        <description value="Ingredient presentation strength as quantity"/>
+        <code value="strength-presentation-quantity"/>
+        <type value="quantity"/>
+        <expression value="Ingredient.substance.strength.presentation.ofType(Quantity)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
 </Bundle>

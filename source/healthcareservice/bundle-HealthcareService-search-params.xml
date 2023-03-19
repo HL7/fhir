@@ -43,6 +43,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="HealthcareService-eligibility"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.eligibility.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-eligibility"/>
+        <description value="One of the HealthcareService's eligibility requirements"/>
+        <code value="eligibility"/>
+        <type value="token"/>
+        <expression value="HealthcareService.eligibility.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="HealthcareService-coverage-area"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -245,6 +264,25 @@
         <code value="specialty"/>
         <type value="token"/>
         <expression value="HealthcareService.specialty"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-communication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.communication"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-communication"/>
+        <description value="Languages that are available at this service"/>
+        <code value="communication"/>
+        <type value="token"/>
+        <expression value="HealthcareService.communication"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

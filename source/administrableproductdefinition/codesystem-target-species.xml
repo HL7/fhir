@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="target-species"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -16,11 +18,11 @@
   <url value="http://hl7.org/fhir/target-species"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-     <value value="urn:oid:2.16.840.1.113883.4.642.4.2030"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2030"/>
   </identifier>
   <version value="5.0.0"/>
-   <name value="TargetSpecies"/>
-   <title value="TargetSpecies"/>
+  <name value="TargetSpecies"/>
+  <title value="Target Species"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -35,809 +37,808 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-   <description value="A species for which a medicinal product is intended."/>
+  <description value="A species for which a medicinal product is intended."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/target-species"/>
   <content value="complete"/>
-   <concept>
-      <code value="100000108874"/>
-      <display value="Dove"/>
-   </concept>
-   <concept>
-      <code value="100000108875"/>
-      <display value="Quail"/>
-   </concept>
-   <concept>
-      <code value="100000108876"/>
-      <display value="Snipe"/>
-   </concept>
-   <concept>
-      <code value="100000108877"/>
-      <display value="Sparrow"/>
-   </concept>
-   <concept>
-      <code value="100000108878"/>
-      <display value="Starling"/>
-   </concept>
-   <concept>
-      <code value="100000108879"/>
-      <display value="Swan"/>
-   </concept>
-   <concept>
-      <code value="100000108880"/>
-      <display value="Turkey hen"/>
-   </concept>
-   <concept>
-      <code value="100000108881"/>
-      <display value="Turkey cock"/>
-   </concept>
-   <concept>
-      <code value="100000108882"/>
-      <display value="Turkeys"/>
-   </concept>
-   <concept>
-      <code value="100000108883"/>
-      <display value="Turkey for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000108884"/>
-      <display value="Poult"/>
-   </concept>
-   <concept>
-      <code value="100000108885"/>
-      <display value="Turtle dove"/>
-   </concept>
-   <concept>
-      <code value="100000108886"/>
-      <display value="Bison"/>
-   </concept>
-   <concept>
-      <code value="100000108887"/>
-      <display value="Buffalo"/>
-   </concept>
-   <concept>
-      <code value="100000108888"/>
-      <display value="Cows"/>
-   </concept>
-   <concept>
-      <code value="100000108889"/>
-      <display value="Cow for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000108890"/>
-      <display value="Bull for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000108891"/>
-      <display value="Ox"/>
-   </concept>
-   <concept>
-      <code value="100000108892"/>
-      <display value="Bullock"/>
-   </concept>
-   <concept>
-      <code value="100000108893"/>
-      <display value="Cattle"/>
-   </concept>
-   <concept>
-      <code value="100000108894"/>
-      <display value="Beef cattle"/>
-   </concept>
-   <concept>
-      <code value="100000108895"/>
-      <display value="Dairy cattle"/>
-   </concept>
-   <concept>
-      <code value="100000108896"/>
-      <display value="Dry cow"/>
-   </concept>
-   <concept>
-      <code value="100000108897"/>
-      <display value="Bull"/>
-   </concept>
-   <concept>
-      <code value="100000108898"/>
-      <display value="Lactating cow"/>
-   </concept>
-   <concept>
-      <code value="100000108899"/>
-      <display value="All other food producing species"/>
-   </concept>
-   <concept>
-      <code value="100000108900"/>
-      <display value="All non-food producing species"/>
-   </concept>
-   <concept>
-      <code value="100000108901"/>
-      <display value="All species  "/>
-   </concept>
-   <concept>
-      <code value="100000108902"/>
-      <display value="Carnivores"/>
-   </concept>
-   <concept>
-      <code value="100000108903"/>
-      <display value="Domestic animals"/>
-   </concept>
-   <concept>
-      <code value="100000108904"/>
-      <display value="Fur animals"/>
-   </concept>
-   <concept>
-      <code value="100000108905"/>
-      <display value="Game animals"/>
-   </concept>
-   <concept>
-      <code value="100000108906"/>
-      <display value="Laboratory animals"/>
-   </concept>
-   <concept>
-      <code value="100000108907"/>
-      <display value="Major species"/>
-   </concept>
-   <concept>
-      <code value="100000108908"/>
-      <display value="Minor species"/>
-   </concept>
-   <concept>
-      <code value="100000108909"/>
-      <display value="Ruminant"/>
-   </concept>
-   <concept>
-      <code value="100000108910"/>
-      <display value="Ruminant and porcine"/>
-   </concept>
-   <concept>
-      <code value="100000108911"/>
-      <display value="Small animals"/>
-   </concept>
-   <concept>
-      <code value="100000108912"/>
-      <display value="Crocodile"/>
-   </concept>
-   <concept>
-      <code value="100000108913"/>
-      <display value="Frog"/>
-   </concept>
-   <concept>
-      <code value="100000108914"/>
-      <display value="Iguana"/>
-   </concept>
-   <concept>
-      <code value="100000108915"/>
-      <display value="Lizard"/>
-   </concept>
-   <concept>
-      <code value="100000108916"/>
-      <display value="Amphibians"/>
-   </concept>
-   <concept>
-      <code value="100000108917"/>
-      <display value="Reptiles"/>
-   </concept>
-   <concept>
-      <code value="100000108918"/>
-      <display value="Reptiles for production"/>
-   </concept>
-   <concept>
-      <code value="100000108919"/>
-      <display value="Snake"/>
-   </concept>
-   <concept>
-      <code value="100000108920"/>
-      <display value="Tortoise"/>
-   </concept>
-   <concept>
-      <code value="100000108921"/>
-      <display value="Turtle"/>
-   </concept>
-   <concept>
-      <code value="100000108922"/>
-      <display value="Honey bees"/>
-   </concept>
-   <concept>
-      <code value="100000108923"/>
-      <display value="Crustacean"/>
-   </concept>
-   <concept>
-      <code value="100000108924"/>
-      <display value="Spider"/>
-   </concept>
-   <concept>
-      <code value="100000108925"/>
-      <display value="Indian hen"/>
-   </concept>
-   <concept>
-      <code value="100000108926"/>
-      <display value="African Goshawk"/>
-   </concept>
-   <concept>
-      <code value="100000108927"/>
-      <display value="Black Kite"/>
-   </concept>
-   <concept>
-      <code value="100000108928"/>
-      <display value="Budgerigar"/>
-   </concept>
-   <concept>
-      <code value="100000108929"/>
-      <display value="Bustard"/>
-   </concept>
-   <concept>
-      <code value="100000108930"/>
-      <display value="Buzzard"/>
-   </concept>
-   <concept>
-      <code value="100000108931"/>
-      <display value="Hen"/>
-   </concept>
-   <concept>
-      <code value="100000108932"/>
-      <display value="Layer hen"/>
-   </concept>
-   <concept>
-      <code value="100000108933"/>
-      <display value="Cock"/>
-   </concept>
-   <concept>
-      <code value="100000108934"/>
-      <display value="Broiler"/>
-   </concept>
-   <concept>
-      <code value="100000108935"/>
-      <display value="Chickens"/>
-   </concept>
-   <concept>
-      <code value="100000108936"/>
-      <display value="Chicken embryonated eggs"/>
-   </concept>
-   <concept>
-      <code value="100000108937"/>
-      <display value="Chicken for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000108938"/>
-      <display value="Replacement chick"/>
-   </concept>
-   <concept>
-      <code value="100000108939"/>
-      <display value="Chick"/>
-   </concept>
-   <concept>
-      <code value="100000108940"/>
-      <display value="Pullet"/>
-   </concept>
-   <concept>
-      <code value="100000108941"/>
-      <display value="Cockatiel"/>
-   </concept>
-   <concept>
-      <code value="100000108942"/>
-      <display value="Cockatoo"/>
-   </concept>
-   <concept>
-      <code value="100000108943"/>
-      <display value="Common canary"/>
-   </concept>
-   <concept>
-      <code value="100000108944"/>
-      <display value="Crow"/>
-   </concept>
-   <concept>
-      <code value="100000108945"/>
-      <display value="Duck"/>
-   </concept>
-   <concept>
-      <code value="100000108946"/>
-      <display value="Duck broiler"/>
-   </concept>
-   <concept>
-      <code value="100000108947"/>
-      <display value="Duckling"/>
-   </concept>
-   <concept>
-      <code value="100000108948"/>
-      <display value="Eagle"/>
-   </concept>
-   <concept>
-      <code value="100000108949"/>
-      <display value="Emu"/>
-   </concept>
-   <concept>
-      <code value="100000108950"/>
-      <display value="Goose"/>
-   </concept>
-   <concept>
-      <code value="100000108951"/>
-      <display value="Guinea fowl"/>
-   </concept>
-   <concept>
-      <code value="100000108952"/>
-      <display value="Kestrel"/>
-   </concept>
-   <concept>
-      <code value="100000108953"/>
-      <display value="Kite"/>
-   </concept>
-   <concept>
-      <code value="100000108954"/>
-      <display value="Macaw"/>
-   </concept>
-   <concept>
-      <code value="100000108955"/>
-      <display value="Ostrich"/>
-   </concept>
-   <concept>
-      <code value="100000108956"/>
-      <display value="Birds"/>
-   </concept>
-   <concept>
-      <code value="100000108957"/>
-      <display value="Fowls"/>
-   </concept>
-   <concept>
-      <code value="100000108958"/>
-      <display value="Finch"/>
-   </concept>
-   <concept>
-      <code value="100000108959"/>
-      <display value="Galliformes"/>
-   </concept>
-   <concept>
-      <code value="100000108960"/>
-      <display value="Game birds"/>
-   </concept>
-   <concept>
-      <code value="100000108961"/>
-      <display value="Pekin duck"/>
-   </concept>
-   <concept>
-      <code value="100000108962"/>
-      <display value="Ornamental birds"/>
-   </concept>
-   <concept>
-      <code value="100000108963"/>
-      <display value="Poultry"/>
-   </concept>
-   <concept>
-      <code value="100000108964"/>
-      <display value="Owl"/>
-   </concept>
-   <concept>
-      <code value="100000108965"/>
-      <display value="Parakeet"/>
-   </concept>
-   <concept>
-      <code value="100000108966"/>
-      <display value="Parrot"/>
-   </concept>
-   <concept>
-      <code value="100000108967"/>
-      <display value="Partridge"/>
-   </concept>
-   <concept>
-      <code value="100000108968"/>
-      <display value="Peregrine Falcon"/>
-   </concept>
-   <concept>
-      <code value="100000108969"/>
-      <display value="Pheasants"/>
-   </concept>
-   <concept>
-      <code value="100000108970"/>
-      <display value="Carrier pigeon"/>
-   </concept>
-   <concept>
-      <code value="100000108971"/>
-      <display value="Newborn calves"/>
-   </concept>
-   <concept>
-      <code value="100000108972"/>
-      <display value="Pregnant cow"/>
-   </concept>
-   <concept>
-      <code value="100000108973"/>
-      <display value="Pregnant heifer"/>
-   </concept>
-   <concept>
-      <code value="100000108974"/>
-      <display value="Pre-ruminant cattle"/>
-   </concept>
-   <concept>
-      <code value="100000108975"/>
-      <display value="Ruminant cattle"/>
-   </concept>
-   <concept>
-      <code value="100000108976"/>
-      <display value="Wild cattle"/>
-   </concept>
-   <concept>
-      <code value="100000108977"/>
-      <display value="Calf"/>
-   </concept>
-   <concept>
-      <code value="100000108978"/>
-      <display value="Heifers"/>
-   </concept>
-   <concept>
-      <code value="100000108979"/>
-      <display value="Other Bovids"/>
-   </concept>
-   <concept>
-      <code value="100000108980"/>
-      <display value="Alpaca"/>
-   </concept>
-   <concept>
-      <code value="100000108981"/>
-      <display value="Camel"/>
-   </concept>
-   <concept>
-      <code value="100000108982"/>
-      <display value="Llama"/>
-   </concept>
-   <concept>
-      <code value="100000108983"/>
-      <display value="Other Camelids"/>
-   </concept>
-   <concept>
-      <code value="100000108984"/>
-      <display value="Bitch"/>
-   </concept>
-   <concept>
-      <code value="100000108985"/>
-      <display value="Bitch for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000108986"/>
-      <display value="Adult male dog"/>
-   </concept>
-   <concept>
-      <code value="100000108987"/>
-      <display value="Adult male dog for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000108988"/>
-      <display value="Dogs"/>
-   </concept>
-   <concept>
-      <code value="100000108989"/>
-      <display value="Lactating bitch"/>
-   </concept>
-   <concept>
-      <code value="100000108990"/>
-      <display value="Large dog"/>
-   </concept>
-   <concept>
-      <code value="100000108991"/>
-      <display value="Medium dog"/>
-   </concept>
-   <concept>
-      <code value="100000108992"/>
-      <display value="Pregnant bitch"/>
-   </concept>
-   <concept>
-      <code value="100000108993"/>
-      <display value="Small dog"/>
-   </concept>
-   <concept>
-      <code value="100000108994"/>
-      <display value="Very large dog"/>
-   </concept>
-   <concept>
-      <code value="100000108995"/>
-      <display value="Very small dog"/>
-   </concept>
-   <concept>
-      <code value="100000108996"/>
-      <display value="Puppy"/>
-   </concept>
-   <concept>
-      <code value="100000108997"/>
-      <display value="Foxes"/>
-   </concept>
-   <concept>
-      <code value="100000108998"/>
-      <display value="Jackal"/>
-   </concept>
-   <concept>
-      <code value="100000108999"/>
-      <display value="Other Canids"/>
-   </concept>
-   <concept>
-      <code value="100000109000"/>
-      <display value="Raccoon dogs"/>
-   </concept>
-   <concept>
-      <code value="100000109001"/>
-      <display value="Wolf"/>
-   </concept>
-   <concept>
-      <code value="100000109002"/>
-      <display value="Chamois"/>
-   </concept>
-   <concept>
-      <code value="100000109003"/>
-      <display value="Other Caprines"/>
-   </concept>
-   <concept>
-      <code value="100000109004"/>
-      <display value="Adult female goat"/>
-   </concept>
-   <concept>
-      <code value="100000109005"/>
-      <display value="Adult male goat"/>
-   </concept>
-   <concept>
-      <code value="100000109006"/>
-      <display value="Dry adult female goat"/>
-   </concept>
-   <concept>
-      <code value="100000109007"/>
-      <display value="Goats"/>
-   </concept>
-   <concept>
-      <code value="100000109008"/>
-      <display value="Lactating adult female goat"/>
-   </concept>
-   <concept>
-      <code value="100000109009"/>
-      <display value="Pregnant adult female goat"/>
-   </concept>
-   <concept>
-      <code value="100000109010"/>
-      <display value="Pre-ruminant goat"/>
-   </concept>
-   <concept>
-      <code value="100000109011"/>
-      <display value="Ruminant goat"/>
-   </concept>
-   <concept>
-      <code value="100000109012"/>
-      <display value="Wild goat"/>
-   </concept>
-   <concept>
-      <code value="100000109013"/>
-      <display value="Kid"/>
-   </concept>
-   <concept>
-      <code value="100000109014"/>
-      <display value="Other Ovids"/>
-   </concept>
-   <concept>
-      <code value="100000109015"/>
-      <display value="Ewe"/>
-   </concept>
-   <concept>
-      <code value="100000109016"/>
-      <display value="Ram"/>
-   </concept>
-   <concept>
-      <code value="100000109017"/>
-      <display value="Dry ewe"/>
-   </concept>
-   <concept>
-      <code value="100000109018"/>
-      <display value="Lactating ewe"/>
-   </concept>
-   <concept>
-      <code value="100000109019"/>
-      <display value="Pregnant ewe"/>
-   </concept>
-   <concept>
-      <code value="100000109020"/>
-      <display value="Pre-ruminant sheep"/>
-   </concept>
-   <concept>
-      <code value="100000109021"/>
-      <display value="Ruminant sheep"/>
-   </concept>
-   <concept>
-      <code value="100000109022"/>
-      <display value="Sheep"/>
-   </concept>
-   <concept>
-      <code value="100000109023"/>
-      <display value="Sheep for meat production"/>
-   </concept>
-   <concept>
-      <code value="100000109024"/>
-      <display value="Dairy sheep"/>
-   </concept>
-   <concept>
-      <code value="100000109025"/>
-      <display value="Wild sheep"/>
-   </concept>
-   <concept>
-      <code value="100000109026"/>
-      <display value="Lamb"/>
-   </concept>
-   <concept>
-      <code value="100000109027"/>
-      <display value="Elk"/>
-   </concept>
-   <concept>
-      <code value="100000109028"/>
-      <display value="Fallow deer"/>
-   </concept>
-   <concept>
-      <code value="100000109029"/>
-      <display value="Moose"/>
-   </concept>
-   <concept>
-      <code value="100000109030"/>
-      <display value="Antelope"/>
-   </concept>
-   <concept>
-      <code value="100000109031"/>
-      <display value="Cervid"/>
-   </concept>
-   <concept>
-      <code value="100000109032"/>
-      <display value="Deer"/>
-   </concept>
-   <concept>
-      <code value="100000109033"/>
-      <display value="Other Deer"/>
-   </concept>
-   <concept>
-      <code value="100000109034"/>
-      <display value="Red deer"/>
-   </concept>
-   <concept>
-      <code value="100000109035"/>
-      <display value="Reindeer"/>
-   </concept>
-   <concept>
-      <code value="100000109036"/>
-      <display value="Roe deer"/>
-   </concept>
-   <concept>
-      <code value="100000109037"/>
-      <display value="Donkey"/>
-   </concept>
-   <concept>
-      <code value="100000109038"/>
-      <display value="Mare"/>
-   </concept>
-   <concept>
-      <code value="100000109039"/>
-      <display value="Gelding"/>
-   </concept>
-   <concept>
-      <code value="100000109040"/>
-      <display value="Horses"/>
-   </concept>
-   <concept>
-      <code value="100000109041"/>
-      <display value="Stallion"/>
-   </concept>
-   <concept>
-      <code value="100000109042"/>
-      <display value="Pony"/>
-   </concept>
-   <concept>
-      <code value="100000109043"/>
-      <display value="Pregnant mare"/>
-   </concept>
-   <concept>
-      <code value="100000109044"/>
-      <display value="Non food-producing horse"/>
-   </concept>
-   <concept>
-      <code value="100000109045"/>
-      <display value="Suckling colt"/>
-   </concept>
-   <concept>
-      <code value="100000109046"/>
-      <display value="Colt"/>
-   </concept>
-   <concept>
-      <code value="100000109047"/>
-      <display value="Mule"/>
-   </concept>
-   <concept>
-      <code value="100000109048"/>
-      <display value="Equid"/>
-   </concept>
-   <concept>
-      <code value="100000109049"/>
-      <display value="Female equid"/>
-   </concept>
-   <concept>
-      <code value="100000109050"/>
-      <display value="Other Equids"/>
-   </concept>
-   <concept>
-      <code value="100000109051"/>
-      <display value="Zebra"/>
-   </concept>
-   <concept>
-      <code value="100000109052"/>
-      <display value="Bobcat"/>
-   </concept>
-   <concept>
-      <code value="100000109053"/>
-      <display value="Adult female cat"/>
-   </concept>
-   <concept>
-      <code value="100000109054"/>
-      <display value="Adult female cat for reproduction"/>
-   </concept>
-   <concept>
-      <code value="100000109055"/>
-      <display value="Adult male cat"/>
-   </concept>
-   <concept>
-      <code value="100000109056"/>
-      <display value="Cats"/>
-   </concept>
-   <concept>
-      <code value="100000109057"/>
-      <display value="Lactating cat"/>
-   </concept>
-   <concept>
-      <code value="100000109058"/>
-      <display value="Large cat"/>
-   </concept>
-   <concept>
-      <code value="100000109059"/>
-      <display value="Medium cat"/>
-   </concept>
-   <concept>
-      <code value="100000109060"/>
-      <display value="Pregnant cat"/>
-   </concept>
-   <concept>
-      <code value="100000109061"/>
-      <display value="Small cat"/>
-   </concept>
-   <concept>
-      <code value="100000109062"/>
-      <display value="Kitten"/>
-   </concept>
-   <concept>
-      <code value="100000109063"/>
-      <display value="Cougar"/>
-   </concept>
-   <concept>
-      <code value="100000109064"/>
-      <display value="Jaguar"/>
-   </concept>
-   <concept>
-      <code value="100000109065"/>
-      <display value="Leopard"/>
-   </concept>
-   <concept>
-      <code value="100000109066"/>
-      <display value="Lion"/>
-   </concept>
-   <concept>
-      <code value="100000109067"/>
-      <display value="Lynx"/>
-   </concept>
-   <concept>
-      <code value="100000109068"/>
-      <display value="Other Felids"/>
-   </concept>
-   <concept>
-      <code value="100000109069"/>
-      <display value="Tiger"/>
-   </concept>
-   <concept>
-      <code value="100000109070"/>
-      <display value="Tsushima wild cat"/>
-   </concept>
-   <concept>
-      <code value="100000109071"/>
-      <display value="Other Leporids"/>
-   </concept>
-   <concept>
-      <code value="100000109072"/>
-      <display value="Hare"/>
-   </concept>
-   <concept>
-      <code value="100000109073"/>
-      <display value="Female rabbit for reproduction"/>
-   </concept>
-
+  <concept>
+    <code value="100000108874"/>
+    <display value="Dove"/>
+  </concept>
+  <concept>
+    <code value="100000108875"/>
+    <display value="Quail"/>
+  </concept>
+  <concept>
+    <code value="100000108876"/>
+    <display value="Snipe"/>
+  </concept>
+  <concept>
+    <code value="100000108877"/>
+    <display value="Sparrow"/>
+  </concept>
+  <concept>
+    <code value="100000108878"/>
+    <display value="Starling"/>
+  </concept>
+  <concept>
+    <code value="100000108879"/>
+    <display value="Swan"/>
+  </concept>
+  <concept>
+    <code value="100000108880"/>
+    <display value="Turkey hen"/>
+  </concept>
+  <concept>
+    <code value="100000108881"/>
+    <display value="Turkey cock"/>
+  </concept>
+  <concept>
+    <code value="100000108882"/>
+    <display value="Turkeys"/>
+  </concept>
+  <concept>
+    <code value="100000108883"/>
+    <display value="Turkey for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000108884"/>
+    <display value="Poult"/>
+  </concept>
+  <concept>
+    <code value="100000108885"/>
+    <display value="Turtle dove"/>
+  </concept>
+  <concept>
+    <code value="100000108886"/>
+    <display value="Bison"/>
+  </concept>
+  <concept>
+    <code value="100000108887"/>
+    <display value="Buffalo"/>
+  </concept>
+  <concept>
+    <code value="100000108888"/>
+    <display value="Cows"/>
+  </concept>
+  <concept>
+    <code value="100000108889"/>
+    <display value="Cow for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000108890"/>
+    <display value="Bull for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000108891"/>
+    <display value="Ox"/>
+  </concept>
+  <concept>
+    <code value="100000108892"/>
+    <display value="Bullock"/>
+  </concept>
+  <concept>
+    <code value="100000108893"/>
+    <display value="Cattle"/>
+  </concept>
+  <concept>
+    <code value="100000108894"/>
+    <display value="Beef cattle"/>
+  </concept>
+  <concept>
+    <code value="100000108895"/>
+    <display value="Dairy cattle"/>
+  </concept>
+  <concept>
+    <code value="100000108896"/>
+    <display value="Dry cow"/>
+  </concept>
+  <concept>
+    <code value="100000108897"/>
+    <display value="Bull"/>
+  </concept>
+  <concept>
+    <code value="100000108898"/>
+    <display value="Lactating cow"/>
+  </concept>
+  <concept>
+    <code value="100000108899"/>
+    <display value="All other food producing species"/>
+  </concept>
+  <concept>
+    <code value="100000108900"/>
+    <display value="All non-food producing species"/>
+  </concept>
+  <concept>
+    <code value="100000108901"/>
+    <display value="All species  "/>
+  </concept>
+  <concept>
+    <code value="100000108902"/>
+    <display value="Carnivores"/>
+  </concept>
+  <concept>
+    <code value="100000108903"/>
+    <display value="Domestic animals"/>
+  </concept>
+  <concept>
+    <code value="100000108904"/>
+    <display value="Fur animals"/>
+  </concept>
+  <concept>
+    <code value="100000108905"/>
+    <display value="Game animals"/>
+  </concept>
+  <concept>
+    <code value="100000108906"/>
+    <display value="Laboratory animals"/>
+  </concept>
+  <concept>
+    <code value="100000108907"/>
+    <display value="Major species"/>
+  </concept>
+  <concept>
+    <code value="100000108908"/>
+    <display value="Minor species"/>
+  </concept>
+  <concept>
+    <code value="100000108909"/>
+    <display value="Ruminant"/>
+  </concept>
+  <concept>
+    <code value="100000108910"/>
+    <display value="Ruminant and porcine"/>
+  </concept>
+  <concept>
+    <code value="100000108911"/>
+    <display value="Small animals"/>
+  </concept>
+  <concept>
+    <code value="100000108912"/>
+    <display value="Crocodile"/>
+  </concept>
+  <concept>
+    <code value="100000108913"/>
+    <display value="Frog"/>
+  </concept>
+  <concept>
+    <code value="100000108914"/>
+    <display value="Iguana"/>
+  </concept>
+  <concept>
+    <code value="100000108915"/>
+    <display value="Lizard"/>
+  </concept>
+  <concept>
+    <code value="100000108916"/>
+    <display value="Amphibians"/>
+  </concept>
+  <concept>
+    <code value="100000108917"/>
+    <display value="Reptiles"/>
+  </concept>
+  <concept>
+    <code value="100000108918"/>
+    <display value="Reptiles for production"/>
+  </concept>
+  <concept>
+    <code value="100000108919"/>
+    <display value="Snake"/>
+  </concept>
+  <concept>
+    <code value="100000108920"/>
+    <display value="Tortoise"/>
+  </concept>
+  <concept>
+    <code value="100000108921"/>
+    <display value="Turtle"/>
+  </concept>
+  <concept>
+    <code value="100000108922"/>
+    <display value="Honey bees"/>
+  </concept>
+  <concept>
+    <code value="100000108923"/>
+    <display value="Crustacean"/>
+  </concept>
+  <concept>
+    <code value="100000108924"/>
+    <display value="Spider"/>
+  </concept>
+  <concept>
+    <code value="100000108925"/>
+    <display value="Indian hen"/>
+  </concept>
+  <concept>
+    <code value="100000108926"/>
+    <display value="African Goshawk"/>
+  </concept>
+  <concept>
+    <code value="100000108927"/>
+    <display value="Black Kite"/>
+  </concept>
+  <concept>
+    <code value="100000108928"/>
+    <display value="Budgerigar"/>
+  </concept>
+  <concept>
+    <code value="100000108929"/>
+    <display value="Bustard"/>
+  </concept>
+  <concept>
+    <code value="100000108930"/>
+    <display value="Buzzard"/>
+  </concept>
+  <concept>
+    <code value="100000108931"/>
+    <display value="Hen"/>
+  </concept>
+  <concept>
+    <code value="100000108932"/>
+    <display value="Layer hen"/>
+  </concept>
+  <concept>
+    <code value="100000108933"/>
+    <display value="Cock"/>
+  </concept>
+  <concept>
+    <code value="100000108934"/>
+    <display value="Broiler"/>
+  </concept>
+  <concept>
+    <code value="100000108935"/>
+    <display value="Chickens"/>
+  </concept>
+  <concept>
+    <code value="100000108936"/>
+    <display value="Chicken embryonated eggs"/>
+  </concept>
+  <concept>
+    <code value="100000108937"/>
+    <display value="Chicken for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000108938"/>
+    <display value="Replacement chick"/>
+  </concept>
+  <concept>
+    <code value="100000108939"/>
+    <display value="Chick"/>
+  </concept>
+  <concept>
+    <code value="100000108940"/>
+    <display value="Pullet"/>
+  </concept>
+  <concept>
+    <code value="100000108941"/>
+    <display value="Cockatiel"/>
+  </concept>
+  <concept>
+    <code value="100000108942"/>
+    <display value="Cockatoo"/>
+  </concept>
+  <concept>
+    <code value="100000108943"/>
+    <display value="Common canary"/>
+  </concept>
+  <concept>
+    <code value="100000108944"/>
+    <display value="Crow"/>
+  </concept>
+  <concept>
+    <code value="100000108945"/>
+    <display value="Duck"/>
+  </concept>
+  <concept>
+    <code value="100000108946"/>
+    <display value="Duck broiler"/>
+  </concept>
+  <concept>
+    <code value="100000108947"/>
+    <display value="Duckling"/>
+  </concept>
+  <concept>
+    <code value="100000108948"/>
+    <display value="Eagle"/>
+  </concept>
+  <concept>
+    <code value="100000108949"/>
+    <display value="Emu"/>
+  </concept>
+  <concept>
+    <code value="100000108950"/>
+    <display value="Goose"/>
+  </concept>
+  <concept>
+    <code value="100000108951"/>
+    <display value="Guinea fowl"/>
+  </concept>
+  <concept>
+    <code value="100000108952"/>
+    <display value="Kestrel"/>
+  </concept>
+  <concept>
+    <code value="100000108953"/>
+    <display value="Kite"/>
+  </concept>
+  <concept>
+    <code value="100000108954"/>
+    <display value="Macaw"/>
+  </concept>
+  <concept>
+    <code value="100000108955"/>
+    <display value="Ostrich"/>
+  </concept>
+  <concept>
+    <code value="100000108956"/>
+    <display value="Birds"/>
+  </concept>
+  <concept>
+    <code value="100000108957"/>
+    <display value="Fowls"/>
+  </concept>
+  <concept>
+    <code value="100000108958"/>
+    <display value="Finch"/>
+  </concept>
+  <concept>
+    <code value="100000108959"/>
+    <display value="Galliformes"/>
+  </concept>
+  <concept>
+    <code value="100000108960"/>
+    <display value="Game birds"/>
+  </concept>
+  <concept>
+    <code value="100000108961"/>
+    <display value="Pekin duck"/>
+  </concept>
+  <concept>
+    <code value="100000108962"/>
+    <display value="Ornamental birds"/>
+  </concept>
+  <concept>
+    <code value="100000108963"/>
+    <display value="Poultry"/>
+  </concept>
+  <concept>
+    <code value="100000108964"/>
+    <display value="Owl"/>
+  </concept>
+  <concept>
+    <code value="100000108965"/>
+    <display value="Parakeet"/>
+  </concept>
+  <concept>
+    <code value="100000108966"/>
+    <display value="Parrot"/>
+  </concept>
+  <concept>
+    <code value="100000108967"/>
+    <display value="Partridge"/>
+  </concept>
+  <concept>
+    <code value="100000108968"/>
+    <display value="Peregrine Falcon"/>
+  </concept>
+  <concept>
+    <code value="100000108969"/>
+    <display value="Pheasants"/>
+  </concept>
+  <concept>
+    <code value="100000108970"/>
+    <display value="Carrier pigeon"/>
+  </concept>
+  <concept>
+    <code value="100000108971"/>
+    <display value="Newborn calves"/>
+  </concept>
+  <concept>
+    <code value="100000108972"/>
+    <display value="Pregnant cow"/>
+  </concept>
+  <concept>
+    <code value="100000108973"/>
+    <display value="Pregnant heifer"/>
+  </concept>
+  <concept>
+    <code value="100000108974"/>
+    <display value="Pre-ruminant cattle"/>
+  </concept>
+  <concept>
+    <code value="100000108975"/>
+    <display value="Ruminant cattle"/>
+  </concept>
+  <concept>
+    <code value="100000108976"/>
+    <display value="Wild cattle"/>
+  </concept>
+  <concept>
+    <code value="100000108977"/>
+    <display value="Calf"/>
+  </concept>
+  <concept>
+    <code value="100000108978"/>
+    <display value="Heifers"/>
+  </concept>
+  <concept>
+    <code value="100000108979"/>
+    <display value="Other Bovids"/>
+  </concept>
+  <concept>
+    <code value="100000108980"/>
+    <display value="Alpaca"/>
+  </concept>
+  <concept>
+    <code value="100000108981"/>
+    <display value="Camel"/>
+  </concept>
+  <concept>
+    <code value="100000108982"/>
+    <display value="Llama"/>
+  </concept>
+  <concept>
+    <code value="100000108983"/>
+    <display value="Other Camelids"/>
+  </concept>
+  <concept>
+    <code value="100000108984"/>
+    <display value="Bitch"/>
+  </concept>
+  <concept>
+    <code value="100000108985"/>
+    <display value="Bitch for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000108986"/>
+    <display value="Adult male dog"/>
+  </concept>
+  <concept>
+    <code value="100000108987"/>
+    <display value="Adult male dog for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000108988"/>
+    <display value="Dogs"/>
+  </concept>
+  <concept>
+    <code value="100000108989"/>
+    <display value="Lactating bitch"/>
+  </concept>
+  <concept>
+    <code value="100000108990"/>
+    <display value="Large dog"/>
+  </concept>
+  <concept>
+    <code value="100000108991"/>
+    <display value="Medium dog"/>
+  </concept>
+  <concept>
+    <code value="100000108992"/>
+    <display value="Pregnant bitch"/>
+  </concept>
+  <concept>
+    <code value="100000108993"/>
+    <display value="Small dog"/>
+  </concept>
+  <concept>
+    <code value="100000108994"/>
+    <display value="Very large dog"/>
+  </concept>
+  <concept>
+    <code value="100000108995"/>
+    <display value="Very small dog"/>
+  </concept>
+  <concept>
+    <code value="100000108996"/>
+    <display value="Puppy"/>
+  </concept>
+  <concept>
+    <code value="100000108997"/>
+    <display value="Foxes"/>
+  </concept>
+  <concept>
+    <code value="100000108998"/>
+    <display value="Jackal"/>
+  </concept>
+  <concept>
+    <code value="100000108999"/>
+    <display value="Other Canids"/>
+  </concept>
+  <concept>
+    <code value="100000109000"/>
+    <display value="Raccoon dogs"/>
+  </concept>
+  <concept>
+    <code value="100000109001"/>
+    <display value="Wolf"/>
+  </concept>
+  <concept>
+    <code value="100000109002"/>
+    <display value="Chamois"/>
+  </concept>
+  <concept>
+    <code value="100000109003"/>
+    <display value="Other Caprines"/>
+  </concept>
+  <concept>
+    <code value="100000109004"/>
+    <display value="Adult female goat"/>
+  </concept>
+  <concept>
+    <code value="100000109005"/>
+    <display value="Adult male goat"/>
+  </concept>
+  <concept>
+    <code value="100000109006"/>
+    <display value="Dry adult female goat"/>
+  </concept>
+  <concept>
+    <code value="100000109007"/>
+    <display value="Goats"/>
+  </concept>
+  <concept>
+    <code value="100000109008"/>
+    <display value="Lactating adult female goat"/>
+  </concept>
+  <concept>
+    <code value="100000109009"/>
+    <display value="Pregnant adult female goat"/>
+  </concept>
+  <concept>
+    <code value="100000109010"/>
+    <display value="Pre-ruminant goat"/>
+  </concept>
+  <concept>
+    <code value="100000109011"/>
+    <display value="Ruminant goat"/>
+  </concept>
+  <concept>
+    <code value="100000109012"/>
+    <display value="Wild goat"/>
+  </concept>
+  <concept>
+    <code value="100000109013"/>
+    <display value="Kid"/>
+  </concept>
+  <concept>
+    <code value="100000109014"/>
+    <display value="Other Ovids"/>
+  </concept>
+  <concept>
+    <code value="100000109015"/>
+    <display value="Ewe"/>
+  </concept>
+  <concept>
+    <code value="100000109016"/>
+    <display value="Ram"/>
+  </concept>
+  <concept>
+    <code value="100000109017"/>
+    <display value="Dry ewe"/>
+  </concept>
+  <concept>
+    <code value="100000109018"/>
+    <display value="Lactating ewe"/>
+  </concept>
+  <concept>
+    <code value="100000109019"/>
+    <display value="Pregnant ewe"/>
+  </concept>
+  <concept>
+    <code value="100000109020"/>
+    <display value="Pre-ruminant sheep"/>
+  </concept>
+  <concept>
+    <code value="100000109021"/>
+    <display value="Ruminant sheep"/>
+  </concept>
+  <concept>
+    <code value="100000109022"/>
+    <display value="Sheep"/>
+  </concept>
+  <concept>
+    <code value="100000109023"/>
+    <display value="Sheep for meat production"/>
+  </concept>
+  <concept>
+    <code value="100000109024"/>
+    <display value="Dairy sheep"/>
+  </concept>
+  <concept>
+    <code value="100000109025"/>
+    <display value="Wild sheep"/>
+  </concept>
+  <concept>
+    <code value="100000109026"/>
+    <display value="Lamb"/>
+  </concept>
+  <concept>
+    <code value="100000109027"/>
+    <display value="Elk"/>
+  </concept>
+  <concept>
+    <code value="100000109028"/>
+    <display value="Fallow deer"/>
+  </concept>
+  <concept>
+    <code value="100000109029"/>
+    <display value="Moose"/>
+  </concept>
+  <concept>
+    <code value="100000109030"/>
+    <display value="Antelope"/>
+  </concept>
+  <concept>
+    <code value="100000109031"/>
+    <display value="Cervid"/>
+  </concept>
+  <concept>
+    <code value="100000109032"/>
+    <display value="Deer"/>
+  </concept>
+  <concept>
+    <code value="100000109033"/>
+    <display value="Other Deer"/>
+  </concept>
+  <concept>
+    <code value="100000109034"/>
+    <display value="Red deer"/>
+  </concept>
+  <concept>
+    <code value="100000109035"/>
+    <display value="Reindeer"/>
+  </concept>
+  <concept>
+    <code value="100000109036"/>
+    <display value="Roe deer"/>
+  </concept>
+  <concept>
+    <code value="100000109037"/>
+    <display value="Donkey"/>
+  </concept>
+  <concept>
+    <code value="100000109038"/>
+    <display value="Mare"/>
+  </concept>
+  <concept>
+    <code value="100000109039"/>
+    <display value="Gelding"/>
+  </concept>
+  <concept>
+    <code value="100000109040"/>
+    <display value="Horses"/>
+  </concept>
+  <concept>
+    <code value="100000109041"/>
+    <display value="Stallion"/>
+  </concept>
+  <concept>
+    <code value="100000109042"/>
+    <display value="Pony"/>
+  </concept>
+  <concept>
+    <code value="100000109043"/>
+    <display value="Pregnant mare"/>
+  </concept>
+  <concept>
+    <code value="100000109044"/>
+    <display value="Non food-producing horse"/>
+  </concept>
+  <concept>
+    <code value="100000109045"/>
+    <display value="Suckling colt"/>
+  </concept>
+  <concept>
+    <code value="100000109046"/>
+    <display value="Colt"/>
+  </concept>
+  <concept>
+    <code value="100000109047"/>
+    <display value="Mule"/>
+  </concept>
+  <concept>
+    <code value="100000109048"/>
+    <display value="Equid"/>
+  </concept>
+  <concept>
+    <code value="100000109049"/>
+    <display value="Female equid"/>
+  </concept>
+  <concept>
+    <code value="100000109050"/>
+    <display value="Other Equids"/>
+  </concept>
+  <concept>
+    <code value="100000109051"/>
+    <display value="Zebra"/>
+  </concept>
+  <concept>
+    <code value="100000109052"/>
+    <display value="Bobcat"/>
+  </concept>
+  <concept>
+    <code value="100000109053"/>
+    <display value="Adult female cat"/>
+  </concept>
+  <concept>
+    <code value="100000109054"/>
+    <display value="Adult female cat for reproduction"/>
+  </concept>
+  <concept>
+    <code value="100000109055"/>
+    <display value="Adult male cat"/>
+  </concept>
+  <concept>
+    <code value="100000109056"/>
+    <display value="Cats"/>
+  </concept>
+  <concept>
+    <code value="100000109057"/>
+    <display value="Lactating cat"/>
+  </concept>
+  <concept>
+    <code value="100000109058"/>
+    <display value="Large cat"/>
+  </concept>
+  <concept>
+    <code value="100000109059"/>
+    <display value="Medium cat"/>
+  </concept>
+  <concept>
+    <code value="100000109060"/>
+    <display value="Pregnant cat"/>
+  </concept>
+  <concept>
+    <code value="100000109061"/>
+    <display value="Small cat"/>
+  </concept>
+  <concept>
+    <code value="100000109062"/>
+    <display value="Kitten"/>
+  </concept>
+  <concept>
+    <code value="100000109063"/>
+    <display value="Cougar"/>
+  </concept>
+  <concept>
+    <code value="100000109064"/>
+    <display value="Jaguar"/>
+  </concept>
+  <concept>
+    <code value="100000109065"/>
+    <display value="Leopard"/>
+  </concept>
+  <concept>
+    <code value="100000109066"/>
+    <display value="Lion"/>
+  </concept>
+  <concept>
+    <code value="100000109067"/>
+    <display value="Lynx"/>
+  </concept>
+  <concept>
+    <code value="100000109068"/>
+    <display value="Other Felids"/>
+  </concept>
+  <concept>
+    <code value="100000109069"/>
+    <display value="Tiger"/>
+  </concept>
+  <concept>
+    <code value="100000109070"/>
+    <display value="Tsushima wild cat"/>
+  </concept>
+  <concept>
+    <code value="100000109071"/>
+    <display value="Other Leporids"/>
+  </concept>
+  <concept>
+    <code value="100000109072"/>
+    <display value="Hare"/>
+  </concept>
+  <concept>
+    <code value="100000109073"/>
+    <display value="Female rabbit for reproduction"/>
+  </concept>
 </CodeSystem>

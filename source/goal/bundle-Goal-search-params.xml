@@ -131,7 +131,7 @@
         <description value="When goal pursuit begins"/>
         <code value="start-date"/>
         <type value="date"/>
-        <expression value="(Goal.start as date)"/>
+        <expression value="(Goal.start.ofType(date))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -169,7 +169,7 @@
         <description value="Reach goal on or before"/>
         <code value="target-date"/>
         <type value="date"/>
-        <expression value="(Goal.target.due as date)"/>
+        <expression value="(Goal.target.due.ofType(date))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -190,6 +190,26 @@
         <code value="addresses"/>
         <type value="reference"/>
         <expression value="Goal.addresses"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-target-measure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.target.measure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-target-measure"/>
+        <description value="The parameter whose value is being tracked"/>
+        <code value="target-measure"/>
+        <type value="token"/>
+        <expression value="Goal.target.measure"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

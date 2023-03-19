@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="observedsequence"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+    </text>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+        <valueMarkdown value=""/> <!--to be added later-->
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="5"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="cg"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
+        <valueString value=""/> <!--to be added later-->
+    </extension>
+    <url value="http://hl7.org/fhir/StructureDefinition/observedsequence"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value=""/> <!--to be added later-->
+    </identifier>
+    <version value="0.1.0"/>
+    <name value="Observedsequence"/>
+    <title value="Observed Sequence Profile"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2023-02-11"/>
+    <publisher value="Health Level Seven International (Clinical Genomics Workgroup - Information Modeling Subgroup)"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="https://www.hl7.org/Special/committees/clingenomics/index.cfm Clinical Genomics"/>
+        </telecom>
+    </contact>
+    <description value="FHIR Observed Sequence
+     Profile"/>
+    <purpose value="To support Clinical Genomics-Information Modeling subgroup efforts in linking Genomic Study, Molecular Sequence, and Diagnostic reports resources"/>
+    <fhirVersion value="5.0.0"/>
+
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Observation"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <short value="FHIR Observed Sequence Profile"/>
+            <definition value="The FHIR Observed Sequence profile sets minimum expectations for the Observation Resource to record, search and fetch the molecular sequences associated with a patient."/>
+            <constraint>
+                <key value="dom-2"/>
+                <severity value="error"/>
+                <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"/>
+                <expression value="contained.contained.empty()"/>
+<!--                <xpath value="not(parent::f:contained and f:contained)"/>-->
+                <source value="http://hl7.org/fhir/StructureDefinition/observedsequence"/>
+            </constraint>
+            <constraint>
+                <key value="vs-2"/>
+                <severity value="error"/>
+                <human value="If there is no component or hasMember element then either a value[x] or a data absent reason must be present."/>
+                <expression value="(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())"/>
+<!--                <xpath value="f:component or f:memberOF or f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>-->
+                <source value="http://example.org/StructureDefinition/observedsequence"/>
+            </constraint>
+        </element>
+        <element id="Observation.bodySite">
+            <path value="Observation.bodySite"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.bodyStructure">
+            <path value="Observation.bodyStructure"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.referenceRange">
+            <path value="Observation.referenceRange"/>
+            <max value="0"/>
+        </element>
+
+        <element id="Observation.component">
+            <path value="Observation.component"/>
+            <slicing>
+                <discriminator>
+                    <type value="pattern"/>
+                    <path value="code"/>
+                </discriminator>
+                <description value="Slice based on the component.code pattern"/>
+                <rules value="open"/>
+            </slicing>
+            <constraint>
+                <key value="vs-3"/>
+                <severity value="error"/>
+                <human value="If there is no a value a data absent reason must be present"/>
+                <expression value="value.exists() or dataAbsentReason.exists()"/>
+<!--                <xpath value="f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>-->
+                <source value="http://example.org/StructureDefinition/observedsequence"/>
+            </constraint>
+        </element>
+        <element id="Observation.component:associatedGene">
+            <path value="Observation.component"/>
+            <sliceName value="associatedGene"/>
+            <short value="Quality Metric"/>
+            <definition value="The quality metric associated with observed Molecular Sequence."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.component:associatedGene.code">
+            <path value="Observation.component.code"/>
+            <short value="48018-6"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://loinc.org"/>
+                    <code value="48018-6"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="Observation.component:associatedGene.value[x]">
+            <path value="Observation.component.value[x]"/>
+            <short value="The HGNC gene symbol is to be used as display text and the HGNC gene ID used as the code. If no HGNC code issued for this gene yet, NCBI gene IDs SHALL be used."/>
+            <min value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+<!--            <binding>
+                <strength value="extensible"/>
+                <valueSet value="http://www.genenames.org/geneId"/>
+            </binding>-->
+        </element>
+        <element id="Observation.component:qualityMetric">
+            <path value="Observation.component"/>
+            <sliceName value="qualityMetric"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.component:moleculareSequence">
+            <path value="Observation.component"/>
+            <sliceName value="moleculareSequence"/>
+            <short value="Molecular Sequence"/>
+            <definition value="The moleculareSequence specific to this observation."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+
+
+    </differential>
+</StructureDefinition>

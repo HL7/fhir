@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationKnowledge"/>
-  <title value="MedicationKnowledge"/>
+  <title value="Medication Knowledge"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -75,9 +75,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="MedicationKnowledge">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-170,0"/>
-      </extension>
       <path value="MedicationKnowledge"/>
       <short value="Definition of Medication Knowledge"/>
       <definition value="Information about a medication that is used to support knowledge."/>
@@ -204,9 +201,6 @@
       <isSummary value="true"/>
     </element>
     <element id="MedicationKnowledge.relatedMedicationKnowledge">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,0"/>
-      </extension>
       <path value="MedicationKnowledge.relatedMedicationKnowledge"/>
       <short value="Associated or related medication information"/>
       <definition value="Associated or related medications. For example, if the medication is a branded product (e.g. Crestor), this is the Therapeutic Moeity (e.g. Rosuvastatin) or if this is a generic medication (e.g. Rosuvastatin), this would link to a branded product (e.g. Crestor."/>
@@ -259,9 +253,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.monograph">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-500,0"/>
-      </extension>
       <path value="MedicationKnowledge.monograph"/>
       <short value="Associated documentation about the medication"/>
       <definition value="Associated documentation about the medication."/>
@@ -303,9 +294,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.cost">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-500,78"/>
-      </extension>
       <path value="MedicationKnowledge.cost"/>
       <short value="The pricing of the medication"/>
       <definition value="The price of the medication."/>
@@ -367,9 +355,6 @@
       </binding>
     </element>
     <element id="MedicationKnowledge.monitoringProgram">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-500,170"/>
-      </extension>
       <path value="MedicationKnowledge.monitoringProgram"/>
       <short value="Program under which a medication is reviewed"/>
       <definition value="The program under which the medication is reviewed."/>
@@ -518,9 +503,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.medicineClassification">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-180,270"/>
-      </extension>
       <path value="MedicationKnowledge.medicineClassification"/>
       <short value="Categorization of the medication within a formulary or classification system"/>
       <definition value="Categorization of the medication within a formulary or classification system."/>
@@ -564,9 +546,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.packaging">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-500,250"/>
-      </extension>
       <path value="MedicationKnowledge.packaging"/>
       <short value="Details about packaged medications"/>
       <definition value="Information that only applies to packages (not products)."/>
@@ -683,9 +662,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.regulatory">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,190"/>
-      </extension>
       <path value="MedicationKnowledge.regulatory"/>
       <short value="Regulatory information about a medication"/>
       <definition value="Regulatory information about a medication."/>
@@ -707,9 +683,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.regulatory.substitution">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,200"/>
-      </extension>
       <path value="MedicationKnowledge.regulatory.substitution"/>
       <short value="Specifies if changes are allowed when dispensing a medication from a regulatory perspective"/>
       <definition value="Specifies if changes are allowed when dispensing a medication from a regulatory perspective."/>
@@ -740,9 +713,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.regulatory.schedule">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,300"/>
-      </extension>
       <path value="MedicationKnowledge.regulatory.schedule"/>
       <short value="Specifies the schedule of a medication in jurisdiction"/>
       <definition value="Specifies the schedule of a medication in jurisdiction."/>
@@ -753,9 +723,6 @@
       </type>
     </element>
     <element id="MedicationKnowledge.regulatory.maxDispense">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,100"/>
-      </extension>
       <path value="MedicationKnowledge.regulatory.maxDispense"/>
       <short value="The maximum number of units of the medication that can be dispensed in a period"/>
       <definition value="The maximum number of units of the medication that can be dispensed in a period."/>
@@ -867,7 +834,7 @@
     </element>
     <element id="MedicationKnowledge.definitional.ingredient.type">
       <path value="MedicationKnowledge.definitional.ingredient.type"/>
-      <short value="A code that defines the type of ingredient, active, base, etc."/>
+      <short value="A code that defines the type of ingredient, active, base, etc"/>
       <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
       <min value="0"/>
       <max value="1"/>

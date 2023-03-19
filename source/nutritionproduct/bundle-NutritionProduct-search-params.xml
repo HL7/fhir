@@ -78,4 +78,43 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-serial-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.instance.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-serial-number"/>
+        <description value="The serial number"/>
+        <code value="serial-number"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.instance.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-lot-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.instance.lotNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-lot-number"/>
+        <description value="The lot number"/>
+        <code value="lot-number"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.instance.lotNumber"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>

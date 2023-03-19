@@ -31,7 +31,7 @@ of the healthcare space.  Many of these more sophisticated requirements are addr
   <li>Rendering grids of questions, multi-column drop-downs, multi-language questionnaires, and other 'advanced' formatting capabilities</li>
   <li>Advanced dynamic questionnaires including calculated scores, enabling of questions and groups based on complex logic, drop-downs driven by answers to other questions</li>
   <li>Support for populating questionnaires from existing clinical data based on the current patient, encounter, etc., including the ability to render the form as HTML or to redirect to a website to complete unanswered items</li>
-  <li>Support for extracting information from a completed QuestionnaireResponse to generate other FHIR resources such as Observations, MedicationUsages, etc.</li>
+  <li>Support for extracting information from a completed QuestionnaireResponse to generate other FHIR resources such as Observations, MedicationStatements, etc.</li>
   <li>Support for completing 'adaptive' questionnaires (see below)</li>
 </ul>
 
@@ -46,7 +46,7 @@ As such, some questionnaires might be 'active' but have either no questions or a
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
-<a href="medicationusage.html">MedicationUsage</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.).
+<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.).
 <b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate
 Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to
 distill separate resources from it and capturing the data in a <b>Questionnaire</b> would be most appropriate.
@@ -63,7 +63,7 @@ such <b>Questionnaires</b> using more specific resources increases the availabil
 It is entirely possible for data to exist in both QuestionnaireResponse and in other resources.  For example, data may be captured in
 <a href="questionnaireresponse.html">QuestionnaireResponse</a> as part of an intake questionnaire.  That data may then be propagated into the
 <a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>,
-<a href="medicationusage.html">MedicationUsage</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original
+<a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original
 <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance can be retained for traceability purposes.  If desired, a <a href="provenance.html">Provenance</a> resource
 can be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks "what is your weight", an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the
 <code>Observation.valueQuantity</code> can be created.
@@ -123,13 +123,11 @@ Behavior of parent 'question' items (i.e. questions with child groups or questio
 child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
 </p>
 
-<p>
-<img src="QuestionnaireItems.svg" alt="A diagram showing a Questionnaire with multiple nested groups and items and the corresponding QuestionnaireResponse"/>
-</p>
-
 <a name="linkId"> </a>
 <h3>LinkIds</h3>
 <p>
+LinkIds are globally unique in a Questionnaire and are how items in a <a href="questionnaireresponse.html">QuestionnaireResponse</a> are tied to their corresponding Questionnaire item.
+The QuestionnaireResponse page includes a <a href="questionnaire.html#link">diagram</a> showing how response items are linked to their corresponding Questionnaire items.
 Questions and their responses are tied together by their linkIds.  LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a
 <a href="questionnaireresponse.html">QuestionnaireResponse</a>.  The diagram on the right shows a Questionnaire with a hierarchy of group and question items, some marked as
 'repeats'=true, and others false and with similar variation in 'required'=true and false.  It also shows a hypothetical QuestionnaireResponse that is valid against that
@@ -174,11 +172,11 @@ on BackboneElement would correspond to 'group', while simple types would normall
 In addition, extensions and elements that have corresponding extensions should also propagate.  Specifically:
 </p>
 <ul>
-  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g. <a href="extension-maxsize.html">maxSize</a>) should propagate</li>
+  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g. <a href="[%extensions-location%]StructureDefinition-maxSize.html">maxSize</a>) should propagate</li>
   <li>Any extensions defined for Questionnaire.item that directly correspond to elements on ElementDefinition should also propagate.  E.g.:
     <ul>
-      <li>ElementDefinition.minValue[x] -> <a href="extension-minvalue.html">minValue</a></li>
-      <li>ElementDefinition.maxValue[x] -> <a href="extension-maxvalue.html">maxValue</a></li>
+      <li>ElementDefinition.minValue[x] -> <a href="[%extensions-location%]StructureDefinition-minValue.html">minValue</a></li>
+      <li>ElementDefinition.maxValue[x] -> <a href="[%extensions-location%]StructureDefinition-maxValue.html">maxValue</a></li>
       <li>There are Questionnaire extensions defined in the <a href="http://hl7.org/fhir/uv/sdc">SDC IG</a> that correspond to min, max, type.targetProfile and constraint</li>
     </ul>
   </li>
@@ -208,7 +206,7 @@ Note that LOINC codes <a href="https://terminology.hl7.org/LOINC.html">implicitl
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
 data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire might not have access to or support the ability to look
 up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems might not be able to render
-or use the Questionnaire.  The <a href="extension-questionnaire-definitionbased.html">questionnaire-definitionBased</a> extension can be used to flag that a questionnaire requires the
+or use the Questionnaire.  The <a href="[%extensions-location%]StructureDefinition-questionnaire-definitionBased.html">questionnaire-definitionBased</a> extension can be used to flag that a questionnaire requires the
 ability to resolve and use item.definition information to fully understand the Questionnaire.  Systems that validate, render or otherwise process the questionnaire SHOULD check for this
 extension.
 </p>
@@ -311,7 +309,7 @@ guidance is provided by the parent question or group.
 <p>
 Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
 
-To help with associating numeric values to coded answers, the <a href="extension-itemweight.html">itemweight</a> 
+To help with associating numeric values to coded answers, the <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemweight</a> 
 extension can be used to define the numeric weighting of a code defined in a value set or in the questionnaire itself.
 </p>
 

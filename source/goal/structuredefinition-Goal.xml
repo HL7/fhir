@@ -51,7 +51,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -172,7 +172,7 @@
     </element>
     <element id="Goal.category">
       <path value="Goal.category"/>
-      <short value="E.g. Treatment, dietary, behavioral, etc."/>
+      <short value="E.g. Treatment, dietary, behavioral, etc"/>
       <definition value="Indicates a category the goal falls within."/>
       <requirements value="Allows goals to be filtered and sorted."/>
       <min value="0"/>
@@ -349,7 +349,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="gol-1"/>
       <constraint>
         <key value="gol-1"/>
         <severity value="error"/>
@@ -491,7 +490,7 @@
     </element>
     <element id="Goal.addresses">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#19335."/>
+        <valueString value="GF#19335, J#28213"/>
       </extension>
       <path value="Goal.addresses"/>
       <short value="Issues addressed by this goal"/>
@@ -503,11 +502,12 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <mapping>
         <identity value="w5"/>

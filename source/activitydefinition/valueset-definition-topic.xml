@@ -24,9 +24,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.777"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="DefinitionTopic"/>
-  <title value="DefinitionTopic"/>
+  <title value="Definition Topic"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -44,6 +44,9 @@
   <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
   <immutable value="true"/>
   <compose>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/definition-use"/>
+    </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/definition-topic"/>
     </include>

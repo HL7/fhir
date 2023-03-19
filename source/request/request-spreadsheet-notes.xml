@@ -63,7 +63,7 @@
   <a name="requisitionid"></a>
   <h3>Shared requisition id</h3>
   <p>
-    The <code>Request.requisitionId</code> element allows multiple requests to be linked as having been created as part
+    The <code>Request.groupIdentifier</code> element allows multiple requests to be linked as having been created as part
     of the same "event" - generally by the same practitioner at the same time for the same subject.  The
     "requisitionId" represents the identifier of the prescription, lab requisition or other form that was
     shared by all items.  The common information (<code>patient</code>/<code>practitioner</code>/<code>authoredOn</code>)

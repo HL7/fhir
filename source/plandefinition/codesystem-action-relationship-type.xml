@@ -24,9 +24,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.797"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="ActionRelationshipType"/>
-  <title value="ActionRelationshipType"/>
+  <title value="Action Relationship Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -46,48 +46,48 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
   <content value="complete"/>
   <concept>
-    <code value="before-start"/>
-    <display value="Before Start"/>
-    <definition value="The action must be performed before the start of the related action."/>
-  </concept>
-  <concept>
     <code value="before"/>
     <display value="Before"/>
     <definition value="The action must be performed before the related action."/>
-  </concept>
-  <concept>
-    <code value="before-end"/>
-    <display value="Before End"/>
-    <definition value="The action must be performed before the end of the related action."/>
-  </concept>
-  <concept>
-    <code value="concurrent-with-start"/>
-    <display value="Concurrent With Start"/>
-    <definition value="The action must be performed concurrent with the start of the related action."/>
+    <concept>
+      <code value="before-start"/>
+      <display value="Before Start"/>
+      <definition value="The action must be performed before the start of the related action."/>
+    </concept>
+    <concept>
+      <code value="before-end"/>
+      <display value="Before End"/>
+      <definition value="The action must be performed before the end of the related action."/>
+    </concept>
   </concept>
   <concept>
     <code value="concurrent"/>
     <display value="Concurrent"/>
     <definition value="The action must be performed concurrent with the related action."/>
-  </concept>
-  <concept>
-    <code value="concurrent-with-end"/>
-    <display value="Concurrent With End"/>
-    <definition value="The action must be performed concurrent with the end of the related action."/>
-  </concept>
-  <concept>
-    <code value="after-start"/>
-    <display value="After Start"/>
-    <definition value="The action must be performed after the start of the related action."/>
+    <concept>
+      <code value="concurrent-with-start"/>
+      <display value="Concurrent With Start"/>
+      <definition value="The action must be performed concurrent with the start of the related action."/>
+    </concept>
+    <concept>
+      <code value="concurrent-with-end"/>
+      <display value="Concurrent With End"/>
+      <definition value="The action must be performed concurrent with the end of the related action."/>
+    </concept>
   </concept>
   <concept>
     <code value="after"/>
     <display value="After"/>
     <definition value="The action must be performed after the related action."/>
-  </concept>
-  <concept>
-    <code value="after-end"/>
-    <display value="After End"/>
-    <definition value="The action must be performed after the end of the related action."/>
+    <concept>
+      <code value="after-start"/>
+      <display value="After Start"/>
+      <definition value="The action must be performed after the start of the related action."/>
+    </concept>
+    <concept>
+      <code value="after-end"/>
+      <display value="After End"/>
+      <definition value="The action must be performed after the end of the related action."/>
+    </concept>
   </concept>
 </CodeSystem>

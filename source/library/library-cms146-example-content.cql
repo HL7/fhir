@@ -438,7 +438,7 @@ d6bdadc 5 hours ago
                   <div>
                      <p style="margin-bottom: 5px;">
                         <b>type: </b>
-                        <span>MedicationUsage</span>
+                        <span>MedicationStatement</span>
                      </p>
                      <p style="margin-bottom: 5px;">
                         <b>code filter:</b>
@@ -605,7 +605,7 @@ d6bdadc 5 hours ago
   </dataRequirement>
 
   <dataRequirement>
-    <type value="MedicationUsage"/>
+    <type value="MedicationStatement"/>
     <codeFilter>
       <path value="status"/>
       <code>

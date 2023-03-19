@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CompartmentDefinition"/>
-  <title value="CompartmentDefinition"/>
+  <title value="Compartment Definition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -96,7 +96,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
       </constraint>
       <mapping>
@@ -127,7 +127,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -350,7 +350,7 @@
     </element>
     <element id="CompartmentDefinition.code">
       <path value="CompartmentDefinition.code"/>
-      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
+      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device | EpisodeOfCare"/>
       <definition value="Which compartment this definition describes."/>
       <comment value="Only the specification can define the compartments that can exist. Servers can choose to support them."/>
       <min value="1"/>

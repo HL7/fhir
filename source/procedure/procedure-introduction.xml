@@ -23,9 +23,9 @@ real-time procedure information awaits the identification of a specific implemen
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Procedure resource should not be used to capture an event if a more specific resource already exists - i.e. 
-<a href="immunization.html">immunizations</a>, <a href="medicationadministration.html">drug administrations</a>
-and <a href="communication.html">communications</a>. The boundary between determining whether an action is a Procedure 
+The Procedure resource should not be used to capture an event if a more specific resource already exists - e.g. 
+<a href="immunization.html">immunizations</a>, <a href="medicationadministration.html">drug administrations</a>,
+<a href="communication.html">communications</a>, and <a href="nutritionintake.html">nutrition intake</a>. The boundary between determining whether an action is a Procedure 
 (training or counseling) as opposed to a Communication is based on whether
 there's a specific intent to change the mind-set of the patient.  Mere disclosure of information would be considered
 a Communication.  A process that involves verification of the patient's comprehension or to change the patient's
@@ -42,7 +42,7 @@ the Procedure resource is used to describe the activity.
 there is a need to capture information about the physical intervention that was performed to capture the diagnostic 
 information (e.g. anesthetic, incision, scope size, etc.)</p>
 <p>
-A <a href="task.html">Task</a> is a workflow step such as cancelling an order, fulfilling an order, signing an order, merging a set of records, admitting a patient. 
+A <a href="task.html">Task</a> is a workflow step such as canceling an order, fulfilling an order, signing an order, merging a set of records, admitting a patient. 
 Procedures are actions that are intended to result in a physical or mental change to or for the subject (e.g. surgery, physiotherapy, training, counseling). 
 A <a href="task.html">Task</a> resource often exists in parallel with clinical resources. For example, a <a href="task.html">Task</a> might request fulfillment of a <a href="servicerequest.html">ServiceRequest</a> ordering a Procedure.
 </p>

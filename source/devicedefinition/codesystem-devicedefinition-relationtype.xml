@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="devicedefinition-relationtype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinitionRelationType"/>
-  <title value="DeviceDefinitionRelationType"/>
+  <title value="Device Definition Relation Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,11 +47,6 @@
     <definition value="Gateway."/>
   </concept>
   <concept>
-    <code value="container"/>
-    <display value="container"/>
-    <definition value="The linked device is a container for the current device."/>
-  </concept>
-  <concept>
     <code value="replaces"/>
     <display value="Replaces"/>
     <definition value="The current device replaces the linked device."/>
@@ -58,10 +55,5 @@
     <code value="previous"/>
     <display value="Previous"/>
     <definition value="The current device is a previous device and has been replaced by the linked device."/>
-  </concept>
-  <concept>
-    <code value="supported"/>
-    <display value="Supported"/>
-    <definition value="The current device is supported by the linked device."/>
   </concept>
 </CodeSystem>

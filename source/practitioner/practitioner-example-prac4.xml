@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="prac4"/>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="Notsowell"/>
+		<given value="Sandy"/>
+	</name>
+	<gender value="female"/>
+	<birthDate value="1982-08-02"/>
+	<deceasedDateTime value="2021-12-12"/>
+</Practitioner>

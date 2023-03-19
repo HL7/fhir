@@ -58,6 +58,11 @@
     <uri value="http://hl7.org/fhir/fivews"/>
     <name value="FiveWs Pattern Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="xds"/>
+    <uri value="http://ihe.net/xds"/>
+    <name value="XDS metadata equivalent"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="List"/>
@@ -106,6 +111,10 @@
         <identity value="rim"/>
         <map value=".id"/>
       </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.uniqueId, SubmissionSet.entryUUID"/>
+      </mapping>
     </element>
     <element id="List.status">
       <path value="List.status"/>
@@ -135,6 +144,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".status[current=active;retired=obsolete;entered-in-error=nullified]"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet status"/>
       </mapping>
     </element>
     <element id="List.mode">
@@ -187,6 +200,10 @@
         <identity value="rim"/>
         <map value=".title"/>
       </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.title"/>
+      </mapping>
     </element>
     <element id="List.code">
       <path value="List.code"/>
@@ -216,15 +233,19 @@
         <identity value="rim"/>
         <map value=".code"/>
       </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.contentTypeCode"/>
+      </mapping>
     </element>
     <element id="List.subject">
       <path value="List.subject"/>
-      <short value="If all resources have the same subject"/>
-      <definition value="The common subject (or patient) of the resources that are in the list if there is one."/>
-      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional."/>
+      <short value="If all resources have the same subject(s)"/>
+      <definition value="The common subject(s) (or patient(s)) of the resources that are in the list if there is one (or a set of subjects)."/>
+      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional. Lists having multiple subjects may raise challenges for systems that base access control or other security considerations on linkages to 'subject'. E.g. if a List is associated with multiple Patient subjects, then it would be nominally part of multiple patient compartments, which might drive access rights."/>
       <requirements value="The primary purpose of listing the subject explicitly is to help with finding the right list."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
@@ -232,15 +253,15 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode&lt;SUB].role (and sometimes .player)"/>
       </mapping>
       <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
+        <identity value="xds"/>
+        <map value="SubmissionSet.patientId"/>
       </mapping>
     </element>
     <element id="List.encounter">
@@ -282,6 +303,10 @@
         <identity value="rim"/>
         <map value=".participation[typeCode&lt;AUT].time[type=TS]"/>
       </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.submissionTime"/>
+      </mapping>
     </element>
     <element id="List.source">
       <path value="List.source"/>
@@ -310,6 +335,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST] or .participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.author"/>
       </mapping>
     </element>
     <element id="List.orderedBy">
@@ -368,6 +397,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet DocumentEntry(s)"/>
       </mapping>
     </element>
     <element id="List.entry.flag">

@@ -32,9 +32,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.219"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="ObservationStatus"/>
-  <title value="ObservationStatus"/>
+  <title value="Observation Status"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -67,7 +67,7 @@
   <concept>
     <code value="final"/>
     <display value="Final"/>
-    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
+    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc. would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
   </concept>
   <concept>
     <code value="amended"/>

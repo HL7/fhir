@@ -184,4 +184,16 @@
       <display value="cdaauthor #2"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Deceased Practitioner (details also in person)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-prac4"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/prac4"/>
+      <display value="Sandy Notsowell"/>
+    </item>
+  </entry>
 </List>

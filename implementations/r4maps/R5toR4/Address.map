@@ -1,0 +1,20 @@
+map "http://hl7.org/fhir/StructureMap/Address4to3" = "R4 to R3 Conversion for Address"
+
+uses "http://hl7.org/fhir/StructureDefinition/Address" alias Address as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Address" alias AddressR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Address(source src : Address, target tgt : AddressR3) extends Element <<type+>> {
+  src.use -> tgt.use;
+  src.type -> tgt.type;
+  src.text -> tgt.text;
+  src.line -> tgt.line;
+  src.city -> tgt.city;
+  src.district -> tgt.district;
+  src.state -> tgt.state;
+  src.postalCode -> tgt.postalCode;
+  src.country -> tgt.country;
+  src.period -> tgt.period;
+}
+

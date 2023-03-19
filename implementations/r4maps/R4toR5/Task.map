@@ -1,0 +1,57 @@
+map "http://hl7.org/fhir/StructureMap/Task3to4" = "R3 to R4 Conversions for Task"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Task" alias Task as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.definition : uri as vs -> tgt.instantiatesUri = vs;
+  src.definition : Reference as vs -> tgt.instantiatesCanonical = vs;
+  src.basedOn -> tgt.basedOn;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.businessStatus -> tgt.businessStatus;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.focus -> tgt.focus;
+  src.for -> tgt.for;
+  src.context -> tgt.encounter;
+  src.executionPeriod -> tgt.executionPeriod;
+  src.authoredOn -> tgt.authoredOn;
+  src.lastModified -> tgt.lastModified;
+  src.requester as vs then {
+    vs.agent -> tgt.requester;
+  };
+  src.performerType -> tgt.performerType;
+  src.owner -> tgt.owner;
+  src.location -> tgt.location;
+  src.reason -> tgt.reasonCode;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+  src.restriction as s -> tgt.restriction as t then TaskRestriction(s, t);
+  src.input as s -> tgt.input as t then TaskInput(s, t);
+  src.output as s -> tgt.output as t then TaskOutput(s, t);
+}
+
+group TaskRestriction(source src, target tgt) extends BackboneElement {
+  src.repetitions -> tgt.repetitions;
+  src.period -> tgt.period;
+  src.recipient -> tgt.recipient;
+}
+
+group TaskInput(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+}
+
+group TaskOutput(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+}
+

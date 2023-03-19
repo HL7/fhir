@@ -24,7 +24,5 @@
 		<reference value="Patient/infant-mom"/>
 	</focus>
 	<effectiveDateTime value="2018-03-11T16:07:54+00:00"/>
-	<valueString value="Mother is trained to change her child's tracheostomy tube">
-
-	</valueString>
+	<valueString value="Mother is trained to change her child's tracheostomy tube"/>
 </Observation>

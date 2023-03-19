@@ -1,0 +1,32 @@
+<mappingExceptions pattern="ParticipantContactable"
+    resource="Practitioner"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="ParticipantContactable.telecom" resourcePath="Practitioner.telecom">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the practitioner may be contacted."/>
+            <resource value="A contact detail for the practitioner, e.g. a telephone number or an email address."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Participants have (primary) ways to contact them in some way such as phone, email."/>
+            <resource value="Need to know how to reach a practitioner independent to any roles the practitioner may have."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="ParticipantContactable.address" resourcePath="Practitioner.address">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="An address for the practitioner"/>
+            <resource value="Address(es) of the practitioner that are not role specific (typically home address)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="An address where the practitioner can be reached."/>
+            <resource value="Address(es) of the practitioner that are not role specific (typically home address). &#xd;Work addresses are not typically entered in this property as they are usually role dependent."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="May need to keep track of practitioner addresses for contacting, billing or reporting requirements and also to help with identification."/>
+            <resource value="The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Participant.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.name" reason="Unknown"/>
+    <unmappedElement patternPath="Participant.active" reason="Unknown"/>
+</mappingExceptions>

@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1037"
+   version="1.1"
+   width="972.0"
+   height="830.0"
+   sodipodi:docname="activitydefinition.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview416"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2373494"
+     inkscape:cx="485.71568"
+     inkscape:cy="415"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1037" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.040151515"
+       y="-0.0828125"
+       width="1.1030303"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n1038">
+    <rect
+       id="ActivityDefinition"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="820.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1039"
+       x1="0.0"
+       y1="28.0"
+       x2="294.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1040"
+       x="147.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ActivityDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan24"> (<a
+   id="n1041"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n1042"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n1043"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1044"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.url"><title
+   id="title27">An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this activity definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the activity definition is stored on different servers</title>url</a> : <a
+   id="n1045"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1049"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1050"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.identifier"><title
+   id="title32">A formal identifier that is used to identify this activity definition when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1051"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1055"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1056"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.version"><title
+   id="title37">The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets</title>version</a> : <a
+   id="n1057"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1061"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1062"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.versionAlgorithm_x_"><title
+   id="title42">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n1063"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1064"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1065"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n1066"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n1067">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1068"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1069"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n1079"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1080"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.name"><title
+   id="title53">A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1081"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1082"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1083">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1089"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1090"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.title"><title
+   id="title60">A short, descriptive, user-friendly title for the activity definition</title>title</a> : <a
+   id="n1091"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1095"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1096"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.subtitle"><title
+   id="title65">An explanatory or alternate title for the activity definition giving additional information about its content</title>subtitle</a> : <a
+   id="n1097"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1101"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1102"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.status"><title
+   id="title70">The status of this activity definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1103"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1104"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1105">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n1111"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1112"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.experimental"><title
+   id="title77">A Boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1113"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1117"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1118"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.subject_x_"><title
+   id="title82">A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource</title>subject[x]</a> : <a
+   id="n1119"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1120"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1121"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1122"
+   xlink:href="group.html#Group">Group</a>|</text>
+    <text
+       id="n1123"
+       x="26.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1124"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|<a
+   id="n1125"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>|</text>
+    <text
+       id="n1126"
+       x="26.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1127"
+   xlink:href="administrableproductdefinition.html#AdministrableProductDefinition">AdministrableProductDefinition</a>|<a
+   id="n1128"
+   xlink:href="manufactureditemdefinition.html#ManufacturedItemDefinition">ManufacturedItemDefinition</a>|</text>
+    <text
+       id="n1129"
+       x="26.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1130"
+   xlink:href="packagedproductdefinition.html#PackagedProductDefinition">PackagedProductDefinition</a>)|<a
+   id="n1131"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n1132"
+   xlink:href="evidencevariable.html#EvidenceVariable">EvidenceVariable</a>); <a
+   id="n1133"
+   xlink:href="valueset-participant-resource-types.html"><title
+     id="n1134">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1135"
+       x="26.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1136"
+   xlink:href="valueset-participant-resource-types.html">ParticipantResourceTypes</a>+ »</text>
+    <text
+       id="n1157"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1158"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.date"><title
+   id="title104">The date  (and optionally time) when the activity definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes</title>date</a> : <a
+   id="n1159"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1163"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1164"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.publisher"><title
+   id="title109">The name of the organization or individual responsible for the release and ongoing maintenance of the activity definition</title>publisher</a> : <a
+   id="n1165"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1169"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1170"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.contact"><title
+   id="title114">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1171"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1175"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1176"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.description"><title
+   id="title119">A free text natural language description of the activity definition from a consumer's perspective</title>description</a> : <a
+   id="n1177"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1181"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1182"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.useContext"><title
+   id="title124">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate activity definition instances</title>useContext</a> : <a
+   id="n1183"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1187"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1188"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.jurisdiction"><title
+   id="title129">A legal or geographic region in which the activity definition is intended to be used</title>jurisdiction</a> : <a
+   id="n1189"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1190"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1191">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n1197"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1198"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.purpose"><title
+   id="title136">Explanation of why this activity definition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1199"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1203"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1204"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.usage"><title
+   id="title141">A detailed description of how the activity definition is used from a clinical perspective</title>usage</a> : <a
+   id="n1205"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1209"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1210"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.copyright"><title
+   id="title146">A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition</title>copyright</a> : <a
+   id="n1211"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1215"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1216"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.copyrightLabel"><title
+   id="title151">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1217"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1221"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1222"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.approvalDate"><title
+   id="title156">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n1223"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1227"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1228"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.lastReviewDate"><title
+   id="title161">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n1229"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1233"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1234"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.effectivePeriod"><title
+   id="title166">The period during which the activity definition content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n1235"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1239"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1240"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.topic"><title
+   id="title171">Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching</title>topic</a> : <a
+   id="n1241"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1242"
+   xlink:href="valueset-definition-topic.html"><title
+   id="n1243">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
+    <text
+       id="n1249"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1250"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.author"><title
+   id="title178">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="n1251"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1255"
+       x="6.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1256"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.editor"><title
+   id="title183">An individual or organization primarily responsible for internal coherence of the content</title>editor</a> : <a
+   id="n1257"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1261"
+       x="6.0"
+       y="476.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1262"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.reviewer"><title
+   id="title188">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content</title>reviewer</a> : <a
+   id="n1263"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1267"
+       x="6.0"
+       y="490.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1268"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.endorser"><title
+   id="title193">An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting</title>endorser</a> : <a
+   id="n1269"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1273"
+       x="6.0"
+       y="504.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1274"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.relatedArtifact"><title
+   id="title198">Related artifacts such as additional documentation, justification, or bibliographic references</title>relatedArtifact</a> : <a
+   id="n1275"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1279"
+       x="6.0"
+       y="518.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1280"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.library"><title
+   id="title203">A reference to a Library resource containing any formal logic used by the activity definition</title>library</a> : <a
+   id="n1281"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1282"
+   xlink:href="library.html#Library">Library</a> »</text>
+    <text
+       id="n1287"
+       x="6.0"
+       y="532.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1288"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.kind"><title
+   id="title209">A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource</title>kind</a> : <a
+   id="n1289"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1290"
+   xlink:href="valueset-request-resource-types.html"><title
+   id="n1291">null (Strength=Required)</title>RequestResourceTypes</a>! »</text>
+    <text
+       id="n1297"
+       x="6.0"
+       y="546.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1298"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.profile"><title
+   id="title216">A profile to which the target of the activity definition is expected to conform</title>profile</a> : <a
+   id="n1299"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1300"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+    <text
+       id="n1305"
+       x="6.0"
+       y="560.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1306"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.code"><title
+   id="title222">Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter</title>code</a> : <a
+   id="n1307"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1308"
+   xlink:href="valueset-procedure-code.html"><title
+   id="n1309">null (Strength=Example)</title>ProcedureCodesSNOMEDCT</a>?? »</text>
+    <text
+       id="n1315"
+       x="6.0"
+       y="574.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1316"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.intent"><title
+   id="title229">Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain</title>intent</a> : <a
+   id="n1317"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1318"
+   xlink:href="valueset-request-intent.html"><title
+   id="n1319">null (Strength=Required)</title>RequestIntent</a>! »</text>
+    <text
+       id="n1325"
+       x="6.0"
+       y="588.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1326"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.priority"><title
+   id="title236">Indicates how quickly the activity  should be addressed with respect to other requests</title>priority</a> : <a
+   id="n1327"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1328"
+   xlink:href="valueset-request-priority.html"><title
+   id="n1329">null (Strength=Required)</title>RequestPriority</a>! »</text>
+    <text
+       id="n1335"
+       x="6.0"
+       y="602.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1336"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.doNotPerform"><title
+   id="title243">Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action (this element modifies the meaning of other elements)</title>doNotPerform</a> : <a
+   id="n1337"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1341"
+       x="6.0"
+       y="616.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1342"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.timing_x_"><title
+   id="title248">The timing or frequency upon which the described activity is to occur</title>timing[x]</a> : <a
+   id="n1343"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1344"
+   xlink:href="datatypes.html#Timing">Timing</a>|<a
+   id="n1345"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n1346"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n1347"
+   xlink:href="datatypes.html#Duration">Duration</a> »</text>
+    <text
+       id="n1355"
+       x="6.0"
+       y="630.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1356"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.asNeeded_x_"><title
+   id="title257">If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc</title>asNeeded[x]</a> : <a
+   id="n1357"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1358"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1359"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>; <a
+   id="n1360"
+   xlink:href="valueset-medication-as-needed-reason.html"><title
+     id="n1361">null (Strength=Example)</title></a></text>
+    <text
+       id="n1362"
+       x="26.0"
+       y="644.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1363"
+   xlink:href="valueset-medication-as-needed-reason.html">SNOMEDCTMedicationAsNeededRea...</a>?? »</text>
+    <text
+       id="n1373"
+       x="6.0"
+       y="658.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1374"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.location"><title
+   id="title268">Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc</title>location</a> : <a
+   id="n1375"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n1376"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n1381"
+       x="6.0"
+       y="672.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1382"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.product_x_"><title
+   id="title274">Identifies the food, drug or other product being consumed or supplied in the activity</title>product[x]</a> : <a
+   id="n1383"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1384"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1385"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n1386"
+   xlink:href="ingredient.html#Ingredient">Ingredient</a>|</text>
+    <text
+       id="n1387"
+       x="26.0"
+       y="686.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1388"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n1389"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>)|<a
+   id="n1390"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>; <a
+   id="n1391"
+   xlink:href="valueset-medication-codes.html"><title
+     id="n1392">null (Strength=Example)</title></a></text>
+    <text
+       id="n1393"
+       x="26.0"
+       y="700.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1394"
+   xlink:href="valueset-medication-codes.html">SNOMEDCTMedicationCodes</a>?? »</text>
+    <text
+       id="n1409"
+       x="6.0"
+       y="714.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1410"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.quantity"><title
+   id="title290">Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)</title>quantity</a> : <a
+   id="n1411"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a294">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n1415"
+       x="6.0"
+       y="728.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1416"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.dosage"><title
+   id="title297">Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources</title>dosage</a> : <a
+   id="n1417"
+   xlink:href="dosage.html#Dosage">Dosage</a> [0..*]</text>
+    <text
+       id="n1421"
+       x="6.0"
+       y="742.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1422"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.bodySite"><title
+   id="title302">Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)</title>bodySite</a> : <a
+   id="n1423"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1424"
+   xlink:href="valueset-body-site.html"><title
+   id="n1425">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n1431"
+       x="6.0"
+       y="756.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1432"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.specimenRequirement"><title
+   id="title309">Defines specimen requirements for the action to be performed, such as required specimens for a lab test</title>specimenRequirement</a> : <a
+   id="n1433"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1434"
+   xlink:href="specimendefinition.html#SpecimenDefinition">SpecimenDefinition</a> »</text>
+    <text
+       id="n1439"
+       x="6.0"
+       y="770.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1440"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.observationRequirement"><title
+   id="title315">Defines observation requirements for the action to be performed, such as body weight or surface area</title>observationRequirement</a> : <a
+   id="n1441"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1442"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a> »</text>
+    <text
+       id="n1447"
+       x="6.0"
+       y="784.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1448"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.observationResultRequirement"><title
+   id="title321">Defines the observations that are expected to be produced by the action</title>observationResultRequirement</a> : <a
+   id="n1449"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « </text>
+    <text
+       id="n1450"
+       x="26.0"
+       y="798.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1451"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a> »</text>
+    <text
+       id="n1457"
+       x="6.0"
+       y="812.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1458"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.transform"><title
+   id="title328">A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input</title>transform</a> : <a
+   id="n1459"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1460"
+   xlink:href="structuremap.html#StructureMap">StructureMap</a> »</text>
+  </g>
+  <g
+     id="n1465"
+     transform="translate(125.26777,109.91237)">
+    <rect
+       id="ActivityDefinition.participant"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1466"
+       x1="320"
+       y1="28"
+       x2="623.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1467"
+       x="471.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Participant</text>
+    <text
+       id="n1468"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1469"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.participant.type"><title
+   id="title338">The type of participant in the action</title>type</a> : <a
+   id="n1470"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1471"
+   xlink:href="valueset-action-participant-type.html"><title
+   id="n1472">null (Strength=Required)</title>ActionParticipantType</a>! »</text>
+    <text
+       id="n1478"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1479"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.participant.typeCanonical"><title
+   id="title345">The type of participant in the action</title>typeCanonical</a> : <a
+   id="n1480"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1481"
+   xlink:href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a> »</text>
+    <text
+       id="n1486"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1487"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.participant.typeReference"><title
+   id="title351">The type of participant in the action</title>typeReference</a> : <a
+   id="n1488"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1489"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1490"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1491"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|</text>
+    <text
+       id="n1492"
+       x="346"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1493"
+   xlink:href="endpoint.html#Endpoint">Endpoint</a>|<a
+   id="n1494"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1495"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n1496"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1497"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1498"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n1499"
+       x="346"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1500"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1501"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1502"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n1520"
+       x="326"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1521"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.participant.role"><title
+   id="title370">The role the participant should play in performing the described action</title>role</a> : <a
+   id="n1522"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1523"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-action-participant-role.html"><title
+   id="n1524">null (Strength=Example)</title>ActionParticipantRole</a>?? »</text>
+    <text
+       id="n1530"
+       x="326"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1531"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.participant.function"><title
+   id="title377">Indicates how the actor will be involved in the action - author, reviewer, witness, etc</title>function</a> : <a
+   id="n1532"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1533"
+   xlink:href="valueset-action-participant-function.html"><title
+   id="n1534">null (Strength=Example)</title>ActionParticipantFunction</a>?? »</text>
+  </g>
+  <g
+     id="n1540"
+     transform="translate(-113.14508,326.50438)">
+    <rect
+       id="ActivityDefinition.dynamicValue"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="132"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1541"
+       x1="640"
+       y1="28"
+       x2="772"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1542"
+       x="706"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">DynamicValue</text>
+    <text
+       id="n1543"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1544"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.dynamicValue.path"><title
+   id="title388">The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolvable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)</title>path</a> : <a
+   id="n1545"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1549"
+       x="646"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1550"
+   xlink:href="activitydefinition-definitions.html#ActivityDefinition.dynamicValue.expression"><title
+   id="title393">An expression specifying the value of the customized element</title>expression</a> : <a
+   id="n1551"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [1..1]</text>
+  </g>
+  <line
+     id="n1555"
+     x1="294.8"
+     y1="254.14858199753394"
+     x2="408.4332361516035"
+     y2="134.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1556"
+     points="294.8,254.14858199753394 300.8,258.14858199753394 306.8,254.14858199753394 300.8,250.14858199753394 294.8,254.14858199753394"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-46.596382555019794 294.8 254.14858199753394)" />
+  <rect
+     id="n1557"
+     x="327.0"
+     y="187.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1558"
+     x="351.0"
+     y="197.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1559"
+       xlink:href="activitydefinition-definitions.html#ActivityDefinition.participant"><title
+   id="title402">Indicates who should participate in performing the action described</title>participant</a></text>
+  <text
+     id="n1560"
+     x="408.4332361516035"
+     y="148.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1561"
+     x1="294.8"
+     y1="310.2556390977444"
+     x2="658.7111111111112"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1562"
+     points="294.8,310.2556390977444 300.8,314.2556390977444 306.8,310.2556390977444 300.8,306.2556390977444 294.8,310.2556390977444"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-34.085886994189224 294.8 310.2556390977444)" />
+  <rect
+     id="n1563"
+     x="450.0"
+     y="180.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1564"
+     x="476.0"
+     y="190.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1565"
+       xlink:href="activitydefinition-definitions.html#ActivityDefinition.dynamicValue"><title
+   id="title410">Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result</title>dynamicValue</a></text>
+  <text
+     id="n1566"
+     x="658.7111111111112"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

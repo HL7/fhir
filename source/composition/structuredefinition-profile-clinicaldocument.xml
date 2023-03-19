@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1178"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Clinical Document"/>
-  <title value="Clinical Document"/>
+  <name value="ClinicalDocument"/>
+  <title value="Clinical  Document"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2015-03-17"/>
@@ -70,17 +70,6 @@
       <path value="Composition"/>
       <min value="0"/>
       <max value="*"/>
-    </element>
-    <element id="Composition.extension:versionNumber">
-      <path value="Composition.extension"/>
-      <sliceName value="versionNumber"/>
-      <short value="Version-specific identifier for composition"/>
-      <definition value="Version specific identifier for the composition, assigned when each version is created/updated."/>
-      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber"/>
-      </type>
     </element>
     <element id="Composition.subject">
       <path value="Composition.subject"/>

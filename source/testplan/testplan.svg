@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n477"
+   version="1.1"
+   width="922.00371"
+   height="438.832349"
+   sodipodi:docname="testplan.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview123242"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3514045"
+     inkscape:cx="461.00187"
+     inkscape:cy="220.88131"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n477" />
+  <defs
+     id="defs122982">
+    <filter
+       id="shadow1"
+       x="-0.044612793"
+       y="-0.106"
+       width="1.1144781"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset122973" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix122975" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur122977" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend122979" />
+    </filter>
+  </defs>
+  <g
+     id="n478">
+    <rect
+       id="TestPlan"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="198.00000000000003"
+       height="274.0"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:black;stroke-width:1" />
+    <line
+       id="n479"
+       x1="0.0"
+       y1="28.0"
+       x2="198.00000000000003"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n480"
+       x="99.00000000000001"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">TestPlan<tspan
+   class="diagram-class-title-link"
+   id="tspan122987"> (<a
+   id="n481"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n482"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n483"
+   xlink:href="testplan-definitions.html#TestPlan.url"><title
+   id="title122990">Canonical identifier URL</title>url</a> : <a
+   id="n484"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n488"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n489"
+   xlink:href="testplan-definitions.html#TestPlan.identifier"><title
+   id="title122995">Business identifier for the Test Plan</title>identifier</a> : <a
+   id="n490"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n494"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n495"
+   xlink:href="testplan-definitions.html#TestPlan.version"><title
+   id="title123000">Version of the test plan</title>version</a> : <a
+   id="n496"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n500"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n501"
+   xlink:href="testplan-definitions.html#TestPlan.name"><title
+   id="title123005">Name</title>name</a> : <a
+   id="n502"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n506"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n507"
+   xlink:href="testplan-definitions.html#TestPlan.title"><title
+   id="title123010">Human-readable title</title>title</a> : <a
+   id="n508"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n512"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n513"
+   xlink:href="testplan-definitions.html#TestPlan.status"><title
+   id="title123015">Status</title>status</a> : <a
+   id="n514"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n515"
+   xlink:href="valueset-publication-status.html"><title
+   id="n516">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n522"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n523"
+   xlink:href="testplan-definitions.html#TestPlan.date"><title
+   id="title123022">Date</title>date</a> : <a
+   id="n524"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..*]</text>
+    <text
+       id="n528"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n529"
+   xlink:href="testplan-definitions.html#TestPlan.publisher"><title
+   id="title123027">Publisher</title>publisher</a> : <a
+   id="n530"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n534"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n535"
+   xlink:href="testplan-definitions.html#TestPlan.contact"><title
+   id="title123032">Contact</title>contact</a> : <a
+   id="n536"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n540"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n541"
+   xlink:href="testplan-definitions.html#TestPlan.description"><title
+   id="title123037">Description of the test plan</title>description</a> : <a
+   id="n542"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n546"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n547"
+   xlink:href="testplan-definitions.html#TestPlan.jurisdiction"><title
+   id="title123042">Jurisdiction</title>jurisdiction</a> : <a
+   id="n548"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n552"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n553"
+   xlink:href="testplan-definitions.html#TestPlan.purpose"><title
+   id="title123047">Purpose</title>purpose</a> : <a
+   id="n554"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n558"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n559"
+   xlink:href="testplan-definitions.html#TestPlan.copyright"><title
+   id="title123052">Copyright</title>copyright</a> : <a
+   id="n560"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n564"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n565"
+   xlink:href="testplan-definitions.html#TestPlan.category"><title
+   id="title123057">The category of the Test Plan - can be acceptance, unit, performance, etc</title>category</a> : <a
+   id="n566"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n570"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n571"
+   xlink:href="testplan-definitions.html#TestPlan.scope"><title
+   id="title123062">What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference..</title>scope</a> : <a
+   id="n572"
+   xlink:href="references.html#Reference">Reference</a> [0..*] «  »</text>
+    <text
+       id="n576"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n577"
+   xlink:href="testplan-definitions.html#TestPlan.testTools"><title
+   id="title123067">A description of test tools to be used in the test plan</title>testTools</a> : <a
+   id="n578"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n582"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n583"
+   xlink:href="testplan-definitions.html#TestPlan.exitCriteria"><title
+   id="title123072">The threshold or criteria for the test plan to be considered successfully executed - narrative</title>exitCriteria</a> : <a
+   id="n584"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n588"
+     transform="translate(22.199127,-8.1396799)">
+    <rect
+       id="TestPlan.dependencies"
+       x="267.75031"
+       y="13.87515"
+       rx="4"
+       ry="4"
+       width="154"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n589"
+       x1="267.75031"
+       y1="41.875149"
+       x2="421.75031"
+       y2="41.875149"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n590"
+       x="344.75031"
+       y="33.875149"
+       fill="#000000"
+       class="diagram-class-title">Dependencies</text>
+    <text
+       id="n591"
+       x="273.75031"
+       y="55.875149"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n592"
+   xlink:href="testplan-definitions.html#TestPlan.dependencies.description"><title
+   id="title123081">Description of the criteria</title>description</a> : <a
+   id="n593"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n597"
+       x="273.75031"
+       y="69.875153"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n598"
+   xlink:href="testplan-definitions.html#TestPlan.dependencies.predecessor"><title
+   id="title123086">Link to predecessor test plans</title>predecessor</a> : <a
+   id="n599"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « »</text>
+  </g>
+  <g
+     id="n603"
+     transform="translate(33.29869,-5.9197672)">
+    <rect
+       id="TestPlan.testCase"
+       x="261.00156"
+       y="203.33887"
+       rx="4"
+       ry="4"
+       width="127.6"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n604"
+       x1="261.00156"
+       y1="231.33887"
+       x2="388.60156"
+       y2="231.33887"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n605"
+       x="324.80157"
+       y="223.33887"
+       fill="#000000"
+       class="diagram-class-title">TestCase</text>
+    <text
+       id="n606"
+       x="267.00156"
+       y="245.33887"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n607"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.sequence"><title
+   id="title123095">Sequence of testing</title>sequence</a> : <a
+   id="n608"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n612"
+       x="267.00156"
+       y="259.33887"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n613"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.scope"><title
+   id="title123100">Specific test scope for one test case</title>scope</a> : <a
+   id="n614"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « »</text>
+  </g>
+  <g
+     id="n618"
+     transform="translate(51.797963,31.078777)">
+    <rect
+       id="TestPlan.testCase.dependencies"
+       x="468.00372"
+       y="168.33852"
+       rx="4"
+       ry="4"
+       width="154"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n619"
+       x1="468.00372"
+       y1="196.33852"
+       x2="622.00372"
+       y2="196.33852"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n620"
+       x="545.00372"
+       y="188.33852"
+       fill="#000000"
+       class="diagram-class-title">Dependencies</text>
+    <text
+       id="n621"
+       x="474.00372"
+       y="210.33852"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n622"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.dependencies.description"><title
+   id="title123109">Description of the criteria</title>description</a> : <a
+   id="n623"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n627"
+       x="474.00372"
+       y="224.33852"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n628"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.dependencies.predecessor"><title
+   id="title123114">Link to predecessor test plans</title>predecessor</a> : <a
+   id="n629"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « »</text>
+  </g>
+  <g
+     id="n633"
+     transform="translate(-162.05362,-166.49345)">
+    <rect
+       id="TestPlan.testCase.testRun"
+       x="470.32385"
+       y="266.68198"
+       rx="4"
+       ry="4"
+       width="118.8"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n634"
+       x1="470.32385"
+       y1="294.68198"
+       x2="589.12384"
+       y2="294.68198"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n635"
+       x="529.72388"
+       y="286.68198"
+       fill="#000000"
+       class="diagram-class-title">TestRun</text>
+    <text
+       id="n636"
+       x="476.32385"
+       y="308.68198"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n637"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.testRun.narrative"><title
+   id="title123123">The narrative description of the tests</title>narrative</a> : <a
+   id="n638"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n642"
+     transform="translate(269.3494,2.2199126)">
+    <rect
+       id="TestPlan.testCase.testRun.script"
+       x="241.17923"
+       y="101.17749"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n643"
+       x1="241.17923"
+       y1="129.17749"
+       x2="452.37924"
+       y2="129.17749"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n644"
+       x="346.77924"
+       y="121.17749"
+       fill="#000000"
+       class="diagram-class-title">Script</text>
+    <text
+       id="n645"
+       x="247.17923"
+       y="143.17749"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n646"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.testRun.script.language"><title
+   id="title123132">The language for the test cases e.g. 'gherkin', 'testscript'</title>language</a> : <a
+   id="n647"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n651"
+       x="247.17923"
+       y="157.17749"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n652"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.testRun.script.source_x_"><title
+   id="title123137">The actual content of the cases - references to TestScripts or externally defined content</title>source[x]</a> : <a
+   id="n653"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n654"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n655"
+   xlink:href="references.html#Reference">Reference</a> »</text>
+  </g>
+  <g
+     id="n661"
+     transform="translate(28.118894,-11.839534)">
+    <rect
+       id="TestPlan.testCase.testData"
+       x="239.51361"
+       y="330.83234"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n662"
+       x1="239.51361"
+       y1="358.83234"
+       x2="450.71362"
+       y2="358.83234"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n663"
+       x="345.11362"
+       y="350.83234"
+       fill="#000000"
+       class="diagram-class-title">TestData</text>
+    <text
+       id="n664"
+       x="245.51361"
+       y="372.83234"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n665"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.testData.type"><title
+   id="title123148">The type of test data description, e.g. 'synthea'</title>type</a> : <a
+   id="n666"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1]</text>
+    <text
+       id="n670"
+       x="245.51361"
+       y="386.83234"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.testData.content"><title
+   id="title123153">The actual test resources when they exist</title>content</a> : <a
+   id="n672"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « »</text>
+    <text
+       id="n676"
+       x="245.51361"
+       y="400.83234"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n677"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.testData.source_x_"><title
+   id="title123158">Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc</title>source[x]</a> : <a
+   id="n678"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n679"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n680"
+   xlink:href="references.html#Reference">Reference</a> »</text>
+  </g>
+  <g
+     id="n686">
+    <rect
+       id="TestPlan.testCase.assertions"
+       x="22.250600000000006"
+       y="324.846519"
+       rx="4"
+       ry="4"
+       width="167.20000000000002"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:black;stroke-width:1" />
+    <line
+       id="n687"
+       x1="22.250600000000006"
+       y1="352.846519"
+       x2="189.4506"
+       y2="352.846519"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n688"
+       x="105.85060000000001"
+       y="344.846519"
+       fill="black"
+       class="diagram-class-title">Assertions</text>
+    <text
+       id="n689"
+       x="28.250600000000006"
+       y="366.846519"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n690"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.assertions.type"><title
+   id="title123169">The test assertion type</title>type</a> : <a
+   id="n691"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n695"
+       x="28.250600000000006"
+       y="380.846519"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n696"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.assertions.object"><title
+   id="title123174">The focus or object of the assertion</title>object</a> : <a
+   id="n697"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] «  »</text>
+    <text
+       id="n701"
+       x="28.250600000000006"
+       y="394.846519"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n702"
+   xlink:href="testplan-definitions.html#TestPlan.testCase.assertions.result"><title
+   id="title123179">The test assertions</title>result</a> : <a
+   id="n703"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] «  »</text>
+  </g>
+  <line
+     id="n707"
+     x1="198.00000000000003"
+     y1="100.29054252747825"
+     x2="267.750299"
+     y2="74.42695025640579"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n708"
+     points="198.00000000000003,100.29054252747825 204.00000000000003,104.29054252747825 210.00000000000003,100.29054252747825 204.00000000000003,96.29054252747825 198.00000000000003,100.29054252747825"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-20.344911407649704 198.00000000000003 100.29054252747825)" />
+  <rect
+     id="n709"
+     x="206.0"
+     y="80.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n710"
+     x="232.0"
+     y="90.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n711"
+       xlink:href="testplan-definitions.html#TestPlan.dependencies"><title
+   id="title123188">The required criteria to execute the test plan - e.g. preconditions, previous tests..</title>dependencies</a></text>
+  <text
+     id="n712"
+     x="247.75029899999998"
+     y="70.42695025640579"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n713"
+     x1="388.60156"
+     y1="225.19808091773743"
+     x2="468.00370999999996"
+     y2="212.57739034066176"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n714"
+     points="388.60156,225.19808091773743 394.60156,229.19808091773743 400.60156,225.19808091773743 394.60156,221.19808091773743 388.60156,225.19808091773743"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-9.031410543825997 388.60156 225.19808091773743)" />
+  <rect
+     id="n715"
+     x="402.0"
+     y="211.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n716"
+     x="428.0"
+     y="221.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n717"
+       xlink:href="testplan-definitions.html#TestPlan.testCase.dependencies"><title
+   id="title123196">The required criteria to execute the test case - e.g. preconditions, previous tests</title>dependencies</a></text>
+  <text
+     id="n718"
+     x="448.00370999999996"
+     y="208.57739034066176"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n719"
+     x1="500.86904810417985"
+     y1="266.6819700000001"
+     x2="383.71338162664995"
+     y2="165.17749"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n720"
+     points="500.86904810417985,266.6819700000001 506.86904810417985,270.6819700000001 512.8690481041799,266.6819700000001 506.86904810417985,262.6819700000001 500.86904810417985,266.6819700000001"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-139.09411674094298 500.86904810417985 266.6819700000001)" />
+  <rect
+     id="n721"
+     x="429.0"
+     y="208.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n722"
+     x="442.0"
+     y="218.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n723"
+       xlink:href="testplan-definitions.html#TestPlan.testCase.testRun.script"><title
+   id="title123204">The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript</title>script</a></text>
+  <text
+     id="n724"
+     x="383.71338162664995"
+     y="179.17749"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n725"
+     x1="388.60156"
+     y1="252.88058825031118"
+     x2="470.32385"
+     y2="275.35002076695173"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n726"
+     points="388.60156,252.88058825031118 394.60156,256.8805882503112 400.60156,252.88058825031118 394.60156,248.88058825031118 388.60156,252.88058825031118"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(15.373515412981973 388.60156 252.88058825031118)" />
+  <rect
+     id="n727"
+     x="414.0"
+     y="257.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n728"
+     x="429.0"
+     y="267.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n729"
+       xlink:href="testplan-definitions.html#TestPlan.testCase.testRun"><title
+   id="title123212">The actual test to be executed</title>testRun</a></text>
+  <text
+     id="n730"
+     x="450.32385"
+     y="271.35002076695173"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n731"
+     x1="329.6344027271614"
+     y1="267.33886499999994"
+     x2="339.223590926272"
+     y2="330.832349"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n732"
+     points="329.6344027271614,267.33886499999994 335.6344027271614,271.33886499999994 341.6344027271614,267.33886499999994 335.6344027271614,263.33886499999994 329.6344027271614,267.33886499999994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(81.41173238076537 329.6344027271614 267.33886499999994)" />
+  <rect
+     id="n733"
+     x="316.5"
+     y="292.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n734"
+     x="334.0"
+     y="302.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n735"
+       xlink:href="testplan-definitions.html#TestPlan.testCase.testData"><title
+   id="title123220">The test data used in the test case</title>testData</a></text>
+  <text
+     id="n736"
+     x="339.223590926272"
+     y="326.832349"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n737"
+     x1="270.28005484513966"
+     y1="267.33886500000006"
+     x2="172.2986844074859"
+     y2="324.84651900000006"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n738"
+     points="270.28005484513966,267.33886500000006 276.28005484513966,271.33886500000006 282.28005484513966,267.33886500000006 276.28005484513966,263.33886500000006 270.28005484513966,267.33886500000006"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(149.59028892845413 270.28005484513966 267.33886500000006)" />
+  <rect
+     id="n739"
+     x="199.0"
+     y="289.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n740"
+     x="221.0"
+     y="299.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n741"
+       xlink:href="testplan-definitions.html#TestPlan.testCase.assertions"><title
+   id="title123228">The test assertions</title>assertions</a></text>
+  <text
+     id="n742"
+     x="172.2986844074859"
+     y="320.84651900000006"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n743"
+     x1="198.00000000000003"
+     y1="180.11550210281985"
+     x2="261.00156"
+     y2="207.55331920040499"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n744"
+     points="198.00000000000003,180.11550210281985 204.00000000000003,184.11550210281985 210.00000000000003,180.11550210281985 204.00000000000003,176.11550210281985 198.00000000000003,180.11550210281985"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(23.533612863905116 198.00000000000003 180.11550210281985)" />
+  <rect
+     id="n745"
+     x="211.5"
+     y="186.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n746"
+     x="229.0"
+     y="196.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n747"
+       xlink:href="testplan-definitions.html#TestPlan.testCase"><title
+   id="title123236">The test cases that are part of this plan</title>testCase</a></text>
+  <text
+     id="n748"
+     x="241.00155999999998"
+     y="203.55331920040499"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

@@ -36,7 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ValueSet"/>
-  <title value="ValueSet"/>
+  <title value="Value Set"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -93,7 +93,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <mapping>
@@ -120,7 +120,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -170,6 +170,25 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="ValueSet.versionAlgorithm[x]">
+      <path value="ValueSet.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which ValueSet is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
     <element id="ValueSet.name">
       <path value="ValueSet.name"/>
       <short value="Name for this value set (computer friendly)"/>
@@ -203,7 +222,7 @@
       <path value="ValueSet.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state."/>
-      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatusDescription](extension-valueset-workflowstatusdescription.html) extension for additional status information related to the editorial process."/>
+      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [[[http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription]]] extension for additional status information related to the editorial process."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -411,6 +430,21 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="ValueSet.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ValueSet.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="ValueSet.approvalDate">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -434,7 +468,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.lastReviewDate"/>
-      <short value="When the ValueSet was last reviewed"/>
+      <short value="When the ValueSet was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -476,7 +510,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="ValueSet.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the ValueSet. Topics provide a high-level categorization as well as keywords for the ValueSet that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the ValueSet, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the ValueSet so that it can be found by topical and keyword searches."/>
@@ -528,7 +562,7 @@
       </extension>
       <path value="ValueSet.reviewer"/>
       <short value="Who reviewed the ValueSet"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the ValueSet."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -541,7 +575,7 @@
       </extension>
       <path value="ValueSet.endorser"/>
       <short value="Who endorsed the ValueSet"/>
-      <definition value="An individual or organization responsible for officially endorsing the ValueSet for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -553,7 +587,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A ValueSet must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -659,8 +693,8 @@
       <type>
         <code value="uri"/>
       </type>
-      <condition value="vsd-1"/>
       <condition value="vsd-2"/>
+      <condition value="vsd-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -699,6 +733,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="vsd-2"/>
       <condition value="vsd-3"/>
       <mapping>
         <identity value="rim"/>
@@ -776,15 +811,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
     </element>
     <element id="ValueSet.compose.include.concept.designation.use">
@@ -797,6 +830,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="vsd-11"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -816,6 +850,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="vsd-11"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -848,6 +883,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="vsd-2"/>
       <condition value="vsd-3"/>
       <isSummary value="true"/>
       <mapping>
@@ -956,7 +992,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ValueSet.compose.include"/>
-      <condition value="vsd-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -1181,6 +1216,7 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="vsd-10"/>
     </element>
     <element id="ValueSet.expansion.contains.abstract">
       <path value="ValueSet.expansion.contains.abstract"/>
@@ -1193,11 +1229,12 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="If this is not populated, systems can assume that the concept it not abstract. This SHALL always be populated for abstract concepts"/>
+      <condition value="vsd-9"/>
     </element>
     <element id="ValueSet.expansion.contains.inactive">
       <path value="ValueSet.expansion.contains.inactive"/>
       <short value="If concept is inactive in the code system"/>
-      <definition value="If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether an concept is inactive (and it may depend on the context of use)."/>
+      <definition value="If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether a concept is inactive (and it may depend on the context of use)."/>
       <comment value="This should only have a value if the concept is inactive."/>
       <min value="0"/>
       <max value="1"/>
@@ -1229,6 +1266,8 @@
         <code value="code"/>
       </type>
       <condition value="vsd-6"/>
+      <condition value="vsd-9"/>
+      <condition value="vsd-10"/>
     </element>
     <element id="ValueSet.expansion.contains.display">
       <path value="ValueSet.expansion.contains.display"/>

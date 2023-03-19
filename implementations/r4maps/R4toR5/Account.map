@@ -1,0 +1,32 @@
+map "http://hl7.org/fhir/StructureMap/Account3to4" = "R3 to R4 Conversions for Account"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Account" alias AccountR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Account" alias Account as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Account(source src : AccountR3, target tgt : Account) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.subject -> tgt.subject;
+  src.period -> tgt.servicePeriod;
+  src.coverage as s -> tgt.coverage as t then AccountCoverage(s, t);
+  src.owner -> tgt.owner;
+  src.description -> tgt.description;
+  src.guarantor as s -> tgt.guarantor as t then AccountGuarantor(s, t);
+  src.partOf -> tgt.partOf;
+}
+
+group AccountCoverage(source src, target tgt) extends BackboneElement {
+  src.coverage -> tgt.coverage;
+  src.priority -> tgt.priority;
+}
+
+group AccountGuarantor(source src, target tgt) extends BackboneElement {
+  src.party -> tgt.party;
+  src.onHold -> tgt.onHold;
+  src.period -> tgt.period;
+}
+

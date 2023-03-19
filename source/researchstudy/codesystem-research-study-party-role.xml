@@ -35,7 +35,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes that convey the type of party role that is provided."/>
+  <description value="This is a ResearchStudy's party role."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
   <content value="complete"/>
@@ -70,14 +70,14 @@
     <definition value="funding-source"/>
   </concept>
   <concept>
-    <code value="recruitment-contact"/>
-    <display value="recruitment-contact"/>
-    <definition value="recruitment-contact"/>
-  </concept>
-  <concept>
     <code value="general-contact"/>
     <display value="general-contact"/>
     <definition value="general-contact"/>
+  </concept>
+  <concept>
+    <code value="recruitment-contact"/>
+    <display value="recruitment-contact"/>
+    <definition value="recruitment-contact"/>
   </concept>
   <concept>
     <code value="sub-investigator"/>
@@ -94,4 +94,8 @@
     <display value="study-chair"/>
     <definition value="study-chair"/>
   </concept>
+	<concept>
+		<code value="irb"/>
+		<display value="Institutional Review Board"/>
+	</concept>
 </CodeSystem>

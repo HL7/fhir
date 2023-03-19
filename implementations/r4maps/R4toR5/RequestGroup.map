@@ -1,0 +1,65 @@
+map "http://hl7.org/fhir/StructureMap/RequestGroup3to4" = "R3 to R4 Conversions for RequestGroup"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGroupR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/RequestGroup" alias Requestgroup as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group RequestGroup(source src : RequestGroupR3, target tgt : RequestGroup) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.definition -> tgt.instantiatesCanonical;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.subject -> tgt.subject;
+  src.context -> tgt.encounter;
+  src.authoredOn -> tgt.authoredOn;
+  src.author -> tgt.author;
+  src.reason : CodeableConcept as v -> tgt.reasonCode = v;
+  src.reason : Reference as v -> tgt.reasonReference = v;
+  src.note -> tgt.note;
+  src.action as vs -> tgt.action as vt then action(vs, vt);
+}
+
+group action(source src, target tgt) extends BackboneElement {
+  src.label -> tgt.prefix;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.textEquivalent -> tgt.textEquivalent;
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+  src.condition as s -> tgt.condition as t then condition(s, t);
+  src.relatedAction as s -> tgt.relatedAction as t then relatedAction(s, t);
+  src.timing : dateTime as vs -> tgt.timing = create('dateTime') as vt then dateTime(vs, vt);
+  src.timing : Period as vs -> tgt.timing = create('Period') as vt then Period(vs, vt);
+  src.timing : Duration as vs -> tgt.timing = create('Duration') as vt then Duration(vs, vt);
+  src.timing : Range as vs -> tgt.timing = create('Range') as vt then Range(vs, vt);
+  src.timing : Timing as vs -> tgt.timing = create('Timing') as vt then Timing(vs, vt);
+  src.participant -> tgt.participant;
+  src.type -> tgt.type;
+  src.groupingBehavior -> tgt.groupingBehavior;
+  src.selectionBehavior -> tgt.selectionBehavior;
+  src.requiredBehavior -> tgt.requiredBehavior;
+  src.precheckBehavior -> tgt.precheckBehavior;
+  src.cardinalityBehavior -> tgt.cardinalityBehavior;
+  src.resource -> tgt.resource;
+  src.action as vs -> tgt.action as vt then action(vs, vt);
+}
+
+group condition(source src, target tgt) extends BackboneElement {
+  src.kind -> tgt.kind;
+  src.description as v ->  tgt.expression as e,  e.description = v;
+  src.language as v ->  tgt.expression as e,  e.language = v;
+  src.expression as v ->  tgt.expression as e,  e.expression = v;
+}
+
+group relatedAction(source src, target tgt) extends BackboneElement {
+  src.actionId -> tgt.actionId;
+  src.relationship -> tgt.relationship;
+  src.offset : Duration as vs -> tgt.offset = create('Duration') as vt then Duration(vs, vt);
+  src.offset : Range as vs -> tgt.offset = create('Range') as vt then Range(vs, vt);
+}
+

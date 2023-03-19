@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/DetectedIssue4to3" = "R4 to R3 Conversion for DetectedIssue"
+
+uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DetectedIssue" alias DetectedIssueR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DetectedIssue(source src : DetectedIssue, target tgt : DetectedIssueR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.code -> tgt.category;
+  src.severity -> tgt.severity;
+  src.patient -> tgt.patient;
+  src.identified : dateTime as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.author -> tgt.author;
+  src.implicated -> tgt.implicated;
+  src.detail -> tgt.detail;
+  src.reference -> tgt.reference;
+  src.mitigation as vs0 -> tgt.mitigation as vt0 then mitigation(vs0, vt0);
+}
+
+group mitigation(source src, target tgt) extends BackboneElement {
+  src.action -> tgt.action;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+}
+

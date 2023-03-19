@@ -3,37 +3,67 @@
 <!-- insert xhtml content here -->
 <a name="examplecodes"></a>
 <h3>Example Codes</h3>
-<p>Genomic Study resource uses many example codes for terminology binding. Reviewers and implementers are strongly encouraged to provide their comments and feedback about the example codes for terminology binding purposes.</p>
-<p>Below the attributes of provided example bindings are listed. Links are included to indicate where the example codes from were pulled from.</p>
+<p>GenomicStudy uses many example codes for terminology binding. Reviewers and implementers are strongly encouraged to provide their comments and feedback about the example codes for terminology binding purposes.</p>
+<p>The attributes and example bindings are listed below. Links are included to indicate where the example codes were pulled from.</p>
 <h4>GenomicStudy.type</h4>
-<p>The type example codes were based on discussions by Clinical Genomics Workgroup.
+<p>The <code>type</code> example codes were based on discussions by Clinical Genomics Workgroup.
 </p>
 <h4>GenomicStudy.analysis.methodType</h4>
-<p>The method type example codes were pulled from <a href="https://www.ncbi.nlm.nih.gov/gtr/">National Library of Medicine-Genetic Testing Registry (NCBI-GTR)</a> values of describing different testing methods on various levels: <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt">major method category</a>, <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt">method category</a>, and <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt">primary methodology</a>.
+<p>The <code>methodType</code> example codes were pulled from <a href="https://www.ncbi.nlm.nih.gov/gtr/">National Library of Medicine-Genetic Testing Registry (NCBI-GTR)</a> and describe testing methods on various levels: <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt">major method category</a>, <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt">method category</a>, and <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt">primary methodology</a>.
 </p>
 <h4>GenomicStudy.analysis.input.type and GenomicStudy.analysis.output.type</h4>
 <p>The input and output type example codes were pulled from <a href="https://software.broadinstitute.org/software/igv/FileFormats">Integrative Genomics Viewer Documentation</a> by Broad Institute.
 </p>
 <h4>GenomicStudy.analysis.changeType</h4>
-<p>The change type example codes were based on discussions by Clinical Genomics Workgroup.
+<p>The <code>changeType</code> example codes were based on discussions by Clinical Genomics Workgroup.
 </p>
 <a name="notes"></a>
 <h3>Implementation Notes</h3>
-<p>
+<h4>Handling markdown</h4>
+
+<p>The <code>description</code> is a <a href="datatypes.html#markdown">markdown</a> datatype, and implementers should carefully consider how to appropriately handle this attribute. The characters in markdown formatting can conflict with those commonly used in descriptions of genomic data. In particular, descriptions that contain mentions of "star alleles" (widely used in the pharmacogenomics and HLA domains) could be munged in a way that prevents accurate interpretation. For example, consider this text:
 </p>
+<pre>This genomic study analyzes CYP2D6*1 and CYP2D6*2</pre>
+
+<p>If the system producing this data treats this as a simple text string with no special processing, but a receiving system processes this via a markdown rendering engine, the two '*' characters would be processed as markdown formatting characters. This would italicize the text between '*' characters, and not display '*' characters. This could cause an inaccurate interpretation of the study description.
+</p>
+
+<p>There are several ways data producers can ensure content is appropriately rendered by receiving systems without requiring the content to be formatted as markdown prior to sending. Here are three basic approaches to consider:
+</p>
+
+<ul>
+  <li>
+    <p>
+    Escaping individual characters (with a \) that act as markdown formatting characters:
+    <pre>This genomic study analyzes CYP2D6\*1 and CYP2D6\*2</pre>
+    </p>
+  </li>
+  <li>
+    <p>
+    Escape words (with a `) that contain markdown formatting characters:
+    <pre>This genomic study analyzes `CYP2D6*1` and `CYP2D6*2`</pre>
+    </p>
+  </li>
+  <li>
+    <p>
+    Escape full text blocks (with a ```) that contain markdown formatting characters:
+    <pre>```This genomic study analyzes CYP2D6*1 and CYP2D6*2```</pre>
+    </p>
+  </li>
+</ul>
 
 <a name="use-cases"></a>
 <h3>Use Cases</h3>
-<p>GenomicStudy.subject and GenomicStudy.analysis.subject can reference a lot of resource types besides Patient such as Group, BiologicallyDerivedProduct, or Substance. In addition, it can provide more details about involved genomic files as inputs or outputs. These various options allow the GenomicStudy resource to cover many use cases besides direct patient care, e.g., research studies that involve multiple patients or environmental samples. Through the following subsections, some of these use cases are described.
+<p>The attributes <code>subject</code> and <code>analysis.focus</code> can reference many resource types besides <a href="patient.html">Patient</a> such as <a href="group.html">Group</a>, <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, or <a href="substance.html">Substance</a>. In addition, it can provide more details about involved genomic files as inputs or outputs. These various options allow the GenomicStudy resource to cover many use cases besides direct patient care, e.g., research studies that involve multiple patients or environmental samples. Through the following subsections, some of these use cases are described.
 </p>
 <h4>Trio studies</h4>
-<p>Trio studies involve a proband and two more subjects such as proband’s mother and father for a de novo mutation detection study. GenomicStudy would list the proband as GenomicStudy.subject because it is the main subject of the study. While each of the study participants, i.e., proband, mother, and father, may have their own individual GenomicStudy.analysis.
+<p>Trio studies involve a proband and two more subjects such as proband’s mother and father for a de novo mutation detection study. GenomicStudy would list the proband as <code>subject</code> because it is the main subject of the study. Each of the study participants, i.e., proband, mother, and father, may have their own <code>analysis</code> entry. When an analysis was performed on an entity other than the <code>subject</code>, the <code>analysis.focus</code> attribute would reference that entity. If a <code>analysis</code> entry documented the analysis of all participants of the trio, each participant would be referenced by <code>analysis.focus</code>.
 </p>
-<p>GenomicStudy.analysis.input lists various files that may be used for each individual analysis, their types, and their generation context. GenomicStudy.analysis.input.file elements may link these files to DocumentReference resources that provides more details about each individual files. One of the main details is the subject of a file. If a file is linked to a specific patient, the corresponding DocumentReference.subject may reference this Patient Resource. If the file contains data from multiple persons, the corresponding DocumentReference.subject may reference a Group resource that lists these persons, and their relationship to each other if available.
+<p>The <code>analysis.input</code> lists various files that may be used for each individual analysis, their types, and their generation context. <code>analysis.input.file</code> may link these files to <a href="documentreference.html">DocumentReference</a> resources to provide details about each individual file. One of the main details is the subject of a file. If a file is linked to a specific patient, the corresponding <code>DocumentReference.subject</code> may reference this <a href="patient.html">Patient</a> Resource. If the file contains data from multiple persons, the corresponding <code>DocumentReference.subject</code> may reference a <a href="group.html">Group</a> resource that lists these persons, and their relationship to each other if available.
 </p>
 
 <h4>Somatic mutation detection studies</h4>
-<p>Somatic mutation studies may use multiple samples from the patient to support mutation detection, e.g., tumor-normal sample pair. GenomicStudy.analysis may describe conducted analyses per each sample, where GenomicStudy.analysis.specimen elements may provide more details about each individual element. In addition GenomicStudy.analysis.input can list relevant input files, where the DocumentReference provide by GenomicStudy.analysis.input.file can list the specific specimen this input file is related to using DocumentReference.subject as a Specimen resource instance.
+<p>Somatic mutation studies may use multiple samples from the patient to support mutation detection, e.g., tumor-normal sample pair. <code>analysis</code> may describe conducted analyses per each sample, where <code>analysis.specimen</code> elements may provide details about each individual specimen. In addition <code>analysis.input</code> can list relevant input files, where the <a href="documentreference.html">DocumentReference</a> referenced by <code>analysis.input.file</code> can list the specific specimen this input file is related to using <code>DocumentReference.subject</code> as a <a href="specimen.html">Specimen</a> resource instance.
 </p>
 
 <a name="ehr-usecase"></a>

@@ -1,0 +1,55 @@
+// Example Provenance for $merge
+
+<Provenance xmlns="http://hl7.org/fhir">
+    <id value="add4712f870b484dada83e80a249d7fb" />
+    <meta>
+        <versionId value="2" />
+        <lastUpdated value="2019-09-15T17:39:26.3561523-04:00" />
+    </meta>
+    <text>
+        <status value="generated" />
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <span style="color: gray;">target:</span> Patient/pat2/_history/41<br /><span style="color: gray;">target:</span> Patient/pat1/_history/63<br /><span style="color: gray;">activity:</span> Merge Record Lifecycle Event<br /><hr /><span style="color: gray;">who:</span> Fixmeup, Steve Dr
+        </div>
+      </text>
+	<target>
+        <reference value="Patient/pat2/_history/41" />
+    </target>
+    <target>
+        <reference value="Patient/pat1/_history/63" />
+    </target>
+    <occurredPeriod>
+        <start value="2019-09-15T17:38:56.3087526-04:00" />
+        <end value="2019-09-15T17:39:26.3544498-04:00" />
+    </occurredPeriod>
+    <recorded value="2019-09-15T17:38:56.3087526-04:00" />
+    <reason>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+            <code value="PATADMIN" />
+        </coding>
+        <text value="patient administration" />
+    </reason>
+    <activity>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle" />
+            <code value="merge" />
+        </coding>
+        <text value="Merge Record Lifecycle Event" />
+    </activity>
+    <agent>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type" />
+                <code value="performer" />
+            </coding>
+            <text value="Performer" />
+        </type>
+        <who>
+            <identifier>
+                <value value="UID123234" />
+            </identifier>
+            <display value="Fixmeup, Steve Dr" />
+        </who>
+    </agent>
+</Provenance>

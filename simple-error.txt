@@ -1,1 +1,1 @@
-﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/device/structuredefinition-Device.xml: markup not allowed inside attribute value - illegal <  (position: TEXT seen ...<expression value="Device.name.where(display = true).count() <... @581:71) 
+Resource Examples failed instance validation

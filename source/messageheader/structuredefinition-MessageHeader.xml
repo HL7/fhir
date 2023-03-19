@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MessageHeader"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MessageHeader"/>
-  <title value="MessageHeader"/>
+  <title value="Message Header"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Infrastructure And Messaging)"/>
@@ -50,9 +50,14 @@
   <purpose value="Many implementations are not prepared to use REST and need a messaging based infrastructure."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -80,6 +85,10 @@
       <min value="0"/>
       <max value="*"/>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
         <map value="MSH / MSA / ERR"/>
       </mapping>
@@ -95,7 +104,7 @@
     <element id="MessageHeader.event[x]">
       <path value="MessageHeader.event[x]"/>
       <short value="Event code or link to EventDefinition"/>
-      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value &quot;http://terminology.hl7.org/CodeSystem/message-events&quot;.  Alternatively a canonical uri to the EventDefinition."/>
+      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification are defined by the implementation.  Alternatively a canonical uri to the EventDefinition."/>
       <comment value="The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp)."/>
       <requirements value="Drives the behavior associated with this message."/>
       <min value="1"/>
@@ -117,8 +126,11 @@
         </extension>
         <strength value="example"/>
         <description value="One of the message events defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/message-events"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -163,6 +175,23 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
+    <element id="MessageHeader.destination.endpoint[x]">
+      <path value="MessageHeader.destination.endpoint[x]"/>
+      <short value="Actual destination address or Endpoint resource"/>
+      <definition value="Indicates where the message should be routed."/>
+      <comment value="The url may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
+      <requirements value="Identifies where to route the message."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="url"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="MessageHeader.destination.name">
       <path value="MessageHeader.destination.name"/>
       <short value="Name of system"/>
@@ -198,27 +227,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]"/>
-      </mapping>
-    </element>
-    <element id="MessageHeader.destination.endpoint">
-      <path value="MessageHeader.destination.endpoint"/>
-      <short value="Actual destination address or id"/>
-      <definition value="Indicates where the message should be routed to."/>
-      <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
-      <requirements value="Identifies where to route the message."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="MSH-25 (or MSH-6)"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./telecom"/>
       </mapping>
     </element>
     <element id="MessageHeader.destination.receiver">
@@ -262,7 +270,7 @@
       <path value="MessageHeader.sender"/>
       <short value="Real world sender of the message"/>
       <definition value="Identifies the sending system to allow the use of a trust relationship."/>
-      <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone."/>
+      <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information."/>
       <requirements value="Allows routing beyond just the application level."/>
       <min value="0"/>
       <max value="1"/>
@@ -270,9 +278,14 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
@@ -290,38 +303,11 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="MessageHeader.enterer">
-      <path value="MessageHeader.enterer"/>
-      <short value="The source of the data entry"/>
-      <definition value="The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions."/>
-      <comment value="Usually only for the request but can be used in a response."/>
-      <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="EVN-5 / ORC-10 / PRT-5:PRT-4='EP' / ROL where ROL.3 is EP or ORC.10"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;ENT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])"/>
-      </mapping>
-    </element>
     <element id="MessageHeader.author">
       <path value="MessageHeader.author"/>
       <short value="The source of the decision"/>
       <definition value="The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
-      <comment value="Usually only for the request but can be used in a response."/>
+      <comment value="Usually only for the request but can be used in a response.Proposing to remove and rely on Task to convey this information. "/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
       <max value="1"/>
@@ -329,15 +315,21 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.author"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-19 / PRT-5:PRT-4='AUT' / ROL where ROL.3 is IP or ORC.12"/>
+        <map value="ORC-19 / PRT-5:PRT-4='AUT' / ROL where ROL-3 ='IP' or ORC-12"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -369,6 +361,23 @@
         <identity value="rim"/>
         <map value="unique(./communicationFunction[typeCode=&quot;SND&quot;])"/>
       </mapping>
+    </element>
+    <element id="MessageHeader.source.endpoint[x]">
+      <path value="MessageHeader.source.endpoint[x]"/>
+      <short value="Actual source address or Endpoint resource"/>
+      <definition value="Identifies the routing target to send acknowledgements to."/>
+      <comment value="The url may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
+      <requirements value="Identifies where to send responses, may influence security permissions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="url"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="MessageHeader.source.name">
       <path value="MessageHeader.source.name"/>
@@ -456,32 +465,11 @@
         <map value="unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/scopesRole[normalRole() and classCode=&quot;CON&quot; and layer[classCode=&quot;PSN&quot;]/telecom[isNormalDatatype()])"/>
       </mapping>
     </element>
-    <element id="MessageHeader.source.endpoint">
-      <path value="MessageHeader.source.endpoint"/>
-      <short value="Actual message source address or id"/>
-      <definition value="Identifies the routing target to send acknowledgements to."/>
-      <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
-      <requirements value="Identifies where to send responses, may influence security permissions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="MSH-24"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./telecom[isNormalDatatype()]"/>
-      </mapping>
-    </element>
     <element id="MessageHeader.responsible">
       <path value="MessageHeader.responsible"/>
       <short value="Final responsibility for event"/>
       <definition value="The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party."/>
-      <comment value="Usually only for the request but can be used in a response."/>
+      <comment value="Usually only for the request but can be used in a response.Proposing to remove and rely on Task to convey this information."/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
       <max value="1"/>
@@ -493,12 +481,16 @@
       </type>
       <isSummary value="true"/>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-12 /  PRT-5:PRT-4='OP' /  PRT-8:PRT-4='OP' / ROL where ROL.3 is RO or ORC.11"/>
+        <map value="ORC-12 /  PRT-5:PRT-4='OP' /  PRT-8:PRT-4='OP' / ROL where ROL-3 is 'RO' or ORC-11"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -529,8 +521,12 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reason"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
-        <map value="EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication"/>
+        <map value="EVN-4 / ORC-16 / OBR-31 / BPO-13 / RXO-20 / RXE-27 / RXD-21 / RXG-22 / RXA-19"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

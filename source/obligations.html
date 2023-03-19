@@ -18,7 +18,7 @@
 [%normative page infrastructure%]
 
 <p>
-The FHIR specification is primarily concerned with valid interfaces of various kinds (APIs, messaging, etc)
+The FHIR specification is primarily concerned with valid interfaces of various kinds (APIs, messaging, etc.)
 and the rules for the content in resource instances exchanged between applications. Implementation guides 
 that describe specific implementation solutions and <a href="actordefinition.html">application roles</a> 
 are also concerned with application behavior - what information must be provided under what conditions, and 
@@ -70,103 +70,14 @@ so no elements are flagged as <code>mustSupport</code>=true as part of the base 
 no obligations are defined for any elements (except for an example profile).
 </p>
 
-<div class="trial-content">
-  <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-    This section and the element <code>ElementDefinition.obligation</code>
-    is considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
-  </p>
-  
 <a name="obligations"></a>
 <h3>Obligations</h3>
 
 <p>
 If an element is labelled as "must-support", the element can specify the obligations associated
-with it's use by providing one or more obligations. Each obligation has the following features:
+with its use by providing one or more obligations using the <%extension http://hl7.org/fhir/StructureDefinition/obligation%>. 
+For further details about how to use the obligation extension, consult <a href="<%extensions-location%>StructureDefinition-obligation.html">the extension documentation</a>.
 </p>
-<table lass="grid">
-  <tr>
-    <td>code</td>
-    <td>
-      one or more codes that specify the details of the obligation. The codes are taken from the 
-      <a href="codesystem-obligation.html">Obligations Code system</a>. The codes say things like 
-      'SHALL store this data item', 'SHOULD populate this if a data element is available', or 
-      'HL7 v2 expectations apply'. If multiple codes are specified, then all the obligations 
-      apply. See below for more details about how the combination obligation 
-      codes work.
-    </td>
-  </tr>
-  <tr>
-    <td>actor</td>
-    <td>
-      One or more references to <a href="actordefinition.html">actors</a> that are involved in the 
-      exchanges associated with the element. If any actors are indicated, then the obligations 
-      are only associated with those actors; if no actors are indicated, the obligations apply 
-      to all applications exchanging the element. Since this includes in any derived profiles,
-      designers should be wary of defining obligations that don't have any associated actors.
-    </td>
-  </tr>
-  <tr>
-    <td>documentation</td>
-    <td>
-      Markdown documentation that provides additional information about the obligation, including
-      it's rationale and justification
-    </td>
-  </tr>
-  <tr>
-    <td>usage</td>
-    <td>
-      A set of qualifiers that restrict the scope of the obligation. Typically, the obligation is 
-      restricted by jurisdiction/realm, but it may also be restricted to particular clinical or
-      workflow contexts. This specification does not detail exactly how implementations determine 
-      when usage criteria apply, so this is a subject that should be addressed in implementation 
-      guides when usages are specified
-    </td>
-  </tr>
-  <tr>
-    <td>filter</td>
-    <td>
-      A <a href="fhirpath.html">FHIRPath</a> expression that indicates a subset of elements to 
-      which this obligation applies. This is typically used with elements with a max cardinality
-      greater than 0. The same outcome can be achieved by slicing the element, but this has a
-      real price for implementers, so a filter is preferred if the element is not sliced for 
-      other reasons
-    </td>
-  </tr>
-  <tr>
-    <td>filterDocumentation</td>
-    <td>
-      A human readable description of the filter. This SHOULD be provided if a filter is specified,
-      for the benefit of readers not familiar with FHIRPath expressions.
-    </td>
-  </tr>
-  <tr>
-    <td>process</td>
-    <td>
-      One or more URIs that reference processes that involve handling the data element. The references
-      may be to <a href="operationdefinition.html">Operations</a> defined by the FHIR specification, or 
-      processed defined elsewhere, including in the <a href="https://www.iso.org/standard/57757.html">EHR-FM specification</a>.
-    </td>
-  </tr>
-</table>
-
-<a name="obligation-codes"></a>
-<h3>Obligation Codes</h3>
-
-<p>
-There are two kinds of codes specified by the obligation codes coding system:
-</p>
-<ul>
-  <li>Duplicate codes combining "shall" or "should" with a functional code</li>
-  <li>Composite codes that specify one or more combinations of duplicate codes</li>
-</ul>
-<p>
-The functional codes are defined in three different groups, according to whether 
-obligations apply to resource creators, consumers or applications that are just 
-transferring them from one application to another (a category that includes general
-purpose FHIR repositories). Note that actors, whether clients or servers or something
-else, typically both create and consume resources.
-</p>
-</div>
 
 [%file newfooter%]
 </body>

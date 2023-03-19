@@ -16,7 +16,7 @@
         <description value="A use context assigned to the capability statement"/>
         <code value="context"/>
         <type value="token"/>
-        <expression value="(CapabilityStatement.useContext.value as CodeableConcept)"/>
+        <expression value="(CapabilityStatement.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,12 +35,31 @@
         <description value="A quantity- or range-valued use context assigned to the capability statement"/>
         <code value="context-quantity"/>
         <type value="quantity"/>
-        <expression value="(CapabilityStatement.useContext.value as Quantity) | (CapabilityStatement.useContext.value as Range)"/>
+        <expression value="(CapabilityStatement.useContext.value.ofType(Quantity)) | (CapabilityStatement.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
   <entry>
+     <resource>
+       <SearchParameter>
+         <id value="CapabilityStatement-identifier"/>
+         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+           <valueCode value="normative"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+           <valueString value="{{name}}.identifier"/>
+         </extension>
+         <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-identifier"/>
+         <description value="External identifier for the capability statement"/>
+         <code value="identifier"/>
+         <type value="token"/>
+         <expression value="CapabilityStatement.identifier"/>
+         <processingMode value="normal"/>
+       </SearchParameter>
+     </resource>
+   </entry>
+   <entry>
     <resource>
       <SearchParameter>
         <id value="CapabilityStatement-context-type"/>
@@ -198,6 +217,25 @@
         <code value="guide"/>
         <type value="reference"/>
         <expression value="CapabilityStatement.implementationGuide"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-identifier"/>
+        <description value="External identifier for the capability statement"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.identifier"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

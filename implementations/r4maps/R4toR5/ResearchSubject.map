@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/ResearchSubject3to4" = "R3 to R4 Conversions for ResearchSubject"
+
+conceptmap "ResourceSubjectStatus" {
+  prefix s = "http://hl7.org/fhir/research-study-status"
+  prefix t = "http://hl7.org/fhir/research-study-status"
+
+  s:candidate - t:candidate
+  s:eligible - t:candidate
+  s:"follow-up" - t:completed
+  s:ineligible - t:candidate
+  s:"not-registered" - t:candidate
+  s:"off-study" - t:completed
+  s:"on-study" - t:enrolled
+  s:"on-study-intervention" - t:active
+  s:"on-study-observation" - t:suspended
+  s:"pending-on-study" - t:enrolled
+  s:"potential-candidate" - t:candidate
+  s:screening - t:candidate
+  s:withdrawn - t:withdrawn
+}
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchSubject" alias ResearchSubjectR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubject as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ResearchSubject(source src : ResearchSubjectR3, target tgt : ResearchSubject) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#ResourceSubjectStatus', 'code');
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+  src.study -> tgt.study;
+  src.individual -> tgt.individual;
+  src.assignedArm -> tgt.assignedArm;
+  src.actualArm -> tgt.actualArm;
+  src.consent -> tgt.consent;
+}
+

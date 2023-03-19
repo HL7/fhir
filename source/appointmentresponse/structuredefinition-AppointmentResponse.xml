@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AppointmentResponse"/>
-  <title value="AppointmentResponse"/>
+  <title value="Appointment Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -167,10 +167,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
@@ -240,6 +236,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="apr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -279,6 +276,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <condition value="apr-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -303,7 +301,7 @@
     </element>
     <element id="AppointmentResponse.participantStatus">
       <path value="AppointmentResponse.participantStatus"/>
-      <short value="accepted | declined | tentative | needs-action"/>
+      <short value="accepted | declined | tentative | needs-action | entered-in-error"/>
       <definition value="Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid."/>
       <min value="1"/>
@@ -312,7 +310,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="Not known why this is labelled a modifier"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -320,7 +318,7 @@
         </extension>
         <strength value="required"/>
         <description value="The Participation status of an appointment."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/participationstatus"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/appointmentresponse-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -343,7 +341,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="workflow"/>

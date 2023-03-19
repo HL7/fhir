@@ -37,7 +37,7 @@ Each Requirements resource carries a set of statements about requirements. Each
 statement has:
 </p>
 <ul>
- <li><b>identity</b>: Computable and humn identification of the statement</li>
+ <li><b>identity</b>: Computable and human identification of the statement</li>
  <li><b>requirement</b>: The wording of the requirement</li>
  <li><b>conformance</b>: The strength associated with the statement. The strength is almost always embedded in the language of the requirement, but this allows for filtering and a degree of automated processing</li>
  <li><b>source</b>: Source information about who was the source of the requirement</li>
@@ -48,7 +48,7 @@ statement has:
 <h2>Boundaries and Relationships</h2>
 
 <p>
-Requirements may by referenced from almost any resource by the <a href="extension-satisfies-requirement.html">Requirements Satisfied</a> extension.
+Requirements may by referenced from almost any resource by the <a href="[%extensions-location%]StructureDefinition-satisfies-requirement.html">Requirements Satisfied</a> extension.
 Generally, this extension will be found in the <a href="canonicalresource.html">Canonical Resources</a> but this is 
 not a hard rule.
 </p>

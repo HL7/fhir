@@ -3,17 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Task-core"/>
   <version value="0.1"/>
-  <name value="Task HL7 Extensions"/>
-  <title value="Task HL7 Extensions"/>
+  <name value="TaskHL7Extensions"/>
+  <title value="Task  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2017-02-16T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR I WG"/>
   <description value="Defines common extensions used with or related to the Task resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/task-replaces"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

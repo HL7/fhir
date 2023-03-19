@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="StructureMap-transform"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,11 +38,11 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureMap-transform"/>
   <version value="5.0.0"/>
-  <name value="transform"/>
+  <name value="Transform"/>
   <title value="Model Instance Transformation"/>
   <status value="draft"/>
   <kind value="operation"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2023-02-21T10:17:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -63,10 +65,35 @@
   <parameter>
     <name value="source"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The structure map to apply. This is only needed if the operation is invoked at the resource level. If the $transform operation is invoked on a particular structure map, this will be ignored by the server"/>
+    <documentation value="The structure map to apply. This is only needed if the operation is invoked at the resource level and no structureMap has been provided. If the $transform operation is invoked on a particular structure map, this will be ignored by the server"/>
     <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="sourceMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The structure map to apply. This is only needed when the operation is invoked at the resource level and no URI has been provided."/>
+    <type value="StructureMap"/>
+  </parameter>
+  <parameter>
+    <name value="supportingMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="StructureMap resources that support the source map. If a source URL is provided, the map can be provided in this parameter (or it can be provided as sourceMap)."/>
+    <type value="StructureMap"/>
+  </parameter>
+  <parameter>
+    <name value="srcMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The same as structureMap, but the resource is provided in the mapping language rather than as a structureMap."/>
+    <type value="string"/>
   </parameter>
   <parameter>
     <name value="content"/>

@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="anonymous"/>
@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TestScript"/>
-  <title value="TestScript"/>
+  <title value="Test Script"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -78,9 +78,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="TestScript">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="200,150"/>
-      </extension>
       <path value="TestScript"/>
       <short value="Describes a set of tests"/>
       <definition value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
@@ -90,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
       <mapping>
@@ -125,7 +122,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -484,9 +481,6 @@
       </type>
     </element>
     <element id="TestScript.origin">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-70,140"/>
-      </extension>
       <path value="TestScript.origin"/>
       <short value="An abstract server representing a client or sender in a message exchange"/>
       <definition value="An abstract server used in operations within this test script in the origin element."/>
@@ -540,9 +534,6 @@
       </type>
     </element>
     <element id="TestScript.destination">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-120,220"/>
-      </extension>
       <path value="TestScript.destination"/>
       <short value="An abstract server representing a destination or receiver in a message exchange"/>
       <definition value="An abstract server used in operations within this test script in the destination element."/>
@@ -596,9 +587,6 @@
       </type>
     </element>
     <element id="TestScript.metadata">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="260,30"/>
-      </extension>
       <path value="TestScript.metadata"/>
       <short value="Required capability that is assumed to function correctly on the FHIR server being tested"/>
       <definition value="The required capability must exist and are assumed to function correctly on the FHIR server being tested."/>
@@ -616,9 +604,6 @@
       </constraint>
     </element>
     <element id="TestScript.metadata.link">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,0"/>
-      </extension>
       <path value="TestScript.metadata.link"/>
       <short value="Links to the FHIR specification"/>
       <definition value="A link to the FHIR specification that this test is covering."/>
@@ -649,9 +634,6 @@
       </type>
     </element>
     <element id="TestScript.metadata.capability">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-70,0"/>
-      </extension>
       <path value="TestScript.metadata.capability"/>
       <short value="Capabilities  that are assumed to function correctly on the FHIR server being tested"/>
       <definition value="Capabilities that must exist and are assumed to function correctly on the FHIR server being tested."/>
@@ -661,6 +643,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tst-4"/>
     </element>
     <element id="TestScript.metadata.capability.required">
       <path value="TestScript.metadata.capability.required"/>
@@ -671,6 +654,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tst-4"/>
     </element>
     <element id="TestScript.metadata.capability.validated">
       <path value="TestScript.metadata.capability.validated"/>
@@ -681,6 +665,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tst-4"/>
     </element>
     <element id="TestScript.metadata.capability.description">
       <path value="TestScript.metadata.capability.description"/>
@@ -769,7 +754,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestScriptScopeConformanceType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The expectation of whether the test must pass for the system to be considered conformant with the artifact."/>
         </extension>
         <strength value="extensible"/>
@@ -791,7 +776,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestScriptScopePhaseType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The phase of testing for this artifact."/>
         </extension>
         <strength value="extensible"/>
@@ -800,9 +785,6 @@
       </binding>
     </element>
     <element id="TestScript.fixture">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="550,150"/>
-      </extension>
       <path value="TestScript.fixture"/>
       <short value="Fixture in the test script - by reference (uri)"/>
       <definition value="Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute."/>
@@ -857,9 +839,6 @@
       </type>
     </element>
     <element id="TestScript.variable">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="580,250"/>
-      </extension>
       <path value="TestScript.variable"/>
       <short value="Placeholder for evaluated elements"/>
       <definition value="Variable is set based either on element value in response body or on header field value in the response headers."/>
@@ -912,13 +891,14 @@
     <element id="TestScript.variable.expression">
       <path value="TestScript.variable.expression"/>
       <short value="The FHIRPath expression against the fixture body"/>
-      <definition value="The FHIRPath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
+      <definition value="The FHIRPath expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
       <comment value="If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-3"/>
     </element>
     <element id="TestScript.variable.headerField">
       <path value="TestScript.variable.headerField"/>
@@ -930,6 +910,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-3"/>
     </element>
     <element id="TestScript.variable.hint">
       <path value="TestScript.variable.hint"/>
@@ -951,6 +932,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-3"/>
     </element>
     <element id="TestScript.variable.sourceId">
       <path value="TestScript.variable.sourceId"/>
@@ -964,9 +946,6 @@
       </type>
     </element>
     <element id="TestScript.setup">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,300"/>
-      </extension>
       <path value="TestScript.setup"/>
       <short value="A series of required setup operations before tests are executed"/>
       <definition value="A series of required setup operations before tests are executed."/>
@@ -979,9 +958,6 @@
     <element id="TestScript.setup.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="SetupAction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="20,390"/>
       </extension>
       <path value="TestScript.setup.action"/>
       <short value="A setup operation or assert to perform"/>
@@ -1001,9 +977,6 @@
       </constraint>
     </element>
     <element id="TestScript.setup.action.operation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-40,490"/>
-      </extension>
       <path value="TestScript.setup.action.operation"/>
       <short value="The setup operation to perform"/>
       <definition value="The operation to perform."/>
@@ -1012,6 +985,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tst-1"/>
+      <condition value="tst-2"/>
       <constraint>
         <key value="tst-7"/>
         <severity value="error"/>
@@ -1030,11 +1005,14 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestScriptOperationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The allowable operation code types."/>
         </extension>
         <strength value="extensible"/>
@@ -1088,7 +1066,7 @@
     </element>
     <element id="TestScript.setup.action.operation.accept">
       <path value="TestScript.setup.action.operation.accept"/>
-      <short value="Mime type to accept in the payload of the response, with charset etc."/>
+      <short value="Mime type to accept in the payload of the response, with charset etc"/>
       <definition value="The mime-type to use for RESTful operation in the 'Accept' header."/>
       <comment value="If this is specified, then test engine shall set the 'Accept' header to the corresponding value.  If you'd like to explicitly set the 'Accept' to some other value then use the 'requestHeader' element."/>
       <min value="0"/>
@@ -1107,7 +1085,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
         <strength value="required"/>
@@ -1117,7 +1095,7 @@
     </element>
     <element id="TestScript.setup.action.operation.contentType">
       <path value="TestScript.setup.action.operation.contentType"/>
-      <short value="Mime type of the request payload contents, with charset etc."/>
+      <short value="Mime type of the request payload contents, with charset etc"/>
       <definition value="The mime-type to use for RESTful operation in the 'Content-Type' header."/>
       <comment value="If this is specified, then test engine shall set the 'Content-Type' header to the corresponding value.  If you'd like to explicitly set the 'Content-Type' to some other value then use the 'requestHeader' element."/>
       <min value="0"/>
@@ -1136,7 +1114,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
         <strength value="required"/>
@@ -1205,11 +1183,11 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.requestHeader">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-30,780"/>
-      </extension>
       <path value="TestScript.setup.action.operation.requestHeader"/>
       <short value="Each operation can have one or more header elements"/>
       <definition value="Header elements would be used to set HTTP headers."/>
@@ -1273,6 +1251,9 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.targetId">
       <path value="TestScript.setup.action.operation.targetId"/>
@@ -1284,6 +1265,9 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.url">
       <path value="TestScript.setup.action.operation.url"/>
@@ -1295,11 +1279,11 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.assert">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,490"/>
-      </extension>
       <path value="TestScript.setup.action.assert"/>
       <short value="The assertion to perform"/>
       <definition value="Evaluates the results of previous operations to determine if the server under test behaves appropriately."/>
@@ -1309,6 +1293,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tst-1"/>
+      <condition value="tst-2"/>
       <constraint>
         <key value="tst-12"/>
         <severity value="error"/>
@@ -1363,11 +1349,13 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="tst-12"/>
+      <condition value="tst-13"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssertionDirectionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The type of direction to use for assertion."/>
         </extension>
         <strength value="required"/>
@@ -1384,17 +1372,21 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-10"/>
+      <condition value="tst-11"/>
     </element>
     <element id="TestScript.setup.action.assert.compareToSourceExpression">
       <path value="TestScript.setup.action.assert.compareToSourceExpression"/>
       <short value="The FHIRPath expression to evaluate against the source fixture"/>
-      <definition value="The FHIRPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
+      <definition value="The FHIRPath expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
       <comment value="Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-10"/>
+      <condition value="tst-11"/>
     </element>
     <element id="TestScript.setup.action.assert.compareToSourcePath">
       <path value="TestScript.setup.action.assert.compareToSourcePath"/>
@@ -1406,6 +1398,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-10"/>
+      <condition value="tst-11"/>
     </element>
     <element id="TestScript.setup.action.assert.contentType">
       <path value="TestScript.setup.action.assert.contentType"/>
@@ -1421,6 +1415,8 @@
         <label value="General"/>
         <valueCode value="application/fhir+xml"/>
       </example>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MimeType"/>
@@ -1428,7 +1424,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
         <strength value="required"/>
@@ -1436,16 +1432,41 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
       </binding>
     </element>
+    <element id="TestScript.setup.action.assert.defaultManualCompletion">
+      <path value="TestScript.setup.action.assert.defaultManualCompletion"/>
+      <short value="fail | pass | skip | stop"/>
+      <definition value="The default manual completion outcome applied to this assertion."/>
+      <comment value="Manual completion is used to pause the test engine execution and evaluation allowing an external review of the defined assert condition. The defaultManualCompletion defines the default manual completion outcome applied if one of the enumerated values is not applied."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If defaultManualCompletion is not specified, then the default manual completion outcome will be 'skip'."/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AssertionManualCompletionType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="The type of operator to use for assertion."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The default type of manual completion to use for assertion."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/assert-manual-completion-codes"/>
+      </binding>
+    </element>
     <element id="TestScript.setup.action.assert.expression">
       <path value="TestScript.setup.action.assert.expression"/>
       <short value="The FHIRPath expression to be evaluated"/>
       <definition value="The FHIRPath expression to be evaluated against the request or response message contents - HTTP headers and payload."/>
-      <comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId.  If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions."/>
+      <comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId. If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation. Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.&#xA;&#xA;The FHIRPath expression can be evaluated as either a path to a specific value or as a boolean expression against the given FHIR resource. When the FHIRPath is a boolean expression, the assert.value element is not used. See [Testing FHIR Use Expressions](testing.html#expressions)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.headerField">
       <path value="TestScript.setup.action.assert.headerField"/>
@@ -1457,17 +1478,21 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.minimumId">
       <path value="TestScript.setup.action.assert.minimumId"/>
       <short value="Fixture Id of minimum content resource"/>
-      <definition value="The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId."/>
-      <comment value="Asserts that the response contains all the element/content in another fixture pointed to by minimumId.  This can be a statically defined fixture or one that is dynamically set via responseId."/>
+      <definition value="The ID of a fixture. Asserts that the response contains at a minimum the fixture specified by minimumId."/>
+      <comment value="Asserts that the response contains all the element/content in another fixture pointed to by minimumId. This can be a statically defined fixture or one that is dynamically set via responseId.&#xA;&#xA;See [Testing FHIR Use minimumId](testing.html##minimumId) for a more complete description of the test engine's comparison logic."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.navigationLinks">
       <path value="TestScript.setup.action.assert.navigationLinks"/>
@@ -1479,22 +1504,25 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.operator">
       <path value="TestScript.setup.action.assert.operator"/>
-      <short value="equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval"/>
-      <definition value="The operator type defines the conditional behavior of the assert. If not defined, the default is equals."/>
-      <comment value="Operators are useful especially for negative testing.  If operator is not specified, then the &quot;equals&quot; operator is assumed; e.g. ```&lt;code&gt;   &lt;assert&gt;  &lt;operator value=&quot;in&quot; /&gt;  &lt;responseCode value=&quot;200,201,204&quot; /&gt;    &lt;/assert&gt;    &lt;assert&gt;  &lt;operator value=&quot;notEquals&quot; /&gt;  &lt;response value=&quot;okay&quot;/&gt;   &lt;/assert&gt;    &lt;assert&gt;  &lt;operator value=&quot;greaterThan&quot; /&gt;    &lt;responseHeader&gt;     &lt;field value=&quot;Content-Length&quot; /&gt;     &lt;value value=&quot;0&quot; /&gt;    &lt;/responseHeader/&gt;   &lt;/assert&gt; &lt;/code&gt; ```."/>
+      <short value="equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval | manualEval"/>
+      <definition value="The operator type defines the conditional behavior of the assert."/>
+      <comment value="Operators are useful for both positive and negative testing. If operator is not specified, then the default conditional behavior is implemented as defined in [Testing FHIR Assertions](testing.html#assertion-table)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If operator is not specified, then the default conditional behavior is implemented as defined in the Testing FHIR page Assertions table - see Comments."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssertionOperatorType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The type of operator to use for assertion."/>
         </extension>
         <strength value="required"/>
@@ -1512,6 +1540,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.requestMethod">
       <path value="TestScript.setup.action.assert.requestMethod"/>
@@ -1523,6 +1553,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestScriptRequestMethodCode"/>
@@ -1553,6 +1585,8 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRConcreteType"/>
@@ -1567,19 +1601,23 @@
     </element>
     <element id="TestScript.setup.action.assert.response">
       <path value="TestScript.setup.action.assert.response"/>
-      <short value="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable"/>
-      <definition value="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable."/>
+      <short value="continue | switchingProtocols | okay | created | accepted | nonAuthoritativeInformation | noContent | resetContent | partialContent | multipleChoices | movedPermanently | found | seeOther | notModified | useProxy | temporaryRedirect | permanentRedirect | badRequest | unauthorized | paymentRequired | forbidden | notFound | methodNotAllowed | notAcceptable | proxyAuthenticationRequired | requestTimeout | conflict | gone | lengthRequired | preconditionFailed | contentTooLarge | uriTooLong | unsupportedMediaType | rangeNotSatisfiable | expectationFailed | misdirectedRequest | unprocessableContent | upgradeRequired | internalServerError | notImplemented | badGateway | serviceUnavailable | gatewayTimeout | httpVersionNotSupported"/>
+      <definition value="continue | switchingProtocols | okay | created | accepted | nonAuthoritativeInformation | noContent | resetContent | partialContent | multipleChoices | movedPermanently | found | seeOther | notModified | useProxy | temporaryRedirect | permanentRedirect | badRequest | unauthorized | paymentRequired | forbidden | notFound | methodNotAllowed | notAcceptable | proxyAuthenticationRequired | requestTimeout | conflict | gone | lengthRequired | preconditionFailed | contentTooLarge | uriTooLong | unsupportedMediaType | rangeNotSatisfiable | expectationFailed | misdirectedRequest | unprocessableContent | upgradeRequired | internalServerError | notImplemented | badGateway | serviceUnavailable | gatewayTimeout | httpVersionNotSupported."/>
       <comment value="This is a shorter way of achieving similar verifications via &quot;assert.responseCode&quot;.  If you need more control, then use &quot;assert.responseCode&quot;  e.g. &lt;assert&gt;  &lt;contentType value=&quot;json&quot; /&gt;  &lt;response value=&quot;okay&quot;/&gt; &lt;/assert&gt;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="tst-12"/>
+      <condition value="tst-5"/>
+      <condition value="tst-13"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssertionResponseTypes"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The type of response code to use for assertion."/>
         </extension>
         <strength value="required"/>
@@ -1597,6 +1635,10 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-12"/>
+      <condition value="tst-5"/>
+      <condition value="tst-13"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.sourceId">
       <path value="TestScript.setup.action.assert.sourceId"/>
@@ -1630,6 +1672,8 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.value">
       <path value="TestScript.setup.action.assert.value"/>
@@ -1653,10 +1697,32 @@
         <code value="boolean"/>
       </type>
     </element>
+    <element id="TestScript.setup.action.assert.requirement">
+      <path value="TestScript.setup.action.assert.requirement"/>
+      <short value="Links or references to the testing requirements"/>
+      <definition value="Links or references providing traceability to the testing requirements for this assert."/>
+      <comment value="TestScript and TestReport instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestScript.setup.action.assert.requirement.link[x]">
+      <path value="TestScript.setup.action.assert.requirement.link[x]"/>
+      <short value="Link or reference to the testing requirement"/>
+      <definition value="Link or reference providing traceability to the testing requirement for this test."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </type>
+    </element>
     <element id="TestScript.test">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="540,410"/>
-      </extension>
       <path value="TestScript.test"/>
       <short value="A test in this script"/>
       <definition value="A test in this script."/>
@@ -1689,9 +1755,6 @@
     <element id="TestScript.test.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="TestAction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,420"/>
       </extension>
       <path value="TestScript.test.action"/>
       <short value="A test operation or assert to perform"/>
@@ -1756,9 +1819,6 @@
       </constraint>
     </element>
     <element id="TestScript.teardown">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="60,330"/>
-      </extension>
       <path value="TestScript.teardown"/>
       <short value="A series of required clean up steps"/>
       <definition value="A series of operations required to clean up after all the tests are executed (successfully or otherwise)."/>
@@ -1771,9 +1831,6 @@
     <element id="TestScript.teardown.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="TeardownAction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="130,390"/>
       </extension>
       <path value="TestScript.teardown.action"/>
       <short value="One or more teardown operations to perform"/>

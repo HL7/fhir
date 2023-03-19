@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NutritionProduct"/>
-  <title value="NutritionProduct"/>
+  <title value="Nutrition Product"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -188,7 +188,7 @@
     <element id="NutritionProduct.manufacturer">
       <path value="NutritionProduct.manufacturer"/>
       <short value="Manufacturer, representative or officially responsible for the product"/>
-      <definition value="The organisation (manufacturer, representative or legal authorisation holder) that is responsible for the device."/>
+      <definition value="The organisation (manufacturer, representative or legal authorization holder) that is responsible for the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>

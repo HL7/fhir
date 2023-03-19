@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  
+<!--   
+	  for this example, we use a real URI, since this example does have a canonical URL
+		at which it's posted. Alternatively, We could have used an OID, or a UUID 
+
+    note that since we give a literal URL here, there's an expectation 
+			that accessing that URL will give some form of representation of 
+			the full code system, or a pointer about how to get more information. 
+	
+			This is not an absolute requirement, but it may be enforced by some 
+			servers - for instance, the HL7 valueset registry will.   -->
+  <url value="http://hl7.org/fhir/CodeSystem/!ex#ample"/>
+<!--   an imaginary identifier. This is a non FHIR identifier - might be used in a 
+	  v2 context (though you always need to translate namespaces for v2)   -->
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1827"/>
+  </identifier>
+  <identifier>
+    <system value="http://acme.com/identifiers/codesystems"/>
+    <value value="internal-cholesterol-inl"/>
+  </identifier>
+<!--   for version, we are going to simply use the day of publication. This is also 
+    arbitrary - whatever is here is what people use to refer to the version. 
+    Could also be a UUID too. Note that you should change the identify of the code 
+    system, not the version, if existing codes are redefined (e.g. don't do that!)  -->
+  <version value="20160128"/>
+
+  <name value="1ACMECholCodesBlood"/>
+  <title value="ACME Codes for Cholesterol in Serum/Plasma"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2016-01-28"/>
+  <publisher value="Acme Co"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36."/>
+  
+  <!--   it's often unstated - are codes case sensitive or not. And 
+       it can be the cause of operational or clinical safety problems. 
+       So FHIR requires that it always be specified.   -->
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  
+  <!-- filter: Code Systems can define filters that value sets can 
+    use to select sets of codes. Note that value sets can also use
+    properties (see, e.g. the valueset-example-supplement example)
+    and this is always preferred because anything asserted as a 
+    filter in the code system will need custom code to make it work.
+    For this reason, filters are generally only defined in high value 
+    published code systems (unlike this extremely low value example)  -->
+  <filter>
+    <code value="acme-plasma"/>
+    <description value="An internal filter used to select codes that are only used with plasma"/>
+    <operator value="="/>
+    <value value="the value of this filter is either 'true' or 'false'"/>    
+  </filter>
+  
+  <!--   
+			ACME's defined definitions. Note that these are not 
+			*good* definitions - but they are very commonly the kind 
+			of definitions that are encountered in production
+		  -->
+  <concept>
+    <code value="chol-mmol"/>
+    <display value="SChol (mmol/L)"/>
+    <definition value="Serum Cholesterol, in mmol/L"/>
+    <designation>
+      <use>
+        <system value="http://acme.com/config/fhir/codesystems/internal"/>
+        <code value="internal-label"/>
+      </use>
+      <value value="From ACME POC Testing"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="chol-mmol"/>
+    <display value="SChol (mg/L)"/>
+    <definition value="Serum Cholesterol, in mg/L"/>
+    <designation>
+      <use>
+        <system value="http://acme.com/config/fhir/codesystems/internal"/>
+        <code value="internal-label"/>
+      </use>
+      <value value="From Paragon Labs"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="chol"/>
+    <display value="SChol"/>
+    <definition value="Serum Cholesterol"/>
+    <designation>
+      <use>
+        <system value="http://acme.com/config/fhir/codesystems/internal"/>
+        <code value="internal-label"/>
+      </use>
+      <value value="Obdurate Labs uses this with both kinds of units..."/>
+    </designation>
+  </concept>
+</CodeSystem>

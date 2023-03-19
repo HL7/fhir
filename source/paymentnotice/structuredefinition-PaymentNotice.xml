@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="PaymentNotice"/>
-  <title value="PaymentNotice"/>
+  <title value="Payment Notice"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Financial Management)"/>
@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -100,7 +100,7 @@
     </element>
     <element id="PaymentNotice.identifier">
       <path value="PaymentNotice.identifier"/>
-      <short value="Business Identifier for the payment noctice"/>
+      <short value="Business Identifier for the payment notice"/>
       <definition value="A unique identifier assigned to this payment notice."/>
       <requirements value="Allows payment notices to be distinguished and referenced."/>
       <min value="0"/>
@@ -186,7 +186,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="Reference"/> 
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>
@@ -226,10 +226,10 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PaymentNotice.provider">
-      <path value="PaymentNotice.provider"/>
+    <element id="PaymentNotice.reporter">
+      <path value="PaymentNotice.reporter"/>
       <short value="Responsible practitioner"/>
-      <definition value="The practitioner who is responsible for the services rendered to the patient."/>
+      <definition value="The party who reports the payment notice."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -264,7 +264,7 @@
       <short value="Payment reference"/>
       <definition value="A reference to the payment which is the subject of this notice."/>
       <requirements value="Need to identify the actual payment."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>

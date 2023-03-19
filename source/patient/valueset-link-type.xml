@@ -32,9 +32,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.234"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="LinkType"/>
-  <title value="LinkType"/>
+  <title value="Link Type"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of link between this patient resource and another patient resource."/>
+  <description value="The type of link between this Patient resource and another Patient/RelatedPerson resource."/>
   <immutable value="true"/>
   <compose>
     <include>

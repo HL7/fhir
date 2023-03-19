@@ -17,16 +17,16 @@ GenomicStudy resource aims at delineating relevant information of a genomic stud
 GenomicStudy describes relevant information including the reasons, purpose, and performers of the study. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses.
 </p>
 <p>
-A genomic study might be based on one or more service requests or care plans. The reasons for performing a genomic study might be driven by specific <a href="condition.html">Conditions</a> or <a href="observation.html">Observations</a>. Although the genomic study subject is the focus of the study, the analysis-level subject could be used to specify other relevant subjects or specimens. For example, trio testing may involve three subjects: the proband, and both parents. The proband would be the subject listed directly under the genomic study, while each of the analyses could represent proband, mother, and father genomic analyses.
+A GenomicStudy might be based on one or more service requests or care plans. The reasons for performing a genomic study might be driven by specific <a href="condition.html">Conditions</a> or <a href="observation.html">Observations</a>. Although the genomic study subject is the focus of the study, the analysis-level focus could be used to specify other relevant subjects or specimens. For example, trio testing may involve three subjects: the proband, and both parents. The proband would be the subject listed directly under the genomic study, while each of the analyses could represent proband, mother, and father genomic analyses.
 </p>
 <p>
 In clinical use, the study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights for the patient. Where performers are listed according to their participation in each genomic analysis. Each analysis may be based on a set of defined protocols that may differ from the performed protocols.
 </p>
 <p>
-The regionStudied and regionCalled elements can refer to DocumentReference instances carrying BED files. Other types of files used in an analysis can be provided similarly, and listed either as inputs or outputs.
+The <code>regionStudied</code> and <code>regionCalled</code> elements can refer to <a href="documentreference.html">DocumentReference</a> instances carrying BED files. Other types of files used in an analysis can be provided similarly, and listed either as inputs or outputs.
 </p>
 <p>
-Detailed information about the results of the analyses may be represented by Observations and gathered in a DiagnosticReport. Both resources may refer back to the originating GenomicStudy to allow navigation.
+Detailed information about the results of the analyses may be represented by <a href="observation.html">Observations</a> and gathered in a <a href="diagnosticreport.html">DiagnosticReport</a>. Both resources may refer back to the originating GenomicStudy to allow navigation.
 </p>
 </div>
 
@@ -37,16 +37,17 @@ Detailed information about the results of the analyses may be represented by Obs
 A main function of GenomicStudy is to provide additional metadata for one or more clinical genomic analysis pipelines where <a href="documentreference.html">DocumentReference</a> instances are used to track inputs and outputs of those pipelines. <a href="device.html">Device</a> is used to represent both hardware and software used in the sequencing and in the analyses.
 </p>
 <p>
-It is intended that this resource be referenced by <a href="observation.html">Observation</a> and <a href="diagnosticreport.html">DiagnosticReport</a> similarly to how ImagingStudy is currently referenced on those resources. Of note, the results of the study would be captured in Observations and referenced on a DiagnosticReport.
+It is intended that this resource be referenced by <a href="observation.html">Observation</a> and <a href="diagnosticreport.html">DiagnosticReport</a> in the same way that <a href="imagingstudy.html">ImagingStudy</a> is currently referenced on those resources. Of note, the results of the study would be captured in <a href="observation.html">Observations</a> and referenced on a <a href="diagnosticreport.html">DiagnosticReport</a>.
 </p>
 <p>
-Important contextual references include Patient, Specimen, Encounter, ServiceRequest, Practitioner, and Organization.
+Important contextual references include <a href="patient.html">Patient</a>, <a href="specimen.html">Specimen</a>, <a href="encounter.html">Encounter</a>, <a href="servicerequest.html">ServiceRequest</a>, <a href="practitioner.html">Practitioner</a>, and <a href="organization.html">Organization</a>.
 </p>
 <p>
-<a href="observation.html">Observation</a> or <a href="condition.html">Condition</a> instances may also be referenced from genomic study to designate a given reason for performing the study
+<a href="observation.html">Observation</a> or <a href="condition.html">Condition</a> instances may also be referenced from genomic study to designate a given reason for performing the study.
 </p>
 <p>
-GenomicStudy can support the event-definition workflow pattern by referencing PlanDefinition(s) via the instantiatesCanonical relationship when implementers wish to describe more specifics of the pipelines and devices used in the analysis.
+GenomicStudy can support the event-definition workflow pattern by referencing <a href="plandefinition.html">PlanDefinition</a> via the <code>instantiatesCanonical</code> relationship when implementers wish to describe more specifics of the pipelines and devices used in the analysis.
 </p>
 </div>
 </div>
+ 

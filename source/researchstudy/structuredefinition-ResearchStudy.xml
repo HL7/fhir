@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudy"/>
-  <title value="ResearchStudy"/>
+  <title value="Research Study"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -80,9 +80,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="ResearchStudy">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="440,0"/>
-      </extension>
       <path value="ResearchStudy"/>
       <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
       <definition value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
@@ -186,9 +183,6 @@
       </mapping>
     </element>
     <element id="ResearchStudy.label">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,0"/>
-      </extension>
       <path value="ResearchStudy.label"/>
       <short value="Additional names for the study"/>
       <definition value="Additional names for the study."/>
@@ -347,7 +341,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPrimaryPurposeType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Codes for the main intent of the study."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-prim-purp-type"/>
       </binding>
@@ -419,9 +413,9 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -634,9 +628,6 @@
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,280"/>
-      </extension>
       <path value="ResearchStudy.associatedParty"/>
       <short value="Sponsors, collaborators, and other parties"/>
       <definition value="Sponsors, collaborators, and other parties."/>
@@ -702,7 +693,7 @@
         </extension>
         <strength value="example"/>
         <description value="A characterization or type of the entity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-organization-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty.party">
@@ -720,9 +711,6 @@
       </type>
     </element>
     <element id="ResearchStudy.progressStatus">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,410"/>
-      </extension>
       <path value="ResearchStudy.progressStatus"/>
       <short value="Status of study with time for that status"/>
       <definition value="Status of study with time for that status."/>
@@ -802,9 +790,6 @@
       </mapping>
     </element>
     <element id="ResearchStudy.recruitment">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,80"/>
-      </extension>
       <path value="ResearchStudy.recruitment"/>
       <short value="Target or actual group of participants enrolled in study"/>
       <definition value="Target or actual group of participants enrolled in study."/>
@@ -900,9 +885,6 @@
       </mapping>
     </element>
     <element id="ResearchStudy.comparisonGroup">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,90"/>
-      </extension>
       <path value="ResearchStudy.comparisonGroup"/>
       <short value="Defined path through the study for a subject"/>
       <definition value="Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}."/>
@@ -922,14 +904,14 @@
         <map value="Arm"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.comparisonGroup.identifier">
-      <path value="ResearchStudy.comparisonGroup.identifier"/>
+    <element id="ResearchStudy.comparisonGroup.linkId">
+      <path value="ResearchStudy.comparisonGroup.linkId"/>
       <short value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily"/>
       <definition value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="Identifier"/>
+        <code value="id"/>
       </type>
     </element>
     <element id="ResearchStudy.comparisonGroup.name">
@@ -1019,9 +1001,6 @@
       </type>
     </element>
     <element id="ResearchStudy.objective">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,220"/>
-      </extension>
       <path value="ResearchStudy.objective"/>
       <short value="A goal for the study"/>
       <definition value="A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study."/>
@@ -1082,13 +1061,10 @@
       </type>
     </element>
     <element id="ResearchStudy.outcomeMeasure">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,310"/>
-      </extension>
       <path value="ResearchStudy.outcomeMeasure"/>
       <short value="A variable measured during the study"/>
       <definition value="An &quot;outcome measure&quot;, &quot;endpoint&quot;, &quot;effect measure&quot; or &quot;measure of effect&quot; is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment."/>
-	  <comment value="A study may have multiple distinct outcome measures that can be used to assess the overall goal for a study. The goal of a study is in the objective whereas the metric by which the goal is assessed is the outcomeMeasure. Examples: Time to Local Recurrence (TLR), Disease-free Survival (DFS), 30 Day Mortality, Systolic BP"/>
+      <comment value="A study may have multiple distinct outcome measures that can be used to assess the overall goal for a study. The goal of a study is in the objective whereas the metric by which the goal is assessed is the outcomeMeasure. Examples: Time to Local Recurrence (TLR), Disease-free Survival (DFS), 30 Day Mortality, Systolic BP"/>
       <min value="0"/>
       <max value="*"/>
       <type>

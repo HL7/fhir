@@ -73,8 +73,9 @@
         <description value="Who or what is part of study"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="ResearchSubject.subject"/>
+        <expression value="ResearchSubject.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

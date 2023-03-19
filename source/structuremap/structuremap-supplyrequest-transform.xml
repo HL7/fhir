@@ -1,40 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/structuremap.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureMap xmlns="http://hl7.org/fhir">
   <id value="supplyrequest-transform"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-map "http://hl7.org/fhir/StructureMap/supplyrequest-transform" = supplyRequestTransform
-
-uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" as source
-uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" as target
-
-group main
-  input "source": ActivityDefinition as source
-  input "target": SupplyRequest as target
-
-  "status": for source.id make target.status = 'draft'
-  "category": for source.id make target.category = 'non-stock'
-  "priority": for source.id make target.priority = 'routine'
-  "quantity": for source.quantity make target.orderedItem.quantity
-  "item": for source.code make target.orderedItem.itemCodeableConcept
-  "when": for source.id make target.occurrenceDateTime = Now()
-  "authoredOn": for source.id make target.authoredOn = Now()
-    </div>
-  </text>
   <url value="http://hl7.org/fhir/StructureMap/supplyrequest-transform"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.13.1"/>
   </identifier>
-  <name value="Transform from an ActivityDefinition to a SupplyRequest"/>
+  <name value="TransformFromAnActivityDefinitionToASupplyRequest"/>
+  <title value="Transform from an ActivityDefinition to a SupplyRequest"/>
   <status value="draft"/>
+  <description value="Transform from an ActivityDefinition to a SupplyRequest"/>
   <structure>
-	<url value="http://hl7.org/fhir/StructureDefinition/activitydefinition"/>
-	<mode value="source"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+    <mode value="source"/>
   </structure>
   <structure>
-	<url value="http://hl7.org/fhir/StructureDefinition/supplyrequest"/>
-	<mode value="target"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+    <mode value="target"/>
   </structure>
   <group>
     <name value="main"/>
@@ -42,12 +25,12 @@ group main
       <name value="source"/>
       <type value="ActivityDefinition"/>
       <mode value="source"/>
-    </input>  
+    </input>
     <input>
-	  <name value="target"/>
+      <name value="target"/>
       <type value="SupplyRequest"/>
       <mode value="target"/>
-	</input>
+    </input>
     <rule>
       <name value="status"/>
       <source>
@@ -118,7 +101,13 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <element value="orderedItem.itemCodeableConcept"/>
+        <element value="item"/>
+        <variable value="b"/>
+        <transform value="create"/>
+      </target>
+      <target>
+        <context value="b"/>
+        <element value="concept"/>
         <transform value="copy"/>
       </target>
     </rule>
@@ -131,7 +120,7 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <element value="occurrenceDateTime"/>
+        <element value="occurrence"/>
         <transform value="evaluate"/>
         <parameter>
           <valueString value="now()"/>
@@ -155,5 +144,4 @@ group main
       </target>
     </rule>
   </group>
-  
 </StructureMap>

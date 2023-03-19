@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="related-artifact-type-expanded"/>
   <meta>
     <lastUpdated value="2022-03-22T16:55:11.085+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RelatedArtifactTypeExpanded"/>
-  <title value="RelatedArtifactTypeExpanded"/>
+  <title value="Related Artifact Type Expanded"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

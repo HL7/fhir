@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n263"
+   version="1.1"
+   width="797.2"
+   height="172.0"
+   sodipodi:docname="researchsubject.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview96326"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5629704"
+     inkscape:cx="398.60001"
+     inkscape:cy="86.054094"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n263" />
+  <defs
+     id="defs96214">
+    <filter
+       id="shadow1"
+       x="-0.020416024"
+       y="-0.044166667"
+       width="1.0523883"
+       height="1.1133333">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset96205" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix96207" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur96209" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend96211" />
+    </filter>
+  </defs>
+  <g
+     id="n264">
+    <rect
+       id="ResearchSubject"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="259.6"
+       height="162.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n265"
+       x1="0.0"
+       y1="28.0"
+       x2="259.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n266"
+       x="129.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ResearchSubject<tspan
+   class="diagram-class-title-link"
+   id="tspan96219"> (<a
+   id="n267"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n268"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n269"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.identifier"><title
+   id="title96222">Identifiers assigned to this research subject for a study</title>identifier</a> : <a
+   id="n270"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n274"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n275"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.status"><title
+   id="title96227">The publication state of the resource (not of the subject) (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n276"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n277"
+   xlink:href="valueset-publication-status.html"><title
+   id="n278">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n284"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n285"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.period"><title
+   id="title96234">The dates the subject began and ended their participation in the study</title>period</a> : <a
+   id="n286"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n290"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n291"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.study"><title
+   id="title96239">Reference to the study the subject is participating in</title>study</a> : <a
+   id="n292"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n293"
+   xlink:href="researchstudy.html#ResearchStudy">ResearchStudy</a> »</text>
+    <text
+       id="n298"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n299"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.subject"><title
+   id="title96245">The record of the person, animal or other entity involved in the study</title>subject</a> : <a
+   id="n300"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n301"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n302"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n303"
+   xlink:href="specimen.html#Specimen">Specimen</a>|<a
+   id="n304"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n305"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n306"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n307"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n308"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a> »</text>
+    <text
+       id="n320"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n321"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.assignedComparisonGroup"><title
+   id="title96258">The name of the arm in the study the subject is expected to follow as part of this study</title>assignedComparisonGroup</a> : <a
+   id="n322"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+    <text
+       id="n326"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n327"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.actualComparisonGroup"><title
+   id="title96263">The name of the arm in the study the subject actually followed as part of this study</title>actualComparisonGroup</a> : <a
+   id="n328"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+    <text
+       id="n332"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n333"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.consent"><title
+   id="title96268">A record of the patient's informed agreement to participate in the study</title>consent</a> : <a
+   id="n334"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n335"
+   xlink:href="consent.html#Consent">Consent</a> »</text>
+  </g>
+  <g
+     id="n340"
+     transform="translate(97.250724,24.952488)">
+    <rect
+       id="ResearchSubject.progress"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n341"
+       x1="320"
+       y1="28"
+       x2="597.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n342"
+       x="458.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Progress</text>
+    <text
+       id="n343"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n344"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.progress.type"><title
+   id="title96278">Identifies the aspect of the subject's journey that the state refers to</title>type</a> : <a
+   id="n345"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n346"
+   xlink:href="valueset-research-subject-state-type.html"><title
+   id="n347">null (Strength=Example)</title>ResearchSubjectStateType</a>?? »</text>
+    <text
+       id="n353"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n354"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.progress.subjectState"><title
+   id="title96285">The current state of the subject</title>subjectState</a> : <a
+   id="n355"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n356"
+   xlink:href="valueset-research-subject-state.html"><title
+   id="n357">null (Strength=Required)</title>ResearchSubjectState</a>! »</text>
+    <text
+       id="n363"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n364"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.progress.milestone"><title
+   id="title96292">The milestones the subject has passed through</title>milestone</a> : <a
+   id="n365"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n366"
+   xlink:href="valueset-research-subject-milestone.html"><title
+   id="n367">null (Strength=Example)</title>ResearchSubjectMilestone</a>?? »</text>
+    <text
+       id="n373"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n374"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.progress.reason"><title
+   id="title96299">The reason for the state change.  If coded it should follow the formal subject state model</title>reason</a> : <a
+   id="n375"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n376"
+   xlink:href="valueset-state-change-reason.html"><title
+   id="n377">null (Strength=Example)</title>StateChangeReason</a>?? »</text>
+    <text
+       id="n383"
+       x="326"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n384"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.progress.startDate"><title
+   id="title96306">The date when the new status started</title>startDate</a> : <a
+   id="n385"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n389"
+       x="326"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n390"
+   xlink:href="researchsubject-definitions.html#ResearchSubject.progress.endDate"><title
+   id="title96311">The date when the state ended</title>endDate</a> : <a
+   id="n391"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+  </g>
+  <line
+     id="n395"
+     x1="259.6"
+     y1="72.70985401459853"
+     x2="320.0"
+     y2="68.85218978102189"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n396"
+     points="259.6,72.70985401459853 265.6,76.70985401459853 271.6,72.70985401459853 265.6,68.70985401459853 259.6,72.70985401459853"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.654438308688245 259.6 72.70985401459853)" />
+  <rect
+     id="n397"
+     x="271.5"
+     y="63.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n398"
+     x="289.0"
+     y="73.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n399"
+       xlink:href="researchsubject-definitions.html#ResearchSubject.progress"><title
+   id="title96320">The current state (status) of the subject and resons for status change where appropriate</title>progress</a></text>
+  <text
+     id="n400"
+     x="300.0"
+     y="64.85218978102189"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

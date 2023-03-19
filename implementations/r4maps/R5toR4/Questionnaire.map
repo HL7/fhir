@@ -1,0 +1,72 @@
+map "http://hl7.org/fhir/StructureMap/Questionnaire4to3" = "R4 to R3 Conversion for Questionnaire"
+
+uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Questionnaire(source src : Questionnaire, target tgt : QuestionnaireR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.description -> tgt.description;
+  src.purpose -> tgt.purpose;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.contact -> tgt.contact;
+  src.copyright -> tgt.copyright;
+  src.code -> tgt.code;
+  src.subjectType -> tgt.subjectType;
+  src.item as s -> tgt.item as t then item(s, t);
+}
+
+group item(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
+  src.definition -> tgt.definition;
+  src.code -> tgt.code;
+  src.prefix -> tgt.prefix;
+  src.text -> tgt.text;
+  src.type -> tgt.type;
+  src.enableWhen as s -> tgt.enableWhen as t then enableWhen(s, t);
+  src.required -> tgt.required;
+  src.repeats -> tgt.repeats;
+  src.readOnly -> tgt.readOnly;
+  src.maxLength -> tgt.maxLength;
+  src.answerValueSet -> tgt.options;
+  src.answerOption as s -> tgt.option as t then option(s, t);
+  src.initial as s then initial(s, tgt);
+  src.item as s -> tgt.item as t then item(s, t);
+}
+
+group enableWhen(source src, target tgt) extends BackboneElement {
+  src.question -> tgt.question;
+  src.answer as v where src.operator = 'exists' -> tgt.hasAnswer = v;
+  src.answer : boolean as vs where src.operator = '=' -> tgt.answer = create('boolean') as vt then boolean(vs, vt);
+  src.answer : decimal as vs where src.operator = '=' -> tgt.answer = create('decimal') as vt then decimal(vs, vt);
+  src.answer : integer as vs where src.operator = '=' -> tgt.answer = create('integer') as vt then integer(vs, vt);
+  src.answer : date as vs where src.operator = '=' -> tgt.answer = create('date') as vt then date(vs, vt);
+  src.answer : dateTime as vs where src.operator = '=' -> tgt.answer = create('dateTime') as vt then dateTime(vs, vt);
+  src.answer : time as vs where src.operator = '=' -> tgt.answer = create('time') as vt then time(vs, vt);
+  src.answer : string as vs where src.operator = '=' -> tgt.answer = create('string') as vt then string(vs, vt);
+  src.answer : Coding as vs where src.operator = '=' -> tgt.answer = create('Coding') as vt then Coding(vs, vt);
+  src.answer : Quantity as vs where src.operator = '=' -> tgt.answer = create('Quantity') as vt then Quantity(vs, vt);
+  src.answer : Reference as vs where src.operator = '=' -> tgt.answer = create('Reference') as vt then Reference(vs, vt);
+}
+
+group option(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+}
+
+group initial(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.initial;
+}
+

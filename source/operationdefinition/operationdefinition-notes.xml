@@ -1,5 +1,36 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="base"></a>
+<h3>Derived OperationDefinitions</h3>
+
+<p>
+OperationDefinitions can describe entirely new operations, but they can also describe a restricted implementation
+of an existing operation e.g. when a server implements some but not all the features of an operation defined in 
+another specification. These are called derived operation definitions.
+</p>
+<p>
+An OperationDefinition does by declaring a base as shown in the <a href="operationdefinition-example.html">example</a>:
+</p>
+<pre class="json">
+{
+  "resourceType" : "OperationDefinition",
+  "id" : "example",
+  "url" : "http://hl7.org/fhir/OperationDefinition/example",
+  "name" : "PopulateQuestionnaire",
+  // snip
+  "code" : "populate",
+  "base" : "http://hl7.org/fhir/OperationDefinition/Questionnaire-populate"
+  // snip
+}
+</pre>
+<p>
+When constraining an existing operation like this, operation definitions can make 
+optional parameters required or not used, introduce new parameters (required or optional), 
+clarify documentation, and even change the code for the operation (see next section).
+The derived operation can't change the nature of the operation itself, nor can 
+it change add types to parameters or prohibit mandatory parameters.
+</p>
+
 <a name="renaming"></a>
 <a name="code"></a>
 <h3>OperationDefinition Code</h3>
@@ -111,20 +142,31 @@ OperationDefinitions with <code>kind = operation</code> are executed as defined 
 
 <a name="equeries"></a>
 <h3>Executing Named Queries</h3>
-
 <p>
 Named queries (OperationDefinitions with <code>kind = query</code>) are executed by performing a <a href="search.html">search</a> 
 with the value of the search parameter "_query" set to the name provided in the definition. 
+Named queries are a kind of search: both client and server must conform to all the requirements of search, 
+including regarding the content of the result bundle. From a client's perspective, it's really just a kind 
+of search, though it may have a completely separate processing pipeline.
+Named queries cannot be invoked using the $[operationname] mechanism.
 </p>
 <p>
 If the named query is to be performed over the RESTful API, all the parameters must be simple search parameters,
-so that they can be represented directly in the URL without tricky encoding issues. Named queries always 
-return a bundle containing a set of resources, so all the out parameters must be 
-resources, not data types.
+so that they can be represented directly in the URL without tricky encoding issues. Named queries 
+always have a single output parameter named "result" of type Bundle.
 </p>
- 
 <p>
-For named queries, all the standard search parameters are automatically in scope (though servers do not need to support them unless explicitly documented).
+The order of parameters doesn't matter; a <code>_query</code> parameter anywhere in the query means the entire query will be handled 
+according to the named query OperationDefinition. Parameters may repeat if permitted by the OperationDefinition 
+(or for unlisted common search parameters, as specified in this specification).
+</p>
+<p>
+For named queries, all the standard search parameters are automatically in scope. Specifically, all common search parameters 
+(e.g. _id, _text, _count, _sort, etc.) as well as search parameters that pertain to the resources 
+returned by the operation (e.g. name for Patient or Organization) are allowed. "In scope" doesn't 
+mean all servers will support them. If a server wishes to declare which search parameters it supports 
+for a given named query, it must explicitly list these in its OperationDefinition (which might be a 
+server-specific derived OperationDefinition).
 </p>
 
 <a name="passing"></a>
@@ -144,7 +186,7 @@ defined as 'ValueSet'. In a <a href="parameters.html">Parameters</a> resource, i
     &lt;name value=&quot;valueset&quot;/&gt;
     &lt;resource&gt;
       &lt;ValueSet&gt;
-        &lt;!-- Valueset contents --&gt;
+        &lt;!-- ValueSet contents --&gt;
       &lt;/ValueSet&gt;
     &lt;/resource&gt;
   &lt;/parameter&gt; 
@@ -158,7 +200,7 @@ or, in JSON:
       "name": "valueset",
       "resource": {
         "resourceType": "ValueSet",
-        // Valueset contents 
+        // ValueSet contents 
       }
     }
   ]

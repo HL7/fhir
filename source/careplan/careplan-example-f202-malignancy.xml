@@ -1,73 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
   <id value="f202"/>
   <contained>
-    <Medication>
-      <id value="doce"/>
-      <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="108806006"/>
-          <display value="Docetaxel"/>
-        </coding>
-      </code>
-    </Medication>
-  </contained>
-  <contained>
-    <Medication>
-      <id value="cisp"/>
-      <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="57066004"/>
-          <display value="Cisplatin"/>
-        </coding>
-      </code>
-    </Medication>
-  </contained>
-  <contained>
-    <Medication>
-      <id value="fluo"/>
-      <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="3127006"/>
-          <display value="Fluorouracil"/>
-        </coding>
-      </code>
-    </Medication>
-  </contained>
-  <contained>
-    <Medication>
-      <id value="tpf"/>
-      <!--TPF consists of Docetaxel, Cisplatin and Fluorouracil-->
-      <code>
-        <text value="TPF"/>
-      </code>
-        <ingredient>
-          <item>
-            <reference>
-            <reference value="#doce"/>
-            </reference>
-          </item>
-        </ingredient>
-        <ingredient>
-          <item>
-          <reference>
-            <reference value="#cisp"/>
-          </reference>
-          </item>
-        </ingredient>
-        <ingredient>
-          <item>
-          <reference>
-            <reference value="#fluo"/>
-          </reference>
-          </item>
-        </ingredient>
-      
-    </Medication>
-  </contained>
-  <contained>
     <CareTeam>
         <id value="careteam"/>
 	<participant>
@@ -124,20 +57,9 @@
         <display value="Roel's Chemotherapy"/>
       </reference>
     </performedActivity>
-    <plannedActivityDetail>
-      <kind value="ServiceRequest"/>
-      <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="367336001"/>
-          <display value="Chemotherapy"/>
-        </coding>
-      </code>
-      <status value="in-progress"/>
-      <doNotPerform value="false"/>
-      <productReference>
-        <reference value="#tpf"/>
-      </productReference>
-    </plannedActivityDetail>
+	<!-- Chemotherapy -->
+    <plannedActivityReference>
+		<reference value="RequestOrchestration/example"/>
+	</plannedActivityReference>
   </activity>
 </CarePlan>

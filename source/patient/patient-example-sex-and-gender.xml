@@ -52,15 +52,6 @@
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
-		<extension url="internationalEquivalent">
-			<valueCodeableConcept>
-			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
-				<code value="M"/>
-				<display value="Male"/>
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
 		<extension url="type">
 			<valueCodeableConcept>
 			  <coding>
@@ -109,15 +100,6 @@
 			  <coding>
 				<system value="http://hl7.org/fhir/administrative-gender"/>
 				<code value="male"/>
-				<display value="Male"/>
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
-		<extension url="internationalEquivalent">
-			<valueCodeableConcept>
-			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
-				<code value="M"/>
 				<display value="Male"/>
 			  </coding>
 			</valueCodeableConcept>
@@ -174,15 +156,6 @@
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
-		<extension url="internationalEquivalent">
-			<valueCodeableConcept>
-			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
-				<code value="M"/>
-				<display value="Male"/>
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
 		<extension url="type">
 			<valueCodeableConcept>
 			  <coding>
@@ -222,13 +195,13 @@
 		</extension>
 	</extension>
 		
-	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse">
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexParameterForClinicalUse">
 		<extension url="value">
 			<valueCodeableConcept>
 			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
+				<system value="http://terminology.hl7.org/CodeSystem/sex-parameter-for-clinical-use"/>
 				<code value="specified"/>
-				<display value="Specified sex for clinical use"/>
+				<display value="Apply specified setting or reference range"/>
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
@@ -249,10 +222,10 @@
 			</valueCodeableReference>
 		</extension>
 		<extension url="supportingInfo">
-			<!-- MedicationUsage indicating patient underwent hormone therapy -->
+			<!-- MedicationStatement indicating patient underwent hormone therapy -->
 			<valueCodeableReference>
 			  <reference>
-				  <reference value="MedicationUsage/2"/>
+				  <reference value="MedicationStatement/2"/>
 			  </reference>
 			</valueCodeableReference>
 		</extension>

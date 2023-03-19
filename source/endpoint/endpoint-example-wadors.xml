@@ -16,10 +16,12 @@
 		</coding>
 	</connectionType>
 	<name value="PACS Hospital DICOM WADO-RS endpoint" />
-	<payloadType>
-		<text value="DICOM WADO-RS"/>
-	</payloadType>
+	<payload>
+		<type>
+			<text value="DICOM WADO-RS"/>
+		</type>
+		<mimeType value="application/dicom"/>
+	</payload>
 
-	<payloadMimeType value="application/dicom"/>
 	<address value="https://pacs.hospital.org/wado-rs"/>
 </Endpoint>

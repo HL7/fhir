@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-A flag is a warning or notification of some sort presented to the user - who may be a clinician or some other person involve in patient care. It usually represents
+A flag is a warning or notification of some sort presented to the user - who may be a clinician or some other person involved in patient care. It usually represents
 something of sufficient significance to warrant a special display of some sort - rather than just a note in the resource.
 
 A flag has a subject representing the resource that will trigger its display. This subject can be of different types, as described in the examples below:
@@ -37,7 +37,7 @@ the flag list will itself become overwhelming and will cease to serve its intend
 </p>
 <p>
 Flags are expected to persist in a record for some period of time and are, at most, targeted to particular types of practitioners
-or to practitioners in particular system.  
+or to practitioners in a particular system.  
 </p>
     
 <p>Examples of Patient related issues that might appear in flags:</p>
@@ -45,7 +45,7 @@ or to practitioners in particular system.
 <li>Risks to the patient (functional risk of falls, spousal restraining order, latex allergy)</li>
 <li>Patient's needs for special accommodations (hard of hearing, need for easy-open caps)</li>
 <li>Risks to providers (dog in house, patient may bite, infection control precautions)</li>
-<li>Administrative concerns (incomplete information, pre-payment required due to credit risk)</li>
+<li>Administrative concerns (incomplete information, prepayment required due to credit risk)</li>
 </ul> 
 <p>
     Examples of issues that should not appear <b>only</b> in flags:
@@ -72,7 +72,7 @@ should see particular flags, will vary by interoperability community.
 <p>
 Flags may highlight a highly condensed view of information found in the <a href="allergyintolerance.html">AllergyIntolerance</a>, 
 <a href="condition.html">Condition</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a> and possibly 
-other resources.  A <a href="extension-flag-detail.html">common extension</a> allows the linkage of a Flag to the supporting detail resource.
+other resources.  A <a href="[%extensions-location%]StructureDefinition-flag-detail.html">common extension</a> allows the linkage of a Flag to the supporting detail resource.
 The purpose of these other resources is to provide detailed clinical information.  The purpose of a Flag is to alert practitioners to 
 information that is important to influence their interaction with a Patient prior to detailed review of the record.
 </p>

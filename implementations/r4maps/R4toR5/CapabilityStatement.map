@@ -1,0 +1,123 @@
+map "http://hl7.org/fhir/StructureMap/CapabilityStatement3to4" = "R3 to R4 Conversions for CapabilityStatement"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CapabilityStatement" alias CapabilityStatementR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatement as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group CapabilityStatement(source src : CapabilityStatementR3, target tgt : CapabilityStatement) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.kind -> tgt.kind;
+  src.instantiates -> tgt.instantiates;
+  src.software as vs0 -> tgt.software as vt0 then software(vs0, vt0);
+  src.implementation as vs0 -> tgt.implementation as vt0 then implementation(vs0, vt0);
+  src.fhirVersion -> tgt.fhirVersion;
+  src.acceptUnknown as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CapabilityStatement.acceptUnknown',  ext.value = vs;
+  src.format -> tgt.format;
+  src.patchFormat -> tgt.patchFormat;
+  src.implementationGuide -> tgt.implementationGuide;
+  src.rest as vs0 -> tgt.rest as vt0 then rest(vs0, vt0);
+  src.messaging as vs0 -> tgt.messaging as vt0 then messaging(vs0, vt0);
+  src.document as vs0 -> tgt.document as vt0 then document(vs0, vt0);
+}
+
+group software(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.version -> tgt.version;
+  src.releaseDate -> tgt.releaseDate;
+}
+
+group implementation(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.url -> tgt.url;
+}
+
+group rest(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.documentation -> tgt.documentation;
+  src.security as vs0 -> tgt.security as vt0 then security(vs0, vt0);
+  src.resource as vs0 -> tgt.resource as vt0 then resource(vs0, vt0);
+  src.interaction as vs0 -> tgt.interaction as vt0 then interaction(vs0, vt0);
+  src.searchParam as vs0 -> tgt.searchParam as vt0 then searchParam(vs0, vt0);
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+  src.compartment -> tgt.compartment;
+}
+
+group security(source src, target tgt) extends BackboneElement {
+  src.cors -> tgt.cors;
+  src.service -> tgt.service;
+  src.description -> tgt.description;
+}
+
+group resource(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+  src.documentation -> tgt.documentation;
+  src.interaction as vs0 -> tgt.interaction as vt0 then interaction(vs0, vt0);
+  src.versioning -> tgt.versioning;
+  src.readHistory -> tgt.readHistory;
+  src.updateCreate -> tgt.updateCreate;
+  src.conditionalCreate -> tgt.conditionalCreate;
+  src.conditionalRead -> tgt.conditionalRead;
+  src.conditionalUpdate -> tgt.conditionalUpdate;
+  src.conditionalDelete -> tgt.conditionalDelete;
+  src.referencePolicy -> tgt.referencePolicy;
+  src.searchInclude -> tgt.searchInclude;
+  src.searchRevInclude -> tgt.searchRevInclude;
+  src.documentation -> tgt.documentation;
+  src.searchParam as vs0 -> tgt.searchParam as vt0 then searchParam(vs0, vt0);
+}
+
+group interaction(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+}
+
+group searchParam(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.definition -> tgt.definition;
+  src.type -> tgt.type;
+  src.documentation -> tgt.documentation;
+}
+
+group operation(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.definition -> tgt.definition;
+}
+
+group messaging(source src, target tgt) extends BackboneElement {
+  src.endpoint as vs0 -> tgt.endpoint as vt0 then endpoint(vs0, vt0);
+  src.reliableCache -> tgt.reliableCache;
+  src.documentation -> tgt.documentation;
+  src.supportedMessage as vs0 -> tgt.supportedMessage as vt0 then supportedMessage(vs0, vt0);
+}
+
+group endpoint(source src, target tgt) extends BackboneElement {
+  src.protocol -> tgt.protocol;
+  src.address -> tgt.address;
+}
+
+group supportedMessage(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.definition -> tgt.definition;
+}
+
+group document(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.documentation -> tgt.documentation;
+  src.profile -> tgt.profile;
+}
+

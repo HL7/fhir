@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="subscription-payload-content"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,9 +19,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2021"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="SubscriptionPayloadContent"/>
-  <title value="SubscriptionPayloadContent"/>
+  <title value="Subscription Payload Content"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -40,17 +42,17 @@
   <content value="complete"/>
   <concept>
     <code value="empty"/>
-    <display value="empty"/>
+    <display value="Empty"/>
     <definition value="No resource content is transacted in the notification payload."/>
   </concept>
   <concept>
     <code value="id-only"/>
-    <display value="id-only"/>
+    <display value="Id-only"/>
     <definition value="Only the resource id is transacted in the notification payload."/>
   </concept>
   <concept>
     <code value="full-resource"/>
-    <display value="full-resource"/>
+    <display value="Full-resource"/>
     <definition value="The entire resource is transacted in the notification payload."/>
   </concept>
 </CodeSystem>

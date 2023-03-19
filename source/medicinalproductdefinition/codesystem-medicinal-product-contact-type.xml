@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicinal-product-contact-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProductContactType"/>
-  <title value="ProductContactType"/>
+  <title value="Product Contact Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -41,8 +43,8 @@
   <content value="complete"/>
   <concept>
     <code value="ProposedMAH"/>
-    <display value="Proposed Marketing Authorisation Holder/Person"/>
-    <definition value="Proposed Marketing Authorisation Holder/Person"/>
+    <display value="Proposed Marketing Authorization Holder/Person"/>
+    <definition value="Proposed Marketing Authorization Holder/Person"/>
   </concept>
   <concept>
     <code value="ProcedureContactDuring"/>
@@ -52,7 +54,7 @@
   <concept>
     <code value="ProcedureContactAfter"/>
     <display value="Person/Company authorised for Communication after procedure"/>
-    <definition value="Person/Company authorised for Communication between MAH and Authorities after Authorisation"/>
+    <definition value="Person/Company authorised for Communication between MAH and Authorities after Authorization"/>
   </concept>
   <concept>
     <code value="QPPV"/>

@@ -46,7 +46,7 @@
 		<url>http://hl7.org/v2</url>
     <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185</link>
 		<columnName>v2 Mapping</columnName>
-		<title>HL7 v2 Mapping</title>
+		<title>HL7 V2 Mapping</title>
 		<id>v2</id>
 		<sort>1</sort>
     <publish>true</publish>
@@ -135,7 +135,7 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>https://profiles.ihe.net/ITI/HIE-Whitepaper</url>
+		<url>http://ihe.net/xds</url>
     <link>http://wiki.ihe.net/index.php/Category:DocShare</link>
 		<columnName>XDS Mapping</columnName>
 		<title>XDS metadata equivalent</title>
@@ -438,8 +438,8 @@
 		<publish>true</publish>
 	</space>
 	<space>
-		<url>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</url>
-		<link>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</link>
+		<url>https://www.iso.org/obp/ui/#iso:std:iso:11615</url>
+		<link>https://www.iso.org/obp/ui/#iso:std:iso:11615</link>
 		<columnName>IDMP Mapping</columnName>
 		<title>IDMP Mapping</title>
 		<id>idmp</id>
@@ -480,6 +480,15 @@
 		<title>ISBT 128 Codes</title>
 		<id>ISBT128Code</id>
 		<sort>51</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>https://www.iso.org/obp/ui/#iso:std:iso:11238</url>
+		<link>https://www.iso.org/obp/ui/#iso:std:iso:11238</link>
+		<columnName>IDMP Mapping (Substance)</columnName>
+		<title>IDMP Mapping (Substance)</title>
+		<id>idmp-substance</id>
+		<sort>52</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>

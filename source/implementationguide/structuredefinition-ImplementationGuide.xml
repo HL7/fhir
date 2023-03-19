@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="ImplementationGuide"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -33,7 +32,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImplementationGuide"/>
-  <title value="ImplementationGuide"/>
+  <title value="Implementation Guide"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -91,7 +90,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
       </constraint>
       <constraint>
@@ -129,7 +128,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -138,6 +137,22 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
+    <element id="ImplementationGuide.identifier">
+ 			<path value="ImplementationGuide.identifier"/>
+ 			<short value="Additional identifier for the implementation guide (business identifier)"/>
+ 			<definition value="A formal identifier that is used to identify this implementation guide when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+ 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+ 			<min value="0"/>
+ 			<max value="*"/>
+ 			<type>
+ 				<code value="Identifier"/>
+ 			</type>
+ 			<isSummary value="true"/>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.identifier"/>
+ 			</mapping>
+ 		</element>
     <element id="ImplementationGuide.version">
       <path value="ImplementationGuide.version"/>
       <short value="Business version of the implementation guide"/>
@@ -348,6 +363,28 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
     </element>
+    <element id="ImplementationGuide.purpose">
+ 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+ 				<valueBoolean value="true"/>
+ 			</extension>
+ 			<path value="ImplementationGuide.purpose"/>
+ 			<short value="Why this implementation guide is defined"/>
+ 			<definition value="Explanation of why this implementation guide is needed and why it has been designed as it has."/>
+ 			<comment value="This element does not describe the usage of the implementation guide. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this implementation guide."/>
+ 			<min value="0"/>
+ 			<max value="1"/>
+ 			<type>
+ 				<code value="markdown"/>
+ 			</type>
+ 			<mapping>
+ 				<identity value="w5"/>
+ 				<map value="FiveWs.why[x]"/>
+ 			</mapping>
+ 			<mapping>
+ 				<identity value="objimpl"/>
+ 				<map value="no-gen-base"/>
+ 			</mapping>
+ 		</element>    
     <element id="ImplementationGuide.copyright">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
@@ -419,12 +456,13 @@
       <path value="ImplementationGuide.fhirVersion"/>
       <short value="FHIR Version(s) this Implementation Guide targets"/>
       <definition value="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version."/>
-      <comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
+      <comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc. are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
       <min value="1"/>
       <max value="*"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="ig-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -560,6 +598,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ig-2"/>
       <constraint>
         <key value="ig-1"/>
         <severity value="error"/>
@@ -581,6 +620,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ig-1"/>
     </element>
     <element id="ImplementationGuide.definition.grouping.name">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -620,6 +660,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ig-2"/>
+      <condition value="ig-1"/>
     </element>
     <element id="ImplementationGuide.definition.resource.reference">
       <path value="ImplementationGuide.definition.resource.reference"/>
@@ -637,12 +679,13 @@
       <path value="ImplementationGuide.definition.resource.fhirVersion"/>
       <short value="Versions this applies to (if different to IG)"/>
       <definition value="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion."/>
-      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [applicable-version](extension-structuredefinition-applicable-version.html) extension."/>
+      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-applicable-version]]] extension."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="ig-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRVersion"/>
@@ -714,6 +757,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="ig-1"/>
     </element>
     <element id="ImplementationGuide.definition.page">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -754,6 +798,7 @@
       <type>
         <code value="markdown"/>
       </type>
+      <condition value="ig-3"/>
     </element>
     <element id="ImplementationGuide.definition.page.name">
       <path value="ImplementationGuide.definition.page.name"/>
@@ -788,6 +833,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="ig-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GuidePageGeneration"/>

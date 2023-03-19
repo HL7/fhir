@@ -32,7 +32,6 @@ any active medical device which is intended to be totally or partially introduce
 The DeviceDefinition resource contains the "catalog" definition of a device - whether that definition is authored by the manufacturer or a regulatory entity and allows defining valid hierarchical device configurations (devices as part of other devices).
 </p>
 <p>
-Device vs deviceDefinition:
 Device vs deviceDefinition: The Device resource is meant to refer to a physical instance of a device - hence having attributes like lot number, patient, location, operational status which the DeviceDefinition resource does not have.
 
 </p>

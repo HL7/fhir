@@ -38,7 +38,7 @@
         </coding>
       </concept>
     </reason>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
@@ -92,7 +92,7 @@
             </denominator>
         </maxDosePerPeriod>
     </dosageInstruction>
-    </dose>
+    
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

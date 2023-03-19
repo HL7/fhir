@@ -24,8 +24,35 @@
 		Subscription Topics MUST always document the concept it represents.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementations will vary and clients will have unexpected behavior.
 	</p>
 
+  <a name="resource-scope" />
+  <h3>Resource Scope</h3>
+  <p>
+    Note that Subscription Topics are not limited to a single 'base' resource. As described on the <a href="subscriptions.html#multi-resource-topics">Subscriptions Framework</a> page, there are scenarios where multiple resources are in context for a single topic. When multiple resources are in scope, they may appear in:
+    <ul>
+      <li>a single <code>resourceTrigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>),</li>
+      <li>multiple <code>resourceTrigger</code> repetitions, each with a different <code>resource</code> value,</li>
+      <li>a single <code>eventTrigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>), or</li>
+      <li>multiple <code>eventTrigger</code> repetitions, each with a different <code>resource</code> value.</li>
+    </ul>
+  </p>
+  <p>
+    When multiple resources are in scope, topic authors are responsible for ensuring that available filtering parameters are clear in their scope.  For example, if a topic is scoped to <code>Resource</code>, an allowed filter based on <code>_language</code> is clear and applicable to any possible resource.  However, a search parameter of <code>patient</code> does not make sense in the context of all resources, since many resources do not include that search parameter.  Note that the resource specified in <code>canFilterBy.resource</code> does not need to match the literals specified by triggers.  For example, an event that triggers on all resource can specify different filters for each resource type.
+  </p>
+
+  <a name="triggers-vs-filters" />
+  <h3>Triggers vs. Filters</h3>
+  <p>
+    Subscription Topics contain two sets of evaluation criteria - one set as part of triggers (i.e., <code>resourceTrigger</code>, <code>eventTrigger</code>) and the other as part of filters (i.e., <code>canFilterBy</code>).  Triggers are the tests used to generate any notification by any subscription linked to a topic, while filters are the tests used by each subscription to differentiate the notifications they are interested in.  For example, a topic could be defined to trigger for any new <a href="medicationrequest.html">MedicationRequest</a> - this allows server implementers to optimize tests at a single point.  However, a patient is only interested in medication requests for <i>them</i>, which would be represented by a filter (e.g., on <code>MedicationRequest.patient</code>).  The set of allowed filters are defined by the subscription topic, but actual values for filtering are listed in the <a href="subscription.html">Subscription</a>.
+  </p>
+  <p>
+    This logical separation of triggers and filters exists to limit the complexity of topics. However, this specification does not place any architectural requirements on severs regarding the separation of triggers and filters.  An implementation is free to separate the two portions or combine the tests as desired.
+  </p>
+  <p>
+    Note that triggers can be defined in three ways: as part of the conceptual definition, a computable <code>resourceTrigger</code>, and/or a possibly-computable <code>eventTrigger</code>.  Topics without computable definitions are not expected to trigger unless a server has explicitly added support for them.  For example, a trigger could be based on a complex set of criteria that is difficult to express or depend on information not available in a FHIR context (e.g., user information).  Servers can implement these topics, but they require software changes and cannot be expected to trigger notifications generally.  Servers MAY reject <code>SubscriptionTopic</code> resources that do not include computable definitions or depend on mechanisms the implementation does not support.
+  </p>
+
 	<a name="resource-operation-pairs" />
-	<h3>Resource Interactions</h3>
+	<h3>Triggers and Resource Interactions</h3>
 	<p>
 		Subscription Topics based on Resource Interactions are simple to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the interaction of interest (e.g., <code>create</code>, <code>delete</code>).
 	</p>
@@ -35,54 +62,45 @@
   <p>
     If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-fhir-types.html">FHIR Type</a> value set.
   </p>
+  <p>
+    Note that <code>supportedInteraction</code> filters can be used either alone, resulting in notifications for every time a resource has the interaction (e.g., every <code>create</code>), or with either <code>queryCriteria</code> or <code>fhirPathCriteria</code>.  When one or more supported interactions are defined, criteria SHOULD only be evaluated for interactions that are included.  For example, a FHIRPath expression designed for resource updates might not test for the previous state correctly during create processing.
+  </p>
 	
-		<a name="resource-operation-create" />
-		<h4>Resource Interaction: Create</h4>
+		<a name="resource-trigger-create" />
+		<h4>Trigger Interaction: Create</h4>
 		<p>
-			Subscription Topics defined on <code>create</code> interactions are triggered each time a resource of the specified type is created.
-		</p>
-		<p>
-			Filters for <code>create</code> operations are restricted to the type of resource being created and must be evaluated on the created resource instance.  If more complicated filtering is required (e.g., new Observations when a Patient has a given diagnosis), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
-		</p>
-		<ul>
-			<li>
-        <code>resource: Patient</code>, <code>supportedInteraction: create</code>: notify each time a new <a href="patient.html">patient</a> is created on the server, e.g., to send 'new patient' information.
-      </li>
-			<li>
-        <code>resource: AdverseEvent</code>, <code>supportedInteraction: create</code>: notify each time a new <a href="adverseevent.html">Adverse Event</a> is created on the server, e.g., to perform internal review.
-      </li>
-			<li>
-        <code>resource: Resource</code>, <code>supportedInteraction: create</code>: notify each time any resource is created on the server, e.g., for internal logging/processing.
-      </li>
-		</ul>
+			Subscription Topics that include <code>create</code> interactions are tested each time a resource of the specified type is created.  If a topic contains no trigger criteria (either query-based or FHIRPath), a notification will be generated for every instance created.  If criteria are specified, the criteria SHOULD only be evaluated after the interaction is confirmed to apply.
+    </p>
+    <p>
+      When using <code>queryCriteria</code> during a create, the <code>previous</code> test does not have a defined behavior - there is no resource available to test against.  In order to filter correctly, a combination of <code>resultForCreate</code> and <code>requireBoth</code> must be specified.  For example, setting both <code>resultForCreate</code> and <code>requireBoth</code> to <code>true</code> or <code>false</code> will result in criteria that can be tested against all interactions with expected behavior.
+    </p>
+    <p>
+      When using <code>fhirPathCriteria</code> during a create, the <code>%previous</code> variable will be set to empty (<code>{}</code>). Authors should ensure that expressions can be evaluated without errors in all applicable situations.
+    </p>
 		
-		<a name="resource-operation-delete" />
-		<h4>Resource Interaction: Delete</h4>
+		<a name="resource-trigger-delete" />
+		<h4>Trigger Interaction: Delete</h4>
 		<p>
-			Subscription Topics defined on <code>delete</code> interactions are triggered each time a resource of the specified type is deleted.
+			Subscription Topics that include <code>delete</code> interactions are triggered each time a resource of the specified type is deleted.  If a topic contains no trigger criteria (either query-based or FHIRPath), a notification will be generated for every instance deleted.  If criteria are specified, the criteria SHOULD only be evaluated after the interaction is confirmed to apply.
 		</p>
-		<p>
-			Filters for <code>delete</code> operations are restricted to the type of resource being deleted and must be evaluated on the resource instance being deleted.  If more complicated filtering is required (e.g., notifications for deleting a Patient which has a particular Condition), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
-		</p>
-		<ul>
-			<li>
-        <code>resource: Resource</code>, <code>supportedInteraction: delete</code>: notify each time a new resource is delete on the server, e.g., for internal logging/processing.
-			</li>
-		</ul>
+    <p>
+      When using <code>queryCriteria</code> during a delete, the <code>current</code> test does not have a defined behavior - there is no resource available to test against.  In order to filter correctly, a combination of <code>resultForDelete</code> and <code>requireBoth</code> must be specified.  For example, setting both <code>resultForDelete</code> and <code>requireBoth</code> to <code>true</code> or <code>false</code> will result in criteria that can be tested against all interactions with expected behavior.
+    </p>
+    <p>
+      When using <code>fhirPathCriteria</code> during a delete, the <code>%current</code> variable will be set to empty (<code>{}</code>). Authors should ensure that expressions can be evaluated without errors in all applicable situations.
+    </p>
 		
-		<a name="resource-operation-update" />
-		<h4>Resource Interaction: Update</h4>
+		<a name="resource-trigger-update" />
+		<h4>Trigger Interaction: Update</h4>
 		<p>
-			Subscription Topics defined on <code>update</code> interactions are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
+			Subscription Topics that include <code>update</code> interactions are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
 		</p>
-		<p>
-			Filters for <code>update</code> interactions are restricted to the type of resource being updated and must be evaluated on the resource instance after the update is performed (e.g., post-state change).  If more complicated filtering is required (e.g., detecting when an Encounter leaves the 'in-progress' state), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
-		</p>
-		<ul>
-			<li><code>resource: Patient</code>, <code>supportedInteraction: update</code>: notify each time a <a href="patient.html">patient</a> is modified on the server, e.g., to a processing server to determine further actions.</li>
-			<li><code>resource: CarePlan</code>, <code>supportedInteraction: update</code>: notify each time a <a href="careplan.html">Care Plan</a> is modified on the server, e.g., to notify a care team of changes.</li>
-			<li><code>resource: Resource</code>, <code>supportedInteraction: update</code>: notify each time any resource is modified on the server, e.g., for internal logging/processing.</li>
-		</ul>
+    <p>
+      When using <code>queryCriteria</code> during an update, both the <code>previous</code> and <code>current</code> tests can apply.  In most cases, an update should set <code>requireBoth</code> and ensure that the elements of interest are the ones changed to avoid generating notifications on unrelated updates.  For example, if a topic is looking for changes to <code>Encounter.status</code>, only checking that the <code>current</code> status is <code>in-progress</code> would trigger notifications on changes to the <code>Encounter.diagnosis</code> for an in-progress encounter.
+    </p>
+    <p>
+      When using <code>fhirPathCriteria</code> during an update, it is recommended to test both the <code>%previous</code> and <code>%current</code> contents to ensure that only desired changes are captured.  For example, if a topic is looking for changes to <code>Encounter.status</code>, only checking that the <code>%current</code> status is <code>in-progress</code> would trigger notifications on changes to the <code>Encounter.diagnosis</code> for an in-progress encounter.
+    </p>
 	
 	<a name="resource-value-tests" />
 	<h3>Resource Value Tests</h3>
@@ -94,13 +112,19 @@
 	</p>
 
 		<a name="query-criteria" />
-		<h4>Query (Search) Definitions</h4>
+		<h4>Query (Search) Trigger Definitions</h4>
 		<p>
 			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>resourceTrigger.resource</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
 		</p>
+    <p>
+      Because FHIR search expressions are evaluated against a single resource, <code>queryCriteria</code> provides two elements for including criteria - <code>previous</code> for an expression tested against the resource as it existed before the current interaction and <code>current</code> for an expression tested against the resource as it exists after the current interaction.
+    </p>
+    <p>
+      When using query criteria, it is important to note the interaction between the <code>supportedInteraction</code> element, the <code>previous</code> and <code>resultForCreate</code> elements, the <code>current</code> and <code>resultForDelete</code> elements, and the <code>requireBoth</code> element.  More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> section of this page.
+    </p>
 
 		<a name="fhirpath-criteria" />
-		<h4>FHIRPath Definitions</h4>
+		<h4>FHIRPath Trigger Definitions</h4>
 		<p>
 			FHIRPath expressions can be used to define topical state changes in a server.  The FHIRPath expression is assumed to be provided the inputs listed below.
 		</p>
@@ -108,19 +132,25 @@
 			FHIRPath expression input variables:
       <ul>
         <li>
-          Variable [previous] = resource instance prior to state change being applied
+          Variable <code>%previous</code> - resource instance prior to state change being applied
         </li>
         <li>
-          Variable [current] - resource instance post state change being applied
+          Variable <code>%current</code> - resource instance post state change being applied
         </li>
       </ul>
 		</p>
     <p>
       For example, the expression: <code>%previous.status!='in-progress' and %current.status='in-progress'</code> indicates that the resource has an element, <code>status</code>, and that notifications are generated if the pre-update version status is not 'in-progress' and the post-update version is 'in-progress'.
     </p>
+    <p>
+      If the resource trigger includes a <code>supportedInteraction</code> filter, the FHIRPath expression SHALL only be tested for the listed interactions.  Note that empty-checking must be included in a FHIRPath test if the test includes properties that do not exist for interactions included in the trigger.  To continue with the above example, if the test should be applied to <code>create</code> interactions in addition to <code>update</code> ones, a more complete expression would be: <code>(%previous.empty() | (%previous.status != 'in-progress')) and (%current.status = 'in-progress')</code>.
+    </p>
+    <p>
+      When using FHIRPath criteria, it is important to note the interaction between the <code>supportedInteraction</code> element and the <code>%previous</code> and <code>%current</code> variables.  More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> section of this page.
+    </p>
 
 	<a name="definition-event" />
-	<h3>Event Definitions</h3>
+	<h3>Event Trigger Definitions</h3>
   <p>
     There are use-cases when a triggering event is not easily described in terms of FHIR resources (e.g., shift change at a facility) or that an existing workflow is already defined on an event-based system (e.g., patient admission in HL7v2).  To support these scenarios Subscription Topics MAY include an event trigger, either instead of or in addition to resource triggers.
   </p>
@@ -139,6 +169,9 @@
 	<p>
     To help servers filter a large set of topic notifications into a smaller set of events that a particular client is interested in, each <code>SubscriptionTopic</code> defines a set of filters that clients are allowed to request. For example, filters can be used to allow a <code>Subscription</code> to narrow down notifications from a topic defining all patient admissions to a just admissions for patients for a specific care team.
 	</p>
+  <p>
+    Note that filters can be defined either to a single resource type (e.g., <code>Patient</code>) or to the 'lower-level' resource types (e.g., <code>Resource</code>). When defining allowed filters across resources, care should be taken to ensure that the parameters correctly apply to all resources included in scope. For example, a filter defined for <code>Resource</code> has well-defined behavior for search parameters like <a href="search.html#_language">_language</a>, <a href="search.html#_source">_source</a>, and <a href="search.html#_tag">_tag</a>, but there is not a well-defined behavior for a parameter like <a href="searchparameter-registry.html#clinical-patient">patient</a> across resources that are not in the patient compartment.  Servers MAY reject subscriptions requests that are include too broad filters, determine at the time of creation which resources the parameter is applied to, or test each resource at runtime.  More information is available on the <a href="subscriptions.html#resource-filters">Subscriptions Framework</a> page.
+  </p>
 
 		<a name="filters-param-name"/>
 		<h4>Filter Parameter</h4>
@@ -161,52 +194,55 @@
       As described in <a href="#filters-param-name">Filter Parameter</a>, parameters backed by full Search Parameter definitions SHALL contain a link to the canonical URL in this element and other parameters SHOULD contain a useful URI in this element.
     </p>
 
+		<a name="filters-comparator"/>
 		<a name="filters-modifier"/>
-		<h4>Modifier</h4>
-		<p>
-			The element <code>canFilterBy.modifier</code> contains a search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifier of <code>sa</code> (starts after) has no meaning when applied to a string).
-		</p>
-		<p>
-			If a search modifier is not provided, it is defaulted to <code>=</code> (no modifier).
-		</p>
+		<h4>Comparators and Modifiers</h4>
     <p>
-      If a filter parameter is a defined Search Parameter, the list of allowed modifiers SHALL be a strict subset of the modifiers defined on the Search Parameter.
+      In addition to the element or elements for a filter, sometimes it is necessary to describe additional behavior used in the filtering tests (e.g., asking for values in a range). To specify this, filters can specify <code>comparator</code> and <code>modifier</code> values, matching the behaviors defined by <a href="searchparameter.html">SearchParameters</a>.  Details about interactions with element types can be found on the search page, in the <a href="search.html#modifiers">Modifiers</a> and <a href="search.html#prefix">Prefixes</a> sections. 
     </p>
+		<p>
+      Note:
+      <ul>
+        <li>If no <code>comparator</code> or <code>modifier</code> is provided, the comparison is the default <code>=</code> match.</li>
+        <li>If a filter parameter is a defined Search Parameter, the list of allowed modifiers SHALL be a strict subset of the modifiers defined on the Search Parameter.</li>
+        <li>While filters may allow both, no single filter value allowed to have both a <code>comparator</code> and a <code>modifier</code>.</li>
+      </ul>
+		</p>
 
 		<a name="filters-timing"/>
 		<h4>Filter Timing and Interactions</h4>
 		<p>
 			When a server evaluates filters depends on the type of change covered by the topic.  Guidance is provided based on implementation feedback, but note that all filters are defined to explicitly describe the state before and after the interaction occurs.
 		</p>
+    <p>
+      Note that while the <code>SubscriptionTopic</code> resource defines filters that can be exposed to clients, actual filters and their values are specified by the <a href="subscription.html">Subscription</a> resource.
+    </p>
 
 			<a name="filters-timing-create"/>
-			<h5>Create</h5>
+			<h5>Filters on Create Interactions</h5>
 			<p>
-				Logically, filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
+				Logically, subscription filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
 			</p>
-      <p>
-        Tests can specifically include or exclude changes caused by a <code>create</code> interactions, either via null testing in FHIRPath (e.g., <code>%previous is null</code>) or via the <code>resourceTrigger.queryCriteria.resultForCreate</code> element for query-based definitions.
-      </p>
 
 			<a name="filters-timing-delete"/>
-			<h5>Delete</h5>
+			<h5>Filters on Delete Interactions</h5>
 			<p>
-				Logically, filters evaluated against <code>delete</code> interactions must be performed before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
+				Logically, query filters evaluated against <code>delete</code> interactions must be performed before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
 			</p>
-      <p>
-        Tests can specifically include or exclude changes caused by a <code>delete</code> interactions, either via null testing in FHIRPath (e.g., <code>%current is null</code>) or via the <code>resourceTrigger.queryCriteria.resultForDelete</code> element for query-based definitions.
-      </p>
 
 			<a name="filters-timing-update"/>
-			<h5>Update</h5>
+			<h5>Filters on Update Interactions</h5>
 			<p>
-				Logically, filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  Note however that filters are explicitly defined against the two states: <code>previous</code> and <code>current</code>.  Notifications based on resource changes SHALL NOT be sent if the update request fails, since no state change occurred.
+				Logically, query filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  For clarity, it is recommended that a topic does not define filters for the same resource elements being test for the notification triggers.  For example, if a topic is looking for changes on the <code>Encounter.status</code> element, a filter for that element would always have different values in the two states.  If a topic requires a filter on one of the elements present in the triggers, the author SHOULD explain in the topic definition when filters should be applied.
 			</p>
 
   <a name="notification-shape"/>
   <h3>Notification Shape</h3>
   <p>
-    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  This element defines the possible 'root' resources for a notification, as well as additional resources that may be included.
+    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  Each shape is defined according to a resource via the <code>notificationShape.resource</code> element. This is the 'focus' resource of the topic, or one of them if there are more than one, and the root resource for that shape definition.  It will be the same, a generality, or a specificity of <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code> when they are present.
+  </p>
+  <p>
+    Note that multiple <code>notificationShape</code> elements can exist for the same resource, so that a server can indicate that there are multiple groupings of resources that may be sent. For example, a business-to-business (B2B) topic may include notifications on all changes to Patient resources, but may want to define that sometimes a Patient will include Encounters and other times Conditions.
   </p>
 
   <a name="shape-root-resource"/>
@@ -218,13 +254,22 @@
   <a name="shape-additional-resources"/>
   <h4>Including Additional Resources</h4>
   <p>
-    Sometimes it is benficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
+    Sometimes it is beneficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
   </p>
   <p>
-    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.
+    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them.
   </p>
   <p>
-    Included resources should be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
+    Inclusion directives MAY contain additional logic as allowed by search (e.g., iterating over inclusions). Server implementations are under no obligation to support additional logic, just as they are not required to support shape directives.  Servers that do support inclusions but not support complex inclusion logic SHOULD ignore the additional directives in the <code>include</code> and <code>revinclude</code> elements.  Note that there is currently no discovery mechanism for advertising or finding the level of shaping support for a server.  Server implementers SHOULD document their support so that client implementers can discover this out-of-band.
+  </p>
+  <p>
+    In the <a href="subscriptiontopic-example.html">SubscriptionTopic/example</a> example, the focus resource is <a href="encounter.html">Encounter</a> and lists several resources to include. The first inclusion, <code>Encounter:patient&amp;iterate=Patient.link</code> requests that patients related to the encounter are included <i>and</i> that the server should follow the <code>Patient.link</code> element to include patients or related persons listed there.
+  </p>
+  <p>
+    Included resources SHOULD be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
+  </p>
+  <p>
+    Note that the FHIR specification defines other mechanisms for defining graphs of resources - e.g., <a href="graphdefinition.html">GraphDefinition</a> and <a href="graphql.html">GraphQL</a>.  Currently, adoption of these mechanisms is significantly behind implementations of Search-based include.  In order to support this functionality without adding barriers to implementing subscriptions, support for <code>include</code> and <code>revinclude</code> was selected.  If another graph-defining mechanism gains widespread adoption, support could be added via an extension with changes to this resource in a future version of FHIR.
   </p>
 
 	<a name="deriving" />
@@ -240,7 +285,7 @@
 	</ul>
 
   [%stu-note early%]
-	Warning: This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
+	This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
 	[%end-note%]
 
 </div>

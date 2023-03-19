@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <id value="additional-binding-purpose"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/tools/ValueSet/additional-binding-purpose"/>
   <name value="AdditionalBindingPurposeVS"/>
   <title value="Additional Binding Purpose ValueSet"/>
@@ -14,7 +17,7 @@
     </coding>
   </jurisdiction>  <compose>
     <include>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/additional-binding-purpose"/>
+      <system value="http://hl7.org/fhir/CodeSystem/additional-binding-purpose"/>
     </include>
   </compose>
 </ValueSet>

@@ -36,7 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StructureDefinition"/>
-  <title value="StructureDefinition"/>
+  <title value="Structure Definition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -100,7 +100,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -238,7 +238,7 @@
         <key value="sdf-29"/>
         <severity value="warning"/>
         <human value="Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *"/>
-        <expression value="((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
+        <expression value="((kind in 'resource' | 'complex-type') and (derivation = 'specialization')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -264,6 +264,15 @@
       <type>
         <code value="uri"/>
       </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <condition value="sdf-19"/>
+      <condition value="sdf-22"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -298,7 +307,7 @@
     <element id="StructureDefinition.version">
       <path value="StructureDefinition.version"/>
       <short value="Business version of the structure definition"/>
-      <definition value="The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <definition value="The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. There is no expectation that versions can be placed in a lexicographical sequence, so authors are encouraged to populate the StructureDefinition.versionAlgorithm[x] element to enable comparisons. If there is no managed version available, authors can consider using ISO date/time syntax (e.g., '2023-01-01')."/>
       <comment value="There may be different structure definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the structure definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -589,14 +598,14 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="deprecated">
           <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
-            <valueMarkdown value="Use the artifact-keyword extension instead"/>
+            <valueMarkdown value="Use the artifact-topic extension instead"/>
           </extension>
         </valueCode>
       </extension>
       <path value="StructureDefinition.keyword"/>
       <short value="Assist with indexing and finding"/>
       <definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
-      <comment value="Note that this element is deprecated. Use the artifact-keyword extension instead."/>
+      <comment value="Note that this element is deprecated. Use the [[[http://hl7.org/fhir/StructureDefinition/artifact-topic]]] extension instead."/>
       <requirements value="Assist in searching for appropriate StructureDefinitions."/>
       <min value="0"/>
       <max value="*"/>
@@ -696,7 +705,7 @@
     </element>
     <element id="StructureDefinition.mapping.comment">
       <path value="StructureDefinition.mapping.comment"/>
-      <short value="Versions, Issues, Scope limitations etc."/>
+      <short value="Versions, Issues, Scope limitations etc"/>
       <definition value="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage."/>
       <min value="0"/>
       <max value="1"/>
@@ -713,6 +722,13 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sdf-15a"/>
+      <condition value="sdf-15"/>
+      <condition value="sdf-11"/>
+      <condition value="sdf-29"/>
+      <condition value="sdf-8"/>
+      <condition value="sdf-3"/>
+      <condition value="sdf-8a"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -733,12 +749,13 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="sdf-4"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.context">
       <path value="StructureDefinition.context"/>
       <short value="If an extension, where it can be used in instances"/>
-      <definition value="Identifies the types of resource or data type elements to which the extension can be applied."/>
+      <definition value="Identifies the types of resource or data type elements to which the extension can be applied. For more guidance on using the 'context' element, see the [defining extensions page](defining-extensions.html#context)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -800,7 +817,11 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="sdf-18"/>
       <condition value="sdf-11"/>
+      <condition value="sdf-5"/>
+      <condition value="sdf-8"/>
+      <condition value="sdf-8a"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -818,7 +839,7 @@
       <path value="StructureDefinition.baseDefinition"/>
       <short value="Definition that this type is constrained/specialized from"/>
       <definition value="An absolute URI that is the base structure from which this type is derived, either by specialization or constraint."/>
-      <comment value="If differential constraints are specified in this structure, they are applied to the base in a &quot;differential&quot; fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of &quot;Element&quot; or another logical model."/>
+      <comment value="If differential constraints are specified in this structure, they are applied to the base in a &quot;differential&quot; fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of &quot;Base&quot;, &quot;Element&quot; or another logical model."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -829,6 +850,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
       <condition value="sdf-4"/>
+      <condition value="sdf-27"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.derivation">
@@ -841,6 +863,11 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sdf-1"/>
+      <condition value="sdf-21"/>
+      <condition value="sdf-5"/>
+      <condition value="sdf-27"/>
+      <condition value="sdf-29"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -863,6 +890,14 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sdf-19"/>
+      <condition value="sdf-16"/>
+      <condition value="sdf-15"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-11"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-1"/>
       <condition value="sdf-6"/>
       <constraint>
         <key value="sdf-8"/>
@@ -907,7 +942,7 @@
         <key value="sdf-26"/>
         <severity value="error"/>
         <human value="The root element of a profile should not have mustSupport = true"/>
-        <expression value="snapshot.where(element[0].mustSupport='true').exists().not()"/>
+        <expression value="$this.where(element[0].mustSupport='true').exists().not()"/>
       </constraint>
     </element>
     <element id="StructureDefinition.snapshot.element">
@@ -919,7 +954,21 @@
       <type>
         <code value="ElementDefinition"/>
       </type>
+      <condition value="sdf-9"/>
+      <condition value="sdf-19"/>
+      <condition value="sdf-16"/>
+      <condition value="sdf-15"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-11"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-1"/>
+      <condition value="sdf-8"/>
       <condition value="sdf-3"/>
+      <condition value="sdf-8b"/>
+      <condition value="sdf-24"/>
+      <condition value="sdf-25"/>
+      <condition value="sdf-26"/>
       <constraint>
         <key value="sdf-10"/>
         <requirements value="binding is required"/>
@@ -952,7 +1001,15 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sdf-15a"/>
+      <condition value="sdf-19"/>
+      <condition value="sdf-17"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-21"/>
       <condition value="sdf-6"/>
+      <condition value="sdf-29"/>
       <constraint>
         <key value="sdf-20"/>
         <requirements value="no slicing on root"/>
@@ -978,6 +1035,17 @@
       <type>
         <code value="ElementDefinition"/>
       </type>
+      <condition value="sdf-9"/>
+      <condition value="sdf-15a"/>
+      <condition value="sdf-19"/>
+      <condition value="sdf-17"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-21"/>
+      <condition value="sdf-29"/>
+      <condition value="sdf-20"/>
+      <condition value="sdf-8a"/>
       <mapping>
         <identity value="iso11179"/>
         <map value="--"/>

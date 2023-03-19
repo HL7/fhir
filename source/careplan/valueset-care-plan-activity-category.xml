@@ -18,6 +18,7 @@
   </identifier>
   <version value="1.0.0"/>
   <name value="CarePlanActivityCategory"/>
+  <title value="Care Plan Activity Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2015-08-30T17:04:04-06:00"/>

@@ -1,0 +1,21 @@
+map "http://hl7.org/fhir/StructureMap/RelatedPerson3to4" = "R3 to R4 Conversions for RelatedPerson"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RelatedPerson" alias RelatedPersonR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group RelatedPerson(source src : RelatedPersonR3, target tgt : RelatedPerson) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.patient -> tgt.patient;
+  src.relationship -> tgt.relationship;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.gender -> tgt.gender;
+  src.birthDate -> tgt.birthDate;
+  src.address -> tgt.address;
+  src.photo -> tgt.photo;
+  src.period -> tgt.period;
+}
+

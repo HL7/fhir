@@ -29,9 +29,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.174"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="ListMode"/>
-  <title value="ListMode"/>
+  <title value="List Mode"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -53,7 +53,7 @@
   <concept>
     <code value="working"/>
     <display value="Working List"/>
-    <definition value="This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes."/>
+    <definition value="This list is the master list, maintained in an ongoing fashion with regular updates as the real-world list it is tracking changes."/>
   </concept>
   <concept>
     <code value="snapshot"/>

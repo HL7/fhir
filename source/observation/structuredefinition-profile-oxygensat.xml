@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="oxygensat"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="&#34;#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One code in `Observation.code` which must have&#xA;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xA;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#xA;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xA;        Codes, SNOMED CT concepts, system specific codes. All codes&#xA;        SHALL have an system value&#xA;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xA;   - Each Observation.valueQuantity must have:&#xA;     - One numeric value in Observation.valueQuantity.value&#xA;     - a fixed Observation.valueQuantity.system=&#34;http://unitsofmeasure.org&#34;&#xA;     - a UCUM unit code in Observation.valueQuantity.code = **'%'**"/>
+    <valueMarkdown value="&quot;#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One code in `Observation.code` which must have&#xA;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xA;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#xA;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xA;        Codes, SNOMED CT concepts, system specific codes. All codes&#xA;        SHALL have a system value&#xA;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xA;   - Each Observation.valueQuantity must have:&#xA;     - One numeric value in Observation.valueQuantity.value&#xA;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xA;     - a UCUM unit code in Observation.valueQuantity.code = **'%'**"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
@@ -16,8 +18,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
-    <valueString value="&#34;#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One code in `Observation.code` which must have&#xA;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xA;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#xA;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xA;        Codes, SNOMED CT concepts, system specific codes. All codes&#xA;        SHALL have an system value&#xA;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xA;   - Each Observation.valueQuantity must have:&#xA;     - One numeric value in Observation.valueQuantity.value&#xA;     - a fixed Observation.valueQuantity.system=&#34;http://unitsofmeasure.org&#34;&#xA;     - a UCUM unit code in Observation.valueQuantity.code = **'%'**"/>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
+    <valueString value="&quot;#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One code in `Observation.code` which must have&#xA;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xA;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#xA;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xA;        Codes, SNOMED CT concepts, system specific codes. All codes&#xA;        SHALL have a system value&#xA;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xA;   - Each Observation.valueQuantity must have:&#xA;     - One numeric value in Observation.valueQuantity.value&#xA;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xA;     - a UCUM unit code in Observation.valueQuantity.code = **'%'**"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/oxygensat"/>
   <identifier>
@@ -25,7 +27,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1457"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="observation-oxygensat"/>
+  <name value="Observationoxygensat"/>
   <title value="Observation Oxygen Saturation Profile"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -52,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>

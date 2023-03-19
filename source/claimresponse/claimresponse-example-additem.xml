@@ -110,7 +110,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="80.00"/>
+			<quantity>
+				<value value="80.00"/>
+			</quantity>
 		</adjudication>
 
 		<adjudication>
@@ -148,7 +150,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="80.00"/>
+			<quantity>
+				<value value="80.00"/>
+			</quantity>
 		</adjudication>
 
 		<adjudication>
@@ -184,7 +188,9 @@
 						<code value="eligpercent"/>
 					</coding>
 				</category>
-				<value value="80.00"/>
+				<quantity>
+					<value value="80.00"/>
+				</quantity>
 			</adjudication>
 
 			<adjudication>
@@ -282,7 +288,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="80.00"/>
+			<quantity>
+				<value value="80.00"/>
+			</quantity>
 		</adjudication>
 		<adjudication>
 			<category>
@@ -336,7 +344,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="80.00"/>
+			<quantity>
+				<value value="80.00"/>
+			</quantity>
 		</adjudication>
 		<adjudication>
 			<category>
@@ -391,7 +401,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="80.00"/>
+			<quantity>
+				<value value="80.00"/>
+			</quantity>
 		</adjudication>
 		<adjudication>
 			<category>
@@ -455,7 +467,12 @@
 
 	<processNote>
 		<number value="101"/>
-		<type value="print" />
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type"/>
+				<code value="print"/>
+			</coding>
+		</type>
 		<text value="Package codes are not permitted. Codes replaced by Insurer."/>
 		<language>
 			<coding>

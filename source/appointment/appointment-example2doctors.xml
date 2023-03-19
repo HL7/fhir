@@ -3,7 +3,7 @@
 	<id value="2docs"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">Discussion of Peter's ultrasound results to plan ongoing treatment options</div>
 	</text>
 	<status value="booked" />
 	<serviceCategory>
@@ -31,19 +31,18 @@
 	<appointmentType>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v2-0276" />
-			<code value="WALKIN" />
-			<display value="A previously unscheduled walk-in visit" />
+			<code value="FOLLOWUP" />
+			<display value="A follow up visit from a previous appointment" />
 		</coding>
 	</appointmentType>
-	<!-- <priority value="5" /> -->
-	<description value="Discussion about Peter Chalmers MRI results" />
-  <supportingInformation>
-    <reference value="DiagnosticReport/ultrasound"/>
-  </supportingInformation>
+	<description value="Discussion about Peter Chalmers ultrasound results" />
+	<supportingInformation>
+		<reference value="DiagnosticReport/ultrasound"/>
+	</supportingInformation>
 	<start value="2013-12-09T09:00:00Z" />
 	<end value="2013-12-09T11:00:00Z" />
 	<note>
-		<text value="Clarify the results of the MRI to ensure context of test was correct" />
+		<text value="Clarify the results of the ultrasound to ensure context of test was correct" />
 	</note>
 	<subject>
 		<reference value="Patient/example" />

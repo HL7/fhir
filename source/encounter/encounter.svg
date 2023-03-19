@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n835"
+   version="1.1"
+   width="1328.2696700000001"
+   height="405.03627"
+   sodipodi:docname="encounter.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview108802"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.93806254"
+     inkscape:cx="664.13483"
+     inkscape:cy="203.07815"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n835" />
+  <defs
+     id="defs108444">
+    <filter
+       id="shadow1"
+       x="-0.025094697"
+       y="-0.067948718"
+       width="1.0643939"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset108435" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix108437" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur108439" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend108441" />
+    </filter>
+  </defs>
+  <g
+     id="n836"
+     transform="translate(-73.555864,-2.132054)">
+    <rect
+       id="Encounter"
+       x="409.1788"
+       y="4.6497593"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="386"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n837"
+       x1="409.1788"
+       y1="32.649757"
+       x2="703.97882"
+       y2="32.649757"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n838"
+       x="556.5788"
+       y="24.649759"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">Encounter<tspan
+   class="diagram-class-title-link"
+   id="tspan108449">(<a
+   id="n839"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n840"
+       x="415.1788"
+       y="46.649757"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n841"
+   xlink:href="encounter-definitions.html#Encounter.identifier"><title
+   id="title108452">Identifier(s) by which this encounter is known</title>identifier</a> : <a
+   id="n842"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n846"
+       x="415.1788"
+       y="60.649757"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n847"
+   xlink:href="encounter-definitions.html#Encounter.status"><title
+   id="title108457">The current state of the encounter (not the state of the patient within the encounter - that is subjectState) (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n848"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n849"
+   xlink:href="valueset-encounter-status.html"><title
+   id="n850">null (Strength=Required)</title>EncounterStatus</a>! »</text>
+    <text
+       id="n856"
+       x="415.1788"
+       y="74.649757"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n857"
+   xlink:href="encounter-definitions.html#Encounter.class"><title
+   id="title108464">Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations</title>class</a> : <a
+   id="n858"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n859"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-encounter-class.html"><title
+   id="title108468">null (Strength=Preferred)</title>EncounterClass</a>? »</text>
+    <text
+       id="n864"
+       x="415.1788"
+       y="88.649757"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n865"
+   xlink:href="encounter-definitions.html#Encounter.priority"><title
+   id="title108472">Indicates the urgency of the encounter</title>priority</a> : <a
+   id="n866"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n867"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActPriority.html"><title
+   id="n868">null (Strength=Example)</title>ActPriority</a>?? »</text>
+    <text
+       id="n874"
+       x="415.1788"
+       y="102.64976"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n875"
+   xlink:href="encounter-definitions.html#Encounter.type"><title
+   id="title108479">Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</title>type</a> : <a
+   id="n876"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n877"
+   xlink:href="valueset-encounter-type.html"><title
+   id="n878">null (Strength=Example)</title>EncounterType</a>?? »</text>
+    <text
+       id="n884"
+       x="415.1788"
+       y="116.64976"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n885"
+   xlink:href="encounter-definitions.html#Encounter.serviceType"><title
+   id="title108486">Broad categorization of the service that is to be provided (e.g. cardiology)</title>serviceType</a> : <a
+   id="n886"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n887"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>; <a
+   id="n888"
+   xlink:href="valueset-service-type.html"><title
+     id="n889">null (Strength=Example)</title></a></text>
+    <text
+       id="n890"
+       x="435.1788"
+       y="130.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n891"
+   xlink:href="valueset-service-type.html">ServiceType</a>?? »</text>
+    <text
+       id="n900"
+       x="415.1788"
+       y="144.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n901"
+   xlink:href="encounter-definitions.html#Encounter.subject"><title
+   id="title108496">The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam</title>subject</a> : <a
+   id="n902"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n903"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n904"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n910"
+       x="415.1788"
+       y="158.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n911"
+   xlink:href="encounter-definitions.html#Encounter.subjectStatus"><title
+   id="title108503">The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status</title>subjectStatus</a> : <a
+   id="n912"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n913"
+   xlink:href="valueset-encounter-subject-status.html"><title
+   id="n914">null (Strength=Example)</title>EncounterSubjectStatus</a>?? »</text>
+    <text
+       id="n920"
+       x="415.1788"
+       y="172.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n921"
+   xlink:href="encounter-definitions.html#Encounter.episodeOfCare"><title
+   id="title108510">Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)</title>episodeOfCare</a> : <a
+   id="n922"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n923"
+   xlink:href="episodeofcare.html#EpisodeOfCare">EpisodeOfCare</a> »</text>
+    <text
+       id="n928"
+       x="415.1788"
+       y="186.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n929"
+   xlink:href="encounter-definitions.html#Encounter.basedOn"><title
+   id="title108516">The request this encounter satisfies (e.g. incoming referral or procedure request)</title>basedOn</a> : <a
+   id="n930"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n931"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n932"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|</text>
+    <text
+       id="n933"
+       x="435.1788"
+       y="200.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n934"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n935"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n944"
+       x="415.1788"
+       y="214.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n945"
+   xlink:href="encounter-definitions.html#Encounter.careTeam"><title
+   id="title108526">The group(s) of individuals, organizations that are allocated to participate in this encounter. The participants backbone will record the actuals of when these individuals participated during the encounter</title>careTeam</a> : <a
+   id="n946"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n947"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n952"
+       x="415.1788"
+       y="228.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n953"
+   xlink:href="encounter-definitions.html#Encounter.partOf"><title
+   id="title108532">Another Encounter of which this encounter is a part of (administratively or in time)</title>partOf</a> : <a
+   id="n954"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n955"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n960"
+       x="415.1788"
+       y="242.64977"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n961"
+   xlink:href="encounter-definitions.html#Encounter.serviceProvider"><title
+   id="title108538">The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the colonoscopy example on the Encounter examples tab</title>serviceProvider</a> : <a
+   id="n962"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n963"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n968"
+       x="415.1788"
+       y="256.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n969"
+   xlink:href="encounter-definitions.html#Encounter.appointment"><title
+   id="title108544">The appointment that scheduled this encounter</title>appointment</a> : <a
+   id="n970"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n971"
+   xlink:href="appointment.html#Appointment">Appointment</a> »</text>
+    <text
+       id="n976"
+       x="415.1788"
+       y="270.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n977"
+   xlink:href="encounter-definitions.html#Encounter.virtualService"><title
+   id="title108550">Connection details of a virtual service (e.g. conference call)</title>virtualService</a> : <a
+   id="n978"
+   xlink:href="metadatatypes.html#VirtualServiceDetail">VirtualServiceDetail</a> [0..*]</text>
+    <text
+       id="n982"
+       x="415.1788"
+       y="284.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n983"
+   xlink:href="encounter-definitions.html#Encounter.actualPeriod"><title
+   id="title108555">The actual start and end time of the encounter</title>actualPeriod</a> : <a
+   id="n984"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n988"
+       x="415.1788"
+       y="298.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n989"
+   xlink:href="encounter-definitions.html#Encounter.plannedStartDate"><title
+   id="title108560">The planned start date/time (or admission date) of the encounter</title>plannedStartDate</a> : <a
+   id="n990"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n994"
+       x="415.1788"
+       y="312.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n995"
+   xlink:href="encounter-definitions.html#Encounter.plannedEndDate"><title
+   id="title108565">The planned end date/time (or discharge date) of the encounter</title>plannedEndDate</a> : <a
+   id="n996"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1000"
+       x="415.1788"
+       y="326.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1001"
+   xlink:href="encounter-definitions.html#Encounter.length"><title
+   id="title108570">Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.
+
+When missing it is the time in between the start and end values</title>length</a> : <a
+   id="n1002"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
+    <text
+       id="n1006"
+       x="415.1788"
+       y="340.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1007"
+   xlink:href="encounter-definitions.html#Encounter.account"><title
+   id="title108575">The set of accounts that may be used for billing for this Encounter</title>account</a> : <a
+   id="n1008"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1009"
+   xlink:href="account.html#Account">Account</a> »</text>
+    <text
+       id="n1014"
+       x="415.1788"
+       y="354.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1015"
+   xlink:href="encounter-definitions.html#Encounter.dietPreference"><title
+   id="title108581">Diet preferences reported by the patient</title>dietPreference</a> : <a
+   id="n1016"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1017"
+   xlink:href="valueset-encounter-diet.html"><title
+   id="n1018">null (Strength=Example)</title>Diet</a>?? »</text>
+    <text
+       id="n1024"
+       x="415.1788"
+       y="368.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1025"
+   xlink:href="encounter-definitions.html#Encounter.specialArrangement"><title
+   id="title108588">Any special requests that have been made for this encounter, such as the provision of specific equipment or other things</title>specialArrangement</a> : <a
+   id="n1026"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1027"
+   xlink:href="valueset-encounter-special-arrangements.html"><title
+   id="title108592">null (Strength=Preferred)</title>SpecialArrangements</a>? »</text>
+    <text
+       id="n1032"
+       x="415.1788"
+       y="382.64975"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1033"
+   xlink:href="encounter-definitions.html#Encounter.specialCourtesy"><title
+   id="title108596">Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy)</title>specialCourtesy</a> : <a
+   id="n1034"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1035"
+   xlink:href="valueset-encounter-special-courtesy.html"><title
+   id="title108600">null (Strength=Preferred)</title>SpecialCourtesy</a>? »</text>
+  </g>
+  <g
+     id="n1040"
+     transform="translate(776.06766,-173.7624)">
+    <rect
+       id="Encounter.participant"
+       x="5.3663001"
+       y="195.28989"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1041"
+       x1="5.3663001"
+       y1="223.28989"
+       x2="304.56631"
+       y2="223.28989"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1042"
+       x="154.96629"
+       y="215.28989"
+       fill="#000000"
+       class="diagram-class-title">Participant</text>
+    <text
+       id="n1043"
+       x="11.3663"
+       y="237.28989"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1044"
+   xlink:href="encounter-definitions.html#Encounter.participant.type"><title
+   id="title108608">Role of participant in encounter</title>type</a> : <a
+   id="n1045"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1046"
+   xlink:href="valueset-encounter-participant-type.html"><title
+   id="n1047">null (Strength=Extensible)</title>ParticipantType</a>+ » « <a
+   id="n1048"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1049">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1057"
+       x="11.3663"
+       y="251.28989"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1058"
+   xlink:href="encounter-definitions.html#Encounter.participant.period"><title
+   id="title108617">The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter's period</title>period</a> : <a
+   id="n1059"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1063"
+       x="11.3663"
+       y="265.28989"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1064"
+   xlink:href="encounter-definitions.html#Encounter.participant.actor"><title
+   id="title108622">Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times</title>actor</a> : <a
+   id="n1065"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1066"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1067"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1068"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1069"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n1070"
+       x="31.366301"
+       y="279.28989"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1071"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1072"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1073"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> » « <a
+   id="n1074"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1075">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1089"
+     transform="translate(781.3978,88.480242)">
+    <rect
+       id="Encounter.reason"
+       x="12.28252"
+       y="48.047512"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1090"
+       x1="12.28252"
+       y1="76.047508"
+       x2="285.08252"
+       y2="76.047508"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1091"
+       x="148.68253"
+       y="68.047508"
+       fill="#000000"
+       class="diagram-class-title">Reason</text>
+    <text
+       id="n1092"
+       x="18.28252"
+       y="90.047508"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1093"
+   xlink:href="encounter-definitions.html#Encounter.reason.use"><title
+   id="title108641">What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)</title>use</a> : <a
+   id="n1094"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1095"
+   xlink:href="valueset-encounter-reason-use.html"><title
+   id="n1096">null (Strength=Example)</title>EncounterReasonUse</a>?? »</text>
+    <text
+       id="n1102"
+       x="18.28252"
+       y="104.04751"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1103"
+   xlink:href="encounter-definitions.html#Encounter.reason.value"><title
+   id="title108648">Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis</title>value</a> : <a
+   id="n1104"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1105"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n1106"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|</text>
+    <text
+       id="n1107"
+       x="38.28252"
+       y="118.04751"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1108"
+   xlink:href="observation.html#Observation">Observation</a>|<a
+   id="n1109"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a>|<a
+   id="n1110"
+   xlink:href="procedure.html#Procedure">Procedure</a>; <a
+   id="n1111"
+   xlink:href="valueset-encounter-reason.html"><title
+     id="title108658">null (Strength=Preferred)</title></a></text>
+    <text
+       id="n1112"
+       x="38.28252"
+       y="132.04752"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1113"
+   xlink:href="valueset-encounter-reason.html">EncounterReasonCodes</a>? »</text>
+  </g>
+  <g
+     id="n1126"
+     transform="translate(-846.42545,68.225729)">
+    <rect
+       id="Encounter.diagnosis"
+       x="856.1554"
+       y="10.849438"
+       rx="4"
+       ry="4"
+       width="237.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1127"
+       x1="856.1554"
+       y1="38.849438"
+       x2="1093.7554"
+       y2="38.849438"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1128"
+       x="974.95538"
+       y="30.849438"
+       fill="#000000"
+       class="diagram-class-title">Diagnosis</text>
+    <text
+       id="n1129"
+       x="862.1554"
+       y="52.849438"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1130"
+   xlink:href="encounter-definitions.html#Encounter.diagnosis.condition"><title
+   id="title108668">The coded diagnosis or a reference to a Condition (with other resources referenced in the evidence.detail), the use property will indicate the purpose of this specific diagnosis</title>condition</a> : <a
+   id="n1131"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1132"
+   xlink:href="condition.html#Condition">Condition</a>; <a
+   id="n1133"
+   xlink:href="valueset-condition-code.html"><title
+     id="n1134">null (Strength=Example)</title></a></text>
+    <text
+       id="n1135"
+       x="882.1554"
+       y="66.849442"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1136"
+   xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n1145"
+       x="862.1554"
+       y="80.849442"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1146"
+   xlink:href="encounter-definitions.html#Encounter.diagnosis.use"><title
+   id="title108678">Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)</title>use</a> : <a
+   id="n1147"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1148"
+   xlink:href="valueset-encounter-diagnosis-use.html"><title
+   id="title108682">null (Strength=Preferred)</title>EncounterDiagnosisUse</a>? »</text>
+  </g>
+  <g
+     id="n1153"
+     transform="translate(-47.971215,-9.5942431)">
+    <rect
+       id="Encounter.admission"
+       x="820.26965"
+       y="265.03625"
+       rx="4"
+       ry="4"
+       width="308"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1154"
+       x1="820.26965"
+       y1="293.03625"
+       x2="1128.2697"
+       y2="293.03625"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1155"
+       x="974.26965"
+       y="285.03625"
+       fill="#000000"
+       class="diagram-class-title">Admission</text>
+    <text
+       id="n1156"
+       x="826.26965"
+       y="307.03625"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1157"
+   xlink:href="encounter-definitions.html#Encounter.admission.preAdmissionIdentifier"><title
+   id="title108690">Pre-admission identifier</title>preAdmissionIdentifier</a> : <a
+   id="n1158"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n1162"
+       x="826.26965"
+       y="321.03625"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1163"
+   xlink:href="encounter-definitions.html#Encounter.admission.origin"><title
+   id="title108695">The location/organization from which the patient came before admission</title>origin</a> : <a
+   id="n1164"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1165"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1166"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1172"
+       x="826.26965"
+       y="335.03625"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1173"
+   xlink:href="encounter-definitions.html#Encounter.admission.admitSource"><title
+   id="title108702">From where patient was admitted (physician referral, transfer)</title>admitSource</a> : <a
+   id="n1174"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1175"
+   xlink:href="valueset-encounter-admit-source.html"><title
+   id="title108706">null (Strength=Preferred)</title>AdmitSource</a>? »</text>
+    <text
+       id="n1180"
+       x="826.26965"
+       y="349.03625"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1181"
+   xlink:href="encounter-definitions.html#Encounter.admission.reAdmission"><title
+   id="title108710">Indicates that this encounter is directly related to a prior admission, often because the conditions addressed in the prior admission were not fully addressed</title>reAdmission</a> : <a
+   id="n1182"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1183"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0092.html"><title
+   id="n1184">null (Strength=Example)</title>Hl7VSReAdmissionIndicator</a>?? »</text>
+    <text
+       id="n1190"
+       x="826.26965"
+       y="363.03625"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1191"
+   xlink:href="encounter-definitions.html#Encounter.admission.destination"><title
+   id="title108717">Location/organization to which the patient is discharged</title>destination</a> : <a
+   id="n1192"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1193"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1194"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1200"
+       x="826.26965"
+       y="377.03625"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1201"
+   xlink:href="encounter-definitions.html#Encounter.admission.dischargeDisposition"><title
+   id="title108724">Category or kind of location after discharge</title>dischargeDisposition</a> : <a
+   id="n1202"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1203"
+   xlink:href="valueset-encounter-discharge-disposition.html"><title
+   id="n1204">null (Strength=Example)</title>DischargeDisposition</a>?? »</text>
+  </g>
+  <g
+     id="n1210"
+     transform="translate(-843.22736,55.433404)">
+    <rect
+       id="Encounter.location"
+       x="862.83405"
+       y="142.59261"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1211"
+       x1="862.83405"
+       y1="170.59261"
+       x2="1074.0341"
+       y2="170.59261"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1212"
+       x="968.43402"
+       y="162.59261"
+       fill="#000000"
+       class="diagram-class-title">Location</text>
+    <text
+       id="n1213"
+       x="868.83405"
+       y="184.59261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1214"
+   xlink:href="encounter-definitions.html#Encounter.location.location"><title
+   id="title108735">The location where the encounter takes place</title>location</a> : <a
+   id="n1215"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1216"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n1221"
+       x="868.83405"
+       y="198.59261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1222"
+   xlink:href="encounter-definitions.html#Encounter.location.status"><title
+   id="title108741">The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time</title>status</a> : <a
+   id="n1223"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1224"
+   xlink:href="valueset-encounter-location-status.html"><title
+   id="n1225">null (Strength=Required)</title>EncounterLocationStatus</a>! »</text>
+    <text
+       id="n1231"
+       x="868.83405"
+       y="212.59261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1232"
+   xlink:href="encounter-definitions.html#Encounter.location.form"><title
+   id="title108748">This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query</title>form</a> : <a
+   id="n1233"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1234"
+   xlink:href="valueset-location-form.html"><title
+   id="n1235">null (Strength=Example)</title>LocationForm</a>?? »</text>
+    <text
+       id="n1241"
+       x="868.83405"
+       y="226.59261"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1242"
+   xlink:href="encounter-definitions.html#Encounter.location.period"><title
+   id="title108755">Time period during which the patient was present at the location</title>period</a> : <a
+   id="n1243"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <line
+     id="n1247"
+     x1="409.1788"
+     y1="213.66657952929447"
+     x2="304.56630000000007"
+     y2="225.0340125493729"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1248"
+     points="409.1788,213.66657952929447 415.1788,217.66657952929447 421.1788,213.66657952929447 415.1788,209.66657952929447 409.1788,213.66657952929447"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(173.79844172553265 409.1788 213.66657952929447)" />
+  <rect
+     id="n1249"
+     x="332.0"
+     y="212.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1250"
+     x="356.0"
+     y="222.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1251"
+       xlink:href="encounter-definitions.html#Encounter.participant"><title
+   id="title108764">The list of people responsible for providing the service</title>participant</a></text>
+  <text
+     id="n1252"
+     x="319.56630000000007"
+     y="221.0340125493729"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1253"
+     x1="409.1788"
+     y1="160.21139064383266"
+     x2="285.08252"
+     y2="128.6919723624235"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1254"
+     points="409.1788,160.21139064383266 415.1788,164.21139064383266 421.1788,160.21139064383266 415.1788,156.21139064383266 409.1788,160.21139064383266"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-165.7487083134376 409.1788 160.21139064383266)" />
+  <rect
+     id="n1255"
+     x="334.0"
+     y="137.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1256"
+     x="347.0"
+     y="147.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1257"
+       xlink:href="encounter-definitions.html#Encounter.reason"><title
+   id="title108772">The list of medical reasons that are expected to be addressed during the episode of care</title>reason</a></text>
+  <text
+     id="n1258"
+     x="300.08252"
+     y="124.69197236242351"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1259"
+     x1="703.9788000000001"
+     y1="145.57761077338958"
+     x2="864.5585520461535"
+     y2="88.84943799999996"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1260"
+     points="703.9788000000001,145.57761077338958 709.9788000000001,149.57761077338958 715.9788000000001,145.57761077338958 709.9788000000001,141.57761077338958 703.9788000000001,145.57761077338958"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-19.45683833488383 703.9788000000001 145.57761077338958)" />
+  <rect
+     id="n1261"
+     x="764.5"
+     y="110.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1262"
+     x="784.0"
+     y="120.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1263"
+       xlink:href="encounter-definitions.html#Encounter.diagnosis"><title
+   id="title108780">The list of diagnosis relevant to this encounter</title>diagnosis</a></text>
+  <text
+     id="n1264"
+     x="864.5585520461535"
+     y="102.84943799999996"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1265"
+     x1="703.9788000000001"
+     y1="242.60351091808505"
+     x2="820.26967"
+     y2="278.0696636228963"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1266"
+     points="703.9788000000001,242.60351091808505 709.9788000000001,246.60351091808505 715.9788000000001,242.60351091808505 709.9788000000001,238.60351091808505 703.9788000000001,242.60351091808505"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(16.96055073736935 703.9788000000001 242.60351091808505)" />
+  <rect
+     id="n1267"
+     x="742.5"
+     y="253.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1268"
+     x="762.0"
+     y="263.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1269"
+       xlink:href="encounter-definitions.html#Encounter.admission"><title
+   id="title108788">Details about the stay during which a healthcare service is provided.
+
+This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge</title>admission</a></text>
+  <text
+     id="n1270"
+     x="800.26967"
+     y="274.0696636228963"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1271"
+     x1="703.9788000000001"
+     y1="194.40827127790718"
+     x2="862.83405"
+     y2="190.9148699322456"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1272"
+     points="703.9788000000001,194.40827127790718 709.9788000000001,198.40827127790718 715.9788000000001,194.40827127790718 709.9788000000001,190.40827127790718 703.9788000000001,194.40827127790718"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-1.259794037140296 703.9788000000001 194.40827127790718)" />
+  <rect
+     id="n1273"
+     x="765.5"
+     y="185.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1274"
+     x="783.0"
+     y="195.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1275"
+       xlink:href="encounter-definitions.html#Encounter.location"><title
+   id="title108796">List of locations where  the patient has been during this encounter</title>location</a></text>
+  <text
+     id="n1276"
+     x="842.83405"
+     y="186.9148699322456"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

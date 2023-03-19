@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CanonicalResource"/>
-  <title value="CanonicalResource"/>
+  <title value="Canonical Resource"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -87,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <mapping>
@@ -99,7 +99,7 @@
       <path value="CanonicalResource.url"/>
       <short value="Canonical identifier for this {{title}}, represented as an absolute URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this {{title}} is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the {{title}} is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the {{title}} to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -110,7 +110,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -124,7 +124,7 @@
       <short value="Additional identifier for the {{title}}"/>
       <definition value="A formal identifier that is used to identify this {{title}} when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this {{title}} outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the {{title}}."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -143,8 +143,8 @@
     <element id="CanonicalResource.version">
       <path value="CanonicalResource.version"/>
       <short value="Business version of the {{title}}"/>
-      <definition value="The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different {{title}} instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the {{title}} with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <definition value="The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge.  (See the versionAlgorithm element.)"/>
+      <comment value="There may be different {{title}}s that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the {{title}} with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -178,9 +178,9 @@
     <element id="CanonicalResource.name">
       <path value="CanonicalResource.name"/>
       <short value="Name for this {{title}} (computer friendly)"/>
-      <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
+      <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the resource by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type no-whitespace name to ensure that it is machine-processing friendly."/>
+      <requirements value="Supports code generation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -204,8 +204,9 @@
     <element id="CanonicalResource.status">
       <path value="CanonicalResource.status"/>
       <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this {{title}}. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of {{title}}s that are appropriate for use versus not."/>
+      <definition value="The current state of this {{title}}. "/>
+      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <requirements value="Enables tracking the life-cycle of the content and filtering of {{title}}s that are appropriate for use versus not."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -233,7 +234,7 @@
     <element id="CanonicalResource.experimental">
       <path value="CanonicalResource.experimental"/>
       <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <definition value="A Boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
       <comment value="Allows filtering of {{title}}s that are appropriate for use versus not."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level {{title}}."/>
       <min value="0"/>
@@ -298,7 +299,7 @@
       <path value="CanonicalResource.description"/>
       <short value="Natural language description of the {{title}}"/>
       <definition value="A free text natural language description of the {{title}} from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -308,8 +309,8 @@
     <element id="CanonicalResource.useContext">
       <path value="CanonicalResource.useContext"/>
       <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate {{title}} instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate {{title}}s."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
       <min value="0"/>
       <max value="*"/>
@@ -345,7 +346,7 @@
       <path value="CanonicalResource.purpose"/>
       <short value="Why this {{title}} is defined"/>
       <definition value="Explanation of why this {{title}} is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the {{title}}. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}."/>
+      <comment value="This element does not describe the usage of the {{title}}. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}."/>
       <min value="0"/>
       <max value="1"/>
       <type>

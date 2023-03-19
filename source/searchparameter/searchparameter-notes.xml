@@ -18,7 +18,7 @@ Servers MAY attempt to process expressions that just select the extension withou
 is not required and may be discouraged or deprecated in the future. 
 </p>
 <p>
-Extensions may have multiple types with different search behaviours, so the type can be specifically selected:
+Extensions may have multiple types with different search behaviors, so the type can be specifically selected:
 </p>
 <pre class="json">
    "code" : "thumb-length-code",
@@ -28,7 +28,7 @@ Extensions may have multiple types with different search behaviours, so the type
 </pre>
 <p>
 This example would select coded thumb lengths and index them only for the <code>thumb-length-code</code> search parameter.
-When an extension can have multiple types with incompatible search behaviour, the search 
+When an extension can have multiple types with incompatible search behavior, the search 
 parameters have to do this. Note that is type casting the extension directly (e.g.
 <code>Patient.extension('...').ofType(CodeableConcept)</code>) will lead to an empty index, 
 since the extension is not a CodeableConcept itself.

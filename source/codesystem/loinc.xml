@@ -56,7 +56,7 @@ they support
   <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <caseSensitive value="false"/>
   
-  <valueSet value=" http://loinc.org/vs"/>
+  <valueSet value="http://loinc.org/vs"/>
    <!--
     for a version specific reference:
     <valueSet value="http://loinc.org/2.56/vs"/>
@@ -94,7 +94,7 @@ they support
     <code value="child"/> 
     <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. child selects immediate children only. For example, the code '44022-2' has the parent 'LP52960-9'"/>
     <operator value="in"/>
-    <value value="A comma separated list of part codes"/>
+    <value value="A comma-separated list of part codes"/>
   </filter>
   <filter>
     <code value="ancestor"/> 
@@ -106,7 +106,7 @@ they support
     <code value="descendent"/> 
     <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
     <operator value="in"/>
-    <value value="A comma separated list of part codes"/>
+    <value value="A comma-separated list of part codes"/>
   </filter>
   <filter>
     <code value="copyright"/> 
@@ -229,7 +229,7 @@ they support
   <property>
     <code value="sequence"/>
     <uri value="http://loinc.org/property/sequence"/>
-    <description value="Sequence Number of a answer in a set of answers (LA- codes only)"/>
+    <description value="Sequence Number of an answer in a set of answers (LA- codes only)"/>
     <type value="integer"/>
   </property>  
   <property>

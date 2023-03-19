@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ChargeItem"/>
-  <title value="ChargeItem"/>
+  <title value="Charge Item"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -136,10 +136,6 @@
       </type>
       <isSummary value="false"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
-      <mapping>
         <identity value="v2"/>
         <map value="Varies by domain"/>
       </mapping>
@@ -159,10 +155,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
       </type>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
       <mapping>
         <identity value="v2"/>
         <map value="Varies by domain"/>
@@ -251,7 +243,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ChargeItemCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Example set of codes that can be used for billing purposes."/>
         </extension>
         <strength value="example"/>
@@ -324,7 +316,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -546,7 +538,7 @@
       <path value="ChargeItem.bodysite"/>
       <short value="Anatomical location, if relevant"/>
       <definition value="The anatomical location where the related service has been applied."/>
-      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -557,7 +549,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
         </extension>
         <strength value="example"/>
@@ -611,6 +603,13 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="override-reason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Local or regional codes covering why a price was overridden"/>
+      </binding>
     </element>
     <element id="ChargeItem.enterer">
       <path value="ChargeItem.enterer"/>
@@ -669,7 +668,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ChargeItemReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Example binding for reason."/>
         </extension>
         <strength value="example"/>
@@ -678,7 +677,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonCode"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -715,7 +714,7 @@
       <isSummary value="false"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonReference"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -803,10 +802,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.supportingInfo"/>
-      </mapping>
     </element>
   </differential>
 </StructureDefinition>

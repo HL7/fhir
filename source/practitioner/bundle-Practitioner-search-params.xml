@@ -143,13 +143,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Practitioner.communication"/>
+          <valueString value="Practitioner.communication.language"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-communication"/>
-        <description value="One of the languages that the practitioner can communicate with"/>
+        <description value="A language to communicate with the practitioner"/>
         <code value="communication"/>
         <type value="token"/>
-        <expression value="Practitioner.communication"/>
+        <expression value="Practitioner.communication.language"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -358,7 +358,7 @@
         <description value="The date of death has been provided and satisfies this search value"/>
         <code value="death-date"/>
         <type value="date"/>
-        <expression value="(Practitioner.deceased as dateTime)"/>
+        <expression value="(Practitioner.deceased.ofType(dateTime))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

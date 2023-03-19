@@ -47,7 +47,7 @@ Web Health Care and Life Sciences Interest Group</a>.
         <a href="json.html">JSON</a> and <a href="xml.html">XML</a>
         representations, and would be used for different reasons.
         Systems focused on operational exchange of data would not
-        generally choose to use RDF.<br/>
+        usually choose to use RDF.<br/>
       </p>
       <p> This page describes:</p>
       <ul>
@@ -57,15 +57,39 @@ href="#turtle-template">Turtle
             Template for Resources</a></li>
         <li><a href="#example">FHIR RDF Example</a></li>
         <li><a href="#serialization-conventions">FHIR RDF Serialization
-            Conventions</a></li>
+            Conventions</a>
+	   <ul>
+            <li><a href="#resources">Representing Resources</a></li>
+            <li><a href="#caseSensitivity">Case Sensitivity</a></li>
+            <li><a href="#nestedNodes">Nested Anonymous Nodes</a></li>
+            <li><a href="#propertyNames">Property Names</a></li>
+            <li><a href="#rdflist">Representing Repeating Elements -- RDF Lists</a></li>
+            <li><a href="#primitive">Representing Primitive Elements</a></li>
+            <li><a href="#reference">Representing References</a></li>
+            <li><a href="#contained">Representing Inline (Contained) Resources</a></li>
+            <li><a href="#representing-concepts">Representing Concepts</a></li>
+            <li><a href="#iri-stem">Concept IRIs and IRI Stems</a></li>
+            <li><a href="#extension">Non-modifier Extensions</a></li>
+            <li><a href="#modifierExtension">Modifier Extensions</a></li>
+	   </ul>
+	</li>
         <li><a href="#fhir-definitions">RDF Representation of FHIR
             Definitions</a></li>
         <li><a href="#relationship">Relationship between RDF, FHIR, and
             ontologies</a></li>
-        <li><a href="#guidance">Usage Guidance</a></li>
-        <li><a href="#concept-iri-algorithm">Appendix: Algorithm for
+        <li><a href="#guidance">Usage Guidance</a>
+	  <ul>
+          <li><a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+	  </ul>
+        </li>
+        <li><a href="#concept-iri-algorithm">Appendix 1: Algorithm for
             creating a Concept IRI</a><br/>
         </li>
+        <li><a href="#registering-iri-stems">Appendix 2: Registering an 
+		IRI Stem on the HL7 Terminology Website</a><br/>
+        </li>
+
       </ul>
       <a name="instance"></a>
         <h3><a name="turtle-template"></a>Turtle Template for Resources</h3>
@@ -76,19 +100,19 @@ href="#turtle-template">Turtle
         </p>
         <pre class="spec">
 [ a fhir:Observation; 
-  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+  fhir:nodeRole fhir:treeRoot;     # if this is the parser root
   # from Resource: id; meta; implicitRules; and language
   # from DomainResource: text; contained; extension; and modifierExtension
-  fhir:Observation.identifier [ <a href="#">Identifier</a> ]; # 0..* Unique Id for this particular observation
-  fhir:Observation.status [ fhir:v "&lt;code&gt;" ]; # R!  registered | preliminary | final | amended +
-  fhir:Observation.code [ <a href="#">CodeableConcept</a> ]; # 1..1 R!  Type of observation (code / type)
-  fhir:Observation.subject [ fhir:reference [ <a href="#">Patient</a>|<a href="#">Group</a>|<a href="#">Device</a>|<a href="#">Location</a> ... ] ]; # 0..1 Who and/or what this is about
-  fhir:Observation.encounter [ fhir:reference [ <a href="#">Encounter</a> ] ]; # 0..1 Healthcare event during which this observation is made
+  fhir:identifier [ <a href="datatypes.html#Identifier">Identifier</a> ];  # 0..* Unique Id for this particular observation
+  fhir:status [ fhir:v "&lt;code&gt;" ]; # R!  registered | preliminary | final | amended +
+  fhir:code [ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ];   # 1..1 R!  Type of observation (code / type)
+  fhir:subject [ fhir:reference [ <a href="patient.html#Patient">Patient</a>|<a href="group.html#Group">Group</a>|<a href="device.html#Device">Device</a>|<a href="location.html#Location">Location</a> ... ] ]; # 0..1 Who and/or what this is about
+  fhir:encounter [ fhir:reference [ <a href="encounter.html#Encounter">Encounter</a> ] ]; # 0..1 Healthcare event during which this observation is made
   # effective[x]: 0..1 Clinically relevant time/time-period for observation. One of these 4:
-    fhir:Observation.effectiveDateTime [ fhir:v "&lt;dateTime&gt;" ];
-    fhir:Observation.effectivePeriod [ <a href="#">Period</a> ];
-    fhir:Observation.effectiveTiming [ <a href="#">Timing</a> ];
-    fhir:Observation.effectiveInstant [ fhir:v "&lt;instant&gt;" ];
+    fhir:effectiveDateTime [ fhir:v "&lt;dateTime&gt;" ];
+    fhir:effectivePeriod [ <a href="datatypes.html#Period">Period</a> ];
+    fhir:effectiveTiming [ <a href="datatypes.html#Timing">Timing</a> ];
+    fhir:effectiveInstant [ fhir:v "&lt;instant&gt;" ];
 ]</pre>
         <p> Using this format: </p>
         <ul>
@@ -102,7 +126,7 @@ href="#turtle-template">Turtle
 href="extensibility.html">extensions</a>
           </li>
           <li>The <span style="color: brown"><b>R!</b></span> denotes
-            that a relationship is mandatory - it must be present (or in
+            that a relationship is mandatory: it must be present (or in
             an array, at least one item must be present).</li>
           <li>Note that this specification produces Turtle that is
             nicely formatted and well laid out, but this is not required
@@ -114,26 +138,27 @@ href="extensibility.html">extensions</a>
         <p> An example FHIR RDF Observation illustrates the Turtle
           language and the additional conventions used by FHIR RDF: </p>
         <pre class="rdf">PREFIX fhir: &lt;http://hl7.org/fhir/&gt;
-PREFIX xs: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
 <span class="xmlcomment">                                  # Obs123 (subject) hasType (predicate) fhir:Observation</span>
-&lt;http://hl7.org/fhir/Observation/Obs123&gt; a fhir:Observation;
+&lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;    <span class="xmlcomment"># (subject) is the serialization root of this document</span>
+  fhir:id [ fhir:v "Obs123" ];    <span class="xmlcomment"># (subject) has an id of "Obs123"</span>
   fhir:status [ fhir:v "final" ]; <span class="xmlcomment"># (subject) has an (extensible) status of "final"</span>
   fhir:code [                     <span class="xmlcomment"># (subject) as a code</span>
     <span id="ex-list">fhir:coding (                 <span class="xmlcomment">#  which has codings</span>
-      [                           <span class="xmlcomment">#   with a system, code and concept identifier</span>
+      [                           <span class="xmlcomment">#   with a concept IRI, system and code</span>
         a &lt;http://loinc.org/rdf#29463-7&gt; ;
         fhir:system [
-          fhir:v "http://loinc.org"^^xs:anyURI
+          fhir:v "http://loinc.org"^^xsd:anyURI
         ];
         fhir:code [ fhir:v "29463-7" ]
       ]
-      [                           <span class="xmlcomment">#  and another with a display</span>
+      [                           <span class="xmlcomment">#  and another with display text</span>
         a &lt;http://loinc.org/rdf#3141-9&gt; ;
         fhir:system [
-          fhir:v "http://loinc.org"^^xs:anyURI
+          fhir:v "http://loinc.org"^^xsd:anyURI
         ];
         fhir:code [ fhir:v "3141-9" ];
         fhir:display [ fhir:v "Body weight Measured" ]
@@ -141,22 +166,22 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
     )</span>
   ];
   <span id="value">fhir:value [                    <span class="xmlcomment"># the value is an anonymous node</span>
-    a fhir:Quantity;              <span class="xmlcomment">#   which has a type (Quantity), and 21090 parts.</span>
-    <span id="v-decimal">fhir:value [ fhir:v "185"^^xs:decimal ]</span>;
+    a fhir:Quantity;              <span class="xmlcomment">#   which has a type (Quantity).</span>
+    <span id="v-decimal">fhir:value [ fhir:v "185"^^xsd:decimal ]</span>;
     fhir:unit [ fhir:v "lbs" ];
     fhir:system [
-      fhir:v "http://unitsofmeasure.org"^^xs:anyURI
+      fhir:v "http://unitsofmeasure.org"^^xsd:anyURI
     ];
     fhir:code [ fhir:v "[lb_av]" ]
   ]</span>.
 
-                                  <span class="xmlcomment"># Metadata about OWL interpretation</span>
-&lt;http://hl7.org/fhir/Observation/Obs123.ttl&gt; a owl:Ontology;
+                                  <span class="xmlcomment"># Metadata to help OWL interpretation</span>
+&lt;http://example.org/fhir/Observation/Obs123.ttl&gt; an owl:Ontology;
   owl:imports fhir:fhir.ttl;
-  owl:versionIRI &lt;http://hl7.org/fhir/Observation/Obs123.ttl&gt;.</pre>
+  owl:versionIRI &lt;http://example.org/fhir/Observation/Obs123.ttl&gt;.</pre>
         <p> In this example, </p>
         <ul>
-          <li>the subject IRI is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
+          <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
           <li>the type (<code class="rdf">fhir:Observation</code>) and
             following predicates (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
@@ -187,19 +212,19 @@ href="fhir.shex">fhir.shex</a>
           <h4>Representing Resources</h4>
           <p> Each resource is represented as a set of RDF triples. When
             a resource has a persistent identity (e.g. it can be found
-            at a particular URL - usually a FHIR RESTful server), then
+            at a particular URL -- usually a FHIR RESTful server), then
             that URL is its identity. Resources with no persistent
             identity (e.g. bundles from search results) have the
-            identity of the root document - "&lt;&gt;" in Turtle syntax.
+            identity of the root document -- "&lt;&gt;" in Turtle syntax.
             In the above example, the resource is the subject: <code
-              class="rdf">&lt;http://hl7.org/fhir/Observation/Obs123&gt;</code>.
+              class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</code>.
           </p>
           <p> Some resources can contain other resources. Given that the
             relationships can appear in any order in RDF, it cannot be
             assumed that the first encountered element represents the
             resource of interest that is being represented by the set of
-            Turtle statements. The focal resource - where to start when
-            parsing - is the resource with the relationship <code>fhir:nodeRole</code>
+            Turtle statements. The focal resource -- where to start when
+            parsing -- is the resource with the relationship <code>fhir:nodeRole</code>
             to <code>fhir:treeRoot</code>. If there is more than one
             node labeled as a 'treeRoot' in a set of Turtle statements,
             it cannot be determined how to parse them as a single
@@ -218,11 +243,14 @@ href="fhir.shex">fhir.shex</a>
           <h4>Nested Anonymous Nodes</h4>
           <p> Content within a resource is always represented with
             anonymous nodes (a/k/a "blank nodes").&nbsp; Only FHIR
-            Resource nodes can be IRIs. For example, <span class="rdf">&lt; ... /Obs123&gt;
+            Resource nodes can be <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
+          </p>
 
-              fhir:status [ fhir:v "final" ]</span> asserts that: </p>
+	  &nbsp;&nbsp;&nbsp;&nbsp;<span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]</span> 
+
+	  <p>asserts that: </p>
           <ul>
-            <li><span class="rdf">&lt; ... /Obs123&gt;</span> has a <span
+            <li><span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</span> has a <span
                 class="rdf">status</span> of some anonymous node.</li>
             <li>That anonymous node has a <span class="rdf">fhir:v</span>
               of <span class="rdf">"final"</span> (the literal
@@ -242,41 +270,39 @@ href="fhir.shex">fhir.shex</a>
             datatypes, like <span class="spec">value[x]</span>, are
             appended with the datatype, e.g. <span class="json">valueQuantity</span>.
             In RDF, this is written <span class="rdf">fhir:value</span>
-            and the object asserts its type, as in the <a href="#value">above
+            and the object asserts its type explicitly, as in the <a href="#value">above
               example</a>:<br/>
           </p>
           <pre class="rdf">  fhir:value [ a fhir:Quantity; ... ]</pre>
 
         <a name="rdflist"></a>
-          <h4>Representing Repeating Elements</h4>
-          <p> Elements that can repeat are represented with RDF lists
+          <h4>Representing Repeating Elements -- RDF Lists</h4>
+          <p> Elements that can repeat are represented with <a href="https://www.w3.org/TR/turtle/#collections">RDF lists</a>
             (officially called "RDF collections") in order to retain the
-            order of their elements. </p>
-          <pre class="rdf">    ( elt1 elt2 ... )</pre>
-          <p> which produces an RDF list structure the the elements <code>elt1</code>
-            and <code>elt2</code>. In the <a href="#ex-list">above
-              example</a>, the <code>fhir:code</code> has a <code>fhir:coding</code>
-            with two members: </p>
+            order of their elements.  In the <a href="#ex-list">above
+              example</a> of a FHIR Observation, the <code>fhir:code</code> has a <code>fhir:coding</code>
+            with two members in an RDF list: </p>
           <pre class="rdf">    fhir:coding <b>(</b>
       [ a &lt;http://loinc.org/rdf#29463-7&gt; ... ]
       [ a &lt;http://loinc.org/rdf#3141-9&gt; ... ]
     <b>)</b></pre>
-          <p> A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/flattenFhirLists">script</a> can
-            convert RDF lists to <a
-href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example">OLO-style
-
-              lists</a>, which may be helpful for OWL users. See <a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a> for more info.</p>
+          <p> Since RDF lists can cause problems for OWL users, a 
+	    <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> can
+            convert RDF lists to an alternate representation.
+	    See <a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a> for more info.</p>
 
         <a name="primitive"></a>
           <h4>Representing Primitive Elements</h4>
-          <p> Primitive elements - elements with a primitive type - are
-            represented as anonymous nodes so that the element
-            extensions can be attached.&nbsp; The actual value of the
+          <p> Primitive elements -- elements with a primitive type -- are
+            represented as anonymous nodes, both so that element
+            extensions can be attached and so that they can consistently
+	    be treated as OWL object properties (versus sometimes being datatype properties).&nbsp; The actual value of the
             primitive type is represented as an RDF Literal using the <span
               class="rdf">fhir:v</span> predicate.&nbsp; fhir:v is the
-            only FHIR property that directly holds an RDF literal, and
+            only FHIR property that directly holds an RDF literal -- i.e., it
+	    is the only OWL datatype property in FHIR RDF -- and
             it always holds an RDF Literal: </p>
-          <pre class="rdf">  fhir:v "[value]"^^xs:type</pre>
+          <pre class="rdf">  fhir:v "[value]"^^xsd:type</pre>
           <p> The value has two parts: a literal string that contains
             the value, and, if applicable, one of the following schema
             types:<br/>
@@ -292,10 +318,10 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
             <li>gYearMonth</li>
             <li>time</li>
           </ul>
-          <p> In the <a href="#v-decimal">above example</a>, the
-            Quantity has a fhir:value which is an anonymous node with a
+          <p> In the <a href="#v-decimal">Observation example above</a>, the
+            Quantity has a fhir:value that is an anonymous node with a
             <code class="rdf">fhir:v</code> in it: </p>
-          <pre class="rdf">    [ fhir:v "185"^^xs:decimal ]</pre>
+          <pre class="rdf">    [ fhir:v "185"^^xsd:decimal ]</pre>
           <p> Note that the correct XSD type for a FHIR <a
               href="datatypes.html#decimal">decimal</a>,
             <a href="datatypes.html#date">date</a>,
@@ -309,21 +335,21 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
             and <a href="https://www.w3.org/TR/xmlschema-2/#double">double</a>,
             any value with an 'e' or 'E' in it is a double, otherwise it
             is a decimal. For example, the lexical value <span
-              class="rdf">"185"</span> is given the datatype <code>xs:decimal</code>.
+              class="rdf">"185"</span> is given the datatype <code>xsd:decimal</code>.
           </p>
 
-        <a name="reference"></a>
           <p> The fhir:v property can never be empty. Either the
             relationship is absent, or it is present with at least one
             character of content. XHTML is represented as an escaped
-            xs:string.&nbsp; <br/>
+            xsd:string.&nbsp; <br/>
           </p>
+        <a name="reference"></a>
           <h4>Representing References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
             element is represented using the same rules as above: </p>
-          <pre class="rdf">  fhir:Observation.subjectReference [
-     fhir:Reference.reference [ fhir:v "Patient/example" ];
-     fhir:Reference.display [ fhir:v "Example Patient" ];
+          <pre class="rdf">  fhir:subjectReference [
+     fhir:reference [ fhir:v "Patient/example" ];
+     fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
           <p> This allows faithful round tripping of the resource
             between the Turtle format and the JSON and XML formats.
@@ -331,10 +357,10 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
             graph links to the target of the reference directly. This
             can be represented using the (optional) fhir:link property:
           </p>
-          <pre class="rdf">  fhir:Observation.subjectReference [
-     <b>fhir:link &lt;http://hl7.org/fhir/Patient/example&gt; ;</b>
-     fhir:Reference.reference [ fhir:v "Patient/example" ];
-     fhir:Reference.display [ fhir:v "Example Patient" ];
+          <pre class="rdf">  fhir:subjectReference [
+     <b>fhir:link &lt;http://example.org/fhir/Patient/example&gt; ;</b>
+     fhir:reference [ fhir:v "Patient/example" ];
+     fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
           <p> The correct value for the fhir:link relationship must be
             determined by resolving the <a href="references.html">rules
@@ -347,7 +373,7 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
             raw references into RDF-suitable references. </p>
 
         <a name="contained"></a>
-          <h4>Representing Inline Resources</h4>
+          <h4>Representing Inline (Contained) Resources</h4>
           <p> Inline resources -- when a resource is contained directly
             in another element -- occur in the following places: </p>
           <ul>
@@ -360,7 +386,7 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
           <p> Inline resources are represented as anonymous
             nodes. This is an example for a contained Medication
             resource: </p>
-          <pre class="rdf">  fhir:DomainResource.contained ([
+          <pre class="rdf">  fhir:contained ([
      a fhir:Medication;
      # triples for the Medication
   ])</pre>
@@ -374,75 +400,106 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
               href="datatypes.html#Coding">Coding</a> data type. These
             are represented directly in Turtle by serializing their
             properties as specified above: </p>
-          <pre class="rdf">fhir:Observation.code [
-    fhir:CodeableConcept.coding (
+          <pre class="rdf">fhir:code [
+    fhir:coding (
         [
-            fhir:Coding.system [ fhir:v "http://loinc.org" ];
-            fhir:Coding.code [ fhir:v "29463-7" ];
-            fhir:Coding.display [ fhir:v "Body Weight" ]
+            fhir:system [ fhir:v "http://loinc.org" ];
+            fhir:code [ fhir:v "29463-7" ];
+            fhir:display [ fhir:v "Body Weight" ]
         ]
         [
-            fhir:Coding.system [ fhir:v "http://snomed.info/sct" ];
-            fhir:Coding.code [ fhir:v "27113001" ];
-            fhir:Coding.display [ fhir:v "Body weight" ]
+            fhir:system [ fhir:v "http://snomed.info/sct" ];
+            fhir:code [ fhir:v "27113001" ];
+            fhir:display [ fhir:v "Body weight" ]
         ]
     )
 ];</pre>
           <p> For reasoners using the RDF graph, it's very useful to
             make the implicit concept references in these Codings
-            explicit, by specifying a <i>concept IRI</i> in an
+            explicit, by specifying a <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> in an
             (optional) rdf:type assertion, written as <b><code class="rdf" style="font-size: larger">a</code></b> in
             Turtle: </p>
-          <pre class="rdf">fhir:Observation.code [
-    fhir:CodeableConcept.coding (
+          <pre class="rdf">fhir:code [
+    fhir:coding (
         [
             <b>a loinc:29463-7</b>;
-            fhir:Coding.system [ fhir:v "http://loinc.org" ];
-            fhir:Coding.code [ fhir:v "29463-7" ];
-            fhir:Coding.display [ fhir:v "Body Weight" ]
+            fhir:system [ fhir:v "http://loinc.org" ];
+            fhir:code [ fhir:v "29463-7" ];
+            fhir:display [ fhir:v "Body Weight" ]
         ]
         [
             <b>a sct:27113001</b>;
-            fhir:Coding.system [ fhir:v "http://snomed.info/sct" ];
-            fhir:Coding.code [ fhir:v "27113001" ];
-            fhir:Coding.display [ fhir:v "Body weight" ]
+            fhir:system [ fhir:v "http://snomed.info/sct" ];
+            fhir:code [ fhir:v "27113001" ];
+            fhir:display [ fhir:v "Body weight" ]
         ]
     )
 ];</pre>
-          <p> A concept IRI typically has two parts: an IRI stem and a
-            code.&nbsp; An <i>IRI stem</i> is the initial substring, of
-            an IRI, that is used to create concept IRIs for codes in a
-            particular vocabulary.&nbsp; The IRI stem normally
-            corresponds directly to an IRI prefix in Turtle, such as <code>loinc:</code>
-            or <code>sct:</code> in the above example.&nbsp; The
-            concept IRI for a given &lt;<code>Coding.system</code>, <code>Coding.code</code>&gt;
 
-            pair is typically formed by: 1. looking up the appropriate
-            IRI stem corresponding to the <code>Coding.system</code>;
-            2. concatenating the IRI stem with the percent encoded <code>Coding.code</code>
-            .&nbsp; Some vocabularies may also define <code>Coding.code</code>s
-            that are already concept IRIs, bypassing the need for the
-            IRI stem.&nbsp; For details see <a
-              href="#concept-iri-algorithm">Appendix: Algorithm for
-              creating a Concept IRI</a>.<br/>
+        <a name="iri-stem"></a>
+          <h4>Concept IRIs and IRI Stems</h4>
+
+          <p> 
+          A concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> uniquely identifies a concept that would otherwise
+          be identified by a &lt;<code>Coding.system, Coding.code</code>&gt; pair.  A concept
+          IRI has two parts: an IRI stem and a code.
+	  </p>
+
+          <p>
+          An <i>IRI stem</i> is the initial substring of the concept IRIs
+          that correspond to the codes in a particular vocabulary.
+          The concept IRI is formed by concatenating the IRI stem with
+          the code (after percent-encoding any reserved characters
+          -- see <a href="#concept-iri-algorithm">Appendix 1: Algorithm for Creating a Concept IRI</a>
+          for details).  The IRI stem is typically used to define an
+          IRI prefix in Turtle and SPARQL, such as <code class="rdf">loinc:</code> or <code class="rdf">sct:</code> in
+          the above example.   This approach allows the Compact URI
+          <code class="rdf">loinc:29463-7</code> (in Turtle or SPARQL) to be translated into the
+          concept IRI <code class="rdf">http://loinc.org/rdf/29463-7</code> by concatenating
+          the IRI stem <code class="rdf">http://loinc.org/rdf/</code> with the code
+          <code class="rdf">29463-7</code>. This particular IRI stem is defined in the
+          <a href="https://loinc.org/kb/users-guide/recommendations-for-best-practices-in-using-and-mapping-to-loinc/#using-a-uri-to-identify-loinc-concepts-as-resources-in-rdf">LOINC User Guide S12.7.2</a>.
           </p>
-          <p>If an IRI stem for the Coding.system is published at <a
-              href="https://terminology.hl7.org/">https://terminology.hl7.org/</a>
-            it SHOULD be used. &nbsp; <a
-              href="https://simplifier.net/packages/hl7.terminology/">An
-              NPM package is available</a> to efficiently automate
-            lookup of IRI stems from Coding.systems.<br/>
+
+          <p>
+          One might wonder why the <code>Coding.system</code> is not used directly
+          as the IRI stem for a given vocabulary.  One reason is that 
+          <code>Coding.system</code>s often lack a convenient separator
+          character as their final character, such as "/" or "#", which
+          could cause problems if they were directly concatenated with codes,
+          leading to erroneous concept IRIs such as <code class="rdf">http://loinc.org35217-9</code>.
+          But the main reason is that the <code>Coding.system</code> and the IRI stem of some vocabularies
+          were chosen independently and differ in unpredictable ways.
+          Hence, there is no simple formula for determining the correct
+          IRI stem from a <code>Coding.system</code>.
           </p>
-          
-          
-        <a name="modifierExtension"></a>
-          <h4>Modifier Extensions</h4>
-          <p> A Resource may have any number of non-modifier extensions:
+
+          <p>
+          To address this problem, and to facilitate ease of use,
+          HL7 maintains a mapping from <code>Coding.system</code>s
+          to IRI stems: IRI stems can be registered and looked
+          up in the HL7 terminology website, based on the desired
+          <code>Coding.system</code>.
           </p>
-          <pre class="rdf">&lt;http://hl7.org/fhir/MedicationRequest/MR321&gt; a fhir:Observation;
+
+          <p>
+          If an IRI stem for a <code>Coding.system</code> is published at
+          <a href="https://terminology.hl7.org/">https://terminology.hl7.org/</a>  it SHOULD be used.   An NPM
+          package is also available to efficiently automate lookup of
+          IRI stems from <code>Coding.system</code>s.
+	  To add an IRI stem to that site,
+	  see <a href="#registering-iri-stems">Appendix 2: Registering an IRI Stem on the HL7 Terminology Website</a>.
+          </p>
+
+        <a name="extension"></a>
+          <h4>Non-modifier Extensions</h4>
+          <p> A Resource may have any number of non-modifier extensions,
+	  represented as an RDF list like this:
+          </p>
+          <pre class="rdf">&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;
-  <b>fhir:extension</b> (
-    [ fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/observation-bodyPosition"^^xs:anyURI ] ;
+  <b>fhir:extension (</b>
+    [ fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/observation-bodyPosition"^^xsd:anyURI ] ;
       fhir:value [
         fhir:coding (
           a sct:33586001;
@@ -450,7 +507,7 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
           fhir:code [ fhir:v "33586001" ];
           fhir:display [ fhir:v "Sitting position (finding)" ]
         ) ] ]
-    [ fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/observation-delta"^^xs:anyURI ] ;
+    [ fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/observation-delta"^^xsd:anyURI ] ;
       fhir:value [
         fhir:coding (
           a sct:1250004;
@@ -458,9 +515,36 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
           fhir:code [ fhir:v "1250004" ];
           fhir:display [ fhir:v "Decreased (qualifier value)" ]
         ) ] ]
-  )
+  <b>)</b>
   ...
 </pre>
+
+          <a name="primitiveExtension"></a>
+	  <p>A primitive element such as <code>fhir:birthDate</code> can have a list of extensions attached like this:
+	  </p>
+	  <pre>
+...
+fhir:birthDate [
+  fhir:v "1970-03-30"^^xsd:date ;
+  <b>fhir:extension (</b>
+    [
+      fhir:url [
+        fhir:v "http://example.org/fhir/StructureDefinition/text"^^xsd:anyURI
+      ] ;
+      fhir:value [
+        a fhir:string ;
+        fhir:v "Easter 1970"
+      ]
+    ]
+  <b>)</b> ;
+] ;
+	  </pre>
+
+	  <p>See <a href="extensibility.html">Extensibility</a> for additional guidance on FHIR extensibility.
+	  </p>
+
+        <a name="modifierExtension"></a>
+          <h4>Modifier Extensions</h4>
           <p> <a name="underbar-prefix"></a> FHIR allows <code class="rdf">modifierExtension</code>s
             on <a
               href="domainresource.html#DomainResource">DomainResources</a>,
@@ -473,39 +557,66 @@ href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example"
           processors that do not understand a particular modifier
           extension from blindly processing it as though it still had
           the original semantics.&nbsp; The structure of the
-          element is otherwise unchanged:<br/> </p>
-          <pre class="rdf">&lt;http://hl7.org/fhir/MedicationRequest/MR321&gt; a <b>fhir:_MedicationRequest;</b>
+          element is otherwise unchanged.  Note the underscore at the
+          beginning of "_MedicationRequest" in the following example:<br/> </p>
+          <pre class="rdf">&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a <b>fhir:_MedicationRequest;</b>
   fhir:nodeRole fhir:treeRoot;
   fhir:extension ( ... );           <span class="xmlcomment"># above bodyPosition and delta extensions</span>
   <b>fhir:modifierExtension</b> (
     [
-      fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/anti-prescription"^^xs:anyURI ] ;
+      fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/anti-prescription"^^xsd:anyURI ] ;
       fhir:value [ a fhir:boolean ; fhir:v true ]
     ]
   )
   ...
 </pre>
+
+	  <p> The <a href="downloads.html">FHIR ontology</a> includes a
+	  <code class="rdf">fhir:modifierExtensionClass</code> property
+	  that relates each unmodified resource class to its corresponding
+	  modified resource class, so that SPARQL queries can easily
+	  find all modified classes without having to parse their URIs
+	  to look for the leading underscore:
+	  </p>
+
+<pre>
+fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationRequest .
+</pre>
+
           <p> BackboneElements and BackboneTypes are object types. Any
             RDF predicate that references a modified BackboneElement or
-            BackboneType is prefixed with a '_'. </p>
-          <pre class="rdf">&lt;http://hl7.org/fhir/Observation/Obs123&gt; a fhir:Observation;
+            BackboneType is prefixed with a '_'.  Note the underscore
+	    at the beginning of "_value" in the following example:</p>
+          <pre class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
   ...
   fhir:<b>_value</b> [
     a fhir:Quantity;
-    fhir:value [ fhir:v "185"^^xs:decimal ];
+    fhir:value [ fhir:v "185"^^xsd:decimal ];
     fhir:unit [ fhir:v "lbs" ];
     fhir:system [
-      fhir:v "http://unitsofmeasure.org"^^xs:anyURI
+      fhir:v "http://unitsofmeasure.org"^^xsd:anyURI
     ];
     fhir:code [ fhir:v "[lb_av]" ];
     <b>fhir:modifierExtension</b> (
       [
-        fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/anti-observation"^^xs:anyURI ] ;
+        fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/anti-observation"^^xsd:anyURI ] ;
         fhir:value [ a fhir:boolean ; fhir:v true ]
       ]
     ) ;
   ]</pre>
 
+	  <p> The <a href="downloads.html">FHIR ontology</a> also includes a
+	  <code class="rdf">fhir:modifierExtensionProperty</code> property
+	  that relates each unmodified property to its corresponding modified property:
+	  </p>
+
+<pre>
+fhir:value <b>fhir:modifierExtensionProperty</b> fhir:_value .
+</pre>
+
+<p>See <a href="extensibility.html#modifierExtension">Modifier Extensions</a> for
+additional requirements around modifier extensions.
+</p>
           
           <h3><a name="fhir-definitions"></a>RDF Representation of FHIR
             Definitions</h3>
@@ -551,14 +662,14 @@ href="downloads.html">ShEx</a>
           information content. Resources are losslessly round-trippable
           between XML, JSON and RDF formats and data expressed in the
           RDF format corresponds closely to the XML and JSON formats in
-          its look and feel. However, there are a few additional terms
-          that may appear in the RDF format, which are explained on this
-          page <code>fhir:nodeRole</code>, <code>fhir:treeRoot</code>,
-          <code>fhir:v</code> and <code>fhir:concept</code>. <br/>
+          its look and feel, though a few additional FHIR-specific terms
+          appear in the RDF format, as explained above:
+          <code>fhir:nodeRole</code>, <code>fhir:treeRoot</code> and
+          <code>fhir:v</code>. <br/>
         </p>
-        <p> In addition to defining the RDF format, this specification <a
-            href="downloads.html">provides an associated ontology</a>
-          that provides formal definitions for the relationships that
+        <p> In addition to defining the RDF format, this specification provides <a
+            href="downloads.html">an associated ontology</a>
+          containing formal definitions of the classes and properties that
           appear in the RDF format. Ontologies that were designed
           independently almost always have some impedance mismatch when
           attempting to use them together. Many of the ontologies in the
@@ -586,8 +697,8 @@ href="downloads.html">ShEx</a>
             extension is not understood. </li>
         </ul>
         <p> For both of these reasons, to maintain monotonicity in RDF,
-          FHIR RDF should not be directly interpreted as stating facts;
-          transformations are required to remove or isolate
+          FHIR RDF should not be directly interpreted as stating facts.
+          Transformations are required to remove or isolate
           non-monotonic elements and reconcile the records across time
           and perspective. </p>
         <p> Application developers should also be aware that some FHIR
@@ -609,22 +720,19 @@ href="downloads.html">ShEx</a>
             source implementations that can perform this conversion
             include:
             <ul>
-              <li><a href="https://hapifhir.io/">HAPI java Reference
+              <li><a href="https://hapifhir.io/">HAPI java reference
                   library</a> (Same code as
-                used in the build)</li>
-              <li><a href="http://fhir3.healthintersections.com.au/open">Reference
-                  Server</a> (based on <a
-                  href="http://github.com/grahamegrieve/fhirserver">Delphi
-                  reference implementation</a>)</li>
-              <li><a href="https://github.com/mvdzel/fhir-net-api">fhir-net-api
-                 </a>, a .NET
-                implementation. (should work on <a
-                  href="http://www.mono-project.com/">Mono</a>)</li>
+                used in the FHIR specification build process)</li>
+              <li><a href="http://github.com/grahamegrieve/fhirserver">Delphi
+                  reference implementation</a></li>
               <li>Check the <a
 href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7
                   Open Source FHIR Implementations page,</a> in case new
                 implementations have become available</li>
             </ul>
+	    The <a href="https://fhircat.github.io/fhir-rdf-playground/">FHIR RDF Playground</a>
+	    is also a handy browser-based tool for experimenting with
+	    conversion of FHIR JSON to FHIR RDF.   It is not for production use.
           </li>
           <li> <a href="downloads.html">Download</a> the FHIR ontology.
           </li>
@@ -650,9 +758,10 @@ href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7
         <p>RDF lists use a ladder of rdf:first and rdf:rest properties. 
            This can cause problems in OWL DL, which disallows axioms
            over the rdf: namespace.  To work around this problem, OWL users
-           can convert RDF lists in their FHIR data to use 
-           <a href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html#sec-example">OLO-style</a> lists.  
-           A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/flattenFhirLists">script</a> is available for doing the conversion.
+           can convert RDF lists in their FHIR data to a different list
+	   representation. 
+	   A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> 
+           is available for doing such a conversion.
            </p>
 
         <a name="tutorials"></a>
@@ -663,7 +772,8 @@ href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7
           inference can be used on FHIR RDF data to perform a query for
           FHIR Observations of rheumatoid arthritis, using the <a
             href="https://www.nlm.nih.gov/healthit/snomedct/international.html">SNOMED-CT
-            ontology</a>. 
+            ontology</a>.   <i>Caveat: These slides were based on an earlier
+	    version of FHIR, so some specifics may have changed.</i>
         <br/>
         </p>
 
@@ -675,12 +785,13 @@ href="https://yosemiteproject.org/fhir-rdf-as-a-bridge-to-the-semantic-web-in-he
           href="https://www.nlm.nih.gov/healthit/snomedct/international.html">SNOMED-CT
           ontology</a> to recognize a cancer diagnosis.&nbsp; An <a
 href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-web-in-healthcare/">associated
-          tutorial</a> details the steps used.&nbsp; <i>Caveat: this
-          webinar and tutorial used a previous version of FHIR RDF.<br/>
+          tutorial</a> details the steps used.&nbsp; <i>Caveat: This
+          webinar and tutorial were based on a previous version of FHIR RDF, 
+	  so some specifics may have changed.<br/>
         </i>
         </p>
 
-        <h3><a name="concept-iri-algorithm"></a>Appendix: Algorithm for
+        <h3><a name="concept-iri-algorithm"></a>Appendix 1: Algorithm for
           Creating a Concept IRI</h3>
         <p>This section defines a standard algorithm for generating a
           Concept IRI from a &lt;<code>Coding.system</code>, <code>Coding.code</code>&gt;
@@ -750,7 +861,7 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
               3987, section 2.2</a> is also quoted here
             for convenience (informative).&nbsp; (Informative comment: The ucschar
             production defines international character ranges that are
-            valid unicode characters within the intersection of path
+            valid Unicode characters within the intersection of path
             components (ipath), query strings (iquery) and fragment
             identifiers (ifragment).&nbsp; They do not include any
             reserved characters involved in parsing apart the various
@@ -902,8 +1013,156 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           </tbody>
         </table>
 <p>
-*As of this writing (5-Sep-2022) it is not clear what IRI stem should be used when writing a post-coordinated code expression.
+*As of this writing (5-Sep-2022) it is not clear what IRI stem should be used when writing a SNOMED CT post-coordinated code expression.
 </p>
+
+        <a name="registering-iri-stems"></a>
+          <h3>Appendix 2: Registering an IRI Stem on the HL7 Terminology Website</h3>
+
+          <p>
+          IRI stems have not been standardized for all FHIR
+          <code>Coding.system</code>s.  But any that have been
+          standardized should be registered in the HL7 terminology
+          website by adding appropriate CodeSystem and NamingSystem
+          entries, using the system "urn:ietf:rfc:3987" and 
+          <a href="valueset-identifier-type.html">identifier type</a> 
+          of "iri-stem". You can see an
+          example of this in the HL7 description of the 
+          <a href="https://terminology.hl7.org/CodeSystem-v3-loinc.json.html">LOINC CodeSystem</a> 
+          and the 
+          <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html">LOINC NamingSystem</a>. 
+          Assuming that the <code>Coding.system</code>
+          for your desired IRI stem has already been registered, the
+          process for registering an IRI stem for it includes:
+          </p>
+          
+          <ol>
+          <li>Select the most authoritative, community-supported IRI stem
+          available for this Coding.system.  The IRI stem SHOULD be taken
+          from an official publication of the organization that publishes
+          the terminology (such as the LOINC User Guide mentioned above).
+          If no such IRI stem is defined by the organization, and the
+          organization fails to define or endorse one even after repeated
+          requests, and the organization appears unlikely to define one
+          in the foreseeable future, then a community-defined IRI stem
+          MAY be registered.  In this case, it should be an IRI stem
+          most commonly used by the community as recorded by several
+          RDF IRI stem repositories, such as 
+          <a href="https://bioregistry.io/">Bioregistry</a>,
+          <a href="https://prefix.cc/">prefix.cc</a>, 
+          <a href="https://obofoundry.org/">OBO Foundry</a> or Wikidata 
+          (by means of <a href="https://www.wikidata.org/wiki/Property:P1921">wdt:P1921</a>).
+          </li>
+
+          <li>The IRI stem MUST be in the form of an IRI as defined by the 
+          <a href="http://tools.ietf.org/html/rfc3987#section-2.2">IRI
+          production in RFC 3987</a>. This means that the IRI stem
+          MUST start with a "scheme:" string, such as "http:",
+          "https:", "urn:" or any other valid scheme, followed by an
+          authority, followed by any number of path parts and an optional
+          query and fragment. Examples of valid IRI stems include:
+            <ul>
+            <li><code>doi:10.1111/</code></li>
+            <li><code>urn:loinc.org:</code> &nbsp;&nbsp;&nbsp;&nbsp;<i>&larr; Note the trailing colon (":")</i></li>
+            <li><code>http://loinc.org/rdf/</code></li>
+            <li><code>http://purl.obolibrary.org/obo/HP_</code>  &nbsp;&nbsp;&nbsp;&nbsp;<i>&larr; Note the trailing underscore ("_")</i></li>
+            <li><code>https://example.org/terminologies/?action=search&amp;id=</code></li>
+            <li><code>ftp://user@example.org:2222/loinc/</code></li>
+            </ul>
+          </li>
+
+          <li>
+          The IRI stem MUST be intended to be used by concatenating it
+          with a FHIR code as described in the 
+          <a href="#concept-iri-algorithm">Appendix 1: Algorithm for creating a Concept IRI"</a>.  
+          Therefore, care must be taken
+          to ensure that the code can be concatenated to the IRI stem
+          without altering the IRI stem's meaning, including:
+            <ol>
+            <li>The IRI stem SHOULD end with a delimiter character (one
+            of the <code>gen-delims</code> or <code>sub-delims</code> productions from 
+            <a href="https://datatracker.ietf.org/doc/html/rfc3987#section-2.2">section 2.2 of RFC 3987</a>
+            or one of the characters "-", ".", "_"
+            or "~") . An IRI stem that ends with an alphanumeric
+            character is likely to have the meaning of the final term
+            altered when the code is concatenated.  For example, an IRI
+            stem of "http://example.org" when concatenated with the code
+            "39" will result in a concept IRI of "http://example.org39",
+            which is probably not the concept IRI intended.
+            </li>
+
+            <li>Since FHIR codes are percent-encoded before being
+            concatenated with the IRI stem, it is unlikely that it
+            will alter the meaning of the IRI stem. However, note
+            that the characters `-`, `.`, `_`, `~` will NOT be percent
+            encoded. Thus, if the IRI stem is `http://hospital.org`, a
+            code of `.attacker.com` could be used to generate a concept
+            IRI of `http://hospital.org.attacker.com`, which if resolved
+            as a URL could provide information to an unexpected server
+            name.
+            </li>
+            </ol>
+         </li>
+
+	 <li>
+	   <p>On the HL7 Terminology website (<a href="https://terminology.hl7.org">https://terminology.hl7.org</a>),
+	   add the IRI stem to the NamingSystem and CodeSystem records
+	   corresponding to the desired Coding.system, by following the
+	   <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">process for submitting a UTG change proposal</a>. The IRI stem
+	   SHOULD be added to both the NamingSystem and the CodeSystem.
+	   Additions, deletions and modifications of an IRI stem to
+	   an existing NamingSystem or CodeSystem will generally be
+	   considered a minor change under the <a href="https://confluence.hl7.org/display/VOC/Documented+Execution+of+UTG+Versioning">UTG Versioning policy</a>.
+	   </p>
+
+	   <p>As of this writing (17-Dec-2022), the change proposal
+	   process for doing this included the following steps.  However,
+	   since the process may have later changed, you should 
+	   <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">verify it</a> 
+	   prior to proceeding.  You can also see an example of such
+	   a change proposal, including the associated changes in the
+	   XML files, in the <a href="https://jira.hl7.org/browse/UP-377">MeSH IRI stem change proposal</a>.
+	   </p>
+
+	   <ol>
+	     <li>Record the IRI stem in a CodeSystem by adding an identifier with:
+	       <ul>
+	         <li> system: urn:ietf:rfc:3987</li>
+	         <li>type: Coding with system=http://terminology.hl7.org/CodeSystem/v2-0203 and code="IRISTEM"</li>
+	         <li>value: <i>[the IRI stem]</i></li>
+	         <li>period: <i>[optionally, the period during which this IRI stem was in use]</i></li>
+	         <li>assigner:
+		   <ul><li>display: <i>[documentation of the provenance of the IRI stem]</i></li></ul>
+	         </li>
+	       </ul>
+	     </li>
+
+	     <li>Record the IRI stem in a NamingSystem by adding a uniqueId with:
+	       <ul>
+                 <li>type: iri-stem</li>
+		 <li>value: <i>[the IRI stem]</i></li>
+		 <li>period: <i>[optionally, the period during which this IRI stem was in use]</i></li>
+		 <li>comment: <i>[documentation of the provenance of the IRI stem]</i></li>
+		 <li>preferred: <i>false [since an IRI stem is unlikely to also be the primary identifier]</i></li>
+		 <li>authoritative: <i>[true if this IRI stem is officially recognized by the NamingSystem authority, false if this IRI stem is generally used in the RDF community but is not officially designated as such]</i></li>
+		</ul>
+	     </li>
+	   </ol>
+	 </li>
+
+	 <li>If the current process for registering an IRI stem differs from the above steps, please:
+	   <ol>
+	     <li><a href="https://jira.hl7.org/issues/?jql=text%20~%20%22Registering%20an%20IRI%20Stem%20(RDF%20Subgroup)%22">Search the Jira issue tracker</a> 
+	       for an issue titled "Registering an IRI Stem (RDF Subgroup)".
+             </li>
+	     <li>If no such issue is found, <a href="https://jira.hl7.org/secure/CreateIssue!default.jspa">file an issue</a> 
+	        with that title, describing how the above steps should be updated.
+	     </li>
+            </ol>
+	 </li>
+
+         </ol>
+
 [%file newfooter%]
 </body>
 </html>

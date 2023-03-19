@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="3a0707d3-549e-4467-b8b8-5a2ab3800efe"/>
+  <identifier>
+		<system value="urn:example-org:receiver.identifiers"/>
+		<value value="35f23e97-328c-4eb7-8e94-34f478983e89"/>
+	</identifier>
   <type value="message"/>
   <timestamp value="2015-07-14T11:15:33+10:00"/>
   <entry>
     <fullUrl value="urn:uuid:d9d296d8-5afd-42e1-a0ce-3344e0e003ed"/>
     <resource>
       <MessageHeader>
-        <id value="caf609cf-c3a7-4be3-a3aa-356b9bb69d4f"/>
+        <id value="d9d296d8-5afd-42e1-a0ce-3344e0e003ed"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
              
-            <p>This message is a request to link Patient records 654321 (Patient Donald DUCK @ Acme Healthcare, Inc) and 123456 (Patient Donald D DUCK @ Acme Healthcare, Inc)</p>
+            <p>This message is a response to the request to link Patient records 654321 (Patient Donald DUCK @ Acme Healthcare, Inc) and 123456 (Patient Donald D DUCK @ Acme Healthcare, Inc)</p>
            
           </div>
         </text>
@@ -22,11 +25,12 @@
           <code value="patient-link"/>
         </eventCoding>        
         <source>
-          <endpoint value="http://acme.com/ehr/fhir"/>
+          <endpointUrl value="http://acme.com/ehr/fhir"/>
         </source>
         <response>
           <identifier>
-          	<value value="efdd254b-0e09-4164-883e-35cf3871715f"/>
+          	<system value="urn:example-org:sender.identifiers"/>
+		        <value value="efdd254b-0e09-4164-883e-35cf3871715f"/>
           </identifier> 
           <code value="ok"/>
           <details>

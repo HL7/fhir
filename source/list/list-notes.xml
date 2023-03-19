@@ -10,7 +10,7 @@ family history or other information typically handled via <b>List</b>, they have
   <li>They can query for List instances of the appropriate type; or </li>
   <li>They can query against the resource endpoint for the resources that make up the list
     (e.g. <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
-    <a href="medicationusage.html">MedicationUsage</a>, etc.), possibly filtering by time, etc.</li>
+    <a href="medicationstatement.html">MedicationStatement</a>, etc.), possibly filtering by time, etc.</li>
   <li>They can query against the resource endpoint, requesting one of the 
   <a href="lifecycle.html#current">Current</a> resource lists</li>
 </ul>
@@ -109,6 +109,7 @@ flags were used to implement version tracking history within the resource.
 </p>
 
 <a name="size"></a>
+<a name="large-resources"> </a>
 <h2>Efficiency and size issues</h2>
 <p>
 Some kinds of <code>List</code> resources may grow to a considerable size, and 
@@ -118,6 +119,7 @@ to consider include:
 <ul>
  <li><a href="graphql.html#list">Reading portions of the list</a> resource using GraphQL</li>
  <li>Using the <a href="search.html#list">_list</a> parameter rather than retrieving the list</li>
+ <li>Using the <a href="operations-for-large-resources.html">Operations for Large Resources</a> that operations to assist in adding to, removing from, or filtering contents of large Lists</li>
  <li>Changing the resource using <a href="http.html#patch">the PATCH interaction</a> rather than PUTting the whole resource</li>
 </ul>
 
@@ -223,28 +225,33 @@ The choice of flagging vs. outright removal is determined by the list author.
 Applications processsing list SHOULD always check the deleted flag.
 </p>
 
-<a name="large-resources"> </a>
-<h3>Managing large Lists</h3>
-
-<p>
-For operations to assist in adding to, removing from, or filtering contents of large Lists, see
-<a href="operations-for-large-resources.html">Operations for Large Resources</a>.
-</p>
-
 
 <a name="membership"> </a>
 <h3>Membership</h3>
 <p>
 Membership testing is used to test for <b>active</b> members of a List.  Active 
 entities in a list are entities: 
+</p>
 <ul>
   <li>listed in <code>List.entry.item</code> and</li>
   <li>that do not have <code>List.entry.deleted</code> with a value of <code>true</code>.</li>
 </ul>
-</p>
 <p>
 Servers MAY impose additional membership constraints (e.g. based on modifier extensions).
 </p>
 
+
+<a name="uses"> </a>
+<h3>Known Uses of List</h3>
+<p>
+Some known uses of list:
+</p>
+<ul>
+  <li>In XDS, as a submission set. See XDS profiles in <a href="https://profiles.ihe.net/ITI/MHD">MHD</a> (there are several there)</li>
+  <li>For Medicine lists (see <a href="http://qpath4ms.ukdd.de/fhir/StructureDefinition-Q4MSPatientMedikationListeProfile.html">#1</a>, <a href="http://hl7.org.au/fhir/StructureDefinition-au-medlist.html">#2</a>)</li>
+</ul>
+<p>
+This list is not comprehensive, but contributions are welcome.
+</p>
 
 </div>

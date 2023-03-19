@@ -25,6 +25,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ParticipantType"/>
+  <title value="Participant Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

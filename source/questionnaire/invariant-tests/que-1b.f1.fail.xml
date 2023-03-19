@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Questionnaire xmlns="http://hl7.org/fhir">
+  <id value="3141"/>
+  <url value="http://hl7.org/fhir/Questionnaire/3141"/>
+  <title value="Cancer Quality Forum Questionnaire 2012"/>
+  <status value="draft"/>
+  <subjectType value="Patient"/>
+  <date value="2012-01"/>
+  <description value="Cancer Quality Forum Questionnaire 2012"/>
+  <item>
+    <linkId value="1"/>
+    <code>
+      <system value="http://example.org/system/code/sections"/>
+      <code value="COMORBIDITY"/>
+    </code>
+    <type value="group"/>
+  </item>
+</Questionnaire>

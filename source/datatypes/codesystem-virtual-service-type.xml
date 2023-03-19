@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="virtual-service-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="VirtualServiceType"/>
-  <title value="VirtualServiceType"/>
+  <title value="Virtual Service Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>

@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicinalProductDefinition"/>
-  <title value="MedicinalProductDefinition"/>
+  <title value="Medicinal Product Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -50,7 +50,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -352,7 +352,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorisation}'].pertinentInformation.policy.code"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorization}'].pertinentInformation.policy.code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.additionalMonitoringIndicator">
@@ -385,7 +385,7 @@
     <element id="MedicinalProductDefinition.specialMeasures">
       <path value="MedicinalProductDefinition.specialMeasures"/>
       <short value="Whether the Medicinal Product is subject to special measures for regulatory reasons"/>
-      <definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons, such as a requirement to conduct post-authorisation studies."/>
+      <definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons, such as a requirement to conduct post-authorization studies."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -397,7 +397,7 @@
           <valueString value="SpecialMeasures"/>
         </extension>
         <strength value="example"/>
-        <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorisation studies."/>
+        <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorization studies."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"/>
       </binding>
       <mapping>
@@ -479,7 +479,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorisation}'].statusCode"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorization}'].statusCode"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.packagedMedicinalProduct">
@@ -965,21 +965,19 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Language"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -1227,14 +1225,14 @@
       <path value="MedicinalProductDefinition.characteristic.value[x]"/>
       <short value="A value for the characteristic"/>
       <definition value="A value for the characteristic.text."/>
-      <comment value="String is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept. (temporary text to make build work: The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc.)."/>
+      <comment value="Text, as markdown, is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept.text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <type>
         <code value="Quantity"/>

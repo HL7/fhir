@@ -1,0 +1,63 @@
+map "http://hl7.org/fhir/StructureMap/Immunization4to3" = "R4 to R3 Conversion for Immunization"
+
+uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Immunization" alias ImmunizationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Immunization(source src : Immunization, target tgt : ImmunizationR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status where value != 'not-done' -> tgt.status;
+  src.status where value = 'not-done' ->  tgt.status = 'completed',  tgt.notGiven = true;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.notGiven' then {
+    e.value -> tgt.notGiven;
+  };
+  src.vaccineCode -> tgt.vaccineCode;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.primarySource -> tgt.primarySource;
+  src.reportOrigin -> tgt.reportOrigin;
+  src.location -> tgt.location;
+  src.manufacturer -> tgt.manufacturer;
+  src.lotNumber -> tgt.lotNumber;
+  src.expirationDate -> tgt.expirationDate;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.doseQuantity -> tgt.doseQuantity;
+  src.performer as vs -> tgt.practitioner as vt then practitioner(vs, vt);
+  src.note -> tgt.note;
+  src.reasonCode as vs where src.status != 'not-done' ->  tgt.explanation as t,  t.reason = vs;
+  src.reasonCode as vs where src.status = 'not-done' ->  tgt.explanation as t,  t.reasonNotGiven = vs;
+  src.reaction as vs -> tgt.reaction as vt then reaction(vs, vt);
+  src.protocolApplied as vs -> tgt.vaccinationProtocol as vt then protocol(vs, vt);
+}
+
+group practitioner(source src, target tgt) extends BackboneElement {
+  src.function -> tgt.role;
+  src.actor -> tgt.actor;
+}
+
+group reaction(source src, target tgt) extends BackboneElement {
+  src.date -> tgt.date;
+  src.detail -> tgt.detail;
+  src.reported -> tgt.reported;
+}
+
+group protocol(source src, target tgt) extends BackboneElement {
+  src.doseNumber : positiveInt as vs -> tgt.doseSequence as vt then positiveInt(vs, vt);
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.vaccinationProtocol.description' then {
+    e.value -> tgt.description;
+  };
+  src.authority -> tgt.authority;
+  src.series -> tgt.series;
+  src.seriesDoses : positiveInt as vs -> tgt.seriesDoses as vt then positiveInt(vs, vt);
+  src.targetDisease -> tgt.targetDisease;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.vaccinationProtocol.doseStatus' then {
+    e.value -> tgt.doseStatus;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.vaccinationProtocol.doseStatusReason' then {
+    e.value -> tgt.doseStatusReason;
+  };
+}
+

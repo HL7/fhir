@@ -151,6 +151,7 @@
         <type value="reference"/>
         <expression value="NutritionOrder.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -207,6 +208,25 @@
         <code value="supplement"/>
         <type value="token"/>
         <expression value="NutritionOrder.supplement.type.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.groupIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-group-identifier"/>
+        <description value="Composite Request ID"/>
+        <code value="group-identifier"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.groupIdentifier"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

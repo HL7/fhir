@@ -419,6 +419,7 @@
         <base value="Location"/>
         <type value="special"/>
         <expression value="Location.extension('http://hl7.org/fhir/StructureDefinition/location-boundary-geojson').value"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

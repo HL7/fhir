@@ -8,13 +8,13 @@ The audit event is based on the IHE-ATNA Audit record definitions, originally fr
 DICOM (see <a href="http://medical.nema.org/medical/dicom/current/output/html/part15.html#sect_A.5">DICOM Part 15 Annex A5</a>). 
 </p>
 <ul>
-<li>ASTM E2147 – Setup the concept of security audit logs for healthcare including accounting of disclosures</li>
-<li>IETF RFC 3881 – Defined the Information Model (IETF rule forced this to be informative)</li>
-<li>DICOM Audit Log Message – Made the information model Normative, defined Vocabulary, Transport Binding, and Schema</li>
-<li>IHE ATNA – Defines the grouping with secure transport and access controls; and defined specific audit log records for specific IHE transactions.</li>
-<li>NIST SP800-92 – Shows how to do audit log management and reporting – consistent with our model</li>
-<li>HL7 PASS – Defined an Audit Service with responsibilities and a query interface for reporting use</li>
-<li>ISO 27789 – Defined the subset of audit events that an EHR would need </li>
+<li>ASTM E2147 - Setup the concept of security audit logs for healthcare including accounting of disclosures</li>
+<li>IETF RFC 3881 - Defined the Information Model (IETF rule forced this to be informative)</li>
+<li>DICOM Audit Log Message - Made the information model Normative, defined Vocabulary, Transport Binding, and Schema</li>
+<li>IHE ATNA - Defines the grouping with secure transport and access controls; and defined specific audit log records for specific IHE transactions.</li>
+<li>NIST SP800-92 - Shows how to do audit log management and reporting - consistent with our model</li>
+<li>HL7 PASS - Defined an Audit Service with responsibilities and a query interface for reporting use</li>
+<li>ISO 27789 - Defined the subset of audit events that an EHR would need </li>
 <li>ISO/HL7 10781 EHR System Functional Model Release 2</li>
 <li>ISO 21089 Trusted End-to-End Information Flows</li>
 </ul>

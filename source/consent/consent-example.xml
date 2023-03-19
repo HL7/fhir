@@ -40,15 +40,12 @@
       <code value="INFA"/>
     </coding>
   </regulatoryBasis>
-  <provision>
-    <type value="deny"/>
+  <decision value="deny"/>
     <provision>
-      <type value="permit"/>
       <!-- bound by a timeframe between 1964 and 2019 - consent.applies -->
       <period>
         <start value="1964-01-01"/>
         <end value="2019-01-01"/>
       </period>
     </provision>
-  </provision>
 </Consent>

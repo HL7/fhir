@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CoverageEligibilityResponse"/>
-  <title value="CoverageEligibilityResponse"/>
+  <title value="Coverage Eligibility Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Financial Management)"/>
@@ -191,6 +191,46 @@
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
       </mapping>
+    </element>
+    <element id="CoverageEligibilityResponse.event">
+      <path value="CoverageEligibilityResponse.event"/>
+      <short value="Event information"/>
+      <definition value="Information code for an event with a corresponding date or period."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityResponse.event.type">
+      <path value="CoverageEligibilityResponse.event.type"/>
+      <short value="Specific event"/>
+      <definition value="A coded event such as when a service is expected or a card printed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DatesType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
+      </binding>
+    </element>
+    <element id="CoverageEligibilityResponse.event.when[x]">
+      <path value="CoverageEligibilityResponse.event.when[x]"/>
+      <short value="Occurance date or period"/>
+      <definition value="A date or period in the past or future indicating when the event occurred or is expectd to occur."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
     </element>
     <element id="CoverageEligibilityResponse.serviced[x]">
       <path value="CoverageEligibilityResponse.serviced[x]"/>
@@ -425,6 +465,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="ces-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitCategory"/>
@@ -448,6 +489,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="ces-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceProduct"/>
@@ -791,6 +833,20 @@
         <description value="The error codes for adjudication processing."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
       </binding>
+	  <isSummary value="true"/>
+	</element>  
+    <element id="CoverageEligibilityResponse.error.expression">
+      <path value="CoverageEligibilityResponse.error.expression"/>
+      <short value="FHIRPath of element(s) related to issue"/>
+      <definition value="A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."/>
+      <comment value="The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>

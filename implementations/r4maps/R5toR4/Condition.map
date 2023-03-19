@@ -1,0 +1,54 @@
+map "http://hl7.org/fhir/StructureMap/Condition4to3" = "R4 to R3 Conversion for Condition"
+
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Condition(source src : Condition, target tgt : ConditionR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus as vs then {
+    vs.coding as c where system = 'http://terminology.hl7.org/CodeSystem/condition-clinical' then {
+      c.code -> tgt.clinicalStatus;
+    };
+  };
+  src.verificationStatus as vs then {
+    vs.coding as c where system = 'http://terminology.hl7.org/CodeSystem/condition-ver-status' then {
+      c.code -> tgt.verificationStatus;
+    };
+  };
+  src.category -> tgt.category;
+  src.severity -> tgt.severity;
+  src.code -> tgt.code;
+  src.bodySite -> tgt.bodySite;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.onset : dateTime as vs -> tgt.onset = create('dateTime') as vt then dateTime(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create('Age') as vt then Age(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create('Period') as vt then Period(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create('Range') as vt then Range(vs, vt);
+  src.onset : string as vs -> tgt.onset = create('string') as vt then string(vs, vt);
+  src.abatement : dateTime as vs -> tgt.abatement = create('dateTime') as vt then dateTime(vs, vt);
+  src.abatement : Age as vs -> tgt.abatement = create('Age') as vt then Age(vs, vt);
+  src.abatement : Period as vs -> tgt.abatement = create('Period') as vt then Period(vs, vt);
+  src.abatement : Range as vs -> tgt.abatement = create('Range') as vt then Range(vs, vt);
+  src.abatement : string as vs -> tgt.abatement = create('string') as vt then string(vs, vt);
+  src.recordedDate -> tgt.assertedDate;
+  src.recorder -> tgt.recorder;
+  src.asserter -> tgt.asserter;
+  src.stage as s -> tgt.stage as t then stage(s, t);
+  src.evidence as s -> tgt.evidence as t then evidence(s, t);
+  src.note -> tgt.note;
+}
+
+group stage(source src, target tgt) extends BackboneElement {
+  src.summary -> tgt.summary;
+  src.assessment -> tgt.assessment;
+  src.type -> tgt.type;
+}
+
+group evidence(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.detail -> tgt.detail;
+}
+

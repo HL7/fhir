@@ -1,0 +1,16 @@
+<mappingExceptions pattern="FiveWs" resource="Questionnaire"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <unmappedElement patternPath="FiveWs.what" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.actor" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.cause" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.where" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.context" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.init" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.grade" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.planned" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.done" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="FiveWs.subject" reason="Unknown"/>
+</mappingExceptions>

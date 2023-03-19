@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DetectedIssue"/>
-  <title value="DetectedIssue"/>
+  <title value="Detected Issue"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc."/>
+  <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -77,7 +77,7 @@
     <element id="DetectedIssue">
       <path value="DetectedIssue"/>
       <short value="Clinical issue with action"/>
-      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc."/>
+      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc."/>
       <alias value="DDI"/>
       <alias value="drug-drug interaction"/>
       <alias value="Contraindication"/>
@@ -166,7 +166,7 @@
     </element>
     <element id="DetectedIssue.category">
       <path value="DetectedIssue.category"/>
-      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
       <definition value="A code that classifies the general type of detected issue."/>
       <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what detected issues are retrieved and displayed."/>
@@ -198,7 +198,7 @@
     </element>
     <element id="DetectedIssue.code">
       <path value="DetectedIssue.code"/>
-      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
       <definition value="Identifies the specific type of issue identified."/>
       <alias value="type"/>
       <min value="0"/>
@@ -310,6 +310,37 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
+    <element id="DetectedIssue.encounter">
+      <path value="DetectedIssue.encounter"/>
+      <short value="Encounter detected issue is part of"/>
+      <definition value="The encounter during which this issue was detected."/>
+      <comment value="This will typically be the encounter the DetectedIssue was created during, but some DetectedIssues may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <requirements value="Links this detected issue to the Encounter context."/>
+      <alias value="context"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19 Visit Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+      </mapping>
+    </element>
     <element id="DetectedIssue.identified[x]">
       <path value="DetectedIssue.identified[x]"/>
       <short value="When identified"/>
@@ -388,7 +419,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonReference"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -469,7 +500,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -567,6 +598,20 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=AUT].role[classCode=ASSIGNED]"/>
+      </mapping>
+    </element>
+    <element id="DetectedIssue.mitigation.note">
+      <path value="DetectedIssue.mitigation.note"/>
+      <short value="Additional notes about the mitigation"/>
+      <definition value="Clinicians may add additional notes or justifications about the mitigation action. For example, patient can have this drug because they have had it before without any issues. Multiple justifications may be provided."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role[classCode=ASSIGNED].note"/>
       </mapping>
     </element>
   </differential>

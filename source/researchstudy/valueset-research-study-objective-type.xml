@@ -13,9 +13,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.823"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="ResearchStudyObjectiveType"/>
-  <title value="ResearchStudyObjectiveType"/>
+  <title value="Research Study Objective Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -34,12 +34,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-      <filter>
-        <property value="concept"/>
-        <op value="descendent-of"/>
-        <value value="research-study-objective-type"/>
-      </filter>
+      <system value="http://hl7.org/fhir/research-study-objective-type"/>
     </include>
   </compose>
 </ValueSet>

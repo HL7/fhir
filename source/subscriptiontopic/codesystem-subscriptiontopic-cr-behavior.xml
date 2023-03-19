@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="subscriptiontopic-cr-behavior"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,9 +19,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2034"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="CriteriaNotExistsBehavior"/>
-  <title value="CriteriaNotExistsBehavior"/>
+  <title value="Criteria Not Exists Behavior"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -40,12 +42,12 @@
   <content value="complete"/>
   <concept>
     <code value="test-passes"/>
-    <display value="test passes"/>
+    <display value="Test passes"/>
     <definition value="The requested conditional statement will pass if a matching state does not exist (e.g., previous state during create)."/>
   </concept>
   <concept>
     <code value="test-fails"/>
-    <display value="test fails"/>
+    <display value="Test fails"/>
     <definition value="The requested conditional statement will fail if a matching state does not exist (e.g., previous state during create)."/>
   </concept>
 </CodeSystem>

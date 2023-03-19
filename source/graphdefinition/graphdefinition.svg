@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n502"
+   version="1.1"
+   width="1289.2"
+   height="270.0"
+   sodipodi:docname="graphdefinition.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview39672"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.96649088"
+     inkscape:cx="644.59998"
+     inkscape:cy="136.05922"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n502" />
+  <defs
+     id="defs39444">
+    <filter
+       id="shadow1"
+       x="-0.044612793"
+       y="-0.057608696"
+       width="1.1144781"
+       height="1.1478261">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset39435" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix39437" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur39439" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend39441" />
+    </filter>
+  </defs>
+  <g
+     id="n503">
+    <rect
+       id="GraphDefinition"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="277.2"
+       height="260.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n504"
+       x1="0.0"
+       y1="28.0"
+       x2="277.2"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n505"
+       x="138.6"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">GraphDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan39450"> (<a
+   id="n506"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n507"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
+    <text
+       id="n508"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n509"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.url"><title
+   id="title39453">An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this graph definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the graph definition is stored on different servers</title>url</a> : <a
+   id="n510"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n514"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n515"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.version"><title
+   id="title39458">The identifier that is used to identify this version of the graph definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the graph definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n516"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n520"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n521"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.versionAlgorithm_x_"><title
+   id="title39463">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n522"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n523"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n524"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n525"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n526">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n527"
+       x="26.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n528"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n538"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n539"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.name"><title
+   id="title39474">A natural language name identifying the graph definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n540"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n541"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n542">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n548"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n549"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.title"><title
+   id="title39481">A short, descriptive, user-friendly title for the capability statement</title>title</a> : <a
+   id="n550"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n554"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n555"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.status"><title
+   id="title39486">The status of this graph definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n556"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n557"
+   xlink:href="valueset-publication-status.html"><title
+   id="n558">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n564"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n565"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.experimental"><title
+   id="title39493">A Boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n566"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n570"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n571"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.date"><title
+   id="title39498">The date  (and optionally time) when the graph definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes</title>date</a> : <a
+   id="n572"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n576"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n577"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.publisher"><title
+   id="title39503">The name of the organization or individual responsible for the release and ongoing maintenance of the graph definition</title>publisher</a> : <a
+   id="n578"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n582"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n583"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.contact"><title
+   id="title39508">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n584"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n588"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n589"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.description"><title
+   id="title39513">A free text natural language description of the graph definition from a consumer's perspective</title>description</a> : <a
+   id="n590"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n594"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n595"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.useContext"><title
+   id="title39518">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate graph definition instances</title>useContext</a> : <a
+   id="n596"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n600"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n601"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.jurisdiction"><title
+   id="title39523">A legal or geographic region in which the graph definition is intended to be used</title>jurisdiction</a> : <a
+   id="n602"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n603"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n604">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n610"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n611"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.purpose"><title
+   id="title39530">Explanation of why this graph definition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n612"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n616"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n617"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.start"><title
+   id="title39535">The Node at which instances of this graph start. If there is no nominated start, the graph can start at any of the nodes</title>start</a> : <a
+   id="n618"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+  </g>
+  <g
+     id="n622"
+     transform="translate(-307.29726,311.43594)">
+    <rect
+       id="GraphDefinition.node"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="242"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n623"
+       x1="320"
+       y1="28"
+       x2="562"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n624"
+       x="441"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Node</text>
+    <text
+       id="n625"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n626"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.node.nodeId"><title
+   id="title39544">Internal ID of node - target for link references</title>nodeId</a> : <a
+   id="n627"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n631"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n632"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.node.description"><title
+   id="title39549">Information about why this node is of interest in this graph definition</title>description</a> : <a
+   id="n633"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n637"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n638"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.node.type"><title
+   id="title39554">Type of resource this link refers to</title>type</a> : <a
+   id="n639"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n640"
+   xlink:href="valueset-version-independent-all-resource-types.html"><title
+   id="n641">null (Strength=Required)</title>VersionIndependentResourceTyp...</a>! »</text>
+    <text
+       id="n647"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n648"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.node.profile"><title
+   id="title39561">Profile for the target resource</title>profile</a> : <a
+   id="n649"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n650"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
+  </g>
+  <g
+     id="n655"
+     transform="translate(-253.49437,44.490846)">
+    <rect
+       id="GraphDefinition.link"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="118.8"
+       height="148"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n656"
+       x1="640"
+       y1="28"
+       x2="758.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n657"
+       x="699.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Link</text>
+    <text
+       id="n658"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n659"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.description"><title
+   id="title39571">Information about why this link is of interest in this graph definition</title>description</a> : <a
+   id="n660"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n664"
+       x="646"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n665"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.min"><title
+   id="title39576">Minimum occurrences for this link</title>min</a> : <a
+   id="n666"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n670"
+       x="646"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.max"><title
+   id="title39581">Maximum occurrences for this link</title>max</a> : <a
+   id="n672"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n676"
+       x="646"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n677"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.sourceId"><title
+   id="title39586">The source node for this link</title>sourceId</a> : <a
+   id="n678"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n682"
+       x="646"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n683"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.path"><title
+   id="title39591">A FHIRPath expression that identifies one of FHIR References to other resources</title>path</a> : <a
+   id="n684"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n688"
+       x="646"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n689"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.sliceName"><title
+   id="title39596">Which slice (if profiled)</title>sliceName</a> : <a
+   id="n690"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n694"
+       x="646"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n695"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.targetId"><title
+   id="title39601">The target node for this link</title>targetId</a> : <a
+   id="n696"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n700"
+       x="646"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n701"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.params"><title
+   id="title39606">A set of parameters to look up</title>params</a> : <a
+   id="n702"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n706"
+     transform="translate(-446.97783,237.97431)">
+    <rect
+       id="GraphDefinition.link.compartment"
+       x="800"
+       y="0"
+       rx="4"
+       ry="4"
+       width="189.2"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n707"
+       x1="800"
+       y1="28"
+       x2="989.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n708"
+       x="894.59998"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Compartment</text>
+    <text
+       id="n709"
+       x="806"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n710"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.compartment.use"><title
+   id="title39615">Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed</title>use</a> : <a
+   id="n711"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n712"
+   xlink:href="valueset-graph-compartment-use.html"><title
+   id="n713">null (Strength=Required)</title>GraphCompartmentUse</a>! »</text>
+    <text
+       id="n719"
+       x="806"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n720"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.compartment.rule"><title
+   id="title39622">identical | matching | different | no-rule | custom</title>rule</a> : <a
+   id="n721"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n722"
+   xlink:href="valueset-graph-compartment-rule.html"><title
+   id="n723">null (Strength=Required)</title>GraphCompartmentRule</a>! »</text>
+    <text
+       id="n729"
+       x="806"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n730"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.compartment.code"><title
+   id="title39629">Identifies the compartment</title>code</a> : <a
+   id="n731"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n732"
+   xlink:href="valueset-compartment-type.html"><title
+   id="n733">null (Strength=Required)</title>CompartmentType</a>! »</text>
+    <text
+       id="n739"
+       x="806"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n740"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.compartment.expression"><title
+   id="title39636">Custom rule, as a FHIRPath expression</title>expression</a> : <a
+   id="n741"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n745"
+       x="806"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n746"
+   xlink:href="graphdefinition-definitions.html#GraphDefinition.link.compartment.description"><title
+   id="title39641">Documentation for FHIRPath expression</title>description</a> : <a
+   id="n747"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <line
+     id="n751"
+     x1="277.2"
+     y1="91.50000000000003"
+     x2="320.0"
+     y2="79.61111111111114"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n752"
+     points="277.2,91.50000000000003 283.2,95.50000000000003 289.2,91.50000000000003 283.2,87.50000000000003 277.2,91.50000000000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-15.524110996754251 277.2 91.50000000000003)" />
+  <rect
+     id="n753"
+     x="289.5"
+     y="78.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n754"
+     x="298.0"
+     y="88.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n755"
+       xlink:href="graphdefinition-definitions.html#GraphDefinition.node"><title
+   id="title39650">Potential target for the link</title>node</a></text>
+  <text
+     id="n756"
+     x="300.0"
+     y="75.61111111111114"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n757"
+     x1="758.8"
+     y1="67.60963114754104"
+     x2="800.0"
+     y2="63.177254098360706"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n758"
+     points="758.8,67.60963114754104 764.8,71.60963114754104 770.8,67.60963114754104 764.8,63.60963114754104 758.8,67.60963114754104"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.140376022638472 758.8 67.60963114754104)" />
+  <rect
+     id="n759"
+     x="755.0"
+     y="58.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n760"
+     x="779.0"
+     y="68.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n761"
+       xlink:href="graphdefinition-definitions.html#GraphDefinition.link.compartment"><title
+   id="title39658">Compartment Consistency Rules</title>compartment</a></text>
+  <text
+     id="n762"
+     x="780.0"
+     y="59.177254098360706"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n763"
+     x1="277.2"
+     y1="116.15977175463625"
+     x2="640.0"
+     y2="79.9315263908702"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n764"
+     points="277.2,116.15977175463625 283.2,120.15977175463625 289.2,116.15977175463625 283.2,112.15977175463625 277.2,116.15977175463625"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-5.702500513328445 277.2 116.15977175463625)" />
+  <rect
+     id="n765"
+     x="449.5"
+     y="91.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n766"
+     x="458.0"
+     y="101.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n767"
+       xlink:href="graphdefinition-definitions.html#GraphDefinition.link"><title
+   id="title39666">Links this graph makes rules about</title>link</a></text>
+  <text
+     id="n768"
+     x="620.0"
+     y="75.9315263908702"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

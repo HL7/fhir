@@ -164,25 +164,20 @@ running the risk of being misconfigured.</li>
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
-    <p>A subset of the conformance resources has been tested and used in production tooling and are now normative.
-        These include StructureDefinition and ValueSet.
-        
-        Others, like CapabilityStatement, have been used widely, but not across all elements. As a consequence, these resource
-        have a considerable number of elements marked for "trial use", while other parts are normative and will no longer change
-        in a substantive way.</p>
-
-    <p>Other resources are still under development:</p>
-    <ul>
-        <li><code>ImplementationGuide</code>: used in the HL7 production tooling but has not received much use
-            outside of these tools yet.</li>
-        <li><code>CompartmentDefinition</code>: was new in STU3, and as such has not undergone much production
-            use</li>
-    </ul>
-    <p>These resources have been mainly used in the tools used to build the FHIR
-        publication, early-adopter implementation guides and the FHIR Foundation conformance
-        resource registry. In future, we expect to see more widespread use of these
-        resources in validation tooling, code-generators and more extensive model-based guide
-        authoring tools.</p>
+<ul>
+  <li><a href="structuredefinition.html">StructureDefinition</a>: This resource is normative and stable (see <a href="history.html#normative">Note about normative status</a>). No additional future changes to scope have been discussed or considered</li>
+  <li><a href="operationdefinition.html">OperationDefinition</a>: This resource is normative and stable, though two new features relating to the use of parameters were added in this release. No additional future changes to scope have been discussed or considered</li>
+  <li><a href="capabilitystatement.html">CapabilityStatement</a>: The core of this resource is stable and normative. There are still a few elements on the 
+    resource labelled as 'trial-use'. The <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> work group intends to develop an
+    implementation guide for clients to use to ask servers about their capabilities at a much finer granularity than that offered 
+    by the CapabilityStatement, and then those trial use elements will be removed / deprecated or made normative in a future version. </li>
+  <li><a href="searchparameter.html">SearchParameter</a>: This resource has been used widely, and is considered stable, but some parts or still undergoing trial use </li>
+  <li><a href="implementationguide.html">ImplementationGuide</a>: This resource has been used widely, and is considered stable, but not all tools are fully across all the changes yet</li>
+<li><a href="compartmentdefinition.html">CompartmentDefinition</a>: This resource is in trial-use. HL7 is expected to be the only publisher of this resource</li>
+<li><a href="structuremap.html">StructureMap</a>: This resource is stable but new feature proposals are welcome; there is a spread of tools but it has not yet been used to it's full potential yet </li>
+<li><a href="messagedefinition.html">MessageDefinition</a>: This resource is still undergoing testing; messaging has not been used that widely (though it has been used deeply in a couple of countries)</li>
+<li><a href="graphdefinition.html">GraphDefinition</a>: This resource was re-written from ground up and needs considerable testing before the design can be considered proven</li>
+</ul>    
 
 [%file newfooter%]
 </body>

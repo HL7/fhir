@@ -1,0 +1,55 @@
+map "http://hl7.org/fhir/StructureMap/MedicationRequest4to3" = "R4 to R3 Conversion for MedicationRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationRequest" alias MedicationRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group MedicationRequest(source src : MedicationRequest, target tgt : MedicationRequestR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn -> tgt.basedOn;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.authoredOn -> tgt.authoredOn;
+  src as vs0 where requester.exists() or extension.where(url = '').exists() -> tgt.requester as vt then requester(src, vt) "requester";
+  src.recorder -> tgt.recorder;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.dosageInstruction -> tgt.dosageInstruction;
+  src.dispenseRequest as vs0 -> tgt.dispenseRequest as vt0 then dispense(vs0, vt0);
+  src.substitution as vs0 -> tgt.substitution as vt0 then subst(vs0, vt0);
+  src.priorPrescription -> tgt.priorPrescription;
+  src.detectedIssue -> tgt.detectedIssue;
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group requester(source src, target tgt) {
+  src.requester -> tgt.agent;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+
+group dispense(source src, target tgt) {
+  src.validityPeriod -> tgt.validityPeriod;
+  src.numberOfRepeatsAllowed -> tgt.numberOfRepeatsAllowed;
+  src.quantity -> tgt.quantity;
+  src.expectedSupplyDuration -> tgt.expectedSupplyDuration;
+  src.performer -> tgt.performer;
+}
+
+group subst(source src, target tgt) {
+  src.allowed : boolean as vs -> tgt.allowed as vt then boolean(vs, vt);
+  src.reason -> tgt.reason;
+}
+

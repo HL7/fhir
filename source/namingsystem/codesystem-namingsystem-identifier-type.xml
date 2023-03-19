@@ -29,12 +29,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.293"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="NamingSystemIdentifierType"/>
-  <title value="NamingSystemIdentifierType"/>
+  <title value="Naming System Identifier Type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2023-01-26T15:53:48Z"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -64,6 +64,11 @@
     <code value="uri"/>
     <display value="URI"/>
     <definition value="A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."/>
+  </concept>
+  <concept>
+    <code value="iri-stem"/>
+    <display value="IRI stem"/>
+    <definition value="An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See rdf.html#iri-stem for details on how this value may be used."/>
   </concept>
   <concept>
     <code value="v2csmnemonic"/>

@@ -1,0 +1,14 @@
+map "http://hl7.org/fhir/StructureMap/ProductShelfLife3to4" = "R3 to R4 Conversions for ProductShelfLife"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductShelfLife" alias ProductShelfLifeR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ProductShelfLife" alias ProductShelfLife as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group ProductShelfLife(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.period -> tgt.period;
+  src.specialPrecautionsForStorage -> tgt.specialPrecautionsForStorage;
+}
+

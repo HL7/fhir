@@ -1,39 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><Requirements xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<id value="example1"/>
-	<url value="http://hl7.org/fhir/Requirements/example1"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Requirements xmlns="http://hl7.org/fhir">
+  <id value="example1"/>
+  <url value="http://hl7.org/fhir/Requirements/example1"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.18.1"/>
   </identifier>
   <name value="ExampleRequirements1"/>
-	<title value="Example Requirements Set 1"/>
-	<status value="active"/>
-	<date value="2021-11-02T14:31:30.239Z"/>
-	<actor value="http://hl7.org/fhir/ActorDefinition/server"/>
-
-	<!-- first requirement, which is satisfied by the base spec -->
-	<statement>
-	  <key value="req-1"/>
-		<!-- 
-		<label value="requirement-1"/>
-		since this is commented out, it's simply 'req-1'
-		-->
-		<conformance value="SHALL"/>
-		<requirement value="The server SHALL support expanding value sets"/>
-		<satisfiedBy value="http://hl7.org/fhir/terminology-service.html#expand"/>
-		<source>
-		  <display value="Grahame Grieve"/>
-		</source>
-	</statement>
-
-	<!-- second requirement -->
-	<statement>
-	  <key value="46f77dcd-d51e-4738-b61f-22506d0cb0ac"/>
-		<label value="requirement-2"/>
-		<conformance value="SHALL"/>
-		<requirement value="Operations based on the codeSystem resource SHALL have the same result whether or not the relationships are represented explicitly as properties or implicitly using the CodeSystem resource hierarchy"/>
-		<source>
-		  <display value="Jose Costa Teixeira"/>
-		</source>
-	</statement>
+  <title value="Example Requirements Set 1"/>
+  <status value="active"/>
+  <date value="2021-11-02T14:31:30.239Z"/>
+  <description value="Example Requirements Set 1"/>
+  <actor value="http://hl7.org/fhir/ActorDefinition/server"/>
+  <statement>
+    <key value="req-1"/>
+    <conformance value="SHALL"/>
+    <requirement value="The server SHALL support expanding value sets"/>
+    <satisfiedBy value="http://hl7.org/fhir/terminology-service.html#expand"/>
+    <source>
+      <display value="Grahame Grieve"/>
+    </source>
+  </statement>
+  <statement>
+    <key value="46f77dcd-d51e-4738-b61f-22506d0cb0ac"/>
+    <label value="requirement-2"/>
+    <conformance value="SHALL"/>
+    <requirement value="Operations based on the codeSystem resource SHALL have the same result whether or not the relationships are represented explicitly as properties or implicitly using the CodeSystem resource hierarchy"/>
+    <source>
+      <display value="Jose Costa Teixeira"/>
+    </source>
+  </statement>
 </Requirements>

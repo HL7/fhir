@@ -37,7 +37,7 @@
       <text value="Component"/>
     </code>
     <valueQuantity>
-      <value value="0.0000000000000000000001"/>
+      <value value="0.00000000000000001"/>
       <unit value="g"/>
     </valueQuantity>
   </component>
@@ -46,7 +46,7 @@
       <text value="Component"/>
     </code>
     <valueQuantity>
-      <value value="1000000000000000000"/>
+      <value value="10000000000000000"/>
       <unit value="g"/>
     </valueQuantity>
   </component>
@@ -55,7 +55,7 @@
       <text value="Component"/>
     </code>
     <valueQuantity>
-      <value value="1.000000000000000000e-24"/>
+      <value value="1.00000000000000000e-24"/>
       <unit value="g"/>
     </valueQuantity>
   </component>
@@ -64,7 +64,7 @@
       <text value="Component"/>
     </code>
     <valueQuantity>
-      <value value="-1.000000000000000000e245"/>
+      <value value="-1.00000000000000000e245"/>
       <unit value="g"/>
     </valueQuantity>
   </component>

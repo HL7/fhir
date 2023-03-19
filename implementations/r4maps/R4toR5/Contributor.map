@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Contributor3to4" = "R3 to R4 Conversions for Contributor"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Contributor" alias ContributorR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" alias ContactPoint as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group Contributor(source src : ContributorR3, target tgt : ConactPoint) {
+  src.contact as vs then ContactDetail(vs, tgt);
+  src.name as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Contributor.name',  vt.value = v;
+}
+

@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="5"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -175,7 +175,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A set of codes indicating the current status of an Immunization."/>
         </extension>
         <strength value="required"/>
@@ -212,7 +212,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The reason why a vaccine was not administered."/>
         </extension>
         <strength value="example"/>
@@ -246,7 +246,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VaccineCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The code for vaccine product administered."/>
         </extension>
         <strength value="example"/>
@@ -421,7 +421,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -508,7 +508,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reportedBoolean"/>
+        <map value="Event.reported"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -545,7 +545,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationReportOrigin"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The source of the data for a record which is not from a primary source."/>
         </extension>
         <strength value="example"/>
@@ -554,7 +554,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reportedReference"/>
+        <map value="Event.reported"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -609,7 +609,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationSite"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The site at which the vaccine was administered."/>
         </extension>
         <strength value="example"/>
@@ -642,7 +642,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationRoute"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The route by which the vaccine was administered."/>
         </extension>
         <strength value="example"/>
@@ -727,7 +727,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationFunction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The role a practitioner or organization plays in the immunization event."/>
         </extension>
         <strength value="extensible"/>
@@ -820,7 +820,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The reason why a vaccine was administered."/>
         </extension>
         <strength value="example"/>
@@ -924,7 +924,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VaccineFundingProgram"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The vaccation funding program a patient may be eligible for."/>
         </extension>
         <strength value="example"/>
@@ -952,7 +952,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProgramEligibility"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The patient's eligibility for a vaccation program."/>
         </extension>
         <strength value="example"/>
@@ -980,7 +980,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FundingSource"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The source of funding used to purchase the vaccine administered."/>
         </extension>
         <strength value="example"/>
@@ -1025,7 +1025,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all)"/>
+        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 V2 VXU message - most likely would appear in OBX segments if at all)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1062,7 +1062,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="(HL7 v2 doesn't seem to provide for this)"/>
+        <map value="(HL7 V2 doesn't seem to provide for this)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1131,7 +1131,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TargetDisease"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="The vaccine preventable disease the dose is being administered for."/>
         </extension>
         <strength value="example"/>

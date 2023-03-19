@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1111"
+   version="1.1"
+   width="894.8"
+   height="578.0"
+   sodipodi:docname="observation.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview87703"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3823529"
+     inkscape:cx="447.06383"
+     inkscape:cy="289"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1111" />
+  <defs
+     id="defs87297">
+    <filter
+       id="shadow1"
+       x="-0.026185772"
+       y="-0.067948718"
+       width="1.0671937"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset87288" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix87290" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur87292" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend87294" />
+    </filter>
+  </defs>
+  <g
+     id="n1112">
+    <rect
+       id="Observation"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="568.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n1113"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1114"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Observation<tspan
+   class="diagram-class-title-link"
+   id="tspan87302"> (<a
+   id="n1115"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n1116"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1117"
+   xlink:href="observation-definitions.html#Observation.identifier"><title
+   id="title87305">A unique identifier assigned to this observation</title>identifier</a> : <a
+   id="n1118"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1122"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1123"
+   xlink:href="observation-definitions.html#Observation.instantiates_x_"><title
+   id="title87310">The reference to a FHIR ObservationDefinition resource that provides the definition that is adhered to in whole or in part by this Observation instance</title>instantiates[x]</a> : <a
+   id="n1124"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1125"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n1126"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>)|</text>
+    <text
+       id="n1127"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1128"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1129"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>) »</text>
+    <text
+       id="n1138"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1139"
+   xlink:href="observation-definitions.html#Observation.basedOn"><title
+   id="title87320">A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed</title>basedOn</a> : <a
+   id="n1140"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1141"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n1142"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|</text>
+    <text
+       id="n1143"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1144"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a>|<a
+   id="n1145"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n1146"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|</text>
+    <text
+       id="n1147"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1148"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n1160"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1161"
+   xlink:href="observation-definitions.html#Observation.partOf"><title
+   id="title87333">A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure</title>partOf</a> : <a
+   id="n1162"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1163"
+   xlink:href="medicationadministration.html#MedicationAdministration">MedicationAdministration</a>|</text>
+    <text
+       id="n1164"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1165"
+   xlink:href="medicationdispense.html#MedicationDispense">MedicationDispense</a>|<a
+   id="n1166"
+   xlink:href="medicationstatement.html#MedicationStatement">MedicationStatement</a>|<a
+   id="n1167"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n1168"
+   xlink:href="immunization.html#Immunization">Immunization</a>|</text>
+    <text
+       id="n1169"
+       x="26.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1170"
+   xlink:href="imagingstudy.html#ImagingStudy">ImagingStudy</a>|<a
+   id="n1171"
+   xlink:href="genomicstudy.html#GenomicStudy">GenomicStudy</a> »</text>
+    <text
+       id="n1184"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1185"
+   xlink:href="observation-definitions.html#Observation.status"><title
+   id="title87347">The status of the result value (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1186"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1187"
+   xlink:href="valueset-observation-status.html"><title
+   id="n1188">null (Strength=Required)</title>ObservationStatus</a>! »</text>
+    <text
+       id="n1194"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1195"
+   xlink:href="observation-definitions.html#Observation.category"><title
+   id="title87354">A code that classifies the general type of observation being made</title>category</a> : <a
+   id="n1196"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1197"
+   xlink:href="valueset-observation-category.html"><title
+   id="title87358">null (Strength=Preferred)</title>ObservationCategoryCodes</a>? »</text>
+    <text
+       id="n1202"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1203"
+   xlink:href="observation-definitions.html#Observation.code"><title
+   id="title87362">Describes what was observed. Sometimes this is called the observation &quot;name&quot;</title>code</a> : <a
+   id="n1204"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1205"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n1206">null (Strength=Example)</title>LOINCCodes</a>?? » « <a
+   id="n1207"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1208">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1216"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1217"
+   xlink:href="observation-definitions.html#Observation.subject"><title
+   id="title87371">The patient, or group of patients, location, device, organization, procedure or practitioner this observation is about and into whose or what record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation</title>subject</a> : <a
+   id="n1218"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1219"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1220"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1221"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1222"
+   xlink:href="location.html#Location">Location</a>|</text>
+    <text
+       id="n1223"
+       x="26.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1224"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1225"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n1226"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1227"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n1228"
+   xlink:href="substance.html#Substance">Substance</a>|</text>
+    <text
+       id="n1229"
+       x="26.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1230"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a
+   id="n1231"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a> »</text>
+    <rect
+       id="n1248"
+       x="1.0"
+       y="242.0"
+       width="301.6"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1249"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1250"
+   xlink:href="observation-definitions.html#Observation.focus"><title
+   id="title87390">The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus</title>focus</a> : <a
+   id="n1251"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1252"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n1258"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1259"
+   xlink:href="observation-definitions.html#Observation.encounter"><title
+   id="title87396">The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made</title>encounter</a> : <a
+   id="n1260"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1261"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n1266"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1267"
+   xlink:href="observation-definitions.html#Observation.effective_x_"><title
+   id="title87402">The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself</title>effective[x]</a> : <a
+   id="n1268"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1269"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1270"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n1271"
+   xlink:href="datatypes.html#Timing">Timing</a>|<a
+   id="n1272"
+   xlink:href="datatypes.html#instant">instant</a> »</text>
+    <text
+       id="n1280"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1281"
+   xlink:href="observation-definitions.html#Observation.issued"><title
+   id="title87411">The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified</title>issued</a> : <a
+   id="n1282"
+   xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
+    <text
+       id="n1286"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1287"
+   xlink:href="observation-definitions.html#Observation.performer"><title
+   id="title87416">Who was responsible for asserting the observed value as &quot;true&quot;</title>performer</a> : <a
+   id="n1288"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1289"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1290"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n1291"
+       x="26.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1292"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1293"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1294"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1295"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n1306"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1307"
+   xlink:href="observation-definitions.html#Observation.value_x_"><title
+   id="title87428">The information determined as a result of making the observation, if the information has a simple value</title>value[x]</a> : <a
+   id="n1308"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1309"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1310"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1311"
+   xlink:href="datatypes.html#markdown">markdown</a>|</text>
+    <text
+       id="n1312"
+       x="26.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1313"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1314"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1315"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n1316"
+   xlink:href="datatypes.html#Ratio">Ratio</a>|<a
+   id="n1317"
+   xlink:href="datatypes.html#SampledData">SampledData</a>|<a
+   id="n1318"
+   xlink:href="datatypes.html#time">time</a>|<a
+   id="n1319"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1320"
+   xlink:href="datatypes.html#Period">Period</a>|</text>
+    <text
+       id="n1321"
+       x="26.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1322"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n1323"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1324"
+   xlink:href="molecularsequence.html#MolecularSequence">MolecularSequence</a>)|<a
+   id="n1325"
+   xlink:href="datatypes.html#canonical">canonical</a> » « <a
+   id="n1326"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1327">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1350"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1351"
+   xlink:href="observation-definitions.html#Observation.dataAbsentReason"><title
+   id="title87452">Provides a reason why the expected value in the element Observation.value[x] is missing</title>dataAbsentReason</a> : <a
+   id="n1352"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1353"
+   xlink:href="valueset-data-absent-reason.html"><title
+   id="n1354">null (Strength=Extensible)</title>DataAbsentReason</a>+ » « <a
+   id="n1355"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1356">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1364"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1365"
+   xlink:href="observation-definitions.html#Observation.interpretation"><title
+   id="title87461">A categorical assessment of an observation value.  For example, high, low, normal</title>interpretation</a> : <a
+   id="n1366"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1367"
+   xlink:href="valueset-observation-interpretation.html"><title
+     id="n1368">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1369"
+       x="26.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1370"
+   xlink:href="valueset-observation-interpretation.html">ObservationInterpretationCodes</a>+ »</text>
+    <text
+       id="n1378"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1379"
+   xlink:href="observation-definitions.html#Observation.note"><title
+   id="title87470">Comments about the observation or the results</title>note</a> : <a
+   id="n1380"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1384"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1385"
+   xlink:href="observation-definitions.html#Observation.bodySite"><title
+   id="title87475">Indicates the site on the subject's body where the observation was made (i.e. the target site)</title>bodySite</a> : <a
+   id="n1386"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1387"
+   xlink:href="valueset-body-site.html"><title
+   id="n1388">Codes describing anatomical locations. May include laterality. (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? » « <a
+   id="n1389"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1390">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1398"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1399"
+   xlink:href="observation-definitions.html#Observation.bodyStructure"><title
+   id="title87484">Indicates the body structure on the subject's body where the observation was made (i.e. the target site)</title>bodyStructure</a> : <a
+   id="n1400"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1401"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a> » « <a
+   id="n1402"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1403">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1410"
+       x="6.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1411"
+   xlink:href="observation-definitions.html#Observation.method"><title
+   id="title87492">Indicates the mechanism used to perform the observation</title>method</a> : <a
+   id="n1412"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1413"
+   xlink:href="valueset-observation-methods.html"><title
+   id="n1414">null (Strength=Example)</title>ObservationMethods</a>?? »</text>
+    <text
+       id="n1420"
+       x="6.0"
+       y="476.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1421"
+   xlink:href="observation-definitions.html#Observation.specimen"><title
+   id="title87499">The specimen that was used when this observation was made</title>specimen</a> : <a
+   id="n1422"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1423"
+   xlink:href="specimen.html#Specimen">Specimen</a>|<a
+   id="n1424"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n1430"
+       x="6.0"
+       y="490.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1431"
+   xlink:href="observation-definitions.html#Observation.device"><title
+   id="title87506">The device used to generate the observation data</title>device</a> : <a
+   id="n1432"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1433"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1434"
+   xlink:href="devicemetric.html#DeviceMetric">DeviceMetric</a> »</text>
+    <text
+       id="n1440"
+       x="6.0"
+       y="504.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1441"
+   xlink:href="observation-definitions.html#Observation.hasMember"><title
+   id="title87513">This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</title>hasMember</a> : <a
+   id="n1442"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1443"
+   xlink:href="observation.html#Observation">Observation</a>|<a
+   id="n1444"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>|</text>
+    <text
+       id="n1445"
+       x="26.0"
+       y="518.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1446"
+   xlink:href="molecularsequence.html#MolecularSequence">MolecularSequence</a> »</text>
+    <text
+       id="n1454"
+       x="6.0"
+       y="532.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1455"
+   xlink:href="observation-definitions.html#Observation.derivedFrom"><title
+   id="title87522">The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image</title>derivedFrom</a> : <a
+   id="n1456"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1457"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|<a
+   id="n1458"
+   xlink:href="imagingstudy.html#ImagingStudy">ImagingStudy</a>|</text>
+    <text
+       id="n1459"
+       x="26.0"
+       y="546.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1460"
+   xlink:href="imagingselection.html#ImagingSelection">ImagingSelection</a>|<a
+   id="n1461"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>|<a
+   id="n1462"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n1463"
+       x="26.0"
+       y="560.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1464"
+   xlink:href="molecularsequence.html#MolecularSequence">MolecularSequence</a>|<a
+   id="n1465"
+   xlink:href="genomicstudy.html#GenomicStudy">GenomicStudy</a> »</text>
+  </g>
+  <g
+     id="n1478"
+     transform="translate(127.31915,29.659574)">
+    <rect
+       id="Observation.triggeredBy"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="202.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1479"
+       x1="320"
+       y1="28"
+       x2="522.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1480"
+       x="421.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">TriggeredBy</text>
+    <text
+       id="n1481"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1482"
+   xlink:href="observation-definitions.html#Observation.triggeredBy.observation"><title
+   id="title87540">Reference to the triggering observation</title>observation</a> : <a
+   id="n1483"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1484"
+   xlink:href="observation.html#Observation">Observation</a> »</text>
+    <text
+       id="n1489"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1490"
+   xlink:href="observation-definitions.html#Observation.triggeredBy.type"><title
+   id="title87546">The type of trigger.
+Reflex | Repeat | Re-run</title>type</a> : <a
+   id="n1491"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1492"
+   xlink:href="valueset-observation-triggeredbytype.html"><title
+   id="n1493">null (Strength=Required)</title>TriggeredBytype</a>! »</text>
+    <text
+       id="n1499"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1500"
+   xlink:href="observation-definitions.html#Observation.triggeredBy.reason"><title
+   id="title87553">Provides the reason why this observation was performed as a result of the observation(s) referenced</title>reason</a> : <a
+   id="n1501"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n1505"
+     transform="translate(20.255319,42.680851)">
+    <rect
+       id="Observation.referenceRange"
+       x="400"
+       y="320"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1506"
+       x1="400"
+       y1="348"
+       x2="690.40002"
+       y2="348"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1507"
+       x="545.20001"
+       y="340"
+       fill="#000000"
+       class="diagram-class-title">ReferenceRange</text>
+    <text
+       id="n1508"
+       x="406"
+       y="362"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1509"
+   xlink:href="observation-definitions.html#Observation.referenceRange.low"><title
+   id="title87562">The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3)</title>low</a> : <a
+   id="n1510"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a87566">SimpleQuantity</a>) [0..1] « <a
+   id="n1511"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1512">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1518"
+       x="406"
+       y="376"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1519"
+   xlink:href="observation-definitions.html#Observation.referenceRange.high"><title
+   id="title87571">The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3)</title>high</a> : <a
+   id="n1520"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a87575">SimpleQuantity</a>) [0..1] « <a
+   id="n1521"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1522">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1528"
+       x="406"
+       y="390"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1529"
+   xlink:href="observation-definitions.html#Observation.referenceRange.normalValue"><title
+   id="title87580">The value of the normal value of the reference range</title>normalValue</a> : <a
+   id="n1530"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1531"
+   xlink:href="valueset-observation-referencerange-normalvalue.html"><title
+     id="n1532">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1533"
+       x="426"
+       y="404"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1534"
+   xlink:href="valueset-observation-referencerange-normalvalue.html">ObservationReferenceRangeNorm...</a>+ »</text>
+    <text
+       id="n1542"
+       x="406"
+       y="418"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1543"
+   xlink:href="observation-definitions.html#Observation.referenceRange.type"><title
+   id="title87589">Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range</title>type</a> : <a
+   id="n1544"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1545"
+   xlink:href="valueset-referencerange-meaning.html"><title
+   id="title87593">null (Strength=Preferred)</title>ObservationReferenceRangeMean...</a>? »</text>
+    <text
+       id="n1550"
+       x="406"
+       y="432"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1551"
+   xlink:href="observation-definitions.html#Observation.referenceRange.appliesTo"><title
+   id="title87597">Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.  Multiple `appliesTo`  are interpreted as an &quot;AND&quot; of the target populations.  For example, to represent a target population of African American females, both a code of female and a code for African American would be used</title>appliesTo</a> : <a
+   id="n1552"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1553"
+   xlink:href="valueset-referencerange-appliesto.html"><title
+     id="n1554">null (Strength=Example)</title></a></text>
+    <text
+       id="n1555"
+       x="426"
+       y="446"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1556"
+   xlink:href="valueset-referencerange-appliesto.html">ObservationReferenceRangeAppl...</a>?? »</text>
+    <text
+       id="n1564"
+       x="406"
+       y="460"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1565"
+   xlink:href="observation-definitions.html#Observation.referenceRange.age"><title
+   id="title87606">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</title>age</a> : <a
+   id="n1566"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
+    <text
+       id="n1570"
+       x="406"
+       y="474"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1571"
+   xlink:href="observation-definitions.html#Observation.referenceRange.text"><title
+   id="title87611">Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of &quot;Negative&quot; or a list or table of &quot;normals&quot;</title>text</a> : <a
+   id="n1572"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1] « <a
+   id="n1573"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1574">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1580"
+     transform="translate(20.255319,22.425532)">
+    <rect
+       id="Observation.component"
+       x="400"
+       y="120"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1581"
+       x1="400"
+       y1="148"
+       x2="694.79999"
+       y2="148"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1582"
+       x="547.40002"
+       y="140"
+       fill="#000000"
+       class="diagram-class-title">Component</text>
+    <text
+       id="n1583"
+       x="406"
+       y="162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1584"
+   xlink:href="observation-definitions.html#Observation.component.code"><title
+   id="title87622">Describes what was observed. Sometimes this is called the observation &quot;code&quot;</title>code</a> : <a
+   id="n1585"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1586"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n1587">null (Strength=Example)</title>LOINCCodes</a>?? » « <a
+   id="n1588"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1589">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1597"
+       x="406"
+       y="176"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1598"
+   xlink:href="observation-definitions.html#Observation.component.value_x_"><title
+   id="title87631">The information determined as a result of making the observation, if the information has a simple value</title>value[x]</a> : <a
+   id="n1599"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1600"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1601"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1602"
+   xlink:href="datatypes.html#markdown">markdown</a>|</text>
+    <text
+       id="n1603"
+       x="426"
+       y="190"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1604"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1605"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1606"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n1607"
+   xlink:href="datatypes.html#Ratio">Ratio</a>|<a
+   id="n1608"
+   xlink:href="datatypes.html#SampledData">SampledData</a>|<a
+   id="n1609"
+   xlink:href="datatypes.html#time">time</a>|<a
+   id="n1610"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1611"
+   xlink:href="datatypes.html#Period">Period</a>|</text>
+    <text
+       id="n1612"
+       x="426"
+       y="204"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1613"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n1614"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1615"
+   xlink:href="molecularsequence.html#MolecularSequence">MolecularSequence</a>)|<a
+   id="n1616"
+   xlink:href="datatypes.html#canonical">canonical</a> »</text>
+    <text
+       id="n1637"
+       x="406"
+       y="218"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1638"
+   xlink:href="observation-definitions.html#Observation.component.dataAbsentReason"><title
+   id="title87653">Provides a reason why the expected value in the element Observation.component.value[x] is missing</title>dataAbsentReason</a> : <a
+   id="n1639"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1640"
+   xlink:href="valueset-data-absent-reason.html"><title
+   id="n1641">null (Strength=Extensible)</title>DataAbsentReason</a>+ »</text>
+    <text
+       id="n1647"
+       x="406"
+       y="232"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1648"
+   xlink:href="observation-definitions.html#Observation.component.interpretation"><title
+   id="title87660">A categorical assessment of an observation value.  For example, high, low, normal</title>interpretation</a> : <a
+   id="n1649"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1650"
+   xlink:href="valueset-observation-interpretation.html"><title
+     id="n1651">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1652"
+       x="426"
+       y="246"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1653"
+   xlink:href="valueset-observation-interpretation.html">ObservationInterpretationCodes</a>+ »</text>
+  </g>
+  <line
+     id="n1661"
+     x1="303.6"
+     y1="145.94877505567928"
+     x2="378.31591836734697"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1662"
+     points="303.6,145.94877505567928 309.6,149.94877505567928 315.6,145.94877505567928 309.6,141.94877505567928 303.6,145.94877505567928"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-42.28427307135056 303.6 145.94877505567928)" />
+  <rect
+     id="n1663"
+     x="316.0"
+     y="104.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1664"
+     x="340.0"
+     y="114.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1665"
+       xlink:href="observation-definitions.html#Observation.triggeredBy"><title
+   id="title87673">Identifies the observation(s) that triggered the performance of this observation</title>triggeredBy</a></text>
+  <text
+     id="n1666"
+     x="378.31591836734697"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1667"
+     x1="303.6"
+     y1="329.14641586171837"
+     x2="400.0"
+     y2="357.8164717844433"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1668"
+     points="303.6,329.14641586171837 309.6,333.14641586171837 315.6,329.14641586171837 309.6,325.14641586171837 303.6,329.14641586171837"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(16.562857805239318 303.6 329.14641586171837)" />
+  <rect
+     id="n1669"
+     x="320.5"
+     y="336.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1670"
+     x="351.0"
+     y="346.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1671"
+       xlink:href="observation-definitions.html#Observation.referenceRange"><title
+   id="title87681">Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an &quot;OR&quot;.   In other words, to represent two distinct target populations, two `referenceRange` elements would be used</title>referenceRange</a></text>
+  <text
+     id="n1672"
+     x="380.0"
+     y="353.8164717844433"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1673"
+     x1="546.711214953271"
+     y1="254.0"
+     x2="546.0327102803739"
+     y2="319.9999999999927"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1674"
+     points="546.711214953271,254.0 552.711214953271,258.0 558.711214953271,254.0 552.711214953271,250.0 546.711214953271,254.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.58900128321548 546.711214953271 254.0)" />
+  <rect
+     id="n1675"
+     x="515.5"
+     y="279.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1676"
+     x="546.0"
+     y="289.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1677"
+       xlink:href="observation-definitions.html#Observation.component.referenceRange"><title
+   id="title87689">Guidance on how to interpret the value by comparison to a normal or recommended range</title>referenceRange</a></text>
+  <text
+     id="n1678"
+     x="546.0327102803739"
+     y="315.9999999999927"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1679"
+     x1="303.6"
+     y1="246.77906976744185"
+     x2="400.0"
+     y2="223.14206268958543"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1680"
+     points="303.6,246.77906976744185 309.6,250.77906976744185 315.6,246.77906976744185 309.6,242.77906976744185 303.6,246.77906976744185"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-13.776957442111394 303.6 246.77906976744185)" />
+  <rect
+     id="n1681"
+     x="331.5"
+     y="227.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1682"
+     x="351.0"
+     y="237.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1683"
+       xlink:href="observation-definitions.html#Observation.component"><title
+   id="title87697">Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations</title>component</a></text>
+  <text
+     id="n1684"
+     x="380.0"
+     y="219.14206268958543"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

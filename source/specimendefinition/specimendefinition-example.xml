@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SpecimenDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SpecimenDefinition.xsd">
 	<id value="7"/>
+    <url value="http://example-lab.com/specdef/123455" />    
+    <identifier>
+       <value value="123455" />
+    </identifier> 
+    <title value = 'Venous blood specimen' /> 
+    <status value="active" />
+    <experimental value="true" />
     <typeCollected>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -8,43 +15,52 @@
         </coding>
         <text value="Venous blood specimen (specimen)"/>
     </typeCollected>
-    <patientPreparation value="no strict fasting"/>
-    <specimenToLab>
-        <type>
+    <patientPreparation>
+       <text value="no strict fasting"/>
+    </patientPreparation> 
+    <typeTested>
+       <isDerived value="true" />
+       <type>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="119364003"/>
             </coding>
             <text value="Serum specimen (specimen)"/>
         </type>
-        <containerMaterial>
+       <preference value="preferred" />
+       <container>
+          <material>
               <text value="glass"/>
-        </containerMaterial>
-        <containerType>
+          </material>
+          <type>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="702281005"/>
                 <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator"/>
             </coding>
-        </containerType>
-        <containerCap>
-            <coding>
-                <system value="http://hl7.org/fhir/container-cap"/>
+           </type>
+           <cap>
+              <coding>
+                <system value="http://terminology.hl7.org/5.1.0/CodeSystem-container-cap.html"/>
                 <code value="yellow"/>
                 <display value="yellow cap"/>
-            </coding>
-        </containerCap>
-        <containerMinimumVolume>
-            <value value="2"/>
-            <unit value="ml"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="mL"/>
-        </containerMinimumVolume>
-        <handling>
-            <conditionSet>
-                <text value="room temperature"/>
-            </conditionSet>
-            <tempRange>
+              </coding>
+            </cap>
+            <minimumVolumeQuantity>
+                 <value value="2"/>
+                 <unit value="ml"/>
+                 <system value="http://unitsofmeasure.org"/>
+                 <code value="mL"/>
+            </minimumVolumeQuantity>
+       </container>
+       <handling>
+            <temperatureQualifier>
+                 <coding>
+                    <code value="room"/>
+                    <display value="room temperature" />
+                 </coding>   
+            </temperatureQualifier>
+            <temperatureRange>
                 <low>
                     <value value="15"/>
                     <unit value="°C"/>
@@ -57,13 +73,12 @@
                     <system value="http://unitsofmeasure.org"/>
                     <code value="Cel"/>
                 </high>
-            </tempRange>
+            </temperatureRange>
             <maxDuration>
                 <value value="12"/>
                 <system value="http://unitsofmeasure.org"/>
                 <code value="h"/>
             </maxDuration>
         </handling>
-    </specimenToLab>
-  
+    </typeTested>  
 </SpecimenDefinition>

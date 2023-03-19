@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MeasureReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>
+  <status value="complete"/>
+  <type value="individual"/>
+  <measure value="http://example.org/fhir/Measure/measure-cms146-example"/>
+<period>
+  <start value="2013-01-01"/>
+  <end value="2013-12-31"/>
+</period>
+  <!-- insert contents here -->
+  <group>
+    <stratifier>
+      <stratum>
+        <valueBoolean value="true"/>
+        <component>
+          <code>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="3141-9"/>
+              <display value="Body Weight"/>
+            </coding> 
+          </code>
+          <valueQuantity>
+            <value value="1"/>
+            <unit value="kg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="kg"/>
+          </valueQuantity>
+        </component>
+      </stratum>
+    </stratifier>
+  </group>
+
+
+
+  
+</MeasureReport>

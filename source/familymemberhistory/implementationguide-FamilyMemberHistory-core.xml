@@ -3,8 +3,8 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="FamilyMemberHistory-core"/>
   <version value="0.1"/>
-  <name value="Family Member History HL7 Extensions"/>
-  <title value="Family Member History HL7 Extensions"/>
+  <name value="FamilyMemberHistoryHL7Extensions"/>
+  <title value="Family  Member  History  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
@@ -12,42 +12,7 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/familymemberhistory-abatement"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/familymemberhistory-severity"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/familymemberhistory-patient-record"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/familymemberhistory-type"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/familymemberhistory-genetic"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/family-member-history-genetics-parent"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/family-member-history-genetics-sibling"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/family-member-history-genetics-observation"/>
       </reference>
     </resource>
   </definition>

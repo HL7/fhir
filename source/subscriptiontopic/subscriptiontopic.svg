@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n632"
+   version="1.1"
+   width="1829.2"
+   height="312.0"
+   sodipodi:docname="subscriptiontopic.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview105874"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.68117212"
+     inkscape:cx="914.59998"
+     inkscape:cy="156.34815"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n632" />
+  <defs
+     id="defs105578">
+    <filter
+       id="shadow1"
+       x="-0.028012685"
+       y="-0.067948718"
+       width="1.0718816"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset105569" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix105571" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur105573" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend105575" />
+    </filter>
+  </defs>
+  <g
+     id="n633">
+    <rect
+       id="SubscriptionTopic"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="293.04"
+       height="302.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n634"
+       x1="0.0"
+       y1="28.0"
+       x2="293.04"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n635"
+       x="146.52"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">SubscriptionTopic<tspan
+   class="diagram-class-title-link"
+   id="tspan105584"> (<a
+   id="n636"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n637"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
+    <text
+       id="n638"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n639"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.url"><title
+   id="title105587">An absolute URI that is used to identify this subscription topic when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this subscription topic is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the subscription topic is stored on different servers</title>url</a> : <a
+   id="n640"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+    <text
+       id="n644"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n645"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.identifier"><title
+   id="title105592">Business identifiers assigned to this subscription topic by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n646"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n650"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n651"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.version"><title
+   id="title105597">The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable</title>version</a> : <a
+   id="n652"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n656"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n657"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.title"><title
+   id="title105602">A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;</title>title</a> : <a
+   id="n658"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n662"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n663"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.derivedFrom"><title
+   id="title105607">The canonical URL pointing to another FHIR-defined SubscriptionTopic that is adhered to in whole or in part by this SubscriptionTopic</title>derivedFrom</a> : <a
+   id="n664"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n665"
+   xlink:href="subscriptiontopic.html#SubscriptionTopic">SubscriptionTopic</a> »</text>
+    <text
+       id="n670"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.status"><title
+   id="title105613">The current state of the SubscriptionTopic (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n672"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n673"
+   xlink:href="valueset-publication-status.html"><title
+   id="n674">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n680"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n681"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.experimental"><title
+   id="title105620">A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n682"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n686"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n687"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.date"><title
+   id="title105625">For draft definitions, indicates the date of initial creation.  For active definitions, represents the date of activation.  For withdrawn definitions, indicates the date of withdrawal</title>date</a> : <a
+   id="n688"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n692"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n693"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.publisher"><title
+   id="title105630">Helps establish the &quot;authority/credibility&quot; of the SubscriptionTopic.  May also allow for contact</title>publisher</a> : <a
+   id="n694"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n698"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n699"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.contact"><title
+   id="title105635">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n700"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n704"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n705"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.description"><title
+   id="title105640">A free text natural language description of the Topic from the consumer's perspective</title>description</a> : <a
+   id="n706"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n710"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n711"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.useContext"><title
+   id="title105645">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions</title>useContext</a> : <a
+   id="n712"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n716"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n717"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.jurisdiction"><title
+   id="title105650">A jurisdiction in which the Topic is intended to be used</title>jurisdiction</a> : <a
+   id="n718"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n719"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n720">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n726"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n727"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.purpose"><title
+   id="title105657">Explains why this Topic is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n728"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n732"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n733"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.copyright"><title
+   id="title105662">A copyright statement relating to the SubscriptionTopic and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SubscriptionTopic</title>copyright</a> : <a
+   id="n734"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n738"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n739"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.copyrightLabel"><title
+   id="title105667">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n740"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n744"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n745"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.approvalDate"><title
+   id="title105672">The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n746"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n750"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n751"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.lastReviewDate"><title
+   id="title105677">The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date</title>lastReviewDate</a> : <a
+   id="n752"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n756"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n757"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.effectivePeriod"><title
+   id="title105682">The period during which the SubscriptionTopic content was or is planned to be effective</title>effectivePeriod</a> : <a
+   id="n758"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n762"
+     transform="translate(93.955696,5.872231)">
+    <rect
+       id="SubscriptionTopic.resourceTrigger"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n763"
+       x1="320"
+       y1="28"
+       x2="570.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n764"
+       x="445.39999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ResourceTrigger</text>
+    <text
+       id="n765"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.description"><title
+   id="title105691">The human readable description of this resource trigger for the SubscriptionTopic -  for example, &quot;An Encounter enters the 'in-progress' state&quot;</title>description</a> : <a
+   id="n767"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n771"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n772"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.resource"><title
+   id="title105696">URL of the Resource that is the type used in this resource trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;</title>resource</a> : <a
+   id="n773"
+   xlink:href="datatypes.html#uri">uri</a> [1..1] « <a
+   id="n774"
+   xlink:href="valueset-subscription-types.html"><title
+   id="n775">null (Strength=Extensible)</title>SubscriptionTypes</a>+ »</text>
+    <text
+       id="n781"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n782"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.supportedInteraction"><title
+   id="title105703">The FHIR RESTful interaction which can be used to trigger a notification for the SubscriptionTopic. Multiple values are considered OR joined (e.g., CREATE or UPDATE). If not present, all supported interactions are assumed</title>supportedInteraction</a> : <a
+   id="n783"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n784"
+   xlink:href="valueset-interaction-trigger.html"><title
+   id="n785">null (Strength=Required)</title>InteractionTrigger</a>! »</text>
+    <text
+       id="n791"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n792"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.fhirPathCriteria"><title
+   id="title105710">The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic</title>fhirPathCriteria</a> : <a
+   id="n793"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n797"
+     transform="translate(-221.67672,129.18908)">
+    <rect
+       id="SubscriptionTopic.resourceTrigger.queryCriteria"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n798"
+       x1="640"
+       y1="28"
+       x2="899.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n799"
+       x="769.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">QueryCriteria</text>
+    <text
+       id="n800"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n801"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.queryCriteria.previous"><title
+   id="title105719">The FHIR query based rules are applied to the previous resource state (e.g., state before an update)</title>previous</a> : <a
+   id="n802"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n806"
+       x="646"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n807"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"><title
+   id="title105724">For `create` interactions, should the `previous` criteria count as an automatic pass or an automatic fail. If not present, the testing behavior during `create` interactions is unspecified (server discretion)</title>resultForCreate</a> : <a
+   id="n808"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n809"
+   xlink:href="valueset-subscriptiontopic-cr-behavior.html"><title
+   id="n810">null (Strength=Required)</title>CriteriaNotExistsBehavior</a>! »</text>
+    <text
+       id="n816"
+       x="646"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n817"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.queryCriteria.current"><title
+   id="title105731">The FHIR query based rules are applied to the current resource state (e.g., state after an update)</title>current</a> : <a
+   id="n818"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n822"
+       x="646"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n823"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"><title
+   id="title105736">For 'delete' interactions, should the 'current' query criteria count as an automatic pass or an automatic fail. If not present, the testing behavior during `delete` interactions is unspecified (server discretion)</title>resultForDelete</a> : <a
+   id="n824"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n825"
+   xlink:href="valueset-subscriptiontopic-cr-behavior.html"><title
+   id="n826">null (Strength=Required)</title>CriteriaNotExistsBehavior</a>! »</text>
+    <text
+       id="n832"
+       x="646"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n833"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.queryCriteria.requireBoth"><title
+   id="title105743">If set to `true`, both the `current` and `previous` query criteria must evaluate `true` to trigger a notification for this topic.  If set to `false` or not present, a notification for this topic will be triggered if either the `current` or `previous` tests evaluate to `true`</title>requireBoth</a> : <a
+   id="n834"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n838"
+     transform="translate(-535.84108,271.59068)">
+    <rect
+       id="SubscriptionTopic.eventTrigger"
+       x="960"
+       y="0"
+       rx="4"
+       ry="4"
+       width="233.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n839"
+       x1="960"
+       y1="28"
+       x2="1193.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n840"
+       x="1076.6"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">EventTrigger</text>
+    <text
+       id="n841"
+       x="966"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n842"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.description"><title
+   id="title105752">The human readable description of an event to trigger a notification for the SubscriptionTopic - for example, &quot;Patient Admission, as defined in HL7v2 via message ADT^A01&quot;. Multiple values are considered OR joined (e.g., matching any single event listed)</title>description</a> : <a
+   id="n843"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n847"
+       x="966"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n848"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.event"><title
+   id="title105757">A well-defined event which can be used to trigger notifications from the SubscriptionTopic</title>event</a> : <a
+   id="n849"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n850"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0003.html"><title
+   id="n851">null (Strength=Example)</title>Hl7VSEventTypeCode</a>?? »</text>
+    <text
+       id="n857"
+       x="966"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n858"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.resource"><title
+   id="title105764">URL of the Resource that is the focus type used in this event trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;</title>resource</a> : <a
+   id="n859"
+   xlink:href="datatypes.html#uri">uri</a> [1..1] « <a
+   id="n860"
+   xlink:href="valueset-subscription-types.html"><title
+   id="n861">null (Strength=Extensible)</title>SubscriptionTypes</a>+ »</text>
+  </g>
+  <g
+     id="n867"
+     transform="translate(-823.5804,380.22696)">
+    <rect
+       id="SubscriptionTopic.canFilterBy"
+       x="1200"
+       y="0"
+       rx="4"
+       ry="4"
+       width="198"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n868"
+       x1="1200"
+       y1="28"
+       x2="1398"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n869"
+       x="1299"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">CanFilterBy</text>
+    <text
+       id="n870"
+       x="1206"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n871"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy.description"><title
+   id="title105775">Description of how this filtering parameter is intended to be used</title>description</a> : <a
+   id="n872"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n876"
+       x="1206"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n877"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy.resource"><title
+   id="title105780">URL of the Resource that is the type used in this filter. This is the &quot;focus&quot; of the topic (or one of them if there are more than one). It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present</title>resource</a> : <a
+   id="n878"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n879"
+   xlink:href="valueset-subscription-types.html"><title
+   id="n880">null (Strength=Extensible)</title>SubscriptionTypes</a>+ »</text>
+    <text
+       id="n886"
+       x="1206"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n887"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy.filterParameter"><title
+   id="title105787">Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter</title>filterParameter</a> : <a
+   id="n888"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n892"
+       x="1206"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n893"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy.filterDefinition"><title
+   id="title105792">Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or the officially-defined URI for a shared filter concept (like &quot;http://example.org/concepts/shared-common-event&quot;)</title>filterDefinition</a> : <a
+   id="n894"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n898"
+       x="1206"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n899"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy.comparator"><title
+   id="title105797">Comparators allowed for the filter parameter</title>comparator</a> : <a
+   id="n900"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n901"
+   xlink:href="valueset-search-comparator.html"><title
+   id="n902">null (Strength=Required)</title>SearchComparator</a>! »</text>
+    <text
+       id="n908"
+       x="1206"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n909"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy.modifier"><title
+   id="title105804">Modifiers allowed for the filter parameter</title>modifier</a> : <a
+   id="n910"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n911"
+   xlink:href="valueset-search-modifier-code.html"><title
+   id="n912">null (Strength=Required)</title>SearchModifierCode</a>! »</text>
+  </g>
+  <g
+     id="n918"
+     transform="translate(-1396.1229,358.20609)">
+    <rect
+       id="SubscriptionTopic.notificationShape"
+       x="1440"
+       y="0"
+       rx="4"
+       ry="4"
+       width="189.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n919"
+       x1="1440"
+       y1="28"
+       x2="1629.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n920"
+       x="1534.6"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">NotificationShape</text>
+    <text
+       id="n921"
+       x="1446"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n922"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape.resource"><title
+   id="title105815">URL of the Resource that is the type used in this shape. This is the 'focus' resource of the topic (or one of them if there are more than one) and the root resource for this shape definition. It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present</title>resource</a> : <a
+   id="n923"
+   xlink:href="datatypes.html#uri">uri</a> [1..1] « <a
+   id="n924"
+   xlink:href="valueset-subscription-types.html"><title
+   id="n925">null (Strength=Extensible)</title>SubscriptionTypes</a>+ »</text>
+    <text
+       id="n931"
+       x="1446"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n932"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape.include"><title
+   id="title105822">Search-style _include directives, rooted in the resource for this shape. Servers SHOULD include resources listed here, if they exist and the user is authorized to receive them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them</title>include</a> : <a
+   id="n933"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n937"
+       x="1446"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n938"
+   xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape.revInclude"><title
+   id="title105827">Search-style _revinclude directives, rooted in the resource for this shape. Servers SHOULD include resources listed here, if they exist and the user is authorized to receive them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them</title>revInclude</a> : <a
+   id="n939"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+  </g>
+  <line
+     id="n943"
+     x1="570.8"
+     y1="48.7059186189889"
+     x2="640.0"
+     y2="50.199136868064116"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n944"
+     points="570.8,48.7059186189889 576.8,52.7059186189889 582.8,48.7059186189889 576.8,44.7059186189889 570.8,48.7059186189889"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(1.2361535905424506 570.8 48.7059186189889)" />
+  <rect
+     id="n945"
+     x="576.5"
+     y="42.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n946"
+     x="605.0"
+     y="52.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n947"
+       xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger.queryCriteria"><title
+   id="title105836">The FHIR query based rules that the server should use to determine when to trigger a notification for this subscription topic</title>queryCriteria</a></text>
+  <text
+     id="n948"
+     x="620.0"
+     y="46.199136868064116"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n949"
+     x1="293.04"
+     y1="99.52582976445395"
+     x2="320.0"
+     y2="90.05447002141327"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n950"
+     points="293.04,99.52582976445395 299.04,103.52582976445395 305.04,99.52582976445395 299.04,95.52582976445395 293.04,99.52582976445395"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-19.356964955167335 293.04 99.52582976445395)" />
+  <rect
+     id="n951"
+     x="273.0"
+     y="87.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n952"
+     x="306.0"
+     y="97.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n953"
+       xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger"><title
+   id="title105844">A definition of a resource-based event that triggers a notification based on the SubscriptionTopic. The criteria may be just a human readable description and/or a full FHIR search string or FHIRPath expression. Multiple triggers are considered OR joined (e.g., a resource update matching ANY of the definitions will trigger a notification)</title>resourceTrigger</a></text>
+  <text
+     id="n954"
+     x="300.0"
+     y="86.05447002141327"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n955"
+     x1="293.04"
+     y1="133.35609840013763"
+     x2="960.0"
+     y2="53.040942714605194"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n956"
+     points="293.04,133.35609840013763 299.04,137.35609840013763 305.04,133.35609840013763 299.04,129.35609840013763 293.04,133.35609840013763"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.866480669546942 293.04 133.35609840013763)" />
+  <rect
+     id="n957"
+     x="600.0"
+     y="86.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n958"
+     x="626.0"
+     y="96.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n959"
+       xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger"><title
+   id="title105852">Event definition which can be used to trigger the SubscriptionTopic</title>eventTrigger</a></text>
+  <text
+     id="n960"
+     x="940.0"
+     y="49.040942714605194"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n961"
+     x1="293.04"
+     y1="139.43075801749268"
+     x2="1200.0"
+     y2="67.81705539358597"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n962"
+     points="293.04,139.43075801749268 299.04,143.43075801749268 305.04,139.43075801749268 299.04,135.43075801749268 293.04,139.43075801749268"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.514716564334348 293.04 139.43075801749268)" />
+  <rect
+     id="n963"
+     x="722.0"
+     y="96.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n964"
+     x="746.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n965"
+       xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy"><title
+   id="title105860">List of properties by which Subscriptions on the SubscriptionTopic can be filtered. May be defined Search Parameters (e.g., Encounter.patient) or parameters defined within this SubscriptionTopic context (e.g., hub.event)</title>canFilterBy</a></text>
+  <text
+     id="n966"
+     x="1180.0"
+     y="63.817055393585974"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n967"
+     x1="293.04"
+     y1="139.1777419168924"
+     x2="1440.0"
+     y2="46.632989453057434"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n968"
+     points="293.04,139.1777419168924 299.04,143.1777419168924 305.04,139.1777419168924 299.04,135.1777419168924 293.04,139.1777419168924"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.613030553019226 293.04 139.1777419168924)" />
+  <rect
+     id="n969"
+     x="829.0"
+     y="85.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n970"
+     x="866.0"
+     y="95.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n971"
+       xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape"><title
+   id="title105868">List of properties to describe the shape (e.g., resources) included in notifications from this Subscription Topic</title>notificationShape</a></text>
+  <text
+     id="n972"
+     x="1420.0"
+     y="42.632989453057434"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

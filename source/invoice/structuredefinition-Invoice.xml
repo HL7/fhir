@@ -51,7 +51,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -87,6 +87,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="Act[moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -239,10 +243,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
-      <mapping>
         <identity value="v2"/>
         <map value="PV1 in proximity to FT1 segment"/>
       </mapping>
@@ -393,7 +393,7 @@
     <element id="Invoice.lineItem">
       <path value="Invoice.lineItem"/>
       <short value="Line items of this Invoice"/>
-      <definition value="Each line item represents one charge for goods and services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource."/>
+      <definition value="Each line item represents one charge for goods and services rendered. Details such.ofType(date), code and amount are found in the referenced ChargeItem resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>

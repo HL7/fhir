@@ -106,7 +106,7 @@ Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL 
 If the response is a <a href="bundle.html">Bundle</a>, the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
 be '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', though it could be one of the other types. For eample, 
 if the operation has <a href="http.html#search">search semantics</a>, such as 
-matching resource counts, and <a href="http.html#paging">page links (next etc) then
+matching resource counts, and <a href="http.html#paging">page links (next etc.) then
 the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
 be '<a href="codesystem-bundle-type.html#bundle-type-search-set">search-set</a>'</a>.
 </p>
@@ -195,7 +195,7 @@ Implementations are able to extend an operation by defining new named parameters
 Implementations can publish their own extended definitions using the
  <a href="operationdefinition.html">Operation Definition</a> resource, and
 this variant definition can use OperationDefinition.base to refer to the
-underlying definition.
+underlying definition. See additional discussion in <a href="operationdefinition.html#base">Derived OperationDefinitions</a>
 </p>
 <p>
 Note that the FHIR specification will never define any parameter names starting with "x-".

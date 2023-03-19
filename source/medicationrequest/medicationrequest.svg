@@ -1,84 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n829"
+   id="n873"
    version="1.1"
-   width="899.2"
-   height="578.0"
+   width="924.32395"
+   height="620.0"
    sodipodi:docname="medicationrequest.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata342">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview83977"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview340"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.2633452"
-     inkscape:cx="449.60001"
-     inkscape:cy="289"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n829" />
+     inkscape:zoom="1.2887097"
+     inkscape:cx="462.4781"
+     inkscape:cy="310.77597"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n873" />
   <defs
-     id="defs11">
+     id="defs83629">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.028679653"
+       y="-0.0828125"
+       width="1.0735931"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset83620" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix83622" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur83624" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend83626" />
     </filter>
   </defs>
   <g
-     id="n830">
+     id="n874">
     <rect
        id="MedicationRequest"
        x="0.0"
@@ -86,1039 +71,887 @@
        rx="4"
        ry="4"
        width="308.0"
-       height="568.0"
+       height="610.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n831"
+       id="n875"
        x1="0.0"
        y1="28.0"
        x2="308.0"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n832"
+       id="n876"
        x="154.0"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">MedicationRequest<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan83634"> (<a
+   id="n877"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n833">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n834"
+       id="n878"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.identifier"
-   id="n835"><title
-   id="title19">Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n836">Identifier</a>
- [0..*]</text>
+   id="n879"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.identifier"><title
+   id="title83637">Identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n880"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n840"
+       id="n884"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.status"
-   id="n841"><title
-   id="title24">A code specifying the current state of the order.  Generally, this will be active or completed state (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n842">code</a>
- [1..1] « <a
-   xlink:href="valueset-medicationrequest-status.html"
-   id="n843"><title
-   id="n844">A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription. (Strength=Required)</title>
-medicationrequest Status</a>
-! »</text>
+   id="n885"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.basedOn"><title
+   id="title83642">A plan or request that is fulfilled in whole or in part by this medication request</title>basedOn</a> : <a
+   id="n886"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n887"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n888"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
     <text
-       id="n850"
-       x="6.0"
+       id="n889"
+       x="26.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.statusReason"
-   id="n851"><title
-   id="title31">Captures the reason for the current state of the MedicationRequest</title>
-statusReason</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n852">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-medicationrequest-status-reason.html"
-   id="n853"><title
-   id="n854">Identifies the reasons for a given status. (Strength=Example)</title>
-medicationRequest Status</a>
-</text>
+   id="n890"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n891"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a> »</text>
     <text
-       id="n855"
-       x="26.0"
+       id="n900"
+       x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-medicationrequest-status-reason.html"
-   id="n856"> Reas...</a>
-?? »</text>
+   id="n901"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.priorPrescription"><title
+   id="title83652">Reference to an order/prescription that is being replaced by this MedicationRequest</title>priorPrescription</a> : <a
+   id="n902"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n903"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a> »</text>
     <text
-       id="n864"
+       id="n908"
        x="6.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.intent"
-   id="n865"><title
-   id="title40">Whether the request is a proposal, plan, or an original order (this element modifies the meaning of other elements)</title>
-intent</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n866">code</a>
- [1..1] « <a
-   xlink:href="valueset-medicationrequest-intent.html"
-   id="n867"><title
-   id="n868">The kind of medication order. (Strength=Required)</title>
-medicationRequest Intent</a>
-! »</text>
+   id="n909"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.groupIdentifier"><title
+   id="title83658">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="n910"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
-       id="n874"
+       id="n914"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.category"
-   id="n875"><title
-   id="title47">Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient))</title>
-category</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n876">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-medicationrequest-category.html"
-   id="n877"><title
-   id="n878">A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment. (Strength=Example)</title>
-medicationRequest Category </a>
-?? »</text>
+   id="n915"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.status"><title
+   id="title83663">A code specifying the current state of the order.  Generally, this will be active or completed state (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n916"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n917"
+   xlink:href="valueset-medicationrequest-status.html"><title
+   id="n918">null (Strength=Required)</title>MedicationrequestStatus</a>! »</text>
     <text
-       id="n884"
+       id="n924"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.priority"
-   id="n885"><title
-   id="title54">Indicates how quickly the Medication Request should be addressed with respect to other requests</title>
-priority</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n886">code</a>
- [0..1] « <a
-   xlink:href="valueset-request-priority.html"
-   id="n887"><title
-   id="n888">Identifies the level of importance to be assigned to actioning the request. (Strength=Required)</title>
-RequestPriority</a>
-! »</text>
+   id="n925"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.statusReason"><title
+   id="title83670">Captures the reason for the current state of the MedicationRequest</title>statusReason</a> : <a
+   id="n926"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n927"
+   xlink:href="valueset-medicationrequest-status-reason.html"><title
+     id="n928">null (Strength=Example)</title></a></text>
     <text
-       id="n894"
-       x="6.0"
+       id="n929"
+       x="26.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.doNotPerform"
-   id="n895"><title
-   id="title61">If true indicates that the provider is asking for the medication request not to occur (this element modifies the meaning of other elements)</title>
-doNotPerform</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n896">boolean</a>
- [0..1]</text>
+   id="n930"
+   xlink:href="valueset-medicationrequest-status-reason.html">MedicationRequestStatusReason...</a>?? »</text>
     <text
-       id="n900"
+       id="n938"
        x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.reported_x_"
-   id="n901"><title
-   id="title66">Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report</title>
-reported[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n902">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#boolean"
-   id="n903">boolean</a>
-|<a
-   xlink:href="references.html#Reference"
-   id="n904">Reference</a>
-(<a
-   xlink:href="patient.html#Patient"
-   id="n905">Patient</a>
-|<a
-   xlink:href="practitioner.html#Practitioner"
-   id="n906">Practitioner</a>
-|</text>
+   id="n939"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.statusChanged"><title
+   id="title83679">The date (and perhaps time) when the status was changed</title>statusChanged</a> : <a
+   id="n940"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n907"
-       x="26.0"
+       id="n944"
+       x="6.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n908">PractitionerRole</a>
-|<a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n909">RelatedPerson</a>
-|<a
-   xlink:href="organization.html#Organization"
-   id="n910">Organization</a>
-) »</text>
+   id="n945"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.intent"><title
+   id="title83684">Whether the request is a proposal, plan, or an original order (this element modifies the meaning of other elements)</title>intent</a> : <a
+   id="n946"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n947"
+   xlink:href="valueset-medicationrequest-intent.html"><title
+   id="n948">null (Strength=Required)</title>MedicationRequestIntent</a>! »</text>
     <text
-       id="n922"
+       id="n954"
        x="6.0"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.medication_x_"
-   id="n923"><title
-   id="title79">Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications</title>
-medication[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n924">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n925">CodeableConcept</a>
-|<a
-   xlink:href="references.html#Reference"
-   id="n926">Reference</a>
-(<a
-   xlink:href="medication.html#Medication"
-   id="n927">Medication</a>
-); <a
-   xlink:href="valueset-medication-codes.html"
-   id="n928">
-  <title
-     id="n929">A coded concept identifying substance or product that can be ordered. (Strength=Example)</title>
-</a>
-</text>
+   id="n955"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.category"><title
+   id="title83691">An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication</title>category</a> : <a
+   id="n956"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n957"
+   xlink:href="valueset-medicationrequest-admin-location.html"><title
+   id="n958">null (Strength=Example)</title>MedicationRequestAdministrati...</a>?? »</text>
     <text
-       id="n930"
-       x="26.0"
+       id="n964"
+       x="6.0"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-medication-codes.html"
-   id="n931">SNOMEDCTMedicationCodes</a>
-?? »</text>
+   id="n965"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.priority"><title
+   id="title83698">Indicates how quickly the Medication Request should be addressed with respect to other requests</title>priority</a> : <a
+   id="n966"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n967"
+   xlink:href="valueset-request-priority.html"><title
+   id="n968">null (Strength=Required)</title>RequestPriority</a>! »</text>
     <text
-       id="n942"
+       id="n974"
        x="6.0"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.subject"
-   id="n943"><title
-   id="title91">A link to a resource representing the person or set of individuals to whom the medication will be given</title>
-subject</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n944">Reference</a>
- [1..1] « <a
-   xlink:href="patient.html#Patient"
-   id="n945">Patient</a>
-|<a
-   xlink:href="group.html#Group"
-   id="n946">Group</a>
- »</text>
+   id="n975"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.doNotPerform"><title
+   id="title83705">If true, indicates that the provider is asking for the patient to either stop taking or to not start taking the specified medication. For example, the patient is taking an existing medication and the provider is changing their medication. They want to create two seperate requests: one to stop using the current medication and another to start the new medication (this element modifies the meaning of other elements)</title>doNotPerform</a> : <a
+   id="n976"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n952"
+       id="n980"
        x="6.0"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.encounter"
-   id="n953"><title
-   id="title98">The Encounter during which this [x] was created or to which the creation of this record is tightly associated</title>
-encounter</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n954">Reference</a>
- [0..1] « <a
-   xlink:href="encounter.html#Encounter"
-   id="n955">Encounter</a>
- »</text>
+   id="n981"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.medication"><title
+   id="title83710">Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications</title>medication</a> : <a
+   id="n982"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n983"
+   xlink:href="medication.html#Medication">Medication</a>; <a
+   id="n984"
+   xlink:href="valueset-medication-codes.html"><title
+     id="n985">null (Strength=Example)</title></a></text>
     <text
-       id="n960"
-       x="6.0"
+       id="n986"
+       x="26.0"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.supportingInformation"
-   id="n961"><title
-   id="title104">Include additional information (for example, patient height and weight) that supports the ordering of the medication</title>
-supportingInformation</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n962">Reference</a>
- [0..*] « <a
-   xlink:href="resourcelist.html#Any"
-   id="n963">Any</a>
- »</text>
+   id="n987"
+   xlink:href="valueset-medication-codes.html">SNOMEDCTMedicationCodes</a>?? »</text>
     <text
-       id="n968"
+       id="n996"
        x="6.0"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.authoredOn"
-   id="n969"><title
-   id="title110">The date (and perhaps time) when the prescription was initially written or authored on</title>
-authoredOn</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n970">dateTime</a>
- [0..1]</text>
+   id="n997"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.subject"><title
+   id="title83720">The individual or group for whom the medication has been requested</title>subject</a> : <a
+   id="n998"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n999"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1000"
+   xlink:href="group.html#Group">Group</a> »</text>
     <text
-       id="n974"
+       id="n1006"
        x="6.0"
        y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.requester"
-   id="n975"><title
-   id="title115">The individual, organization, or device that initiated the request and has responsibility for its activation</title>
-requester</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n976">Reference</a>
- [0..1] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n977">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n978">PractitionerRole</a>
-|</text>
+   id="n1007"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.informationSource"><title
+   id="title83727">The person or organization who provided the information about this request, if the source is someone other than the requestor.  This is often used when the MedicationRequest is reported by another person</title>informationSource</a> : <a
+   id="n1008"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1009"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1010"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
     <text
-       id="n979"
+       id="n1011"
        x="26.0"
        y="280.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="organization.html#Organization"
-   id="n980">Organization</a>
-|<a
-   xlink:href="patient.html#Patient"
-   id="n981">Patient</a>
-|<a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n982">RelatedPerson</a>
-|<a
-   xlink:href="device.html#Device"
-   id="n983">Device</a>
- »</text>
+   id="n1012"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1013"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1014"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n994"
+       id="n1024"
        x="6.0"
        y="294.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.performer"
-   id="n995"><title
-   id="title127">The specified desired performer of the medication treatment (e.g. the performer of the medication administration)</title>
-performer</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n996">Reference</a>
- [0..1] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n997">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n998">PractitionerRole</a>
-|</text>
+   id="n1025"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.encounter"><title
+   id="title83738">The Encounter during which this [x] was created or to which the creation of this record is tightly associated</title>encounter</a> : <a
+   id="n1026"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1027"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
     <text
-       id="n999"
-       x="26.0"
+       id="n1032"
+       x="6.0"
        y="308.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="organization.html#Organization"
-   id="n1000">Organization</a>
-|<a
-   xlink:href="patient.html#Patient"
-   id="n1001">Patient</a>
-|<a
-   xlink:href="device.html#Device"
-   id="n1002">Device</a>
-|<a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n1003">RelatedPerson</a>
-|<a
-   xlink:href="careteam.html#CareTeam"
-   id="n1004">CareTeam</a>
- »</text>
+   id="n1033"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.supportingInformation"><title
+   id="title83744">Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient)</title>supportingInformation</a> : <a
+   id="n1034"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1035"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n1016"
+       id="n1040"
        x="6.0"
        y="322.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.performerType"
-   id="n1017"><title
-   id="title140">Indicates the type of performer of the administration of the medication</title>
-performerType</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1018">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-performer-role.html"
-   id="n1019"><title
-   id="n1020">Identifies the type of individual that is desired to administer the medication. (Strength=Example)</title>
-ProcedurePerformerRoleCodes</a>
-?? »</text>
+   id="n1041"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.authoredOn"><title
+   id="title83750">The date (and perhaps time) when the prescription was initially written or authored on</title>authoredOn</a> : <a
+   id="n1042"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n1026"
+       id="n1046"
        x="6.0"
        y="336.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.recorder"
-   id="n1027"><title
-   id="title147">The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order</title>
-recorder</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1028">Reference</a>
- [0..1] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n1029">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n1030">PractitionerRole</a>
- »</text>
+   id="n1047"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.requester"><title
+   id="title83755">The individual, organization, or device that initiated the request and has responsibility for its activation</title>requester</a> : <a
+   id="n1048"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1049"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1050"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n1036"
-       x="6.0"
+       id="n1051"
+       x="26.0"
        y="350.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.reasonCode"
-   id="n1037"><title
-   id="title154">The reason or the indication for ordering or not ordering the medication</title>
-reasonCode</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1038">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-condition-code.html"
-   id="n1039">
-  <title
-     id="n1040">A coded concept indicating why the medication was ordered. (Strength=Example)</title>
-</a>
-</text>
+   id="n1052"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1053"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1054"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1055"
+   xlink:href="device.html#Device">Device</a> »</text>
     <text
-       id="n1041"
-       x="26.0"
+       id="n1066"
+       x="6.0"
        y="364.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-condition-code.html"
-   id="n1042">Condition/Problem/DiagnosisCo...</a>
-?? »</text>
+   id="n1067"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.reported"><title
+   id="title83767">Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report</title>reported</a> : <a
+   id="n1068"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1050"
+       id="n1072"
        x="6.0"
        y="378.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.reasonReference"
-   id="n1051"><title
-   id="title163">Condition or observation that supports why the medication was ordered</title>
-reasonReference</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1052">Reference</a>
- [0..*] « <a
-   xlink:href="condition.html#Condition"
-   id="n1053">Condition</a>
-|<a
-   xlink:href="observation.html#Observation"
-   id="n1054">Observation</a>
- »</text>
+   id="n1073"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.performerType"><title
+   id="title83772">Indicates the type of performer of the administration of the medication</title>performerType</a> : <a
+   id="n1074"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1075"
+   xlink:href="valueset-medication-intended-performer-role.html"><title
+     id="n1076">null (Strength=Extensible)</title></a></text>
     <text
-       id="n1060"
-       x="6.0"
+       id="n1077"
+       x="26.0"
        y="392.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.instantiatesCanonical"
-   id="n1061"><title
-   id="title170">The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest</title>
-instantiatesCanonical</a>
- : <a
-   xlink:href="datatypes.html#canonical"
-   id="n1062">canonical</a>
- [0..*] «  »</text>
+   id="n1078"
+   xlink:href="valueset-medication-intended-performer-role.html">MedicationIntendedPerformerRo...</a>+ »</text>
     <text
-       id="n1066"
+       id="n1086"
        x="6.0"
        y="406.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.instantiatesUri"
-   id="n1067"><title
-   id="title175">The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest</title>
-instantiatesUri</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n1068">uri</a>
- [0..*]</text>
+   id="n1087"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.performer"><title
+   id="title83781">The specified desired performer of the medication treatment (e.g. the performer of the medication administration).  For devices, this is the device that is intended to perform the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers</title>performer</a> : <a
+   id="n1088"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1089"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1090"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n1072"
-       x="6.0"
+       id="n1091"
+       x="26.0"
        y="420.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.basedOn"
-   id="n1073"><title
-   id="title180">A plan or request that is fulfilled in whole or in part by this medication request</title>
-basedOn</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1074">Reference</a>
- [0..*] « <a
-   xlink:href="careplan.html#CarePlan"
-   id="n1075">CarePlan</a>
-|<a
-   xlink:href="medicationrequest.html#MedicationRequest"
-   id="n1076">MedicationRequest</a>
-|</text>
+   id="n1092"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1093"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1094"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|<a
+   id="n1095"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1096"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|</text>
     <text
-       id="n1077"
+       id="n1097"
        x="26.0"
        y="434.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="servicerequest.html#ServiceRequest"
-   id="n1078">ServiceRequest</a>
-|<a
-   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation"
-   id="n1079">ImmunizationRecommendation</a>
- »</text>
+   id="n1098"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> »</text>
     <text
-       id="n1088"
+       id="n1112"
        x="6.0"
        y="448.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.groupIdentifier"
-   id="n1089"><title
-   id="title190">A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription</title>
-groupIdentifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n1090">Identifier</a>
- [0..1]</text>
+   id="n1113"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.device"><title
+   id="title83796">The intended type of device that is to be used for the administration of the medication (for example, PCA Pump)</title>device</a> : <a
+   id="n1114"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1115"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
     <text
-       id="n1094"
+       id="n1120"
        x="6.0"
        y="462.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType"
-   id="n1095"><title
-   id="title195">The description of the overall patte3rn of the administration of the medication to the patient</title>
-courseOfTherapyType</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1096">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-medicationrequest-course-of-therapy.html"
-   id="n1097"><title
-   id="n1098">Identifies the overall pattern of medication administratio. (Strength=Example)</title>
-medicationRequest</a>
-</text>
+   id="n1121"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.recorder"><title
+   id="title83802">The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order</title>recorder</a> : <a
+   id="n1122"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1123"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1124"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
     <text
-       id="n1099"
-       x="26.0"
+       id="n1130"
+       x="6.0"
        y="476.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-medicationrequest-course-of-therapy.html"
-   id="n1100"> Course of T...</a>
-?? »</text>
+   id="n1131"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.reason"><title
+   id="title83809">The reason or the indication for ordering or not ordering the medication</title>reason</a> : <a
+   id="n1132"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1133"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n1134"
+   xlink:href="observation.html#Observation">Observation</a>; <a
+   id="n1135"
+   xlink:href="valueset-condition-code.html"><title
+     id="n1136">null (Strength=Example)</title></a></text>
     <text
-       id="n1108"
-       x="6.0"
+       id="n1137"
+       x="26.0"
        y="490.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.insurance"
-   id="n1109"><title
-   id="title204">Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service</title>
-insurance</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1110">Reference</a>
- [0..*] « <a
-   xlink:href="coverage.html#Coverage"
-   id="n1111">Coverage</a>
-|<a
-   xlink:href="claimresponse.html#ClaimResponse"
-   id="n1112">ClaimResponse</a>
- »</text>
+   id="n1138"
+   xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? »</text>
     <text
-       id="n1118"
+       id="n1148"
        x="6.0"
        y="504.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.note"
-   id="n1119"><title
-   id="title211">Extra information about the prescription that could not be conveyed by the other attributes</title>
-note</a>
- : <a
-   xlink:href="datatypes.html#Annotation"
-   id="n1120">Annotation</a>
- [0..*]</text>
+   id="n1149"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType"><title
+   id="title83820">The description of the overall pattern of the administration of the medication to the patient</title>courseOfTherapyType</a> : <a
+   id="n1150"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1151"
+   xlink:href="valueset-medicationrequest-course-of-therapy.html"><title
+     id="n1152">null (Strength=Extensible)</title></a></text>
     <text
-       id="n1124"
-       x="6.0"
+       id="n1153"
+       x="26.0"
        y="518.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dosageInstruction"
-   id="n1125"><title
-   id="title216">Indicates how the medication is to be used by the patient</title>
-dosageInstruction</a>
- : <a
-   xlink:href="dosage.html#Dosage"
-   id="n1126">Dosage</a>
- [0..*]</text>
+   id="n1154"
+   xlink:href="valueset-medicationrequest-course-of-therapy.html">MedicationRequestCourseOfTher...</a>+ »</text>
     <text
-       id="n1130"
+       id="n1162"
        x="6.0"
        y="532.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.priorPrescription"
-   id="n1131"><title
-   id="title221">A link to a resource representing an earlier order related order or prescription</title>
-priorPrescription</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1132">Reference</a>
- [0..1] « <a
-   xlink:href="medicationrequest.html#MedicationRequest"
-   id="n1133">MedicationRequest</a>
- »</text>
+   id="n1163"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.insurance"><title
+   id="title83829">Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service</title>insurance</a> : <a
+   id="n1164"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1165"
+   xlink:href="coverage.html#Coverage">Coverage</a>|<a
+   id="n1166"
+   xlink:href="claimresponse.html#ClaimResponse">ClaimResponse</a> »</text>
     <text
-       id="n1138"
+       id="n1172"
        x="6.0"
        y="546.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.detectedIssue"
-   id="n1139"><title
-   id="title227">Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc</title>
-detectedIssue</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1140">Reference</a>
- [0..*] « <a
-   xlink:href="detectedissue.html#DetectedIssue"
-   id="n1141">DetectedIssue</a>
- »</text>
+   id="n1173"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.note"><title
+   id="title83836">Extra information about the prescription that could not be conveyed by the other attributes</title>note</a> : <a
+   id="n1174"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
     <text
-       id="n1146"
+       id="n1178"
        x="6.0"
        y="560.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.eventHistory"
-   id="n1147"><title
-   id="title233">Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource</title>
-eventHistory</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1148">Reference</a>
- [0..*] « <a
-   xlink:href="provenance.html#Provenance"
-   id="n1149">Provenance</a>
- »</text>
+   id="n1179"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.renderedDosageInstruction"><title
+   id="title83841">The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses</title>renderedDosageInstruction</a> : <a
+   id="n1180"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1184"
+       x="6.0"
+       y="574.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1185"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.effectiveDosePeriod"><title
+   id="title83846">The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions</title>effectiveDosePeriod</a> : <a
+   id="n1186"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1190"
+       x="6.0"
+       y="588.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1191"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dosageInstruction"><title
+   id="title83851">Specific instructions for how the medication is to be used by the patient</title>dosageInstruction</a> : <a
+   id="n1192"
+   xlink:href="dosage.html#Dosage">Dosage</a> [0..*]</text>
+    <rect
+       id="n1196"
+       x="1.0"
+       y="592.0"
+       width="306.0"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n1197"
+       x="6.0"
+       y="602.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1198"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.eventHistory"><title
+   id="title83857">Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource</title>eventHistory</a> : <a
+   id="n1199"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1200"
+   xlink:href="provenance.html#Provenance">Provenance</a> »</text>
   </g>
   <g
-     id="n1154"
-     transform="translate(18.205634,-318.20282)">
+     id="n1206"
+     transform="translate(13.191489,4.6558198)">
     <rect
        id="MedicationRequest.dispenseRequest"
-       x="400"
-       y="400"
+       x="418.20563"
+       y="81.79718"
        rx="4"
        ry="4"
-       width="198"
-       height="120"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="303.60001"
+       height="148"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1155"
-       x1="400"
-       y1="428"
-       x2="598"
-       y2="428"
+       id="n1207"
+       x1="418.20563"
+       y1="109.79718"
+       x2="721.80566"
+       y2="109.79718"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1156"
-       x="499"
-       y="420"
-       class="diagram-class-title"
-       style="fill:#000000">DispenseRequest</text>
+       id="n1208"
+       x="570.00562"
+       y="101.79718"
+       fill="#000000"
+       class="diagram-class-title">DispenseRequest</text>
     <text
-       id="n1157"
-       x="406"
-       y="442"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenseInterval"
-   id="n1158"><title
-   id="title243">The minimum period of time that must occur between dispenses of the medication</title>
-dispenseInterval</a>
- : <a
-   xlink:href="datatypes.html#Duration"
-   id="n1159">Duration</a>
- [0..1]</text>
+       id="n1209"
+       x="424.20563"
+       y="123.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1210"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenseInterval"><title
+   id="title83867">The minimum period of time that must occur between dispenses of the medication</title>dispenseInterval</a> : <a
+   id="n1211"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
     <text
-       id="n1163"
-       x="406"
-       y="456"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod"
-   id="n1164"><title
-   id="title248">This indicates the validity period of a prescription (stale dating the Prescription)</title>
-validityPeriod</a>
- : <a
-   xlink:href="datatypes.html#Period"
-   id="n1165">Period</a>
- [0..1]</text>
+       id="n1215"
+       x="424.20563"
+       y="137.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1216"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod"><title
+   id="title83872">This indicates the validity period of a prescription (stale dating the Prescription)</title>validityPeriod</a> : <a
+   id="n1217"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
-       id="n1169"
-       x="406"
-       y="470"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed"
-   id="n1170"><title
-   id="title253">An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus &quot;3 repeats&quot;, then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.  A prescriber may explicitly say that zero refills are permitted after the initial dispense</title>
-numberOfRepeatsAllowed</a>
- : <a
-   xlink:href="datatypes.html#unsignedInt"
-   id="n1171">unsignedInt</a>
- [0..1]</text>
+       id="n1221"
+       x="424.20563"
+       y="151.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1222"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed"><title
+   id="title83877">An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus &quot;3 repeats&quot;, then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.  A prescriber may explicitly say that zero refills are permitted after the initial dispense</title>numberOfRepeatsAllowed</a> : <a
+   id="n1223"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
     <text
-       id="n1175"
-       x="406"
-       y="484"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity"
-   id="n1176"><title
-   id="title258">The amount that is to be dispensed for one fill</title>
-quantity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n1177">Quantity</a>
-(<a
+       id="n1227"
+       x="424.20563"
+       y="165.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1228"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity"><title
+   id="title83882">The amount that is to be dispensed for one fill</title>quantity</a> : <a
+   id="n1229"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a262">SimpleQuantity</a>
-) [0..1]</text>
+   id="a83886">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n1181"
-       x="406"
-       y="498"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration"
-   id="n1182"><title
-   id="title265">Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last</title>
-expectedSupplyDuration</a>
- : <a
-   xlink:href="datatypes.html#Duration"
-   id="n1183">Duration</a>
- [0..1]</text>
+       id="n1233"
+       x="424.20563"
+       y="179.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1234"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration"><title
+   id="title83889">Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last</title>expectedSupplyDuration</a> : <a
+   id="n1235"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
     <text
-       id="n1187"
-       x="406"
-       y="512"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.performer"
-   id="n1188"><title
-   id="title270">Indicates the intended dispensing Organization specified by the prescriber</title>
-performer</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1189">Reference</a>
- [0..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n1190">Organization</a>
- »</text>
+       id="n1239"
+       x="424.20563"
+       y="193.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1240"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenser"><title
+   id="title83894">Indicates the intended performing Organization that will dispense the medication as specified by the prescriber</title>dispenser</a> : <a
+   id="n1241"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1242"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1247"
+       x="424.20563"
+       y="207.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1248"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenserInstruction"><title
+   id="title83900">Provides additional information to the dispenser, for example, counselling to be provided to the patient</title>dispenserInstruction</a> : <a
+   id="n1249"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1253"
+       x="424.20563"
+       y="221.79718"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1254"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.doseAdministrationAid"><title
+   id="title83905">Provides information about the type of adherence packaging to be supplied for the medication dispense</title>doseAdministrationAid</a> : <a
+   id="n1255"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1256"
+   xlink:href="valueset-medication-dose-aid.html"><title
+   id="n1257">null (Strength=Example)</title>MedicationDoseAids</a>?? »</text>
   </g>
   <g
-     id="n1195"
-     transform="translate(119.52395,252.50423)">
+     id="n1263"
+     transform="translate(38.022528,46.558198)">
     <rect
        id="MedicationRequest.dispenseRequest.initialFill"
-       x="320"
-       y="0"
+       x="439.52396"
+       y="252.50423"
        rx="4"
        ry="4"
        width="184.8"
        height="64"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1196"
-       x1="320"
-       y1="28"
-       x2="504.79999"
-       y2="28"
+       id="n1264"
+       x1="439.52396"
+       y1="280.50424"
+       x2="624.32397"
+       y2="280.50424"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1197"
-       x="412.39999"
-       y="20"
-       class="diagram-class-title"
-       style="fill:#000000">InitialFill</text>
+       id="n1265"
+       x="531.92395"
+       y="272.50424"
+       fill="#000000"
+       class="diagram-class-title">InitialFill</text>
     <text
-       id="n1198"
-       x="326"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.quantity"
-   id="n1199"><title
-   id="title280">The amount or quantity to provide as part of the first dispense</title>
-quantity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n1200">Quantity</a>
-(<a
+       id="n1266"
+       x="445.52396"
+       y="294.50424"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1267"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.quantity"><title
+   id="title83916">The amount or quantity to provide as part of the first dispense</title>quantity</a> : <a
+   id="n1268"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a284">SimpleQuantity</a>
-) [0..1]</text>
+   id="a83920">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n1204"
-       x="326"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.duration"
-   id="n1205"><title
-   id="title287">The length of time that the first dispense is expected to last</title>
-duration</a>
- : <a
-   xlink:href="datatypes.html#Duration"
-   id="n1206">Duration</a>
- [0..1]</text>
+       id="n1272"
+       x="445.52396"
+       y="308.50424"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1273"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.duration"><title
+   id="title83923">The length of time that the first dispense is expected to last</title>duration</a> : <a
+   id="n1274"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
   </g>
   <g
-     id="n1210"
-     transform="translate(12.664789,218.46761)">
+     id="n1278">
     <rect
        id="MedicationRequest.substitution"
-       x="400"
-       y="200"
+       x="412.664789"
+       y="418.46761000000004"
        rx="4"
        ry="4"
-       width="299.20001"
-       height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="299.20000000000005"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n1211"
-       x1="400"
-       y1="228"
-       x2="699.20001"
-       y2="228"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1279"
+       x1="412.664789"
+       y1="446.46761000000004"
+       x2="711.864789"
+       y2="446.46761000000004"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1212"
-       x="549.59998"
-       y="220"
-       class="diagram-class-title"
-       style="fill:#000000">Substitution</text>
+       id="n1280"
+       x="562.2647890000001"
+       y="438.46761000000004"
+       fill="black"
+       class="diagram-class-title">Substitution</text>
     <text
-       id="n1213"
-       x="406"
-       y="242"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.substitution.allowed_x_"
-   id="n1214"><title
-   id="title296">True if the prescriber allows a different drug to be dispensed from what was prescribed</title>
-allowed[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1215">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#boolean"
-   id="n1216">boolean</a>
-|<a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1217">CodeableConcept</a>
-; <a
-   xlink:href="v3/ActSubstanceAdminSubstitutionCode/vs.html"
-   id="n1218">
-  <title
-     id="n1219">Identifies the type of substitution allowed. (Strength=Example)</title>
-</a>
-</text>
+       id="n1281"
+       x="418.664789"
+       y="460.46761000000004"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1282"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.substitution.allowed_x_"><title
+   id="title83932">True if the prescriber allows a different drug to be dispensed from what was prescribed</title>allowed[x]</a> : <a
+   id="n1283"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1284"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1285"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>; <a
+   id="n1286"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActSubstanceAdminSubstitutionCode.html"><title
+     id="title83938">null (Strength=Preferred)</title></a></text>
     <text
-       id="n1220"
-       x="426"
-       y="256"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="v3/ActSubstanceAdminSubstitutionCode/vs.html"
-   id="n1221">v3.ActSubstanceAdminSubstitut...</a>
-?? »</text>
+       id="n1287"
+       x="438.664789"
+       y="474.46761000000004"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1288"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActSubstanceAdminSubstitutionCode.html">ActSubstanceAdminSubstitution...</a>? »</text>
     <text
-       id="n1231"
-       x="406"
-       y="270"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="medicationrequest-definitions.html#MedicationRequest.substitution.reason"
-   id="n1232"><title
-   id="title307">Indicates the reason for the substitution, or why substitution must or must not be performed</title>
-reason</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1233">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="v3/SubstanceAdminSubstitutionReason/vs.html"
-   id="n1234"><title
-   id="n1235">A coded concept describing the reason that a different medication should (or should not) be substituted from what was prescribed. (Strength=Example)</title>
-v3.SubstanceAdminSubstitution...</a>
-?? »</text>
+       id="n1297"
+       x="418.664789"
+       y="488.46761000000004"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1298"
+   xlink:href="medicationrequest-definitions.html#MedicationRequest.substitution.reason"><title
+   id="title83944">Indicates the reason for the substitution, or why substitution must or must not be performed</title>reason</a> : <a
+   id="n1299"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1300"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-SubstanceAdminSubstitutionReason.html"><title
+   id="n1301">null (Strength=Example)</title>SubstanceAdminSubstitutionRea...</a>?? »</text>
   </g>
   <line
-     id="n1241"
-     x1="486.85981308411226"
-     y1="400.0"
-     x2="418.87476635514025"
-     y2="64.0"
+     id="n1307"
+     x1="548.110604815507"
+     y1="229.7971799999998"
+     x2="541.3920707284294"
+     y2="252.50423"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1242"
-     points="486.85981308411226,400.0 492.85981308411226,404.0 498.85981308411226,400.0 492.85981308411226,396.0 486.85981308411226,400.0"
+     id="n1308"
+     points="548.110604815507,229.7971799999998 554.110604815507,233.7971799999998 560.110604815507,229.7971799999998 554.110604815507,225.7971799999998 548.110604815507,229.7971799999998"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-101.43859429744288 486.85981308411226 400.0)" />
+     transform="rotate(106.48236722559196 548.110604815507 229.7971799999998)" />
   <rect
-     id="n1243"
-     x="428.0"
-     y="225.0"
+     id="n1309"
+     x="520.0"
+     y="234.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1244"
-     x="452.0"
-     y="235.0"
+     id="n1310"
+     x="544.0"
+     y="244.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill"
-       id="n1245"><title
-   id="title318">Indicates the quantity or duration for the first dispense of the medication</title>
-initialFill</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1311"
+       xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill"><title
+   id="title83955">Indicates the quantity or duration for the first dispense of the medication</title>initialFill</a></text>
   <text
-     id="n1246"
-     x="418.87476635514025"
-     y="78.0"
+     id="n1312"
+     x="541.3920707284294"
+     y="248.50423"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1247"
+     id="n1313"
      x1="308.0"
-     y1="362.5623188405797"
-     x2="400.0"
-     y2="409.4956521739131"
+     y1="249.76701178522978"
+     x2="418.205634"
+     y2="210.24112552598774"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1248"
-     points="308.0,362.5623188405797 314.0,366.5623188405797 320.0,362.5623188405797 314.0,358.5623188405797 308.0,362.5623188405797"
+     id="n1314"
+     points="308.0,249.76701178522978 314.0,253.76701178522978 320.0,249.76701178522978 314.0,245.76701178522978 308.0,249.76701178522978"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(27.028170948438603 308.0 362.5623188405797)" />
+     transform="rotate(-19.7306647624617 308.0 249.76701178522978)" />
   <rect
-     id="n1249"
-     x="321.0"
-     y="379.0"
+     id="n1315"
+     x="330.0"
+     y="223.0"
      width="66.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1250"
-     x="354.0"
-     y="389.0"
+     id="n1316"
+     x="363.0"
+     y="233.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest"
-       id="n1251"><title
-   id="title326">Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department</title>
-dispenseRequest</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1317"
+       xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest"><title
+   id="title83963">Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department</title>dispenseRequest</a></text>
   <text
-     id="n1252"
-     x="380.0"
-     y="405.4956521739131"
+     id="n1318"
+     x="398.205634"
+     y="206.24112552598774"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1253"
+     id="n1319"
      x1="308.0"
-     y1="266.4823053589484"
-     x2="400.0"
-     y2="256.0171890798787"
+     y1="362.5117241864324"
+     x2="457.83390842805443"
+     y2="418.4676100000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1254"
-     points="308.0,266.4823053589484 314.0,270.4823053589484 320.0,266.4823053589484 314.0,262.4823053589484 308.0,266.4823053589484"
+     id="n1320"
+     points="308.0,362.5117241864324 314.0,366.5117241864324 320.0,362.5117241864324 314.0,358.5117241864324 308.0,362.5117241864324"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-6.4895729815830006 308.0 266.4823053589484)" />
+     transform="rotate(20.478284603191383 308.0 362.5117241864324)" />
   <rect
-     id="n1255"
-     x="328.0"
-     y="254.0"
+     id="n1321"
+     x="356.0"
+     y="383.0"
      width="52.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1256"
-     x="354.0"
-     y="264.0"
+     id="n1322"
+     x="382.0"
+     y="393.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="medicationrequest-definitions.html#MedicationRequest.substitution"
-       id="n1257"><title
-   id="title334">Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done</title>
-substitution</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1323"
+       xlink:href="medicationrequest-definitions.html#MedicationRequest.substitution"><title
+   id="title83971">Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done</title>substitution</a></text>
   <text
-     id="n1258"
-     x="380.0"
-     y="252.01718907987868"
+     id="n1324"
+     x="457.83390842805443"
+     y="414.4676100000001"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
 </svg>

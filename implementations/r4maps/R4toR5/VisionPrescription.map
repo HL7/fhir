@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/VisionPrescription3to4" = "R3 to R4 Conversions for VisionPrescription"
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/VisionPrescription" alias VisionPrescriptionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescription as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+group VisionPrescription(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.dateWritten -> tgt.dateWritten;
+  src.prescriber -> tgt.prescriber;
+  src.reason as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-VisionPrescription.Reason',  vt.value = v;
+  src.dispense as s -> tgt.lensSpecification as t then dispense(s, t);
+}
+
+group dispense(source src, target tgt) extends BackboneElement {
+  src.product -> tgt.product;
+  src.eye -> tgt.eye;
+  src.sphere -> tgt.sphere;
+  src.cylinder -> tgt.cylinder;
+  src.axis -> tgt.axis;
+  src where src.prism.exists() or src.base.exists() -> tgt.prism as t then {
+    src.prism -> t.amount;
+    src.base -> t.base;
+  } "prism";
+  src.add -> tgt.add;
+  src.power -> tgt.power;
+  src.backCurve -> tgt.backCurve;
+  src.diameter -> tgt.diameter;
+  src.duration -> tgt.duration;
+  src.color -> tgt.color;
+  src.brand -> tgt.brand;
+  src.note -> tgt.note;
+}
+

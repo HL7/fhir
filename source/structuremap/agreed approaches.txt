@@ -23,7 +23,7 @@ ModelMap
   TransformRule
     identity : id [1..1] the id of the rule for internal references 
     sources [0..*] one or more inputs to the mapping. If all the sources are null, the rule has no defined output
-      context : id [1..1] the source variable this is taken from (may not be the same as the sourceVariable, but has the same rules - if null, source = null. if not defined, error  
+      context : id [1..1] the source variable this is taken from (may not be the same as the sourceVariable, but has the same rules - if null, source = null. If not defined, error  
       field : code [1..1] the field of the source variable to take a value from (e.g. an element in the object that is the context)
       variable : id [0..] a variable name assigned to this source so that it can be used as a context in dependent rules
     condition [0..1] : String FHIRPath that runs in the context of the source Variable

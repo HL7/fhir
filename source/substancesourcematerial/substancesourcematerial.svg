@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n420"
+   version="1.1"
+   width="934.9380410000001"
+   height="372.14607"
+   sodipodi:docname="substancesourcematerial.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview116003"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3327086"
+     inkscape:cx="467.46903"
+     inkscape:cy="187.21272"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n420" />
+  <defs
+     id="defs115771">
+    <filter
+       id="shadow1"
+       x="-0.037642045"
+       y="-0.0828125"
+       width="1.0965909"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset115762" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix115764" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur115766" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend115768" />
+    </filter>
+  </defs>
+  <g
+     id="n421"
+     transform="translate(45.021094,6.7531641)">
+    <rect
+       id="SubstanceSourceMaterial"
+       x="265.99808"
+       y="0.110433"
+       rx="4"
+       ry="4"
+       width="316.79999"
+       height="176"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n422"
+       x1="265.99808"
+       y1="28.110434"
+       x2="582.7981"
+       y2="28.110434"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n423"
+       x="424.39807"
+       y="20.110434"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">SubstanceSourceMaterial<tspan
+   class="diagram-class-title-link"
+   id="tspan115776">(<a
+   id="n424"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n425"
+       x="271.99808"
+       y="42.110432"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n426"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.sourceMaterialClass"><title
+   id="title115779">General high level classification of the source material specific to the origin of the material</title>sourceMaterialClass</a> : <a
+   id="n427"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n431"
+       x="271.99808"
+       y="56.110432"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n432"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.sourceMaterialType"><title
+   id="title115784">The type of the source material shall be specified based on a controlled vocabulary. For vaccines, this subclause refers to the class of infectious agent</title>sourceMaterialType</a> : <a
+   id="n433"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n437"
+       x="271.99808"
+       y="70.110435"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n438"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.sourceMaterialState"><title
+   id="title115789">The state of the source material when extracted</title>sourceMaterialState</a> : <a
+   id="n439"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n443"
+       x="271.99808"
+       y="84.110435"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n444"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organismId"><title
+   id="title115794">The unique identifier associated with the source material parent organism shall be specified</title>organismId</a> : <a
+   id="n445"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n449"
+       x="271.99808"
+       y="98.110435"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n450"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organismName"><title
+   id="title115799">The organism accepted Scientific name shall be provided based on the organism taxonomy</title>organismName</a> : <a
+   id="n451"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n455"
+       x="271.99808"
+       y="112.11044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n456"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.parentSubstanceId"><title
+   id="title115804">The parent of the herbal drug Ginkgo biloba, Leaf is the substance ID of the substance (fresh) of Ginkgo biloba L. or Ginkgo biloba L. (Whole plant)</title>parentSubstanceId</a> : <a
+   id="n457"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n461"
+       x="271.99808"
+       y="126.11044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n462"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.parentSubstanceName"><title
+   id="title115809">The parent substance of the Herbal Drug, or Herbal preparation</title>parentSubstanceName</a> : <a
+   id="n463"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n467"
+       x="271.99808"
+       y="140.11043"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n468"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.countryOfOrigin"><title
+   id="title115814">The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For “Plasma-derived substances” the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate</title>countryOfOrigin</a> : <a
+   id="n469"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n473"
+       x="271.99808"
+       y="154.11043"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n474"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.geographicalLocation"><title
+   id="title115819">The place/region where the plant is harvested or the places/regions where the animal source material has its habitat</title>geographicalLocation</a> : <a
+   id="n475"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n479"
+       x="271.99808"
+       y="168.11043"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n480"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.developmentStage"><title
+   id="title115824">Stage of life for animals, plants, insects and microorganisms. This information shall be provided only when the substance is significantly different in these stages (e.g. foetal bovine serum)</title>developmentStage</a> : <a
+   id="n481"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n485"
+     transform="translate(99.046407,-19.509141)">
+    <rect
+       id="SubstanceSourceMaterial.fractionDescription"
+       x="572.13806"
+       y="234.60353"
+       rx="4"
+       ry="4"
+       width="162.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n486"
+       x1="572.13806"
+       y1="262.60355"
+       x2="734.93805"
+       y2="262.60355"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n487"
+       x="653.53802"
+       y="254.60353"
+       fill="#000000"
+       class="diagram-class-title">FractionDescription</text>
+    <text
+       id="n488"
+       x="578.13806"
+       y="276.60355"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n489"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.fractionDescription.fraction"><title
+   id="title115833">This element is capturing information about the fraction of a plant part, or human plasma for fractionation</title>fraction</a> : <a
+   id="n490"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n494"
+       x="578.13806"
+       y="290.60355"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n495"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.fractionDescription.materialType"><title
+   id="title115838">The specific type of the material constituting the component. For Herbal preparations the particulars of the extracts (liquid/dry) is described in Specified Substance Group 1</title>materialType</a> : <a
+   id="n496"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n500"
+     transform="translate(30.764414,45.021094)">
+    <rect
+       id="SubstanceSourceMaterial.organism"
+       x="-11.92295"
+       y="114.05137"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n501"
+       x1="-11.92295"
+       y1="142.05136"
+       x2="172.87704"
+       y2="142.05136"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n502"
+       x="80.477051"
+       y="134.05136"
+       fill="#000000"
+       class="diagram-class-title">Organism</text>
+    <text
+       id="n503"
+       x="-5.9229498"
+       y="156.05136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n504"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.family"><title
+   id="title115847">The family of an organism shall be specified</title>family</a> : <a
+   id="n505"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n509"
+       x="-5.9229498"
+       y="170.05136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n510"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.genus"><title
+   id="title115852">The genus of an organism shall be specified; refers to the Latin epithet of the genus element of the plant/animal scientific name; it is present in names for genera, species and infraspecies</title>genus</a> : <a
+   id="n511"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n515"
+       x="-5.9229498"
+       y="184.05136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n516"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.species"><title
+   id="title115857">The species of an organism shall be specified; refers to the Latin epithet of the species of the plant/animal; it is present in names for species and infraspecies</title>species</a> : <a
+   id="n517"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n521"
+       x="-5.9229498"
+       y="198.05136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n522"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.intraspecificType"><title
+   id="title115862">The Intraspecific type of an organism shall be specified</title>intraspecificType</a> : <a
+   id="n523"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n527"
+       x="-5.9229498"
+       y="212.05136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n528"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.intraspecificDescription"><title
+   id="title115867">The intraspecific description of an organism shall be specified based on a controlled vocabulary. For Influenza Vaccine, the intraspecific description shall contain the syntax of the antigen in line with the WHO convention</title>intraspecificDescription</a> : <a
+   id="n529"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n533"
+     transform="translate(29.263712,70.533047)">
+    <rect
+       id="SubstanceSourceMaterial.organism.author"
+       x="1.0632499"
+       y="250.89952"
+       rx="4"
+       ry="4"
+       width="154"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n534"
+       x1="1.0632499"
+       y1="278.89951"
+       x2="155.06325"
+       y2="278.89951"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n535"
+       x="78.063248"
+       y="270.89951"
+       fill="#000000"
+       class="diagram-class-title">Author</text>
+    <text
+       id="n536"
+       x="7.0632501"
+       y="292.89951"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n537"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.author.authorType"><title
+   id="title115876">The type of author of an organism species shall be specified. The parenthetical author of an organism species refers to the first author who published the plant/animal name (of any rank). The primary author of an organism species refers to the first author(s), who validly published the plant/animal name</title>authorType</a> : <a
+   id="n538"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n542"
+       x="7.0632501"
+       y="306.89951"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n543"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.author.authorDescription"><title
+   id="title115881">The author of an organism species shall be specified. The author year of an organism shall also be specified when applicable; refers to the year in which the first author(s) published the infraspecific plant/animal name (of any rank)</title>authorDescription</a> : <a
+   id="n544"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n548"
+     transform="translate(36.767227,19.50914)">
+    <rect
+       id="SubstanceSourceMaterial.organism.hybrid"
+       x="-20.437881"
+       y="-15.82214"
+       rx="4"
+       ry="4"
+       width="158.39999"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n549"
+       x1="-20.437881"
+       y1="12.17786"
+       x2="137.96211"
+       y2="12.17786"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n550"
+       x="58.762119"
+       y="4.1778598"
+       fill="#000000"
+       class="diagram-class-title">Hybrid</text>
+    <text
+       id="n551"
+       x="-14.437882"
+       y="26.17786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n552"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.hybrid.maternalOrganismId"><title
+   id="title115890">The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal</title>maternalOrganismId</a> : <a
+   id="n553"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n557"
+       x="-14.437882"
+       y="40.17786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n558"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.hybrid.maternalOrganismName"><title
+   id="title115895">The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal</title>maternalOrganismName</a> : <a
+   id="n559"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n563"
+       x="-14.437882"
+       y="54.17786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n564"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.hybrid.paternalOrganismId"><title
+   id="title115900">The identifier of the paternal species constituting the hybrid organism shall be specified based on a controlled vocabulary</title>paternalOrganismId</a> : <a
+   id="n565"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n569"
+       x="-14.437882"
+       y="68.177856"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n570"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.hybrid.paternalOrganismName"><title
+   id="title115905">The name of the paternal species constituting the hybrid organism shall be specified</title>paternalOrganismName</a> : <a
+   id="n571"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n575"
+       x="-14.437882"
+       y="82.177856"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n576"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.hybrid.hybridType"><title
+   id="title115910">The hybrid type of an organism shall be specified</title>hybridType</a> : <a
+   id="n577"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n581"
+     transform="translate(90.79254,38.26793)">
+    <rect
+       id="SubstanceSourceMaterial.organism.organismGeneral"
+       x="199.39261"
+       y="250.14607"
+       rx="4"
+       ry="4"
+       width="140.8"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n582"
+       x1="199.39261"
+       y1="278.14606"
+       x2="340.1926"
+       y2="278.14606"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n583"
+       x="269.7926"
+       y="270.14606"
+       fill="#000000"
+       class="diagram-class-title">OrganismGeneral</text>
+    <text
+       id="n584"
+       x="205.39261"
+       y="292.14606"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n585"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.organismGeneral.kingdom"><title
+   id="title115919">The kingdom of an organism shall be specified</title>kingdom</a> : <a
+   id="n586"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n590"
+       x="205.39261"
+       y="306.14606"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.organismGeneral.phylum"><title
+   id="title115924">The phylum of an organism shall be specified</title>phylum</a> : <a
+   id="n592"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n596"
+       x="205.39261"
+       y="320.14606"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.organismGeneral.class"><title
+   id="title115929">The class of an organism shall be specified</title>class</a> : <a
+   id="n598"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n602"
+       x="205.39261"
+       y="334.14606"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n603"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.organismGeneral.order"><title
+   id="title115934">The order of an organism shall be specified,</title>order</a> : <a
+   id="n604"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n608"
+     transform="translate(87.040781,25.511953)">
+    <rect
+       id="SubstanceSourceMaterial.partDescription"
+       x="378.12424"
+       y="241.38458"
+       rx="4"
+       ry="4"
+       width="162.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n609"
+       x1="378.12424"
+       y1="269.38458"
+       x2="540.92426"
+       y2="269.38458"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n610"
+       x="459.52423"
+       y="261.38458"
+       fill="#000000"
+       class="diagram-class-title">PartDescription</text>
+    <text
+       id="n611"
+       x="384.12424"
+       y="283.38458"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n612"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.partDescription.part"><title
+   id="title115943">Entity of anatomical origin of source material within an organism</title>part</a> : <a
+   id="n613"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n617"
+       x="384.12424"
+       y="297.38458"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n618"
+   xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.partDescription.partLocation"><title
+   id="title115948">The detailed anatomic location when the part can be extracted from different anatomical locations of the organism. Multiple alternative locations may apply</title>partLocation</a> : <a
+   id="n619"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <line
+     id="n623"
+     x1="537.3678045522317"
+     y1="176.11043299999997"
+     x2="612.4581393446431"
+     y2="234.603531"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n624"
+     points="537.3678045522317,176.11043299999997 543.3678045522317,180.11043299999997 549.3678045522317,176.11043299999997 543.3678045522317,172.11043299999997 537.3678045522317,176.11043299999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(37.91751147418163 537.3678045522317 176.11043299999997)" />
+  <rect
+     id="n625"
+     x="532.5"
+     y="198.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n626"
+     x="574.0"
+     y="208.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n627"
+       xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.fractionDescription"><title
+   id="title115957">Many complex materials are fractions of parts of plants, animals, or minerals. Fraction elements are often necessary to define both Substances and Specified Group 1 Substances. For substances derived from Plants, fraction information will be captured at the Substance information level ( . Oils, Juices and Exudates). Additional information for Extracts, such as extraction solvent composition, will be captured at the Specified Substance Group 1 information level. For plasma-derived products fraction information will be captured at the Substance and the Specified Substance Group 1 levels</title>fractionDescription</a></text>
+  <text
+     id="n628"
+     x="612.4581393446431"
+     y="230.603531"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n629"
+     x1="79.37274755250482"
+     y1="220.05136600000014"
+     x2="78.72999864754428"
+     y2="250.89951999999994"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n630"
+     points="79.37274755250482,220.05136600000014 85.37274755250482,224.05136600000014 91.37274755250482,220.05136600000014 85.37274755250482,216.05136600000014 79.37274755250482,220.05136600000014"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(91.19363614648906 79.37274755250482 220.05136600000014)" />
+  <rect
+     id="n631"
+     x="66.0"
+     y="228.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n632"
+     x="79.0"
+     y="238.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n633"
+       xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.author"><title
+   id="title115965">4.9.13.6.1 Author type (Conditional)</title>author</a></text>
+  <text
+     id="n634"
+     x="78.72999864754428"
+     y="246.89951999999994"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n635"
+     x1="71.6154166195937"
+     y1="114.05136600000003"
+     x2="67.62375138040633"
+     y2="90.17786000000007"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n636"
+     points="71.6154166195937,114.05136600000003 77.6154166195937,118.05136600000003 83.6154166195937,114.05136600000003 77.6154166195937,110.05136600000003 71.6154166195937,114.05136600000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-99.49208660272699 71.6154166195937 114.05136600000003)" />
+  <rect
+     id="n637"
+     x="56.0"
+     y="95.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n638"
+     x="69.0"
+     y="105.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n639"
+       xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.hybrid"><title
+   id="title115973">4.9.13.8.1 Hybrid species maternal organism ID (Optional)</title>hybrid</a></text>
+  <text
+     id="n640"
+     x="67.62375138040633"
+     y="104.17786000000007"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n641"
+     x1="158.20080139417033"
+     y1="220.05136600000003"
+     x2="202.33425973336156"
+     y2="250.14606999999995"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n642"
+     points="158.20080139417033,220.05136600000003 164.20080139417033,224.05136600000003 170.20080139417033,220.05136600000003 164.20080139417033,216.05136600000003 158.20080139417033,220.05136600000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(34.29016453201118 158.20080139417033 220.05136600000003)" />
+  <rect
+     id="n643"
+     x="147.0"
+     y="228.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n644"
+     x="180.0"
+     y="238.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n645"
+       xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism.organismGeneral"><title
+   id="title115981">4.9.13.7.1 Kingdom (Conditional)</title>organismGeneral</a></text>
+  <text
+     id="n646"
+     x="202.33425973336156"
+     y="246.14606999999995"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n647"
+     x1="265.998075"
+     y1="124.46832588311173"
+     x2="172.87705000000003"
+     y2="145.8425951515181"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n648"
+     points="265.998075,124.46832588311173 271.998075,128.46832588311173 277.998075,124.46832588311173 271.998075,120.46832588311173 265.998075,124.46832588311173"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(167.07269702294838 265.998075 124.46832588311173)" />
+  <rect
+     id="n649"
+     x="201.5"
+     y="128.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n650"
+     x="219.0"
+     y="138.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n651"
+       xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.organism"><title
+   id="title115989">This subclause describes the organism which the substance is derived from. For vaccines, the parent organism shall be specified based on these subclause elements. As an example, full taxonomy will be described for the Substance Name: ., Leaf</title>organism</a></text>
+  <text
+     id="n652"
+     x="187.87705000000003"
+     y="141.8425951515181"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n653"
+     x1="441.0820114218507"
+     y1="176.11043299999983"
+     x2="453.45735102841786"
+     y2="241.38459000000012"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n654"
+     points="441.0820114218507,176.11043299999983 447.0820114218507,180.11043299999983 453.0820114218507,176.11043299999983 447.0820114218507,172.11043299999983 441.0820114218507,176.11043299999983"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(79.26469707629869 441.0820114218507 176.11043299999983)" />
+  <rect
+     id="n655"
+     x="414.0"
+     y="201.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n656"
+     x="447.0"
+     y="211.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n657"
+       xlink:href="substancesourcematerial-definitions.html#SubstanceSourceMaterial.partDescription"><title
+   id="title115997">To do</title>partDescription</a></text>
+  <text
+     id="n658"
+     x="453.45735102841786"
+     y="237.38459000000012"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
