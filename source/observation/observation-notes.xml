@@ -16,7 +16,17 @@
 				<a name="obsgrouping">
 		</a>
 		<h3>Observation Grouping</h3>
-		<p>Many observations have important relationships to other observations and need to be grouped together.  These structures have been defined to do this: DiagnosticReport and <code>DiagnosticReport.result</code>, Observation and the elements: <code>Observation.component</code>,  <code>Observation.hasMember</code> and <code>Observation.derivedFrom</code>. The sections below provides guidance around which structure to use.  Because the idea of what to group together is often highly contextual and based upon the end user's point of view, the choice of which structure to use will be driven by jurisdiction, organizational practice and context.  Profiling will normally be necessary for implementation.</p>
+		<p>Many observations need to be grouped together in some fashion to document critical
+		relationships for interpretation of the observations. The methods to do so primarily are
+		through DiagnosticReport using <code>DiagnosticReport.result</code> and Observation using
+		<code>Observation.component</code>, <code>Observation.hasMember</code>, and
+		<code>Observation.derivedFrom</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for guidance related to
+		Microbiology reporting and relevant relationships necessary to support reflex, follow-up,
+		and add-on orders.</p>
+		<p>Note that Composition may also be used to organize observations and
+		diagnostic reports, but that is only for purpose of readability, not to record critical
+		relationships for interpretations. See DiagnosticReport.composition and Composition for
+		further considerations for that separate purpose.</p>
 		<a name="gr-result"></a>
 	  <h4>DiagnosticReport.result
 		</h4>
@@ -48,8 +58,10 @@
 			<code>Observation.hasMember</code> and <code>Observation.derivedFrom</code> and the core extensions: <a href="http://hl7.org/fhir/StructureDefinition/observation-sequelTo">Observation-sequelTo</a> and <a href="http://hl7.org/fhir/StructureDefinition/observation-replaces">Observation-replaces</a> are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
 			</p>
 		<ol>
-			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>).
-	        </li>
+			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>)
+			as described in the <a href="https://build.fhir.org/diagnostics-module.html#org-dr-obs">Diagnostics
+			Module</a> 
+			</li>
 			<li>
 	          When linking to other Observations from which an Observation is derived.  In this case both <code>Observation.code</code> and <code>Observation.value[x]</code> are present,  and the linked observations are listed in <code>Observation.derivedFrom</code>.  An example of this would be a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation where the height and weight measurements are referenced.
 	           </li>

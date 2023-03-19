@@ -832,7 +832,7 @@
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
       <short value="Value of the property"/>
-      <definition value="The value of the property specified by the associated [property.type] code."/>
+      <definition value="The value of the property specified by the associated property.type code."/>
       <comment value="The text element in CodeableConcept.text is used for properties which would usually be coded (such as the size of an implant, or a security classification) but for which there is not currently an appropriate concept in the vocabulary (e.g. a custom implant size, or a security classification which depends on configuration). Otherwise the string choice type is used for descriptive properties, or instructions."/>
       <min value="1"/>
       <max value="1"/>
