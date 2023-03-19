@@ -278,6 +278,10 @@
       <path value="Questionnaire.derivedFrom"/>
       <short value="Based on Questionnaire"/>
       <definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
+      <comment value="This element covers a broad range of relationships, from 'somewhat inspired by' to 'fully compliant with'.
+        There is a standard extensionthat allows clearer differentiation between the specifics of the derivation relationship where 
+        this is needed - e.g. to determine substitutability and validation expectations - 
+        [[[http://hl7.org/fhir/StructureDefinition/questionnaire-derivationType]]]."/>
       <requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
       <min value="0"/>
       <max value="*"/>
