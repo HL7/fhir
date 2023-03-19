@@ -1307,9 +1307,8 @@ are a series of <code>name=value</code> pairs encoded in the URL (or as an <code
 </p>
 <blockquote>
 <p>
-Note: <code>application/x-www-form-urlencoded</code> is supported for <code>POST</code> so that invoking a search by <code>GET</code> or <code>POST</code> can be
-done from HTML forms in a browser (though considerable active content might be required in the browser), although
-this is not the main usage.
+For further considerations on choosing between HTTP <code>GET</code> and <code>POST</code> for search interactions, 
+see <a href="search.html#getvspost">the search page</a>.
 </p>
 </blockquote>
 <p>
@@ -1344,6 +1343,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b><code>400 Bad Request</code></b> - search could not be processed or failed basic FHIR validation rules</li>
  <li><b><code>401 Unauthorized</code></b> - authorization is required for the interaction that was attempted</li>
  <li><b><code>404 Not Found</code></b> - resource type not supported, or not a FHIR end-point</li>
+ <li><b><code>405 Method Not Allowed</code></b> - server does not support the requested method for this request (either GET or POST), and the client should try again using the other one</li>
 </ul>
 
 <a name="vsearch"></a>
@@ -2250,9 +2250,9 @@ Notes:
 <tr><td><code>patch</code></td>              <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>             <td>R if body</td> <td>O: OperationOutcome</td>   <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
 <tr><td><code>create</code></td>             <td>R if body</td> <td>O : Resource (Prefer)</td> <td>R</td>	    <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
-<tr><td><code>search-type</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
-<tr><td><code>search-system</code></td>      <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
-<tr><td><code>search-compartment</code></td> <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
+<tr><td><code>search-type</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>, <code>404</code>, <code>405</code></td></tr>
+<tr><td><code>search-system</code></td>      <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>, <code>404</code>, <code>405</code></td></tr>
+<tr><td><code>search-compartment</code></td> <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>, <code>404</code>, <code>405</code></td></tr>
 <tr><td><code>capabilities</code></td>       <td>R</td>         <td>R: CapabilityStatement</td><td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>404</code></td><sup>&Dagger;</sup></tr>
 <tr><td><code>transaction</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>batch</code></td>              <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
