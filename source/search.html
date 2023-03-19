@@ -4212,6 +4212,20 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01</span>
         not specified by the OperationDefinition <span class="stu">TU</span>.
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Patient?_query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
+          <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
+        </span>
+      </td>
+      <td>
+        Query with both a <code>ward</code> parameter value passed to the named query and a standard patient query filter by birthdate.<br/>
+        Note that query parameters are unordered, so parameters to a named query MAY appear in any location or sequence <span class="stu">TU</span>.
+      </td>
+    </tr>
   </table>
  </span>  
 </p>
