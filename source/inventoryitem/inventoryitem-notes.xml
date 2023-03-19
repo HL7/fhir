@@ -1,5 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+	[%stu-note dstu2%]
+		TThe draft resource InventoryItem is intended to satisfy a narrow set of use cases. Implementer feedback is welcome, and needed, to assess the resource's suitability and viability. Without implementation feedback, this resource may be removed in future releases of FHIR.
+		</p>
+		<p>
+		Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+	[%end-note%]
 
 </div>

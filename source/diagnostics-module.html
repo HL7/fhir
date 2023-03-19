@@ -7,63 +7,82 @@ in order to support consistent definitions for schema and UML derived code.
 
 [%settitle Diagnostic Medicine Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-[%file newheader%]
+    [%file newheader%]
 </head>
+
 <body>
-[%file newnavbar%]
+    [%file newnavbar%]
 
 
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> &amp; <a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+    <table class="colsi">
+        <tr>
+            <td id="wg">Work Group <a target="_blank" href="[%wg oo%]">[%wgt oo%]</a> &amp; <a target="_blank"
+                    href="[%wg cg%]">[%wgt cg%]</a> </td>
+            <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a
+                    href="versions.html#std-process">Informative</a></td>
+        </tr>
+    </table>
 
-<a name="root"></a>
-<h2>Diagnostic Medicine Module</h2>
+    <a name="root"></a>
+    <h2>Diagnostic Medicine Module</h2>
 
-<a name="intro"></a>
-<h3>Introduction</h3>
-<p>
-The Diagnostics Module provides an overview and guide to the FHIR content that addresses ordering and reporting of clinical diagnostics including laboratory testing, imaging and genomics.</p>
+    <a name="intro"></a>
+    <h3>Introduction</h3>
+    <p>
+        The Diagnostics Module provides an overview and guide to the FHIR content that addresses ordering and reporting
+        of clinical diagnostics including laboratory testing, imaging and genomics.</p>
 
-<a name="index"></a>
-<h3>Index</h3>
-<p>The Diagnostics module covers the following resources:</p>
+    <a name="index"></a>
+    <h3>Index</h3>
+    <p>The Diagnostics module covers the following resources:</p>
 
-<table width="100%" style="table-layout: fixed">
- <tr>
- <td width="33%">
-<ul>
-<li><a href="observation.html">Observation</a></li>
-<li><a href="diagnosticreport.html">DiagnosticReport</a></li>
-<li><a href="servicerequest.html">ServiceRequest</a></li>
-<li><a href="documentreference.html">DocumentReference</a></li>
-</ul>
-</td>
- <td width="33%">
-<ul>
-<li><a href="imagingselection.html">ImagingSelection</a></li>
-<li><a href="imagingstudy.html">ImagingStudy</a></li>
-<li><a href="molecularsequence.html">MolecularSequence</a></li>
-<li><a href="genomicstudy.html">GenomicStudy</a></li>
-</ul>
-</td>
- <td width="33%">
-<ul>
-    <li><a href="specimen.html">Specimen</a></li>
-   <li><a href="bodystructure.html">BodyStructure</a></li>
- </ul>
-</td>
-</tr>
-</table>
+    <table style="table-layout: fixed;width:100%">
+        <tr>
+            <td style="width:33%">
+                <ul>
+                    <li><a href="observation.html">Observation</a></li>
+                    <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
+                    <li><a href="servicerequest.html">ServiceRequest</a></li>
+                    <li><a href="documentreference.html">DocumentReference</a></li>
+                </ul>
+            </td>
+            <td style="width:33%">
+                <ul>
+                    <li><a href="imagingselection.html">ImagingSelection</a></li>
+                    <li><a href="imagingstudy.html">ImagingStudy</a></li>
+                    <li><a href="molecularsequence.html">MolecularSequence</a></li>
+                    <li><a href="genomicstudy.html">GenomicStudy</a></li>
+                </ul>
+            </td>
+            <td style="width:33%">
+                <ul>
+                    <li><a href="specimen.html">Specimen</a></li>
+                    <li><a href="bodystructure.html">BodyStructure</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
-   <p>The diagnostic resources and their relationships are shown below.  The arrows represent the direction of the references between resources (for example, DiagnosticReport references ServiceRequest). See the <a href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as ordering and fulfilling of diagnostics.</p>
-    <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="800px"/>
-
-[%impl-note%]
-See the <a href="genomics.html">Genomics Implementation Guidance</a> for additional information about how to use the Diagnostic resources for Clinical Genomic Reporting and Analysis.
-[%end-note%]
+    <p>The diagnostic resources and their relationships are shown below. The arrows represent the direction of the
+        references between resources (for example, DiagnosticReport references ServiceRequest). See the <a
+            href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as
+        ordering and fulfilling of diagnostics.</p>
+    <div>
+        <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="1000" />
+    </div>
+    [%impl-note%]
+    See the <a href="genomics.html">Genomics Implementation Guidance</a> for additional information about how to use the
+    Diagnostic resources for Clinical Genomic Reporting and Analysis.
+    [%end-note%]
 
     <table class="bare">
-        <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+        <tr>
+            <td><b>Name</b></td>
+            <td><b>Aliases</b></td>
+            <td><b>Description</b></td>
+        </tr>
         [%res-item Observation%]
         [%res-item DiagnosticReport%]
         [%res-item ServiceRequest%]
@@ -75,58 +94,279 @@ See the <a href="genomics.html">Genomics Implementation Guidance</a> for additio
         [%res-item BodyStructure%]
     </table>
 
-<a name="secpriv"></a>
-<h3>Security and Privacy</h3>
-<p>
-The diagnostic resources often represent patient-specific data, and as such are susceptible to data breaching.  Necessary privacy and security provisions must be in place when searching and fetching this information.  For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
-</p>
+    <a name="org-dr-obs"></a>
+    <h3>Organizing Related DiagnosticReport and Observation Resources</h3>
+    <p>
+        Many observations need to be grouped together in some fashion to document critical relationships for
+        interpretation of the observations. The methods to do so primarily are through DiagnosticReport using
+        DiagnosticReport.result
+        and Observation using Observation.component, Observation.hasMember, and Observation.derivedFrom. Note that
+        Composition may also be used to organize observations and diagnostic reports, but that is only for purpose of
+        readability,
+        not to record critical relationships for interpretations. See DiagnosticReport.composition and Composition for
+        further considerations for that separate purpose.
+    </p>
+    <h4>Laboratory Results</h4>
+    <p>
+        Relationships between observations are important to understand for the following use cases in particular:
+    </p>
+    <ul>
+        <li>Microbiology results relating observations on the identification of the organism(s) with observations of the
+            sensitivity results</li>
+        <li>Results associated with reflex, repeat, or re-run of tests based on prior result</li>
+        <li>Results associated with a follow-up orders to a prior order and/or result</li>
+        <li>Results associated with an add-on order to the original order</li>
+    </ul>
+    <p>
+        The following describes the recommended approaches on how to use ServiceRequest, Observation, and
+        DiagnosticReport to consistently relate the necessary relationships.
+    </p>
+    <h5>Microbiology</h5>
+    <p>
+        Microbiology reports include the reporting of the overall culture, individually identified organisms and
+        susceptibility results for each identified organism, while reporting additional observations as well such as
+        growth and
+        quantity/rate. The following summarizes the general relationships of the different components using
+        DiagnosticReport and Observation:
+    </p>
+    <div>
+        <img src="parent-child-structure-1.png" alt="Micro Isolate and Susceptibility structure 1" width="1000" />
+    </div>
+    <p>
+        This can be more specifically described in the following diagram identifying the specific resources and
+        attributes used to create the relationships using a sample anaerobic culture as the basis for these
+        relationships:
+    </p>
+    <div>
+        <img style="padding: 20px;" src="parent-child-structure-2.png"
+            alt="Micro Isolate and Susceptibility structure 2" width="1000" />
+    </div>
+    <p>
+        A DiagnosticReport is created using DiagnosticReport.basedOn to reference the ServiceRequest that authorized its
+        performance.
+    </p>
+    <p>
+        The initial observation of a the sample anaerobic culture would be recorded as an Observation and linked to
+        using DiagnosticReport.result. The Observation would describe presence of none, one or more growths or patterns.
+        Other
+        results for, e.g., a stain may be reported as well and linked to DiagnosticReport.result as well.
+    </p>
+    <p>
+        As the growth is identified, an Observation to report the actual organism is created. The actual identification
+        may take time and could change. The change history on the Observation will track any changes in organism names.
+        Thus the
+        Observation.value may start as unknown and then updated to reflect the actual identified name. The Observation
+        of the initial anaerobic culture references each identified organism using Observation.hasMember, while the
+        Observation
+        of each organism references the initial ServiceRequest that authorized the tests using Observation.basedOn.
+    </p>
+    <p>
+        Specific observations on each individual organism, e.g., growth and quantity/rate, are recorded as separate
+        Observation instances where the Observation of the organism identification links to these observations using
+        Observation.hasMember.
+    </p>
+    <p>
+        When susceptibility tests are starting to be performed, an Observation instance is created for the
+        Susceptibility Panel, enabling all susceptibility tests to be organized under that Susceptibility Panel. The
+        Susceptibility Panel
+        Observation is also linked to through the Obervation.hasMember of the identified organism Observation.
+    </p>
+    <p>
+        If a new authorization was needed to perform the susceptibility panel as sometimes the overall ServiceRequest
+        covers it, and other times a new authorization is required, the Susceptibility Panel Observation.basedOn will
+        reference the
+        appropriate ServiceRequest, while, if present, the Susceptibility Panel ServiceRequest.basedOn will reference
+        the initial ServiceRequest.
+    </p>
+    <p>
+        The individual susceptibility observations are linked to the Susceptibility Panel by the Observation.hasMember
+        on the Susceptibility Panel Observation.
+    </p>
+    <p>
+        All Observations either reference the overall Specimen or a Specimen Isolate as appropriate. The Specimen
+        Isolate reference the Specimen it was isolated from using Specimen.parent.
+    </p>
+    <p>
+        Note that as an Observation is updated, the Observation.id remains the same, but if for some reason a
+        replacement needs to be recorded, the Observation.id changes while the Observation.identifier can remain the
+        same. For
+        observations documenting the progression of identifying the organism, use of a change history is recommended,
+        thus keeping
+        the Observation.id the same.
+    </p>
+    <h5>Policy Driven Additional Testing</h5>
+    <p>
+        Additional testing may be performed based on actual test results, e.g., abnormal results, based on established
+        policies, thus not requiring a new order to be placed. The original order must have associated policies to
+        permit the
+        immediate order of subsequent tests based on specific results. That means that from an ordering provider
+        perspective there
+        is no need to submit a new order (ServiceRequest) for such subsequent testing. However, the laboratory may
+        utilize
+        ServiceRequests for any of these tests where it needs to interact with a reference laboratory for such
+        subsequent testing.
+    </p>
+    <p>
+        The different types of policy driven additional testing can be:
+    </p>
+    <ul>
+        <li>Reflex – performance of one or more other tests depending on the results of the initial test. This may
+            include collection of additional specimen(s)</li>
+        <li>Repeat (per policy) – performance of the same test again with the same parameters/settings/solution</li>
+        <li>Re-run (per policy) – performance of the same test but with different parameters/settings/solution</li>
+    </ul>
+    <div>
+        <img src="parent-child-structure-3.png" alt="Micro Isolate and Susceptibility structure 3" width="1000" />
+    </div>
+    <p>
+        The DiagnosticReport includes both the initial and additional tests, using the DiagnosticReport.result
+        attribute.
+    </p>
+    <p>
+        The Observation.triggeredBy on the additional observation(s) will be valued to the appropriate type (reflect,
+        repeat, or re-run) and reference the Observation that it is additional to. The Observation.basedOn contains the
+        link to the
+        original ServiceRequest that authorized the performance of the additional tests, and may also point to another
+        ServiceRequest that was necessary to communicate authorization to a reference lab.
+    </p>
+    <p>
+        Some may opt to report the additional observations in either a separate DiagnosticReport or the original/initial
+        DiagnosticReport. The additional DiagnosticReport must then also be linked to the original ServiceRequest using
+        DiagnosticReport.basedOn. Note though that the additional observations are then only referenced in the
+        additional DiagnosticReport, not the original DiagnosticReport. The additional DiagnosticReport still may
+        include the
+        original observations that triggered the additional tests.
+    </p>
+    <h5>Follow-Up Orders/Results</h5>
+    <p>
+        Follow-up orders are individual requests outside established policy, not authorized through the original order,
+        based on the results of a prior test to perform further test(s). There may be reasons that this only requires a
+        change/correction to the original ServiceRequest (until any change/correction is not permitted as the processing
+        has progressed
+        too far), or require a new ServiceRequest. This may depend on whether the additional test can be charged or not.
+        It
+        furthermore depends on whether the original ordering system permits that ServiceRequest to be changed. The
+        intent may also
+        be that the original result is amended/appended rather than that a separate, new result is reported. This yields
+        the
+        need for either an update to the original ServiceRequest or a new ServiceRequest.
+    </p>
+    <ul>
+        <li>Demographic or AOE response change/correction - no re-performance of the test, only new interpretation.</li>
+        <li>Repeat Determination/Re-evaluation - that may be questioning the original result and needing a re-evaluation
+            that may result in re-run. Include prior specimen number.</li>
+        <li>Confirmation/Validation – May be re-run or validation. A re-run out of policy.</li>
+    </ul>
+    <p>
+        This can be mostly handled using the existing ServiceRequest capabilities. We leave it up to future initiatives
+        to establish appropriate reasons to enable managing any fulfillment of these requests.
+    </p>
+    <p>
+        Diagnostic reports do not specifically reflect these orders and might or might not include them in one or
+        DiagnosticReport instances.
+    </p>
+    <h5>Add-On Orders/Results</h5>
+    <p>
+        When ordering a test involves a specimen, the common understanding is that either a new specimen is drawn or by
+        policy specimen collection is optimized to minimize draws where permitted/appropriate. However, if the ordering
+        provider wants to explicitly use an already existing specimen or a still to be drawn specimen, then an add-on
+        order is placed.
+        The intended specimen to use is either indicated explicitly by directly referencing the specimen to be used
+        (ServiceRequest.extension-specimenSuggestion references the specific Specimen to be used), or contextually based
+        on the ServiceRequest for which the specimen of interest has been or is about to be collected
+        (serviceRequest.extension-specimenSuggestion references the specific ServiceRequest for which a specimen has
+        been or is about to be collected). One must then also have indicated a fallBackAction in that extension.
+    </p>
+    <p>
+        Conversely, an ordering provider may indicate explicitly to use a new, separate specimen rather than using any
+        available or about to be drawn specimen where policy otherwise may optimization of specimen draws reducing
+        sticking the
+        patient twice. That is not considered an add-on order. But still can be indicated.
+    </p>
+    <p>
+        Either way, the DiagnosticReport would include test results as per normal without any specific relationships
+        between the observations.
+    </p>
 
-<a name="uses"></a>
-<h3>Common Use Cases</h3>
-<p>
-Diagnostic resources are commonly used to plan, recommend, order and report clinical diagnostics:
-</p>
-<ul>
-<li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a></li>
-<li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
-<li>Ordering a Laboratory Test such as a <a href="servicerequest-example-lipid.html">lipid panel</a></li>
-<li>Reporting a Laboratory Test such as a <a href="diagnosticreport-core.html">lipid panel</a></li>
-<li>Ordering an imaging study such as a <a href="servicerequest-example-di.html">CT study</a></li>
-<li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
-</ul>
-<p>
-There are many ways to use these resources independently as well.  The Observation resource, in particular, is central to capturing many measurements and events in healthcare and is often used outside the context of diagnostic orders and reports.
-</p>
-<ul>
-<li>recording vital signs such as <a href="observation-example-f202-temperature.html">temperature</a></li>
-<li>recording other observations of a patient's social history such as tobacco use</li>
-<li>recording other characteristics of a patient such as pregnancy status (note: The Condition resource may be used to represent these as well)</li>
-<li>recording clinical assessment tool scores such as an <a href="observation-example-5minute-apgar-score.html">Apgar score</a>.</li>
-<li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a href="bodystructure-example-tumor.html">body site</a></li>
-</ul>
+    <a name="secpriv"></a>
+    <h3>Security and Privacy</h3>
+    <p>
+        The diagnostic resources often represent patient-specific data, and as such are susceptible to data breaching.
+        Necessary privacy and security provisions must be in place when searching and fetching this information. For
+        more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+    </p>
 
-<a name="related"></a>
-<h3>Related Resources and Modules</h3>
-<p> The resources that represent the basic information about a patient and a clinical encounter can be found in the <a href ="administration-module.html">Administration Module</a>. Other resources that represent core clinical information generated by healthcare providers during the course of a patient encounter are detailed in the <a href="clinicalsummary-module.html">Clinical Summary Module</a> and the <a href="medications-module.html">Medications Module</a>.</p>
+    <a name="uses"></a>
+    <h3>Common Use Cases</h3>
+    <p>
+        Diagnostic resources are commonly used to plan, recommend, order and report clinical diagnostics:
+    </p>
+    <ul>
+        <li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a>
+        </li>
+        <li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a
+                href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
+        <li>Ordering a Laboratory Test such as a <a href="servicerequest-example-lipid.html">lipid panel</a></li>
+        <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-core.html">lipid panel</a></li>
+        <li>Ordering an imaging study such as a <a href="servicerequest-example-di.html">CT study</a></li>
+        <li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
+    </ul>
+    <p>
+        There are many ways to use these resources independently as well. The Observation resource, in particular, is
+        central to capturing many measurements and events in healthcare and is often used outside the context of
+        diagnostic orders and reports.
+    </p>
+    <ul>
+        <li>recording vital signs such as <a href="observation-example-f202-temperature.html">temperature</a></li>
+        <li>recording other observations of a patient's social history such as tobacco use</li>
+        <li>recording other characteristics of a patient such as pregnancy status (note: The Condition resource may be
+            used to represent these as well)</li>
+        <li>recording clinical assessment tool scores such as an <a
+                href="observation-example-5minute-apgar-score.html">Apgar score</a>.</li>
+        <li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a
+                href="bodystructure-example-tumor.html">body site</a></li>
+    </ul>
 
-<a name="roadmap"></a>
-<h3>Developmental Roadmap</h3>
-<p>
+    <a name="related"></a>
+    <h3>Related Resources and Modules</h3>
+    <p> The resources that represent the basic information about a patient and a clinical encounter can be found in the
+        <a href="administration-module.html">Administration Module</a>. Other resources that represent core clinical
+        information generated by healthcare providers during the course of a patient encounter are detailed in the <a
+            href="clinicalsummary-module.html">Clinical Summary Module</a> and the <a
+            href="medications-module.html">Medications Module</a>.
+    </p>
 
-
-<ul>
-<li>The <em>Observation</em> and <em>Diagnostic Report</em> resources have been tested and used in production tooling and as such have reached a <a href="versions.html#maturity">maturity level FMM=4</a> where changes become less likely and require implementer community approval.  Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.  We anticipate <em>Observation</em> and <em>Diagnostic Report</em> reaching normative status by the end of this cycle.</li>
-<li>The <em>ImagingStudy</em> resource has had some limited testing and use.  Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
-<li>The <em>ServiceRequest</em> resources has undergone substantial changes since DSTU2. Foremost of which is the merging of DSTU2 <em>DiagnosticOrder</em> and <em>ServiceRequest</em> into a single resource. In addition, as a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, its structure and content have been updated to align with the general FHIR workflow "request" pattern.  Because of these, it remains a relatively immature resource.  No more sweeping changes to its structure are expected.  However, its scope and boundaries vis a vis other resources will be the topic of future workgroup efforts. We anticipate its broad use by implementers and that it will mature as a resource throughout the upcoming cycle.</li>
-<li>The <em>Specimen</em> resource will be the focus of work group efforts for the upcoming cycle. A new <em>SpecimenDefinition</em> resource is planned for describing specimen types vs specimen instances and will take over some of the Specimen resource's current scope.  We expect to see more widespread use of this resource and future updates to its FMM level</li>
-<li>The <em>MolecularSequence</em> resource remains draft and we expect to see more widespread use of this resource and future updates to its FMM level</li>
-<li>The <em>BodyStructure</em> resource is an immature resource with a FMM level of 1.  To date there has been little implementation feedback.</li>
-<li>The <em>Media</em> resource is the newest member to the Diagnostics module having undergone substantial scope and structural changes to create a specialized observation resource focused on digital media such as images and audio files.  Future work will focus on developing core profiles and providing more domain specific examples.</li>
-</ul>
-
-
-
-</p>
-[%file newfooter%]
+    <a name="roadmap"></a>
+    <h3>Developmental Roadmap</h3>
+    <ul>
+        <li>The <em>Observation</em> and <em>Diagnostic Report</em> resources have been tested and used in production
+            tooling and as such have reached a <a href="versions.html#maturity">maturity level FMM=4</a> where changes
+            become less likely and require implementer community approval. Future work will focus on developing core
+            profiles and clarifying use cases and boundaries and providing more domain specific examples. We anticipate
+            <em>Observation</em> and <em>Diagnostic Report</em> reaching normative status by the end of this cycle.</li>
+        <li>The <em>ImagingStudy</em> resource has had some limited testing and use. Further use of this resource in
+            production tooling is needed for it to reach a more stable FMM level.</li>
+        <li>The <em>ServiceRequest</em> resources has undergone substantial changes since DSTU2. Foremost of which is the
+            merging of DSTU2 <em>DiagnosticOrder</em> and <em>ServiceRequest</em> into a single resource. In addition, as a
+            result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, its structure and content have
+            been updated to align with the general FHIR workflow "request" pattern. Because of these, it remains a
+            relatively immature resource. No more sweeping changes to its structure are expected. However, its scope and
+            boundaries vis a vis other resources will be the topic of future workgroup efforts. We anticipate its broad use
+            by implementers and that it will mature as a resource throughout the upcoming cycle.</li>
+        <li>The <em>Specimen</em> resource will be the focus of work group efforts for the upcoming cycle. A new
+            <em>SpecimenDefinition</em> resource is planned for describing specimen types vs specimen instances and will
+            take over some of the Specimen resource's current scope. We expect to see more widespread use of this resource
+            and future updates to its FMM level</li>
+        <li>The <em>MolecularSequence</em> resource remains draft and we expect to see more widespread use of this resource
+            and future updates to its FMM level</li>
+        <li>The <em>BodyStructure</em> resource is an immature resource with a FMM level of 1. To date there has been little
+            implementation feedback.</li>
+        <li>The <em>Media</em> resource is the newest member to the Diagnostics module having undergone substantial scope
+            and structural changes to create a specialized observation resource focused on digital media such as images and
+            audio files. Future work will focus on developing core profiles and providing more domain specific examples.
+        </li>
+    </ul>
+    [%file newfooter%]
 </body>
+
 </html>

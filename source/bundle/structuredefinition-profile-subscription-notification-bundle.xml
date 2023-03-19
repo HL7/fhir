@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="subscription-notification-bundle" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Other" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="not-classified" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/subscription-notification-bundle" />
+  <version value="0.1.0" />
+  <name value="SubscriptionNotificationBundle" />
+  <title value="Subscription Notification bundle" />
+  <status value="active" />
+  <description value="This profile holds all the requirements and constraints related to a Subscription Notification Bundle." />
+  <fhirVersion value="5.0.0-snapshot1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle.type">
+      <path value="Bundle.type" />
+      <patternCode value="subscription-notification" />
+    </element>
+    <element id="Bundle.total">
+      <path value="Bundle.total" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="exists" />
+          <path value="entry" />
+        </discriminator>
+        <description value="Slice to enforce first entry is NessageHeader." />
+        <ordered value="true" />
+        <rules value="openAtEnd" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:first">
+      <path value="Bundle.entry" />
+      <sliceName value="first" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:first.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:first.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="SubscriptionStatus" />
+      </type>
+    </element>
+    <element id="Bundle.entry:first.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:first.response">
+      <path value="Bundle.entry.response" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:other">
+      <path value="Bundle.entry" />
+      <sliceName value="other" />
+    </element>
+    <element id="Bundle.entry:other.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:other.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:other.response">
+      <path value="Bundle.entry.response" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
