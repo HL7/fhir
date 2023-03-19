@@ -1,10 +1,9 @@
-_language
+﻿_language
 _query
 excluded_structure
 _in
 _security
 _type
-recruitment_actual
 _lastupdated
 _filter
 _list
@@ -18,4 +17,3 @@ _source
 _id
 _content
 _text
-recruitment_target
