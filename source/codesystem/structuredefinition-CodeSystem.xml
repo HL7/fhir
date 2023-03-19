@@ -195,6 +195,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.versionAlgorithm[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.versionAlgorithm[x]"/>
       <short value="How to compare versions"/>
       <definition value="Indicates the mechanism used to compare versions to determine which CodeSystem is more current."/>
@@ -441,6 +444,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
@@ -994,6 +1000,9 @@
       </binding>
     </element>
     <element id="CodeSystem.concept.designation.additionalUse">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.concept.designation.additionalUse"/>
       <short value="Additional ways how this designation would be used"/>
       <definition value="Additional codes that detail how this designation would be used, if there is more than one use."/>

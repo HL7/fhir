@@ -325,6 +325,9 @@
       </mapping>
     </element>
     <element id="StructureDefinition.versionAlgorithm[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="StructureDefinition.versionAlgorithm[x]"/>
       <short value="How to compare versions"/>
       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
@@ -580,6 +583,9 @@
       </mapping>
     </element>
     <element id="StructureDefinition.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>

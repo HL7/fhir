@@ -171,6 +171,9 @@
       </mapping>
     </element>
     <element id="ValueSet.versionAlgorithm[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="ValueSet.versionAlgorithm[x]"/>
       <short value="How to compare versions"/>
       <definition value="Indicates the mechanism used to compare versions to determine which ValueSet is more current."/>
@@ -431,6 +434,9 @@
       </mapping>
     </element>
     <element id="ValueSet.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
@@ -841,6 +847,9 @@
       </binding>
     </element>
     <element id="ValueSet.compose.include.concept.designation.additionalUse">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="ValueSet.compose.include.concept.designation.additionalUse"/>
       <short value="Additional ways how this designation would be used"/>
       <definition value="Additional codes that detail how this designation would be used, if there is more than one use."/>
@@ -971,6 +980,9 @@
       </mapping>
     </element>
     <element id="ValueSet.compose.include.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="ValueSet.compose.include.copyright"/>
       <short value="A copyright statement for the specific code system included in the value set"/>
       <definition value="A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present)."/>
@@ -998,6 +1010,9 @@
       </mapping>
     </element>
     <element id="ValueSet.compose.property">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="ValueSet.compose.property"/>
       <short value="Property to return if client doesn't override"/>
       <definition value="A property to return in the expansion, if the client doesn't ask for any particular properties. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. The special value '*' means all properties known to the server."/>
@@ -1034,6 +1049,9 @@
       </type>
     </element>
     <element id="ValueSet.expansion.next">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="ValueSet.expansion.next"/>
       <short value="Opaque urls for paging through expansion results"/>
       <definition value="As per paging Search results, the next URLs are opaque to the client, have no dictated structure, and only the server understands them."/>
@@ -1135,6 +1153,9 @@
       </type>
     </element>
     <element id="ValueSet.expansion.property">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="400;400."/>
       </extension>
@@ -1290,6 +1311,9 @@
       <contentReference value="#ValueSet.compose.include.concept.designation"/>
     </element>
     <element id="ValueSet.expansion.contains.property">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="ConceptProperty"/>
       </extension>
@@ -1419,6 +1443,9 @@
       <contentReference value="#ValueSet.expansion.contains"/>
     </element>
     <element id="ValueSet.scope">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="ValueSet.scope"/>
       <short value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description"/>
       <definition value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description."/>

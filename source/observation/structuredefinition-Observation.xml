@@ -173,6 +173,9 @@
       </mapping>
     </element>
     <element id="Observation.instantiates[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="Observation.instantiates[x]"/>
       <short value="Instantiates FHIR ObservationDefinition"/>
       <definition value="The reference to a FHIR ObservationDefinition resource that provides the definition that is adhered to in whole or in part by this Observation instance."/>
@@ -232,6 +235,9 @@
       </mapping>
     </element>
     <element id="Observation.triggeredBy">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="Observation.triggeredBy"/>
       <short value="Triggering observation(s)"/>
       <definition value="Identifies the observation(s) that triggered the performance of this observation."/>
@@ -725,9 +731,15 @@
         <code value="Period"/>
       </type>
       <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <code value="Attachment"/>
       </type>
       <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
@@ -886,6 +898,9 @@
       </mapping>
     </element>
     <element id="Observation.bodyStructure">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="Observation.bodyStructure"/>
       <short value="Observed body structure"/>
       <definition value="Indicates the body structure on the subject's body where the observation was made (i.e. the target site)."/>
@@ -1078,6 +1093,9 @@
       </mapping>
     </element>
     <element id="Observation.referenceRange.normalValue">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="Observation.referenceRange.normalValue"/>
       <short value="Normal value, if relevant"/>
       <definition value="The value of the normal value of the reference range."/>
@@ -1104,6 +1122,9 @@
       </mapping>
     </element>
     <element id="Observation.referenceRange.type">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[$8941][1115]."/>
       </extension>
@@ -1377,9 +1398,15 @@
         <code value="Period"/>
       </type>
       <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <code value="Attachment"/>
       </type>
       <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>

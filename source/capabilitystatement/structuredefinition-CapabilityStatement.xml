@@ -186,6 +186,9 @@
       </mapping>
     </element>
     <element id="CapabilityStatement.identifier">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CapabilityStatement.identifier"/>
       <short value="Additional identifier for the CapabilityStatement (business identifier)"/>
       <definition value="A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
@@ -222,6 +225,9 @@
       </mapping>
     </element>
     <element id="CapabilityStatement.versionAlgorithm[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CapabilityStatement.versionAlgorithm[x]"/>
       <short value="How to compare versions"/>
       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
@@ -466,6 +472,9 @@
       </mapping>
     </element>
     <element id="CapabilityStatement.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
@@ -716,6 +725,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.acceptLanguage">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CapabilityStatement.acceptLanguage"/>
       <short value="Languages supported"/>
       <definition value="A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header."/>
