@@ -2293,7 +2293,8 @@ A date parameter searches on a date/time or period. As is usual for date/time re
 concepts are relatively straight-forward, there are a number of subtleties involved in ensuring consistent behavior.
 </p>
 <p>
-The date parameter format is <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code> (the standard XML format).
+The date parameter format is <code>yyyy-mm-ddThh:mm:ss.ssss[Z|(+|-)hh:mm]</code> (the standard XML format).  Note 
+that fractional seconds MAY be ignored by servers <span class="stu">TU</span>.
 </p>
 <p>
 Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
