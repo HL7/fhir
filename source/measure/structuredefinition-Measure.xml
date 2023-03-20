@@ -410,7 +410,7 @@
       <short value="Population basis"/>
       <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
       <comment value="For a subject-based measure, the population basis is simply boolean; all the criteria are expressed as true/false conditions that determine membership of an individual case in the population. For non-subject-based measures, the population basis can be any resource type, and the criteria are queries that return the subject's contribution to the population as a list of that resource type. For example, for a procedure-based measure, the population criteria would return lists of procedures that should be included in each population."/>
-      <requirements value="Allows non-subject-based measures to be specified"/>
+      <requirements value="Allows non-subject-based measures to be specified. Note that because the binding is to all fhir types, it is possible to specify abstract types such as Resource or DomainResource as the basis for a measure. Authoring environments may wish to constrain this further, depending on content needs."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1803,7 +1803,7 @@
       <path value="Measure.supplementalData"/>
       <short value="What other data should be reported with the measure"/>
       <definition value="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path."/>
-      <comment value="Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information."/>
+      <comment value="Note that supplemental data are reported as resources for each patient and referenced in the supplementalData element of the MeasureReport. If the supplementalData expression results in a value other than a resource, it is reported using an Observation resource, typically contained in the resulting MeasureReport. See the MeasureReport resource and the Quality Reporting topic for more information."/>
       <min value="0"/>
       <max value="*"/>
       <type>
