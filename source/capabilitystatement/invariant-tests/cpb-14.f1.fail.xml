@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
+  <version value="20130510"/>
+  <name value="ACMEEHR"/>
+  <title value="ACME EHR capability statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-01-04"/>
+  <publisher value="ACME Corporation"/>
+  <purpose value="Main EHR capability statement, published for contracting and operational support"/>
+  <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
+  <kind value="instance"/>
+  <fhirVersion value="5.0.0"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <patchFormat value="application/xml-patch+xml"/>
+  <patchFormat value="application/json-patch+json"/>
+  <acceptLanguage value="en"/>
+  <acceptLanguage value="es"/>
+  <implementationGuide value="http://hl7.org/fhir/us/lab"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="Main FHIR endpoint for acem health"/>
+    <security>
+      <cors value="true"/>
+      <service>
+        <coding>
+          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <code value="SMART-on-FHIR"/>
+        </coding>
+      </service>
+      <description value="See Smart on FHIR documentation"/>
+    </security>
+    <resource>
+      <type value="Patient"/>
+      <profile value="http://registry.fhir.org/r5/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
+      <supportedProfile value="http://registry.fhir.org/r5/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
+      <documentation value="This server does not let the clients create identities."/>
+      <interaction>
+        <code value="read"/>
+      </interaction>
+      <interaction>
+        <code value="vread"/>
+        <documentation value="Only supported for patient records since 12-Dec 2012"/>
+      </interaction>
+      <interaction>
+        <code value="update"/>
+      </interaction>
+      <interaction>
+        <code value="history-instance"/>
+      </interaction>
+      <interaction>
+        <code value="create"/>
+      </interaction>
+      <interaction>
+        <code value="history-type"/>
+      </interaction>
+      <versioning value="versioned-update"/>
+      <readHistory value="true"/>
+      <updateCreate value="false"/>
+      <conditionalCreate value="true"/>
+      <conditionalRead value="full-support"/>
+      <conditionalUpdate value="false"/>
+      <conditionalPatch value="false"/>
+      <conditionalDelete value="not-supported"/>
+      <searchInclude value="Patient:organization"/>
+      <searchRevInclude value="Person:patient"/>
+      <searchParam>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>
+        <type value="token"/>
+        <documentation value="Only supports search by institution MRN"/>
+      </searchParam>
+      <searchParam>
+        <name value="general-practitioner"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Patient-general-practitioner"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+    <interaction>
+      <code value="transaction"/>
+    </interaction>
+    <interaction>
+      <code value="history-system"/>
+    </interaction>
+    <compartment value="http://hl7.org/fhir/CompartmentDefinition/patient"/>
+  </rest>
+  <messaging>
+    <endpoint>
+      <protocol>
+        <system value="http://hl7.org/fhir/message-transport"/>
+        <code value="mllp"/>
+      </protocol>
+      <address value="mllp:10.1.1.10:9234"/>
+    </endpoint>
+    <reliableCache value="30"/>
+    <documentation value="ADT A08 equivalent for external system notifications"/>
+    <supportedMessage>
+      <mode value="receiver"/>
+      <definition value="http://hl7.org/fhir/MessageDefinition/example"/>
+    </supportedMessage>
+  </messaging>
+  <document>
+    <mode value="consumer"/>
+    <documentation value="Basic rules for all documents in the EHR system"/>
+    <profile value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
+  </document>
+</CapabilityStatement>

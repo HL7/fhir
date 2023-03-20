@@ -5,15 +5,14 @@
    <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
    <title value="Low Suicide Risk Order Set"/>
    <status value="active"/>
-   <experimental value="true"/>
-   <goal id="g1">
-      <description>
-         <text value="goal 1"/>
-      </description>
-   </goal>
    <!-- Actions -->
    <action>
       <title value="Suicide Risk Assessment and Outpatient Management"/>
-      <goalId value="g404"/>
+      <output>
+         <title value="test"/>
+         <requirement>
+            <type value="Patient"/>
+         </requirement>
+      </output>
    </action>
 </PlanDefinition>

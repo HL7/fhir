@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
+  <version value="20130510"/>
+  <name value="ACMEEHR"/>
+  <title value="ACME EHR capability statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-01-04"/>
+  <kind value="instance"/>
+  <instantiates value="http://ihe.org/fhir/CapabilityStatement/pixm-client"/>
+  <fhirVersion value="5.0.0"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <patchFormat value="application/xml-patch+xml"/>
+  <patchFormat value="application/json-patch+json"/>
+  <acceptLanguage value="en"/>
+  <acceptLanguage value="es"/>
+  <implementationGuide value="http://hl7.org/fhir/us/lab"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="Main FHIR endpoint for acem health"/>
+    <resource>
+      <type value="Patient"/>
+    </resource>
+    <resource>
+      <type value="Patient"/>
+    </resource>
+    <interaction>
+      <code value="transaction"/>
+    </interaction>
+    <interaction>
+      <code value="history-system"/>
+    </interaction>
+    <compartment value="http://hl7.org/fhir/CompartmentDefinition/patient"/>
+  </rest>
+</CapabilityStatement>

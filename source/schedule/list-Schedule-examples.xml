@@ -40,4 +40,15 @@
       <display value="Provider+Location2 Example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example a Schedule resource for a service type defined with a reference to a HealthcareService"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="schedule-example-hcs"/>
+    </extension>
+    <item>
+      <reference value="Schedule/example-hcs"/>
+    </item>
+  </entry>
 </List>
