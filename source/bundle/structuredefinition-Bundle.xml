@@ -193,6 +193,12 @@
         <human value="Use and meaning of issues for documents has not been validated because the content will not be rendered in the document."/>
         <expression value="type = 'document' implies issues.empty()"/>
       </constraint>
+      <constraint>
+        <key value="bdl-18"/>
+        <severity value="error"/>
+        <human value="Self link is required for searchsets."/>
+        <expression value="type = 'searchset' implies link.where(relation = 'self' and url.exists()).exists()"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>
