@@ -44,6 +44,12 @@
             <resource value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Definition.jurisdiction" resourcePath="OperationDefinition.jurisdiction">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="It may be possible for the operation definition to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="It may be possible for the operation definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Definition.code" resourcePath="OperationDefinition.code">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
