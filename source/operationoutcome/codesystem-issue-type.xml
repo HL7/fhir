@@ -168,6 +168,11 @@
       <display value="Edit Version Conflict"/>
       <definition value="Content could not be accepted because of an edit conflict (i.e. version aware updates). (In a pure RESTful environment, this would be an HTTP 409 error, but this code may be used where the conflict is discovered further into the application architecture.)."/>
     </concept>
+    <concept>
+      <code value="limited-filter"/>
+      <display value="Limited Filter Application"/>
+      <definition value="Some search filters might not have applied on all results.  Data may have been included that does not meet all of the filters listed in the `self` `Bundle.link`."/>
+    </concept>
   </concept>
   <concept>
     <code value="transient"/>
