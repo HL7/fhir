@@ -319,6 +319,78 @@ a process that is aware of and understands a set of published rules. For more in
 see <a href="resource.html#implicitRules">Restricted Understanding of Resources</a>.
 </p>
 
+<a name="descriptive"></a>
+<h3>Profiling descriptive elements</h3>
+<p>
+Some properties of an element are purely descriptive and aren't used as part of the validation process.  These elements can be refined to reflect constraints applied elsehere for the element and/or to reflect the context of use of the element within the profile.  Changes need to be made cautiously however.  The meaning and guidance provided in the base resource or profile can't be invalidated, only constrained or contextualized.
+</p>
+<p>
+There are two types of changes that can be made to descriptive elements - revising the existing content, or adding or removing elements.  Removing an element is only appropriate if the element no longer applies in the context of the constraints/domain space of the profile.  The following table indicates which types of changes are allowed for which elements:
+</p>
+<table>
+  <tbody>
+    <tr>
+      <th>Element</th>
+      <th>Revise?</th>
+      <th>Add?</th>
+      <td>Remove?</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>Yes</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>code.coding</td>
+      <td></td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>short</td>
+      <td>Yes</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>definition</td>
+      <td>Yes</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>comment</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>requirements</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>alias</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>example</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>mapping</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
 
 <a name="using"></a>
 <h3>Using StructureDefinitions</h3>
