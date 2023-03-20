@@ -58,6 +58,11 @@
     <uri value="http://hl7.org/fhir/fivews"/>
     <name value="FiveWs Pattern Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="qrda"/>
+    <uri value="http://hl7.org/qrda"/>
+    <name value="QRDA Mapping"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="MeasureReport"/>
@@ -118,6 +123,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="id"/>
+      </mapping>
+      <mapping>
+        <identity value="qrda"/>
+        <map value="ClinicalDocument.id"/>
       </mapping>
     </element>
     <element id="MeasureReport.status">
@@ -284,6 +293,10 @@
         <identity value="rim"/>
         <map value="participation[typeCode=AUT].time"/>
       </mapping>
+      <mapping>
+        <identity value="qrda"/>
+        <map value="ClinicalDocument.effectiveTime"/>
+      </mapping>
     </element>
     <element id="MeasureReport.reporter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -309,6 +322,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=PRF]"/>
+      </mapping>
+      <mapping>
+        <identity value="qrda"/>
+        <map value="ClinicalDocument.documentationOf"/>
       </mapping>
     </element>
     <element id="MeasureReport.reportingVendor">
