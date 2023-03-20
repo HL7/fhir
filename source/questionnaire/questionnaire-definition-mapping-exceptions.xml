@@ -24,7 +24,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="Questionnaire.subjectType">
-        <upperCardinality _pattern="1" _resource="*" reason="A questionnaire might exist about both Patients and RelatedPersons, or about Devices and Medications, etc."/>
         <missingTypes _pattern="CodeableReference(Group)" reason="Unknown">
             <!--Old pattern: CodeableConcept, Reference(Group)-->
             <!--Old reason: For Questionnaires, no use-case for Group and subjects only need to be constrained on basis of resource, so no need for translations-->
@@ -43,6 +42,18 @@
             <_pattern value="Many protocols, order sets and guidelines are intended for use only with specific types of patients or subjects."/>
             <resource value="Allows enforcing that a QuestionnaireResponse only has a .subject element of the appropriate type."/>
         </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.jurisdiction" resourcePath="Questionnaire.jurisdiction">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.effectivePeriod" resourcePath="Questionnaire.effectivePeriod">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+            <resource value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a questionnaire intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.code" resourcePath="Questionnaire.code">
         <missingTypes _pattern="CodeableConcept" reason="We use Coding rather than CodeableConcept because we don't want text"/>
