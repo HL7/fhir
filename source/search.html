@@ -758,7 +758,7 @@ given=valueGivenA,valueGivenB</span>
   record that have BOTH "valueGivenA" and "valueGivenB" (e.g., inclusive or).
 </p>
 <p>
-  Note that each value of an "OR" query MAY contain a prefix if allowed by the search type.  For example,
+  Each value of an "OR" query MAY contain a prefix if allowed by the search type.  For example,
   a search for a heart rate value (<a href="https://loinc.org/8867-4/">LOINC 8867-4</a>) outside of the 
   'normal resting range of adults':
 <span class="http-search-example">
@@ -772,6 +772,21 @@ code=http://loinc.org|8867-4&amp;value-quantity=lt60,gt100</span>
 </span>
   will match against Observations that have the LOINC code for a Heart Rate and have a value that is EITHER
   less than 60 OR greater than 100.
+</p>
+<p>
+  If a modifier is used on a search parameter, it applies to each value of an "OR" query.  For example,
+  searching for either of two exact given names:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?given:exact=GivenA,GivenB</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given:exact=GivenA,GivenB</span>
+  </span>
+</span>
+  will match against Patients that contain a given name of exactly "GivenA", Patients that contain a given
+  name of exactly "GivenB", and Patients that contain both values.
 </p>
 <p>
   It is possible to combine both "AND" and "OR" type queries together in a single request.  For example, a 
@@ -1108,7 +1123,13 @@ name=valueA,valueB</span>
     </td>
    </tr>
   </table>
-
+  <p>
+    Note that modifiers are allowed in searches that combine multiple terms.  When using a modifier in "or" joined search parameter values,
+    the modifier applies to ALL values present.  For example, in <code>given:exact=valueA,valueB</code>, the <code>exact</code>
+    modifier is used for both "valueA" and "valueB".  Additional details can be found in the 
+    <a href="#multivalue">Searching Multiple Values</a> section of the Search page.
+  </p>
+  
   <a name="modifierabove"></a>
   <h5>above</h5>
   <p>
@@ -1721,6 +1742,22 @@ Composition?section:not=48765-2</span>
     the negation applies to the set and not each individual entry.
   </p>
 
+  [%dragons-start%]
+  <p>
+    Note that the <code>not</code> modifier can behave in undesirable ways with "or"-joined parameter values.  Specifically,
+    consider a query that uses a scalar (max cardinality one) value, such as: <code>gender:not=male,female</code>.  Using the 'default'
+    rules, the query is expanded to be the union of the sets of: patients that do not have a gender element value or that contain any
+    value other than "male", and patients that do not have a gender element value or that contain any value other than "female" - the 
+    union of those sets will always contain all records.
+  </p>
+  <p>
+    Implementer feedback is requested on this behavior and if additional rules concerning the <code>not</code> modifier would be appropriate.
+    In the meantime, use of the <code>not</code> modifier with "or"-joined search terms is not recommended.  Implementers are instead
+    recommended to use either the <a href="#_filter">_filter</a> parameter or <a href="#advanced">Named Queries</a>.
+  </p>
+  [%dragons-end%]
+  
+
   <a name="modifiernotin"></a>
   <h5>not-in</h5>
   <p>
@@ -2125,6 +2162,12 @@ the prefixes described in the table below are used.  Note that in the following 
   is required - either <a href="#modifiermissing"><code>missing</code></a> or <a href="#modifiernot"><code>not</code></a>.
 </p>
 <p>
+  Prefixes are allowed in searches that combine multiple terms.  When using a prefix in "or" joined search parameter values,
+  the prefix only applies to the value it precedes.  For example, in <code>value-quantity=lt60,gt100</code>, the <code>lt</code>
+  prefix is applied to the value "60" and the <code>gt</code> prefix is applied to the value "100".  Additional details can be
+  found in the <a href="#multivalue">Searching Multiple Values</a> section of the Search page.
+</p>
+<p>
 If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
 is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
 <code>eb</code> (<code>ends-before</code>) are not used with integer values but are used for decimals.
@@ -2160,7 +2203,7 @@ are identified:
  </tr>
 </table>
 <p>
-The proper use of these ranges is discussed further below.
+Additional details about how ranges are applied are specific to each data type and are documented there.
 </p>
 
 <a name="escaping"></a>
