@@ -52,4 +52,16 @@
       <display value="General Example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example subject-list"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measurereport-788ca455-e11b1a59"/>
+    </extension>
+    <item>
+      <reference value="MeasureReport/788ca455-e11b1a59"/>
+      <display value="Subject List Example"/>
+    </item>
+  </entry>
 </List>
