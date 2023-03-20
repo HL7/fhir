@@ -1007,7 +1007,7 @@
     <element id="ConceptMap.group.element.target.property.value[x]">
       <path value="ConceptMap.group.element.target.property.value[x]"/>
       <short value="Value of the property for this concept"/>
-      <definition value="The value of this property."/>
+      <definition value="The value of this property. If the type chosen for this element is 'code', then the property SHALL be defined in a ConceptMap.property element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
