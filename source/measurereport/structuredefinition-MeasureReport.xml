@@ -420,7 +420,7 @@
       <path value="MeasureReport.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
-      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score."/>
+      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
       <min value="0"/>
       <max value="1"/>
       <type>
