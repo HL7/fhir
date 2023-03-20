@@ -450,7 +450,9 @@ Notes:
         processor-specific flag that accomplishes the same effect. This means that HTML content cannot be embedded in markdown to influence rendering.</li>
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
-		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
+		    is considered a non-breaking change for elements with a single type.  It is a breaking change for multi-type/choice elements because the type name
+		    is reflected in the element name.  (Adding <code>markdown</code> as an additional choice to a multi-type element is not a breaking change).  The impact
+		    of a lack of escaping on existing string data on safe rendering should be considered in evaluating changes from string to markdown - see next bullet.</li>
      <li>WARNING: Because markdown renderers will interpret certain characters as formatting characters and strip them from the display, it is essential 
       that systems transmitting plain string data in a markdown field take steps to appropriately escape the string to avoid loss of information when 
       rendering for human display.</li>
