@@ -45,6 +45,7 @@ search declarations</a>, and clients are encouraged to do this too.
   </li>
   <li><a href="#transportprotocols">Transport Protocols</a>
     <ul>
+      <li><a href="#multi-datastore">Multi-datastore Considerations</a></li>
       <li><a href="#batching">Batching Searches</a></li>
       <li><a href="#messaging">Search in Messaging</a></li>
     </ul>
@@ -518,6 +519,54 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
   This specification defines FHIR Search operations in both HTTP <code>POST</code> and <code>GET</code>.
   For details about the HTTP methods regarding search, please see the 
   <a href="http.html#search">Search section</a> of the HTTP page.
+</p>
+
+<a name="multi-datastore"></a>
+<h4>Multi-datastore Considerations</h4>
+<p>
+  Some servers expose a FHIR endpoint that actually represents multiple data stores.  For 
+  example, a system might expose a single Observation endpoint, even though internally there 
+  are distinct systems for labs, vitals, clinical assessments, and symptoms.  Alternatively, 
+  a system might expose a single Patient endpoint even though it is backed by multiple distinct 
+  Patient repositories.
+</p>
+<p>
+  In these "single endpoint/multiple back-end" scenarios, it is possible that the internal 
+  repositories have different capabilities when it comes to search.
+</p>
+<p>
+  At present, there is no standard way to declare such limitations as part of the 
+  <a href="capabilitystatement.html">CapabilityStatement</a>, other than through custom extensions.
+  A future release of FHIR could provide a more standard way of performing such declarations.
+</p>
+<p>
+  In any event, systems can handle such limitations in <i>at least</i> four ways:
+  <ol>
+    <li>
+      By requiring that some searches include certain mandatory criteria.  For example, 
+      Observation searches might require that the <code>category</code> parameter be present 
+      (and only have one value) or Patient searches might require that the <code>organization</code> 
+      parameter be present.  These permitted combinations can be conveyed by extensions on the
+      <code>CapabilityStatement</code>.  Clients that fail to satisfy the 'combination' rules 
+      will not be able to search successfully.
+    </li>
+    <li>
+      By having the intermediary system that handles the dispatch to different back ends 
+      perform supplementary filtering such that any search parameters that cannot be enforced by 
+      the back-end system are instead applied at the intermediary layer, and thus from a 'client' 
+      perspective the search was executed as desired.
+    </li>
+    <li>
+      By returning a warning message in the search 
+      <a href="operationoutcome.html">OperationOutcome</a> (see also: 
+      <a href="#errors">Handling Errors</a>) indicating that not all filters were applied on all 
+      resources.  This SHOULD only occur in situations where it is known that some filters haven't been applied
+      <span class="stu">TU</span>.
+    </li>
+    <li>
+      By exposing distinct FHIR endpoints for each data source and the different capabilities in an endpoint-specific manner.
+    </li>
+  </ol>
 </p>
 
 <a name="batching"></a>
