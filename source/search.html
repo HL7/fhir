@@ -1120,13 +1120,18 @@ name=valueA,valueB</span>
   <h6>above with <em>reference</em> type search parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
-    as a hierarchical search on linked resources of the same type, including exact matches and all parents of those matches.  The <code>above</code> 
+    as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>above</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
-    same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
-    be found in the section <a href="#recursive">Searching Hierarchies</a>.
+    same type of resource where those references establish a hierarchy.  For example, the <a href="location.html">Location</a> resource can define a
+    hierarchy using the <code>partOf</code> element to track locations that are inside each other (e.g., <code>Location/A101</code>, a room, is 
+    <i>partOf</i> <code>Location/A</code>, a floor).  Meanwhile, the <a href="patient.html">Patient</a> resource could refer to other patient
+    resources via the <code>link</code> element, but no hierarchical meaning is intended.  Further discussion about the requirements and uses for this 
+    type of search can be found in the section <a href="#recursive">Searching Hierarchies</a>.
   </p>
   <p>
     When using the <code>above</code> modifier on a reference, all typically-valid search parameter reference inputs are allowed.
+    Note that the actual Resources that establish hierarchical references and the search parameters used are listed in the 
+    <a href="references.html#circular">Circular Resource References</a> section of the References page.
   </p>
   <p>
     For example, the search:
@@ -1242,12 +1247,17 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
   <p>
     When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>below</code> 
-    modifier is only valid for <a href="references.html#circular">circular</a> <b>?? recursive instead of circular here ??</b> references - that is, references that point to another instance of the 
-    same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
-    be found in the section <a href="#recursive">Searching Hierarchies</a>.
+    modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
+    same type of resource where those references establish a hierarchy.  For example, the <a href="location.html">Location</a> resource can define a
+    hierarchy using the <code>partOf</code> element to track locations that are inside each other (e.g., <code>Location/A101</code>, a room, is 
+    <i>partOf</i> <code>Location/A</code>, a floor).  Meanwhile, the <a href="patient.html">Patient</a> resource could refer to other patient
+    resources via the <code>link</code> element, but no hierarchical meaning is intended.  Further discussion about the requirements and uses for this 
+    type of search can be found in the section <a href="#recursive">Searching Hierarchies</a>.
   </p>
   <p>
     When using the <code>below</code> modifier on a hierarchical reference, all typically-valid search parameter reference inputs are allowed.
+    Note that the actual Resources that establish hierarchical references and the search parameters used are listed in the 
+    <a href="references.html#circular">Circular Resource References</a> section of the References page.
   </p>
   <p>
     For example, the search:
@@ -3572,7 +3582,8 @@ see <a href="references.html#canonical-matching">Choosing the right Canonical Re
 <p>
 Some references are <a href="references.html#circular">circular</a> - that is, the reference
 points to another resource of the same type. When the reference establishes a strict hierarchy,
-the modifiers :above and :below may be used to search transitively through the hierarchy:
+the modifiers <code><a href="#modifierabove">above</a></code> and <code><a href="#modifierbelow">below</a></code>
+can be used to search transitively through the hierarchy:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -3603,11 +3614,14 @@ Returns all medication administrations that happened during encounter with id 21
 encounter of that encounter.
 </p>
 <p>
-Servers indicate that :above/:below is supported on a search parameter by defining them as
-<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the
-Search Parameter definition.
+  Resources that establish hierarchical references are listed in the 
+  <a href="references.html#circular">Circular Resource References</a> section of the References page.
 </p>
-
+<p>
+Servers indicate that <code><a href="#modifierabove">above</a></code>/<code><a href="#modifierbelow">below</a></code> 
+is supported on a search parameter by defining them as
+<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the Search Parameter definition.
+</p>
 
 <a name="mimetype"></a>
 <h4>Searching MIME Types</h4>
