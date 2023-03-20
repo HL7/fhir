@@ -332,14 +332,17 @@ based on feedback from implementers.
 [%dragons-end%]
 
 <p>
-The following kinds of changes may be made to the specification:
+Once an artifact achieves <i>Normative</i> status, specific rules come into play around inter-version compatibility.  These rules have implication for both forward and backward compatibility and are intended to allow implementations to exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data between systems using different versions of FHIR.  These rules do not apply to non-normative content, including STU content within normative artifacts.
+</p>
+<p>
+The following kinds of changes may be made to normative portions of the specification:
 </p>
 <ul>
- <li><b>Breaking changes</b> are changes that mean that previously conformant applications are no longer conformant to the updated specification</li>
+ <li><b>Breaking changes</b> are changes that mean that previously conformant resource instances are no longer conformant to the updated specification</li>
  <li><b>Substantive changes</b> are changes that introduce new functionality - changes to the specification that create new capabilities - but would not render
   unchanged existing applications non-conformant</li>
- <li><b>Non-substantive changes</b> should not cause changes in any conformant application. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
-    In addition, this covers corrections that are judged not to create any expectation of change to a conformant application</li>
+ <li><b>Non-substantive changes</b> should not cause changes in any conformant resource instances. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
+    In addition, this covers corrections that are judged not to create any expectation of change to a conformant resource instance.</li>
 </ul>
 [%dragons-start%]
 <p>
@@ -356,9 +359,6 @@ NOTE: The examples provided as part of this specification are never substantive.
 <p>
 Content with a status of <i>Draft</i> or <i>Trial Use</i> can change - including Breaking Changes - from
 version to version, subject to the rules described by the <a href="#maturity">Maturity Process</a>.  There are no rules for maintaining any sort of compatibility between versions for content with these statuses, though of we will only make breaking changes based on feedback from the community.
-</p>
-<p>
-Once an artifact achieves <i>Normative</i> status, specific rules come into play around inter-version compatibility.  These rules have implication for both forward and backward compatibility and are intended to allow implementations to exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data between systems using different versions of FHIR.
 </p>
 <p>
 <b>Forward compatibility</b> means that content that is conformant in an old release will remain conformant with future versions.  Once normative, FHIR's rules try to enforce forward compatibility.  However, that doesn't guarantee that all old systems will interoperate with future systems.
