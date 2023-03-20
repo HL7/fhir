@@ -94,8 +94,8 @@
       <constraint>
         <key value="dgr-1"/>
         <severity value="error"/>
-        <human value="A resource referenced in a Composition entry must also be included in the DiagnosticReport result (Observation resources or nested resources via Observation.hasMember)"/>
-        <expression value="composition.exists() implies composition.resolve().section.entry.resolve().descendants().where((id in result.resolve().descendants().id).not()).empty()"/>
+        <human value="When a Composition is referenced in `Diagnostic.composition`, all Observation resources referenced in `Composition.entry` must also be referenced in `Diagnostic.entry` or in the references Observations in `Observation.hasMember`"/>
+        <expression value="composition.exists() implies (composition.resolve().section.entry.reference.where(resolve() is Observation) in (result.reference|result.reference.resolve().hasMember.reference))"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
@@ -337,10 +337,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.encounter">

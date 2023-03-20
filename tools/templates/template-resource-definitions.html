@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<!-- template-resource-definitions.html -->
+       
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%aresheader definitions%>
+<h2>Resource <%title%> - Detailed Descriptions</h2>
+
+<table class="<%fmm-style%>"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
+
+[%normative resource %check%]
+
+<p>Detailed Descriptions for the elements in the <%atitle%>.</p>
+
+<%dictionary%>
+
+<a name="Meta"></a>
+<a name="meta"></a>
+<h3 style="margin-bottom: 1px">Meta</h3>
+[%dtstatus Meta%]
+<p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
+<!--xlp:Meta-->See also <a no-external="true" href="references.html#CodeableReference">Base Definition</a>, <a no-external="true" href="references-profiles.html#CodeableReference">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-references.html#CodeableReference">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-references.html#CodeableReference">R4 Conversions</a>
+</p>
+
+<%dictionary Meta%>
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>

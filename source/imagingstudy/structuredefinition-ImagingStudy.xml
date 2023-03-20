@@ -241,10 +241,6 @@
         <identity value="dicom"/>
         <map value="(0010/*)"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="ImagingStudy.encounter">
       <path value="ImagingStudy.encounter"/>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="dgr-1.f1.fail"/>
+<!-- ======= Fail dgr-1 invariant ======== -->
+	<contained>
+		<Composition xmlns="http://hl7.org/fhir">
+			<id value="comp"/>
+			<status value="final"/>
+			<type>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="LP29684-5"/>
+				</coding>
+			</type>
+			<subject>
+				<reference value="Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
+			</subject>
+			<date value="2013-02-13T11:45:33+11:00"/>
+			<author>
+				<reference value="Practitioner/example"/>
+			</author>
+			<title value="Diagnostic Report"/>
+			<section>
+			<title>Diagnostic Report</title>
+			<entry>
+				<reference value="#obs1"/>
+			</entry>
+			</section>
+
+		</Composition>
+	</contained>
+		<contained>		
+		<Observation xmlns="http://hl7.org/fhir">
+			<id value="obs1"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="47527-7"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
+			</subject>
+			<effectiveDateTime value="2013-02-11T10:33:33+11:00"/>
+			<issued value="2013-02-13T11:45:33+11:00"/>
+			<valueQuantity>
+				<value value="1.0"/>
+				<unit value="mg/dL"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mg/dL"/>
+			</valueQuantity>
+		</Observation>
+	</contained>
+<!-- ======================================== -->
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="47527-7"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
+	</subject>
+	<effectiveDateTime value="2013-02-11T10:33:33+11:00"/>
+	<issued value="2013-02-13T11:45:33+11:00"/>
+	<performer>
+		<reference value="Practitioner/example"/>
+	</performer>
+<!-- ======= Fail dgr-1 invariant ======== -->
+	<composition>
+		<reference value="#comp"/>
+	</composition>
+<!-- ======================================== -->
+</DiagnosticReport>

@@ -401,10 +401,6 @@
         <identity value="rim"/>
         <map value=".partipication[ttypeCode=].role"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Immunization.encounter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
