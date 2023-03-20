@@ -135,7 +135,7 @@
         <id value="fb6ed6cb-324e-4588-87cd-0c92c68986ca"/>
         <type value="searchset"/>
         <link>
-          <type value="self"/>
+          <relation value="self"/>
           <url value="http://example.org/fhir/Patient?somefilter=whatever"/>
         </link>
       <!--  etc. -->
