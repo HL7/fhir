@@ -300,7 +300,7 @@ Additional notes:
 </p>
 <ul>
  <li>Changes to a formally published specification (except for minor publishing corrections, such as correcting broken external links) are only made via announced technical corrections</li>
- <li>The reference implementations have 2 versions - the version of the specification that they implement and their own version. Consult the reference implementation documentation for policy regarding this version number</li>
+ <li>Software implementing FHIR typically has 2 versions - the version of the specification that it implements and its own version. Consult the software documentation for policy regarding versioning and version labels.</li>
 </ul>
 
 
@@ -676,9 +676,6 @@ http://hl7.org/fhir/[version]/StructureDefinition/extension-[Path]
 <p>
 where [version] is taken from this list:
 </p>
-<p>
-This technique can be used with all versions of FHIR, including R2 and R3:
-</p>
 <table class="grid">
 <tr>
 <td><a href="http://hl7.org/fhir/DSTU2">FHIR DSTU2</a></td>
@@ -702,7 +699,9 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 </tr>
 </table>
 <p>
-Note that this extension framework only applies back to DSTU2; older versions than that are not supported.
+This table includes the formal milestone releases for DSTU2 and on, which are the only releases for which this process is defined.  Older versions than that are not supported.  Technical correction releases are not listed because they will never introduce or change elements.  Ballot and interim releases are not supported for use in implementation environments
+</p>
+<p>
 The [Path] is actually the ElementDefinition.id from the relevant
 StructureDefinition for the element. This leads to URLs like the
 following:
