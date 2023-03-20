@@ -1047,7 +1047,7 @@
       </extension>
       <path value="MeasureReport.evaluatedResource"/>
       <short value="What data was used to calculate the measure score"/>
-      <definition value="A reference to a Resource that was used in the calculation of this measure."/>
+      <definition value="Evaluated resources are used to capture what data was involved in the calculation of a measure. This usage is only allowed for individual reports to ensure that the size of the MeasureReport resource is bounded."/>
       <comment value="Evaluated resources are only reported for individual reports."/>
       <min value="0"/>
       <max value="*"/>
