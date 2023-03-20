@@ -233,11 +233,11 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <a name="reporting-population-data"> </a>
 <h5>Reporting Population Data</h5>
 
-<p>A <a href="measurereport.html">MeasureReport</a> will contain one group of data for each group specified in the corresponding <a href="measure.html">Measure</a>, consisting of a set of population elements, one for each criteria defined in each group.</p>
+<p>A <a href="measurereport.html">MeasureReport</a> will contain one group of data for each group specified in the corresponding <a href="measure.html">Measure</a>, consisting of a set of population elements, one for each criteria defined in each group. The <code>Measure.group.linkId</code> and <code>Measure.group.population.linkId</code> elements define a linking id that is used to correlate the group and population elements in the MeasureReport back to the corresponding elements in the Measure.</p>
 
 <img alt="Population Measure Report" src="clinicalreasoning-measure-report-population.png"/>
 
-<p>In addition, each group will contain stratifiers with a value stratum for each value defined by the stratifier criteria, for each criteria defined in the measure.</p>
+<p>In addition, each group will contain stratifiers with a value stratum for each value defined by the stratifier criteria, for each criteria defined in the measure. The <code>Measure.group.stratifier.linkId</code> element defines a linking id that is used to correlate the stratifier elements in the MeasureReport back to the corresponding elements in the Measure.</p>
 
 <a name="reporting-individual-data"> </a>
 <h5>Reporting Individual Data</h5>
@@ -247,6 +247,8 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <img alt="Individual Measure Report" src="clinicalreasoning-measure-report-individual.png"/>
 
 <p>See the MeasureReport <a href="measurereport-examples.html">examples</a> for a detailed illustration of how the data elements involved in the calculation of the measure are communicated through the <code>evaluatedResources</code> element.</p>
+
+<p>As with population-level reports, the <code>group</code>, <code>population</code>, <code>stratifier</code>, and <code>supplementalData</code> elements have a <code>linkId</code> element that defines a linking id that is used to correlate these elements in the MeasureReport back to the corresponding elements in the Measure.</p>
 
 <a name="reporting-subject-list-data"> </a>
 <h5>Subject-List Reports</h5>
