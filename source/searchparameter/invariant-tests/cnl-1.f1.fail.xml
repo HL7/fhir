@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/SearchParameter/example#smile"/>
+  <version value="1"/>
+  <name value="IDSEARCHPARAMETER"/>
+  <title value="I D- S E A R C H- P A R A M E T E R"/>
+  <derivedFrom value="http://hl7.org/fhir/SearchParameter/Resource-id"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2013-10-23"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <name value="[string]"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+        <code value="positive"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America (the)"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
+  <code value="_id"/>
+  <base value="Resource"/>
+  <type value="token"/>
+  <expression value="id"/>
+  <processingMode value="normal"/>
+</SearchParameter>
