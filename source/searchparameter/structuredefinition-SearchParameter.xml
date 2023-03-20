@@ -1,691 +1,693 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-  <id value="SearchParameter"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Conformance"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.5.1352"/>
-  </identifier>
-  <version value="5.0.0"/>
-  <name value="SearchParameter"/>
-  <title value="Search Parameter"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="A search parameter that defines a named search item that can be used to search/filter on a resource."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="v2"/>
-    <uri value="http://hl7.org/v2"/>
-    <name value="HL7 V2 Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="SearchParameter"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="SearchParameter">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
-      <path value="SearchParameter"/>
-      <short value="Search parameter for a resource"/>
-      <definition value="A search parameter that defines a named search item that can be used to search/filter on a resource."/>
-      <comment value="In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </constraint>
-      <constraint>
-        <key value="spd-1"/>
-        <severity value="error"/>
-        <human value="If an expression is present, there SHALL be a processingMode"/>
-        <expression value="expression.empty() or processingMode.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </constraint>
-      <constraint>
-        <key value="spd-2"/>
-        <severity value="error"/>
-        <human value="Search parameters can only have chain names when the search parameter type is 'reference'"/>
-        <expression value="chain.empty() or type = 'reference'"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </constraint>
-      <constraint>
-        <key value="spd-3"/>
-        <severity value="error"/>
-        <human value="Search parameters comparator can only be used on type 'number', 'date', 'quantity' or 'special'."/>
-        <expression value="comparator.empty() or (type in ('number' | 'date' | 'quantity' | 'special'))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </constraint>
-      <mapping>
-        <identity value="v2"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="conformance.behavior"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.url">
-      <path value="SearchParameter.url"/>
-      <short value="Canonical identifier for this search parameter, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the search parameter to be referenced by a single globally unique identifier. To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <constraint>
-        <key value="cnl-1"/>
-        <severity value="warning"/>
-        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="exists() implies matches('^[^|# ]+$')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-      </constraint>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.identifier">
- 			<path value="SearchParameter.identifier"/>
- 			<short value="Additional identifier for the search parameter (business identifier)"/>
- 			<definition value="A formal identifier that is used to identify this search parameter when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
- 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
- 			<min value="0"/>
- 			<max value="*"/>
- 			<type>
- 				<code value="Identifier"/>
- 			</type>
- 			<isSummary value="true"/>
- 			<mapping>
- 				<identity value="w5"/>
- 				<map value="FiveWs.identifier"/>
- 			</mapping>
- 		</element>
-    <element id="SearchParameter.version">
-      <path value="SearchParameter.version"/>
-      <short value="Business version of the search parameter"/>
-      <definition value="The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different search parameter instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the search parameter with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.versionAlgorithm[x]">
-      <path value="SearchParameter.versionAlgorithm[x]"/>
-      <short value="How to compare versions"/>
-      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
-      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
-      </binding>
-    </element>
-    <element id="SearchParameter.name">
-      <path value="SearchParameter.name"/>
-      <short value="Name for this search parameter (computer friendly)"/>
-      <definition value="A natural language name identifying the search parameter. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="SearchParameter.title">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="SearchParameter.title"/>
-      <short value="Name for this search parameter (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the search parameter."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SearchParameter.derivedFrom">
-      <path value="SearchParameter.derivedFrom"/>
-      <short value="Original definition for the search parameter"/>
-      <definition value="Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. i.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter."/>
-      <comment value="The intent of this is that a server can designate that it provides support for a search parameter defined in the specification itself (e.g.  [`value-quantity`](http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </type>
-    </element>
-    <element id="SearchParameter.status">
-      <path value="SearchParameter.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this search parameter. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of search parameters that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.experimental">
-      <path value="SearchParameter.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of search parameters that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level search parameter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.date">
-      <path value="SearchParameter.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the search parameter was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the search parameter. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.publisher">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="SearchParameter.publisher"/>
-      <short value="Name of the publisher/steward (organization or individual)"/>
-      <definition value="The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the search parameter is the organization or individual primarily responsible for the maintenance and upkeep of the search parameter. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the search parameter. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the search parameter.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="SearchParameter.contact">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,60"/>
-      </extension>
-      <path value="SearchParameter.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SearchParameter.description">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="SearchParameter.description"/>
-      <short value="Natural language description of the search parameter"/>
-      <definition value="And how it used."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the search parameter as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the search parameter is presumed to be the predominant language in the place the search parameter was created)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SearchParameter.useContext">
-      <path value="SearchParameter.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate search parameter instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SearchParameter.jurisdiction">
-      <path value="SearchParameter.jurisdiction"/>
-      <short value="Intended jurisdiction for search parameter (if applicable)"/>
-      <definition value="A legal or geographic region in which the search parameter is intended to be used."/>
-      <comment value="It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-    </element>
-    <element id="SearchParameter.purpose">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="SearchParameter.purpose"/>
-      <short value="Why this search parameter is defined"/>
-      <definition value="Explanation of why this search parameter is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the search parameter. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this search parameter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
- 		<element id="SearchParameter.copyright">
- 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
- 				<valueBoolean value="true"/>
- 			</extension>
- 			<path value="SearchParameter.copyright"/>
- 			<short value="Use and/or publishing restrictions"/>
- 			<definition value="A copyright statement relating to the search parameter and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the search parameter."/>
- 			<comment value="..."/>
- 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the search parameter and/or its content."/>
- 			<alias value="License"/>
- 			<alias value="Restrictions"/>
- 			<min value="0"/>
- 			<max value="1"/>
- 			<type>
- 				<code value="markdown"/>
- 			</type>
- 			<mapping>
- 				<identity value="objimpl"/>
- 				<map value="no-gen-base"/>
- 			</mapping>
- 		</element>
- 		<element id="SearchParameter.copyrightLabel">
- 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
- 				<valueBoolean value="true"/>
- 			</extension>
- 			<path value="SearchParameter.copyrightLabel"/>
- 			<short value="Copyright holder and year(s)"/>
- 			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
- 			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
- 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
- 			<min value="0"/>
- 			<max value="1"/>
- 			<type>
- 				<code value="string"/>
- 			</type>
- 		</element>    
-    <element id="SearchParameter.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="SearchParameter.code"/>
-      <short value="Recommended name for parameter in search url"/>
-      <definition value="The label that is recommended to be used in the URL or the parameter name in a parameters resource for this search parameter.  In some cases, servers may need to use a different CapabilityStatement searchParam.name to differentiate between multiple SearchParameters that happen to have the same code."/>
-      <comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple search parameters with the same code."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SearchParameter.base">
-      <path value="SearchParameter.base"/>
-      <short value="The resource type(s) this search parameter applies to"/>
-      <definition value="The base resource type(s) that this search parameter can be used against."/>
-      <comment value="A search parameter must always apply to at least one resource type. When search parameters apply to more than one resource type, they can be used against any of the listed resource types, or in a cross-type search (see [Cross Resource Search](http.html#xres-search))."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRTypes"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A type of resource, or a Reference (from all versions)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
-        <additional>
-          <purpose value="ui"/>
-          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-          <shortDoco value="This is the value set to use for just R5 resource types"/>
-        </additional>
-      </binding>
-    </element>
-    <element id="SearchParameter.type">
-      <path value="SearchParameter.type"/>
-      <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
-      <definition value="The type of value that a search parameter may contain, and how the content is interpreted."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="spd-2"/>
-      <condition value="spd-3"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SearchParamType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Data types allowed to be used for search parameters."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
-      </binding>
-    </element>
-    <element id="SearchParameter.expression">
-      <path value="SearchParameter.expression"/>
-      <short value="FHIRPath expression that extracts the values"/>
-      <definition value="A FHIRPath expression that returns a set of elements for the search parameter."/>
-      <comment value="Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system. For composite search parameters, the outcome of the expression must a collection of base elements from which the composites are derived."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="spd-1"/>
-    </element>
-    <element id="SearchParameter.processingMode">
-      <path value="SearchParameter.processingMode"/>
-      <short value="normal | phonetic | other"/>
-      <definition value="How the search parameter relates to the set of elements returned by evaluating the expression query."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="spd-1"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SearchProcessingModeType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
-      </binding>
-    </element>
-    <element id="SearchParameter.constraint">
-      <path value="SearchParameter.constraint"/>
-      <short value="FHIRPath expression that constraints the usage of this SearchParamete"/>
-      <definition value="FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="SearchParameter.target">
-      <path value="SearchParameter.target"/>
-      <short value="Types of resource (if a resource reference)"/>
-      <definition value="Types of resource (if a resource is referenced)."/>
-      <comment value="In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.&#xA;&#xA;However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRTypes"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A type of resource, or a Reference (from all versions)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
-        <additional>
-          <purpose value="ui"/>
-          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-          <shortDoco value="This is the value set to use for just R5 resource types"/>
-        </additional>
-      </binding>
-    </element>
-    <element id="SearchParameter.multipleOr">
-      <path value="SearchParameter.multipleOr"/>
-      <short value="Allow multiple values per parameter (or)"/>
-      <definition value="Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="SearchParameter.multipleAnd">
-      <path value="SearchParameter.multipleAnd"/>
-      <short value="Allow multiple parameters (and)"/>
-      <definition value="Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="SearchParameter.comparator">
-      <path value="SearchParameter.comparator"/>
-      <short value="eq | ne | gt | lt | ge | le | sa | eb | ap"/>
-      <definition value="Comparators supported for the search parameter."/>
-      <comment value="If no comparators are listed, clients should not expect servers to support any comparators."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="spd-3"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SearchComparator"/>
-        </extension>
-        <strength value="required"/>
-        <description value="What Search Comparator Codes are supported in search."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-comparator"/>
-      </binding>
-    </element>
-    <element id="SearchParameter.modifier">
-      <path value="SearchParameter.modifier"/>
-      <short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
-      <definition value="A modifier supported for the search parameter."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SearchModifierCode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A supported modifier for a search parameter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-modifier-code"/>
-      </binding>
-    </element>
-    <element id="SearchParameter.chain">
-      <path value="SearchParameter.chain"/>
-      <short value="Chained names supported"/>
-      <definition value="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type."/>
-      <comment value="Notes:&#xA;&#xA;* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available&#xA;* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values&#xA;*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```&#xA;* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```&#xA;* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="spd-2"/>
-    </element>
-    <element id="SearchParameter.component">
-      <path value="SearchParameter.component"/>
-      <short value="For Composite resources to define the parts"/>
-      <definition value="Used to define the parts of a composite search parameter."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="SearchParameter.component.definition">
-      <path value="SearchParameter.component.definition"/>
-      <short value="Defines how the part works"/>
-      <definition value="The definition of the search parameter that describes this part."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </type>
-    </element>
-    <element id="SearchParameter.component.expression">
-      <path value="SearchParameter.component.expression"/>
-      <short value="Subexpression relative to main expression"/>
-      <definition value="A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression."/>
-      <comment value="This expression overrides the expression in the definition and extracts the index values from the outcome of the composite expression."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-  </differential>
+	<id value="SearchParameter"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Conformance"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="3"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.5.1352"/>
+	</identifier>
+	<version value="5.0.0"/>
+	<name value="SearchParameter"/>
+	<title value="Search Parameter"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A search parameter that defines a named search item that can be used to search/filter on a resource."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="v2"/>
+		<uri value="http://hl7.org/v2"/>
+		<name value="HL7 V2 Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="SearchParameter"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="SearchParameter">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,0"/>
+			</extension>
+			<path value="SearchParameter"/>
+			<short value="Search parameter for a resource"/>
+			<definition value="A search parameter that defines a named search item that can be used to search/filter on a resource."/>
+			<comment value="In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</constraint>
+			<constraint>
+				<key value="spd-1"/>
+				<severity value="error"/>
+				<human value="If an expression is present, there SHALL be a processingMode"/>
+				<expression value="expression.empty() or processingMode.exists()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</constraint>
+			<constraint>
+				<key value="spd-2"/>
+				<severity value="error"/>
+				<human value="Search parameters can only have chain names when the search parameter type is 'reference'"/>
+				<expression value="chain.empty() or type = 'reference'"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</constraint>
+			<constraint>
+				<key value="spd-3"/>
+				<severity value="error"/>
+				<human value="Search parameters comparator can only be used on type 'number', 'date', 'quantity' or 'special'."/>
+				<expression value="comparator.empty() or (type in ('number' | 'date' | 'quantity' | 'special'))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</constraint>
+			<mapping>
+				<identity value="v2"/>
+				<map value="n/a"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="n/a"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="conformance.behavior"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.url">
+			<path value="SearchParameter.url"/>
+			<short value="Canonical identifier for this search parameter, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the search parameter to be referenced by a single globally unique identifier. To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="exists() implies matches('^[^|# ]+$')"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.identifier">
+			<path value="SearchParameter.identifier"/>
+			<short value="Additional identifier for the search parameter (business identifier)"/>
+			<definition value="A formal identifier that is used to identify this search parameter when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.version">
+			<path value="SearchParameter.version"/>
+			<short value="Business version of the search parameter"/>
+			<definition value="The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<comment value="There may be different search parameter instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the search parameter with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.versionAlgorithm[x]">
+			<path value="SearchParameter.versionAlgorithm[x]"/>
+			<short value="How to compare versions"/>
+			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+			</binding>
+		</element>
+		<element id="SearchParameter.name">
+			<path value="SearchParameter.name"/>
+			<short value="Name for this search parameter (computer friendly)"/>
+			<definition value="A natural language name identifying the search parameter. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.title"/>
+			<short value="Name for this search parameter (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the search parameter."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.derivedFrom">
+			<path value="SearchParameter.derivedFrom"/>
+			<short value="Original definition for the search parameter"/>
+			<definition value="Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. i.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter."/>
+			<comment value="The intent of this is that a server can designate that it provides support for a search parameter defined in the specification itself (e.g.  [`value-quantity`](http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</type>
+		</element>
+		<element id="SearchParameter.status">
+			<path value="SearchParameter.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this search parameter. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of search parameters that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.experimental">
+			<path value="SearchParameter.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of search parameters that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level search parameter."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.date">
+			<path value="SearchParameter.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the search parameter was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the search parameter. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.publisher"/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the search parameter is the organization or individual primarily responsible for the maintenance and upkeep of the search parameter. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the search parameter. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the search parameter.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.contact">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="350,60"/>
+			</extension>
+			<path value="SearchParameter.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.description"/>
+			<short value="Natural language description of the search parameter"/>
+			<definition value="And how it used."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the search parameter as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the search parameter is presumed to be the predominant language in the place the search parameter was created)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.useContext">
+			<path value="SearchParameter.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate search parameter instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.jurisdiction">
+			<path value="SearchParameter.jurisdiction"/>
+			<short value="Intended jurisdiction for search parameter (if applicable)"/>
+			<definition value="A legal or geographic region in which the search parameter is intended to be used."/>
+			<comment value="It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+		</element>
+		<element id="SearchParameter.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.purpose"/>
+			<short value="Why this search parameter is defined"/>
+			<definition value="Explanation of why this search parameter is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the search parameter. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this search parameter."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the search parameter and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the search parameter."/>
+			<comment value="..."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the search parameter and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="SearchParameter.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.copyrightLabel"/>
+			<short value="Copyright holder and year(s)"/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="SearchParameter.code">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.code"/>
+			<short value="Recommended name for parameter in search url"/>
+			<definition value="The label that is recommended to be used in the URL or the parameter name in a parameters resource for this search parameter.  In some cases, servers may need to use a different CapabilityStatement searchParam.name to differentiate between multiple SearchParameters that happen to have the same code."/>
+			<comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple search parameters with the same code."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.base">
+			<path value="SearchParameter.base"/>
+			<short value="The resource type(s) this search parameter applies to"/>
+			<definition value="The base resource type(s) that this search parameter can be used against."/>
+			<comment value="A search parameter must always apply to at least one resource type. When search parameters apply to more than one resource type, they can be used against any of the listed resource types, or in a cross-type search (see [Cross Resource Search](http.html#xres-search))."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A type of resource, or a Reference (from all versions)"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+				<additional>
+					<purpose value="ui"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+					<shortDoco value="This is the value set to use for just R5 resource types"/>
+				</additional>
+			</binding>
+		</element>
+		<element id="SearchParameter.type">
+			<path value="SearchParameter.type"/>
+			<short value="number | date | string | token | reference | composite | quantity | uri | special"/>
+			<definition value="The type of value that a search parameter may contain, and how the content is interpreted."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="spd-2"/>
+			<condition value="spd-3"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SearchParamType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Data types allowed to be used for search parameters."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
+			</binding>
+		</element>
+		<element id="SearchParameter.expression">
+			<path value="SearchParameter.expression"/>
+			<short value="FHIRPath expression that extracts the values"/>
+			<definition value="A FHIRPath expression that returns a set of elements for the search parameter."/>
+			<comment value="Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system. For composite search parameters, the outcome of the expression must a collection of base elements from which the composites are derived."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="spd-1"/>
+		</element>
+		<element id="SearchParameter.processingMode">
+			<path value="SearchParameter.processingMode"/>
+			<short value="normal | phonetic | other"/>
+			<definition value="How the search parameter relates to the set of elements returned by evaluating the expression query."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="spd-1"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SearchProcessingModeType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
+			</binding>
+		</element>
+		<element id="SearchParameter.constraint">
+			<path value="SearchParameter.constraint"/>
+			<short value="FHIRPath expression that constraints the usage of this SearchParamete"/>
+			<definition value="FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="SearchParameter.target">
+			<path value="SearchParameter.target"/>
+			<short value="Types of resource (if a resource reference)"/>
+			<definition value="Types of resource (if a resource is referenced)."/>
+			<comment value="In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.&#xA;&#xA;However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A type of resource, or a Reference (from all versions)"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+				<additional>
+					<purpose value="ui"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+					<shortDoco value="This is the value set to use for just R5 resource types"/>
+				</additional>
+			</binding>
+		</element>
+		<element id="SearchParameter.multipleOr">
+			<path value="SearchParameter.multipleOr"/>
+			<short value="Allow multiple values per parameter (or)"/>
+			<definition value="Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If not declared, then it is up to server discretion whether multiple 'or' repetitions are allowed"/>
+		</element>
+		<element id="SearchParameter.multipleAnd">
+			<path value="SearchParameter.multipleAnd"/>
+			<short value="Allow multiple parameters (and)"/>
+			<definition value="Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If not declared, then it is up to server discretion whether multiple 'and' repetitions are allowed"/>
+		</element>
+		<element id="SearchParameter.comparator">
+			<path value="SearchParameter.comparator"/>
+			<short value="eq | ne | gt | lt | ge | le | sa | eb | ap"/>
+			<definition value="Comparators supported for the search parameter."/>
+			<comment value="If no comparators are listed, clients should not expect servers to support any comparators."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="spd-3"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SearchComparator"/>
+				</extension>
+				<strength value="required"/>
+				<description value="What Search Comparator Codes are supported in search."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/search-comparator"/>
+			</binding>
+		</element>
+		<element id="SearchParameter.modifier">
+			<path value="SearchParameter.modifier"/>
+			<short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
+			<definition value="A modifier supported for the search parameter."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SearchModifierCode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A supported modifier for a search parameter."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/search-modifier-code"/>
+			</binding>
+		</element>
+		<element id="SearchParameter.chain">
+			<path value="SearchParameter.chain"/>
+			<short value="Chained names supported"/>
+			<definition value="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type."/>
+			<comment value="Notes:&#xA;&#xA;* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available&#xA;* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values&#xA;*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```&#xA;* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```&#xA;* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="spd-2"/>
+		</element>
+		<element id="SearchParameter.component">
+			<path value="SearchParameter.component"/>
+			<short value="For Composite resources to define the parts"/>
+			<definition value="Used to define the parts of a composite search parameter."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="SearchParameter.component.definition">
+			<path value="SearchParameter.component.definition"/>
+			<short value="Defines how the part works"/>
+			<definition value="The definition of the search parameter that describes this part."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</type>
+		</element>
+		<element id="SearchParameter.component.expression">
+			<path value="SearchParameter.component.expression"/>
+			<short value="Subexpression relative to main expression"/>
+			<definition value="A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression."/>
+			<comment value="This expression overrides the expression in the definition and extracts the index values from the outcome of the composite expression."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+	</differential>
 </StructureDefinition>
