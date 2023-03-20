@@ -4,6 +4,11 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
+[%stu-note dstu%]
+We will <a href="https://jira.hl7.org/browse/FHIR-31867">deprecate the EvidenceReport resource and create an EvidenceReport profile of Composition</a> instead.
+</p>
+[%end-note-np%]
+
 <p>An evidence report is a structured presentation of any combination of evidence and related concepts. Evidence reports may bundle knowledge related to a single study or citation, and may bundle knowledge spanning multiple related studies or citations. Publishing such reports are extensively used by researchers, scholars, and evaluators to advance scientific knowledge, to decide whether more research is needed, to inform policy, to determine whether the literature has reached consensus, to inform clinical decision support, to substantiate the decisions being recommended, and for many other uses.</p>
 <p>The <i>subject</i> of the report defines its scope and can be expressed with one or more <i>subject.characteristic</i> elements (for structured definitions) or one or more <i>subject.note</i> elements (for human-readable expressions). Specifying a research question by the population, intervention/exposure, comparator, and outcome (PICO) could be expressed with four characteristics.</p>
 <p>Evidence reports may be dynamic, changing as new evidence accrues. The <i>relatesTo</i> element supports coding the relationships between EvidenceReport Resources.</p>
