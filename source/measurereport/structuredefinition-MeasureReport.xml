@@ -277,8 +277,8 @@
     </element>
     <element id="MeasureReport.date">
       <path value="MeasureReport.date"/>
-      <short value="When the report was generated"/>
-      <definition value="The date this measure report was generated."/>
+      <short value="When the measure was calculated"/>
+      <definition value="The date this measure was calculated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
