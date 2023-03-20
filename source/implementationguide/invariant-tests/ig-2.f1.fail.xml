@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/us/daf"/>
+  <version value="0"/>
+  <name value="DataAccessFrameworkDAF"/>
+  <title value="Data Access Framework (DAF)"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-01-01"/>
+  <packageId value="hl7.fhir.us.daf"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="5.0.0"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="Patient/test"/>
+      </reference>
+      <fhirVersion value="4.3.0"/>
+      <description value="A test example to show how an implementation guide works"/>
+    </resource>
+  </definition>
+</ImplementationGuide>
