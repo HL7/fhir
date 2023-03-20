@@ -8,7 +8,7 @@
 
 <p>Note that the Measure itself does not typically contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
 
-<p>This resource is a definition resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.
+<p>This resource is a definition resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
 <p>For a detailed discussion of how to use the Measure and MeasureReport resources, refer to the <a href="clinicalreasoning-quality-reporting.html">Quality Reporting</a> topic.</p>
 
