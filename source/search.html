@@ -758,7 +758,7 @@ given=valueGivenA,valueGivenB</span>
   record that have BOTH "valueGivenA" and "valueGivenB" (e.g., inclusive or).
 </p>
 <p>
-  Note that each value of an "OR" query MAY contain a prefix if allowed by the search type.  For example,
+  Each value of an "OR" query MAY contain a prefix if allowed by the search type.  For example,
   a search for a heart rate value (<a href="https://loinc.org/8867-4/">LOINC 8867-4</a>) outside of the 
   'normal resting range of adults':
 <span class="http-search-example">
@@ -772,6 +772,21 @@ code=http://loinc.org|8867-4&amp;value-quantity=lt60,gt100</span>
 </span>
   will match against Observations that have the LOINC code for a Heart Rate and have a value that is EITHER
   less than 60 OR greater than 100.
+</p>
+<p>
+  If a modifier is used on a search parameter, it applies to each value of an "OR" query.  For example,
+  searching for either of two exact given names:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?given:exact=GivenA,GivenB</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given:exact=GivenA,GivenB</span>
+  </span>
+</span>
+  will match against Patients that contain a given name of exactly "GivenA", Patients that contain a given
+  name of exactly "GivenB", and Patients that contain both values.
 </p>
 <p>
   It is possible to combine both "AND" and "OR" type queries together in a single request.  For example, a 
@@ -1108,7 +1123,13 @@ name=valueA,valueB</span>
     </td>
    </tr>
   </table>
-
+  <p>
+    Note that modifiers are allowed in searches that combine multiple terms.  When using a modifier in "or" joined search parameter values,
+    the modifier applies to ALL values present.  For example, in <code>given:exact=valueA,valueB</code>, the <code>exact</code>
+    modifier is used for both "valueA" and "valueB".  Additional details can be found in the 
+    <a href="#multivalue">Searching Multiple Values</a> section of the Search page.
+  </p>
+  
   <a name="modifierabove"></a>
   <h5>above</h5>
   <p>
@@ -1120,13 +1141,18 @@ name=valueA,valueB</span>
   <h6>above with <em>reference</em> type search parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
-    as a hierarchical search on linked resources of the same type, including exact matches and all parents of those matches.  The <code>above</code> 
+    as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>above</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
-    same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
-    be found in the section <a href="#recursive">Searching Hierarchies</a>.
+    same type of resource where those references establish a hierarchy.  For example, the <a href="location.html">Location</a> resource can define a
+    hierarchy using the <code>partOf</code> element to track locations that are inside each other (e.g., <code>Location/A101</code>, a room, is 
+    <i>partOf</i> <code>Location/A</code>, a floor).  Meanwhile, the <a href="patient.html">Patient</a> resource could refer to other patient
+    resources via the <code>link</code> element, but no hierarchical meaning is intended.  Further discussion about the requirements and uses for this 
+    type of search can be found in the section <a href="#recursive">Searching Hierarchies</a>.
   </p>
   <p>
     When using the <code>above</code> modifier on a reference, all typically-valid search parameter reference inputs are allowed.
+    Note that the actual Resources that establish hierarchical references and the search parameters used are listed in the 
+    <a href="references.html#circular">Circular Resource References</a> section of the References page.
   </p>
   <p>
     For example, the search:
@@ -1242,12 +1268,17 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
   <p>
     When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>below</code> 
-    modifier is only valid for <a href="references.html#circular">circular</a> <b>?? recursive instead of circular here ??</b> references - that is, references that point to another instance of the 
-    same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
-    be found in the section <a href="#recursive">Searching Hierarchies</a>.
+    modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
+    same type of resource where those references establish a hierarchy.  For example, the <a href="location.html">Location</a> resource can define a
+    hierarchy using the <code>partOf</code> element to track locations that are inside each other (e.g., <code>Location/A101</code>, a room, is 
+    <i>partOf</i> <code>Location/A</code>, a floor).  Meanwhile, the <a href="patient.html">Patient</a> resource could refer to other patient
+    resources via the <code>link</code> element, but no hierarchical meaning is intended.  Further discussion about the requirements and uses for this 
+    type of search can be found in the section <a href="#recursive">Searching Hierarchies</a>.
   </p>
   <p>
     When using the <code>below</code> modifier on a hierarchical reference, all typically-valid search parameter reference inputs are allowed.
+    Note that the actual Resources that establish hierarchical references and the search parameters used are listed in the 
+    <a href="references.html#circular">Circular Resource References</a> section of the References page.
   </p>
   <p>
     For example, the search:
@@ -1711,6 +1742,22 @@ Composition?section:not=48765-2</span>
     the negation applies to the set and not each individual entry.
   </p>
 
+  [%dragons-start%]
+  <p>
+    Note that the <code>not</code> modifier can behave in undesirable ways with "or"-joined parameter values.  Specifically,
+    consider a query that uses a scalar (max cardinality one) value, such as: <code>gender:not=male,female</code>.  Using the 'default'
+    rules, the query is expanded to be the union of the sets of: patients that do not have a gender element value or that contain any
+    value other than "male", and patients that do not have a gender element value or that contain any value other than "female" - the 
+    union of those sets will always contain all records.
+  </p>
+  <p>
+    Implementer feedback is requested on this behavior and if additional rules concerning the <code>not</code> modifier would be appropriate.
+    In the meantime, use of the <code>not</code> modifier with "or"-joined search terms is not recommended.  Implementers are instead
+    recommended to use either the <a href="#_filter">_filter</a> parameter or <a href="#advanced">Named Queries</a>.
+  </p>
+  [%dragons-end%]
+  
+
   <a name="modifiernotin"></a>
   <h5>not-in</h5>
   <p>
@@ -2115,6 +2162,12 @@ the prefixes described in the table below are used.  Note that in the following 
   is required - either <a href="#modifiermissing"><code>missing</code></a> or <a href="#modifiernot"><code>not</code></a>.
 </p>
 <p>
+  Prefixes are allowed in searches that combine multiple terms.  When using a prefix in "or" joined search parameter values,
+  the prefix only applies to the value it precedes.  For example, in <code>value-quantity=lt60,gt100</code>, the <code>lt</code>
+  prefix is applied to the value "60" and the <code>gt</code> prefix is applied to the value "100".  Additional details can be
+  found in the <a href="#multivalue">Searching Multiple Values</a> section of the Search page.
+</p>
+<p>
 If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
 is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
 <code>eb</code> (<code>ends-before</code>) are not used with integer values but are used for decimals.
@@ -2150,7 +2203,7 @@ are identified:
  </tr>
 </table>
 <p>
-The proper use of these ranges is discussed further below.
+Additional details about how ranges are applied are specific to each data type and are documented there.
 </p>
 
 <a name="escaping"></a>
@@ -3572,7 +3625,8 @@ see <a href="references.html#canonical-matching">Choosing the right Canonical Re
 <p>
 Some references are <a href="references.html#circular">circular</a> - that is, the reference
 points to another resource of the same type. When the reference establishes a strict hierarchy,
-the modifiers :above and :below may be used to search transitively through the hierarchy:
+the modifiers <code><a href="#modifierabove">above</a></code> and <code><a href="#modifierbelow">below</a></code>
+can be used to search transitively through the hierarchy:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -3603,11 +3657,14 @@ Returns all medication administrations that happened during encounter with id 21
 encounter of that encounter.
 </p>
 <p>
-Servers indicate that :above/:below is supported on a search parameter by defining them as
-<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the
-Search Parameter definition.
+  Resources that establish hierarchical references are listed in the 
+  <a href="references.html#circular">Circular Resource References</a> section of the References page.
 </p>
-
+<p>
+Servers indicate that <code><a href="#modifierabove">above</a></code>/<code><a href="#modifierbelow">below</a></code> 
+is supported on a search parameter by defining them as
+<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the Search Parameter definition.
+</p>
 
 <a name="mimetype"></a>
 <h4>Searching MIME Types</h4>
