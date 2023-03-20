@@ -1,4 +1,4 @@
-<PlanDefinition>
+<PlanDefinition xmlns="http://hl7.org/fhir">
   <status value="draft"/>
   <action>
     <title value="Create an episode of care to link the related events"/>
@@ -13,13 +13,13 @@
         <expression value="ShouldCreateEpisodeOfCare"/>
       </expression>
     </condition>
-    <definitionCanonical value="http://example.org/fhir/ActivityDefinition/episode-of-care"/>
     <type>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
         <code value="create"/>
       </coding>
     </type>
+    <definitionCanonical value="http://example.org/fhir/ActivityDefinition/episode-of-care"/>
 
     <!-- Sub action to link related encounters to the new episode of care -->
     <action>

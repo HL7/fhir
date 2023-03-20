@@ -59,7 +59,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Allows filtering of plan definitions that are appropriate for use versus not."/>
+            <resource value="Allows filtering of plan definitions that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of plan definitions that are appropriate for use versus not."/>
@@ -73,6 +73,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="PlanDefinition.subject[x]">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
         <extraTypes
             _resource="Reference(Group,MedicinalProductDefinition,SubstanceDefinition,AdministrableProductDefinition,ManufacturedItemDefinition,PackagedProductDefinition), canonical(EvidenceVariable), CodeableConcept" reason="Unknown"/>
@@ -92,7 +93,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="PlanDefinition.topic">
-        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
@@ -110,6 +110,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="PlanDefinition.action.subject[x]">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
         <extraTypes
             _resource="Reference(Group), canonical, CodeableConcept" reason="Unknown"/>
@@ -174,11 +175,23 @@
             <resource value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Definition.jurisdiction" resourcePath="PlanDefinition.jurisdiction">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="It may be possible for the plan definition to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="It may be possible for the plan definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Definition.copyright" resourcePath="PlanDefinition.copyright">
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Consumers of the plan definition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
             <resource value="Consumers must be able to determine any legal restrictions on the use of the plan definition and/or its content."/>
         </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.effectivePeriod" resourcePath="PlanDefinition.effectivePeriod">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The effective period for a plan definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+            <resource value="The effective period for a plan definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a plan definition intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+        </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>
     <unmappedElement patternPath="Definition.product" reason="Unknown"/>

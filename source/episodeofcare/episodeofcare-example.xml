@@ -74,8 +74,8 @@
     <display value="Referral from Example Aged Care Services"/>
   </referralRequest>
   <careManager>
-    <reference value="Practitioner/14"/>
-    <display value="Amanda Assigned" />
+    <reference value="Practitioner/f204"/>
+    <display value="Carla Espinosa" />
   </careManager>
   <careTeam>
     <reference value="CareTeam/example"/>

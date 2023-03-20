@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 [%settitle Datatypes%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1354,7 +1354,9 @@ In some cases, the system might not be known - only the value is known (e.g. a s
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers).
 In this case, no useful matching may be performed using the value unless the system can be safely inferred by the
 context. Applications should provide a <code>system</code> wherever possible, as information sharing in a wider context
-is very likely to arise eventually, and values without a system are inherently limited in use.
+is very likely to arise eventually, and values without a system are inherently limited in use.  Whether or not the proper 
+<code>Identifier.system</code> is known, the human-readable label for the <code>Identifier.value</code> typically appears 
+in <code>Identifier.type.text</code>.  E.g. 'BC provincial health number'.
 </p>
 <p>
 In addition to the <code>system</code> (which provides a uniqueness scope) and the <code>value</code>, identifiers may also have a

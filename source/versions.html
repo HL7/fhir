@@ -300,7 +300,7 @@ Additional notes:
 </p>
 <ul>
  <li>Changes to a formally published specification (except for minor publishing corrections, such as correcting broken external links) are only made via announced technical corrections</li>
- <li>The reference implementations have 2 versions - the version of the specification that they implement and their own version. Consult the reference implementation documentation for policy regarding this version number</li>
+ <li>Software implementing FHIR typically has 2 versions - the version of the specification that it implements and its own version. Consult the software documentation for policy regarding versioning and version labels.</li>
 </ul>
 
 
@@ -332,24 +332,33 @@ based on feedback from implementers.
 [%dragons-end%]
 
 <p>
-The following kinds of changes may be made to the specification:
+Once an artifact achieves <i>Normative</i> status, specific rules come into play around inter-version compatibility.  These rules have implication for both forward and backward compatibility and are intended to allow implementations to exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data between systems using different versions of FHIR.  These rules do not apply to non-normative content, including STU content within normative artifacts.
+</p>
+<p>
+The following kinds of changes may be made to normative portions of the specification:
 </p>
 <ul>
- <li><b>Breaking changes</b> are changes that mean that previously conformant applications are no longer conformant to the updated specification</li>
+ <li><b>Breaking changes</b> are changes that mean that previously conformant resource instances are no longer conformant to the updated specification</li>
  <li><b>Substantive changes</b> are changes that introduce new functionality - changes to the specification that create new capabilities - but would not render
   unchanged existing applications non-conformant</li>
- <li><b>Non-substantive changes</b> should not cause changes in any conformant application. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
-    In addition, this covers corrections that are judged not to create any expectation of change to a conformant application</li>
+ <li><b>Non-substantive changes</b> should not cause changes in any conformant resource instances. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
+    In addition, this covers corrections that are judged not to create any expectation of change to a conformant resource instance.</li>
 </ul>
+[%dragons-start%]
+<p>
+Yes, this this is the second dragon in as many paragraphs.  Inter-version compatibility is complicated...
+</p>
+<p>
+The assertion around non-breaking change does NOT mean that the types of changes permitted here cannot cause existing systems to fail, even if they make allowances for the types of changes permitted.  (Though those that make allowances will hopefully fail more gracefully.)  Because the requirements of healthcare continue to evolve, the rules defined here allow for new content to be introduced - new codes, new elements, etc.  Depending on the design of a receiving system, such new content may cause failure.  A system that relies on schema validation will fail because of a new element.  A system that relies on a select statement iterating through 'status' codes might fail or behave unexpectedly due to incorrect fall-through when a new status code is introduced.  Systems designers are strongly encouraged to consider the types of changes permitted here and consider how these types of changes will impact their ability to safely function when dealing with newer versions of FHIR.
+</p>
+[%dragons-end%]
+
 <p>
 NOTE: The examples provided as part of this specification are never substantive. While every effort is made to ensure that FHIR examples are correct, changes to the examples in the specification are not considered substantive.
 </p>
 <p>
 Content with a status of <i>Draft</i> or <i>Trial Use</i> can change - including Breaking Changes - from
 version to version, subject to the rules described by the <a href="#maturity">Maturity Process</a>.  There are no rules for maintaining any sort of compatibility between versions for content with these statuses, though of we will only make breaking changes based on feedback from the community.
-</p>
-<p>
-Once an artifact achieves <i>Normative</i> status, specific rules come into play around inter-version compatibility.  These rules have implication for both forward and backward compatibility and are intended to allow implementations to exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data between systems using different versions of FHIR.
 </p>
 <p>
 <b>Forward compatibility</b> means that content that is conformant in an old release will remain conformant with future versions.  Once normative, FHIR's rules try to enforce forward compatibility.  However, that doesn't guarantee that all old systems will interoperate with future systems.
@@ -667,9 +676,6 @@ http://hl7.org/fhir/[version]/StructureDefinition/extension-[Path]
 <p>
 where [version] is taken from this list:
 </p>
-<p>
-This technique can be used with all versions of FHIR, including R2 and R3:
-</p>
 <table class="grid">
 <tr>
 <td><a href="http://hl7.org/fhir/DSTU2">FHIR DSTU2</a></td>
@@ -693,7 +699,9 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 </tr>
 </table>
 <p>
-Note that this extension framework only applies back to DSTU2; older versions than that are not supported.
+This table includes the formal milestone releases for DSTU2 and on, which are the only releases for which this process is defined.  Older versions than that are not supported.  Technical correction releases are not listed because they will never introduce or change elements.  Ballot and interim releases are not supported for use in implementation environments
+</p>
+<p>
 The [Path] is actually the ElementDefinition.id from the relevant
 StructureDefinition for the element. This leads to URLs like the
 following:

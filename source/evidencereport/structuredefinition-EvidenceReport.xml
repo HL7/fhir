@@ -1,710 +1,712 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="EvidenceReport"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Specialized.Evidence-Based Medicine"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="business"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="MetadataResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/EvidenceReport"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.5.1087"/>
-  </identifier>
-  <version value="5.0.0"/>
-  <name value="EvidenceReport"/>
-  <title value="Evidence Report"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="EvidenceReport"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="EvidenceReport">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,40"/>
-      </extension>
-      <path value="EvidenceReport"/>
-      <short value="A EvidenceReport"/>
-      <definition value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
-      <min value="0"/>
-      <max value="*"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="clinical.general"/>
-      </mapping>
-    </element>
-    <element id="EvidenceReport.url">
-      <path value="EvidenceReport.url"/>
-      <short value="Canonical identifier for this EvidenceReport, represented as a globally unique URI"/>
-      <definition value="An absolute URI that is used to identify this EvidenceReport when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
-      <requirements value="Allows the EvidenceReport to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <constraint>
-        <key value="cnl-1"/>
-        <severity value="warning"/>
-        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="exists() implies matches('^[^|# ]+$')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-      </constraint>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="EvidenceReport.status">
-      <path value="EvidenceReport.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of summaries that are appropriate for use versus not."/>
-      <requirements value="Allows filtering of EvidenceReports that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="EvidenceReport.useContext">
-      <path value="EvidenceReport.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence report instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceReport.identifier">
-      <path value="EvidenceReport.identifier"/>
-      <short value="Unique identifier for the evidence report"/>
-      <definition value="A formal identifier that is used to identify this EvidenceReport when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="This element will contain unique identifiers that support de-duplication of EvidenceReports. This identifier can be valid for only one EvidenceReport resource."/>
-      <requirements value="Allows externally provided and/or usable identifiers to be associated with this EvidenceReport."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="EvidenceReport.relatedIdentifier">
-      <path value="EvidenceReport.relatedIdentifier"/>
-      <short value="Identifiers for articles that may relate to more than one evidence report"/>
-      <definition value="A formal identifier that is used to identify things closely related to this EvidenceReport."/>
-      <comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This identifier can be valid for multiple EvidenceReport resources."/>
-      <requirements value="Allows externally provided and/or usable identifiers to be associated with this EvidenceReport."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceReport.citeAs[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="490,150"/>
-      </extension>
-      <path value="EvidenceReport.citeAs[x]"/>
-      <short value="Citation for this report"/>
-      <definition value="Citation Resource or display of suggested citation for this report."/>
-      <comment value="used for reports for which external citation is expected, such as use in support of scholarly publications."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-      </type>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.type">
-      <path value="EvidenceReport.type"/>
-      <short value="Kind of report"/>
-      <definition value="Specifies the kind of report, such as grouping of classifiers, search results, or human-compiled expression."/>
-      <requirements value="May be used in searching and filtering."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceReportType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The kind of report, such as grouping of classifiers, search results, or human-compiled expression."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-report-type"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.note">
-      <path value="EvidenceReport.note"/>
-      <short value="Used for footnotes and annotations"/>
-      <definition value="Used for footnotes and annotations."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatedArtifact">
-      <path value="EvidenceReport.relatedArtifact"/>
-      <short value="Link, description or reference to artifact associated with the report"/>
-      <definition value="Link, description or reference to artifact associated with the report."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.subject">
-      <path value="EvidenceReport.subject"/>
-      <short value="Focus of the report"/>
-      <definition value="Specifies the subject or focus of the report. Answers &quot;What is this report about?&quot;."/>
-      <comment value="May be used as an expression for search queries and search results"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceReport.subject.characteristic">
-      <path value="EvidenceReport.subject.characteristic"/>
-      <short value="Characteristic"/>
-      <definition value="Characteristic."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.subject.characteristic.code">
-      <path value="EvidenceReport.subject.characteristic.code"/>
-      <short value="Characteristic code"/>
-      <definition value="Characteristic code."/>
-      <comment value="Example 1 is a Citation. Example 2 is a type of outcome. Example 3 is a specific outcome."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FocusCharacteristicCode"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Evidence focus characteristic code."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/focus-characteristic-code"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.subject.characteristic.value[x]">
-      <path value="EvidenceReport.subject.characteristic.value[x]"/>
-      <short value="Characteristic value"/>
-      <definition value="Characteristic value."/>
-      <comment value="Example 1 is Citation #37. Example 2 is selecting clinical outcomes. Example 3 is 1-year mortality."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.subject.characteristic.exclude">
-      <path value="EvidenceReport.subject.characteristic.exclude"/>
-      <short value="Is used to express not the characteristic"/>
-      <definition value="Is used to express not the characteristic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.subject.characteristic.period">
-      <path value="EvidenceReport.subject.characteristic.period"/>
-      <short value="Timeframe for the characteristic"/>
-      <definition value="Timeframe for the characteristic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.subject.note">
-      <path value="EvidenceReport.subject.note"/>
-      <short value="Footnotes and/or explanatory notes"/>
-      <definition value="Used for general notes and annotations not coded elsewhere."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.publisher">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="EvidenceReport.publisher"/>
-      <short value="Name of the publisher/steward (organization or individual)"/>
-      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the evidence report."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence report is the organization or individual primarily responsible for the maintenance and upkeep of the evidence report. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence report. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence report. May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="EvidenceReport.contact">
-      <path value="EvidenceReport.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceReport.author">
-      <path value="EvidenceReport.author"/>
-      <short value="Who authored the content"/>
-      <definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceReport.editor">
-      <path value="EvidenceReport.editor"/>
-      <short value="Who edited the content"/>
-      <definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.reviewer">
-      <path value="EvidenceReport.reviewer"/>
-      <short value="Who reviewed the content"/>
-      <definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.endorser">
-      <path value="EvidenceReport.endorser"/>
-      <short value="Who endorsed the content"/>
-      <definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceReport.relatesTo">
-      <path value="EvidenceReport.relatesTo"/>
-      <short value="Relationships to other compositions/documents"/>
-      <definition value="Relationships that this composition has with other compositions or documents that already exist."/>
-      <comment value="A document is a version specific composition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatesTo.code">
-      <path value="EvidenceReport.relatesTo.code"/>
-      <short value="replaces | amends | appends | transforms | replacedWith | amendedWith | appendedWith | transformedWith"/>
-      <definition value="The type of relationship that this composition has with anther composition or document."/>
-      <comment value="If this document appends another document, then the document cannot be fully understood without also accessing the referenced document."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ReportRelationshipType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of relationship between reports."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/report-relation-type"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.relatesTo.target">
-      <path value="EvidenceReport.relatesTo.target"/>
-      <short value="Target of the relationship"/>
-      <definition value="The target composition/document of this relationship."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatesTo.target.url">
-      <path value="EvidenceReport.relatesTo.target.url"/>
-      <short value="Target of the relationship URL"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatesTo.target.identifier">
-      <path value="EvidenceReport.relatesTo.target.identifier"/>
-      <short value="Target of the relationship Identifier"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatesTo.target.display">
-      <path value="EvidenceReport.relatesTo.target.display"/>
-      <short value="Target of the relationship Display"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatesTo.target.resource">
-      <path value="EvidenceReport.relatesTo.target.resource"/>
-      <short value="Target of the relationship Resource reference"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.relatesTo.target.attachment">
-      <path value="Citation.citedArtifact.relatesTo.target.attachment"/>
-      <short value="Target of the relationship Attachment"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Attachment"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section"/>
-      </extension>
-      <path value="EvidenceReport.section"/>
-      <short value="Composition is broken into sections"/>
-      <definition value="The root of the sections that make up the composition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.title">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="EvidenceReport.section.title"/>
-      <short value="Label for section (e.g. for ToC)"/>
-      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents."/>
-      <comment value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents, it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section."/>
-      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized."/>
-      <alias value="header"/>
-      <alias value="label"/>
-      <alias value="caption"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.focus">
-      <path value="EvidenceReport.section.focus"/>
-      <short value="Classification of section (recommended)"/>
-      <definition value="A code identifying the kind of content contained within the section. This should be consistent with the section title."/>
-      <comment value="The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.   &#xA;&#xA;If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code."/>
-      <requirements value="Provides computable standardized labels to sections within the document."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ReportSectionType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Evidence Report Section Type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-report-section"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.section.focusReference">
-      <path value="EvidenceReport.section.focusReference"/>
-      <short value="Classification of section by Resource"/>
-      <definition value="A definitional Resource identifying the kind of content contained within the section. This should be consistent with the section title."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.author">
-      <path value="EvidenceReport.section.author"/>
-      <short value="Who and/or what authored the section"/>
-      <definition value="Identifies who is responsible for the information in this section, not necessarily who typed it in."/>
-      <requirements value="Identifies who is responsible for the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.text">
-      <path value="EvidenceReport.section.text"/>
-      <short value="Text summary of the section, for human interpretation"/>
-      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is peferred to contain sufficient detail to make it acceptable for a human to just read the narrative."/>
-      <comment value="Document profiles may define what content should be represented in the narrative."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Narrative"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.mode">
-      <path value="EvidenceReport.section.mode"/>
-      <short value="working | snapshot | changes"/>
-      <definition value="How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted."/>
-      <comment value="This element is labeled as a modifier because a change list must not be misunderstood as a complete list."/>
-      <requirements value="Sections are used in various ways, and it must be known in what way it is safe to use the entries in them."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SectionMode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The processing mode that applies to this section."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.section.orderedBy">
-      <path value="EvidenceReport.section.orderedBy"/>
-      <short value="Order of section entries"/>
-      <definition value="Specifies the order applied to the items in the section entries."/>
-      <comment value="Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order."/>
-      <requirements value="Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SectionEntryOrder"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="What order applies to the items in the entry."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.section.entryClassifier">
-      <path value="EvidenceReport.section.entryClassifier"/>
-      <short value="Extensible classifiers as content"/>
-      <definition value="Specifies any type of classification of the evidence report."/>
-      <requirements value="May be used in searching and filtering, or may be the key content of the report."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceClassifier"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Commonly used classifiers for evidence sets."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-classifier-code"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.section.entryReference">
-      <path value="EvidenceReport.section.entryReference"/>
-      <short value="Reference to resources as content"/>
-      <definition value="A reference to the actual resource from which the narrative in the section is derived."/>
-      <comment value="If there are no entries in the list, an emptyReason SHOULD be provided."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.entryQuantity">
-      <path value="EvidenceReport.section.entryQuantity"/>
-      <short value="Quantity as content"/>
-      <definition value="Quantity as content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
-    <element id="EvidenceReport.section.emptyReason">
-      <path value="EvidenceReport.section.emptyReason"/>
-      <short value="Why the section is empty"/>
-      <definition value="If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason."/>
-      <comment value="The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
-      <requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SectionEmptyReason"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="If a section is empty, why it is empty."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
-      </binding>
-    </element>
-    <element id="EvidenceReport.section.section">
-      <path value="EvidenceReport.section.section"/>
-      <short value="Nested Section"/>
-      <definition value="A nested sub-section within this section."/>
-      <comment value="Nested sections are primarily used to help human readers navigate to particular portions of the document."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#EvidenceReport.section"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="EvidenceReport"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Specialized.Evidence-Based Medicine"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="business"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="MetadataResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/EvidenceReport"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.5.1087"/>
+	</identifier>
+	<version value="5.0.0"/>
+	<name value="EvidenceReport"/>
+	<title value="Evidence Report"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (Clinical Decision Support)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="EvidenceReport"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="EvidenceReport">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,40"/>
+			</extension>
+			<path value="EvidenceReport"/>
+			<short value="A EvidenceReport"/>
+			<definition value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
+			<min value="0"/>
+			<max value="*"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="clinical.general"/>
+			</mapping>
+		</element>
+		<element id="EvidenceReport.url">
+			<path value="EvidenceReport.url"/>
+			<short value="Canonical identifier for this EvidenceReport, represented as a globally unique URI"/>
+			<definition value="An absolute URI that is used to identify this EvidenceReport when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
+			<requirements value="Allows the EvidenceReport to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="exists() implies matches('^[^|# ]+$')"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="EvidenceReport.status">
+			<path value="EvidenceReport.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of summaries that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<requirements value="Allows filtering of EvidenceReports that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="EvidenceReport.useContext">
+			<path value="EvidenceReport.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence report instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="EvidenceReport.identifier">
+			<path value="EvidenceReport.identifier"/>
+			<short value="Unique identifier for the evidence report"/>
+			<definition value="A formal identifier that is used to identify this EvidenceReport when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="This element will contain unique identifiers that support de-duplication of EvidenceReports. This identifier can be valid for only one EvidenceReport resource."/>
+			<requirements value="Allows externally provided and/or usable identifiers to be associated with this EvidenceReport."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="EvidenceReport.relatedIdentifier">
+			<path value="EvidenceReport.relatedIdentifier"/>
+			<short value="Identifiers for articles that may relate to more than one evidence report"/>
+			<definition value="A formal identifier that is used to identify things closely related to this EvidenceReport."/>
+			<comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This identifier can be valid for multiple EvidenceReport resources."/>
+			<requirements value="Allows externally provided and/or usable identifiers to be associated with this EvidenceReport."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="EvidenceReport.citeAs[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,150"/>
+			</extension>
+			<path value="EvidenceReport.citeAs[x]"/>
+			<short value="Citation for this report"/>
+			<definition value="Citation Resource or display of suggested citation for this report."/>
+			<comment value="used for reports for which external citation is expected, such as use in support of scholarly publications."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.type">
+			<path value="EvidenceReport.type"/>
+			<short value="Kind of report"/>
+			<definition value="Specifies the kind of report, such as grouping of classifiers, search results, or human-compiled expression."/>
+			<requirements value="May be used in searching and filtering."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceReportType"/>
+				</extension>
+				<strength value="example"/>
+				<description value="The kind of report, such as grouping of classifiers, search results, or human-compiled expression."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-report-type"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.note">
+			<path value="EvidenceReport.note"/>
+			<short value="Used for footnotes and annotations"/>
+			<definition value="Used for footnotes and annotations."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatedArtifact">
+			<path value="EvidenceReport.relatedArtifact"/>
+			<short value="Link, description or reference to artifact associated with the report"/>
+			<definition value="Link, description or reference to artifact associated with the report."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.subject">
+			<path value="EvidenceReport.subject"/>
+			<short value="Focus of the report"/>
+			<definition value="Specifies the subject or focus of the report. Answers &quot;What is this report about?&quot;."/>
+			<comment value="May be used as an expression for search queries and search results"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="EvidenceReport.subject.characteristic">
+			<path value="EvidenceReport.subject.characteristic"/>
+			<short value="Characteristic"/>
+			<definition value="Characteristic."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.subject.characteristic.code">
+			<path value="EvidenceReport.subject.characteristic.code"/>
+			<short value="Characteristic code"/>
+			<definition value="Characteristic code."/>
+			<comment value="Example 1 is a Citation. Example 2 is a type of outcome. Example 3 is a specific outcome."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FocusCharacteristicCode"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Evidence focus characteristic code."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/focus-characteristic-code"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.subject.characteristic.value[x]">
+			<path value="EvidenceReport.subject.characteristic.value[x]"/>
+			<short value="Characteristic value"/>
+			<definition value="Characteristic value."/>
+			<comment value="Example 1 is Citation #37. Example 2 is selecting clinical outcomes. Example 3 is 1-year mortality."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="Quantity"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.subject.characteristic.exclude">
+			<path value="EvidenceReport.subject.characteristic.exclude"/>
+			<short value="Is used to express not the characteristic"/>
+			<definition value="Is used to express not the characteristic."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.subject.characteristic.period">
+			<path value="EvidenceReport.subject.characteristic.period"/>
+			<short value="Timeframe for the characteristic"/>
+			<definition value="Timeframe for the characteristic."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.subject.note">
+			<path value="EvidenceReport.subject.note"/>
+			<short value="Footnotes and/or explanatory notes"/>
+			<definition value="Used for general notes and annotations not coded elsewhere."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="EvidenceReport.publisher"/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the evidence report."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence report is the organization or individual primarily responsible for the maintenance and upkeep of the evidence report. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence report. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence report. May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="EvidenceReport.contact">
+			<path value="EvidenceReport.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="EvidenceReport.author">
+			<path value="EvidenceReport.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="EvidenceReport.editor">
+			<path value="EvidenceReport.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.reviewer">
+			<path value="EvidenceReport.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.endorser">
+			<path value="EvidenceReport.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="EvidenceReport.relatesTo">
+			<path value="EvidenceReport.relatesTo"/>
+			<short value="Relationships to other compositions/documents"/>
+			<definition value="Relationships that this composition has with other compositions or documents that already exist."/>
+			<comment value="A document is a version specific composition."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatesTo.code">
+			<path value="EvidenceReport.relatesTo.code"/>
+			<short value="replaces | amends | appends | transforms | replacedWith | amendedWith | appendedWith | transformedWith"/>
+			<definition value="The type of relationship that this composition has with anther composition or document."/>
+			<comment value="If this document appends another document, then the document cannot be fully understood without also accessing the referenced document."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ReportRelationshipType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The type of relationship between reports."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/report-relation-type"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.relatesTo.target">
+			<path value="EvidenceReport.relatesTo.target"/>
+			<short value="Target of the relationship"/>
+			<definition value="The target composition/document of this relationship."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatesTo.target.url">
+			<path value="EvidenceReport.relatesTo.target.url"/>
+			<short value="Target of the relationship URL"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatesTo.target.identifier">
+			<path value="EvidenceReport.relatesTo.target.identifier"/>
+			<short value="Target of the relationship Identifier"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatesTo.target.display">
+			<path value="EvidenceReport.relatesTo.target.display"/>
+			<short value="Target of the relationship Display"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatesTo.target.resource">
+			<path value="EvidenceReport.relatesTo.target.resource"/>
+			<short value="Target of the relationship Resource reference"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.relatesTo.target.attachment">
+			<path value="Citation.citedArtifact.relatesTo.target.attachment"/>
+			<short value="Target of the relationship Attachment"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Attachment"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="Section"/>
+			</extension>
+			<path value="EvidenceReport.section"/>
+			<short value="Composition is broken into sections"/>
+			<definition value="The root of the sections that make up the composition."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="EvidenceReport.section.title"/>
+			<short value="Label for section (e.g. for ToC)"/>
+			<definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents."/>
+			<comment value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents, it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section."/>
+			<requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized."/>
+			<alias value="header"/>
+			<alias value="label"/>
+			<alias value="caption"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.focus">
+			<path value="EvidenceReport.section.focus"/>
+			<short value="Classification of section (recommended)"/>
+			<definition value="A code identifying the kind of content contained within the section. This should be consistent with the section title."/>
+			<comment value="The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.   &#xA;&#xA;If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code."/>
+			<requirements value="Provides computable standardized labels to sections within the document."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ReportSectionType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Evidence Report Section Type."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-report-section"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.section.focusReference">
+			<path value="EvidenceReport.section.focusReference"/>
+			<short value="Classification of section by Resource"/>
+			<definition value="A definitional Resource identifying the kind of content contained within the section. This should be consistent with the section title."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.author">
+			<path value="EvidenceReport.section.author"/>
+			<short value="Who and/or what authored the section"/>
+			<definition value="Identifies who is responsible for the information in this section, not necessarily who typed it in."/>
+			<requirements value="Identifies who is responsible for the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.text">
+			<path value="EvidenceReport.section.text"/>
+			<short value="Text summary of the section, for human interpretation"/>
+			<definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is peferred to contain sufficient detail to make it acceptable for a human to just read the narrative."/>
+			<comment value="Document profiles may define what content should be represented in the narrative."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Narrative"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.mode">
+			<path value="EvidenceReport.section.mode"/>
+			<short value="working | snapshot | changes"/>
+			<definition value="How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted."/>
+			<comment value="This element is labeled as a modifier because a change list must not be misunderstood as a complete list."/>
+			<requirements value="Sections are used in various ways, and it must be known in what way it is safe to use the entries in them."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SectionMode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The processing mode that applies to this section."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.section.orderedBy">
+			<path value="EvidenceReport.section.orderedBy"/>
+			<short value="Order of section entries"/>
+			<definition value="Specifies the order applied to the items in the section entries."/>
+			<comment value="Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order."/>
+			<requirements value="Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SectionEntryOrder"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="What order applies to the items in the entry."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.section.entryClassifier">
+			<path value="EvidenceReport.section.entryClassifier"/>
+			<short value="Extensible classifiers as content"/>
+			<definition value="Specifies any type of classification of the evidence report."/>
+			<requirements value="May be used in searching and filtering, or may be the key content of the report."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceClassifier"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Commonly used classifiers for evidence sets."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-classifier-code"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.section.entryReference">
+			<path value="EvidenceReport.section.entryReference"/>
+			<short value="Reference to resources as content"/>
+			<definition value="A reference to the actual resource from which the narrative in the section is derived."/>
+			<comment value="If there are no entries in the list, an emptyReason SHOULD be provided."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.entryQuantity">
+			<path value="EvidenceReport.section.entryQuantity"/>
+			<short value="Quantity as content"/>
+			<definition value="Quantity as content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="EvidenceReport.section.emptyReason">
+			<path value="EvidenceReport.section.emptyReason"/>
+			<short value="Why the section is empty"/>
+			<definition value="If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason."/>
+			<comment value="The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
+			<requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SectionEmptyReason"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="If a section is empty, why it is empty."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
+			</binding>
+		</element>
+		<element id="EvidenceReport.section.section">
+			<path value="EvidenceReport.section.section"/>
+			<short value="Nested Section"/>
+			<definition value="A nested sub-section within this section."/>
+			<comment value="Nested sections are primarily used to help human readers navigate to particular portions of the document."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#EvidenceReport.section"/>
+		</element>
+	</differential>
 </StructureDefinition>
