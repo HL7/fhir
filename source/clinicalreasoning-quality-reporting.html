@@ -80,11 +80,11 @@
 <a name="specifying-population-criteria"> </a>
 <h6>Specifying Population Criteria</h6>
 
-<p>A measure can specify various types of populations, depending on the type of measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HQMF Release 1 Normative</a> specification, and Table 2.1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">QDM-based HQMF IG</a>.</p>
+<p>A measure can specify various types of populations, depending on the measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HQMF Release 1 Normative</a> specification, and Table 2.1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">QDM-based HQMF IG</a>.</p>
 
 <table class="grid">
 	<thead>
-		<tr><th>MeasureType</th><th>Initial Population</th><th>Denominator</th><th>Denominator Exclusion</th><th>Denominator Exception</th><th>Numerator</th><th>Numerator Exclusion</th><th>Measure Population</th><th>Measure Population Exclusion</th></tr>
+		<tr><th>Measure Scoring</th><th>Initial Population</th><th>Denominator</th><th>Denominator Exclusion</th><th>Denominator Exception</th><th>Numerator</th><th>Numerator Exclusion</th><th>Measure Population</th><th>Measure Population Exclusion</th></tr>
 	</thead>
 	<tbody>
 		<tr><td>Proportion</td><td>R</td><td>R</td><td>O</td><td>O</td><td>R</td><td>O</td><td>NP</td><td>NP</td></tr>
@@ -135,7 +135,7 @@
 <a name="multiple-populations"> </a>
 <h6>Measures with Multiple Populations</h6>
 
-<p>Quality measures often specify multiple rates, with different population crtiteria for each rate. This is different than stratifying the scores for the same population. For quality measures that contain multiple rates, the Measure will contain multiple group elements, where the criteria are specified once for each group. The <code>id</code> attribute of the <code>group</code> element is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
+<p>Quality measures often specify multiple rates, with different population crtiteria for each rate. This is different than stratifying the scores for the same population. For quality measures that contain multiple rates, the Measure will contain multiple group elements, where the criteria are specified once for each group. The <code>linkId</code> attribute of the <code>group</code> element is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
 
 <a name="continuous-variable-measures"> </a>
 <h6>Continuous Variable Measures</h6>
@@ -147,9 +147,9 @@
 
 <p>Stratifiers and supplemental data are specified using the <code>stratifier</code> and <code>supplementalData</code> elements of the <a href="measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.gender</code>). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path. For example, specifying Patient.gender will yield four stratification groups since FHIR has four gender codes: male, female, other, and unknown.</p>
 
-<p>Supplemental data elements can also specified using FHIR resource paths, in which case the supplementalData element is the result of evaluating that path against the subject.</p>
+<p>Supplemental data elements can also be specified using FHIR resource paths, in which case the supplementalData element is the result of evaluating that path against the subject.</p>
 <p>For individual-level reports, if the result of evaluating the supplemental data expression for the subject of the report is not a resource, it is reported as a contained Observation resource and included by reference in the supplementalData element of the MeasureReport.</p>
-<p>For summary-level reports, supplementalData is reported using contained Observation resources that indicate the number of times each value was encountered as the supplementalData for members of the population. In this case, the `code` element of the Observation corresponds to the `code` of the supplementalData, and the `component.code` element of the observation specifies the supplementalData values encountered, and the `component.value[x]` element is specified as an integer that represents the number of times that value was encountered in the members of the population.</p>
+<p>For summary-level reports, supplementalData is reported using contained Observation resources that indicate the number of times each value was encountered as the supplementalData for members of the population. In this case, the <code>code</code> element of the Observation corresponds to the <code>code</code> of the supplementalData, and the <code>component.code</code> element of the observation specifies the supplementalData values encountered, and the <code>component.value[x]</code> element is specified as an integer that represents the number of times that value was encountered in the members of the population.</p>
 
 <p>The CMS146 example measure illustrates the stratification and supplemental data described above:</p>
 
@@ -166,9 +166,9 @@
 <p>Specifying the data criteria in this way enables the following use cases:</p>
 
 <ul>
-	<li>Determining the set of data used by a particular eCQM.</li>
+	<li>Determining the set of data used by a particular Measure.</li>
 	<li>Limited "scoop-and-filter" for creation of population reports.</li>
-	<li>Limited backwards compatibility with existing implementations of previous eCQM IGs.</li>
+	<li>Limited backwards compatibility with existing implementations of previous Measure IGs.</li>
 </ul>
 
 <p>Data criteria can be specified statically, or they can be <i>inferred</i> from the expressions referenced by the measure. The <code>$data-requirements</code> operation can be invoked to retrieve the aggregate data requirements for the measure. This approach has two advantages:</p>
@@ -226,7 +226,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <a name="measure-report"> </a>
 <h4>Measure Report</h4>
 
-<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in two flavors: <a href="https://confluence.hl7.org/display/CQIWC/Quality+Reporting+Document+Architecture+Category+1">Category I</a> for individual patient reports and <a href="https://confluence.hl7.org/display/CQIWC/Quality+Reporting+Document+Architecture+Category+3">Category III</a> for population reports.</p>
+<p>When electronic Clinical Quality Measures (eCQMs) are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in two flavors: <a href="https://confluence.hl7.org/display/CQIWC/Quality+Reporting+Document+Architecture+Category+1">Category I</a> for individual patient reports and <a href="https://confluence.hl7.org/display/CQIWC/Quality+Reporting+Document+Architecture+Category+3">Category III</a> for population reports.</p>
 
 <p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the <a href="operationdefinition.html">OperationDefinition</a> described above. Meanwhile, the responses are represented as <a href="measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (subject-list), and Category III (population) reports.</p>
 
