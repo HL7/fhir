@@ -104,7 +104,6 @@ different aspects of the specification.  They are as follows:
       Some resources with a standards status of 'draft' have an FMM level of 1 or 2 - this means that the committee 
       responsible for them is ready for them to be tested and balloting, but that balloting has not yet occurred. 
       Draft resources cannot have a <a href="#maturity">FMM</a> level greater than 2
-
     </td>
     </tr>
     <tr>
@@ -186,13 +185,13 @@ All artifacts in this specification are assigned a "Maturity Level", known as FM
 The FMM level can be used by implementers to judge how advanced - and therefore stable - an artifact is. The following FMM levels are defined:
 </p>
 <table class="lines">
- <tr><td>Draft (0)</td><td>the resource or profile (artifact) has been published on the current build.  Draft resources can only have a standards status of <a href="#draft">Draft</a></td></tr>
- <tr><td><b>FMM 1</b></td><td>PLUS the artifact produces no warnings during the build process and the responsible WG has indicated that they consider the artifact substantially complete and ready for implementation. For resources, profiles and implementation guides, the FHIR Management Group has approved the underlying resource/profile/IG proposal</td></tr>
- <tr><td><b>FMM 2</b></td><td>PLUS the artifact has been tested and successfully supports interoperability among at least three independently developed systems leveraging most of the scope (e.g. at least 80% of the core data elements) using semi-realistic data and scenarios based on at least one of the declared scopes of the artifact (e.g. at a connectathon). These interoperability results must have been reported to and accepted by the FMG</td></tr>
- <tr><td><b>FMM 3</b></td><td>PLUS + the artifact has been verified by the work group as meeting the <a href="https://confluence.hl7.org/display/FHIR/Conformance+QA+Criteria">Conformance Resource Quality Guidelines</a>; has been subject to a round of formal balloting; has at least 10 distinct implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change</td></tr>
- <tr><td><b>FMM 4</b></td><td>PLUS the artifact has been tested across its scope (see below), published in a formal publication (e.g. <code>Trial-Use</code>), and implemented in multiple prototype projects. As well, the responsible work group agrees the artifact is sufficiently stable to require implementer consultation for subsequent non-backward compatible changes</td></tr>
- <tr><td><b>FMM 5</b></td><td> the artifact has been published in two formal publication release cycles at FMM1+ (i.e. Trial-Use level) and has been implemented in at least 5 independent production systems in more than one country</td></tr>
- <tr><td><b>Normative</b></td><td>the artifact is now considered stable</td></tr>
+ <tr><td>Draft (0)</td><td>the artifact has been published on the current build. Artifacts with this level must have a standards status of <a href="#draft">Draft</a>.</td></tr>
+ <tr><td><b>FMM 1</b></td><td>FMM0 + the artifact produces no warnings during the build process and the responsible work group has indicated that they consider the artifact substantially complete and ready for implementation. For resources, profiles and implementation guides, the FHIR Management Group has approved the underlying resource/profile/IG proposal.</td></tr>
+ <tr><td><b>FMM 2</b></td><td>FMM1 + the artifact has been tested and successfully supports interoperability among at least three independently developed systems leveraging most of the scope (e.g. at least 80% of the core data elements) using semi-realistic data and scenarios based on at least one of the declared scopes of the artifact (e.g. at a connectathon). These interoperability results must have been reported to and accepted by the FHIR Management Group.</td></tr>
+ <tr><td><b>FMM 3</b></td><td>FMM2 + the artifact has been verified by the work group as meeting the <a href="https://confluence.hl7.org/display/FHIR/Conformance+QA+Criteria">Conformance Resource Quality Guidelines</a>; has been subject to a round of formal balloting; has at least 10 distinct implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change.</td></tr>
+ <tr><td><b>FMM 4</b></td><td>FMM3 + the artifact has been tested across its scope (see below), published in a formal publication (e.g. <code>STU</code>), and implemented in multiple prototype projects. As well, the responsible work group agrees the artifact is sufficiently stable to require implementer consultation for subsequent non-backward compatible changes.</td></tr>
+ <tr><td><b>FMM 5</b></td><td>FMM4 + the artifact has been published in two formal publication release cycles as <a href="#STU">STU</a> and has been implemented in at least 5 independent production systems in more than one country.</td></tr>
+ <tr><td><b>FMM 6</b> (<a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a>)</td><td>FMM5 + the responsible work group and the FHIR management group agree the material is ready to lock down according to the <a href="#change">inter-version change</a> rules and the artifact has passed HL7 normative ballot.  This is synonymous with <a href="#normative">Normative</a> standard status.</td></tr>
 </table>
 
 <p>Tested across scope means:</p>
@@ -201,8 +200,12 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
   <li>For each example context, the artifact has either been: reviewed and approved by a domain expert for that scope area, mapped to an existing implemented scope-area-specific standard or tested in an implementation</li>
 </ul>
 <p>
+<p>
+</p>
 The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
-For further information, and discussion, see the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.
+</p>
+<p>
+The table above represents a frozen snapshot of the maturity levels maintained by the FHIR Management Group on the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.  Further information and discussion about these levels can be found there.
 </p>
 <p>
 The maturity model is significantly influenced by the degree and type of implementation activity using an artifact.
