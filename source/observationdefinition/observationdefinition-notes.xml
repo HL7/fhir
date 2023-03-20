@@ -1,5 +1,11 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- content goes here -->
+	[%stu-note dstu2%]
+		<code>customaryUnit</code> and <code>conversionFactor</code> have been deprecated and will be removed from ObservationDefinition.quantitativeDetails in a future release of FHIR.
+		</p>
+		<p>
+		Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+	[%end-note%]
 
 </div>

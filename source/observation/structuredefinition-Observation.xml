@@ -512,10 +512,6 @@
         <identity value="rim"/>
         <map value="participation[typeCode=RTGT]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Observation.focus">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -546,10 +542,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=SBJ]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Observation.encounter">
@@ -992,8 +984,8 @@
         <valueString value="[#3689]."/>
       </extension>
       <path value="Observation.device"/>
-      <short value="(Measurement) Device"/>
-      <definition value="The device used to generate the observation data."/>
+      <short value="A reference to the device that generates the measurements or the device settings for the device"/>
+      <definition value="A reference to the device that generates the measurements or the device settings for the device."/>
       <comment value="Note that this is not meant to represent a device involved in the transmission of the result, e.g., a gateway.  Such devices may be documented using the Provenance resource where relevant."/>
       <min value="0"/>
       <max value="1"/>

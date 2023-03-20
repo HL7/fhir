@@ -18,7 +18,7 @@
     <valueCode value="patient"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fm"/>
+    <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = entered-in-error"/>
@@ -33,7 +33,7 @@
   <title value="Vision Prescription"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Financial Management)"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -43,7 +43,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fm/index.cfm"/>
+      <value value="http://www.hl7.org/Special/committees/oo/index.cfm"/>
     </telecom>
   </contact>
   <description value="An authorization for the provision of glasses and/or contact lenses to a patient."/>
@@ -194,10 +194,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="subject.role"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="VisionPrescription.encounter">

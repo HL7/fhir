@@ -164,10 +164,6 @@
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Subscription.end">
       <path value="Subscription.end"/>

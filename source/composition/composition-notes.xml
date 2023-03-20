@@ -57,7 +57,7 @@ Feedback is welcome on two issues related to Composition:
 </p>
 <ul>
  <li>For many compositions, the title is the same as the text or a display name of Composition.type (e.g., a "consultation" or "progress note"). Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here during the trial use period.</li>
- <li>A client can ask a server to generate a fully bundled document from a Composition resource using the $snapshot operation. This operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question.</li>
+ <li>A client can ask a server to generate a fully bundled document from a Composition resource using the $document operation. This operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question.</li>
 </ul>
 <p>
 Feedback <a href="http://hl7.org/fhir-issues">here</a>.

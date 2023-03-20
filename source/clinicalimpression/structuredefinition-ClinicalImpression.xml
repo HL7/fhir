@@ -226,10 +226,6 @@
         <identity value="v2"/>
         <map value="PID-3"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="ClinicalImpression.encounter">
       <path value="ClinicalImpression.encounter"/>

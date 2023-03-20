@@ -153,10 +153,6 @@
         <identity value="rim"/>
         <map value=".partipication[typeCode=SUBJ].role"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="ImmunizationRecommendation.date">
       <path value="ImmunizationRecommendation.date"/>

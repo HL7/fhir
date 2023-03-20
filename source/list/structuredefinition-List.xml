@@ -253,7 +253,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject"/>
+        <map value="FiveWs.subject[x]"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

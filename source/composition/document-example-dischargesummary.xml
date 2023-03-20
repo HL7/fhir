@@ -152,7 +152,6 @@
 
             </div>
           </text>
-          <mode value="working"/>
           <!--   This is an entry that refers to a MedicationRequest resource in this document.
                 It is a new medication (as indicated by the flag)  -->
           <entry>
