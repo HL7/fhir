@@ -507,7 +507,7 @@ d6bdadc 5 hours ago
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Library/library-quick-model-definition"/>
+    <resource value="http://hl7.org/fhir/Library/library-quick-model-definition"/>
   </relatedArtifact>
 
   <dataRequirement>

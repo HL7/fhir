@@ -45,6 +45,7 @@ search declarations</a>, and clients are encouraged to do this too.
   </li>
   <li><a href="#transportprotocols">Transport Protocols</a>
     <ul>
+      <li><a href="#multi-datastore">Multi-datastore Considerations</a></li>
       <li><a href="#batching">Batching Searches</a></li>
       <li><a href="#messaging">Search in Messaging</a></li>
     </ul>
@@ -520,6 +521,54 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
   <a href="http.html#search">Search section</a> of the HTTP page.
 </p>
 
+<a name="multi-datastore"></a>
+<h4>Multi-datastore Considerations</h4>
+<p>
+  Some servers expose a FHIR endpoint that actually represents multiple data stores.  For 
+  example, a system might expose a single Observation endpoint, even though internally there 
+  are distinct systems for labs, vitals, clinical assessments, and symptoms.  Alternatively, 
+  a system might expose a single Patient endpoint even though it is backed by multiple distinct 
+  Patient repositories.
+</p>
+<p>
+  In these "single endpoint/multiple back-end" scenarios, it is possible that the internal 
+  repositories have different capabilities when it comes to search.
+</p>
+<p>
+  At present, there is no standard way to declare such limitations as part of the 
+  <a href="capabilitystatement.html">CapabilityStatement</a>, other than through custom extensions.
+  A future release of FHIR could provide a more standard way of performing such declarations.
+</p>
+<p>
+  In any event, systems can handle such limitations in <i>at least</i> four ways:
+  <ol>
+    <li>
+      By requiring that some searches include certain mandatory criteria.  For example, 
+      Observation searches might require that the <code>category</code> parameter be present 
+      (and only have one value) or Patient searches might require that the <code>organization</code> 
+      parameter be present.  These permitted combinations can be conveyed by extensions on the
+      <code>CapabilityStatement</code>.  Clients that fail to satisfy the 'combination' rules 
+      will not be able to search successfully.
+    </li>
+    <li>
+      By having the intermediary system that handles the dispatch to different back ends 
+      perform supplementary filtering such that any search parameters that cannot be enforced by 
+      the back-end system are instead applied at the intermediary layer, and thus from a 'client' 
+      perspective the search was executed as desired.
+    </li>
+    <li>
+      By returning a warning message in the search 
+      <a href="operationoutcome.html">OperationOutcome</a> (see also: 
+      <a href="#errors">Handling Errors</a>) indicating that not all filters were applied on all 
+      resources.  This SHOULD only occur in situations where it is known that some filters haven't been applied
+      <span class="stu">TU</span>.
+    </li>
+    <li>
+      By exposing distinct FHIR endpoints for each data source and the different capabilities in an endpoint-specific manner.
+    </li>
+  </ol>
+</p>
+
 <a name="batching"></a>
 <h4>Batching Search Requests</h4>
 <p>
@@ -576,6 +625,8 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
     <li>the type of test being used, and</li>
     <li>zero or more values from a resource to test against.</li>
   </ul>
+</p>
+<p>
   For example, a search against the Patient resource for <code>given=value</code> is a request to a server to compare values
   in the given name of a patient against "value", using the default string test (see <a href="#string">string</a> for details).
   Each of these 'parts' of a search test have a lot of flexibility.
@@ -758,10 +809,12 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   though this is not a requirement.  For example, it is common to join one parameter against a simple scalar element with 
   another that is an array of complex elements.
   In this table, the following definitions are used:
-  * <code>Scalar</code> refers to elements that have a maximum cardinality of one.
-  * <code>Array</code> refers to elements that have a maximum cardinality greater than one.
-  * <code>Simple</code> refers to elements that do not contain additional elements (e.g., <a href="datatypes.html#primitive">Primitive Types</a>).
-  * <code>Complex</code> refers to elements that contain additional elements (e.g., <a href="datatypes.html#HumanName">HumanName</a>, etc.)
+  <ul>
+    <li><code>Scalar</code> refers to elements that have a maximum cardinality of one.</li>
+    <li><code>Array</code> refers to elements that have a maximum cardinality greater than one.</li>
+    <li><code>Simple</code> refers to elements that do not contain additional elements (e.g., <a href="datatypes.html#primitive">Primitive Types</a>).</li>
+    <li><code>Complex</code> refers to elements that contain additional elements (e.g., <a href="datatypes.html#HumanName">HumanName</a>, etc.)</li>
+  </ul>
 </p>
 
 <span class="http-search-example">
@@ -2889,7 +2942,7 @@ Token search parameters are used for the following datatypes:
   <td><a href="datatypes.html#string">string</a></td>
   <td>n/a</td>
   <td>string</td>
-  <td>Token is sometimes used for string to indicate that exact matching is the correct default search strategy</td>
+  <td>Token is sometimes used for string to indicate that case-insensitive full-string matching is the correct default search strategy</td>
  </tr>
 </table>
 <p>

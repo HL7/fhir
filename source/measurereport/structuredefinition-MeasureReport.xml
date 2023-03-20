@@ -268,8 +268,8 @@
     </element>
     <element id="MeasureReport.date">
       <path value="MeasureReport.date"/>
-      <short value="When the report was generated"/>
-      <definition value="The date this measure report was generated."/>
+      <short value="When the measure was calculated"/>
+      <definition value="The date this measure was calculated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -403,7 +403,7 @@
       <path value="MeasureReport.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
-      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score."/>
+      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1030,7 +1030,8 @@
       </extension>
       <path value="MeasureReport.evaluatedResource"/>
       <short value="What data was used to calculate the measure score"/>
-      <definition value="A reference to a Resource that was used in the calculation of this measure."/>
+      <definition value="Evaluated resources are used to capture what data was involved in the calculation of a measure. This usage is only allowed for individual reports to ensure that the size of the MeasureReport resource is bounded."/>
+      <comment value="Evaluated resources are only reported for individual reports."/>
       <min value="0"/>
       <max value="*"/>
       <type>
