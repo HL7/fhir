@@ -212,7 +212,7 @@
       <path value="GraphDefinition.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this graph definition. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of graph definitions that are appropriate for use versus not."/>
+      <comment value="Allows filtering of graph definitions that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -259,7 +259,7 @@
       <path value="GraphDefinition.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the graph definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the graph definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the graph definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -296,7 +296,7 @@
       <path value="GraphDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -332,10 +332,13 @@
       <isSummary value="true"/>
     </element>
     <element id="GraphDefinition.jurisdiction">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
       <path value="GraphDefinition.jurisdiction"/>
       <short value="Intended jurisdiction for graph definition (if applicable)"/>
       <definition value="A legal or geographic region in which the graph definition is intended to be used."/>
-      <comment value="It may be possible for the graph definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <comment value="It may be possible for the graph definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
