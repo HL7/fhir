@@ -378,7 +378,7 @@
 		<element id="Contract.title">
 			<path value="Contract.title"/>
 			<short value="Human Friendly name"/>
-			<definition value="A short, descriptive, user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content."/>
+			<definition value="A short, descriptive, user-friendly title for this Contract definition, derivative, or instance in any legal state."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -389,7 +389,7 @@
 		<element id="Contract.subtitle">
 			<path value="Contract.subtitle"/>
 			<short value="Subordinate Friendly name"/>
-			<definition value="An explanatory or alternate user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content."/>
+			<definition value="A more detailed or qualifying explanatory or alternate user-friendly title for this Contract definition, derivative, or instance in any legal state."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -813,7 +813,7 @@
 		<element id="Contract.term.securityLabel.classification">
 			<path value="Contract.term.securityLabel.classification"/>
 			<short value="Confidentiality Protection"/>
-			<definition value="Security label privacy tag that species the level of confidentiality protection required for this term and/or term elements."/>
+			<definition value="Security label privacy tag that specifies the level of confidentiality protection required for this term and/or term elements."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -831,7 +831,7 @@
 		<element id="Contract.term.securityLabel.category">
 			<path value="Contract.term.securityLabel.category"/>
 			<short value="Applicable Policy"/>
-			<definition value="Security label privacy tag that species the applicable privacy and security policies governing this term and/or term elements."/>
+			<definition value="Security label privacy tag that specifies the applicable privacy and security policies governing this term and/or term elements."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -849,7 +849,7 @@
 		<element id="Contract.term.securityLabel.control">
 			<path value="Contract.term.securityLabel.control"/>
 			<short value="Handling Instructions"/>
-			<definition value="Security label privacy tag that species the manner in which term and/or term elements are to be protected."/>
+			<definition value="Security label privacy tag that specifies the manner in which term and/or term elements are to be protected."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -960,7 +960,7 @@
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="rim"/>
-				<map value="Includes many ActClass, ActCode, RoleClass, RoleCode, EntityClass, EntityCode, ParticipationType codes from HL7 concept domains and code systems. For example, RoleCode: HLD (held entity) Description: Entity that is currently in the possession of a holder (scoper), who holds, or uses it, usually based on some agreement with the owner. MANU (manufactured product) Description: Scoped by the manufacturer. OWN (owned entity) Description: An Entity (player) for which someone (scoper) is granted by law the right to call the material (player) his own. This entitles the scoper to make decisions about the disposition of that material. WRTE (warranted product) Description:&#xD;A role a product plays when a guarantee is given to the purchaser by the seller (scoping entity) stating that the product is reliable and free from known defects and that the seller will repair or replace defective parts within a given time limit and under certain conditions."/>
+				<map value="Includes many ActClass, ActCode, RoleClass, RoleCode, EntityClass, EntityCode, ParticipationType codes from HL7 concept domains and code systems. For example, RoleCode: HLD (held entity) Description: Entity that is currently in the possession of a holder (scoper), who holds, or uses it, usually based on some agreement with the owner. MANU (manufactured product) Description: Scoped by the manufacturer. OWN (owned entity) Description: An Entity (player) for which someone (scoper) is granted by law the right to call the material (player) his own. This entitles the scoper to make decisions about the disposition of that material. WRTE (warranteed product) Description:&#xD;A role a product plays when a guarantee is given to the purchaser by the seller (scoping entity) stating that the product is reliable and free from known defects and that the seller will repair or replace defective parts within a given time limit and under certain conditions."/>
 			</mapping>
 		</element>
 		<element id="Contract.term.offer.type">
@@ -1053,7 +1053,7 @@
 		<element id="Contract.term.offer.answer.value[x]">
 			<path value="Contract.term.offer.answer.value[x]"/>
 			<short value="The actual answer response"/>
-			<definition value="Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research."/>
+			<definition value="Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warranty duration, or whether biospecimen may be used for further research."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1220,7 +1220,7 @@
 		<element id="Contract.term.asset.relationship">
 			<path value="Contract.term.asset.relationship"/>
 			<short value="Kinship of the asset"/>
-			<definition value="Specifies the applicability of the term to an asset resource instance, and instances it refers to orinstances that refer to it, and/or are owned by the offeree."/>
+			<definition value="Specifies the applicability of the term to an asset resource instance, and instances it refers to or instances that refer to it, and/or are owned by the offeree."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1297,7 +1297,7 @@
 		<element id="Contract.term.asset.condition">
 			<path value="Contract.term.asset.condition"/>
 			<short value="Quality desctiption of asset"/>
-			<definition value="Description of the quality and completeness of the asset that imay be a factor in its valuation."/>
+			<definition value="Description of the quality and completeness of the asset that may be a factor in its valuation."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
