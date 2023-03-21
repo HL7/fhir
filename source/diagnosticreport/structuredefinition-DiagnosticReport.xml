@@ -181,7 +181,7 @@
         <valueString value="[#5692]."/>
       </extension>
       <path value="DiagnosticReport.status"/>
-      <short value="registered | partial | preliminary | final +"/>
+      <short value="registered | partial | preliminary | modified | final | amended | corrected | appended | cancelled | entered-in-error | unknown"/>
       <definition value="The status of the diagnostic report."/>
       <requirements value="Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports."/>
       <min value="1"/>

@@ -65,6 +65,11 @@
       <display value="Preliminary"/>
       <definition value="Verified early results are available, but not all results are final."/>
     </concept>
+    <concept>
+      <code value="modified"/>
+      <display value="Modified"/>
+      <definition value="Prior to being final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a non-finalized (e.g., preliminary) report that has been issued."/>
+    </concept>
   </concept>
   <concept>
     <code value="final"/>
