@@ -1076,7 +1076,7 @@
       <path value="ConceptMap.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced data element"/>
       <definition value="Data element value that the map depends on / produces."/>
-      <comment value="If the data type is a code, then the code system is the code system specified in .group.source or .group.target"/>
+      <comment value="If the data type is a code, then the code system is .group.source for .dependsOn.valueCode and .group.target for .product.valueCode."/>
       <min value="0"/>
       <max value="1"/>
       <type>
