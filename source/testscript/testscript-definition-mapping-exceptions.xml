@@ -45,7 +45,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Allows filtering of test scripts that are appropriate for use versus not."/>
+            <resource value="Allows filtering of test scripts that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of test scripts that are appropriate for use versus not."/>
@@ -73,6 +73,12 @@
         <commentsUnmatched reason="Unknown">
             <_pattern value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
             <resource value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.jurisdiction" resourcePath="TestScript.jurisdiction">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="It may be possible for the test script to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="It may be possible for the test script to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.copyright" resourcePath="TestScript.copyright">

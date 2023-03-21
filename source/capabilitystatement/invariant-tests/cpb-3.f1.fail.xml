@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
+  <version value="20130510"/>
+  <name value="ACMEEHR"/>
+  <title value="ACME EHR capability statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-01-04"/>
+  <publisher value="ACME Corporation"/>
+  <contact>
+    <name value="System Administrator"/>
+    <telecom>
+      <system value="email"/>
+      <value value="wile@acme.org"/>
+    </telecom>
+  </contact>
+  <description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <purpose value="Main EHR capability statement, published for contracting and operational support"/>
+  <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
+  <kind value="requirements"/>
+  <instantiates value="http://ihe.org/fhir/CapabilityStatement/pixm-client"/>
+  <software>
+    <name value="EHR"/>
+    <version value="0.00.020.2134"/>
+    <releaseDate value="2012-01-04"/>
+  </software>
+  <implementation>
+    <description value="main EHR at ACME"/>
+    <url value="http://10.2.3.4/fhir"/>
+  </implementation>
+  <fhirVersion value="5.0.0"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <patchFormat value="application/xml-patch+xml"/>
+  <patchFormat value="application/json-patch+json"/>
+  <acceptLanguage value="en"/>
+  <acceptLanguage value="es"/>
+  <implementationGuide value="http://hl7.org/fhir/us/lab"/>
+  <messaging>
+    <endpoint>
+      <protocol>
+        <system value="http://hl7.org/fhir/message-transport"/>
+        <code value="mllp"/>
+      </protocol>
+      <address value="mllp:10.1.1.10:9234"/>
+    </endpoint>
+    <reliableCache value="30"/>
+    <documentation value="ADT A08 equivalent for external system notifications"/>
+    <supportedMessage>
+      <mode value="receiver"/>
+      <definition value="http://hl7.org/fhir/MessageDefinition/example"/>
+    </supportedMessage>
+  </messaging>
+</CapabilityStatement>

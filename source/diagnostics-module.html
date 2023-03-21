@@ -339,32 +339,35 @@ in order to support consistent definitions for schema and UML derived code.
     <a name="roadmap"></a>
     <h3>Developmental Roadmap</h3>
     <ul>
-        <li>The <em>Observation</em> and <em>Diagnostic Report</em> resources have been tested and used in production
-            tooling and as such have reached a <a href="versions.html#maturity">maturity level FMM=4</a> where changes
-            become less likely and require implementer community approval. Future work will focus on developing core
-            profiles and clarifying use cases and boundaries and providing more domain specific examples. We anticipate
-            <em>Observation</em> and <em>Diagnostic Report</em> reaching normative status by the end of this cycle.</li>
-        <li>The <em>ImagingStudy</em> resource has had some limited testing and use. Further use of this resource in
-            production tooling is needed for it to reach a more stable FMM level.</li>
-        <li>The <em>ServiceRequest</em> resources has undergone substantial changes since DSTU2. Foremost of which is the
-            merging of DSTU2 <em>DiagnosticOrder</em> and <em>ServiceRequest</em> into a single resource. In addition, as a
-            result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, its structure and content have
-            been updated to align with the general FHIR workflow "request" pattern. Because of these, it remains a
-            relatively immature resource. No more sweeping changes to its structure are expected. However, its scope and
-            boundaries vis a vis other resources will be the topic of future workgroup efforts. We anticipate its broad use
-            by implementers and that it will mature as a resource throughout the upcoming cycle.</li>
-        <li>The <em>Specimen</em> resource will be the focus of work group efforts for the upcoming cycle. A new
-            <em>SpecimenDefinition</em> resource is planned for describing specimen types vs specimen instances and will
-            take over some of the Specimen resource's current scope. We expect to see more widespread use of this resource
-            and future updates to its FMM level</li>
-        <li>The <em>MolecularSequence</em> resource remains draft and we expect to see more widespread use of this resource
-            and future updates to its FMM level</li>
-        <li>The <em>BodyStructure</em> resource is an immature resource with a FMM level of 1. To date there has been little
-            implementation feedback.</li>
-        <li>The <em>Media</em> resource is the newest member to the Diagnostics module having undergone substantial scope
-            and structural changes to create a specialized observation resource focused on digital media such as images and
-            audio files. Future work will focus on developing core profiles and providing more domain specific examples.
+        <li>The <em>Observation</em> resource has been tested and used in production tooling and is Normative. Any
+            further development will follow the rules for Normative resources. Future work will focus on developing core
+            profiles and clarifying
+            use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>DocumentReference</em> and <em>ImagingStudy</em> resources have been tested and used in production
+            tooling and have reached maturity level FMM=4.</li>
+        <li>The <em>DiagnosticReport</em> resource has been tested and used in production tooling and has reached
+            maturity level FMM=3. Future work will focus on further refinements to the resource, as well as developing
+            core profiles and
+            clarifying use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>ServiceRequest</em> resource had relatively significant changes leading up to the R4 release, and is
+            still relatively immature at FMM=2. We anticipate that future work could lead to further refinements in the
+            scope and
+            boundaries. We anticipate its broad use by implementers which will help to increase its maturity level.</li>
+        <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group
+            efforts. We expect to see more widespread use of this resource which will help to increase its maturity.
         </li>
+        <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 and has been added for R5. We are
+            looking for implementer feedback to advance its maturity.</li>
+        <li>The <em>MolecularSequence</em> resource has had some limited testing and use. Changes have been made to
+            improve the ability to represent sequences in various ways. It remains at FMM=1.</li>
+        <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to
+            analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is
+            needed for it to reach a more
+            stable FMM level.</li>
+        <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support
+            greater precision of body location identification based on feedback that has been received, and we expect to
+            receive additional
+            implementation feedback which will help increase the resource maturity level.</li>
     </ul>
     [%file newfooter%]
 </body>

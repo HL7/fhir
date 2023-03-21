@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="ConceptMap"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -215,7 +214,7 @@
       <path value="ConceptMap.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this concept map. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of concept maps that are appropriate for use versus not."/>
+			<comment value="Allows filtering of concept maps that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -263,7 +262,7 @@
       <path value="ConceptMap.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the concept map was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -300,7 +299,7 @@
       <path value="ConceptMap.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -340,10 +339,13 @@
       <isSummary value="true"/>
     </element>
     <element id="ConceptMap.jurisdiction">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
       <path value="ConceptMap.jurisdiction"/>
       <short value="Intended jurisdiction for concept map (if applicable)"/>
       <definition value="A legal or geographic region in which the concept map is intended to be used."/>
-      <comment value="It may be possible for the concept map to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<comment value="It may be possible for the concept map to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -424,7 +426,7 @@
       <path value="ConceptMap.approvalDate"/>
       <short value="When the ConceptMap was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -439,7 +441,7 @@
       <path value="ConceptMap.lastReviewDate"/>
       <short value="When the ConceptMap was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
+			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
@@ -455,7 +457,7 @@
       <path value="ConceptMap.effectivePeriod"/>
       <short value="When the ConceptMap is expected to be used"/>
       <definition value="The period during which the ConceptMap content was or is planned to be in active use."/>
-      <comment value="The effective period for a ConceptMap  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+			<comment value="The effective period for a ConceptMap  determines when the content is applicable for usage and is independent of publication and review dates. For example, a map intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting process when new versions of the ConceptMap are or are expected to be used instead."/>
       <min value="0"/>
       <max value="1"/>
@@ -469,13 +471,13 @@
       </mapping>
     </element>
     <element id="ConceptMap.topic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
       </extension>
       <path value="ConceptMap.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the ConceptMap. Topics provide a high-level categorization as well as keywords for the ConceptMap that can be useful for filtering and searching."/>
-      <comment value="This element provides topical categorization and keywords for the ConceptMap, as opposed to the more structured context-of-use information provided in the useContext element"/>
+			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
       <requirements value="Repositories must be able to determine how to categorize the ConceptMap so that it can be found by topical and keyword searches."/>
       <min value="0"/>
       <max value="*"/>
@@ -517,6 +519,7 @@
       <path value="ConceptMap.reviewer"/>
       <short value="Who reviewed the ConceptMap"/>
       <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ConceptMap."/>
+			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -527,6 +530,7 @@
       <path value="ConceptMap.endorser"/>
       <short value="Who endorsed the ConceptMap"/>
       <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ConceptMap for use in some setting."/>
+			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -843,8 +847,9 @@
     </element>
     <element id="ConceptMap.group.element.valueSet">
       <path value="ConceptMap.group.element.valueSet"/>
-      <short value="Identifies elements being mapped"/>
-      <definition value="The set of codes being mapped."/>
+      <short value="Identifies the set of concepts being mapped"/>
+      <definition value="The set of concepts from the ConceptMap.group.source code system which are all being mapped to the target as part of this mapping rule."/>
+      <comment value="If the value set expansion is empty then there are no source concepts to map in this rule."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -857,6 +862,7 @@
       <path value="ConceptMap.group.element.noMap"/>
       <short value="No mapping to a target concept for this source concept"/>
       <definition value="If noMap = true this indicates that no mapping to a target concept exists for this source concept."/>
+      <comment value="If noMap = true, then the behavior of ConceptMap.group.unmapped (if present) does not apply."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -923,8 +929,9 @@
     </element>
     <element id="ConceptMap.group.element.target.valueSet">
       <path value="ConceptMap.group.element.target.valueSet"/>
-      <short value="Identifies the set of target elements"/>
-      <definition value="The set of codes that the map refers to."/>
+      <short value="Identifies the set of target concepts"/>
+      <definition value="The set of concepts from the ConceptMap.group.target code system which are all being mapped to as part of this mapping rule. The effect of using this data element is the same as having multiple ConceptMap.group.element.target elements with one for each concept in the ConceptMap.group.element.target.valueSet value set."/>
+      <comment value="If the the value set expansion is empty then the source concept(s) are unmapped and the behavior of ConceptMap.group.unmapped (if present) applies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1004,7 +1011,7 @@
     <element id="ConceptMap.group.element.target.property.value[x]">
       <path value="ConceptMap.group.element.target.property.value[x]"/>
       <short value="Value of the property for this concept"/>
-      <definition value="The value of this property."/>
+      <definition value="The value of this property. If the type chosen for this element is 'code', then the property SHALL be defined in a ConceptMap.property element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1069,7 +1076,7 @@
       <path value="ConceptMap.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced data element"/>
       <definition value="Data element value that the map depends on / produces."/>
-      <comment value="If the data type is a code, then the code system is the code system specified in .group.source or .group.target"/>
+      <comment value="If the data type is a code, then the code system is .group.source for .dependsOn.valueCode and .group.target for .product.valueCode."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1114,9 +1121,9 @@
         <valueCode value="150,300"/>
       </extension>
       <path value="ConceptMap.group.unmapped"/>
-      <short value="What to do when there is no mapping target for the source concept"/>
-      <definition value="What to do when there is no mapping to a target concept from the source concept.  This provides the &quot;default&quot; to be applied when there is no target concept mapping specified.  The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to."/>
-      <comment value="This only applies if the source code has a system value that matches the system defined for the group."/>
+      <short value="What to do when there is no mapping target for the source concept and ConceptMap.group.element.noMap is not true"/>
+      <definition value="What to do when there is no mapping to a target concept from the source concept and ConceptMap.group.element.noMap is not true. This provides the &quot;default&quot; to be applied when there is no target concept mapping specified or the expansion of ConceptMap.group.element.target.valueSet is empty."/>
+      <comment value="The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to or if ConceptMap.group.element.noMap = true."/>
       <min value="0"/>
       <max value="1"/>
       <type>

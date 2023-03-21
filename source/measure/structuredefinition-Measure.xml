@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="Measure"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -315,7 +314,7 @@
       <path value="Measure.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this measure. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of measures that are appropriate for use versus not."/>
+			<comment value="Allows filtering of measures that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -410,7 +409,7 @@
       <short value="Population basis"/>
       <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
       <comment value="For a subject-based measure, the population basis is simply boolean; all the criteria are expressed as true/false conditions that determine membership of an individual case in the population. For non-subject-based measures, the population basis can be any resource type, and the criteria are queries that return the subject's contribution to the population as a list of that resource type. For example, for a procedure-based measure, the population criteria would return lists of procedures that should be included in each population."/>
-      <requirements value="Allows non-subject-based measures to be specified"/>
+      <requirements value="Allows non-subject-based measures to be specified. Note that because the binding is to all fhir types, it is possible to specify abstract types such as Resource or DomainResource as the basis for a measure. Authoring environments may wish to constrain this further, depending on content needs."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -434,7 +433,7 @@
       <path value="Measure.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the measure was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the measure. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the measure. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -487,7 +486,7 @@
       <path value="Measure.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -548,10 +547,13 @@
       </mapping>
     </element>
     <element id="Measure.jurisdiction">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
       <path value="Measure.jurisdiction"/>
       <short value="Intended jurisdiction for measure (if applicable)"/>
       <definition value="A legal or geographic region in which the measure is intended to be used."/>
-      <comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -691,7 +693,7 @@
       <path value="Measure.approvalDate"/>
       <short value="When the measure was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -714,7 +716,7 @@
       <path value="Measure.lastReviewDate"/>
       <short value="When the measure was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
+			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
@@ -738,7 +740,7 @@
       <path value="Measure.effectivePeriod"/>
       <short value="When the measure is expected to be used"/>
       <definition value="The period during which the measure content was or is planned to be in active use."/>
-      <comment value="The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+			<comment value="The effective period for a measure determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the measure are or are expected to be used instead."/>
       <min value="0"/>
       <max value="1"/>
@@ -760,9 +762,13 @@
       </mapping>
     </element>
     <element id="Measure.topic">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
       <path value="Measure.topic"/>
       <short value="The category of the measure, such as Education, Treatment, Assessment, etc"/>
       <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
+			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
       <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
       <min value="0"/>
       <max value="*"/>
@@ -814,6 +820,7 @@
       <path value="Measure.reviewer"/>
       <short value="Who reviewed the content"/>
       <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
+			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -828,6 +835,7 @@
       <path value="Measure.endorser"/>
       <short value="Who endorsed the content"/>
       <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
+			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1803,7 +1811,7 @@
       <path value="Measure.supplementalData"/>
       <short value="What other data should be reported with the measure"/>
       <definition value="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path."/>
-      <comment value="Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information."/>
+      <comment value="Note that supplemental data are reported as resources for each patient and referenced in the supplementalData element of the MeasureReport. If the supplementalData expression results in a value other than a resource, it is reported using an Observation resource, typically contained in the resulting MeasureReport. See the MeasureReport resource and the Quality Reporting topic for more information."/>
       <min value="0"/>
       <max value="*"/>
       <type>

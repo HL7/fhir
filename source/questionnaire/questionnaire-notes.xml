@@ -38,7 +38,7 @@ of the healthcare space.  Many of these more sophisticated requirements are addr
 <a name="adaptive"> </a>
 <h3>Adaptive Questionnaires</h3>
 <p>
-Some questionnaires might not provide a full listing of questions, instead relying on a service to interactively sending partially completed forms to a server which generates the next set of questions.  
+Some questionnaires might not provide a full listing of questions, instead relying on a service to interactively send partially completed forms to a server which generates the next set of questions.  
 As such, some questionnaires might be 'active' but have either no questions or an insufficient set of questions for their purpose.  Further guidance on the use of such forms, can be found in the <a href="#sdc">SDC</a> implementation guide.
 </p>
 
@@ -63,7 +63,7 @@ such <b>Questionnaires</b> using more specific resources increases the availabil
 It is entirely possible for data to exist in both QuestionnaireResponse and in other resources.  For example, data may be captured in
 <a href="questionnaireresponse.html">QuestionnaireResponse</a> as part of an intake questionnaire.  That data may then be propagated into the
 <a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>,
-<a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original
+<a href="medicationstatement.html">MedicationStatement</a> and/or <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original
 <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance can be retained for traceability purposes.  If desired, a <a href="provenance.html">Provenance</a> resource
 can be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks "what is your weight", an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the
 <code>Observation.valueQuantity</code> can be created.
@@ -164,7 +164,7 @@ which provides details for the item. If a definition is provided, then the follo
 <li>initial.value[x] or fixed[x] (from ElementDefinition.defaultValue[x] - depending on whether readOnly is set)</li>
 </ul>
 <p>
-QuestionnaireResponse.item.type corresponds to ElementDefinition.type, however item.type is madatory in Questionniare, so it
+QuestionnaireResponse.item.type corresponds to ElementDefinition.type, however item.type is mandatory in Questionnaire, so it
 can't be 'populated' because it must exist for the item to exist at all.  However, the values specified for item.type and ElementDefinition.type  do need to correspond.  Complex types such as Address or anything based
 on BackboneElement would correspond to 'group', while simple types would normally map directly.
 </p>

@@ -103,12 +103,12 @@
 
 <p>The example specifies that the <code>reasonCode</code> element should be set to the result of evaluating the <code>RiskAssessmentScore</code> expression. This expression is expected to be present in a Library referenced by the containing resource:</p>
 
-<pre><code>&lt;library value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;</code></pre>
+<pre><code>&lt;library value=&quot;http://hl7.org/fhir/Library/mmi-suiciderisk-orderset-logic&quot;/&gt;</code></pre>
 
 <p>If the containing resource has a <code>library</code> element (such as ActivityDefinition and PlanDefinition), and only specifies a single library, the expression is evaluated as though it is in scope in that library. However, if the resource references multiple libraries, the referenced expression must be qualified with the name of the library in order to ensure unambiguous resolution. For example, the following fragment illustrates multiple libraries being referenced by the containing resource:</p>
 
-<pre><code>&lt;library value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
-&lt;library value=&quot;Library/another-orderset-logic&quot;/&gt;
+<pre><code>&lt;library value=&quot;http://hl7.org/fhir/Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
+&lt;library value=&quot;http://hl7.org/fhir/Library/another-orderset-logic&quot;/&gt;
 </code></pre>
 
 <p>The following fragment illustrates how an expression reference (reasonCode) would be qualified in the case of multiple library references:</p>
