@@ -2014,7 +2014,7 @@
 		<element id="Contract.relevantHistory">
 			<path value="Contract.relevantHistory"/>
 			<short value="Key event in Contract History"/>
-			<definition value="Links to Provenance records for past versions of this Contract definition, derivative, or instance, which identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the Contract.  The Provence.entity indicates the target that was changed in the update (see [Provenance.entity](provenance-definitions.html#Provenance.entity))."/>
+			<definition value="Links to Provenance records for past versions of this Contract definition, derivative, or instance, which identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the Contract.  The Provenance.entity indicates the target that was changed in the update (see [Provenance.entity](provenance-definitions.html#Provenance.entity))."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
