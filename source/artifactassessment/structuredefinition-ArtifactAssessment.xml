@@ -378,7 +378,7 @@
     </element>
     <element id="ArtifactAssessment.workflowStatus">
       <path value="ArtifactAssessment.workflowStatus"/>
-      <short value="submitted | triaged | waiting-for-input | resolved-no-change | resolved-change-required | deferred | duplicate | applied | published"/>
+      <short value="submitted | triaged | waiting-for-input | resolved-no-change | resolved-change-required | deferred | duplicate | applied | published | entered-in-error"/>
       <definition value="Indicates the workflow status of the comment or change request."/>
       <min value="0"/>
       <max value="1"/>
