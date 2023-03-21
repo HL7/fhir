@@ -81,6 +81,28 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="TestReport-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-status"/>
+        <name value="status"/>
+        <status value="active"/>
+        <description value="The current status of the test report"/>
+        <code value="status"/>
+        <base value="TestReport"/>
+        <type value="token"/>
+        <expression value="TestReport.status"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="TestReport-tester"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
