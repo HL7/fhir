@@ -84,4 +84,9 @@
     <display value="Published"/>
     <definition value="The necessary changes to the artifact have been published in a new version of the artifact"/>
   </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The assessment was entered in error"/>
+  </concept>
 </CodeSystem>
