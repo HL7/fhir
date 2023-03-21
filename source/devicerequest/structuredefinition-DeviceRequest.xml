@@ -280,7 +280,7 @@
       <path value="DeviceRequest.status"/>
       <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
       <definition value="The status of the request."/>
-      <comment value="This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid."/>
+      <comment value="This element is labeled as a modifier because the status contains the codes revoked and entered-in-error that mark the request as not currently valid."/>
       <min value="0"/>
       <max value="1"/>
       <type>
