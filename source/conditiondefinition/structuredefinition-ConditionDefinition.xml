@@ -553,7 +553,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/medicationrequest-category"/>
       </binding>
     </element>
     <element id="ConditionDefinition.medication.code">
