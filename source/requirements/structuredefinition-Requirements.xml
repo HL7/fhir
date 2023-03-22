@@ -223,7 +223,7 @@
       <path value="Requirements.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this Requirements. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of Requirements that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+      <comment value="Allows filtering of Requirements that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -278,7 +278,7 @@
       <path value="Requirements.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -323,7 +323,7 @@
       <path value="Requirements.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
