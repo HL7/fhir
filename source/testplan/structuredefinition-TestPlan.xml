@@ -46,11 +46,11 @@
 	</contact>
 	<description value="A plan for executing testing on an artifact or specifications"/>
 	<fhirVersion value="5.0.0"/>
-	<mapping>
+<!--	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
 		<name value="Workflow Pattern"/>
-	</mapping>
+	</mapping>-->
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
@@ -88,10 +88,10 @@
 				<expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
 			</constraint>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="rim"/>
 				<map value="n/a"/>
@@ -124,10 +124,10 @@
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.url"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.identifier"/>
@@ -145,10 +145,10 @@
 				<code value="Identifier"/>
 			</type>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.identifier"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.identifier"/>
@@ -169,10 +169,10 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.version"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.version"/>
@@ -210,10 +210,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.name"/>
-			</mapping>
+			</mapping>-->
 		</element>
 		<element id="TestPlan.title">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -229,10 +229,10 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.title"/>
-			</mapping>
+			</mapping>-->
 		</element>
 		<element id="TestPlan.status">
 			<path value="TestPlan.status"/>
@@ -258,10 +258,10 @@
 				<description value="The lifecycle status of an artifact."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
 			</binding>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.status"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.status"/>
@@ -301,10 +301,10 @@
 				<code value="dateTime"/>
 			</type>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.date"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.recorded"/>
@@ -325,10 +325,10 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.publisher"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.witness"/>
@@ -345,10 +345,10 @@
 				<code value="ContactDetail"/>
 			</type>
 			<isSummary value="true"/>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.contact"/>
-			</mapping>
+			</mapping>-->
 		</element>
 		<element id="TestPlan.description">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -363,10 +363,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.description"/>
-			</mapping>
+			</mapping>-->
 		</element>
 <!--		<element id="TestPlan.useContext">
 			<path value="TestPlan.useContext"/>
@@ -410,10 +410,10 @@
 				<description value="Countries and regions within which this artifact is targeted for use."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
 			</binding>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.jurisdiction"/>
-			</mapping>
+			</mapping>-->
 		</element>
 		<element id="TestPlan.purpose">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -428,10 +428,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.purpose"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.why[x]"/>
@@ -456,10 +456,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-			<mapping>
+<!--			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.copyright"/>
-			</mapping>
+			</mapping>-->
 			<mapping>
 				<identity value="objimpl"/>
 				<map value="no-gen-base"/>

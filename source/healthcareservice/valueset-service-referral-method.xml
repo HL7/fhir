@@ -46,7 +46,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The methods of referral can be used when referring to a specific HealthCareService resource."/>
+  <description value="The methods of referral can be used when referring to a specific HealthcareService resource."/>
   <immutable value="true"/>
   <compose>
     <include>
