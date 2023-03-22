@@ -21,7 +21,7 @@
     <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = entered-in-error"/>
+    <valueCode value=".workflowStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
   <identifier>
