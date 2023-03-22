@@ -20,6 +20,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

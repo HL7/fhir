@@ -288,7 +288,7 @@ reprocessing of specified service sub-trees from an already processed resource s
 <h4>Status</h4>
 <p>
 <b>Status</b> indicates the resource for which the processing status is requested in the .focus element and 
-provides any supporting information for the status request. The 
+provides any supporting information for the status request. 
 </p>
 <p>
 This is a formal request for systems which require requisition-level information or transports which don't support a
@@ -509,19 +509,20 @@ Financial Accounts and Billing (FIAB) - resources for accounts, charges (interna
 Financial Claims and Reimbursement (FICR) - insurance information, enrollment, eligibility, predetermination, preauthorization, claims, patient reporting and payments.
 </p>
 <p>
-To date FM has been focusing on the resources required to support the exchange of claims and related information between health care providers and insurers. The first draft of this work
-is nearing completion with the release of the first Financial Standard for Trial Use in STU4 of FHIR. Over the next year further refinements will be expected as implementers begin developing regional profiles
-and begin live pilots with resources.
+FM has been focusing for R5 on the resources required to support the exchange of claims and related information between health 
+care providers and insurers and the payment-related resources (PaymentNotice and PaymentReconciliation). Further effort is required
+ to correct and mature the terminologies used in the financial resources.
 </p>
 <p>
-Once the above is well underway FM can then look to developing the Enrollment-related resources and the resources to support the FIAB functions.
+Additionally FM can consider developing the Enrollment-related resources and the resources to support the FIAB functions
+ such as 'Statement'.
 </p>
 
 <a name="terminology"></a>
 <h3>Terminology</h3>
 <p>
 In many cases an <b>example</b> valueset has been provided in this release. Financial Management will be devoting effort in the
-preparation to Release 5 of FHIR to develop more representative example sets and to determine where global codesets exist such
+preparation to Release 6 of FHIR to develop more representative example sets and to determine where global codesets exist such
 that some of the valuesets may be elevated in strength to extensible or required.
 </p>
 [%file newfooter%]

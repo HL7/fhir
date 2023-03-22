@@ -433,7 +433,7 @@
           <valueString value="Observation.effective[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-date"/>
-        <description value="Obtained date/time. If the obtained element is a period, a date that falls in the period"/>
+        <description value="Clinically relevant time/time-period for observation"/>
         <code value="date"/>
         <type value="date"/>
         <expression value="Observation.effective.ofType(dateTime) | Observation.effective.ofType(Period) | Observation.effective.ofType(Timing) | Observation.effective.ofType(instant)"/>
