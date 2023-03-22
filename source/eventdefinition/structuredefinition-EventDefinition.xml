@@ -249,7 +249,7 @@
 			<path value="EventDefinition.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this event definition. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of event definitions that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Allows filtering of event definitions that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -331,7 +331,7 @@
 			<path value="EventDefinition.date"/>
 			<short value="Date last changed"/>
 			<definition value="The date  (and optionally time) when the event definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the event definition changes."/>
-			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the event definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the event definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -376,7 +376,7 @@
 			<path value="EventDefinition.contact"/>
 			<short value="Contact details for the publisher"/>
 			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -548,7 +548,7 @@
 			<path value="EventDefinition.approvalDate"/>
 			<short value="When the event definition was approved by publisher"/>
 			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -568,7 +568,7 @@
 			<path value="EventDefinition.lastReviewDate"/>
 			<short value="When the event definition was last reviewed by the publisher"/>
 			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -589,7 +589,7 @@
 			<path value="EventDefinition.effectivePeriod"/>
 			<short value="When the event definition is expected to be used"/>
 			<definition value="The period during which the event definition content was or is planned to be in active use."/>
-			<comment value="The effective period for an event definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a definition intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The effective period for an event definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a definition intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the event definition are or are expected to be used instead."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -666,7 +666,7 @@
 			<path value="EventDefinition.reviewer"/>
 			<short value="Who reviewed the content"/>
 			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
-			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -684,7 +684,7 @@
 			<path value="EventDefinition.endorser"/>
 			<short value="Who endorsed the content"/>
 			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
-			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
