@@ -217,7 +217,7 @@
 			<path value="ObservationDefinition.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The current state of the ObservationDefinition."/>
-			<comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
