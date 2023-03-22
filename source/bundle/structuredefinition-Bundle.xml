@@ -367,17 +367,6 @@
 				<code value="BackboneElement"/>
 			</type>
 			<orderMeaning value="For bundles of type 'document' and 'message', the first resource is special (must be Composition or MessageHeader respectively). For all bundles, the meaning of the order of entries depends on the bundle type"/>
-			<condition value="bdl-2"/>
-			<condition value="bdl-3a"/>
-			<condition value="bdl-3b"/>
-			<condition value="bdl-3c"/>
-			<condition value="bdl-3d"/>
-			<condition value="bdl-7"/>
-			<condition value="bdl-11"/>
-			<condition value="bdl-12"/>
-			<condition value="bdl-13"/>
-			<condition value="bdl-14"/>
-			<condition value="bdl-15"/>
 			<constraint>
 				<key value="bdl-8"/>
 				<severity value="error"/>
@@ -498,9 +487,6 @@
 			</type>
 			<condition value="bdl-3a"/>
 			<condition value="bdl-3b"/>
-			<condition value="bdl-3c"/>
-			<condition value="bdl-14"/>
-			<condition value="bdl-15"/>
 			<condition value="bdl-5"/>
 			<isSummary value="true"/>
 		</element>
