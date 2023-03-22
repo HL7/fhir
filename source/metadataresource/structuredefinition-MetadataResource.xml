@@ -94,7 +94,7 @@
 			<path value="MetadataResource.approvalDate"/>
 			<short value="When the {{title}} was approved by publisher"/>
 			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -110,7 +110,7 @@
 			<short value="When the {{title}} was last reviewed by the publisher"/>
 			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
 			<comment value="If specified, this date follows the original approval date."/>
-			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -125,7 +125,7 @@
 			<path value="MetadataResource.effectivePeriod"/>
 			<short value="When the {{title}} is expected to be used"/>
 			<definition value="The period during which the {{title}} content was or is planned to be in active use."/>
-			<comment value="The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the {{title}} are or are expected to be used instead."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -187,7 +187,7 @@
 			<path value="MetadataResource.reviewer"/>
 			<short value="Who reviewed the {{title}}"/>
 			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the {{title}}."/>
-			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -198,7 +198,7 @@
 			<path value="MetadataResource.endorser"/>
 			<short value="Who endorsed the {{title}}"/>
 			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the {{title}} for use in some setting."/>
-			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
