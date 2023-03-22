@@ -163,6 +163,9 @@
       <min value="0"/>
       <max value="*"/>
       <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionIntake"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
