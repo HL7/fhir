@@ -44,6 +44,7 @@
   <description value="Defines the types of relationships between actions."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="before"/>

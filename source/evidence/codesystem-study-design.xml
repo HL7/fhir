@@ -35,6 +35,7 @@
   <description value="This is a set of terms for study design characteristics."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
 	<concept>
 		<code value="SEVCO:01001"/>
