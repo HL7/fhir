@@ -239,7 +239,7 @@
 			<path value="TestScript.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this test script. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of test scripts that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Allows filtering of test scripts that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -294,7 +294,7 @@
 			<path value="TestScript.date"/>
 			<short value="Date last changed"/>
 			<definition value="The date (and optionally time) when the test script was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes."/>
-			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the test script. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the test script. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -339,7 +339,7 @@
 			<path value="TestScript.contact"/>
 			<short value="Contact details for the publisher"/>
 			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
