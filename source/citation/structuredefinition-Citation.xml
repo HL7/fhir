@@ -1415,7 +1415,7 @@
 		</element>
 		<element id="Citation.citedArtifact.contributorship.entry.forenameInitials">
 			<path value="Citation.citedArtifact.contributorship.entry.forenameInitials"/>
-			<short value="Initials for forename"/>
+			<short value="For citation styles that use initials"/>
 			<comment value="This element is used to support a data element used for citations that is not otherwise supported fully by FHIR HumanName datatype. In some citation summary styles (e.g. Medline), authors are presented with full spelling of their last name (family name) and initials for all forenames (first names, middle names, preceding names, given names). As the FHIR HumanName Datatype does not have a specific element for forename initials and this is common in citation usage, the element is added to contributorship.entry directly."/>
 			<min value="0"/>
 			<max value="1"/>
