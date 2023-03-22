@@ -155,6 +155,9 @@
       </mapping>
     </element>
     <element id="OperationDefinition.identifier">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
  			<path value="OperationDefinition.identifier"/>
  			<short value="Additional identifier for the implementation guide (business identifier)"/>
  			<definition value="A formal identifier that is used to identify this implementation guide when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
@@ -191,6 +194,9 @@
       </mapping>
     </element>
     <element id="OperationDefinition.versionAlgorithm[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="OperationDefinition.versionAlgorithm[x]"/>
       <short value="How to compare versions"/>
       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
@@ -255,7 +261,7 @@
       <short value="draft | active | retired | unknown"/>
 			<definition value="The current state of this operation definition."/>
 			<comment value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-			<requirements value="Enables tracking the lifecycle of the content and filtering of operation definitions that are appropriate for use versus not."/>
+			<requirements value="Enables tracking the lifecycle of the content and filtering of operation definitions that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -337,7 +343,7 @@
       <path value="OperationDefinition.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the operation definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the operation definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the operation definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -382,7 +388,7 @@
       <path value="OperationDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -433,10 +439,13 @@
       </mapping>
     </element>
     <element id="OperationDefinition.jurisdiction">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
       <path value="OperationDefinition.jurisdiction"/>
       <short value="Intended jurisdiction for operation definition (if applicable)"/>
       <definition value="A legal or geographic region in which the operation definition is intended to be used."/>
-      <comment value="It may be possible for the operation definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <comment value="It may be possible for the operation definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -486,6 +495,9 @@
       </mapping>
     </element>
     <element id="OperationDefinition.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
@@ -510,6 +522,9 @@
       </mapping>
     </element>
     <element id="OperationDefinition.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
@@ -748,6 +763,9 @@
       </binding>
     </element>
     <element id="OperationDefinition.parameter.scope">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="OperationDefinition.parameter.scope"/>
       <short value="instance | type | system"/>
       <definition value="If present, indicates that the parameter applies when the operation is being invoked at the specified level."/>
@@ -825,6 +843,9 @@
       </binding>
     </element>
     <element id="OperationDefinition.parameter.allowedType">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="OperationDefinition.parameter.allowedType"/>
       <short value="Allowed sub-type this parameter can have (if type is abstract)"/>
       <definition value="Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter."/>

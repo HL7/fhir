@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 [%settitle Resource References%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -608,8 +608,8 @@ Some notes about use and interpretation of contained resources:
 
 <ul>
   <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions).</li>
-  <li>The contained resource can be put in any resource that inherits from DomainResource. The contained element is then located at the
-  beginning of the resource after any text narrative and before any extension.</li>
+  <li>The contained resource can be put in any resource that inherits from DomainResource using the contained element which appears as 
+   a child element at the root of the resource.</li>
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see <a href="narrative.html#internal">Narrative references</a>).</li>
   <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
   resources. Since there are no nested contained resources, there is only one container resource.</li>

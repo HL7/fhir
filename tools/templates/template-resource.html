@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+
+<!-- template-abstract.html -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%aresheader%>
+<h1><%atitle%></h1>
+
+
+<table class="<%fmm-style%>"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
+
+[%normative resource %check%]
+
+<%introduction%>
+
+<a name="resource"></a>
+<h2>
+Resource Content
+</h2>
+<a name="def"></a>
+<a name="<%name%>"></a>
+<a name="<%title%>"></a>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-struc">Structure</a></li>
+    <li><a href="#tabs-uml">UML</a></li>
+    <li><a href="#tabs-all">All</a></li>
+  </ul>
+  <div id="tabs-struc">
+    <div id="tbl">
+      <p><b>Structure</b></p>
+      <div id="tbl-inner">
+        <%resource-table%>
+      </div>
+    </div>
+  </div>
+  <div id="tabs-uml">
+
+    <div id="uml">
+      <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+      <div id="uml-inner">
+        <%svg A%>
+      </div>
+    </div>
+  </div>
+  <div id="tabs-all">
+    <div id="tbl">
+      <a name="tbl"></a>
+      <p><b>Structure</b></p>
+      <div id="tbl-inner">
+        <%resource-table-all%>
+      </div>
+    </div>
+
+
+    <div id="uml">
+      <a name="uml"></a>
+      <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+      <div id="uml-inner">
+        <%svg B%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>&nbsp;</p>
+<p>Additional definitions:
+Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%>.profile.json.html">JSON</a> + <a href="<%name%>.shex.html">ShEx</a>,
+the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a>,
+Resource Representation <a href="xml.html">XML</a> + <a href="json.html">JSON</a> + <a href="rdf.html">Turtle</a></p>
+
+<a name="tx"></a>
+<%tx%>
+
+<%inv%>
+
+<%notes%>
+
+<a name="search"></a>
+<%asearch%>
+
+
+</div>
+
+<%file newfooter%>
+
+
+
+  <script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+<%othertabs setup%>
+
+function store(currentTab) {
+  document.activeElement.blur();
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){
+  }
+  $( '#tabs' ).tabs('option', 'active', currentTab);
+<%othertabs store%>
+}
+</script>
+
+</body>
+</html>

@@ -24,23 +24,12 @@
 			<a href="diagnosticreport-example-ghp.html">An Example of a report with multiple specimen and panels</a>
 		</li>
 	</ul>
-	<h4>Micro Isolate(Culture) and Susceptibility</h4>
-	<p>The following 2 examples of DiagnosticReport resources show example of a complex Micro Isolate and Sensitivities with both 1 and 2  levels of nested Organism and Susceptibilty panels using the related Observation Structure
-    </p>
+	<h4>Micro Isolate (Culture) and Susceptibility</h4>
+
 	<p>
-		<strong>
-			<a href="diagnosticreport-micro1.html">Micro Isolate and Sensitivities-1: </a>
-		</strong>
-An example of a complex Micro Isolate and Sensitivities with 2 level nested Organism and Susceptibilty panels using the related Observation Structure.  The following diagram is provided above to help teh reader navigate the nested structures.</p>
-	<img src="cands1.png" alt="Micro Isolate and Sensitivities-1 structure" width="800px"/>
-	<p></p>
-	<p>
-		<strong>
-			<a href="bundle-lri-example.html">Micro Isolate and Sensitivities-2: </a>
-		</strong>
-An collection Bundle showing an example of a complex Micro Isolate and Sensitivities based on the HL7 V2 Lab Reports Interface (LRI) example. This example has a single level nested Organism panels using the related Observation Structure.  The following diagram is provided  to help the reader navigate the nested structures.</p>
-	<img src="cands2.png" alt="Micro Isolate and Sensitivities-2 structure" width="800px"/>
-	<p></p>
+	See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for a review on how to organize
+	DiagnosticReport and Observations to represent micro-biology culture reports, including
+	susceptibility reports, and parent/child structures.</p>
 	<h3>Imaging Studies</h3>
 	<p>The following examples of DiagnosticReport resources show examples of various imaging reports:
     </p>

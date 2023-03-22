@@ -1,5 +1,34 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="localization"> </a>
+<h3>Localization</h3>
+<p>
+  All of the elements reflected on a canonical resource are the assertions as made by the original author/publisher 
+  and do NOT reflect divergent local usage expectations. If a system has a need to capture local usage requirements 
+  (e.g. local deprecation, local 'active' use past the point of deprecation/retirement by the official source, 
+  alternative effective periods, etc.), those assertions should be made in a separate resource (e.g. 
+  <a href="list.html">List</a>, <a href="artifactassessment.html">ArtifactAssessment</a>, etc.) that focuses on 
+  approval/usage of referenced resources, not on the canonical/metadata resource itself.  Alternatively, a separate 
+  resource might be defined that 'derives' from the original resource and can have its own properties.
+</p>
+<p>
+  There is however, a possibility of local changes on 'generated' elements such as <a href="valueset.html">ValueSet</a> 
+  expansions, <a href="structuredefinition.html">StructureDefinition</a> snapshots, etc. In this case:
+</p>
+<ul>
+  <li>If the source of truth is providing expansions, snapshot generation or similar "generated" elements, then it is 
+    not a good idea for downstream servers to update/override them.</li>
+  <li>If the source of truth is NOT providing those generated elements, then it is reasonable for downstream servers to 
+    generate them (and update them from time to time). If this happens, it is possible that different servers will have 
+    different generated elements. This would not be considered a violation of the guidelines proposed above.</li>
+</ul>
+<p>
+  HL7 is developing a <a href="http://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management</a> implementation guide 
+  to define best practices for asserting and exposing local usage expectations of canonical and metadata resources.
+  Readers are invited to consult the current release of that IG for additional guidance.
+</p>
+
+<a name="comparison"> </a>
 <h3>Version Comparison</h3>
 
 <p>

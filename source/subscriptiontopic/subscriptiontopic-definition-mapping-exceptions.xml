@@ -61,7 +61,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of subscription topics that are appropriate for use versus not."/>
@@ -93,11 +93,11 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date  (and optionally time) when the subscription topic was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the subscription topic changes."/>
-            <resource value="For draft definitions, indicates the date of initial creation.  For active definitions, represents the date of activation.  For withdrawn definitions, indicates the date of withdrawal."/>
+            <resource value="The date (and optionally time) when the subscription topic was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the subscription topic changes."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the subscription topic. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-            <resource value=""/>
+            <resource value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.publisher" resourcePath="SubscriptionTopic.publisher">
@@ -157,8 +157,8 @@
             <resource value="A jurisdiction in which the Topic is intended to be used."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="It may be possible for the subscription topic to be used in jurisdictions other than those for which it was originally designed or intended."/>
-            <resource value=""/>
+            <_pattern value="It may be possible for the subscription topic to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.purpose" resourcePath="SubscriptionTopic.purpose">

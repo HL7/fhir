@@ -216,10 +216,6 @@
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="CareTeam.period">
       <path value="CareTeam.period"/>

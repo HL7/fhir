@@ -1,220 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="MetadataResource"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-interface">
-    <valueBoolean value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.2.0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.5.1374"/>
-  </identifier>
-  <version value="5.0.0"/>
-  <name value="MetadataResource"/>
-  <title value="Metadata Resource"/>
-  <status value="active"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="Common Interface declaration for conformance and knowledge artifact resources."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="true"/>
-  <type value="MetadataResource"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="MetadataResource">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="230,160"/>
-      </extension>
-      <path value="MetadataResource"/>
-      <short value="Common Interface declaration for definitional resources"/>
-      <definition value="Common Interface declaration for conformance and knowledge artifact resources."/>
-      <min value="1"/>
-      <max value="1"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="conformance.behavior"/>
-      </mapping>
-    </element>
-    <element id="MetadataResource.approvalDate">
-      <path value="MetadataResource.approvalDate"/>
-      <short value="When the {{title}} was approved by publisher"/>
-      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="MetadataResource.lastReviewDate">
-      <path value="MetadataResource.lastReviewDate"/>
-      <short value="When the {{title}} was last reviewed by the publisher"/>
-      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="MetadataResource.effectivePeriod">
-      <path value="MetadataResource.effectivePeriod"/>
-      <short value="When the {{title}} is expected to be used"/>
-      <definition value="The period during which the {{title}} content was or is planned to be in active use."/>
-      <comment value="The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the {{title}} are or are expected to be used instead."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="MetadataResource.topic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
-      </extension>
-      <path value="MetadataResource.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc"/>
-      <definition value="Descriptive topics related to the content of the {{title}}. Topics provide a high-level categorization as well as keywords for the {{title}} that can be useful for filtering and searching."/>
-      <comment value="This element provides topical categorization and keywords for the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element"/>
-      <requirements value="Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical and keyword searches."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DefinitionTopic"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-      </binding>
-    </element>
-    <element id="MetadataResource.author">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
-      </extension>
-      <path value="MetadataResource.author"/>
-      <short value="Who authored the {{title}}"/>
-      <definition value="An individiual or organization primarily involved in the creation and maintenance of the {{title}}."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="MetadataResource.editor">
-      <path value="MetadataResource.editor"/>
-      <short value="Who edited the {{title}}"/>
-      <definition value="An individual or organization primarily responsible for internal coherence of the {{title}}."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="MetadataResource.reviewer">
-      <path value="MetadataResource.reviewer"/>
-      <short value="Who reviewed the {{title}}"/>
-      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the {{title}}."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="MetadataResource.endorser">
-      <path value="MetadataResource.endorser"/>
-      <short value="Who endorsed the {{title}}"/>
-      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the {{title}} for use in some setting."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="MetadataResource.relatedArtifact">
-      <path value="MetadataResource.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc"/>
-      <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
-      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-      <requirements value="A {{title}} must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="MetadataResource"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-interface">
+		<valueBoolean value="true"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="normative"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+		<valueCode value="4.2.0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="5"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.5.1374"/>
+	</identifier>
+	<version value="5.0.0"/>
+	<name value="MetadataResource"/>
+	<title value="Metadata Resource"/>
+	<status value="active"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="Common Interface declaration for conformance and knowledge artifact resources."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="true"/>
+	<type value="MetadataResource"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="MetadataResource">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="230,160"/>
+			</extension>
+			<path value="MetadataResource"/>
+			<short value="Common Interface declaration for definitional resources"/>
+			<definition value="Common Interface declaration for conformance and knowledge artifact resources."/>
+			<min value="1"/>
+			<max value="1"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="conformance.behavior"/>
+			</mapping>
+		</element>
+		<element id="MetadataResource.approvalDate">
+			<path value="MetadataResource.approvalDate"/>
+			<short value="When the {{title}} was approved by publisher"/>
+			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="MetadataResource.lastReviewDate">
+			<path value="MetadataResource.lastReviewDate"/>
+			<short value="When the {{title}} was last reviewed by the publisher"/>
+			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+			<comment value="If specified, this date follows the original approval date."/>
+			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="MetadataResource.effectivePeriod">
+			<path value="MetadataResource.effectivePeriod"/>
+			<short value="When the {{title}} is expected to be used"/>
+			<definition value="The period during which the {{title}} content was or is planned to be in active use."/>
+			<comment value="The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the {{title}} are or are expected to be used instead."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="MetadataResource.topic">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
+			<path value="MetadataResource.topic"/>
+			<short value="E.g. Education, Treatment, Assessment, etc"/>
+			<definition value="Descriptive topics related to the content of the {{title}}. Topics provide a high-level categorization as well as keywords for the {{title}} that can be useful for filtering and searching."/>
+			<comment value="This element provides topical categorization and keywords for the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
+			<requirements value="Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical and keyword searches."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DefinitionTopic"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+			</binding>
+		</element>
+		<element id="MetadataResource.author">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
+			</extension>
+			<path value="MetadataResource.author"/>
+			<short value="Who authored the {{title}}"/>
+			<definition value="An individiual or organization primarily involved in the creation and maintenance of the {{title}}."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="MetadataResource.editor">
+			<path value="MetadataResource.editor"/>
+			<short value="Who edited the {{title}}"/>
+			<definition value="An individual or organization primarily responsible for internal coherence of the {{title}}."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="MetadataResource.reviewer">
+			<path value="MetadataResource.reviewer"/>
+			<short value="Who reviewed the {{title}}"/>
+			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the {{title}}."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="MetadataResource.endorser">
+			<path value="MetadataResource.endorser"/>
+			<short value="Who endorsed the {{title}}"/>
+			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the {{title}} for use in some setting."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="MetadataResource.relatedArtifact">
+			<path value="MetadataResource.relatedArtifact"/>
+			<short value="Additional documentation, citations, etc"/>
+			<definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<requirements value="A {{title}} must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+		</element>
+	</differential>
 </StructureDefinition>

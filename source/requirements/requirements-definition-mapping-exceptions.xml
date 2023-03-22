@@ -102,7 +102,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Allows filtering of Requirements that are appropriate for use versus not."/>
+            <resource value="Allows filtering of Requirements that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of requirementss that are appropriate for use versus not."/>
@@ -130,7 +130,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-            <resource value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+            <resource value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.publisher" resourcePath="Requirements.publisher">
@@ -178,8 +178,8 @@
             <resource value="A legal or geographic region in which the Requirements is intended to be used."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="It may be possible for the requirements to be used in jurisdictions other than those for which it was originally designed or intended."/>
-            <resource value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended."/>
+            <_pattern value="It may be possible for the requirements to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.purpose" resourcePath="Requirements.purpose">

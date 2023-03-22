@@ -203,6 +203,9 @@
       <min value="0"/>
       <max value="*"/>
       <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
@@ -399,10 +402,6 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=SBJ].role"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Procedure.focus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -427,7 +426,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject"/>
+        <map value="FiveWs.subject[x]"/>
       </mapping>
     </element>
     <element id="Procedure.encounter">

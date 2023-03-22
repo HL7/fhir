@@ -241,10 +241,6 @@
         <identity value="ical"/>
         <map value="ATTENDEE:MAILTO:john_public@host2.com This can be populated with a value from the referenced resource"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Schedule.planningHorizon">
       <path value="Schedule.planningHorizon"/>

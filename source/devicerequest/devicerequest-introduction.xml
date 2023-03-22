@@ -3,16 +3,6 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 
-[%stu-note dstu%]
-In terms of scope and usage, the  Orders and Observations workgroups wish to
-draw the attention of reviewers and implementers to the following issue:
-</p>
-			<ol>
-				<li>
- We are seeking input from the implementation community on whether to combine DeviceRequest and  <a href="visionprescription.html">VisionPrescription</a> for R5.  The <a href="devicerequest-definitions.html#parameters">parameters</a> element  was added to DeviceRequest for representing custom details for ordering devices.  With this change,  VisionPrescription significantly overlaps  DeviceRequest. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a> in VisionPrescription.   
-</li>
-			</ol>
-[%end-note-np%]
 		<p>
 			<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong>
 		</p>
@@ -28,6 +18,9 @@ The device use request may represent an order or a prescription entered by a pra
 		<h2>Boundaries and Relationships</h2>
 		<p>
 This resource deals with the allocation of a device to a patient and while it may contain instructions on how to use the device, the data about getting the device to the patient is addressed in other resources. For example, when requesting an oxygen pump for home use instructions on how to use it may be included.  For devices that must be implanted via a surgical or other procedure the implantation is represented in the Procedure resource.
+</p>
+<p>  
+<a href="visionprescription.html">VisionPrescription</a> may appear to overlap with DeviceRequest, but not completely as there are specific vision lens specification details that are present in VisionPrescription. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a>.
 </p>
 <p>
 To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.

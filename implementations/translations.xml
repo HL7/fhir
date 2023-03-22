@@ -605,8 +605,8 @@
 	<item id="MedicationRequest">
 		<translation lang="en">MedicationRequest</translation>
 		<translation lang="zh">药物请求</translation>
-		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
-		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
+		<translation lang="fr">RequêteMédicamenteuse</translation>
+		<translation lang="es">PedidoMedicación</translation>
 	</item>
 	<item id="MedicationStatement">
 		<translation lang="en">MedicationStatement</translation>

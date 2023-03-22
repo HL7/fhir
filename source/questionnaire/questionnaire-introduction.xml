@@ -53,7 +53,7 @@ that support additional capabilities and allow the definition of more sophistica
 <p>
 <b>Questionnaires</b> are intrinsically bound to <a href="questionnaireresponse.html">QuestionnaireResponses</a> in that a Questionnaire defines the questions and rules
 for answering them that are used in completing the QuestionnaireResponse.  The main difference between them is that Questionnaires define 'permitted' answers and are
-subject and time-independent, while QuestionnaireResponses define a specific users's answers to a Questionnaire at a particular time-point and are focused on a specific
+subject and time-independent, while QuestionnaireResponses define a specific user's answers to a Questionnaire at a particular time-point and are focused on a specific
 subject.  As well, the QuestionnaireResponse doesn't convey any of the rules or 'potential' answers the way Questionnaire does.  It only conveys the answers selected by
 the user.
 </p>
@@ -73,7 +73,7 @@ Questionnaires are similar to <a href="observationdefinition.html">ObservationDe
 setting constraints on what allowed answers are.  They can also define hierarchical constructs containing multiple layers of 'arbitrary' nested data elements.  However, 
 ObservationDefinitions are instantiated by Observations and are intended to be limited to only those data elements typically captured as Observations, while Questionnaires
 can describe any element at all and are instantiated by QuestionnaireResponses.  Questionnaires also have significantly more power to identify rules around what data can
-be captured and when, as well as allowed answers.  While both support nesting, ObservationDefinition nesting is focused on panels and is limted to a single level within the
+be captured and when, as well as allowed answers.  While both support nesting, ObservationDefinition nesting is focused on panels and is limited to a single level within the
 resource, while Questionnaire can define nesting of arbitrary depth for any purpose.
 </p>
 <p>

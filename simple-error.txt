@@ -1,1 +1,1 @@
-Resource Examples failed instance validation
+﻿Exception inserting section numbers in security.html: Unable to read attribute 'href' value on <a> at line 478 column 13

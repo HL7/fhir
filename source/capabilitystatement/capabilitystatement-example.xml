@@ -74,7 +74,7 @@
   <patchFormat value="application/json-patch+json"/>
   <acceptLanguage value="en"/>
   <acceptLanguage value="es"/>
-  <implementationGuide value="http://hl7.org/fhir/us/lab"/>
+  <implementationGuide value="http://example.org/fhir/us/lab"/>
   <rest>
     <mode value="server"/>
     <documentation value="Main FHIR endpoint for acem health"/>

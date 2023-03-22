@@ -1,0 +1,22 @@
+{
+  "resourceType" : "OperationDefinition",
+  "id" : "opd-7.1.fail",
+  "url" : "http://hl7.org/fhir/tests/OperationDefinition/opd-7.1.fail",
+  "code" : "test",
+  "name" : "test",
+  "status" : "draft",
+  "kind" : "query",
+  "resource" : ["Patient"],
+  "system" : false,
+  "type" : true,
+  "instance" : false,
+  "parameter" : [{
+    "name" : "random",
+    "use" : "out",
+    "min" : 1,
+    "max" : "1",
+    "documentation" : "The resource that is to be the *QuestionnaireResponse.subject*. The [[[QuestionnaireResponse]]]      instance will reference the provided subject.  In addition, if the *local* parameter is      set to true, server information about the specified subject will be used to populate the      instance.",
+    "type" : "Reference",
+    "searchType" : "string"
+  }]
+}

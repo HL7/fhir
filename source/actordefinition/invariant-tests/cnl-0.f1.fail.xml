@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ActorDefinition xmlns="http://hl7.org/fhir">
+  <id value="server"/>
+  <url value="http://hl7.org/fhir/ActorDefinition/server"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.27.1"/>
+  </identifier>
+  <name value="1ServerActor"/>
+  <title value="Server Actor"/>
+  <status value="active"/>
+  <date value="2021-11-02T14:31:30.239Z"/>
+  <description value="Server Actor"/>
+  <type value="system"/>
+</ActorDefinition>

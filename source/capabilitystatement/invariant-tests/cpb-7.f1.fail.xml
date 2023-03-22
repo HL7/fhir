@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
+  <version value="20130510"/>
+  <name value="ACMEEHR"/>
+  <title value="ACME EHR capability statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-01-04"/>
+  <kind value="instance"/>
+  <instantiates value="http://ihe.org/fhir/CapabilityStatement/pixm-client"/>
+  <software>
+    <name value="EHR"/>
+    <version value="0.00.020.2134"/>
+    <releaseDate value="2012-01-04"/>
+  </software>
+  <implementation>
+    <description value="main EHR at ACME"/>
+    <url value="http://10.2.3.4/fhir"/>
+  </implementation>
+  <fhirVersion value="5.0.0"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <patchFormat value="application/xml-patch+xml"/>
+  <patchFormat value="application/json-patch+json"/>
+  <acceptLanguage value="en"/>
+  <acceptLanguage value="es"/>
+  <implementationGuide value="http://hl7.org/fhir/us/lab"/>
+  <document>
+    <mode value="consumer"/>
+    <documentation value="Basic rules for all documents in the EHR system"/>
+    <profile value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
+  </document>
+  <document>
+    <mode value="consumer"/>
+    <documentation value="Basic rules for all documents in the EHR system"/>
+    <profile value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
+  </document>
+</CapabilityStatement>

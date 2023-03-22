@@ -220,10 +220,6 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=SBJ].role[classCode=PAT | LOCE | ASSIGNED]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="Flag.period">
       <path value="Flag.period"/>

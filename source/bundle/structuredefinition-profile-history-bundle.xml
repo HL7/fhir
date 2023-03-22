@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="history-bundle" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Other" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="not-classified" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use" />
+  </extension>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/summary">
+    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'29463-7'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', or '[lb_av]'**" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/history-bundle" />
+  <version value="0.1.0" />
+  <name value="HistoryBundle" />
+  <title value="History bundle" />
+  <status value="active" />
+  <description value="This profile holds all the requirements and constraints related to a FHIR history bundle." />
+  <fhirVersion value="5.0.0-snapshot1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle.type">
+      <path value="Bundle.type" />
+      <patternCode value="history" />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="request.method" />
+        </discriminator>
+        <description value="Slice defining each method" />
+        <ordered value="false" />
+        <rules value="closed" />
+      </slicing>
+    </element>
+    <element id="Bundle.entry:put">
+      <path value="Bundle.entry" />
+      <sliceName value="put" />
+    </element>
+    <element id="Bundle.entry:put.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:put.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:put.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:put.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:put.request.method">
+      <path value="Bundle.entry.request.method" />
+      <patternCode value="PUT" />
+    </element>
+    <element id="Bundle.entry:put.response">
+      <path value="Bundle.entry.response" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:post">
+      <path value="Bundle.entry" />
+      <sliceName value="post" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:post.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:post.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:post.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:post.request.method">
+      <path value="Bundle.entry.request.method" />
+      <patternCode value="POST" />
+    </element>
+    <element id="Bundle.entry:post.response">
+      <path value="Bundle.entry.response" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:get">
+      <path value="Bundle.entry" />
+      <sliceName value="get" />
+    </element>
+    <element id="Bundle.entry:get.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:get.resource">
+      <path value="Bundle.entry.resource" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:get.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:get.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:get.request.method">
+      <path value="Bundle.entry.request.method" />
+      <patternCode value="GET" />
+    </element>
+    <element id="Bundle.entry:get.response">
+      <path value="Bundle.entry.response" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:delete">
+      <path value="Bundle.entry" />
+      <sliceName value="delete" />
+    </element>
+    <element id="Bundle.entry:delete.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:delete.resource">
+      <path value="Bundle.entry.resource" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:delete.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:delete.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:delete.request.method">
+      <path value="Bundle.entry.request.method" />
+      <patternCode value="DELETE" />
+    </element>
+    <element id="Bundle.entry:delete.response">
+      <path value="Bundle.entry.response" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:patch">
+      <path value="Bundle.entry" />
+      <sliceName value="patch" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:patch.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.issues">
+      <path value="Bundle.issues" />
+    </element>
+  </differential>
+</StructureDefinition>
