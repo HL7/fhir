@@ -47,7 +47,7 @@
     <definition value="Describes elevation instructions."/>
   </concept>
   <concept>
-    <code value="device-onfiguration"/>
+    <code value="device-configuration"/>
     <display value="Device Configuration"/>
     <definition value="Describes configuration details"/>
   </concept>
