@@ -224,7 +224,7 @@
 			<path value="ValueSet.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state."/>
-			<comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [[[http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription]]] extension for additional status information related to the editorial process.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [[[http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription]]] extension for additional status information related to the editorial process.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -271,7 +271,7 @@
 			<path value="ValueSet.date"/>
 			<short value="Date last changed"/>
 			<definition value="The date (and optionally time) when the value set metadata or content logical definition (.compose) was created or revised."/>
-			<comment value="Note that this is not the same as the meta.lastUpdated which is specific to an instance of a value set resource on a server.  Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Note that this is not the same as the meta.lastUpdated which is specific to an instance of a value set resource on a server.  Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -312,7 +312,7 @@
 			<path value="ValueSet.contact"/>
 			<short value="Contact details for the publisher"/>
 			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -460,7 +460,7 @@
 			<path value="ValueSet.approvalDate"/>
 			<short value="When the ValueSet was approved by publisher"/>
 			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -478,7 +478,7 @@
 			<path value="ValueSet.lastReviewDate"/>
 			<short value="When the ValueSet was last reviewed by the publisher"/>
 			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -497,7 +497,7 @@
 			<path value="ValueSet.effectivePeriod"/>
 			<short value="When the ValueSet is expected to be used"/>
 			<definition value="The period during which the ValueSet content was or is planned to be in active use."/>
-			<comment value="The effective period for a ValueSet determines when the content is applicable for usage and is independent of publication and review dates. For example, a valueset intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The effective period for a ValueSet determines when the content is applicable for usage and is independent of publication and review dates. For example, a valueset intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting process when new versions of the ValueSet are or are expected to be used instead."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -571,7 +571,7 @@
 			<path value="ValueSet.reviewer"/>
 			<short value="Who reviewed the ValueSet"/>
 			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet."/>
-			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -585,7 +585,7 @@
 			<path value="ValueSet.endorser"/>
 			<short value="Who endorsed the ValueSet"/>
 			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting."/>
-			<comment value="See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

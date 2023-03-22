@@ -224,7 +224,7 @@
 			<path value="Evidence.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of summarys s that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Allows filtering of summarys s that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -264,7 +264,7 @@
 			<path value="Evidence.date"/>
 			<short value="Date last changed"/>
 			<definition value="The date  (and optionally time) when the summary was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the summary changes."/>
-			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the summary. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the summary. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -281,7 +281,7 @@
 			<path value="Evidence.approvalDate"/>
 			<short value="When the summary was approved by publisher"/>
 			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -296,7 +296,7 @@
 			<path value="Evidence.lastReviewDate"/>
 			<short value="When the summary was last reviewed by the publisher"/>
 			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="If specified, this date follows the original approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -332,7 +332,7 @@
 			<path value="Evidence.contact"/>
 			<short value="Contact details for the publisher"/>
 			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -367,7 +367,7 @@
 			<path value="Evidence.reviewer"/>
 			<short value="Who reviewed the content"/>
 			<definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -378,7 +378,7 @@
 			<path value="Evidence.endorser"/>
 			<short value="Who endorsed the content"/>
 			<definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

@@ -311,7 +311,7 @@
       <path value="ServiceRequest.status"/>
       <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
       <definition value="The status of the order."/>
-      <comment value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
+      <comment value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
       <min value="1"/>
       <max value="1"/>
       <type>
