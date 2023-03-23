@@ -709,7 +709,7 @@
 			<definition value="An identifier for this collection of questions in a particular terminology such as LOINC."/>
 			<requirements value="Allows linking of the complete Questionnaire resources to formal terminologies.  It's common for &quot;panels&quot; of questions to be identified by a code."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="Coding"/>
 			</type>
