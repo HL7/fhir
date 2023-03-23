@@ -22,9 +22,9 @@
 	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
 		<valueCode value=".status = entered-in-error"/>
 	</extension>
-<!--	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
 		<valueString value="CanonicalResource"/>
-	</extension>-->
+	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
 	<version value="5.0.0"/>
 	<name value="TestPlan"/>
@@ -46,11 +46,11 @@
 	</contact>
 	<description value="A plan for executing testing on an artifact or specifications"/>
 	<fhirVersion value="5.0.0"/>
-<!--	<mapping>
+	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
 		<name value="Workflow Pattern"/>
-	</mapping>-->
+	</mapping>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
@@ -88,10 +88,10 @@
 				<expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
 			</constraint>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="rim"/>
 				<map value="n/a"/>
@@ -124,10 +124,10 @@
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.url"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.identifier"/>
@@ -145,10 +145,10 @@
 				<code value="Identifier"/>
 			</type>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.identifier"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.identifier"/>
@@ -169,16 +169,16 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.version"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.version"/>
 			</mapping>
 		</element>
-		<!--		<element id="TestPlan.versionAlgorithm[x]">
+				<element id="TestPlan.versionAlgorithm[x]">
 			<path value="TestPlan.versionAlgorithm[x]"/>
 			<short value="How to compare versions"/>
 			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
@@ -196,7 +196,7 @@
 				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
 			</binding>
-		</element>-->
+		</element>
 		<element id="TestPlan.name">
 			<path value="TestPlan.name"/>
 			<short value="Name for this test plan (computer friendly)"/>
@@ -210,10 +210,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.name"/>
-			</mapping>-->
+			</mapping>
 		</element>
 		<element id="TestPlan.title">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -224,23 +224,22 @@
 			<definition value="A short, descriptive, user-friendly title for the test plan."/>
 			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
 			<min value="0"/>
-			<!-- should be 0..1 -->
-			<max value="*"/>
+			<max value="1"/>
 			<type>
 				<code value="string"/>
 			</type>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.title"/>
-			</mapping>-->
+			</mapping>
 		</element>
 		<element id="TestPlan.status">
 			<path value="TestPlan.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this test plan. Enables tracking the life-cycle of the content."/>
 			<comment value="Allows filtering of test plans that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/><!-- should be 1..1 -->
+			<min value="1"/>
+			<max value="1"/>
 			<type>
 				<code value="code"/>
 			</type>
@@ -258,16 +257,16 @@
 				<description value="The lifecycle status of an artifact."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
 			</binding>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.status"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.status"/>
 			</mapping>
 		</element>
-		<!--		<element id="TestPlan.experimental">
+				<element id="TestPlan.experimental">
 			<path value="TestPlan.experimental"/>
 			<short value="For testing purposes, not real usage"/>
 			<definition value="A Boolean value to indicate that this test plan is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
@@ -288,7 +287,7 @@
 				<identity value="w5"/>
 				<map value="FiveWs.class"/>
 			</mapping>
-		</element>-->
+		</element>
 		<element id="TestPlan.date">
 			<path value="TestPlan.date"/>
 			<short value="Date last changed"/>
@@ -296,15 +295,15 @@
 			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the test plan. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
-			<max value="*"/><!-- Should be 1 -->
+			<max value="1"/>
 			<type>
 				<code value="dateTime"/>
 			</type>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.date"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.recorded"/>
@@ -320,15 +319,15 @@
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the test plan is the organization or individual primarily responsible for the maintenance and upkeep of the test plan. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the test plan. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the test plan.  May also allow for contact."/>
 			<min value="0"/>
-			<max value="*"/> <!-- Should be upper 1 -->
+			<max value="1"/>
 			<type>
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.publisher"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.witness"/>
@@ -345,10 +344,10 @@
 				<code value="ContactDetail"/>
 			</type>
 			<isSummary value="true"/>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.contact"/>
-			</mapping>-->
+			</mapping>
 		</element>
 		<element id="TestPlan.description">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -363,12 +362,12 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.description"/>
-			</mapping>-->
+			</mapping>
 		</element>
-<!--		<element id="TestPlan.useContext">
+		<element id="TestPlan.useContext">
 			<path value="TestPlan.useContext"/>
 			<short value="The context that the content is intended to support"/>
 			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate test plan instances."/>
@@ -384,15 +383,15 @@
 				<identity value="workflow"/>
 				<map value="Definition.useContext"/>
 			</mapping>
-		</element>-->
+		</element>
 		<element id="TestPlan.jurisdiction">
-<!--			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="deprecated"/>
-			</extension>-->
+			</extension>
 			<path value="TestPlan.jurisdiction"/>
 			<short value="Intended jurisdiction where the test plan applies (if applicable)"/>
 			<definition value="A legal or geographic region in which the test plan is intended to be used."/>
-<!--			<comment value="It may be possible for the test plan to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>-->
+			<comment value="It may be possible for the test plan to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -410,10 +409,10 @@
 				<description value="Countries and regions within which this artifact is targeted for use."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
 			</binding>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.jurisdiction"/>
-			</mapping>-->
+			</mapping>
 		</element>
 		<element id="TestPlan.purpose">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -428,10 +427,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.purpose"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.why[x]"/>
@@ -447,7 +446,7 @@
 			</extension>
 			<path value="TestPlan.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the test plan and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test plan."/> <!--   The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element.-->
+			<definition value="A copyright statement relating to the test plan and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test plan. The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/> 
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the test plan and/or its content."/>
 			<alias value="License"/>
 			<alias value="Restrictions"/>
@@ -456,16 +455,16 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-<!--			<mapping>
+			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.copyright"/>
-			</mapping>-->
+			</mapping>
 			<mapping>
 				<identity value="objimpl"/>
 				<map value="no-gen-base"/>
 			</mapping>
 		</element>
-<!--		<element id="TestPlan.copyrightLabel">
+		<element id="TestPlan.copyrightLabel">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
 				<valueBoolean value="true"/>
 			</extension>
@@ -479,7 +478,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-		</element>-->
+		</element>
 		<element id="TestPlan.category">
 			<path value="TestPlan.category"/>
 			<short value="The category of the Test Plan - can be acceptance, unit, performance"/>
