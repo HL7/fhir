@@ -2,8 +2,8 @@
 <svg
    id="n542"
    version="1.1"
-   width="936.0"
-   height="570.0"
+   width="965.437871"
+   height="520.4205460000001"
    sodipodi:docname="imagingselection.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview149701"
+     id="namedview4255"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.3311966"
-     inkscape:cx="468"
-     inkscape:cy="285.08186"
+     inkscape:zoom="1.2906061"
+     inkscape:cx="482.71893"
+     inkscape:cy="260.3428"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1198"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="44"
      inkscape:window-maximized="0"
      inkscape:current-layer="n542" />
   <defs
-     id="defs149468">
+     id="defs4022">
     <filter
        id="shadow1"
        x="-0.032555282"
@@ -43,23 +43,23 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset149459" />
+         id="feOffset4013" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix149461" />
+         id="feColorMatrix4015" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur149463" />
+         id="feGaussianBlur4017" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend149465" />
+         id="feBlend4019" />
     </filter>
   </defs>
   <g
@@ -88,7 +88,7 @@
        fill="black"
        class="diagram-class-title  diagram-class-resource">ImagingSelection<tspan
    class="diagram-class-title-link"
-   id="tspan149473"> (<a
+   id="tspan4027"> (<a
    id="n546"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
@@ -101,7 +101,7 @@
        class="diagram-class-detail"><a
    id="n548"
    xlink:href="imagingselection-definitions.html#ImagingSelection.identifier"><title
-   id="title149476">A unique identifier assigned to this imaging selection</title>identifier</a> : <a
+   id="title4030">A unique identifier assigned to this imaging selection</title>identifier</a> : <a
    id="n549"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
@@ -112,7 +112,7 @@
        class="diagram-class-detail"><a
    id="n554"
    xlink:href="imagingselection-definitions.html#ImagingSelection.status"><title
-   id="title149481">The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="title4035">The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection (this element modifies the meaning of other elements)</title>status</a> : <a
    id="n555"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n556"
@@ -126,7 +126,7 @@
        class="diagram-class-detail"><a
    id="n564"
    xlink:href="imagingselection-definitions.html#ImagingSelection.subject"><title
-   id="title149488">The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed</title>subject</a> : <a
+   id="title4042">The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed</title>subject</a> : <a
    id="n565"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n566"
@@ -169,7 +169,7 @@
        class="diagram-class-detail"><a
    id="n594"
    xlink:href="imagingselection-definitions.html#ImagingSelection.issued"><title
-   id="title149505">The date and time this imaging selection was created</title>issued</a> : <a
+   id="title4059">The date and time this imaging selection was created</title>issued</a> : <a
    id="n595"
    xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
     <text
@@ -180,7 +180,7 @@
        class="diagram-class-detail"><a
    id="n600"
    xlink:href="imagingselection-definitions.html#ImagingSelection.basedOn"><title
-   id="title149510">A list of the diagnostic requests that resulted in this imaging selection being performed</title>basedOn</a> : <a
+   id="title4064">A list of the diagnostic requests that resulted in this imaging selection being performed</title>basedOn</a> : <a
    id="n601"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n602"
@@ -207,7 +207,7 @@
        class="diagram-class-detail"><a
    id="n618"
    xlink:href="imagingselection-definitions.html#ImagingSelection.category"><title
-   id="title149521">Classifies the imaging selection</title>category</a> : <a
+   id="title4075">Classifies the imaging selection</title>category</a> : <a
    id="n619"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n620"
@@ -221,7 +221,7 @@
        class="diagram-class-detail"><a
    id="n628"
    xlink:href="imagingselection-definitions.html#ImagingSelection.code"><title
-   id="title149528">Reason for referencing the selected content</title>code</a> : <a
+   id="title4082">Reason for referencing the selected content</title>code</a> : <a
    id="n629"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n630"
@@ -235,7 +235,7 @@
        class="diagram-class-detail"><a
    id="n638"
    xlink:href="imagingselection-definitions.html#ImagingSelection.studyUid"><title
-   id="title149535">The Study Instance UID for the DICOM Study from which the images were selected</title>studyUid</a> : <a
+   id="title4089">The Study Instance UID for the DICOM Study from which the images were selected</title>studyUid</a> : <a
    id="n639"
    xlink:href="datatypes.html#id">id</a> [0..1]</text>
     <text
@@ -246,7 +246,7 @@
        class="diagram-class-detail"><a
    id="n644"
    xlink:href="imagingselection-definitions.html#ImagingSelection.derivedFrom"><title
-   id="title149540">The imaging study from which the imaging selection is made</title>derivedFrom</a> : <a
+   id="title4094">The imaging study from which the imaging selection is made</title>derivedFrom</a> : <a
    id="n645"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n646"
@@ -261,7 +261,7 @@
        class="diagram-class-detail"><a
    id="n654"
    xlink:href="imagingselection-definitions.html#ImagingSelection.endpoint"><title
-   id="title149547">The network service providing retrieval access to the selected images, frames, etc. See implementation notes for information about using DICOM endpoints</title>endpoint</a> : <a
+   id="title4101">The network service providing retrieval access to the selected images, frames, etc. See implementation notes for information about using DICOM endpoints</title>endpoint</a> : <a
    id="n655"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n656"
@@ -274,7 +274,7 @@
        class="diagram-class-detail"><a
    id="n662"
    xlink:href="imagingselection-definitions.html#ImagingSelection.seriesUid"><title
-   id="title149553">The Series Instance UID for the DICOM Series from which the images were selected</title>seriesUid</a> : <a
+   id="title4107">The Series Instance UID for the DICOM Series from which the images were selected</title>seriesUid</a> : <a
    id="n663"
    xlink:href="datatypes.html#id">id</a> [0..1]</text>
     <text
@@ -285,7 +285,7 @@
        class="diagram-class-detail"><a
    id="n668"
    xlink:href="imagingselection-definitions.html#ImagingSelection.seriesNumber"><title
-   id="title149558">The Series Number for the DICOM Series from which the images were selected</title>seriesNumber</a> : <a
+   id="title4112">The Series Number for the DICOM Series from which the images were selected</title>seriesNumber</a> : <a
    id="n669"
    xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
     <text
@@ -296,7 +296,7 @@
        class="diagram-class-detail"><a
    id="n674"
    xlink:href="imagingselection-definitions.html#ImagingSelection.frameOfReferenceUid"><title
-   id="title149563">The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames</title>frameOfReferenceUid</a> : <a
+   id="title4117">The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames</title>frameOfReferenceUid</a> : <a
    id="n675"
    xlink:href="datatypes.html#id">id</a> [0..1]</text>
     <text
@@ -307,14 +307,14 @@
        class="diagram-class-detail"><a
    id="n680"
    xlink:href="imagingselection-definitions.html#ImagingSelection.bodySite"><title
-   id="title149568">The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings</title>bodySite</a> : <a
+   id="title4122">The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings</title>bodySite</a> : <a
    id="n681"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
    id="n682"
    xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
    id="n683"
    xlink:href="valueset-body-site.html"><title
-     id="n684">null (Strength=Example)</title></a></text>
+     id="n684">Codes describing anatomical locations. May include laterality. (Strength=Example)</title></a></text>
     <text
        id="n685"
        x="26.0"
@@ -331,7 +331,7 @@
        class="diagram-class-detail"><a
    id="n696"
    xlink:href="imagingselection-definitions.html#ImagingSelection.focus"><title
-   id="title149578">The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus</title>focus</a> : <a
+   id="title4132">The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus</title>focus</a> : <a
    id="n697"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n698"
@@ -339,11 +339,11 @@
   </g>
   <g
      id="n703"
-     transform="translate(-33.804173,-9.0144462)">
+     transform="translate(98.403378,-4.6489785)">
     <rect
        id="ImagingSelection.performer"
-       x="428"
-       y="112"
+       x="394.19583"
+       y="102.98556"
        rx="4"
        ry="4"
        width="308"
@@ -352,26 +352,26 @@
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n704"
-       x1="428"
-       y1="140"
-       x2="736"
-       y2="140"
+       x1="394.19583"
+       y1="130.98555"
+       x2="702.1958"
+       y2="130.98555"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n705"
-       x="582"
-       y="132"
+       x="548.1958"
+       y="122.98556"
        fill="#000000"
        class="diagram-class-title">Performer</text>
     <text
        id="n706"
-       x="434"
-       y="154"
+       x="400.19583"
+       y="144.98555"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n707"
    xlink:href="imagingselection-definitions.html#ImagingSelection.performer.function"><title
-   id="title149588">Distinguishes the type of involvement of the performer</title>function</a> : <a
+   id="title4142">Distinguishes the type of involvement of the performer</title>function</a> : <a
    id="n708"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n709"
@@ -379,13 +379,13 @@
    id="n710">null (Strength=Extensible)</title>ImagingStudySeriesPerformerFu...</a>+ »</text>
     <text
        id="n716"
-       x="434"
-       y="168"
+       x="400.19583"
+       y="158.98555"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n717"
    xlink:href="imagingselection-definitions.html#ImagingSelection.performer.actor"><title
-   id="title149595">Author – human or machine</title>actor</a> : <a
+   id="title4149">Author – human or machine</title>actor</a> : <a
    id="n718"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n719"
@@ -396,8 +396,8 @@
    xlink:href="device.html#Device">Device</a>|</text>
     <text
        id="n722"
-       x="454"
-       y="182"
+       x="420.19583"
+       y="172.98555"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n723"
@@ -444,7 +444,7 @@
        class="diagram-class-detail"><a
    id="n744"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.uid"><title
-   id="title149613">The SOP Instance UID for the selected DICOM instance</title>uid</a> : <a
+   id="title4167">The SOP Instance UID for the selected DICOM instance</title>uid</a> : <a
    id="n745"
    xlink:href="datatypes.html#id">id</a> [1..1]</text>
     <text
@@ -455,7 +455,7 @@
        class="diagram-class-detail"><a
    id="n750"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.number"><title
-   id="title149618">The Instance Number for the selected DICOM instance</title>number</a> : <a
+   id="title4172">The Instance Number for the selected DICOM instance</title>number</a> : <a
    id="n751"
    xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
     <text
@@ -466,7 +466,7 @@
        class="diagram-class-detail"><a
    id="n756"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.sopClass"><title
-   id="title149623">The SOP Class UID for the selected DICOM instance</title>sopClass</a> : <a
+   id="title4177">The SOP Class UID for the selected DICOM instance</title>sopClass</a> : <a
    id="n757"
    xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
    id="n758"
@@ -480,7 +480,7 @@
        class="diagram-class-detail"><a
    id="n766"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.subset"><title
-   id="title149630">Selected subset of the SOP Instance. The content and format of the subset item is determined by the SOP Class of the selected instance.
+   id="title4184">Selected subset of the SOP Instance. The content and format of the subset item is determined by the SOP Class of the selected instance.
        May be one of:
        - A list of frame numbers selected from a multiframe SOP Instance.
        - A list of Content Item Observation UID values selected from a DICOM SR or other structured document SOP Instance.
@@ -490,40 +490,39 @@
    xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>
   <g
-     id="n771"
-     transform="translate(53.335473,-78.876404)">
+     id="n771">
     <rect
        id="ImagingSelection.instance.imageRegion2D"
-       x="355.39999"
-       y="396"
+       x="408.735463"
+       y="317.123596"
        rx="4"
        ry="4"
-       width="255.2"
-       height="64"
+       width="255.20000000000002"
+       height="64.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
        id="n772"
-       x1="355.39999"
-       y1="424"
-       x2="610.59998"
-       y2="424"
-       style="stroke:#696969;stroke-width:1" />
+       x1="408.735463"
+       y1="345.123596"
+       x2="663.935463"
+       y2="345.123596"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
        id="n773"
-       x="483"
-       y="416"
-       fill="#000000"
+       x="536.335463"
+       y="337.123596"
+       fill="black"
        class="diagram-class-title">ImageRegion2D</text>
     <text
        id="n774"
-       x="361.39999"
-       y="438"
-       fill="#000000"
+       x="414.735463"
+       y="359.123596"
+       fill="black"
        class="diagram-class-detail"><a
    id="n775"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.imageRegion2D.regionType"><title
-   id="title149639">Specifies the type of image region</title>regionType</a> : <a
+   id="title4193">Specifies the type of image region</title>regionType</a> : <a
    id="n776"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n777"
@@ -531,52 +530,51 @@
    id="n778">null (Strength=Required)</title>ImagingSelection2DGraphicType</a>! »</text>
     <text
        id="n784"
-       x="361.39999"
-       y="452"
-       fill="#000000"
+       x="414.735463"
+       y="373.123596"
+       fill="black"
        class="diagram-class-detail"><a
    id="n785"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.imageRegion2D.coordinate"><title
-   id="title149646">The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.
+   id="title4200">The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.
        The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames</title>coordinate</a> : <a
    id="n786"
    xlink:href="datatypes.html#decimal">decimal</a> [1..*]</text>
   </g>
   <g
-     id="n790"
-     transform="translate(54.837881,-49.579454)">
+     id="n790">
     <rect
        id="ImagingSelection.instance.imageRegion3D"
-       x="355.39999"
-       y="476"
+       x="410.237871"
+       y="426.420546"
        rx="4"
        ry="4"
-       width="255.2"
-       height="64"
+       width="255.20000000000002"
+       height="64.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
        id="n791"
-       x1="355.39999"
-       y1="504"
-       x2="610.59998"
-       y2="504"
-       style="stroke:#696969;stroke-width:1" />
+       x1="410.237871"
+       y1="454.420546"
+       x2="665.437871"
+       y2="454.420546"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
        id="n792"
-       x="483"
-       y="496"
-       fill="#000000"
+       x="537.837871"
+       y="446.420546"
+       fill="black"
        class="diagram-class-title">ImageRegion3D</text>
     <text
        id="n793"
-       x="361.39999"
-       y="518"
-       fill="#000000"
+       x="416.237871"
+       y="468.420546"
+       fill="black"
        class="diagram-class-detail"><a
    id="n794"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.imageRegion3D.regionType"><title
-   id="title149655">Specifies the type of image region</title>regionType</a> : <a
+   id="title4209">Specifies the type of image region</title>regionType</a> : <a
    id="n795"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n796"
@@ -584,117 +582,117 @@
    id="n797">null (Strength=Required)</title>ImagingSelection3DGraphicType</a>! »</text>
     <text
        id="n803"
-       x="361.39999"
-       y="532"
-       fill="#000000"
+       x="416.237871"
+       y="482.420546"
+       fill="black"
        class="diagram-class-detail"><a
    id="n804"
    xlink:href="imagingselection-definitions.html#ImagingSelection.instance.imageRegion3D.coordinate"><title
-   id="title149662">The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element</title>coordinate</a> : <a
+   id="title4216">The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element</title>coordinate</a> : <a
    id="n805"
    xlink:href="datatypes.html#decimal">decimal</a> [1..*]</text>
   </g>
   <line
      id="n809"
      x1="308.0"
-     y1="151.0"
-     x2="428.0"
-     y2="151.0"
+     y1="147.47833736504776"
+     x2="394.195827"
+     y2="145.50721643495226"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n810"
-     points="308.0,151.0 314.0,155.0 320.0,151.0 314.0,147.0 308.0,151.0"
+     points="308.0,147.47833736504776 314.0,151.47833736504776 320.0,147.47833736504776 314.0,143.47833736504776 308.0,147.47833736504776"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 308.0 151.0)" />
+     transform="rotate(-1.3100080804405554 308.0 147.47833736504776)" />
   <rect
      id="n811"
-     x="348.5"
-     y="144.0"
+     x="331.5"
+     y="139.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n812"
-     x="368.0"
-     y="154.0"
+     x="351.0"
+     y="149.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n813"
        xlink:href="imagingselection-definitions.html#ImagingSelection.performer"><title
-   id="title149671">Selector of the instances – human or machine</title>performer</a></text>
+   id="title4225">Selector of the instances – human or machine</title>performer</a></text>
   <text
      id="n814"
-     x="408.0"
-     y="147.0"
+     x="374.195827"
+     y="141.50721643495226"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n815"
      x1="235.4"
-     y1="428.0"
-     x2="355.4"
-     y2="428.0"
+     y1="411.20705268817824"
+     x2="408.735463"
+     y2="375.4476755698829"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n816"
-     points="235.4,428.0 241.4,432.0 247.4,428.0 241.4,424.0 235.4,428.0"
+     points="235.4,411.20705268817824 241.4,415.20705268817824 247.4,411.20705268817824 241.4,407.20705268817824 235.4,411.20705268817824"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 235.4 428.0)" />
+     transform="rotate(-11.656674408666143 235.4 411.20705268817824)" />
   <rect
      id="n817"
-     x="266.5"
-     y="421.0"
+     x="293.5"
+     y="386.0"
      width="57.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n818"
-     x="295.0"
-     y="431.0"
+     x="322.0"
+     y="396.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n819"
        xlink:href="imagingselection-definitions.html#ImagingSelection.instance.imageRegion2D"><title
-   id="title149679">Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.
+   id="title4233">Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.
        If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list</title>imageRegion2D</a></text>
   <text
      id="n820"
-     x="335.4"
-     y="424.0"
+     x="388.735463"
+     y="371.4476755698829"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n821"
      x1="235.4"
-     y1="447.79331306990883"
-     x2="355.4"
-     y2="476.9726443768997"
+     y1="434.4512457771527"
+     x2="410.237871"
+     y2="448.30778234932836"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n822"
-     points="235.4,447.79331306990883 241.4,451.79331306990883 247.4,447.79331306990883 241.4,443.79331306990883 235.4,447.79331306990883"
+     points="235.4,434.4512457771527 241.4,438.4512457771527 247.4,434.4512457771527 241.4,430.4512457771527 235.4,434.4512457771527"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(13.666863187466282 235.4 447.79331306990883)" />
+     transform="rotate(4.531427050180707 235.4 434.4512457771527)" />
   <rect
      id="n823"
-     x="266.5"
-     y="455.0"
+     x="293.5"
+     y="434.0"
      width="57.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n824"
-     x="295.0"
-     y="465.0"
+     x="322.0"
+     y="444.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n825"
        xlink:href="imagingselection-definitions.html#ImagingSelection.instance.imageRegion3D"><title
-   id="title149687">Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates</title>imageRegion3D</a></text>
+   id="title4241">Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates</title>imageRegion3D</a></text>
   <text
      id="n826"
-     x="335.4"
-     y="472.9726443768997"
+     x="390.237871"
+     y="444.30778234932836"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
@@ -724,7 +722,7 @@
      class="diagram-class-linkage"><a
        id="n831"
        xlink:href="imagingselection-definitions.html#ImagingSelection.instance"><title
-   id="title149695">Each imaging selection includes one or more selected DICOM SOP instances</title>instance</a></text>
+   id="title4249">Each imaging selection includes one or more selected DICOM SOP instances</title>instance</a></text>
   <text
      id="n832"
      x="154.0"

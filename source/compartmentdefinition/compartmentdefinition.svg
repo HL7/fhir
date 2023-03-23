@@ -2,8 +2,8 @@
 <svg
    id="n312"
    version="1.1"
-   width="704.0"
-   height="386.0"
+   width="758.8057779999999"
+   height="270.0"
    sodipodi:docname="compartmentdefinition.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview6972"
+     id="namedview713"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.7698864"
-     inkscape:cx="352"
-     inkscape:cy="193.51525"
+     inkscape:zoom="1.6420539"
+     inkscape:cx="379.40289"
+     inkscape:cy="135.19654"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1198"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="44"
      inkscape:window-maximized="0"
      inkscape:current-layer="n312" />
   <defs
-     id="defs6835">
+     id="defs576">
     <filter
        id="shadow1"
        x="-0.034415584"
@@ -43,23 +43,23 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset6826" />
+         id="feOffset567" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix6828" />
+         id="feColorMatrix569" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6830" />
+         id="feGaussianBlur571" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend6832" />
+         id="feBlend573" />
     </filter>
   </defs>
   <g
@@ -88,7 +88,7 @@
        fill="black"
        class="diagram-class-title  diagram-class-resource">CompartmentDefinition<tspan
    class="diagram-class-title-link"
-   id="tspan6841"> (<a
+   id="tspan582"> (<a
    id="n316"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
@@ -105,7 +105,7 @@
        class="diagram-class-detail"><a
    id="n319"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.url"><title
-   id="title6844">An absolute URI that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this compartment definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the compartment definition is stored on different servers</title>url</a> : <a
+   id="title585">An absolute URI that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this compartment definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the compartment definition is stored on different servers</title>url</a> : <a
    id="n320"
    xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
     <text
@@ -116,7 +116,7 @@
        class="diagram-class-detail"><a
    id="n325"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.version"><title
-   id="title6849">The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title590">The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n326"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n331"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.versionAlgorithm_x_"><title
-   id="title6854">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="title595">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
    id="n332"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n333"
@@ -153,7 +153,7 @@
        class="diagram-class-detail"><a
    id="n349"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.name"><title
-   id="title6865">A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="title606">A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
    id="n350"
    xlink:href="datatypes.html#string">string</a> [1..1] « <a
    id="n351"
@@ -168,7 +168,7 @@
        class="diagram-class-detail"><a
    id="n359"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.title"><title
-   id="title6872">A short, descriptive, user-friendly title for the capability statement</title>title</a> : <a
+   id="title613">A short, descriptive, user-friendly title for the capability statement</title>title</a> : <a
    id="n360"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -179,7 +179,7 @@
        class="diagram-class-detail"><a
    id="n365"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.status"><title
-   id="title6877">The status of this compartment definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="title618">The status of this compartment definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
    id="n366"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n367"
@@ -193,7 +193,7 @@
        class="diagram-class-detail"><a
    id="n375"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.experimental"><title
-   id="title6884">A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="title625">A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
    id="n376"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
@@ -204,7 +204,7 @@
        class="diagram-class-detail"><a
    id="n381"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.date"><title
-   id="title6889">The date  (and optionally time) when the compartment definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes</title>date</a> : <a
+   id="title630">The date  (and optionally time) when the compartment definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes</title>date</a> : <a
    id="n382"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
@@ -215,7 +215,7 @@
        class="diagram-class-detail"><a
    id="n387"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.publisher"><title
-   id="title6894">The name of the organization or individual responsible for the release and ongoing maintenance of the compartment definition</title>publisher</a> : <a
+   id="title635">The name of the organization or individual responsible for the release and ongoing maintenance of the compartment definition</title>publisher</a> : <a
    id="n388"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -226,7 +226,7 @@
        class="diagram-class-detail"><a
    id="n393"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.contact"><title
-   id="title6899">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="title640">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
    id="n394"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text
@@ -237,7 +237,7 @@
        class="diagram-class-detail"><a
    id="n399"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.description"><title
-   id="title6904">A free text natural language description of the compartment definition from a consumer's perspective</title>description</a> : <a
+   id="title645">A free text natural language description of the compartment definition from a consumer's perspective</title>description</a> : <a
    id="n400"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
@@ -248,7 +248,7 @@
        class="diagram-class-detail"><a
    id="n405"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.useContext"><title
-   id="title6909">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate compartment definition instances</title>useContext</a> : <a
+   id="title650">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate compartment definition instances</title>useContext</a> : <a
    id="n406"
    xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
     <text
@@ -259,7 +259,7 @@
        class="diagram-class-detail"><a
    id="n411"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.purpose"><title
-   id="title6914">Explanation of why this compartment definition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="title655">Explanation of why this compartment definition is needed and why it has been designed as it has</title>purpose</a> : <a
    id="n412"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
@@ -270,7 +270,7 @@
        class="diagram-class-detail"><a
    id="n417"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.code"><title
-   id="title6919">Which compartment this definition describes</title>code</a> : <a
+   id="title660">Which compartment this definition describes</title>code</a> : <a
    id="n418"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n419"
@@ -284,17 +284,17 @@
        class="diagram-class-detail"><a
    id="n427"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.search"><title
-   id="title6926">Whether the search syntax is supported,</title>search</a> : <a
+   id="title667">Whether the search syntax is supported,</title>search</a> : <a
    id="n428"
    xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
   </g>
   <g
      id="n432"
-     transform="translate(54.805778,-154.8122)">
+     transform="translate(109.61881,-19.487789)">
     <rect
        id="CompartmentDefinition.resource"
-       x="350"
-       y="260"
+       x="404.80579"
+       y="105.1878"
        rx="4"
        ry="4"
        width="154"
@@ -303,26 +303,26 @@
        style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
        id="n433"
-       x1="350"
-       y1="288"
-       x2="504"
-       y2="288"
+       x1="404.80579"
+       y1="133.18781"
+       x2="558.80579"
+       y2="133.18781"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n434"
-       x="427"
-       y="280"
+       x="481.80579"
+       y="125.1878"
        fill="#000000"
        class="diagram-class-title">Resource</text>
     <text
        id="n435"
-       x="356"
-       y="302"
+       x="410.80579"
+       y="147.18781"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n436"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.code"><title
-   id="title6935">The name of a resource supported by the server</title>code</a> : <a
+   id="title676">The name of a resource supported by the server</title>code</a> : <a
    id="n437"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n438"
@@ -330,81 +330,81 @@
    id="n439">null (Strength=Required)</title>ResourceType</a>! »</text>
     <text
        id="n445"
-       x="356"
-       y="316"
+       x="410.80579"
+       y="161.18781"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n446"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.param"><title
-   id="title6942">The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,</title>param</a> : <a
+   id="title683">The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,</title>param</a> : <a
    id="n447"
    xlink:href="datatypes.html#string">string</a> [0..*]</text>
     <text
        id="n451"
-       x="356"
-       y="330"
+       x="410.80579"
+       y="175.18781"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n452"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.documentation"><title
-   id="title6947">Additional documentation about the resource and compartment</title>documentation</a> : <a
+   id="title688">Additional documentation about the resource and compartment</title>documentation</a> : <a
    id="n453"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
        id="n457"
-       x="356"
-       y="344"
+       x="410.80579"
+       y="189.18781"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n458"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.startParam"><title
-   id="title6952">Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))</title>startParam</a> : <a
+   id="title693">Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))</title>startParam</a> : <a
    id="n459"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
        id="n463"
-       x="356"
-       y="358"
+       x="410.80579"
+       y="203.18781"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n464"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.endParam"><title
-   id="title6957">Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))</title>endParam</a> : <a
+   id="title698">Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))</title>endParam</a> : <a
    id="n465"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
   </g>
   <line
      id="n469"
      x1="324.72"
-     y1="242.27282345828297"
-     x2="350.35562841530054"
-     y2="260.0"
+     y1="144.3265978866686"
+     x2="404.805778"
+     y2="151.39334300767752"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n470"
-     points="324.72,242.27282345828297 330.72,246.27282345828297 336.72,242.27282345828297 330.72,238.27282345828297 324.72,242.27282345828297"
+     points="324.72,144.3265978866686 330.72,148.3265978866686 336.72,144.3265978866686 330.72,140.3265978866686 324.72,144.3265978866686"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(34.66406912216571 324.72 242.27282345828297)" />
+     transform="rotate(5.042701625536254 324.72 144.3265978866686)" />
   <rect
      id="n471"
-     x="319.5"
-     y="244.0"
+     x="346.5"
+     y="140.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n472"
-     x="337.0"
-     y="254.0"
+     x="364.0"
+     y="150.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n473"
        xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource"><title
-   id="title6966">Information about how a resource is related to the compartment</title>resource</a></text>
+   id="title707">Information about how a resource is related to the compartment</title>resource</a></text>
   <text
      id="n474"
-     x="350.35562841530054"
-     y="256.0"
+     x="384.805778"
+     y="147.39334300767752"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>
