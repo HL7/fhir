@@ -416,7 +416,7 @@
       </mapping>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.class"/>
+        <map value="Composition.category"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -495,7 +495,7 @@
       </mapping>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.context"/>
+        <map value="Composition.encounter"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -522,7 +522,7 @@
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.event.code"/>
+        <map value="Composition.event.detail"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -932,7 +932,7 @@
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.relatesTo.code"/>
+        <map value="Composition.relatesTo.type"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -960,7 +960,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.relatesTo.target"/>
+        <map value="Composition.relatesTo.resourceReference"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
