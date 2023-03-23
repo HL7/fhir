@@ -13,6 +13,13 @@
 <p>The EventDefinition resource is intended to be used to provide a reusable description of events for use by other resources that require event definition, such as Subscription. EventDefinition is a definition of an event that could occur, whereas Subscription is asking for notification of events when they occur.</p>
 </div>
 
+[%stu-note dstu%]
+The EventDefinition resource is a candidate for removal from the specification. The resource was proposed prior 
+to the development of the current subscriptions approach and the functionality it supports has been replaced by 
+the SubscriptionTopic resource. We are seeking feedback on whether there would be any gaps left open by removing 
+the EventDefinition in favor of making use of the SubscriptionTopic resource.
+[%end-note%]
+
 <!-- (optional):
 <div>
 <h2>Background and Context</h2>
