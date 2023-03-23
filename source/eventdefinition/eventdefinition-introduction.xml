@@ -6,19 +6,20 @@
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
 <p>The EventDefinition provides a reusable description of an event. The resource supports describing different kinds of events, including named events, periodic events, and data-based events. For each of these, the resource also supports a formal description of the event. For example, a 'monitor-emergency-admissions' event can be a named event, but also provide a formal description of the event as monitoring for encounters that occur in emergency department locations.</p>
-</div>
 
-<div>
-<h2>Boundaries and Relationships</h2>
-<p>The EventDefinition resource is intended to be used to provide a reusable description of events for use by other resources that require event definition, such as Subscription. EventDefinition is a definition of an event that could occur, whereas Subscription is asking for notification of events when they occur.</p>
-</div>
-
-[%stu-note dstu%]
+[%impl-note%]
 The EventDefinition resource is a candidate for removal from the specification. The resource was proposed prior 
 to the development of the current subscriptions approach and the functionality it supports has been replaced by 
 the SubscriptionTopic resource. We are seeking feedback on whether there would be any gaps left open by removing 
 the EventDefinition in favor of making use of the SubscriptionTopic resource.
 [%end-note%]
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>The EventDefinition resource is intended to be used to provide a reusable description of events for use by other resources that require event definition, such as Subscription. EventDefinition is a definition of an event that could occur, whereas Subscription is asking for notification of events when they occur.</p>
+
+</div>
 
 <!-- (optional):
 <div>
