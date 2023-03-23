@@ -35,7 +35,7 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Supports code generation."/>
-            <resource value="Support human navigation and code generation."/>
+            <resource value="Support code generation."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.status" resourcePath="TestScript.status">
@@ -45,7 +45,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Allows filtering of test scripts that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+            <resource value="Allows filtering of test scripts that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of test scripts that are appropriate for use versus not."/>
@@ -56,6 +56,12 @@
         <definitionUnmatched reason="Unknown">
             <_pattern value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
             <resource value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.date" resourcePath="TestScript.date">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date  (and optionally time) when the test script was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes."/>
+            <resource value="The date (and optionally time) when the test script was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.description" resourcePath="TestScript.description">

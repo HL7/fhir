@@ -898,8 +898,6 @@
 				<code value="BackboneElement"/>
 			</type>
 			<condition value="csd-1"/>
-			<condition value="csd-2"/>
-			<condition value="csd-3"/>
 		</element>
 		<element id="CodeSystem.concept.code">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -1051,7 +1049,6 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="csd-3"/>
 		</element>
 		<element id="CodeSystem.concept.property.code">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -1102,6 +1099,8 @@
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#CodeSystem.concept"/>
+			<condition value="csd-1"/>
+			<condition value="csd-2"/>
 		</element>
 	</differential>
 </StructureDefinition>

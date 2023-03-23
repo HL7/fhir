@@ -1430,7 +1430,6 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="cpb-3"/>
 			<condition value="cpb-1"/>
 			<isSummary value="true"/>
 		</element>

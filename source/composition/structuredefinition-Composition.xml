@@ -154,7 +154,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.masterIdentifier"/>
+        <map value="DocumentReference.identifier"/>
       </mapping>
     </element>
     <element id="Composition.version">
@@ -174,6 +174,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.version"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.version"/>
       </mapping>
     </element>
     <element id="Composition.status">
@@ -219,7 +223,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.status"/>
+        <map value="DocumentReference.docStatus"/>
       </mapping>
     </element>
     <element id="Composition.type">
@@ -363,7 +367,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.context.encounter"/>
+        <map value="DocumentReference.context"/>
       </mapping>
     </element>
     <element id="Composition.date">
@@ -396,7 +400,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.content.attachment.date, DocumentReference.created"/>
+        <map value="DocumentReference.content.attachment.date, DocumentReference.date"/>
       </mapping>
     </element>
     <element id="Composition.useContext">
@@ -447,7 +451,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.agent"/>
+        <map value="DocumentReference.author"/>
       </mapping>
     </element>
     <element id="Composition.name">
@@ -521,7 +525,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.authenticator"/>
+        <map value="DocumentReference.attester"/>
       </mapping>
     </element>
     <element id="Composition.attester.mode">
@@ -550,6 +554,10 @@
         <identity value="cda"/>
         <map value="implied by .authenticator/.legalAuthenticator"/>
       </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.attester.mode"/>
+      </mapping>
     </element>
     <element id="Composition.attester.time">
       <path value="Composition.attester.time"/>
@@ -568,6 +576,10 @@
       <mapping>
         <identity value="cda"/>
         <map value=".authenticator.time"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.attester.time"/>
       </mapping>
     </element>
     <element id="Composition.attester.party">
@@ -596,6 +608,10 @@
       <mapping>
         <identity value="cda"/>
         <map value=".authenticator.assignedEnttty"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.attester.party"/>
       </mapping>
     </element>
     <element id="Composition.custodian">
@@ -673,10 +689,6 @@
         <identity value="cda"/>
         <map value=".documentationOf.serviceEvent"/>
       </mapping>
-      <mapping>
-        <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.event"/>
-      </mapping>
     </element>
     <element id="Composition.event.period">
       <path value="Composition.event.period"/>
@@ -698,7 +710,7 @@
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.event.period"/>
+        <map value="DocumentReference.period"/>
       </mapping>
     </element>
     <element id="Composition.event.detail">
@@ -728,6 +740,10 @@
       <mapping>
         <identity value="cda"/>
         <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.event"/>
       </mapping>
     </element>
     <element id="Composition.section">
