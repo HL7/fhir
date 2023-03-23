@@ -694,7 +694,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="opd-6"/>
       <condition value="opd-7"/>
       <constraint>
         <key value="opd-1"/>
@@ -995,6 +994,7 @@
       <comment value="Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined."/>
       <min value="0"/>
       <max value="*"/>
+      <condition value="opd-1"/>
       <contentReference value="#OperationDefinition.parameter"/>
     </element>
     <element id="OperationDefinition.overload">
