@@ -136,3 +136,4 @@ WARNING: GraphDefinition: Resource elements are out of order. The correct order 
 WARNING: ExampleScenario: Resource elements are out of order. The correct order is '[url(=id), identifier(=id), version(=id.version), status(=status), experimental(=class), instance(=what), date(=when.recorded), publisher(=who.witness), actor(=who), purpose(=why)]' but the actual order is '[url(=id), identifier(=id), version(=id.version), status(=status), experimental(=class), date(=when.recorded), publisher(=who.witness), purpose(=why), actor(=who), instance(=what)]'
 WARNING: TestPlan.testCase.testData: Element names should be singular
 INFORMATION: SubscriptionStatus: A resource that contains a status element must have a search parameter 'status'
+INFORMATION @ HealthcareService.serviceProvisionCode: Name of child (serviceProvisionCode) overlaps with name of parent (HealthcareService)
