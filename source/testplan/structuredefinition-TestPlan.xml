@@ -69,7 +69,7 @@
 	<kind value="resource"/>
 	<abstract value="false"/>
 	<type value="TestPlan"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 	<derivation value="specialization"/>
 	<differential>
 		<element id="TestPlan">
@@ -164,7 +164,7 @@
 			<definition value="The identifier that is used to identify this version of the test plan when it is referenced in a specification, model, design or instance.  This is an arbitrary value managed by the test plan author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
 			<comment value="There may be different test plan instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the test plan with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<type>
 				<code value="string"/>
 			</type>
@@ -204,7 +204,7 @@
 			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
 			<requirements value="Support code generation."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<type>
 				<code value="string"/>
 			</type>
