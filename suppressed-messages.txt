@@ -25,6 +25,7 @@ WARNING: ElementDefinition.mapping.comment: MnM must have confirmed this should 
 WARNING: Endpoint.payloadMimeType: Unable to resolve value set on 'code' Binding
 WARNING: ImplementationGuide.page.format: Unable to resolve value set on 'code' Binding
 WARNING: Linkage: All resources should have an identifier
+WARNING: VerificationResult: All resources should have an identifier
 WARNING: Measure.supplementalData: Element names should be singular
 WARNING: MeasureReport.supplementalData: Element names should be singular
 WARNING: Medication: All resources should have an identifier
