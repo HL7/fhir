@@ -64,4 +64,9 @@
     <display value="Re-Validation failed"/>
     <definition value="***TODO***"/>
   </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The VerificationResult record was created erroneously and is not appropriated for use."/>
+  </concept>
 </CodeSystem>
