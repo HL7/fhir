@@ -52,7 +52,7 @@
     <divergentElement patternPath="Definition.effectivePeriod" resourcePath="Questionnaire.effectivePeriod">
         <commentsUnmatched reason="Unknown">
             <_pattern value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-            <resource value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a questionnaire intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+            <resource value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a questionnaire intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.code" resourcePath="Questionnaire.code">

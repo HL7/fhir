@@ -102,7 +102,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Allows filtering of Requirements that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+            <resource value="Allows filtering of Requirements that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of requirementss that are appropriate for use versus not."/>
@@ -130,7 +130,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-            <resource value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [[canonicalresource.html#localization | here]]."/>
+            <resource value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.publisher" resourcePath="Requirements.publisher">
