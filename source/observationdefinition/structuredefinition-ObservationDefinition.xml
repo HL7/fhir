@@ -81,7 +81,8 @@
 			<path value="ObservationDefinition"/>
 			<short value="Definition of an observation"/>
 			<definition value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
-			<comment value="An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like."/>
+			<comment
+				value="An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like."/>
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>
@@ -89,6 +90,13 @@
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
 				<expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<constraint>
+				<key value="obd-0"/>
+				<severity value="error"/>
+				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
+				<expression value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<mapping>
@@ -590,6 +598,7 @@
 				<label value="General"/>
 				<valueCode value="CodeableConcept"/>
 			</example>
+			<condition value="obd-0"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ObservationDataType"/>
@@ -712,90 +721,27 @@
 				<map value="OM1-9"/>
 			</mapping>
 		</element>
-		<element id="ObservationDefinition.quantitativeDetails">
-			<path value="ObservationDefinition.quantitativeDetails"/>
-			<short value="Characteristics of quantitative results"/>
-			<definition value="Characteristics for quantitative results of observations conforming to this ObservationDefinition."/>
+		<element id="ObservationDefinition.permittedUnit">
+			<path value="ObservationDefinition.permittedUnit"/>
+			<short value="Unit for quantitative results"/>
+			<definition value="Units allowed for the valueQuantity element in the instance observations conforming to this ObservationDefinition."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
-				<code value="BackboneElement"/>
+				<code value="Coding"/>
 			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM2"/>
-			</mapping>
-		</element>
-		<element id="ObservationDefinition.quantitativeDetails.unit">
-			<path value="ObservationDefinition.quantitativeDetails.unit"/>
-			<short value="Primary unit for quantitative results"/>
-			<definition value="Primary unit used to report quantitative results of observations conforming to this ObservationDefinition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
+			<condition value="obd-0"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ObservationUnit"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="preferred"/>
 				<description value="Codes identifying units of measure."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
 			</binding>
 			<mapping>
 				<identity value="v2"/>
 				<map value="OM2-4"/>
-			</mapping>
-		</element>
-		<element id="ObservationDefinition.quantitativeDetails.customaryUnit">
-			<path value="ObservationDefinition.quantitativeDetails.customaryUnit"/>
-			<short value="Customary (secondary) unit for quantitative results"/>
-			<definition value="Secondary unit used to report quantitative results of observations conforming to this ObservationDefinition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ObservationUnit"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="Codes identifying units of measure."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM2-2"/>
-			</mapping>
-		</element>
-		<element id="ObservationDefinition.quantitativeDetails.conversionFactor">
-			<path value="ObservationDefinition.quantitativeDetails.conversionFactor"/>
-			<short value="Primary to secondary unit conversion factor"/>
-			<definition value="Factor for converting value expressed with primary unit to value expressed with secondary unit."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="decimal"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM2-5"/>
-			</mapping>
-		</element>
-		<element id="ObservationDefinition.quantitativeDetails.decimalPrecision">
-			<path value="ObservationDefinition.quantitativeDetails.decimalPrecision"/>
-			<short value="Decimal precision of observation quantitative results"/>
-			<definition value="Number of digits after decimal separator when the results of such observations are of type Quantity."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="integer"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM2-3"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.qualifiedValue">
@@ -926,7 +872,7 @@
 			<path value="ObservationDefinition.qualifiedValue.range"/>
 			<short value="The range for continuous or ordinal observations"/>
 			<definition value="The range of values defined for continuous or ordinal observations that match the criteria of this set of qualified values."/>
-			<requirements value="The unit may be not relevant for ordinal values. In case it is there, it is the same as quantitativeDetails.unit."/>
+			<requirements value="The unit may be not relevant for ordinal values. In case it is there, it is the same as ObservationDefinition.unit."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -992,10 +938,20 @@
 		<element id="ObservationDefinition.component">
 			<path value="ObservationDefinition.component"/>
 			<short value="Component results"/>
-			<definition value="Some observations have multiple component observations, expressed as separate code value pairs."/>
-			<requirements value="Component observations share the same attributes as the primary observation and are always treated as a part of it (they are not separable)."/>
+			<definition
+				value="Some observations have multiple component observations, expressed as separate code value pairs."/>
+			<requirements
+				value="Component observations share the same attributes as the primary observation and are always treated as a part of it (they are not separable)."/>
 			<min value="0"/>
 			<max value="*"/>
+			<constraint>
+				<key value="obd-1"/>
+				<severity value="error"/>
+				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
+				<expression
+					value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
 			<type>
 				<code value="BackboneElement"/>
 			</type>
@@ -1039,6 +995,7 @@
 				<label value="General"/>
 				<valueCode value="CodeableConcept"/>
 			</example>
+			<condition value="obd-1"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ObservationDataType"/>
@@ -1048,13 +1005,29 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/permitted-data-type"/>
 			</binding>
 		</element>
-		<element id="ObservationDefinition.component.quantitativeDetails">
-			<path value="ObservationDefinition.component.quantitativeDetails"/>
-			<short value="Characteristics of quantitative results"/>
-			<definition value="Characteristics for quantitative results of this observation."/>
+		<element id="ObservationDefinition.component.permittedUnit">
+			<path value="ObservationDefinition.component.permittedUnit"/>
+			<short value="Unit for quantitative results"/>
+			<definition value="Units allowed for the valueQuantity element in the instance observations conforming to this ObservationDefinition."/>
 			<min value="0"/>
-			<max value="1"/>
-			<contentReference value="#ObservationDefinition.quantitativeDetails"/>
+			<max value="*"/>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<condition value="obd-1"/>
+			<binding>
+				<extension
+					url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationUnit"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="Codes identifying units of measure."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+			</binding>
+			<mapping>
+				<identity value="v2"/>
+				<map value="OM2-4"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.component.qualifiedValue">
 			<path value="ObservationDefinition.component.qualifiedValue"/>
