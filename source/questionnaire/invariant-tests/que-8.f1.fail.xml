@@ -15,6 +15,9 @@
       <code value="COMORBIDITY"/>
     </code>
     <type value="group"/>
+    <initial>
+      <valueString value="be boop"/>
+    </initial>
     <item>
       <linkId value="1.1"/>
       <code>
@@ -25,8 +28,5 @@
       <type value="coding"/>
       <answerValueSet value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
     </item>
-    <initial>
-      <valueString value="be boop"/>
-    </initial>
   </item>
 </Questionnaire>

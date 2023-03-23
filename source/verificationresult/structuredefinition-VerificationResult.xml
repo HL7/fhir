@@ -20,6 +20,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/VerificationResult"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -116,7 +119,7 @@
     </element>
     <element id="VerificationResult.status">
       <path value="VerificationResult.status"/>
-      <short value="attested | validated | in-process | req-revalid | val-fail | reval-fail"/>
+      <short value="attested | validated | in-process | req-revalid | val-fail | reval-fail | entered-in-error"/>
       <definition value="The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed)."/>
       <min value="1"/>
       <max value="1"/>
@@ -451,7 +454,7 @@
     </element>
     <element id="VerificationResult.attestation.proxySignature">
       <path value="VerificationResult.attestation.proxySignature"/>
-      <short value="Proxy signature"/>
+      <short value="Proxy signature (digital or image)"/>
       <definition value="Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source."/>
       <min value="0"/>
       <max value="1"/>
@@ -461,7 +464,7 @@
     </element>
     <element id="VerificationResult.attestation.sourceSignature">
       <path value="VerificationResult.attestation.sourceSignature"/>
-      <short value="Attester signature"/>
+      <short value="Attester signature (digital or image)"/>
       <definition value="Signed assertion by the attestation source that they have attested to the information."/>
       <min value="0"/>
       <max value="1"/>
@@ -502,7 +505,7 @@
     </element>
     <element id="VerificationResult.validator.attestationSignature">
       <path value="VerificationResult.validator.attestationSignature"/>
-      <short value="Validator signature"/>
+      <short value="Validator signature (digital or image)"/>
       <definition value="Signed assertion by the validator that they have validated the information."/>
       <min value="0"/>
       <max value="1"/>
