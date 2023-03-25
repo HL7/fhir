@@ -2,7 +2,7 @@
 <svg
    id="n280"
    version="1.1"
-   width="1141.6"
+   width="1221.6"
    height="186.0"
    sodipodi:docname="inventoryreport.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview43698"
+     id="namedview5999"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.0914506"
-     inkscape:cx="570.79999"
-     inkscape:cy="93.911715"
+     inkscape:zoom="1.0199738"
+     inkscape:cx="610.79999"
+     inkscape:cy="93.139645"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1198"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="44"
      inkscape:window-maximized="0"
      inkscape:current-layer="n280" />
   <defs
-     id="defs43570">
+     id="defs5871">
     <filter
        id="shadow1"
        x="-0.030113636"
@@ -43,23 +43,23 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset43561" />
+         id="feOffset5862" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix43563" />
+         id="feColorMatrix5864" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur43565" />
+         id="feGaussianBlur5866" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend43567" />
+         id="feBlend5868" />
     </filter>
   </defs>
   <g
@@ -88,7 +88,7 @@
        fill="black"
        class="diagram-class-title  diagram-class-resource">InventoryReport<tspan
    class="diagram-class-title-link"
-   id="tspan43575"> (<a
+   id="tspan5876"> (<a
    id="n284"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
@@ -101,7 +101,7 @@
        class="diagram-class-detail"><a
    id="n286"
    xlink:href="inventoryreport-definitions.html#InventoryReport.identifier"><title
-   id="title43578">Identifiers for the InventoryReport</title>identifier</a> : <a
+   id="title5879">Business identifier for the InventoryReport</title>identifier</a> : <a
    id="n287"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
@@ -112,7 +112,7 @@
        class="diagram-class-detail"><a
    id="n292"
    xlink:href="inventoryreport-definitions.html#InventoryReport.status"><title
-   id="title43583">The status of the inventory check or notification - whether this is draft (e.g. the report is still pending some updates) or active (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="title5884">The status of the inventory check or notification - whether this is draft (e.g. the report is still pending some updates) or active (this element modifies the meaning of other elements)</title>status</a> : <a
    id="n293"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n294"
@@ -126,7 +126,7 @@
        class="diagram-class-detail"><a
    id="n302"
    xlink:href="inventoryreport-definitions.html#InventoryReport.countType"><title
-   id="title43590">Whether the report is about the current inventory count (snapshot) or a differential change in inventory (change) (this element modifies the meaning of other elements)</title>countType</a> : <a
+   id="title5891">Whether the report is about the current inventory count (snapshot) or a differential change in inventory (change) (this element modifies the meaning of other elements)</title>countType</a> : <a
    id="n303"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n304"
@@ -140,7 +140,7 @@
        class="diagram-class-detail"><a
    id="n312"
    xlink:href="inventoryreport-definitions.html#InventoryReport.operationType"><title
-   id="title43597">What type of operation is being performed - addition or subtraction</title>operationType</a> : <a
+   id="title5898">What type of operation is being performed - addition or subtraction</title>operationType</a> : <a
    id="n313"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
     <text
@@ -151,7 +151,7 @@
        class="diagram-class-detail"><a
    id="n318"
    xlink:href="inventoryreport-definitions.html#InventoryReport.operationTypeReason"><title
-   id="title43602">The reason for this count - regular count, ad-hoc count, new arrivals, etc</title>operationTypeReason</a> : <a
+   id="title5903">The reason for this count - regular count, ad-hoc count, new arrivals, etc</title>operationTypeReason</a> : <a
    id="n319"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
     <text
@@ -162,7 +162,7 @@
        class="diagram-class-detail"><a
    id="n324"
    xlink:href="inventoryreport-definitions.html#InventoryReport.reportedDateTime"><title
-   id="title43607">When the report has been submitted</title>reportedDateTime</a> : <a
+   id="title5908">When the report has been submitted</title>reportedDateTime</a> : <a
    id="n325"
    xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
@@ -173,7 +173,7 @@
        class="diagram-class-detail"><a
    id="n330"
    xlink:href="inventoryreport-definitions.html#InventoryReport.reporter"><title
-   id="title43612">Who submits the report</title>reporter</a> : <a
+   id="title5913">Who submits the report</title>reporter</a> : <a
    id="n331"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n332"
@@ -198,7 +198,7 @@
        class="diagram-class-detail"><a
    id="n346"
    xlink:href="inventoryreport-definitions.html#InventoryReport.reportingPeriod"><title
-   id="title43622">The period the report refers to</title>reportingPeriod</a> : <a
+   id="title5923">The period the report refers to</title>reportingPeriod</a> : <a
    id="n347"
    xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
@@ -209,17 +209,17 @@
        class="diagram-class-detail"><a
    id="n352"
    xlink:href="inventoryreport-definitions.html#InventoryReport.note"><title
-   id="title43627">A note associated with the InventoryReport</title>note</a> : <a
+   id="title5928">A note associated with the InventoryReport</title>note</a> : <a
    id="n353"
-   xlink:href="datatypes.html#Annotation">Annotation</a> [0..1]</text>
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
   </g>
   <g
      id="n357"
-     transform="translate(106.28058,8.2459067)">
+     transform="translate(-9.8041732,27.451685)">
     <rect
        id="InventoryReport.inventoryListing"
-       x="320"
-       y="0"
+       x="426.28058"
+       y="8.2459068"
        rx="4"
        ry="4"
        width="176"
@@ -228,59 +228,59 @@
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n358"
-       x1="320"
-       y1="28"
-       x2="496"
-       y2="28"
+       x1="426.28058"
+       y1="36.245907"
+       x2="602.28058"
+       y2="36.245907"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n359"
-       x="408"
-       y="20"
+       x="514.28058"
+       y="28.245907"
        fill="#000000"
        class="diagram-class-title">InventoryListing</text>
     <text
        id="n360"
-       x="326"
-       y="42"
+       x="432.28058"
+       y="50.245907"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n361"
    xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.location"><title
-   id="title43636">Location of the inventory items</title>location</a> : <a
+   id="title5937">Location of the inventory items</title>location</a> : <a
    id="n362"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n363"
    xlink:href="location.html#Location">Location</a> »</text>
     <text
        id="n368"
-       x="326"
-       y="56"
+       x="432.28058"
+       y="64.245903"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n369"
    xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.itemStatus"><title
-   id="title43642">The status of the items</title>itemStatus</a> : <a
+   id="title5943">The status of the items</title>itemStatus</a> : <a
    id="n370"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
     <text
        id="n374"
-       x="326"
-       y="70"
+       x="432.28058"
+       y="78.245903"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n375"
    xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.countingDateTime"><title
-   id="title43647">The date and time when the items were counted</title>countingDateTime</a> : <a
+   id="title5948">The date and time when the items were counted</title>countingDateTime</a> : <a
    id="n376"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
   </g>
   <g
      id="n380"
-     transform="translate(-168.58298,131.9345)">
+     transform="translate(57.844622,18.627929)">
     <rect
-       id="InventoryReport.inventoryListing.items"
-       x="560"
+       id="InventoryReport.inventoryListing.item"
+       x="640"
        y="0"
        rx="4"
        ry="4"
@@ -290,48 +290,48 @@
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n381"
-       x1="560"
+       x1="640"
        y1="28"
-       x2="841.59998"
+       x2="921.59998"
        y2="28"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n382"
-       x="700.79999"
+       x="780.79999"
        y="20"
        fill="#000000"
-       class="diagram-class-title">Items</text>
+       class="diagram-class-title">Item</text>
     <text
        id="n383"
-       x="566"
+       x="646"
        y="42"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n384"
-   xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.items.category"><title
-   id="title43656">The category of the item or items</title>category</a> : <a
+   xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.item.category"><title
+   id="title5957">The inventory category or classification of the items being reported. This is meant not for defining the product, but for inventory categories e.g. 'pending recount' or 'damaged'</title>category</a> : <a
    id="n385"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
     <text
        id="n389"
-       x="566"
+       x="646"
        y="56"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n390"
-   xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.items.quantity"><title
-   id="title43661">The quantity of the item or items</title>quantity</a> : <a
+   xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.item.quantity"><title
+   id="title5962">The quantity of the item or items being reported</title>quantity</a> : <a
    id="n391"
    xlink:href="datatypes.html#Quantity">Quantity</a> [1..1]</text>
     <text
        id="n395"
-       x="566"
+       x="646"
        y="70"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n396"
-   xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.items.item"><title
-   id="title43666">The code or reference to the item type</title>item</a> : <a
+   xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.item.item"><title
+   id="title5967">The code or reference to the item type</title>item</a> : <a
    id="n397"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
    id="n398"
@@ -342,7 +342,7 @@
    xlink:href="medication.html#Medication">Medication</a>|</text>
     <text
        id="n401"
-       x="586"
+       x="666"
        y="84"
        fill="#000000"
        class="diagram-class-detail"><a
@@ -354,7 +354,7 @@
    xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|</text>
     <text
        id="n405"
-       x="586"
+       x="666"
        y="98"
        fill="#000000"
        class="diagram-class-detail"><a
@@ -363,70 +363,70 @@
   </g>
   <line
      id="n419"
-     x1="496.0"
-     y1="43.20765027322404"
-     x2="560.0"
-     y2="46.267759562841526"
+     x1="602.28058"
+     y1="49.14580656620863"
+     x2="640.0"
+     y2="49.96016021406621"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n420"
-     points="496.0,43.20765027322404 502.0,47.20765027322404 508.0,43.20765027322404 502.0,39.20765027322404 496.0,43.20765027322404"
+     points="602.28058,49.14580656620863 608.28058,53.14580656620863 614.28058,49.14580656620863 608.28058,45.14580656620863 602.28058,49.14580656620863"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(2.7374674381437485 496.0 43.20765027322404)" />
+     transform="rotate(1.2368106280330473 602.28058 49.14580656620863)" />
   <rect
      id="n421"
-     x="517.0"
-     y="37.0"
-     width="22.0"
+     x="612.5"
+     y="42.0"
+     width="17.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n422"
-     x="528.0"
-     y="47.0"
+     x="621.0"
+     y="52.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n423"
-       xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.items"><title
-   id="title43684">The item or items in this listing</title>items</a></text>
+       xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.item"><title
+   id="title5985">The item or items in this listing</title>item</a></text>
   <text
      id="n424"
-     x="540.0"
-     y="42.267759562841526"
+     x="620.0"
+     y="45.96016021406621"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n425"
      x1="286.0"
-     y1="61.55849056603774"
-     x2="320.0"
-     y2="55.271698113207556"
+     y1="72.30341995829676"
+     x2="426.28058"
+     y2="56.90534057181737"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n426"
-     points="286.0,61.55849056603774 292.0,65.55849056603773 298.0,61.55849056603774 292.0,57.55849056603774 286.0,61.55849056603774"
+     points="286.0,72.30341995829676 292.0,76.30341995829676 298.0,72.30341995829676 292.0,68.30341995829676 286.0,72.30341995829676"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-10.475991666894293 286.0 61.55849056603774)" />
+     transform="rotate(-6.264067872607145 286.0 72.30341995829676)" />
   <rect
      id="n427"
-     x="268.0"
-     y="51.0"
+     x="321.0"
+     y="57.0"
      width="70.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n428"
-     x="303.0"
-     y="61.0"
+     x="356.0"
+     y="67.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n429"
        xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing"><title
-   id="title43692">An inventory listing section (grouped by any of the attributes)</title>inventoryListing</a></text>
+   id="title5993">An inventory listing section (grouped by any of the attributes)</title>inventoryListing</a></text>
   <text
      id="n430"
-     x="300.0"
-     y="51.271698113207556"
+     x="406.28058"
+     y="52.90534057181737"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

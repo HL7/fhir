@@ -2,7 +2,7 @@
 <svg
    id="n488"
    version="1.1"
-   width="886.0"
+   width="902.6205460000001"
    height="270.0"
    sodipodi:docname="condition.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview7801"
+     id="namedview2465"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.4063205"
-     inkscape:cx="443"
-     inkscape:cy="135.45987"
+     inkscape:zoom="1.380425"
+     inkscape:cx="451.31027"
+     inkscape:cy="134.74111"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1198"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="44"
      inkscape:window-maximized="0"
      inkscape:current-layer="n488" />
   <defs
-     id="defs7609">
+     id="defs2273">
     <filter
        id="shadow1"
        x="-0.018531469"
@@ -43,23 +43,23 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset7600" />
+         id="feOffset2264" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix7602" />
+         id="feColorMatrix2266" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur7604" />
+         id="feGaussianBlur2268" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend7606" />
+         id="feBlend2270" />
     </filter>
   </defs>
   <g
@@ -88,7 +88,7 @@
        fill="black"
        class="diagram-class-title  diagram-class-resource">Condition<tspan
    class="diagram-class-title-link"
-   id="tspan7614"> (<a
+   id="tspan2278"> (<a
    id="n492"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
@@ -101,7 +101,7 @@
        class="diagram-class-detail"><a
    id="n494"
    xlink:href="condition-definitions.html#Condition.identifier"><title
-   id="title7617">Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="title2281">Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
    id="n495"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
@@ -112,7 +112,7 @@
        class="diagram-class-detail"><a
    id="n500"
    xlink:href="condition-definitions.html#Condition.clinicalStatus"><title
-   id="title7622">The clinical status of the condition (this element modifies the meaning of other elements)</title>clinicalStatus</a> : <a
+   id="title2286">The clinical status of the condition (this element modifies the meaning of other elements)</title>clinicalStatus</a> : <a
    id="n501"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n502"
@@ -138,7 +138,7 @@
        class="diagram-class-detail"><a
    id="n518"
    xlink:href="condition-definitions.html#Condition.verificationStatus"><title
-   id="title7633">The verification status to support the clinical status of the condition.  The verification status pertains to the condition, itself, not to any specific condition attribute (this element modifies the meaning of other elements)</title>verificationStatus</a> : <a
+   id="title2297">The verification status to support the clinical status of the condition.  The verification status pertains to the condition, itself, not to any specific condition attribute (this element modifies the meaning of other elements)</title>verificationStatus</a> : <a
    id="n519"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n520"
@@ -160,12 +160,12 @@
        class="diagram-class-detail"><a
    id="n532"
    xlink:href="condition-definitions.html#Condition.category"><title
-   id="title7642">A category assigned to the condition</title>category</a> : <a
+   id="title2306">A category assigned to the condition</title>category</a> : <a
    id="n533"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n534"
    xlink:href="valueset-condition-category.html"><title
-   id="title7646">null (Strength=Preferred)</title>ConditionCategoryCodes</a>? » « <a
+   id="title2310">null (Strength=Preferred)</title>ConditionCategoryCodes</a>? » « <a
    id="n535"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
@@ -178,12 +178,12 @@
        class="diagram-class-detail"><a
    id="n544"
    xlink:href="condition-definitions.html#Condition.severity"><title
-   id="title7652">A subjective assessment of the severity of the condition as evaluated by the clinician</title>severity</a> : <a
+   id="title2316">A subjective assessment of the severity of the condition as evaluated by the clinician</title>severity</a> : <a
    id="n545"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n546"
    xlink:href="valueset-condition-severity.html"><title
-   id="title7656">null (Strength=Preferred)</title>ConditionDiagnosisSeverity</a>? »</text>
+   id="title2320">null (Strength=Preferred)</title>ConditionDiagnosisSeverity</a>? »</text>
     <text
        id="n551"
        x="6.0"
@@ -192,7 +192,7 @@
        class="diagram-class-detail"><a
    id="n552"
    xlink:href="condition-definitions.html#Condition.code"><title
-   id="title7660">Identification of the condition, problem or diagnosis</title>code</a> : <a
+   id="title2324">Identification of the condition, problem or diagnosis</title>code</a> : <a
    id="n553"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n554"
@@ -206,12 +206,12 @@
        class="diagram-class-detail"><a
    id="n562"
    xlink:href="condition-definitions.html#Condition.bodySite"><title
-   id="title7667">The anatomical location where this condition manifests itself</title>bodySite</a> : <a
+   id="title2331">The anatomical location where this condition manifests itself</title>bodySite</a> : <a
    id="n563"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n564"
    xlink:href="valueset-body-site.html"><title
-   id="n565">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+   id="n565">Codes describing anatomical locations. May include laterality. (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
     <text
        id="n571"
        x="6.0"
@@ -220,7 +220,7 @@
        class="diagram-class-detail"><a
    id="n572"
    xlink:href="condition-definitions.html#Condition.subject"><title
-   id="title7674">Indicates the patient or group who the condition record is associated with</title>subject</a> : <a
+   id="title2338">Indicates the patient or group who the condition record is associated with</title>subject</a> : <a
    id="n573"
    xlink:href="references.html#Reference">Reference</a> [1..1] « <a
    id="n574"
@@ -235,7 +235,7 @@
        class="diagram-class-detail"><a
    id="n582"
    xlink:href="condition-definitions.html#Condition.encounter"><title
-   id="title7681">The Encounter during which this Condition was created or to which the creation of this record is tightly associated</title>encounter</a> : <a
+   id="title2345">The Encounter during which this Condition was created or to which the creation of this record is tightly associated</title>encounter</a> : <a
    id="n583"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n584"
@@ -248,7 +248,7 @@
        class="diagram-class-detail"><a
    id="n590"
    xlink:href="condition-definitions.html#Condition.onset_x_"><title
-   id="title7687">Estimated or actual date or date-time  the condition began, in the opinion of the clinician</title>onset[x]</a> : <a
+   id="title2351">Estimated or actual date or date-time  the condition began, in the opinion of the clinician</title>onset[x]</a> : <a
    id="n591"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n592"
@@ -269,7 +269,7 @@
        class="diagram-class-detail"><a
    id="n606"
    xlink:href="condition-definitions.html#Condition.abatement_x_"><title
-   id="title7697">The date or estimated date that the condition resolved or went into remission. This is called &quot;abatement&quot; because of the many overloaded connotations associated with &quot;remission&quot; or &quot;resolution&quot; - Some conditions, such as chronic conditions, are never really resolved, but they can abate</title>abatement[x]</a> : <a
+   id="title2361">The date or estimated date that the condition resolved or went into remission. This is called &quot;abatement&quot; because of the many overloaded connotations associated with &quot;remission&quot; or &quot;resolution&quot; - Some conditions, such as chronic conditions, are never really resolved, but they can abate</title>abatement[x]</a> : <a
    id="n607"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n608"
@@ -294,7 +294,7 @@
        class="diagram-class-detail"><a
    id="n626"
    xlink:href="condition-definitions.html#Condition.recordedDate"><title
-   id="title7709">The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date</title>recordedDate</a> : <a
+   id="title2373">The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date</title>recordedDate</a> : <a
    id="n627"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <rect
@@ -312,7 +312,7 @@
        class="diagram-class-detail"><a
    id="n633"
    xlink:href="condition-definitions.html#Condition.evidence"><title
-   id="title7715">Supporting evidence / manifestations that are the basis of the Condition's verification status, such as evidence that confirmed or refuted the condition</title>evidence</a> : <a
+   id="title2379">Supporting evidence / manifestations that are the basis of the Condition's verification status, such as evidence that confirmed or refuted the condition</title>evidence</a> : <a
    id="n634"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n635"
@@ -328,17 +328,17 @@
        class="diagram-class-detail"><a
    id="n646"
    xlink:href="condition-definitions.html#Condition.note"><title
-   id="title7723">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis</title>note</a> : <a
+   id="title2387">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis</title>note</a> : <a
    id="n647"
    xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
   </g>
   <g
      id="n651"
-     transform="translate(14.221509,17.065811)">
+     transform="translate(90.55182,15.212706)">
     <rect
        id="Condition.participant"
-       x="400"
-       y="0"
+       x="414.2215"
+       y="17.065811"
        rx="4"
        ry="4"
        width="286"
@@ -347,26 +347,26 @@
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n652"
-       x1="400"
-       y1="28"
-       x2="686"
-       y2="28"
+       x1="414.2215"
+       y1="45.065811"
+       x2="700.2215"
+       y2="45.065811"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n653"
-       x="543"
-       y="20"
+       x="557.2215"
+       y="37.065811"
        fill="#000000"
        class="diagram-class-title">Participant</text>
     <text
        id="n654"
-       x="406"
-       y="42"
+       x="420.2215"
+       y="59.065811"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n655"
    xlink:href="condition-definitions.html#Condition.participant.function"><title
-   id="title7732">Distinguishes the type of involvement of the actor in the activities related to the condition</title>function</a> : <a
+   id="title2396">Distinguishes the type of involvement of the actor in the activities related to the condition</title>function</a> : <a
    id="n656"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n657"
@@ -374,13 +374,13 @@
    id="n658">null (Strength=Extensible)</title>ParticipationRoleType</a>+ »</text>
     <text
        id="n664"
-       x="406"
-       y="56"
+       x="420.2215"
+       y="73.065811"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n665"
    xlink:href="condition-definitions.html#Condition.participant.actor"><title
-   id="title7739">Indicates who or what participated in the activities related to the condition</title>actor</a> : <a
+   id="title2403">Indicates who or what participated in the activities related to the condition</title>actor</a> : <a
    id="n666"
    xlink:href="references.html#Reference">Reference</a> [1..1] « <a
    id="n667"
@@ -391,8 +391,8 @@
    xlink:href="patient.html#Patient">Patient</a>|</text>
     <text
        id="n670"
-       x="426"
-       y="70"
+       x="440.2215"
+       y="87.065811"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n671"
@@ -406,11 +406,11 @@
   </g>
   <g
      id="n686"
-     transform="translate(33.420546,132.97111)">
+     transform="translate(90.55182,15.212706)">
     <rect
        id="Condition.stage"
-       x="370"
-       y="0"
+       x="403.42053"
+       y="132.97112"
        rx="4"
        ry="4"
        width="299.20001"
@@ -419,26 +419,26 @@
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n687"
-       x1="370"
-       y1="28"
-       x2="669.20001"
-       y2="28"
+       x1="403.42053"
+       y1="160.97112"
+       x2="702.62054"
+       y2="160.97112"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n688"
-       x="519.59998"
-       y="20"
+       x="553.02057"
+       y="152.97112"
        fill="#000000"
        class="diagram-class-title">Stage</text>
     <text
        id="n689"
-       x="376"
-       y="42"
+       x="409.42053"
+       y="174.97112"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n690"
    xlink:href="condition-definitions.html#Condition.stage.summary"><title
-   id="title7756">A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease</title>summary</a> : <a
+   id="title2420">A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease</title>summary</a> : <a
    id="n691"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n692"
@@ -450,13 +450,13 @@
    id="n695">This element has or is affected by some invariants</title>C</a> »</text>
     <text
        id="n703"
-       x="376"
-       y="56"
+       x="409.42053"
+       y="188.97112"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n704"
    xlink:href="condition-definitions.html#Condition.stage.assessment"><title
-   id="title7765">Reference to a formal record of the evidence on which the staging assessment is based</title>assessment</a> : <a
+   id="title2429">Reference to a formal record of the evidence on which the staging assessment is based</title>assessment</a> : <a
    id="n705"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n706"
@@ -465,8 +465,8 @@
    xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|</text>
     <text
        id="n708"
-       x="396"
-       y="70"
+       x="429.42053"
+       y="202.97112"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n709"
@@ -477,13 +477,13 @@
    id="n711">This element has or is affected by some invariants</title>C</a> »</text>
     <text
        id="n721"
-       x="376"
-       y="84"
+       x="409.42053"
+       y="216.97112"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n722"
    xlink:href="condition-definitions.html#Condition.stage.type"><title
-   id="title7776">The kind of staging, such as pathological or clinical staging</title>type</a> : <a
+   id="title2440">The kind of staging, such as pathological or clinical staging</title>type</a> : <a
    id="n723"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n724"
@@ -493,69 +493,69 @@
   <line
      id="n731"
      x1="321.20000000000005"
-     y1="91.78190376569036"
-     x2="400.0"
-     y2="73.02981171548117"
+     y1="100.06256472742126"
+     x2="414.221509"
+     y2="82.72243144818653"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n732"
-     points="321.20000000000005,91.78190376569036 327.20000000000005,95.78190376569036 333.20000000000005,91.78190376569036 327.20000000000005,87.78190376569036 321.20000000000005,91.78190376569036"
+     points="321.20000000000005,100.06256472742126 327.20000000000005,104.06256472742126 333.20000000000005,100.06256472742126 327.20000000000005,96.06256472742126 321.20000000000005,100.06256472742126"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-13.385745475809236 321.20000000000005 91.78190376569036)" />
+     transform="rotate(-10.559308311275236 321.20000000000005 100.06256472742126)" />
   <rect
      id="n733"
-     x="336.0"
-     y="75.0"
+     x="343.0"
+     y="84.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n734"
-     x="360.0"
-     y="85.0"
+     x="367.0"
+     y="94.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n735"
        xlink:href="condition-definitions.html#Condition.participant"><title
-   id="title7787">Indicates who or what participated in the activities related to the condition and how they were involved</title>participant</a></text>
+   id="title2451">Indicates who or what participated in the activities related to the condition and how they were involved</title>participant</a></text>
   <text
      id="n736"
-     x="380.0"
-     y="69.02981171548117"
+     x="394.221509"
+     y="78.72243144818653"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n737"
      x1="321.20000000000005"
-     y1="92.42228412256267"
-     x2="370.0"
-     y2="81.00389972144848"
+     y1="150.04166281854162"
+     x2="403.420546"
+     y2="160.30216381286536"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n738"
-     points="321.20000000000005,92.42228412256267 327.20000000000005,96.42228412256267 333.20000000000005,92.42228412256267 327.20000000000005,88.42228412256267 321.20000000000005,92.42228412256267"
+     points="321.20000000000005,150.04166281854162 327.20000000000005,154.04166281854162 333.20000000000005,150.04166281854162 327.20000000000005,146.04166281854162 321.20000000000005,150.04166281854162"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-13.16933401671607 321.20000000000005 92.42228412256267)" />
+     transform="rotate(7.113305626742902 321.20000000000005 150.04166281854162)" />
   <rect
      id="n739"
-     x="334.0"
-     y="79.0"
+     x="351.0"
+     y="148.0"
      width="22.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n740"
-     x="345.0"
-     y="89.0"
+     x="362.0"
+     y="158.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n741"
        xlink:href="condition-definitions.html#Condition.stage"><title
-   id="title7795">A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease</title>stage</a></text>
+   id="title2459">A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease</title>stage</a></text>
   <text
      id="n742"
-     x="350.0"
-     y="77.00389972144848"
+     x="383.420546"
+     y="156.30216381286536"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

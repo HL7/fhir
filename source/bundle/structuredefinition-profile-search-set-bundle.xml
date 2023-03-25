@@ -7,10 +7,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="not-classified" />
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/search-bundle" />
+  <url value="http://hl7.org/fhir/StructureDefinition/search-set-bundle" />
   <version value="0.1.0" />
-  <name value="SearchBundle" />
-  <title value="Search bundle" />
+  <name value="SearchSetBundle" />
+  <title value="Search Set Bundle" />
   <status value="active" />
   <description value="This profile holds all the requirements and constraints related to a FHIR search bundle." />
   <fhirVersion value="5.0.0-snapshot1" />

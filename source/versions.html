@@ -200,18 +200,27 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
   <li>For each example context, the artifact has either been: reviewed and approved by a domain expert for that scope area, mapped to an existing implemented scope-area-specific standard or tested in an implementation</li>
 </ul>
 <p>
-<p>
-</p>
-The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
+The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource
 </p>
 <p>
 The table above represents a frozen snapshot of the maturity levels maintained by the FHIR Management Group on the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.  Further information and discussion about these levels can be found there.
 </p>
 <p>
-The maturity model is significantly influenced by the degree and type of implementation activity using an artifact.
-For this reason, we encourage implementers to <a href="http://fhir.org/implementations/usage">register their implementations</a>.
+The maturity model is significantly influenced by the degree and type of implementation activity using an artifact. For this reason, 
+we encourage implementers to <a href="http://fhir.org/implementations/usage">register their implementations</a>.
 A detailed analysis of the basis for the maturity metrics for FHIR artifacts can be found <a href="http://hl7.org/fhir/maturity-metrics">here</a>.
 </p>
+[%impl-note%]
+For this release (R5), please note:
+</p>
+<ul>
+<li>The rules for FMM levels will be reviewed prior to the next release to reflect the size of the FHIR implementation community and to place more value on the rate of external adoption</li>
+<li>The FMM levels for some resource types in R5 have been increased at the discretion of the FHIR management group in accordance with the community adoption without meeting all the internal process requirements</li>
+<li>Timelines for the publication for R5 did not allow formal review of FMM levels for all resources. Some resources may meet higher requirements than those listed</li>
+</ul>
+<p>
+Once review is complete, FMM levels will be reflected in the CI-build
+[%end-note%]
 
 
 <a name="versions"></a>
@@ -901,7 +910,7 @@ which will be Release 6.
 <p>
 Note that for this release, the extensions have been moved out into a separate module and updated
 versions will be published regularly. See the 
-<a href="http://hl7.org/fhir/extensions/policy.html">Extension Version Policy</a> for further 
+<a href="http://hl7.org/fhir/extensions/index.html#policy">Extension Version Policy</a> for further 
 information.
 </p>
 <p>
