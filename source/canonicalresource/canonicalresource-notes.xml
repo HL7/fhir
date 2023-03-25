@@ -23,7 +23,7 @@
     different generated elements. This would not be considered a violation of the guidelines proposed above.</li>
 </ul>
 <p>
-  HL7 is developing a <a href="http://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management</a> implementation guide 
+  HL7 is developing a <a href="[%ig crmi%]">Canonical Resource Management</a> implementation guide 
   to define best practices for asserting and exposing local usage expectations of canonical and metadata resources.
   Readers are invited to consult the current release of that IG for additional guidance.
 </p>

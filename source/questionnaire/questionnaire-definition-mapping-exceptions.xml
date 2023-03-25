@@ -56,6 +56,7 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.code" resourcePath="Questionnaire.code">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="We use Coding rather than CodeableConcept because we don't want text"/>
         <extraTypes _resource="Coding" reason="We use Coding rather than CodeableConcept because we don't want text"/>
         <bindingExistence _pattern="false" _resource="true" reason="While a binding could not be defined at the pattern level, the resource is specific enough to allow a binding"/>
