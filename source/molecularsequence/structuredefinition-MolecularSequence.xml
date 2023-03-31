@@ -600,5 +600,17 @@
       <isSummary value="true"/>
     </element>
 
+    <element id="MolecularSequence.concatenated">
+      <path value="MolecularSequence.concatenated"/>
+      <short value="concatenated sequence"/>
+      <definition value="concatenated sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
   </differential>
 </StructureDefinition>
