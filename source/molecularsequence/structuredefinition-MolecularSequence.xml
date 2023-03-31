@@ -508,6 +508,18 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.extracted.startingSequence">
+      <path value="MolecularSequence.extracted.startingSequence"/>
+      <short value="Extracted starting sequence"/>
+      <definition value="Extracted starting sequence."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
   </differential>
 </StructureDefinition>
