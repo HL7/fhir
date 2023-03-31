@@ -520,6 +520,19 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.extracted.start">
+      <path value="MolecularSequence.extracted.start"/>
+      <short value="Extracted sequence start"/>
+      <definition value="Extracted sequence start."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+
 
   </differential>
 </StructureDefinition>
