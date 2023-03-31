@@ -476,7 +476,7 @@
       <path value="MolecularSequence.relative.edit.replacementSequence"/>
       <short value="Allele that was observed"/>
       <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
