@@ -138,7 +138,7 @@
       </type>
       <isSummary value="true"/>
     </element>-->
-    <element id="MolecularSequence.specimen">
+<!--    <element id="MolecularSequence.specimen">
       <path value="MolecularSequence.specimen"/>
       <short value="Specimen used for sequencing"/>
       <definition value="Specimen used for sequencing."/>
@@ -149,7 +149,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.device">
       <path value="MolecularSequence.device"/>
       <short value="The method for sequencing"/>
