@@ -531,6 +531,17 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.extracted.end">
+      <path value="MolecularSequence.extracted.end"/>
+      <short value="Extracted sequence end"/>
+      <definition value="Extracted sequence end."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
 
 
