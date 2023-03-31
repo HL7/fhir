@@ -150,7 +150,7 @@
       </type>
       <isSummary value="true"/>
     </element>-->
-    <element id="MolecularSequence.device">
+<!--    <element id="MolecularSequence.device">
       <path value="MolecularSequence.device"/>
       <short value="The method for sequencing"/>
       <definition value="The method for sequencing, for example, chip information."/>
@@ -161,7 +161,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.performer">
       <path value="MolecularSequence.performer"/>
       <short value="Who should be responsible for test result"/>
