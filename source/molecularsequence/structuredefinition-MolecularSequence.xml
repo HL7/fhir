@@ -542,7 +542,17 @@
       </type>
       <isSummary value="true"/>
     </element>
-
+    <element id="MolecularSequence.extracted.coordinateSystem">
+      <path value="MolecularSequence.extracted.coordinateSystem"/>
+      <short value="Extracted sequence coordinateSystem"/>
+      <definition value="Extracted sequence coordinateSystem."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
 
   </differential>
