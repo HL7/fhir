@@ -294,7 +294,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <constraint>
+<!--      <constraint>
         <key value="msq-6"/>
         <severity value="error"/>
         <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
@@ -307,7 +307,7 @@
         <human value="Both genomeAssembly and chromosome must be both contained if either one of them is contained"/>
         <expression value="chromosome.exists() = genomeAssembly.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </constraint>
+      </constraint>-->
       <isSummary value="true"/>
     </element>
     <element id="MolecularSequence.relative.startingSequence.genomeAssembly">
