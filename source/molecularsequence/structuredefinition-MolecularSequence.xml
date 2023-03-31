@@ -599,7 +599,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularSequence.concatenated">
       <path value="MolecularSequence.concatenated"/>
       <short value="concatenated sequence"/>
@@ -608,6 +607,29 @@
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.concatenated.sequenceElement">
+      <path value="MolecularSequence.concatenated.sequenceElement"/>
+      <short value="concatenated sequence element"/>
+      <definition value="concatenated sequence element."/>
+      <min value="2"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.concatenated.sequenceElement.sequence">
+      <path value="MolecularSequence.concatenated.sequenceElement.sequence"/>
+      <short value="concatenated sequence"/>
+      <definition value="concatenated sequence."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
       <isSummary value="true"/>
     </element>
