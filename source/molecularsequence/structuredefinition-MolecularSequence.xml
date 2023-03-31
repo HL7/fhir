@@ -454,7 +454,7 @@
       <path value="MolecularSequence.relative.edit.start"/>
       <short value="Start position of the edit on the starting sequence"/>
       <definition value="Start position of the edit on the starting sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="integer"/>
