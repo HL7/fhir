@@ -162,7 +162,7 @@
       </type>
       <isSummary value="true"/>
     </element>-->
-    <element id="MolecularSequence.performer">
+<!--    <element id="MolecularSequence.performer">
       <path value="MolecularSequence.performer"/>
       <short value="Who should be responsible for test result"/>
       <definition value="The organization or lab that should be responsible for this result."/>
@@ -173,7 +173,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.literal">
       <path value="MolecularSequence.literal"/>
       <short value="Sequence that was observed"/>
