@@ -185,6 +185,31 @@
       </type>
       <isSummary value="true"/>
     </element>-->
+    <element id="MolecularSequence.literal">
+      <path value="MolecularSequence.literal"/>
+      <short value="Sequence that was observed"/>
+      <definition value="Sequence that was observed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularSequence.literal.sequenceValue">
+      <path value="MolecularSequence.literal.sequenceValue"/>
+      <short value="Sequence value that was observed"/>
+      <definition value="Sequence value that was observed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+
     <element id="MolecularSequence.formatted">
       <path value="MolecularSequence.formatted"/>
       <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
