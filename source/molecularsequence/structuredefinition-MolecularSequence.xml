@@ -110,7 +110,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.subject">
+<!--    <element id="MolecularSequence.subject">
       <path value="MolecularSequence.subject"/>
       <short value="Subject this sequence is associated too"/>
       <definition value="Indicates the subject this sequence is associated too."/>
@@ -125,7 +125,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.focus">
       <path value="MolecularSequence.focus"/>
       <short value="What the molecular sequence is about, when it is not about the subject of record"/>
