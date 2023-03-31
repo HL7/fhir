@@ -126,7 +126,7 @@
       </type>
       <isSummary value="true"/>
     </element>-->
-    <element id="MolecularSequence.focus">
+<!--    <element id="MolecularSequence.focus">
       <path value="MolecularSequence.focus"/>
       <short value="What the molecular sequence is about, when it is not about the subject of record"/>
       <definition value="The actual focus of a molecular sequence when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, child, or sibling. For example, in trio testing, the subject would be the child (proband) and the focus would be the parent."/>
@@ -137,7 +137,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.specimen">
       <path value="MolecularSequence.specimen"/>
       <short value="Specimen used for sequencing"/>
