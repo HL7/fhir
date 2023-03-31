@@ -496,5 +496,18 @@
       </type>
       <isSummary value="true"/>
     </element>
+
+    <element id="MolecularSequence.extracted">
+      <path value="MolecularSequence.extracted"/>
+      <short value="Extracted sequence"/>
+      <definition value="Extracted sequence."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
   </differential>
 </StructureDefinition>
