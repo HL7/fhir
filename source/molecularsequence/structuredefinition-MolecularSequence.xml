@@ -588,6 +588,17 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.repeated.copyCount">
+      <path value="MolecularSequence.repeated.copyCount"/>
+      <short value="Repeated copyCount"/>
+      <definition value="Repeated copyCount."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
   </differential>
 </StructureDefinition>
