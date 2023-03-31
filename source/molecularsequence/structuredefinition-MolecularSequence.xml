@@ -310,7 +310,7 @@
       </constraint>-->
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.relative.startingSequence.genomeAssembly">
+<!--    <element id="MolecularSequence.relative.startingSequence.genomeAssembly">
       <path value="MolecularSequence.relative.startingSequence.genomeAssembly"/>
       <short value="The genome assembly used for starting sequence, e.g. GRCh38"/>
       <definition value="The genome assembly used for starting sequence, e.g. GRCh38."/>
@@ -437,7 +437,7 @@
         <description value="Type for strand"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/strand-type"/>
       </binding>
-    </element>
+    </element>-->
     <element id="MolecularSequence.relative.edit">
       <path value="MolecularSequence.relative.edit"/>
       <short value="Changes in sequence from the starting sequence"/>
