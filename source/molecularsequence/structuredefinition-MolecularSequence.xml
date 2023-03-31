@@ -553,6 +553,17 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.extracted.reverseComplement">
+      <path value="MolecularSequence.extracted.reverseComplement"/>
+      <short value="Extracted sequence reverseComplement"/>
+      <definition value="Extracted sequence reverseComplement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
 
   </differential>
