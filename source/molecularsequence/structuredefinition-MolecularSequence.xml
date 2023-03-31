@@ -199,12 +199,24 @@
 
     <element id="MolecularSequence.literal.sequenceValue">
       <path value="MolecularSequence.literal.sequenceValue"/>
-      <short value="Sequence value that was observed"/>
-      <definition value="Sequence value that was observed."/>
+      <short value="Sequence value"/>
+      <definition value="Sequence value."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularSequence.literal.encoding">
+      <path value="MolecularSequence.literal.encoding"/>
+      <short value="Sequence encoding"/>
+      <definition value="Sequence encoding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
     </element>
