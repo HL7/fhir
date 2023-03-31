@@ -633,6 +633,16 @@
       </type>
       <isSummary value="true"/>
     </element>
-
+    <element id="MolecularSequence.concatenated.sequenceElement.ordinalIndex">
+      <path value="MolecularSequence.concatenated.sequenceElement.ordinalIndex"/>
+      <short value="Ordinal index of the concatenated sequence"/>
+      <definition value="Ordinal index of the concatenated sequence."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
   </differential>
 </StructureDefinition>
