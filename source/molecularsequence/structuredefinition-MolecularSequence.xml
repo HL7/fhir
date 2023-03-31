@@ -465,7 +465,7 @@
       <path value="MolecularSequence.relative.edit.end"/>
       <short value="End position of the edit on the starting sequence"/>
       <definition value="End position of the edit on the starting sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="integer"/>
