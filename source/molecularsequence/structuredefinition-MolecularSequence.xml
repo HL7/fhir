@@ -479,7 +479,8 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
       <isSummary value="true"/>
     </element>
