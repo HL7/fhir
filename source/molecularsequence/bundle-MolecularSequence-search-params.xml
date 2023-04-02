@@ -21,7 +21,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <!--<entry>
+  <entry>
     <resource>
       <SearchParameter>
         <id value="MolecularSequence-subject"/>
@@ -60,7 +60,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+<!--  <entry>
     <resource>
       <SearchParameter>
         <id value="MolecularSequence-focus"/>
