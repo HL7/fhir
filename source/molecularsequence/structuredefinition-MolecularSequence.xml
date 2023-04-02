@@ -567,8 +567,8 @@
 
     <element id="MolecularSequence.repeated">
       <path value="MolecularSequence.repeated"/>
-      <short value="repeated sequence"/>
-      <definition value="repeated sequence."/>
+      <short value="Repeated sequence"/>
+      <definition value="Repeated sequence."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -578,8 +578,8 @@
     </element>
     <element id="MolecularSequence.repeated.sequenceMotif">
       <path value="MolecularSequence.repeated.sequenceMotif"/>
-      <short value="repeated sequenceMotif"/>
-      <definition value="repeated sequenceMotif."/>
+      <short value="Repeated sequenceMotif"/>
+      <definition value="Repeated sequenceMotif."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -601,8 +601,8 @@
     </element>
     <element id="MolecularSequence.concatenated">
       <path value="MolecularSequence.concatenated"/>
-      <short value="concatenated sequence"/>
-      <definition value="concatenated sequence."/>
+      <short value="Concatenated sequence"/>
+      <definition value="Concatenated sequence."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -612,9 +612,9 @@
     </element>
     <element id="MolecularSequence.concatenated.sequenceElement">
       <path value="MolecularSequence.concatenated.sequenceElement"/>
-      <short value="concatenated sequence element"/>
-      <definition value="concatenated sequence element."/>
-      <min value="2"/>
+      <short value="Concatenated sequence element"/>
+      <definition value="Concatenated sequence element."/>
+      <min value="1"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
@@ -623,8 +623,8 @@
     </element>
     <element id="MolecularSequence.concatenated.sequenceElement.sequence">
       <path value="MolecularSequence.concatenated.sequenceElement.sequence"/>
-      <short value="concatenated sequence"/>
-      <definition value="concatenated sequence."/>
+      <short value="Concatenated sequence"/>
+      <definition value="Concatenated sequence."/>
       <min value="1"/>
       <max value="1"/>
       <type>
