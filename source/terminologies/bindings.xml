@@ -1577,6 +1577,26 @@
     <Cell><Data ss:Type="String">5.0.0-draft-final</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">R5 Final QA</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">56</Data></Cell>
+    <Cell><Data ss:Type="String">6.0</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">6.0</Data></Cell>
+    <Cell><Data ss:Type="String">R6 Versions</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">57</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">6.0</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 Final Version</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">58</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-cibuild</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 Rolling ci-build</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
