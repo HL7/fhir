@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularSequence xmlns="http://hl7.org/fhir">
+    <id value="example"/>
+    <type value="dna"/>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <formatted>
+        <contentType value="application/json"/>
+        <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
+        <title value="GA4GH API"/>
+    </formatted>
+</MolecularSequence>
