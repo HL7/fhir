@@ -42,9 +42,9 @@
   <p>
     These attributes help to clarify what sequence is being represented with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range).
   </p>
-  <p>
+<!--  <p>
     In a FGFR2:MET Fusion use case, where the fusion was uncovered through RNA sequencing, a partial representation can be found <a href="sequence-example-ordinal.html">here</a>.
-  </p>
+  </p>-->
   <h5>Representing the Starting Sequence</h5>
   <p>
     <code>relative.startingSequence</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:
@@ -65,13 +65,13 @@
   <p>
     <code>relative.coordinateSystem</code> binds to a LOINC answer list, please review those answers <a href="https://loinc.org/LL5323-2/">here</a> as well as the detailed description found <a href="https://loinc.org/92822-6/">here</a>.
   </p>
-  <p> 
+<!--  <p>
     Here are two examples:
     <ul>
       <li>0-based example: <a href="coord-0base-example.html">here</a></li>
       <li>1-based example: <a href="coord-1base-example.html">here</a></li>
     </ul>
-  </p>
+  </p>-->
   <h5>Choice of Strand</h5>
   <p>
     There are many considerations concerning the directionality of DNA or RNA. Here we are using <code>relative.startingSequence.orientation</code> and <code>relative.startingSequence.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
