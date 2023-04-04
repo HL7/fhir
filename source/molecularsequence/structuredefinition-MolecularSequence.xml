@@ -624,6 +624,8 @@
       </type>
       <isSummary value="true"/>
     </element>
+
+<!--    More descriptive short and definition to be added later-->
     <element id="MolecularSequence.concatenated.sequenceElement.sequence">
       <path value="MolecularSequence.concatenated.sequenceElement.sequence"/>
       <short value="Concatenated sequence"/>
