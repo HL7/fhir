@@ -617,6 +617,7 @@
       <path value="MolecularSequence.concatenated.sequenceElement"/>
       <short value="Concatenated sequence element"/>
       <definition value="Concatenated sequence element."/>
+      <comment value="At least two sequenceElement elements are required to represent a concatenated sequence."/>
       <min value="1"/>
       <max value="*"/>
       <type>
