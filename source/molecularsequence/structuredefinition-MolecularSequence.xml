@@ -214,8 +214,8 @@
 
     <element id="MolecularSequence.literal.encoding">
       <path value="MolecularSequence.literal.encoding"/>
-      <short value="Sequence encoding"/>
-      <definition value="Sequence encoding."/>
+      <short value="The encoding used for the expression of the primary sequence"/>
+      <definition value="The encoding used for the expression of the primary sequence. This defines the characters that may be used in the primary sequence and it permits the explicit inclusion/exclusion of IUPAC ambiguity codes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -227,8 +227,9 @@
 
     <element id="MolecularSequence.formatted">
       <path value="MolecularSequence.formatted"/>
-      <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
-      <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
+      <short value="A representation of a molecular sequence that optionally contains formatting in addition to the specification of the primary sequence itself"/>
+      <definition value="A representation of a molecular sequence that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
+      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -238,8 +239,8 @@
     </element>
     <element id="MolecularSequence.relative">
       <path value="MolecularSequence.relative"/>
-      <short value="A sequence defined relative to another sequence"/>
-      <definition value="A sequence defined relative to another sequence."/>
+      <short value="A Molecular Sequence that is represented as an ordered series of edits on a specified starting sequence"/>
+      <definition value="A Molecular Sequence that is represented as an ordered series of edits on a specified starting sequence."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -249,8 +250,8 @@
     </element>
     <element id="MolecularSequence.relative.coordinateSystem">
       <path value="MolecularSequence.relative.coordinateSystem"/>
-      <short value="Ways of identifying nucleotides or amino acids within a sequence"/>
-      <definition value="These are different ways of identifying nucleotides or amino acids within a sequence. Different databases and file types may use different systems. For detail definitions, see https://loinc.org/92822-6/ for more detail."/>
+      <short value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based"/>
+      <definition value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -268,8 +269,8 @@
     </element>
     <element id="MolecularSequence.relative.ordinalPosition">
       <path value="MolecularSequence.relative.ordinalPosition"/>
-      <short value="Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together"/>
-      <definition value="Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together."/>
+      <short value="The order of this edit, relative to other edits on the starting sequence"/>
+      <definition value="The order of this edit, relative to other edits on the starting sequence."/>
       <min value="0"/>
       <max value="1"/>
       <type>
