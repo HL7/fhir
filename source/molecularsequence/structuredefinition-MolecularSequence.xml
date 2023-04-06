@@ -291,8 +291,8 @@
     </element>
     <element id="MolecularSequence.relative.startingSequence">
       <path value="MolecularSequence.relative.startingSequence"/>
-      <short value="A sequence used as starting sequence"/>
-      <definition value="A sequence that is used as a starting sequence to describe variants that are present in a sequence analyzed."/>
+      <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
+      <definition value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -445,8 +445,9 @@
     </element>-->
     <element id="MolecularSequence.relative.edit">
       <path value="MolecularSequence.relative.edit"/>
-      <short value="Changes in sequence from the starting sequence"/>
-      <definition value="Changes in sequence from the starting sequence."/>
+      <short value="An edit (change) made to a sequence"/>
+      <definition value="An edit (change) made to a sequence."/>
+      <comment value = "Edits are applied sequentially. The sequence that results from one edit operation is used as the 'starting' sequence of the next edit operation."/>
       <min value="0"/>
       <max value="*"/>
       <type>
