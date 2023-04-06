@@ -267,7 +267,7 @@
         <valueSet value="http://loinc.org/LL5323-2/"/>
       </binding>
     </element>
-    <element id="MolecularSequence.relative.ordinalPosition">
+<!--    <element id="MolecularSequence.relative.ordinalPosition">
       <path value="MolecularSequence.relative.ordinalPosition"/>
       <short value="The order of this edit, relative to other edits on the starting sequence"/>
       <definition value="The order of this edit, relative to other edits on the starting sequence."/>
@@ -277,7 +277,7 @@
         <code value="integer"/>
       </type>
       <isSummary value="false"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.relative.sequenceRange">
       <path value="MolecularSequence.relative.sequenceRange"/>
       <short value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together"/>
@@ -453,6 +453,17 @@
         <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.relative.edit.editOrder">
+      <path value="MolecularSequence.relative.edit.editOrder"/>
+      <short value="The order of this edit, relative to other edits on the starting sequence"/>
+      <definition value="The order of this edit, relative to other edits on the starting sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="false"/>
     </element>
     <element id="MolecularSequence.relative.edit.start">
       <path value="MolecularSequence.relative.edit.start"/>
