@@ -468,8 +468,8 @@
     </element>
     <element id="MolecularSequence.relative.edit.start">
       <path value="MolecularSequence.relative.edit.start"/>
-      <short value="Start position of the edit on the starting sequence"/>
-      <definition value="Start position of the edit on the starting sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
+      <short value="The start coordinate of the interval that will be edited"/>
+      <definition value="The start coordinate of the interval that will be edited."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -479,8 +479,8 @@
     </element>
     <element id="MolecularSequence.relative.edit.end">
       <path value="MolecularSequence.relative.edit.end"/>
-      <short value="End position of the edit on the starting sequence"/>
-      <definition value="End position of the edit on the starting sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
+      <short value="The end coordinate of the interval that will be edited"/>
+      <definition value="The end coordinate of the interval that will be edited."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -490,8 +490,8 @@
     </element>
     <element id="MolecularSequence.relative.edit.replacementSequence">
       <path value="MolecularSequence.relative.edit.replacementSequence"/>
-      <short value="Allele that was observed"/>
-      <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+      <short value="The sequence that defines the replacement sequence used in the edit operation"/>
+      <definition value="The sequence that defines the replacement sequence used in the edit operation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -502,8 +502,8 @@
     </element>
     <element id="MolecularSequence.relative.edit.replacedSequence">
       <path value="MolecularSequence.relative.edit.replacedSequence"/>
-      <short value="Allele in the starting sequence"/>
-      <definition value="Allele in the starting sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the starting sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+      <short value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit"/>
+      <definition value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -515,8 +515,8 @@
 
     <element id="MolecularSequence.extracted">
       <path value="MolecularSequence.extracted"/>
-      <short value="Extracted sequence"/>
-      <definition value="Extracted sequence."/>
+      <short value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence"/>
+      <definition value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -526,8 +526,8 @@
     </element>
     <element id="MolecularSequence.extracted.startingSequence">
       <path value="MolecularSequence.extracted.startingSequence"/>
-      <short value="Extracted starting sequence"/>
-      <definition value="Extracted starting sequence."/>
+      <short value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted"/>
+      <definition value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -538,8 +538,8 @@
     </element>
     <element id="MolecularSequence.extracted.start">
       <path value="MolecularSequence.extracted.start"/>
-      <short value="Extracted sequence start"/>
-      <definition value="Extracted sequence start."/>
+      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
+      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -549,8 +549,8 @@
     </element>
     <element id="MolecularSequence.extracted.end">
       <path value="MolecularSequence.extracted.end"/>
-      <short value="Extracted sequence end"/>
-      <definition value="Extracted sequence end."/>
+      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
+      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -560,8 +560,8 @@
     </element>
     <element id="MolecularSequence.extracted.coordinateSystem">
       <path value="MolecularSequence.extracted.coordinateSystem"/>
-      <short value="Extracted sequence coordinateSystem"/>
-      <definition value="Extracted sequence coordinateSystem."/>
+      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>
+      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -571,8 +571,9 @@
     </element>
     <element id="MolecularSequence.extracted.reverseComplement">
       <path value="MolecularSequence.extracted.reverseComplement"/>
-      <short value="Extracted sequence reverseComplement"/>
-      <definition value="Extracted sequence reverseComplement."/>
+      <short value="A flag that indicates whether the extracted sequence should be reverse complemented"/>
+      <definition value="A flag that indicates whether the extracted sequence should be reverse complemented."/>
+      <comment value="This attribute might be needed in all sequence representation classes, so that any sequence representation could be reverseComplemented."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -583,8 +584,9 @@
 
     <element id="MolecularSequence.repeated">
       <path value="MolecularSequence.repeated"/>
-      <short value="Repeated sequence"/>
-      <definition value="Repeated sequence."/>
+      <short value="A Molecular Sequence that is represented as a repeated sequence motif"/>
+      <definition value="A Molecular Sequence that is represented as a repeated sequence motif."/>
+      <comment value="This class represents motifs that occur in tandem (immediately adjacent to each other) and without edits (each copy of the motif is identical)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -594,8 +596,8 @@
     </element>
     <element id="MolecularSequence.repeated.sequenceMotif">
       <path value="MolecularSequence.repeated.sequenceMotif"/>
-      <short value="Repeated sequenceMotif"/>
-      <definition value="Repeated sequenceMotif."/>
+      <short value="The sequence that defines the repeated motif"/>
+      <definition value="The sequence that defines the repeated motif."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -606,8 +608,8 @@
     </element>
     <element id="MolecularSequence.repeated.copyCount">
       <path value="MolecularSequence.repeated.copyCount"/>
-      <short value="Repeated copyCount"/>
-      <definition value="Repeated copyCount."/>
+      <short value="The number of repeats (copies) of the sequence motif"/>
+      <definition value="The number of repeats (copies) of the sequence motif."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -617,8 +619,8 @@
     </element>
     <element id="MolecularSequence.concatenated">
       <path value="MolecularSequence.concatenated"/>
-      <short value="Concatenated sequence"/>
-      <definition value="Concatenated sequence."/>
+      <short value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences"/>
+      <definition value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -628,8 +630,8 @@
     </element>
     <element id="MolecularSequence.concatenated.sequenceElement">
       <path value="MolecularSequence.concatenated.sequenceElement"/>
-      <short value="Concatenated sequence element"/>
-      <definition value="Concatenated sequence element."/>
+      <short value="One element of a concatenated Molecular Sequence"/>
+      <definition value="One element of a concatenated Molecular Sequence."/>
       <comment value="At least two sequenceElement elements are required to represent a concatenated sequence."/>
       <min value="1"/>
       <max value="*"/>
@@ -642,8 +644,8 @@
 <!--    More descriptive short and definition to be added later-->
     <element id="MolecularSequence.concatenated.sequenceElement.sequence">
       <path value="MolecularSequence.concatenated.sequenceElement.sequence"/>
-      <short value="Concatenated sequence"/>
-      <definition value="Concatenated sequence."/>
+      <short value="The Molecular Sequence corresponding to this element"/>
+      <definition value="The Molecular Sequence corresponding to this element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -654,8 +656,9 @@
     </element>
     <element id="MolecularSequence.concatenated.sequenceElement.ordinalIndex">
       <path value="MolecularSequence.concatenated.sequenceElement.ordinalIndex"/>
-      <short value="Ordinal index of the concatenated sequence"/>
-      <definition value="Ordinal index of the concatenated sequence."/>
+      <short value="The ordinal position of this sequence element within the concatenated Molecular Sequence"/>
+      <definition value="The ordinal position of this sequence element within the concatenated Molecular Sequence."/>
+      <comment value="0 or 1 based indices are possible, could potentially skip numbers in the sequence, suggest implementers sort numerically prior to concatenating"/>
       <min value="1"/>
       <max value="1"/>
       <type>
