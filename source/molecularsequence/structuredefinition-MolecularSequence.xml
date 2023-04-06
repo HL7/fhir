@@ -96,8 +96,8 @@
     </element>
     <element id="MolecularSequence.type">
       <path value="MolecularSequence.type"/>
-      <short value="aa | dna | rna"/>
-      <definition value="Amino Acid Sequence/ DNA Sequence / RNA Sequence."/>
+      <short value="The type of the Molecular Sequence (e.g., DNA, RNA, AA)"/>
+      <definition value="The type of the Molecular Sequence (Amino Acid Sequence, DNA Sequence, RNA Sequence)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -190,8 +190,8 @@
     </element>-->
     <element id="MolecularSequence.literal">
       <path value="MolecularSequence.literal"/>
-      <short value="Sequence that was observed"/>
-      <definition value="Sequence that was observed."/>
+      <short value="A literal representation of a Molecular Sequence"/>
+      <definition value="A literal representation of a Molecular Sequence."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -202,8 +202,8 @@
 
     <element id="MolecularSequence.literal.sequenceValue">
       <path value="MolecularSequence.literal.sequenceValue"/>
-      <short value="Sequence value"/>
-      <definition value="Sequence value."/>
+      <short value="The primary (linear) sequence, expressed as a literal string"/>
+      <definition value="The primary (linear) sequence, expressed as a literal string."/>
       <min value="1"/>
       <max value="1"/>
       <type>
