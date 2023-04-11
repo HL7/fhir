@@ -96,7 +96,7 @@
     </element>
     <element id="MolecularSequence.type">
       <path value="MolecularSequence.type"/>
-      <short value="The type of the Molecular Sequence (e.g., DNA, RNA, AA)"/>
+      <short value="aa | dna | rna"/>
       <definition value="The type of the Molecular Sequence (Amino Acid Sequence, DNA Sequence, RNA Sequence)."/>
       <min value="0"/>
       <max value="1"/>
