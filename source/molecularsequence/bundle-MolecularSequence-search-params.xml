@@ -21,7 +21,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+<!--  <entry>
     <resource>
       <SearchParameter>
         <id value="MolecularSequence-subject"/>
@@ -39,8 +39,8 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
-  <entry>
+  </entry>-->
+<!--  <entry>
     <resource>
       <SearchParameter>
         <id value="MolecularSequence-patient"/>
@@ -59,7 +59,7 @@
         <target value="Patient"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry>-->
 <!--  <entry>
     <resource>
       <SearchParameter>
