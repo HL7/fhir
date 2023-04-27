@@ -11,7 +11,7 @@
   <date value="2015-01-01"/>
   <packageId value="hl7.fhir.us.daf"/>
   <license value="CC0-1.0"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <definition>
     <resource>
       <reference>

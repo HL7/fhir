@@ -26,7 +26,7 @@
 		<valueString value="CanonicalResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="TestPlan"/>
 	<title value="Test Plan"/>
 	<status value="draft"/>
@@ -45,7 +45,7 @@
 		</telecom>
 	</contact>
 	<description value="A plan for executing testing on an artifact or specifications"/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>

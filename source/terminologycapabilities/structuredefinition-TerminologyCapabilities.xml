@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.993"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="TerminologyCapabilities"/>
 	<title value="Terminology Capabilities"/>
 	<status value="draft"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
@@ -748,7 +748,7 @@
 				</extension>
 				<strength value="required"/>
 				<description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|5.0.0"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|6.0.0"/>
 			</binding>
 		</element>
 		<element id="TerminologyCapabilities.codeSystem.subsumption">
