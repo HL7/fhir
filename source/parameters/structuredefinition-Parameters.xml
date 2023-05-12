@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1368"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Parameters"/>
   <title value="Parameters"/>
   <status value="active"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).  It is not persisted or allowed to be referenced by other resources except as described in the definition of the Parameters resource."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

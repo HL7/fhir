@@ -29,7 +29,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1380"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Device"/>
   <title value="Device"/>
   <status value="draft"/>
@@ -49,7 +49,7 @@
   </contact>
   <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

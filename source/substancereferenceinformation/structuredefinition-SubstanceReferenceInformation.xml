@@ -25,7 +25,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1447"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="SubstanceReferenceInformation"/>
   <title value="Substance Reference Information"/>
   <status value="draft"/>
@@ -44,7 +44,7 @@
     </telecom>
   </contact>
   <description value="Todo."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>

@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1067"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="MedicinalProductDefinition"/>
   <title value="Medicinal Product Definition"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>

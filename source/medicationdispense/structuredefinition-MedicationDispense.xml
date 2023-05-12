@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1106"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="MedicationDispense"/>
   <title value="Medication Dispense"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

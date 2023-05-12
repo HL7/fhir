@@ -9,7 +9,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/bodystructure-bodylandmarkorientation-distancefromlandmark-device"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="BodystructureBodyLandmarkBodyLandmarkOrientationDistanceFromLandmarkDevice"/>
   <title value="Bodystructure  Body Landmark  Body Landmark Orientation  Distance  From  Landmark  Device"/>
   <status value="draft"/>

@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1440"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ServiceRequest"/>
   <title value="Service Request"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

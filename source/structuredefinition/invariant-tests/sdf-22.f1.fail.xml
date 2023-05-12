@@ -6,7 +6,7 @@
   <title value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="DiagnosticReport"/>

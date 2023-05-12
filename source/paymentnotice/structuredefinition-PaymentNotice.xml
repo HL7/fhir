@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1104"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="PaymentNotice"/>
   <title value="Payment Notice"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="This resource provides the status of the payment for goods and services rendered, and the request and response resource references."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

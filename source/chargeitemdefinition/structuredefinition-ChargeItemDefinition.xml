@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1383"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ChargeItemDefinition"/>
 	<title value="Charge Item Definition"/>
 	<status value="draft"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>

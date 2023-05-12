@@ -29,7 +29,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1363"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="NutritionOrder"/>
   <title value="Nutrition Order"/>
   <status value="draft"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -365,7 +365,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|6.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

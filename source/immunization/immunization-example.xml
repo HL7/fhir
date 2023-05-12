@@ -10,9 +10,9 @@
 	<vaccineCode>
 		<coding>
 			<system value="urn:oid:1.2.36.1.2001.1005.17"/>
-			<code value="FLUCEL VAX"/>
+			<code value="FLUVAX"/>
 		</coding>
-		<text value="Flucelvax	(Influenza)"/>
+		<text value="Fluvax"/>
 	</vaccineCode>
 	<administeredProduct>
 		<concept>
