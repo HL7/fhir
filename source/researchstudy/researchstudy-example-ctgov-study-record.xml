@@ -335,7 +335,7 @@
 			<coding>
 				<system value="http://hl7.org/fhir/research-study-party-role"/>
 				<code value="lead-sponsor"/>
-				<display value="Lead Sponsor"/>
+				<display value="lead-sponsor"/>
 			</coding>
 		</role>
 		<classifier>
@@ -348,7 +348,7 @@
 			<coding>
 				<system value="http://hl7.org/fhir/research-study-party-role"/>
 				<code value="recruitment-contact"/>
-				<display value="Recruitment Contact"/>
+				<display value="recruitment-contact"/>
 			</coding>
 		</role>
 		<classifier>
