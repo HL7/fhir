@@ -252,6 +252,22 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Encounter-loc-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-loc-period"/>
+        <description value="Time period during which the patient was present at a location (generally used via composite location-period)"/>
+        <code value="loc-period"/>
+        <type value="date"/>
+        <expression value="Encounter.location.period"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Encounter-location-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -264,10 +280,10 @@
         <processingMode value="normal"/>
         <component>
           <definition value="location"/>
-          <expression value="location.reference"/>
+          <expression value="location"/>
         </component>
         <component>
-          <definition value="period"/>
+          <definition value="loc-period"/>
           <expression value="period"/>
         </component>
       </SearchParameter>
