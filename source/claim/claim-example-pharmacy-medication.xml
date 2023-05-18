@@ -142,11 +142,12 @@
 		<informationSequence value="3"/>
 		<!-- type=packagemedication -->
 		<productOrService>
-			<coding>
+			<!-- <coding>
 				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 				<code value="562721"/> 
 				<display value="Alprazolam 0.25mg (Xanax)"/>
-			</coding> 
+			</coding>  -->
+			<text value="Alprazolam 0.25mg (Xanax)"/>
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<quantity>
