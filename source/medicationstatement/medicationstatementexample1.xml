@@ -11,8 +11,9 @@
       <coding>
         <system value="http://hl7.org/fhir/sid/ndc"/>
         <code value="50580-608-02"/>
-        <display value="Tylenol PM"/>
+        <display value="Tylenol PM Extra Strength, 1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE (package)"/>
       </coding>
+      <text value="Tylenol PM"/>
     </code>
       <doseForm>
         <coding>

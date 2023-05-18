@@ -12,11 +12,12 @@
     <intent value="order"/>
     <medication>
         <concept>
-        <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="856907"/>
-            <display value="Vicodin 5/500 Oral Tablet"/>
-        </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                <code value="856907"/>
+                <display value="Vicodin 5 MG / 500 MG Oral Tablet"/>
+            </coding>
+            <text value="Vicodin 5/500 Oral Tablet"/>
         </concept>
     </medication>
     <subject> <!-- Linked to the resource patient who needs the medication -->

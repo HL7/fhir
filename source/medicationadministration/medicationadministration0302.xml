@@ -43,7 +43,7 @@
             <coding>
               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
               <code value="313002"/>
-              <display value="Sodium Chloride 0.9% injectable solution"/>
+              <display value="sodium chloride 0.9 % Injectable Solution"/>
             </coding>
           </concept>
           </item>
