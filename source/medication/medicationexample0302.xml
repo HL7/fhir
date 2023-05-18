@@ -11,8 +11,9 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="0206-8862-02"/>
-      <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+      <!-- <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/> -->
     </coding>
+    <text value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
   </code>
   <marketingAuthorizationHolder>
     <reference value="#mmanu" />

@@ -10,8 +10,9 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="51144-050-01"/>
-                    <display value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/>
+                    <!-- <display value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/> -->
                 </coding>
+                <text value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/>
             </code>
             <marketingAuthorizationHolder>
                 <reference value="Organization/mmanu" />
@@ -101,7 +102,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-
-

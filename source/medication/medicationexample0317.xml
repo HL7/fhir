@@ -13,11 +13,12 @@
       <ingredient>
          <item>
             <concept>
-            <coding>
-               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-               <code value="8591"/>
-               <display value="Potassium Chloride"/>
-            </coding>
+               <coding>
+                  <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                  <code value="8591"/>
+                  <!-- <display value="Potassium Chloride"/> -->
+               </coding>
+               <text value="Potassium Chloride"/>
             </concept>
          </item>
          <strengthRatio>
@@ -39,8 +40,9 @@
             <coding>
                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                <code value="313002"/>
-               <display value="1000 ml glucost 50mg/ml Injection"/>
+               <!-- <display value="1000 ml glucost 50mg/ml Injection"/> -->
             </coding>
+            <text value="1000 ml glucost 50mg/ml Injection"/>
          </concept>
          </item>
          <strengthRatio>

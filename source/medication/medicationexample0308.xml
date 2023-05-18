@@ -55,8 +55,9 @@
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="161"/>
-          <display value="Acetaminophen"/>
+          <!-- <display value="Acetaminophen"/> -->
         </coding>
+        <text value="Acetaminophen"/>
       </concept>
       </item>
       <strengthRatio>
