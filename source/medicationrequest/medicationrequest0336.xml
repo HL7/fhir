@@ -17,11 +17,12 @@
                 <ingredient>
                     <item>
                     <concept>
-                        <coding>
+                        <!-- <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="1114879"/>
                             <display value="Dopamine"/>
-                        </coding>
+                        </coding> -->
+                        <text value="Dopamine"/>
                     </concept>
                     </item>
                     <strengthRatio>
