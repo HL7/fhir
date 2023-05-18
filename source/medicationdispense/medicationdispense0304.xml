@@ -20,8 +20,8 @@
     <medication>
         <!-- Linked to a RESOURCE Medication -->
         <reference>
-        <reference value="#med0302"/>
-        <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+            <reference value="#med0302"/>
+            <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
         </reference>
     </medication>
     <subject>

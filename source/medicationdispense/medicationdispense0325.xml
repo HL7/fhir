@@ -6,11 +6,11 @@
     <status value="in-progress"/>
     <medication>
         <concept>
-        <coding>
-            <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="0406-9025-76"/>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/ndc"/>
+                <code value="0406-9025-76"/>
                 <!-- <display value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/> -->
-        </coding>
+            </coding>
             <text value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/>
         </concept>
     </medication>
@@ -73,6 +73,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

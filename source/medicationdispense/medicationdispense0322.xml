@@ -6,11 +6,11 @@
     <status value="completed"/>
    <medication>
        <concept>
-       <coding>
-           <system value="http://hl7.org/fhir/sid/ndc"/>
-           <code value="0071-2214-20"/>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/ndc"/>
+                <code value="0071-2214-20"/>
                 <!-- <display value="Dilantin 125mg/5ml Oral Suspension"/> -->
-       </coding>
+            </coding>
             <text value="Dilantin 125mg/5ml Oral Suspension"/>
        </concept>
    </medication>
@@ -81,6 +81,3 @@
 
     </dosageInstruction> 
 </MedicationDispense>
-
-
-
