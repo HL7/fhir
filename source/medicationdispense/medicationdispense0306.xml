@@ -10,7 +10,7 @@
                 <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="1594660"/>
-                    <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+                    <display value="alemtuzumab 10 MG/ML [Lemtrada]"/>
                 </coding>
             </code>
         </Medication>
@@ -20,7 +20,7 @@
         <reference>
         <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0303"/>
-        <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+        <display value="alemtuzumab 10 MG/ML [Lemtrada]"/>
         </reference>
     </medication>
     <subject>
@@ -203,6 +203,3 @@
         </doseAndRate>
     </dosageInstruction>
 </MedicationDispense>
-
-
-

@@ -15,7 +15,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="285018"/>
-            <display value="Lantus 100 unit/ml injectable solution"/>
+            <display value="Lantus 100 UNT/ML Injectable Solution"/>
         </coding>
         </concept>
     </medication>

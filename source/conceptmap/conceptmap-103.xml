@@ -30,7 +30,7 @@
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <code value="840"/>
-      <display value="United States of America"/>
+      <display value="United States of America (USA)"/>
     </coding>
   </jurisdiction>
   <purpose value="Show example rule based mappings"/>

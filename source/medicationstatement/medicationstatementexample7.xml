@@ -11,7 +11,7 @@
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="358793"/>
-          <display value="Mometasone Furoate 0.05mg/Actuat"/>
+          <display value="mometasone furoate 0.05 MG/ACTUAT"/>
         </coding>
       </code>
         <doseForm>
@@ -44,4 +44,3 @@
     <text value="patient plans to start using for seasonal allergies in the Spring when pollen is in the air"/>
   </note>
 </MedicationStatement>
-

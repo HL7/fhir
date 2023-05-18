@@ -9,7 +9,7 @@
        <coding>
            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
            <code value="226827"/>
-           <display value="Azithromycin 500mg oral tablet (Zithromax)"/>
+           <display value="azithromycin 500 MG Oral Tablet [Zithromax]"/>
        </coding>
        </concept>
    </medication>
@@ -87,6 +87,3 @@
 
     </dosageInstruction> 
 </MedicationDispense>
-
-
-

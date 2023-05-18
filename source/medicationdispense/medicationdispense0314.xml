@@ -10,7 +10,7 @@
                 <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="206819"/>
-                    <display value="Lorazepam 2mg/ml Injectable Solution (Ativan)"/>
+                    <display value="lorazepam 2 MG/ML Injectable Solution [Ativan]"/>
                 </coding>
             </code>
                 <doseForm>
@@ -143,6 +143,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

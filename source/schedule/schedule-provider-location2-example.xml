@@ -33,7 +33,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="394610002"/>
-			<display value="Surgery-Neurosurgery" />
+			<display value="Neurosurgery" />
 		</coding>
 	</specialty>
 	<actor>
