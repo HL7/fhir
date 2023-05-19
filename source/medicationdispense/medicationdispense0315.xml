@@ -7,11 +7,12 @@
         <Medication>
             <id value="med0314"/>
             <code>
-                <coding>
+                <!-- <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="562721"/>
                     <display value="Alprazolam 0.25mg (Xanax)"/>
-                </coding>
+                </coding> -->
+                <text value="Alprazolam 0.25mg (Xanax)"/>
             </code>
         </Medication>
     </contained>
@@ -109,5 +110,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-

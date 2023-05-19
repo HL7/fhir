@@ -10,8 +10,9 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="76388-713-25"/>
-                    <display value="Myleran 2mg tablet, film coated"/>
+                    <!-- <display value="Myleran 2mg tablet, film coated"/> -->
                 </coding>
+                <text value="Myleran 2mg tablet, film coated"/>
             </code>
         </Medication>
     </contained>
@@ -24,8 +25,8 @@
     <intent value="order"/>
     <medication>
         <reference>
-        <reference value="#med0304"/>
-        <display value="Myleran 2mg tablet"/>
+            <reference value="#med0304"/>
+            <display value="Myleran 2mg tablet"/>
         </reference>
     </medication>
     <subject>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -6,11 +6,12 @@
     <status value="completed"/>
    <medication>
        <concept>
-       <coding>
-           <system value="http://hl7.org/fhir/sid/ndc"/>
-           <code value="0071-2214-20"/>
-           <display value="Dilantin 125mg/5ml Oral Suspension"/>
-       </coding>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/ndc"/>
+                <code value="0071-2214-20"/>
+                <!-- <display value="Dilantin 125mg/5ml Oral Suspension"/> -->
+            </coding>
+            <text value="Dilantin 125mg/5ml Oral Suspension"/>
        </concept>
    </medication>
     <subject>
@@ -80,6 +81,3 @@
 
     </dosageInstruction> 
 </MedicationDispense>
-
-
-

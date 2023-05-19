@@ -109,7 +109,7 @@
     <language>
       <coding>
         <system value="urn:ietf:bcp:47"/>
-        <code value="nl-NL"/>
+        <code value="nl"/>
         <display value="Dutch"/>
       </coding>
     </language>

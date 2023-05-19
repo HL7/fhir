@@ -10,8 +10,9 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0056-0172-70"/>
-                    <display value="Coumadin 5mg tablet"/>
+                    <display value="COUMADIN, 1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE (package)"/>
                 </coding>
+                <text value="Coumadin 5mg tablet"/>
             </code>
         </Medication>
     </contained>
@@ -85,6 +86,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

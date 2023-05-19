@@ -67,7 +67,7 @@
   	  <coding>
   	    <system value="http://nucc.org/provider-taxonomy"/>
   	    <code value="207RI0011X"/>
-  	    <display value="Interventional Cardiology"/>
+  	    <display value="Interventional Cardiology Physician"/>
   	  </coding>
   	  <text value="Interventional Cardiology"/>
   	</role>

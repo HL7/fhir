@@ -10,8 +10,9 @@
               <coding>
                   <system value="http://hl7.org/fhir/sid/ndc"/>
                   <code value="0067-2091-03"/>
-                  <display value="Vagistat-3"/>
+                  <display value="Vagistat-3, 1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE (package)"/>
               </coding>
+              <text value="Vagistat-3"/>
           </code>
       </Medication>
   </contained>

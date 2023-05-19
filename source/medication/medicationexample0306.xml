@@ -11,8 +11,9 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="51144-050-01"/>
-      <display value="Adcetris"/>
+      <!-- <display value="Adcetris"/> -->
     </coding>
+    <text value="Adcetris"/>
   </code>
   <marketingAuthorizationHolder>
     <reference value="#mmanu" />
