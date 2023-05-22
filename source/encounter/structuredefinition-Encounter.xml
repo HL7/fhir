@@ -859,7 +859,7 @@
       <path value="Encounter.account"/>
       <short value="The set of accounts that may be used for billing for this Encounter"/>
       <definition value="The set of accounts that may be used for billing for this Encounter."/>
-      <comment value="The billing system may choose to allocate billable items associated with the Encounter to different referenced Accounts based on internal business rules."/>
+      <comment value="The billing system may choose to allocate billable items associated with the Encounter to different referenced Accounts based on internal business rules.&#xd;&#xd;Also note that the Encounter.account properties are meant to represent long-running or perpetual accounts.  For short-lived, episodic accounts, see Account.covers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
