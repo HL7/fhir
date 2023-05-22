@@ -250,6 +250,20 @@
         <map value=".coverage.insurancePolicy.effectiveTime"/>
       </mapping>
     </element>
+    <element id="Account.covers">
+      <path value="Account.covers"/>
+      <short value="Episodic account covering these encounters/episodes of care"/>
+      <definition value="An account that collects the charges for a specific set of services offered over a limited time period.  For example, a hospital account might contain all charges related to a given admission, including any inpatient appointments, and possibly re-admissions, of the billing for those re-admissions should be grouped with the initial admission for the purpose of claim submission."/>
+      <comment value="Episode Accounts often exist for the duration of a relatively short billing cycle (for example, a month, or possibly a quarter).  One a given billing cycle ends, the associated Episodic Account would close, and a new account would open for the next billing cycle.  A patient that is admitted for 6 months, where the billing cycle is monthly, would have 6 episodic accounts each covering one month."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="Account.coverage">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Coverage"/>
