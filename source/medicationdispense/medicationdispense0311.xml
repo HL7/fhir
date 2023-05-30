@@ -6,11 +6,12 @@
     <status value="completed"/>
    <medication>
        <concept>
-       <coding>
-           <system value="http://hl7.org/fhir/sid/ndc"/>
-           <code value="0713-0118"/>
-           <display value="Acetaminophen 120mg Suppository"/>
-       </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/sid/ndc"/>
+            <code value="0713-0118"/>
+            <display value="ACEPHEN  (product)"/>
+        </coding>
+        <text value="Acetaminophen 120mg Suppository"/>
        </concept>
    </medication>
     <subject>       
@@ -99,5 +100,3 @@
         </maxDosePerPeriod>
     </dosageInstruction>
 </MedicationDispense>
-
-

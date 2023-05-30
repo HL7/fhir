@@ -10,7 +10,7 @@
                 <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="763179"/>
-                    <display value="Prednisone 5mg Oral Tablet 48 Count Pack"/>
+                    <display value="Prednisone 5 MG Oral Tablet 48 Count Pack"/>
                 </coding>
             </code>
         </Medication>
@@ -212,6 +212,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

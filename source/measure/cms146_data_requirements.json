@@ -7,7 +7,7 @@
   },
   "relatedArtifact" : [{
     "type" : "depends-on",
-    "resource" : "Library/library-quick-model-definition"
+    "resource" : "http://hl7.org/fhir/Library/library-quick-model-definition"
   }],
   "dataRequirement" : [{
     "type" : "Condition",

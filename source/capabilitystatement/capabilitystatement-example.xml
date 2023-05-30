@@ -51,7 +51,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America (the)"/>
+      <display value="United States of America"/>
     </coding>
   </jurisdiction>
   <purpose value="Main EHR capability statement, published for contracting and operational support"/>
@@ -67,14 +67,14 @@
     <description value="main EHR at ACME"/>
     <url value="http://10.2.3.4/fhir"/>
   </implementation>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <format value="xml"/>
   <format value="json"/>
   <patchFormat value="application/xml-patch+xml"/>
   <patchFormat value="application/json-patch+json"/>
   <acceptLanguage value="en"/>
   <acceptLanguage value="es"/>
-  <implementationGuide value="http://hl7.org/fhir/us/lab"/>
+  <implementationGuide value="http://example.org/fhir/us/lab"/>
   <rest>
     <mode value="server"/>
     <documentation value="Main FHIR endpoint for acem health"/>

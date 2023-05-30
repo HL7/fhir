@@ -9,7 +9,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="746763"/>
-            <display value="Proventil 0.09mg/actuat (Albuterol sulfate 0.108mg/actuat from mouthpiece)"/>
+            <display value="Proventil 0.09 MG/ACTUAT (albuterol sulfate 0.108 MG/ACTUAT from mouthpiece) 200 ACTUAT Metered Dose Inhaler"/>
         </coding>
         </concept>
     </medication>
@@ -76,6 +76,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

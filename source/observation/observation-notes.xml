@@ -59,7 +59,7 @@
 			</p>
 		<ol>
 			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>)
-			as described in the <a href="https://build.fhir.org/diagnostics-module.html#org-dr-obs">Diagnostics
+			as described in the <a href="diagnostics-module.html#org-dr-obs">Diagnostics
 			Module</a> 
 			</li>
 			<li>

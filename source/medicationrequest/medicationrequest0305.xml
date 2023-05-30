@@ -10,7 +10,7 @@
               <coding>
                   <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                   <code value="308047"/>
-                  <display value="Alprazolam 0.25mg Oral Tablet"/>
+                  <display value="alprazolam 0.25 MG Oral Tablet"/>
               </coding>
           </code>
       </Medication>

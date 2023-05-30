@@ -10,8 +10,9 @@
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
           <code value="0409-6531-02"/>
-          <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+          <!-- <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/> -->
         </coding>
+        <text value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
       </code>
     </Medication>
   </contained>

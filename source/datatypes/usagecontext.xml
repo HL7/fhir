@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <MaxChange>0.0001</MaxChange>
   <ProtectStructure>False</ProtectStructure>
@@ -5456,9 +5456,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">UsageContextType</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">A code that specifies a type of context being specified by a usage context</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">#usage-context-type</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/usage-context-type</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -5826,6 +5826,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6405,7 +6406,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

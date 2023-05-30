@@ -19,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1310"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="FHIRVersion"/>
   <title value="F H I R Version"/>
   <status value="active"/>
@@ -260,8 +260,8 @@
     <display value="4.6"/>
     <definition value="R5 Draft Ballot version."/>
     <concept>
-      <code value="5.0.0"/>
-      <display value="5.0.0"/>
+      <code value="6.0.0"/>
+      <display value="6.0.0"/>
       <definition value="R5 Draft Ballot + Connectathon 27 (Virtual)."/>
     </concept>
   </concept>

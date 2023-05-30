@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
  xmlns="http://hl7.org/fhir"> 
@@ -18,8 +18,9 @@
           <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
             <code value="0338-1134-03"/>
-            <display value="Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"/>
+            <!-- <display value="Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"/> -->
           </coding>
+          <text value="Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"/>
         </concept>
         </item>
       </ingredient>
@@ -29,8 +30,9 @@
           <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
             <code value="0409-5779-01"/>
-            <display value="TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL"/>
+            <!-- <display value="TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL"/> -->
           </coding>
+          <text value="TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL"/>
         </concept>
         </item>
       </ingredient>
@@ -40,8 +42,9 @@
           <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
             <code value="0338-0519-02"/>
-            <display value="Intralipid 20% IV Fat Emulsion"/>
+            <!-- <display value="Intralipid 20% IV Fat Emulsion"/> -->
           </coding>
+          <text value="Intralipid 20% IV Fat Emulsion"/>
         </concept>
         </item>
       </ingredient>

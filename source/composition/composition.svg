@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n597"
+   id="n565"
    version="1.1"
-   width="905.2"
-   height="485.0"
+   width="860.157955"
+   height="466.0"
    sodipodi:docname="composition.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview7368"
+     id="namedview1097"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,49 +21,49 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.3764914"
-     inkscape:cx="452.60001"
-     inkscape:cy="243.00915"
+     inkscape:zoom="1.4485711"
+     inkscape:cx="430.07898"
+     inkscape:cy="233.33338"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1198"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="44"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n597" />
+     inkscape:current-layer="n565" />
   <defs
-     id="defs7103">
+     id="defs844">
     <filter
        id="shadow1"
-       x="-0.029379158"
-       y="-0.067948718"
-       width="1.075388"
-       height="1.174359">
+       x="-0.024090909"
+       y="-0.0828125"
+       width="1.0618182"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset7094" />
+         id="feOffset835" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix7096" />
+         id="feColorMatrix837" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur7098" />
+         id="feGaussianBlur839" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend7100" />
+         id="feBlend841" />
     </filter>
   </defs>
   <g
-     id="n598">
+     id="n566">
     <rect
        id="Composition"
        x="0.0"
@@ -75,697 +75,673 @@
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n599"
+       id="n567"
        x1="0.0"
        y1="28.0"
        x2="299.20000000000005"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n600"
+       id="n568"
        x="149.60000000000002"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">Composition<tspan
    class="diagram-class-title-link"
-   id="tspan7108"> (<a
-   id="n601"
+   id="tspan849"> (<a
+   id="n569"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n602"
+       id="n570"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n603"
+   id="n571"
    xlink:href="composition-definitions.html#Composition.url"><title
-   id="title7111">An absolute URI that is used to identify this Composition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Composition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Composition is stored on different servers</title>url</a> : <a
-   id="n604"
+   id="title852">An absolute URI that is used to identify this Composition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Composition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Composition is stored on different servers</title>url</a> : <a
+   id="n572"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n608"
+       id="n576"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n609"
+   id="n577"
    xlink:href="composition-definitions.html#Composition.identifier"><title
-   id="title7116">A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time</title>identifier</a> : <a
-   id="n610"
+   id="title857">A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time</title>identifier</a> : <a
+   id="n578"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n614"
+       id="n582"
        x="6.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n615"
+   id="n583"
    xlink:href="composition-definitions.html#Composition.version"><title
-   id="title7121">An explicitly assigned identifer of a variation of the content in the Composition</title>version</a> : <a
-   id="n616"
+   id="title862">An explicitly assigned identifer of a variation of the content in the Composition</title>version</a> : <a
+   id="n584"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n620"
+       id="n588"
        x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n621"
+   id="n589"
    xlink:href="composition-definitions.html#Composition.status"><title
-   id="title7126">The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document (this element modifies the meaning of other elements)</title>status</a> : <a
-   id="n622"
+   id="title867">The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n590"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n623"
+   id="n591"
    xlink:href="valueset-composition-status.html"><title
-   id="n624">null (Strength=Required)</title>CompositionStatus</a>! »</text>
+   id="n592">null (Strength=Required)</title>CompositionStatus</a>! »</text>
     <text
-       id="n630"
+       id="n598"
        x="6.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n631"
+   id="n599"
    xlink:href="composition-definitions.html#Composition.type"><title
-   id="title7133">Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition</title>type</a> : <a
-   id="n632"
+   id="title874">Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition</title>type</a> : <a
+   id="n600"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
-   id="n633"
+   id="n601"
    xlink:href="valueset-doc-typecodes.html"><title
-   id="title7137">null (Strength=Preferred)</title>FHIRDocumentTypeCodes</a>? »</text>
+   id="title878">null (Strength=Preferred)</title>FHIRDocumentTypeCodes</a>? »</text>
     <text
-       id="n638"
+       id="n606"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n639"
+   id="n607"
    xlink:href="composition-definitions.html#Composition.category"><title
-   id="title7141">A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type</title>category</a> : <a
-   id="n640"
+   id="title882">A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type</title>category</a> : <a
+   id="n608"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n641"
+   id="n609"
    xlink:href="valueset-referenced-item-category.html"><title
-   id="n642">null (Strength=Example)</title>ReferencedItemCategoryValueSet</a>?? »</text>
+   id="n610">null (Strength=Example)</title>ReferencedItemCategoryValueSet</a>?? »</text>
     <text
-       id="n648"
+       id="n616"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n649"
+   id="n617"
    xlink:href="composition-definitions.html#Composition.subject"><title
-   id="title7148">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)</title>subject</a> : <a
-   id="n650"
+   id="title889">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)</title>subject</a> : <a
+   id="n618"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n651"
+   id="n619"
    xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n656"
+       id="n624"
        x="6.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n657"
+   id="n625"
    xlink:href="composition-definitions.html#Composition.encounter"><title
-   id="title7154">Describes the clinical encounter or type of care this documentation is associated with</title>encounter</a> : <a
-   id="n658"
+   id="title895">Describes the clinical encounter or type of care this documentation is associated with</title>encounter</a> : <a
+   id="n626"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n659"
+   id="n627"
    xlink:href="encounter.html#Encounter">Encounter</a> »</text>
     <text
-       id="n664"
+       id="n632"
        x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n665"
+   id="n633"
    xlink:href="composition-definitions.html#Composition.date"><title
-   id="title7160">The composition editing time, when the composition was last logically changed by the author</title>date</a> : <a
-   id="n666"
+   id="title901">The composition editing time, when the composition was last logically changed by the author</title>date</a> : <a
+   id="n634"
    xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
-       id="n670"
+       id="n638"
        x="6.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n671"
+   id="n639"
    xlink:href="composition-definitions.html#Composition.useContext"><title
-   id="title7165">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Composition instances</title>useContext</a> : <a
-   id="n672"
+   id="title906">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Composition instances</title>useContext</a> : <a
+   id="n640"
    xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
     <text
-       id="n676"
+       id="n644"
        x="6.0"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n677"
+   id="n645"
    xlink:href="composition-definitions.html#Composition.author"><title
-   id="title7170">Identifies who is responsible for the information in the composition, not necessarily who typed it in</title>author</a> : <a
-   id="n678"
+   id="title911">Identifies who is responsible for the information in the composition, not necessarily who typed it in</title>author</a> : <a
+   id="n646"
    xlink:href="references.html#Reference">Reference</a> [1..*] « <a
-   id="n679"
+   id="n647"
    xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
-   id="n680"
+   id="n648"
    xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
-   id="n681"
+   id="n649"
    xlink:href="device.html#Device">Device</a>|</text>
     <text
-       id="n682"
+       id="n650"
        x="26.0"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n683"
+   id="n651"
    xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n684"
+   id="n652"
    xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
-   id="n685"
+   id="n653"
    xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n696"
+       id="n664"
        x="6.0"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n697"
+   id="n665"
    xlink:href="composition-definitions.html#Composition.name"><title
-   id="title7182">A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
-   id="n698"
+   id="title923">A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n666"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n702"
+       id="n670"
        x="6.0"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n703"
+   id="n671"
    xlink:href="composition-definitions.html#Composition.title"><title
-   id="title7187">Official human-readable label for the composition</title>title</a> : <a
-   id="n704"
+   id="title928">Official human-readable label for the composition</title>title</a> : <a
+   id="n672"
    xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n708"
+       id="n676"
        x="6.0"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n709"
+   id="n677"
    xlink:href="composition-definitions.html#Composition.note"><title
-   id="title7192">For any additional notes</title>note</a> : <a
-   id="n710"
+   id="title933">For any additional notes</title>note</a> : <a
+   id="n678"
    xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
     <text
-       id="n714"
+       id="n682"
        x="6.0"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n715"
+   id="n683"
    xlink:href="composition-definitions.html#Composition.custodian"><title
-   id="title7197">Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information</title>custodian</a> : <a
-   id="n716"
+   id="title938">Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information</title>custodian</a> : <a
+   id="n684"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n717"
+   id="n685"
    xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n722"
+       id="n690"
        x="6.0"
        y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n723"
+   id="n691"
    xlink:href="composition-definitions.html#Composition.relatesTo"><title
-   id="title7203">Relationships that this composition has with other compositions or documents that already exist</title>relatesTo</a> : <a
-   id="n724"
+   id="title944">Relationships that this composition has with other compositions or documents that already exist</title>relatesTo</a> : <a
+   id="n692"
    xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
   </g>
   <g
-     id="n728">
+     id="n696"
+     transform="translate(425.24663,-80.769247)">
     <rect
        id="Composition.attester"
-       x="13.200000000000017"
-       y="354.0"
+       x="13.2"
+       y="354"
        rx="4"
        ry="4"
-       width="272.8"
-       height="92.0"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
-    <line
-       id="n729"
-       x1="13.200000000000017"
-       y1="382.0"
-       x2="286.0"
-       y2="382.0"
-       style="stroke:dimgrey;stroke-width:1" />
-    <text
-       id="n730"
-       x="149.60000000000002"
-       y="374.0"
-       fill="black"
-       class="diagram-class-title">Attester</text>
-    <text
-       id="n731"
-       x="19.200000000000017"
-       y="396.0"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n732"
-   xlink:href="composition-definitions.html#Composition.attester.mode"><title
-   id="title7212">The type of attestation the authenticator offers</title>mode</a> : <a
-   id="n733"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
-   id="n734"
-   xlink:href="valueset-composition-attestation-mode.html"><title
-   id="title7216">null (Strength=Preferred)</title>CompositionAttestationMode</a>? »</text>
-    <text
-       id="n739"
-       x="19.200000000000017"
-       y="410.0"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n740"
-   xlink:href="composition-definitions.html#Composition.attester.time"><title
-   id="title7220">When the composition was attested by the party</title>time</a> : <a
-   id="n741"
-   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
-    <text
-       id="n745"
-       x="19.200000000000017"
-       y="424.0"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n746"
-   xlink:href="composition-definitions.html#Composition.attester.party"><title
-   id="title7225">Who attested the composition in the specified way</title>party</a> : <a
-   id="n747"
-   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n748"
-   xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n749"
-   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
-   id="n750"
-   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
-    <text
-       id="n751"
-       x="39.20000000000002"
-       y="438.0"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n752"
-   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
-   id="n753"
-   xlink:href="organization.html#Organization">Organization</a> »</text>
-  </g>
-  <g
-     id="n763"
-     transform="translate(2.1794543,72.648476)">
-    <rect
-       id="Composition.event"
-       x="400"
-       y="200"
-       rx="4"
-       ry="4"
-       width="180.39999"
-       height="78"
+       width="272.79999"
+       height="92"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n764"
-       x1="400"
-       y1="228"
-       x2="580.40002"
-       y2="228"
+       id="n697"
+       x1="13.2"
+       y1="382"
+       x2="286"
+       y2="382"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n765"
-       x="490.20001"
-       y="220"
+       id="n698"
+       x="149.60001"
+       y="374"
+       fill="#000000"
+       class="diagram-class-title">Attester</text>
+    <text
+       id="n699"
+       x="19.200001"
+       y="396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n700"
+   xlink:href="composition-definitions.html#Composition.attester.mode"><title
+   id="title953">The type of attestation the authenticator offers</title>mode</a> : <a
+   id="n701"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n702"
+   xlink:href="valueset-composition-attestation-mode.html"><title
+   id="title957">null (Strength=Preferred)</title>CompositionAttestationMode</a>? »</text>
+    <text
+       id="n707"
+       x="19.200001"
+       y="410"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n708"
+   xlink:href="composition-definitions.html#Composition.attester.time"><title
+   id="title961">When the composition was attested by the party</title>time</a> : <a
+   id="n709"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n713"
+       x="19.200001"
+       y="424"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n714"
+   xlink:href="composition-definitions.html#Composition.attester.party"><title
+   id="title966">Who attested the composition in the specified way</title>party</a> : <a
+   id="n715"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n716"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n717"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n718"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n719"
+       x="39.200001"
+       y="438"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n720"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n721"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+  </g>
+  <g
+     id="n731"
+     transform="translate(-368.63912,56.607506)">
+    <rect
+       id="Composition.event"
+       x="402.17944"
+       y="272.64847"
+       rx="4"
+       ry="4"
+       width="220"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n732"
+       x1="402.17944"
+       y1="300.64847"
+       x2="622.17944"
+       y2="300.64847"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n733"
+       x="512.17944"
+       y="292.64847"
        fill="#000000"
        class="diagram-class-title">Event</text>
     <text
-       id="n766"
-       x="406"
-       y="242"
+       id="n734"
+       x="408.17944"
+       y="314.64847"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n767"
-   xlink:href="composition-definitions.html#Composition.event.code"><title
-   id="title7240">This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act</title>code</a> : <a
-   id="n768"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n769"
-   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActCode.html"><title
-   id="n770">null (Strength=Example)</title>ActCode</a>?? »</text>
-    <text
-       id="n776"
-       x="406"
-       y="256"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n777"
+   id="n735"
    xlink:href="composition-definitions.html#Composition.event.period"><title
-   id="title7247">The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time</title>period</a> : <a
-   id="n778"
+   id="title981">The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time</title>period</a> : <a
+   id="n736"
    xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
-       id="n782"
-       x="406"
-       y="270"
+       id="n740"
+       x="408.17944"
+       y="328.64847"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n783"
+   id="n741"
    xlink:href="composition-definitions.html#Composition.event.detail"><title
-   id="title7252">The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy</title>detail</a> : <a
-   id="n784"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n785"
-   xlink:href="resourcelist.html#Any">Any</a> »</text>
+   id="title986">Represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which case the procedure being documented is necessarily a &quot;History and Physical&quot; act. The events may be included as a code or as a reference to an other resource</title>detail</a> : <a
+   id="n742"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n743"
+   xlink:href="resourcelist.html#Any">Any</a>; <a
+   id="n744"
+   xlink:href="http://terminology.hl7.org/5.1.0/ValueSet-v3-ActCode.html"><title
+   id="n745">null (Strength=Example)</title>ActCode</a>?? »</text>
   </g>
   <g
-     id="n790"
-     transform="translate(-45.042055,-260.80803)">
+     id="n752"
+     transform="translate(61.439854,4.1420126)">
     <rect
        id="Composition.section"
-       x="419.20001"
-       y="289"
+       x="374.15796"
+       y="28.191971"
        rx="4"
        ry="4"
        width="286"
-       height="176"
+       height="162"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n791"
-       x1="419.20001"
-       y1="317"
-       x2="705.20001"
-       y2="317"
+       id="n753"
+       x1="374.15796"
+       y1="56.191971"
+       x2="660.15796"
+       y2="56.191971"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n792"
-       x="562.20001"
-       y="309"
+       id="n754"
+       x="517.15796"
+       y="48.191971"
        fill="#000000"
        class="diagram-class-title">Section</text>
     <text
-       id="n793"
-       x="425.20001"
-       y="331"
+       id="n755"
+       x="380.15796"
+       y="70.191971"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n794"
+   id="n756"
    xlink:href="composition-definitions.html#Composition.section.title"><title
-   id="title7262">The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents</title>title</a> : <a
-   id="n795"
+   id="title998">The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents</title>title</a> : <a
+   id="n757"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
+       id="n761"
+       x="380.15796"
+       y="84.191971"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n762"
+   xlink:href="composition-definitions.html#Composition.section.code"><title
+   id="title1003">A code identifying the kind of content contained within the section. This must be consistent with the section title</title>code</a> : <a
+   id="n763"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n764"
+   xlink:href="valueset-doc-section-codes.html"><title
+   id="n765">null (Strength=Example)</title>DocumentSectionCodes</a>?? »</text>
+    <text
+       id="n771"
+       x="380.15796"
+       y="98.191971"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n772"
+   xlink:href="composition-definitions.html#Composition.section.author"><title
+   id="title1010">Identifies who is responsible for the information in this section, not necessarily who typed it in</title>author</a> : <a
+   id="n773"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n774"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n775"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n776"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n777"
+       x="400.15796"
+       y="112.19197"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n778"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n779"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n780"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n791"
+       x="380.15796"
+       y="126.19197"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n792"
+   xlink:href="composition-definitions.html#Composition.section.focus"><title
+   id="title1022">The actual focus of the section when it is not the subject of the composition, but instead represents something or someone associated with the subject such as (for a patient subject) a spouse, parent, fetus, or donor. If not focus is specified, the focus is assumed to be focus of the parent section, or, for a section in the Composition itself, the subject of the composition. Sections with a focus SHALL only include resources where the logical subject (patient, subject, focus, etc.) matches the section focus, or the resources have no logical subject (few resources)</title>focus</a> : <a
+   id="n793"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n794"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
        id="n799"
-       x="425.20001"
-       y="345"
+       x="380.15796"
+       y="140.19197"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n800"
-   xlink:href="composition-definitions.html#Composition.section.code"><title
-   id="title7267">A code identifying the kind of content contained within the section. This must be consistent with the section title</title>code</a> : <a
+   xlink:href="composition-definitions.html#Composition.section.text"><title
+   id="title1028">A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative</title>text</a> : <a
    id="n801"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   xlink:href="narrative.html#Narrative">Narrative</a> [0..1] « <a
    id="n802"
-   xlink:href="valueset-doc-section-codes.html"><title
-   id="n803">null (Strength=Example)</title>DocumentSectionCodes</a>?? »</text>
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n803">This element has or is affected by some invariants</title>C</a> »</text>
     <text
        id="n809"
-       x="425.20001"
-       y="359"
+       x="380.15796"
+       y="154.19197"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n810"
-   xlink:href="composition-definitions.html#Composition.section.author"><title
-   id="title7274">Identifies who is responsible for the information in this section, not necessarily who typed it in</title>author</a> : <a
+   xlink:href="composition-definitions.html#Composition.section.orderedBy"><title
+   id="title1035">Specifies the order applied to the items in the section entries</title>orderedBy</a> : <a
    id="n811"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n812"
-   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
-   id="n813"
-   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
-   id="n814"
-   xlink:href="device.html#Device">Device</a>|</text>
+   xlink:href="valueset-list-order.html"><title
+   id="title1039">null (Strength=Preferred)</title>ListOrderCodes</a>? »</text>
     <text
-       id="n815"
-       x="445.20001"
-       y="373"
+       id="n817"
+       x="380.15796"
+       y="168.19197"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n816"
-   xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n817"
-   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
    id="n818"
-   xlink:href="organization.html#Organization">Organization</a> »</text>
+   xlink:href="composition-definitions.html#Composition.section.entry"><title
+   id="title1043">A reference to the actual resource from which the narrative in the section is derived</title>entry</a> : <a
+   id="n819"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n820"
+   xlink:href="resourcelist.html#Any">Any</a> » « <a
+   id="n821"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n822">This element has or is affected by some invariants</title>C</a> »</text>
     <text
        id="n829"
-       x="425.20001"
-       y="387"
+       x="380.15796"
+       y="182.19197"
        fill="#000000"
        class="diagram-class-detail"><a
    id="n830"
-   xlink:href="composition-definitions.html#Composition.section.focus"><title
-   id="title7286">The actual focus of the section when it is not the subject of the composition, but instead represents something or someone associated with the subject such as (for a patient subject) a spouse, parent, fetus, or donor. If not focus is specified, the focus is assumed to be focus of the parent section, or, for a section in the Composition itself, the subject of the composition. Sections with a focus SHALL only include resources where the logical subject (patient, subject, focus, etc.) matches the section focus, or the resources have no logical subject (few resources)</title>focus</a> : <a
-   id="n831"
-   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n832"
-   xlink:href="resourcelist.html#Any">Any</a> »</text>
-    <text
-       id="n837"
-       x="425.20001"
-       y="401"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n838"
-   xlink:href="composition-definitions.html#Composition.section.text"><title
-   id="title7292">A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative</title>text</a> : <a
-   id="n839"
-   xlink:href="narrative.html#Narrative">Narrative</a> [0..1] « <a
-   id="n840"
-   style="color:#301212;font-weight:bold"
-   xlink:href="conformance-rules.html#constraints"><title
-   id="n841">This element has or is affected by some invariants</title>C</a> »</text>
-    <text
-       id="n847"
-       x="425.20001"
-       y="415"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n848"
-   xlink:href="composition-definitions.html#Composition.section.mode"><title
-   id="title7299">How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</title>mode</a> : <a
-   id="n849"
-   xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n850"
-   xlink:href="valueset-list-mode.html"><title
-   id="n851">null (Strength=Required)</title>ListMode</a>! »</text>
-    <text
-       id="n857"
-       x="425.20001"
-       y="429"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n858"
-   xlink:href="composition-definitions.html#Composition.section.orderedBy"><title
-   id="title7306">Specifies the order applied to the items in the section entries</title>orderedBy</a> : <a
-   id="n859"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n860"
-   xlink:href="valueset-list-order.html"><title
-   id="title7310">null (Strength=Preferred)</title>ListOrderCodes</a>? »</text>
-    <text
-       id="n865"
-       x="425.20001"
-       y="443"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n866"
-   xlink:href="composition-definitions.html#Composition.section.entry"><title
-   id="title7314">A reference to the actual resource from which the narrative in the section is derived</title>entry</a> : <a
-   id="n867"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n868"
-   xlink:href="resourcelist.html#Any">Any</a> » « <a
-   id="n869"
-   style="color:#301212;font-weight:bold"
-   xlink:href="conformance-rules.html#constraints"><title
-   id="n870">This element has or is affected by some invariants</title>C</a> »</text>
-    <text
-       id="n877"
-       x="425.20001"
-       y="457"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n878"
    xlink:href="composition-definitions.html#Composition.section.emptyReason"><title
-   id="title7322">If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason</title>emptyReason</a> : <a
-   id="n879"
+   id="title1051">If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason</title>emptyReason</a> : <a
+   id="n831"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n880"
+   id="n832"
    xlink:href="valueset-list-empty-reason.html"><title
-   id="title7326">null (Strength=Preferred)</title>ListEmptyReasons</a>? » « <a
-   id="n881"
+   id="title1055">null (Strength=Preferred)</title>ListEmptyReasons</a>? » « <a
+   id="n833"
    style="color:#301212;font-weight:bold"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n882">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n834">This element has or is affected by some invariants</title>C</a> »</text>
   </g>
   <line
-     id="n889"
+     id="n841"
      x1="149.60000000000002"
      y1="274.0"
      x2="149.60000000000002"
      y2="354.00000000000006"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n890"
+     id="n842"
      points="149.60000000000002,274.0 155.60000000000002,278.0 161.60000000000002,274.0 155.60000000000002,270.0 149.60000000000002,274.0"
      style="fill:navy;stroke:navy;stroke-width:1"
      transform="rotate(90.0 149.60000000000002 274.0)" />
   <rect
-     id="n891"
+     id="n843"
      x="131.5"
      y="307.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n892"
+     id="n844"
      x="149.0"
      y="317.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n893"
+       id="n845"
        xlink:href="composition-definitions.html#Composition.attester"><title
-   id="title7336">A participant who has attested to the accuracy of the composition/document</title>attester</a></text>
+   id="title1065">A participant who has attested to the accuracy of the composition/document</title>attester</a></text>
   <text
-     id="n894"
+     id="n846"
      x="149.60000000000002"
      y="350.00000000000006"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n895"
+     id="n847"
      x1="299.20000000000005"
-     y1="181.80093951849676"
-     x2="400.0"
-     y2="211.98766881972986"
+     y1="206.17163041689759"
+     x2="442.97189086470814"
+     y2="272.648476"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n896"
-     points="299.20000000000005,181.80093951849676 305.20000000000005,185.80093951849676 311.20000000000005,181.80093951849676 305.20000000000005,177.80093951849676 299.20000000000005,181.80093951849676"
+     id="n848"
+     points="299.20000000000005,206.17163041689759 305.20000000000005,210.17163041689759 311.20000000000005,206.17163041689759 305.20000000000005,202.17163041689759 299.20000000000005,206.17163041689759"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(16.671460722398795 299.20000000000005 181.80093951849676)" />
+     transform="rotate(24.814745373769888 299.20000000000005 206.17163041689759)" />
   <rect
-     id="n897"
-     x="338.0"
-     y="189.0"
+     id="n849"
+     x="360.0"
+     y="232.0"
      width="22.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n898"
-     x="349.0"
-     y="199.0"
+     id="n850"
+     x="371.0"
+     y="242.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n899"
+       id="n851"
        xlink:href="composition-definitions.html#Composition.event"><title
-   id="title7344">The clinical service, such as a colonoscopy or an appendectomy, being documented</title>event</a></text>
+   id="title1073">The clinical service, such as a colonoscopy or an appendectomy, being documented</title>event</a></text>
   <text
-     id="n900"
-     x="380.0"
-     y="207.98766881972986"
+     id="n852"
+     x="442.97189086470814"
+     y="268.648476"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n901"
-     x1="705.2"
-     y1="352.0"
-     x2="765.2"
-     y2="352.0"
+     id="n853"
+     x1="660.157955"
+     y1="84.19197000000003"
+     x2="720.157955"
+     y2="84.19197000000003"
      style="stroke:navy;stroke-width:1" />
   <line
-     id="n902"
-     x1="765.2"
-     y1="352.0"
-     x2="765.2"
-     y2="402.0"
+     id="n854"
+     x1="720.157955"
+     y1="84.19197000000003"
+     x2="720.157955"
+     y2="134.19197000000003"
      style="stroke:navy;stroke-width:1" />
   <line
-     id="n903"
-     x1="765.2"
-     y1="402.0"
-     x2="705.2"
-     y2="402.0"
+     id="n855"
+     x1="720.157955"
+     y1="134.19197000000003"
+     x2="660.157955"
+     y2="134.19197000000003"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n904"
-     points="705.2,352.0 711.2,356.0 717.2,352.0 711.2,348.0 705.2,352.0"
+     id="n856"
+     points="660.157955,84.19197000000003 666.157955,88.19197000000003 672.157955,84.19197000000003 666.157955,80.19197000000003 660.157955,84.19197000000003"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 705.2 352.0)" />
+     transform="rotate(0.0 660.157955 84.19197000000003)" />
   <rect
-     id="n905"
-     x="750.0"
-     y="370.0"
+     id="n857"
+     x="705.0"
+     y="102.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n906"
-     x="765.0"
-     y="380.0"
+     id="n858"
+     x="720.0"
+     y="112.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n907"
+       id="n859"
        xlink:href="composition-definitions.html#Composition.section.section"><title
-   id="title7354">A nested sub-section within this section</title>section</a></text>
+   id="title1083">A nested sub-section within this section</title>section</a></text>
   <text
-     id="n908"
-     x="720.2"
-     y="398.0"
+     id="n860"
+     x="675.157955"
+     y="130.19197000000003"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n909"
+     id="n861"
      x1="299.20000000000005"
-     y1="224.01890450799806"
-     x2="419.20000000000005"
-     y2="293.8201648085313"
+     y1="125.68183579920071"
+     x2="374.157955"
+     y2="120.01080342723463"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n910"
-     points="299.20000000000005,224.01890450799806 305.20000000000005,228.01890450799806 311.20000000000005,224.01890450799806 305.20000000000005,220.01890450799806 299.20000000000005,224.01890450799806"
+     id="n862"
+     points="299.20000000000005,125.68183579920071 305.20000000000005,129.6818357992007 311.20000000000005,125.68183579920071 305.20000000000005,121.68183579920071 299.20000000000005,125.68183579920071"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(30.18558646493274 299.20000000000005 224.01890450799806)" />
+     transform="rotate(-4.32653741747467 299.20000000000005 125.68183579920071)" />
   <rect
-     id="n911"
-     x="344.0"
-     y="251.0"
+     id="n863"
+     x="321.0"
+     y="115.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n912"
-     x="359.0"
-     y="261.0"
+     id="n864"
+     x="336.0"
+     y="125.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n913"
+       id="n865"
        xlink:href="composition-definitions.html#Composition.section"><title
-   id="title7362">The root of the sections that make up the composition</title>section</a></text>
+   id="title1091">The root of the sections that make up the composition</title>section</a></text>
   <text
-     id="n914"
-     x="399.20000000000005"
-     y="289.8201648085313"
+     id="n866"
+     x="354.157955"
+     y="116.01080342723463"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

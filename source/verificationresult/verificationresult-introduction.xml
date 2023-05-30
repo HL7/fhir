@@ -5,7 +5,14 @@
 <h2>Scope and Usage</h2>
 <p>
 The VerificationResult can be used where content (such as found in a directory) is aggregated between systems,
-and the details of this process needs to be recorded, to be able to determine the likely accuracy of the content.
+and the details and results of this <b>verification process</b> needs to be recorded, to determine the likely accuracy/confidence in the content.<br/>
+It does not represent the workflows or tasks related, but does cover the result of who did what when, why, and when it needs to be done again.
+</p>
+<p>
+There are often multiple instances of the VerificationResult over time that reference the same resource, even if the resource has not changed,
+as the content was verified as still current. Alternately the process may discover that the content was no longer valid 
+(i.e. the practitioner was not able to be verified was still working at the location) and therefore the instance could be updated 
+to not be active, or even removed from the directory. 
 </p>
 </div>
 
@@ -13,7 +20,42 @@ and the details of this process needs to be recorded, to be able to determine th
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-TBD.
+<table class="grid">
+<tr>
+<td>AuditEvent</td>
+<td>Details of where/who the resource came from, along with technical data - typically system adminisrtrative data, often not externally accessible.</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td>Business level details of where the content came from and what it can be used for.</td>
+</tr>
+<tr>
+<td>VerificationResult</td>
+<td>Details of checks/workflow results that were performed to verify the accuracy of the referenced resource.
+This informs if the data should be trusted, or how current the information is.</td>
+</tr>
+</table>
+</p>
+<p>
+(A similar concept exists outside of healthcare in Art/Musical Equipment in Appraisals vs Provenance,
+ the provenance of the piece covers its chain of ownership, where an appraisal covers how it was check for its authenticity)
+</p>
+<p>
+Although the resource uses a Reference(any), the initial usage is in the directory space against:
+<ul>
+<li>Organization</li>
+<li>OrganizationAffiliation</li>
+<li>Location</li>
+<li>Practitioner</li>
+<li>PractitionerRole</li>
+<li>HealthcareService</li>
+</ul>
+[%stu-note dstu%]
+Other resources may use this approach for verifying currency too, and may be updated to be included here in future 
+versions of fhir, or in fhir implementation guides. 
+[%end-note%]
+<br/>
+It is not typically expected that other resources would reference VerificationResult
 </p>
 </div>
 

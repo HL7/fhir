@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/OperationDefinition/Resource-large-resource-filter"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Filter"/>
   <title value="Filter an array in a large resource"/>
   <status value="draft"/>

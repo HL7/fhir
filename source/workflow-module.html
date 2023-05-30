@@ -139,27 +139,27 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="roadmap"></a>
         <h3>Developmental Roadmap</h3>
         <p>
-            Initial work has taken place on aligning most (though not yet all) resources with the <a href="definition.html">Definition</a>, <a href="request.html">Request</a> and <a href="event.html">Event</a> patterns. In the lead-up to R5, we'll be
-            moving the alignment checks into the build process and more formally documenting (and potentially reporting) on variations along with their justifications.  Further alignment is also possible (where beneficial to implementers).
-            We'll also be examining the potential for exposing alignment with the patterns in a computably useful
-            manner (e.g. as interfaces). 
+            Initial work has taken place on aligning most (though not yet all) resources with the <a href="definition.html">Definition</a>, <a href="request.html">Request</a>, <a href="event.html">Event</a> and other patterns.  We now
+            have tooling that allows easier checking of alignment and documenting reasons for divergence.  In the lead-up to R6, we'll be setting expectations for work groups to capture these reasons for divergence.
+            Further alignment is also possible (where beneficial to implementers), though breaking changes will generally not be made solely to further alignment.
         </p>
         <p>
-            Work will continue on the workflow patterns, including vetting the patterns against various clinical scenarios and enhancing pattern documentation. We also hope to examine both messaging and services in more detail with further guidance about when and
-            how such mechanisms should be used for workflow and how they relate to the <a href="task.html">Task</a> resource. As well, we'll examine the possibility for developing "standardized" workflows for certain domains and how such patterns
-            might be documented, particularly through the use of the <a href="examplescenario.html">ExampleScenario</a> resource. We will look for implementer feedback to guide this work.
+            Work is underway within the <a href="diagnostics-module.html">Diagnostics</a> space on enhancing guidance around order fulfillment and the workflow pages will be updated to reflect this documentation.  Additional IGs
+            that take on various aspects of workflow are anticipated and further changes based on feedback from those IGs is also possible.
+        </p>
+        <p>
+            We hope to develop tooling to render <a href="examplescenario.html">ExampleScenario</a> instances as part of the core specification and start to leverage that to create more documentation about how to handle complex
+            workflows, both within this core specification as well as within implementation guides.
         </p>
         <p>
             The <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources will continue to evolve based on feedback from the implementer community. We'll explore using them in a variety of
-            ways, including clinical order sets, medication protocols, workflow protocols, clinical pathways, administrative protocols, etc.  We hope to develop several example workflow protocols.
+            ways, including clinical order sets, medication protocols, workflow protocols, clinical pathways, administrative protocols, etc.  We hope to develop guidance and examples of using these
+            resources to document expected interoperablity interactions at the system level.
         </p>
         <p>Additional topics for future work include:</p>
         <ul>
-            <li>The initial effort to align with workflow patterns has been a bit over-zealous for some resources, resulting in the loss of domain-specific context or occasionally the introduction of elements that might be more properly represented as extensions.
-                In R5, we'll continue to work on improving the balance, ensuring that consistency with patterns does not overshadow the essential requirements for implementer intuitiveness and simplicity</li>
-            <li>Resolving the overlap between the <a href="supplyrequest.html">SupplyRequest</a>, <a href="devicerequest.html">DeviceRequest</a> and
-                <a href="visionprescription.html">VisionPrescription</a> resources</li>
-            <li>Improving mapping and alignment of the elements and status codes of the <a href="task.html">Task</a> resource with the WS-HumanTask specification</li>
+            <li>We will continue working with work groups to evaluate when elements should be handled in core vs. using extensions, though we will take into account implementation levels before introducing
+              breaking changes.</li>
             <li>Creating "best practice" guides for how to implement workflow for different business patterns</li>
             <li>Examining how workflow is used for <a href="https://en.wikipedia.org/wiki/Compensating_transaction">compensating actions</a> E.g. account transactions and reversals</li>
         </ul>

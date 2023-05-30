@@ -15,7 +15,7 @@
 <a name="knowledge-artifact-distribution"> </a>
 <h3>Sharing Knowledge Artifacts</h3>
 
-<p>One of the primary use cases of the Clinical Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts. Some general considerations for this use case are documented here, with a more complete and ongoing treatment in the <a href="https://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management Infrastructure</a> implementation guide.</p>
+<p>One of the primary use cases of the Clinical Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts. Some general considerations for this use case are documented here, with a more complete and ongoing treatment in the <a href="[%ig crmi%]">Canonical Resource Management Infrastructure</a> implementation guide.</p>
 
 <img alt="Knowledge Artifact Sharing" src="clinicalreasoning-knowledge-artifact-distribution.png"/>
 
@@ -69,7 +69,7 @@
 <p>
   For distribution via a FHIR server, the search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="library.html">Library</a>, <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and <a href="measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
 
-<p>Some general considerations for use are documented in what follows, with a more complete and ongoing treatment provided as part of the <a href="https://build.fhir.org/ig/HL7/crmi-ig">Canonical Resource Management Infrastructure</a> implementation guide.</p>
+<p>Some general considerations for use are documented in what follows, with a more complete and ongoing treatment provided as part of the <a href="[%ig crmi%]">Canonical Resource Management Infrastructure</a> implementation guide.</p>
 
 <p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the <code>useContext</code> element to indicate semantic usage context for an example suicide risk order set:</p>
 

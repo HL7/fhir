@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="bundle-example"/>
+  <type value="searchset"/>  
+  <entry>
+    <fullUrl value="https://example.com/base/MedicationRequest/3123/_history/1"/>
+  </entry>
+  <entry>
+    <fullUrl value="https://example.com/base/Medication/example"/>
+  </entry>
+</Bundle>

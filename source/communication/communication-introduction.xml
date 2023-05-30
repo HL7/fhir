@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
    
-<p> The purpose of a Communication resource is to surface that data was shared to track adherence to guidelines or protocols or to provide business documentation of actions taken.  Communication can also be used as part of an information exchange to provide context about the information sharing occurring.</p>
+<p> The purpose of a Communication resource is to surface that data was shared to track adherence to guidelines or protocols or to provide business documentation of actions taken.  Communication can also be used as part of an information exchange to provide context about the information sharing occurring.  Please see <a href="#wrapping">below</a> for guidance on when this is appropriate.</p>
 
 <p>Communication is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
    

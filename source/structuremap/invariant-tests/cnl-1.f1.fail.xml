@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/structuremap.xsd">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/StructureMap/example|0.1"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.13.2"/>
+  </identifier>
+  <version value="0.1"/>
+  <name value="ExampleMap"/>
+  <title value="Example Map"/>
+  <status value="draft"/>
+  <date value="2017-03-09"/>
+  <publisher value="HL7 FHIR Standard"/> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://hl7.org/fhir"/> 
+    </telecom> 
+  </contact>   
+  <description value="Example Structure Map"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="009"/>
+      <display value="Oceania"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <name value="Examples"/>
+    <documentation value="test -&gt; testValue"/>
+    <input>
+      <name value="testSrc"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="testTgt"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="rule1"/>
+      <source>
+        <context value="testSrc"/>
+        <type value="SourceClassA"/>
+        <element value="test"/>
+        <variable value="t"/>
+      </source>
+      <target>
+        <context value="testTgt"/>
+        <element value="testValue"/>
+        <transform value="copy"/>
+      </target>
+    </rule>
+  </group>
+  
+</StructureMap>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RiskAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/riskassessment.xsd">
+ <id value="genetic"/>
+  <status value="final"/>
+  <method>
+    <coding>
+      <code value="BRCAPRO"/>
+    </coding>
+  </method>
+  <subject>
+    <reference value="Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
+  </subject>
+  <occurrenceDateTime value="2006-01-13T23:01:00Z"/>
+  <basis>
+    <reference value="List/prognosis"/>
+  </basis>
+  <prediction>
+    <outcome>
+      <text value="Breast Cancer"/>
+    </outcome>
+    <probabilityRange>
+      <low>
+        <value value="63"/>
+        <unit value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </low>
+      <high>
+        <value value="67"/>
+        <unit value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </high>
+    </probabilityRange>
+  </prediction>
+  <note>
+    <text value="High degree of certainty"/>
+  </note>
+</RiskAssessment>

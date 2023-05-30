@@ -51,7 +51,7 @@
     <code value="314079002"/>
     <display value="Hyperlipidemia screening test (procedure)"/>
   </keyword>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="m1"/>
     <comment value="Actual mappings haven't yet been filled out"/>

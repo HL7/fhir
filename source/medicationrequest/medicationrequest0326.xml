@@ -14,8 +14,8 @@
     <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-        <code value="746763"/>
-            <display value="Proventil HFA 90mcg/actuat metered dose inhaler, 200 actuat"/>
+            <code value="746763"/>
+            <display value="Proventil HFA 90 MCG/ACTUAT Metered Dose Inhaler, 200 ACTUAT"/>
         </coding>
     </concept>
     </medication>

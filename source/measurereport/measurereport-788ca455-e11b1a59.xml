@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MeasureReport xmlns="http://hl7.org/fhir">
+   <id value="788ca455-e11b1a59" />
+   <contained>
+      <List>
+         <id value="1" />
+         <status value="current" />
+         <mode value="snapshot" />
+         <entry>
+            <item>
+               <reference value="MeasureReport/788ca455-e11b1a59-838c24b5" />
+            </item>
+         </entry>
+         <entry>
+            <item>
+               <reference value="MeasureReport/788ca455-e11b1a59-2ad816ff" />
+            </item>
+         </entry>
+      </List>
+   </contained>
+   <status value="complete" />
+   <type value="subject-list" />
+   <measure value="http://lantanagroup.com/fhir/nhsn-measures/Measure/NHSNGlycemicControlHypoglycemicInitialPopulation" />
+   <reporter>
+      <reference value="Organization/aa389ad5-e6fe-4030-88ce-010ab96e4ac4" />
+   </reporter>
+   <period>
+      <start value="2022-08-01T00:00:00+00:00" />
+      <end value="2022-08-31T23:59:59+00:00" />
+   </period>
+   <group>
+      <population>
+         <code>
+            <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-population" />
+               <code value="initial-population" />
+               <display value="Initial Population" />
+            </coding>
+         </code>
+         <count value="2" />
+         <subjectResults>
+            <reference value="#1" />
+         </subjectResults>
+      </population>
+   </group>
+</MeasureReport>

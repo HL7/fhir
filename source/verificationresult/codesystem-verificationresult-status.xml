@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2069"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Status"/>
   <title value="status"/>
   <status value="draft"/>
@@ -63,5 +63,10 @@
     <code value="reval-fail"/>
     <display value="Re-Validation failed"/>
     <definition value="***TODO***"/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The VerificationResult record was created erroneously and is not appropriated for use."/>
   </concept>
 </CodeSystem>

@@ -167,7 +167,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="58410-2"/>
-						<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+						<display value="CBC panel - Blood by Automated count"/>
 					</coding>
 				</code>
 				<effectiveDateTime value="2015-08-16T06:40:17Z"/>

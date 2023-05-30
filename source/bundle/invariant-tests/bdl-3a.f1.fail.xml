@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="bundle-example"/>
+  <type value="searchset"/>  
+  <entry>
+    <fullUrl value="https://example.com/base/MedicationRequest/3123"/>
+    <!-- the matching resource -->
+    <resource>
+      <MedicationRequest>
+        <id value="3123"/>
+        <!-- snip -->
+        <status value="unknown"/>
+        <intent value="order"/>
+	      <medication>
+	        <reference>
+          <reference value="Medication/example"/>
+	        </reference>
+        </medication>
+        <subject>
+          <reference value="Patient/347"/>
+        </subject>
+        <!-- snip -->
+      </MedicationRequest>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="MedicationRequest/3123"/>
+    </request>
+  </entry>
+</Bundle>

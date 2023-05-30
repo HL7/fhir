@@ -71,7 +71,7 @@ This specification assumes that content will be delivered from one application t
 another by some delivery mechanism, and then one or more responses will be returned
 to the source application. This specification provides a direct delivery mechanism below, 
 although the exact mechanism of transfer can be abstracted, and may include file transfer, 
-HTTP based transfer, MLLP (HL7 minimal lower layer protocol), MQ series messaging or anything 
+HTTP based transfer, MLLP (HL7 minimal lower layer protocol), Apache Kafka, MQ series messaging, or anything 
 else. It is expected that these additional types of transfer mechanisms will define their own 
 implementation guides to define the exact message transfer protocol.  The only requirement for 
 the transfer layer is that requests are sent to a known location and responses are returned to 

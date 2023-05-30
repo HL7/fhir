@@ -9,7 +9,7 @@
 			<coding>
 				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 				<code value="213293"/>
-				<display value="Capecitabine 500mg oral tablet (Xeloda)"/>
+				<display value="capecitabine 500 MG Oral Tablet [Xeloda]"/>
 			</coding>
 		</code>
 		</Medication>

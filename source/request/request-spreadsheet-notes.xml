@@ -74,7 +74,8 @@
     <code>Request.supportingInfo</code>.
   </p>
   <p>
-    Each "component" behaves as an independent request and has its own status that changes independently.  The shared
+    Each "component" behaves as an independent request and has its own status that changes independently.  Cancelling or suspending
+    request with a shared groupIdentifier has no impact on other requests with the same groupIdentifier. The shared
     requisitionId allows business processes dependent on "simultaneous/requisition-based ordering" such as payment rules to
     know that the requests were ordered at the same time.
   </p>
@@ -116,9 +117,15 @@
     that can safely be referenced without concern of them changing independent of referencing Requests.
   </p>
   <p>
-    The status of the parent request automatically cascades to the component "options".  If there is a need for divergent
-    statuses, these must be handled by creating "child" using the "basedOn" approach above.  They should have a basedOn relationship
+    The status of the parent request automatically cascades to the component "options".  It is not possible to cancel, suspend or complete one
+    part of the RequestOrchestration without making the same status change to <i>all</i> options.  If there is a need for divergent
+    statuses, these must be handled by creating "child" requests using the "basedOn" approach above.  They should have a basedOn relationship
     with both the "parent" Request as well as the specific "option" Request they are tied to.
+  </p>
+  <p>
+    A RequestOrchestration might have a .groupIdentifier if it was created as part of a larger collection of independent orders.  The
+    different 'option' requests referenced by the RequestOrchestration SHOULD NOT have a .groupIdentifier specified as they are all
+    considered part of the RequestOrchestration order.
   </p>
 
   <a name="notes"> </a>

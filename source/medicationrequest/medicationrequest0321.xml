@@ -8,8 +8,9 @@
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
           <code value="0169-7501-11"/>
-          <display value="Novolog 100u/ml"/>
+          <!-- <display value="Novolog 100u/ml"/> -->
         </coding>
+        <text value="Novolog 100u/ml"/>
       </code>
       <doseForm>
         <coding>
@@ -55,9 +56,9 @@
   <status value="active"/>
   <intent value="order"/>
   <medication>
-  <reference>
-    <reference value="#med0307"/>
-    <display value="Novolog 100u/ml"/>
+    <reference>
+      <reference value="#med0307"/>
+      <display value="Novolog 100u/ml"/>
     </reference>
   </medication>
   <subject>

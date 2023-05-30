@@ -1,0 +1,10 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+[%stu-note dstu%]
+All of the shareable, publishable, computable, and executable profiles will be migrating to the new 
+<a href="[%ig crmi%]/">Canonical Resource Management</a> implementation guide as
+part of the next FHIR release.  Implementers are encouraged to look there for updates, corrections and 
+clarifications.
+[%end-note%]
+
+</div>

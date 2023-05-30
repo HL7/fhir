@@ -5885,36 +5885,6 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">uri of v3 value set mapped to</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">11179ObjectClass</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">A concept that represents a set of ideas, abstractions, or things in the real-world that can be identified with explicit boundaries and meaning and whose properties and behavior follow the same rules; e.g. Person, Prescription, Encounter, etc.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-dataelement-sdcobjectclass</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s135"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">11179ObjectClassProperty</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">A quality common to all members of an object class. A property may be any feature that humans naturally use to distinguish one individual object from another. It is the human perception of a single quality of an object class in the real-world; e.g. name, identifier, gender, creationDate</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">valueset-dataelement-sdcobjectclassproperty</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s138"/>
-   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s107"/>

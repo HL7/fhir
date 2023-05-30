@@ -24,7 +24,7 @@ in one section. A summary:
 <ol>
  <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
  <li><a href="#http">Communications Security</a> - all exchange of production data should be secured using TLS (e.g., https).</li>
- <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART-On-FHIR</a> where appropriate.</li>
+ <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended, consider use of <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART App Launch</a> Implementation Guide where appropriate.</li>
  <li><a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
  <li><a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
  <li><a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
@@ -211,10 +211,14 @@ Experience shows that this is an area where ongoing issues may be expected as se
 <a name="authentication"></a>
 <h2>Authentication</h2>
 <p>
-Other than testing systems, FHIR servers should authenticate the clients. 
-The server may choose to authenticate the client system and trust it, or to authenticate
+Except when no patient data are involved such as Provider Directories and test sandbox systems, FHIR servers need to authenticate the client system and trust it, or authenticate
 the individual user by a variety of techniques. For web-centric environments it is recommended to use 
-<a href="http://openid.net/connect/">OpenID Connect</a> (or other suitable authentication protocol) to verify identity of the end user, where it is necessary that end-users be identified to the application. 
+<a href="http://openid.net/connect/">OpenID Connect</a> (or other suitable authentication protocol) to confirm the identity of the authenticated end user, where it is necessary that end-users be identified to the application. 
+</p>
+<p>
+For scalable security, either <a href="http://hl7.org/fhir/us/udap-security/consumer.html">UDAP Consumer-Facing</a> or <a href="http://hl7.org/fhir/us/udap-security/b2b.html">UDAP Business-to-Business</a> should be implemented, as appropriate. 
+The Registration and Discovery sections of <a href="http://hl7.org/fhir/us/udap-security/index.html">UDAP Security</a> should also be implemented to securely scale the addition of new client and server endpoints. 
+Tiered <a href="http://hl7.org/fhir/us/udap-security/user.html">OAuth for User Authentication</a> should be implemented to securely scale trust with new OIDC credential issuers.
 </p>
 <p>
 All systems shall protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
@@ -299,24 +303,28 @@ Approaches to Implementing Access Control
 </h3>
 <p>
 It is recommended that <a href="http://oauth.net/">OAuth</a> be used to authenticate and/or authorize 
-the client and user. The <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART-On-FHIR</a> Implementation Guide 
-on OAuth is a recommended method for using OAuth for authorizing interactions with a protected FHIR Server.
+the client and user. The <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART App Launch</a> Implementation Guide is a recommended method for using OAuth for authorizing interactions with a protected FHIR Server.
+</p>
+<p>
+The method today for managing and enforcing patient consents in Patient-Directed and Patient-Mediated workflows relies on an OAuth 2.0 server which uses the patient consents as the applicable authorization policies at the time of issuing a token. In this model, the authorization server (OAuth 2.0 or its <a href="https://docs.kantarainitiative.org/uma/ed/uma-core-2.0-01.html">User-Managed Access profile</a>) examines the patient consent to determine whether or not to issue a token to a requesting client and what scopes to grant. 
 </p>
 <p>
 The <a href="https://openid.net/wg/heart/">HEART Working Group</a> has developed a 
 set of privacy and security specifications that enable an individual to control the 
 authorization of access to RESTful health-related data sharing APIs, and to facilitate 
 the development of interoperable implementations of these specifications by others.
-IHE <a href="https://profiles.ihe.net/ITI/IUA">IUA Profile</a> constrains OAuth token attributes to support Healthcare.
 </p>
 <p>
-Another proposed model for managing and enforcing patient consents relies on an OAuth 2.0 server which uses the patient consents as the applicable authorization policies at the time of issuing a token. In this model, the authorization server (OAuth 2.0 or its <a href="https://docs.kantarainitiative.org/uma/ed/uma-core-2.0-01.html">User-Managed Access profile</a>) examines the patient consent to determine whether or not to issue a token to a requesting client and what scopes to grant. The main motivation behind this model is to have a separate consent management system in charge of collecting, storing, and maintaining patient consents, as well as responding to authorization requests based on these consents. This facilitates having third-party consent management services to which organizations can outsource their consent management functions. Further details about this model are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%2F66931686%2F66939024%2FUMA_Consent_Management_Service-2017-11-27.pdf">this report</a>.
+The main motivation behind this model is to have a separate consent management system in charge of collecting, storing, and maintaining patient consents, as well as responding to authorization requests based on these consents. This would allow organizations to outsource their consent management functions to a consent management service. Further details about this model are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%2F66931686%2F66939024%2FUMA_Consent_Management_Service-2017-11-27.pdf">this report</a>.
 </p>
 <p>
-An extension to this model, Cascaded Authorization, enables an OAuth/UMA authorization server to require and rely on the approval of another OAuth/UMA server before issuing a token and granting scopes. Using this model, the enterprise OAuth/UMA server at a provider organization can rely on the decisions by a Consent OAuth/UMA Server by requiring and accepting access tokens issued by that server as part of the client authorization process. This architecture preserves the independence of a consent management system, which can potentially be outsourced to third-parties, while ensuring that all authorization interfaces and interactions follow the OAuth/UMA protocols. A summary of the concepts and flows for Cascaded Authorization are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%266931686/66939023%2Cascaded_Authorization-2018-01-15.pdf">this report</a>. Further extensions to this model to leverage UMA’s capabilities to simplify some of the flows are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%266931686/66939022%2Privacy_Preserving_Authorization-2018-01-15.pdf">this report</a>. A reference implementation of Cascaded Authorization and more technical details can be found <a href="https://github.com/mojitoholic/pauldron">here</a>.
+IHE <a href="https://profiles.ihe.net/ITI/IUA">IUA Profile</a> constrains OAuth token attributes to support Healthcare Information Exchange environments such as <a href="https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html">IHE Document Sharing</a>. IHE includes guidance on access control within this whitepaper and has implementation guides.
 </p>
 <p>
-Additionally, the <a href="http://www.udap.org">Unified Data Access Profiles (UDAP)</a> propose extensions to the OAuth 2.0 framework to scale authorization; authentication; trusted Dynamic Client Registration; and Client Certification and Endorsements using JSON Web Tokens and X.509 certificates.
+An extension to a single level model, Cascaded Authorization, enables an OAuth/UMA authorization server to require and rely on the approval of another OAuth/UMA server before issuing a token and granting scopes. Using this model, the enterprise OAuth/UMA server at a provider organization can rely on the decisions by a Consent OAuth/UMA Server by requiring and accepting access tokens issued by that server as part of the client authorization process. This architecture preserves the independence of a consent management system, which can potentially be outsourced to third-parties, while ensuring that all authorization interfaces and interactions follow the OAuth/UMA protocols. A summary of the concepts and flows for Cascaded Authorization are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%266931686/66939023%2Cascaded_Authorization-2018-01-15.pdf">this report</a>. Further extensions to this model to leverage UMA’s capabilities to simplify some of the flows are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%266931686/66939022%2Privacy_Preserving_Authorization-2018-01-15.pdf">this report</a>. A reference implementation of Cascaded Authorization and more technical details can be found <a href="https://github.com/mojitoholic/pauldron">here</a>.
+</p>
+<p>
+For business to business workflows, the <a href="http://hl7.org/fhir/us/udap-security/b2b.html#b2b-authorization-extension-object">UDAP B2B Authorization Extension Object</a> can be used to assert consent information in communities supporting cross-organization FHIR based exchanges.
 </p>
 <a name="AccessDenied"></a>
 <h3>
@@ -356,7 +364,8 @@ potentially significant, leak of information.
 <p>
 FHIR provides an <a href="auditevent.html">AuditEvent</a> resource suitable for use by 
 FHIR clients and servers to record when a security or privacy relevant event has occurred. 
-This form of audit logging records as much detail as reasonable at the time the event happened. 
+This form of audit logging records as much detail as reasonable at the time the event happened.
+IHE <a href="https://profiles.ihe.net/ITI/BALP/index.html">Basic Audit Log Patterns Implementation Guide</a> has profiling of the <a href="auditevent.html">AuditEvent</a> resource for security and privacy purposes including patterns for RESTful events, RESTful patient affecting events, Authorization Decisions, and Accounting of Disclousures.
 </p>
 <p>
 When used to record security and privacy relevant events, the AuditEvent can then be 

@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1353"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Endpoint"/>
   <title value="Endpoint"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b, a REST endpoint for another FHIR server, or a s/Mime email address. This may include any security context information."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -103,8 +103,8 @@
     </element>
     <element id="Endpoint.status">
       <path value="Endpoint.status"/>
-      <short value="active | suspended | error | off | entered-in-error | test"/>
-      <definition value="The endpoint status represents the general expected availability of an endpoint."/>
+      <short value="active | suspended | error | off | entered-in-error"/>
+      <definition value="The endpoint status represents whether the endpoint can currently be used for connections or why it can't be used."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid. Temporary downtimes or other unexpected short-term changes in availability would not be represented in this property."/>
       <min value="1"/>
       <max value="1"/>
@@ -267,6 +267,17 @@
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
+    </element>
+    <element id="Endpoint.availability">
+      <path value="Endpoint.availability"/>
+      <short value="Times the endpoint is expected to be available (including exceptions)"/>
+      <definition value="The times the endpoint is expected to be available, including transient downtimes and any exceptions."/>
+      <comment value="Endpoint.availability is meant to represent specific availability, including temporary downtimes or other short term changes in availability.  Conversely, Endpoint.period is meant to represent the general **planned** period of time when the Endpoint may be used, for example when an endpoint is being commissioned or decommissioned.  For example, if an Endpoint is only available during business hours (9-5), the lack of availability during the night would not be reflected in Endpoint.period,but would be reflected in Endpoint.availability."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Availability"/>
+      </type>
     </element>
     <element id="Endpoint.payload">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">

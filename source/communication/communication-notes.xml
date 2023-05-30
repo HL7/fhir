@@ -7,6 +7,8 @@
     <p>
         <i>At this time, the code bindings are placeholders to be fleshed out upon further review by the community.</i>
     </p>
+
+<a name="senderrecipient"> </a>
 <h3>Communication.sender and Communication.recipient</h3>
     <p>Communication.sender allows Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | HealthcareService and Communication.recipient allows Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | Group | CareTeam | HealthcareService - but it is not unusual to have a communication target - even a defined one - where it is unknown what kind of role the person is playing.
     </p>
@@ -15,11 +17,14 @@
         for example, only email address is captured in the system - then RelatedPerson should be used by default.
     </p>
 	
+<a name="wrapping"> </a>
 <h3>Using Communication to wrap or accompany data</h3>
-<p> In FHIR, data is typically shared between systems without any need for the Communication resource to accompany or contain the data being shared, i.e. all FHIR exchanges are communications of some form, but that doesn't mean they need the Communication resource.  However, in some cases, when data is shared there is a need to provide context about why the data is being conveyed and Communication is one of the mechanisms that FHIR provides that can share this context.  Specifically, Communication allows conveying information about reasons for sharing, encounter that provides context for sharing, order or protocol that drove the need to share, etc.  Note that some contextual information is expected to be captured by most FHIR systems even in absence of Communication, such as where did the data come from and when was the data received.  This metadata is generally captured in Provenance.  In addition to Communication, MessageHeader can capture similar metadata and Composition in FHIR documents can also serve a similar purpose. If mixing multiple mechanisms to convey communication metadata, care should be taken to ensure that each mechanism is necessary and the information conveyed in each layer is appropriately consistent.</p>
+<p> In FHIR, data is typically shared between systems without any need for the Communication resource to accompany or contain the data being shared, i.e. all FHIR exchanges are communications of some form, but that doesn't mean they need the Communication resource.  However, in some cases, when data is shared there is a need to provide context about why the data is being conveyed and Communication is one of the mechanisms that FHIR provides that can share this context.  Specifically, Communication allows conveying information about reasons for sharing, encounter that provides context for sharing, order or protocol that drove the need to share, etc.  Note that some contextual information is expected to be captured by most FHIR systems even in absence of Communication, such as where did the data come from and when was the data received.  This metadata is generally captured in Provenance.  In addition to Communication, MessageHeader can capture similar metadata and Composition in FHIR documents can also serve a similar purpose. Refer to the <a href="exchanging.html#decision-tree">decision tree</a> in <a href="exchanging.html">Approaches to Exchanging FHIR Data</a> for guidance on which data sharing mechanism is appropriate in which circumstances. If mixing multiple mechanisms to convey communication metadata, care should be taken to ensure that each mechanism is necessary and the information conveyed in each layer is appropriately consistent.</p>
 
 <h3>Communication and CommunicationRequest</h3>
 <p>There is no requirement that Communication and CommunicationRequest always go together.  Communication can exist without there having been a CommunicationRequest.  For example, a practitioner might capture that they have provided a smoking cessation pamphlet to a patient that would be a Communication instance, but there would have been no "request" that led to the action (unsolicited).  As well, a CommunicationRequest can be fulfilled in many ways, e.g. by phone call, email, system to system data sharing and there might not be a requirement to surface this data sharing at the clinical / business level, i.e. no need for a Communication instance.</p>
 
 <p>Where there is a need to explicitly track fulfillment of a CommunicationRequest, Communication is the most natural resource to establish this linkage.  The event can be tied to the request using Communication.basedOn. </p>
+
+
 </div>

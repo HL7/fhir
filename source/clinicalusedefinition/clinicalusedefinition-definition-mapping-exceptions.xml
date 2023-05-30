@@ -43,7 +43,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="ClinicalUseDefinition.subject">
-        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
         <extraTypes
             _resource="Reference(MedicinalProductDefinition,Medication,ActivityDefinition,PlanDefinition,Device,DeviceDefinition,Substance,NutritionProduct,BiologicallyDerivedProduct)" reason="Unknown"/>

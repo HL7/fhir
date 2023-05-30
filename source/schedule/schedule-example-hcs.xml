@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Schedule xmlns="http://hl7.org/fhir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/schedule.xsd">
+	<id value="example-hcs"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+      Burgers UMC, Posttraumatic Stress Disorder Clinic
+		</div>
+	</text>
+	<active value="true"/>
+	<serviceCategory>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/service-category"/>
+			<code value="8"/>
+			<display value="Counselling" />
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<reference>
+			<reference value="HealthcareService/example"/>
+			<display value="Burgers UMC, Posttraumatic Stress Disorder Clinic" />
+		</reference>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="47505003"/>
+			<display value="Posttraumatic stress disorder" />
+		</coding>
+	</specialty>
+	<name value="Burgers UMC, Posttraumatic Stress Disorder counselling"/>
+	<actor>
+		<reference value="Location/1" />
+		<display value="Burgers UMC, South Wing, second floor" />
+	</actor>
+	<planningHorizon>
+		<start value="2023-12-25T09:15:00Z" />
+		<end value="2023-12-25T09:30:00Z" />
+	</planningHorizon>
+</Schedule>

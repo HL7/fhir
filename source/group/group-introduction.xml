@@ -14,6 +14,8 @@
 <p>Examples of the former could include group therapy or treatment sessions, exposed entities tracked as part of public health, etc.  The latter might be used to define expected subjects for a clinical study.</p>
 
 <p>Both use cases are handled by a single resource because the data elements captured tend to be similar.</p>
+<p>NOTE: While <a href="specimen.html">Specimen</a> does not quite fit with this definition, it is being retained as part of
+Group to avoid making a breaking change to the <a href="observation.html">Observation</a> resource.</p>
 </div>
 
 <div>

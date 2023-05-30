@@ -64,7 +64,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<text value="Aerobic Respiratory Culture, Sputum"/>
 				</code>
@@ -504,7 +504,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -566,7 +566,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -628,7 +628,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -1086,7 +1086,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -1152,7 +1152,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -1230,7 +1230,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="624-7"/>
-						<display value="Bacteria Spt Resp Cul"/>
+						<display value="Bacteria Spt Resp Cult"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>

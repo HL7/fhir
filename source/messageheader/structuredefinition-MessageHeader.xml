@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1434"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="MessageHeader"/>
   <title value="Message Header"/>
   <status value="draft"/>
@@ -48,7 +48,7 @@
   </contact>
   <description value="The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle."/>
   <purpose value="Many implementations are not prepared to use REST and need a messaging based infrastructure."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -170,10 +170,6 @@
         <identity value="rim"/>
         <map value="./communicationFunction[typeCode=&quot;RCV&quot;]"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="MessageHeader.destination.endpoint[x]">
       <path value="MessageHeader.destination.endpoint[x]"/>
@@ -258,10 +254,6 @@
         <identity value="rim"/>
         <map value="Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
     </element>
     <element id="MessageHeader.sender">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -297,10 +289,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="MessageHeader.author">

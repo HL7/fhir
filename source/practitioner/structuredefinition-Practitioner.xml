@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1083"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Practitioner"/>
   <title value="Practitioner"/>
   <status value="draft"/>
@@ -48,7 +48,7 @@
   </contact>
   <description value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
   <purpose value="Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -314,6 +314,8 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because once a practitioner is marked as deceased, the record should only be used/retained for historical purposes."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>

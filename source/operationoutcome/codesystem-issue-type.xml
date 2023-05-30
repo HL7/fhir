@@ -32,7 +32,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.224"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="IssueType"/>
   <title value="Issue Type"/>
   <status value="active"/>
@@ -167,6 +167,11 @@
       <code value="conflict"/>
       <display value="Edit Version Conflict"/>
       <definition value="Content could not be accepted because of an edit conflict (i.e. version aware updates). (In a pure RESTful environment, this would be an HTTP 409 error, but this code may be used where the conflict is discovered further into the application architecture.)."/>
+    </concept>
+    <concept>
+      <code value="limited-filter"/>
+      <display value="Limited Filter Application"/>
+      <definition value="Some search filters might not have applied on all results.  Data may have been included that does not meet all of the filters listed in the `self` `Bundle.link`."/>
     </concept>
   </concept>
   <concept>
