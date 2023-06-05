@@ -191,14 +191,14 @@
       <coding>
         <system value="http://hl7.org/fhir/certainty-type"/>
         <code value="Overall"/>
-        <display value="Overall quality"/>
+        <display value="Overall certainty"/>
       </coding>
     </type>
     <rating>
       <coding>
         <system value="http://hl7.org/fhir/certainty-rating"/>
         <code value="moderate"/>
-        <display value="Moderate"/>
+        <display value="Moderate quality"/>
       </coding>
     </rating>
     <subcomponent>

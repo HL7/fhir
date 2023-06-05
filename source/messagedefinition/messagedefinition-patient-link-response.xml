@@ -41,7 +41,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America (the)"/>
+      <display value="United States of America"/>
     </coding>
   </jurisdiction>
   <purpose value="Optional response message that may provide additional information on the outcome of the patient link operation."/>

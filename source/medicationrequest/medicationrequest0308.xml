@@ -15,7 +15,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="856907"/>
-            <display value="Vicodin 5/500 Oral Tablet"/>
+            <display value="Vicodin 5/500 (hydrocodone bitartrate / APAP) Oral Tablet"/>
         </coding>
         </concept>
     </medication>

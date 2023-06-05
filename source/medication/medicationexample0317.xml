@@ -39,7 +39,7 @@
             <coding>
                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                <code value="313002"/>
-               <display value="1000 ml glucost 50mg/ml Injection"/>
+               <display value="sodium chloride 9 MG/ML Injectable Solution"/>
             </coding>
          </concept>
          </item>

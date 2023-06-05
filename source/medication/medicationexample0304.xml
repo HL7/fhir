@@ -11,7 +11,7 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="76388-713-25"/>
-      <display value="Myleran 2mg tablet, film coated"/>
+      <display value="MYLERAN, 25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)  (package)"/>
     </coding>
   </code>
   <marketingAuthorizationHolder>

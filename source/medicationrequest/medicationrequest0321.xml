@@ -8,7 +8,7 @@
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
           <code value="0169-7501-11"/>
-          <display value="Novolog 100u/ml"/>
+          <display value="NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS (package)"/>
         </coding>
       </code>
       <doseForm>
@@ -57,7 +57,7 @@
   <medication>
   <reference>
     <reference value="#med0307"/>
-    <display value="Novolog 100u/ml"/>
+    <display value="NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS (package)"/>
     </reference>
   </medication>
   <subject>

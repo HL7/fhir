@@ -149,7 +149,7 @@
       </concept>
       <concept>
         <code value="394814009"/>
-        <display value="General practice"/>
+        <display value="General practice (specialty)"/>
       </concept>
       <concept>
         <code value="394808002"/>
@@ -437,7 +437,7 @@
       </concept>
       <concept>
         <code value="394604002"/>
-        <display value="Surgery-Ear, nose and throat surgery"/>
+        <display value="Ear, nose and throat surgery"/>
       </concept>
       <concept>
         <code value="394609007"/>
@@ -449,7 +449,7 @@
       </concept>
       <concept>
         <code value="394610002"/>
-        <display value="Surgery-Neurosurgery"/>
+        <display value="Neurosurgery"/>
       </concept>
       <concept>
         <code value="394611003"/>

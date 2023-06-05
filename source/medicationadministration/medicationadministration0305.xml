@@ -1,56 +1,55 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
- xmlns="http://hl7.org/fhir"> 
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+  xmlns="http://hl7.org/fhir">
   <id value="medadmin0305"/>
   <contained>
     <Medication>
-        <id value="med0306"/>
-        <code>
-          <coding>
-            <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="51144-050-01"/>
-            <display value="Adcetris"/>
-          </coding>
-        </code>
-        <marketingAuthorizationHolder>
-          <reference value="Organization/mmanu" />
-        </marketingAuthorizationHolder>
-          <doseForm>
-            <coding>
-              <system value="http://snomed.info/sct"/>
-              <code value="421637006"/>
-              <display value="Lyophilized powder for injectable solution (qualifier value) "/>
-            </coding>
-          </doseForm>
-<batch>
+      <id value="med0306"/>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="51144-050-01"/>
+          <display value="ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)"/>
+        </coding>
+      </code>
+      <marketingAuthorizationHolder>
+        <reference value="Organization/mmanu" />
+      </marketingAuthorizationHolder>
+      <doseForm>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="421637006"/>
+          <display value="Lyophilized powder for injectable solution (qualifier value) "/>
+        </coding>
+      </doseForm>
+      <batch>
         <lotNumber value="12345"/>
         <expirationDate value="2019-10-31"/>
       </batch>
-       
-        
-      
+
+
+
     </Medication>
   </contained>
-  
+
   <status value="completed"/>
   <medication>
-  <reference>
-    <reference value="#med0306"/> 
+    <reference>
+      <reference value="#med0306"/>
     </reference>
   </medication>
- <subject>
-   <reference value="Patient/pat1"/>
-   <display value="Donald Duck"/> 
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/>
   </subject>
-  <encounter> 
+  <encounter>
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
   </encounter>
   <occurencePeriod>
-  <start value="2015-01-15T04:30:00+01:00"/>
-   <end value="2015-01-15T14:30:00+01:00"/>
-</occurencePeriod>
+    <start value="2015-01-15T04:30:00+01:00"/>
+    <end value="2015-01-15T14:30:00+01:00"/>
+  </occurencePeriod>
   <performer>
     <actor>
       <reference>
@@ -75,7 +74,7 @@
       <value value="1.8"/>
       <unit value="mg/kg"/>
       <system value="http://unitsofmeasure.org"/>
-      <code value="mg/kg"/> 
+      <code value="mg/kg"/>
     </dose>
     <rateRatio>
       <numerator>

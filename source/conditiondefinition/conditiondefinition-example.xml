@@ -78,8 +78,9 @@
       <coding>
         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
         <code value="203151"/>
-        <display value="Gemfibrozil"/>
+        <display value="fenoldopam mesylate"/>
       </coding>
+      <text value="Gemfibrozil"/>
     </code>
   </medication>
   <plan>

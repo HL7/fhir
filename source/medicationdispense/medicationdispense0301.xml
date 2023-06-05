@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0301"/>
     <contained>
         <Medication>
@@ -10,7 +9,8 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0409-6531-02"/>
-                    <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+                    <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12)  (package)"/>
+                    <!-- Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" -->
                 </coding>
             </code>
         </Medication>
@@ -19,13 +19,13 @@
     <medication>
         <!-- Linked to a RESOURCE Medication -->
         <reference>
-        <reference value="#med0301"/>
-        <display value="Vancomycin Hydrochloride"></display>
+            <reference value="#med0301"/>
+            <display value="Vancomycin Hydrochloride"></display>
         </reference>
     </medication>
     <subject>
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/> 
+        <display value="Donald Duck"/>
     </subject>
     <supportingInformation>
         <reference value="Condition/f203"></reference>
@@ -53,7 +53,7 @@
         <value value="12"/>
         <unit value="Vial"/>
         <system value="http://snomed.info.sct"/>
-        <code value="733026001"/> 
+        <code value="733026001"/>
     </quantity>
     <daysSupply>
         <value value="3"/>
@@ -67,7 +67,7 @@
     </destination>
     <receiver>
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/> 
+        <display value="Donald Duck"/>
     </receiver>
     <dosageInstruction>
         <sequence value="1"/>

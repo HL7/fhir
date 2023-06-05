@@ -32,7 +32,7 @@
 		<coding>
 			<system value="http://snomed.info/sct" />
 			<code value="394814009"/>
-			<display value="General practice" />
+			<display value="General practice (specialty)" />
 		</coding>
 	</specialty>
 	<appointmentType>
