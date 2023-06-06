@@ -1,4 +1,4 @@
-﻿<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
    <id value="med0317"/>
    
@@ -13,11 +13,12 @@
       <ingredient>
          <item>
             <concept>
-            <coding>
-               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-               <code value="8591"/>
-               <display value="Potassium Chloride"/>
-            </coding>
+               <coding>
+                  <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                  <code value="8591"/>
+                  <!-- <display value="Potassium Chloride"/> -->
+               </coding>
+               <text value="Potassium Chloride"/>
             </concept>
          </item>
          <strengthRatio>
@@ -41,6 +42,7 @@
                <code value="313002"/>
                <display value="sodium chloride 9 MG/ML Injectable Solution"/>
             </coding>
+            <text value="1000 ml glucost 50mg/ml Injection"/>
          </concept>
          </item>
          <strengthRatio>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
@@ -43,6 +43,7 @@
                             <code value="0338-0519-02"/>
                             <display value="Intralipid, 250 mL in 1 BAG (0338-0519-02)  (package)"/>
                         </coding>
+                        <text value="Intralipid 20% IV Fat Emulsion"/>
                     </concept>
                     </item>
                 </ingredient>

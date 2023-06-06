@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -12,6 +12,7 @@
                     <code value="24208-813-10"/>
                     <display value="Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING (package)"/>
                 </coding>
+                <text value="Timoptic 5mg/ml solution"/>
             </code>
         </Medication>
     </contained>
@@ -98,7 +99,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-
-

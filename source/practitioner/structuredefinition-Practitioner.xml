@@ -314,6 +314,8 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because once a practitioner is marked as deceased, the record should only be used/retained for historical purposes."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>

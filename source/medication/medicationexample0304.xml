@@ -13,6 +13,7 @@
       <code value="76388-713-25"/>
       <display value="MYLERAN, 25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)  (package)"/>
     </coding>
+    <text value="Myleran 2mg tablet, film coated"/>
   </code>
   <marketingAuthorizationHolder>
     <reference value="#mmanu" />

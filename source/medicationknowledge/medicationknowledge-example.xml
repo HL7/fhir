@@ -8,6 +8,7 @@
       <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12)  (package)"/>
       <!-- Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" -->
     </coding>
+    <text value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
   </code>
   <status value="active"/>
   <name value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>

@@ -13,6 +13,7 @@
       <code value="51144-050-01"/>
       <display value="ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)"/>
     </coding>
+    <text value="Adcetris"/>
   </code>
   <marketingAuthorizationHolder>
     <reference value="#mmanu" />
