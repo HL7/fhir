@@ -17,7 +17,7 @@
                 <ingredient>
                     <item>
                     <concept>
-                        <!-- <coding>
+                        <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="1114879"/>
                             <display value="dopamine hydrochloride 40 MG/ML"/>

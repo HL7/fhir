@@ -142,7 +142,7 @@
 		<informationSequence value="3"/>
 		<!-- type=packagemedication -->
 		<productOrService>
-			<!-- <coding>
+			<coding>
 				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 				<code value="562721"/> 
 				<display value="amylase / cellulase / hyoscyamine / lipase / phenyltoloxamine / protease Oral Capsule"/>
