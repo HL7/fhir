@@ -876,11 +876,11 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="Evidence.modelCharacteristic.condition[x]">
+		<element id="Evidence.statistic.modelCharacteristic.condition[x]">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="490,150"/>
 			</extension>
-			<path value="Evidence.modelCharacteristic.condition[x]"/>
+			<path value="Evidence.statistic.modelCharacteristic.condition[x]"/>
 			<short value="When this characteristic is used"/>
 			<min value="0"/>
 			<max value="1"/>
