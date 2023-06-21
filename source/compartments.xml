@@ -223,7 +223,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
-    <Cell><Data ss:Type="String"/></Cell>
+    <Cell>
+                    <Data ss:Type="String" /></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
    </Row>
@@ -240,7 +241,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Citation</Data></Cell>
-    <Cell ss:StyleID="s67"/>
+                <Cell ss:StyleID="s67" />
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
@@ -339,6 +340,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceAlert</Data></Cell>
+    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
     <Cell><Data ss:Type="String">subject | operator</Data></Cell>
