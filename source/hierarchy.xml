@@ -273,24 +273,25 @@ signatures.html
     </page>
 
     <page title="Administration" filename="administration-module.html" icon="administration.jpg">
-      <page type="resource" resource="Patient"/>
-      <page type="resource" resource="RelatedPerson"/>
-      <page type="resource" resource="Group"/>
-      <page type="resource" resource="Practitioner"/>
-      <page type="resource" resource="PractitionerRole"/>
+      <page type="resource" resource="Patient" />
+      <page type="resource" resource="RelatedPerson" />
+      <page type="resource" resource="Group" />
+      <page type="resource" resource="Practitioner" />
+      <page type="resource" resource="PractitionerRole" />
 
-      <page type="resource" resource="Organization"/>
-      <page type="resource" resource="Location"/>
-      <page type="resource" resource="HealthcareService"/>
-      <page type="resource" resource="Endpoint"/>
+      <page type="resource" resource="Organization" />
+      <page type="resource" resource="Location" />
+      <page type="resource" resource="HealthcareService" />
+      <page type="resource" resource="Endpoint" />
 
-      <page type="resource" resource="EpisodeOfCare"/>
-      <page type="resource" resource="Encounter"/>
-      <page type="resource" resource="EncounterHistory"/>
-      <page type="resource" resource="Account"/>
-      <page type="resource" resource="Flag"/>
+      <page type="resource" resource="EpisodeOfCare" />
+      <page type="resource" resource="Encounter" />
+      <page type="resource" resource="EncounterHistory" />
+      <page type="resource" resource="Account" />
+      <page type="resource" resource="Flag" />
 
-      <page type="resource" resource="Device"/>
+      <page type="resource" resource="Device" />
+      <page type="resource" resource="DeviceAlert" />
       <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>
@@ -311,7 +312,7 @@ signatures.html
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
-	    <!-- <page type="resource" resource="Network"/> -->
+      <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationAffiliation"/>
 	    <page type="resource" resource="VerificationResult"/>
     </page>
@@ -370,7 +371,7 @@ signatures.html
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
       <page type="resource" resource="Transport"/>
-<!--      <page type="resource" resource="Definition"/>
+      <!--      <page type="resource" resource="Definition"/>
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/> -->
       <page title="Definition Pattern" filename="definition.html"/>
