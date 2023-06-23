@@ -592,8 +592,8 @@
     </element>
     <element id="FamilyMemberHistory.condition.code">
       <path value="FamilyMemberHistory.condition.code"/>
-      <short value="Condition suffered by relation"/>
-      <definition value="The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system."/>
+      <short value="Condition, allergy, or intolerance suffered by relation"/>
+      <definition value="The actual condition, allergy, or intolerance specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system."/>
       <min value="1"/>
       <max value="1"/>
       <type>
