@@ -36,12 +36,10 @@ in order to retain attestation validity.  These rules might vary based on the ty
 documents, clinical documents, etc.).</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
-persisted in document storage and management systems, including systems such as <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE
-XDS</a>.
+persisted in document storage and management systems, including systems such as <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE XDS</a>.
 </p>
 <p>
-Applications that declare support for FHIR documents with <a href="capabilitystatement-definitions.html#CapabilityStatement.document">CapabilityStatement.document</a> 
-are asserting conformance to the rules defined on this page.
+Applications that declare support for FHIR documents with <a href="capabilitystatement-definitions.html#CapabilityStatement.document">CapabilityStatement.document</a> are asserting conformance to the rules defined on this page.
 </p>
 <p>
 FHIR documents may serve clinical purposes (focused on patient healthcare information) and 
@@ -50,11 +48,13 @@ develop profiles in the future giving additional guidance on appropriate represe
 clinical documents in general, specific types of clinical documents (e.g. Consolidated CDA), 
 and other non-clinical documents (Death Certificate, Medication Registration Information).
 </p>
-<p>FHIR documents are not intended to capture unbounded data sets such as a full EHR. Rather, consider the <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specification for such use cases. </p>
-
+<p>FHIR documents are not intended to capture unbounded data sets such as a all data stored in an EHR. Rather, 
+consider the <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specification for use cases requiring access 
+to such data sets.
+</p>
 <p>
-Note that FHIR defines both this document format and a <a href="documentreference.html">DocumentReference resource</a>.
-FHIR documents are for documents that are authored and assembled in FHIR, while the DocumentReference resource is for
+Note that FHIR defines both this document format (a document bundle containing a Composition resource and potentially other resources) and a <a href="documentreference.html">DocumentReference resource</a>.
+FHIR documents are used for documents that are authored and assembled in FHIR, while the DocumentReference resource is for
 general references to documents (which may include FHIR documents as well as PDFs, CDAs, etc.).
 </p>
 <ul>
@@ -72,12 +72,12 @@ that has a <a href="composition.html">Composition</a> resource as the first reso
 in the bundle, followed by a series of other resources, referenced from the <code>Composition</code>
 resource, that provide the supporting details for the document. The bundle gathers all the content
 of the document into a single XML or JSON document which may be signed and managed as required.
-The resources include both human readable and computer processable portions. In addition, the bundle
+The resources may include both human readable and computer processable portions. In addition, the bundle
 may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a>,
 <a href="provenance.html">Provenance</a> statements and a signature.
 </p>
 <p>
-The composition resource is the foundation of the clinical document. It:
+The composition resource is the foundation of the clinical document, it:
 </p>
 <ul>
  <li>provides identity and its purpose, and sets the context of the document</li>
@@ -104,7 +104,7 @@ for more information).
 The document bundle SHALL include only:
 </p>
 <ol>
- <li>The composition set: The Composition resource, and the resources it links to</li>
+ <li>The composition set: the single Composition resource, and the resources it links to</li>
  <li>The supporting information: Any resources that are part of the graph of resources that reference or 
   are referenced from the composition set, either directly or indirectly (e.g. recursively in a chain)</li>
  <li>Supporting Collateral: A Binary resource containing a stylesheet (as described below)</li>
@@ -113,17 +113,17 @@ The document bundle SHALL include only:
 There are two key identifiers in the document:
 </p>
 <ul>
- <li>The document identifier (mandatory). This is found in <i>Bundle.identifier</i> and is globally unique for this instance of the document, and is never re-used, including for other documents derived from the same composition</li>
- <li>The Composition identifier (optional). This is found in <i>Composition.identifier</i>, and is the same for all documents that are derived from this composition</li>
+ <li>The document identifier (mandatory) found in <i>Bundle.identifier</i>. It is globally unique for this instance of the document, and is never re-used, including for other documents derived from the same composition</li>
+ <li>The Composition identifier (optional) in <i>Composition.identifier</i>. It is the same for all documents that are derived from this composition</li>
 </ul>
 
 <p>
 The document has several dates in it:
 </p>
 <ul>
- <li>The document date (mandatory). This is found in <i>Bundle.timestamp</i> and identifies when the document bundle was assembled from the underlying resources</li>
- <li>The Composition date (mandatory). This is found in <i>Composition.date</i>, which is when the author wrote the document logically</li>
- <li>The Attestation dates (optional). This is found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li>
+ <li>The document date (mandatory) found in <i>Bundle.timestamp</i>. It identifies when the document bundle was assembled from the underlying resources</li>
+ <li>The Composition date (mandatory) found in <i>Composition.date</i>. It is when the author wrote the document logically</li>
+ <li>The Attestation dates (optional). These are found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li>
  <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition and is the last date of change of the composition. This must be &gt;= the composition date</li>
 </ul>
 <p>
@@ -133,7 +133,11 @@ The signature SHOULD be provided by a listed attester of the document and the si
 SHOULD contain a <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank">KeyInfo
 element</a> that contains a KeyName element whose value is a URI that matches the <a href="bundle-definitions.html#Bundle.entry.fullUri">fullUri</a> for the matching attester resource.
 </p>
-<p>Note that the document may be represented in either XML or JSON and interconverted between these or have its character encoding changed, all the while remaining the same document.  Any additional documents derived from the same Composition SHALL have a different Bundle.identifier.</p>
+<p>
+Note that the document may be represented in either XML or JSON and interconverted between these 
+or have its character encoding changed, all the while remaining the same document.  Any additional documents 
+derived from the same Composition SHALL have a different Bundle.identifier.
+</p>
 
 <a name="presentation"></a>
 <h3>Document Presentation</h3>
@@ -147,21 +151,24 @@ collated narrative portions in order:
  <li>The <a href="composition-definitions.html#Composition.section.text">section.text</a> Narratives</li>
 </ol>
 <p>
-The presentation of the document is called the 'attested content' of the document. Additional resources 
-included in the document that are not part of the presentation of the document are not considered attested 
-content (e.g. a <a href="condition.html">Condition</a> resource). Specifically, 
-the <code>Composition.attester</code> attests to the presented form of the document.
+  If the document is presented in a different order from that given above,
+  it might not represent the original attested content. Implementation Guides may
+  restrict document narrative and display behavior further.
 </p>
 <p>
-The Composition resource narrative should summarize the important parts of the document header that are required
-to establish clinical context for the document (other than the subject, which is displayed in its own
-right). To actually build the combined narrative, simply append all the narrative &lt;div&gt; fragments
-together. <!-- todo: title -->
+  The presentation of the document is called the 'attested content' of the document. The text of resources 
+  outside Composition and the subject resource are not considered attested content (e.g. a <a href="condition.html">Condition</a> resource). 
+  Specifically, the <code>Composition.attester</code> attests to the presented form of the document.
 </p>
 <p>
-If the document is presented in a different order from that given above,
-it might not represent the original attested content. Implementation Guides may
-restrict document narrative and display behavior further.
+ The Composition resource narrative should summarize the important parts of the document header that are required
+ to establish clinical context for the document (other than the subject, which is displayed in its own
+ right). To actually build the combined narrative, simply append all the narrative &lt;div&gt; fragments
+ together. <!-- todo: title -->
+</p>
+<p>
+The narrative of the subject resource (typically a Patient), referenced in 'Composition.subject' should clearly identify the 
+subject and typically includes fields like name, identifier, etc. 
 </p>
 <p>
 The <a href="downloads.html#refimpl">XML Tools reference implementation</a> includes a
@@ -201,8 +208,8 @@ that it changes the clinical meaning of the content.
 <p>
 Unless otherwise agreed in local trading partner agreements, applications
 displaying the collated narrative SHOULD use the stylesheets specified by the
-document (see <a href="security.html#stylesheet">security note</a>). Parties entering into a trading agreement to do otherwise should
-consider the implications this action will have on their long-term scope for document
+document (see <a href="security.html#stylesheet">security note</a>). Parties entering into a trading agreement 
+to do otherwise should consider the implications this action will have on their long-term scope for document
 exchange very carefully. If the parties agree to use stylesheets that are
 not contained in the document, then it may be that they will never be able
 to share their documents safely in a more general context, such as a regional
@@ -223,8 +230,7 @@ purpose. Document profiles may make rules about:
  <li>Which resources are to be included in the bundle along with the resources that are directly referenced in the Document resource</li>
 </ul>
 <p>
-Applications should consider publishing <a href="capabilitystatement.html">Capability Statements</a> that identify document types they support. Documents can
-identify a profile that they conform to by placing a profile identifier in the <code>Bundle.meta.profile</code>
+Applications should consider publishing <a href="capabilitystatement.html">Capability Statements</a> that identify document types they support. Documents can identify a profile that they conform to by placing a profile identifier in the <code>Bundle.meta.profile</code>
 element - see <a href="resource.html#meta">Profile Tags</a> for a discussion of the utility
 of this.
 </p>
