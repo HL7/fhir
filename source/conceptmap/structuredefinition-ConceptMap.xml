@@ -1014,7 +1014,7 @@
 			</extension>
       <path value="ConceptMap.group.element.target.property.value[x]"/>
       <short value="Value of the property for this concept"/>
-      <definition value="The value of this property. If the type chosen for this element is 'code', then the property SHALL be defined in a ConceptMap.property element."/>
+      <definition value="The value of this property. If the type chosen for this element is 'code', then the property SHALL be defined in a ConceptMap.property element and that ConceptMap.property element SHALL have a system element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1078,8 +1078,7 @@
     <element id="ConceptMap.group.element.target.dependsOn.value[x]">
       <path value="ConceptMap.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced data element"/>
-      <definition value="Data element value that the map depends on / produces."/>
-      <comment value="If the data type is a code, then the code system is .group.source for .dependsOn.valueCode and .group.target for .product.valueCode."/>
+      <definition value="Data element value that the map depends on / produces. If the data type is a code, that code SHALL come from the .group.source code system for .dependsOn.valueCode or from the .group.target code system for .product.valueCode."/>
       <min value="0"/>
       <max value="1"/>
       <type>

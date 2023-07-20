@@ -278,5 +278,26 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
+	<element id="Flag.supportingInfo">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#37795"/>
+      </extension>
+      <path value="Flag.supportingInfo"/>
+      <short value="Extra information to use in context of the flag"/>
+      <definition value="Additional information that may be relevant to the flag, such as why the flag was created or how to guide management of the flag."/>
+      <comment value="For example, when the flag represents an alert on difficulty in intubation, supportingInfo could reference details about previous incidents of intubation problems encountered.  When the flag represents an alert on swallow or speech difficulty, supportingInfo could reference specific details about stroke or laryngeal carcinoma undergoing radiation therapy as primary or adjuvant therapy to surgery, or damage to recurrent laryngeal nerve from thyroid surgery or tumor.  Flag.supportingInfo replaced the extension [[[http://hl7.org/fhir/StructureDefinition/flag-detail]]] in R6.  In previous versions, using this extension is correct, not the R6 version extension."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+      </type>
+      <isSummary value="false"/>
+      
+    </element>
   </differential>
 </StructureDefinition>

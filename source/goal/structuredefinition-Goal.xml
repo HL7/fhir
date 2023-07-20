@@ -256,7 +256,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-description"/>
       </binding>
       <mapping>
         <identity value="w5"/>

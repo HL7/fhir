@@ -350,6 +350,7 @@
       <path value="CarePlan.description"/>
       <short value="Summary of nature of plan"/>
       <definition value="A description of the scope and nature of the plan."/>
+	  <comment value="CarePlan.description is not intended to convey the entire care plan.  It is possible to convey the entire care plan narrative using CarePlan.text instead."/>
       <requirements value="Provides more detail than conveyed by category."/>
       <min value="0"/>
       <max value="1"/>
