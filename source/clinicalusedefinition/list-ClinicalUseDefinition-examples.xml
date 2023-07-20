@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Contraindication example of ClinicalUseDefinition"/>
+      <valueString value="Contraindication example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="clinicalusedefinition-example"/>
@@ -18,7 +18,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Alternate contraindication example of ClinicalUseDefinition"/>
+      <valueString value="Contraindication example 2"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="clinicalusedefinition-contraindication-example"/>
@@ -30,7 +30,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Indication example of ClinicalUseDefinition"/>
+      <valueString value="Indication example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="clinicalusedefinition-indication-example"/>
@@ -42,7 +42,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Undesirable effect example of ClinicalUseDefinition"/>
+      <valueString value="Undesirable effect example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="clinicalusedefinition-undesirable-example"/>
@@ -54,7 +54,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Interaction effect example of ClinicalUseDefinition"/>
+      <valueString value="Interaction effect example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="clinicalusedefinition-interaction-example"/>
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Warning example of ClinicalUseDefinition"/>
+      <valueString value="Warning example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="clinicalusedefinition-warning-example"/>
