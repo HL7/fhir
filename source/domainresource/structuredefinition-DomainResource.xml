@@ -22,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1088"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="DomainResource"/>
   <title value="Domain Resource"/>
   <status value="active"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="A resource that includes narrative, extensions, and contained resources."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

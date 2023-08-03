@@ -7,7 +7,7 @@
     <valueCode value="fm"/>
   </extension>
   <url value="http://hl7.org/fhir/claim-decision-reason"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ClaimAdjudicationDecisionReasonCodes"/>
   <title value="Claim Adjudication Decision Reason Codes"/>
   <status value="draft"/>

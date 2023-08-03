@@ -10,7 +10,7 @@
                 <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="1049623"/>
-                    <display value="Oxycodone Hydrochloride 5mg oral tablet (Roxicodone"/>
+                    <display value="oxycodone hydrochloride 5 MG Oral Tablet [Roxicodone]"/>
                 </coding>
             </code>
         </Medication>
@@ -114,5 +114,3 @@
     
 
 </MedicationDispense>
-
-

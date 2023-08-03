@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
@@ -17,11 +17,12 @@
                 <ingredient>
                     <item>
                         <concept>
-                        <coding>
-                            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-                            <code value="204520"/>
-                            <display value="Potassium Chloride"/>
-                        </coding>
+                            <coding>
+                                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                                <code value="204520"/>
+                                <!-- <display value="Potassium Chloride"/> -->
+                            </coding>
+                            <text value="Potassium Chloride"/>
                         </concept>
                     </item>
                     <strengthRatio>
@@ -43,7 +44,7 @@
                         <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="313002"/>
-                            <display value="Sodium Chloride 0.9% injectable solution"/>
+                            <display value="sodium chloride 0.9 % Injectable Solution"/>
                         </coding>
                     </concept>
                     </item>

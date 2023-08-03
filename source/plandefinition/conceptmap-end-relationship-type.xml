@@ -15,7 +15,7 @@
     <valueInteger value="3"/>
   </extension>
   <url value="http://hl7.org/fhir/ConceptMap/end-relationship-type"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="EndRelationshipType"/>
   <title value="End Relationship Type"/>
   <status value="draft"/>

@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1370"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ActorDefinition"/>
 	<title value="Actor Definition"/>
 	<status value="active"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="The ActorDefinition resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>

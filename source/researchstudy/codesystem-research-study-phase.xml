@@ -15,7 +15,7 @@
 		<valueInteger value="0"/>
 	</extension>
 	<url value="http://hl7.org/fhir/research-study-phase"/>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ResearchStudyPhase"/>
 	<title value="ResearchStudy Phase Code System"/>
 	<status value="draft"/>

@@ -8,4 +8,29 @@
     </ul>
 	</div>
 
+<div>
+    <a name="locs"></a>
+    <h3>Single or Multiple Locations</h3>
+    <p>
+        When deciding to whether to use multiple locations on a single HealthcareService, or create multiple HealthcareService resources for each location on each you should consider:
+    </p>
+    <ul>
+        <li>are availability hours different? (hours of operation on location - and why they can be different) - e.g. some services are only available for restricted hours</li>
+        <li>are contact details different? (special contact number for service, not a location based number)</li>
+        <li>are endpoint details different?</li>
+        <li>are there different characteristics at different locations? (e.g. wheelchair accessible)</li>
+        <li>are the coverageAreas the different?</li>
+        <li>how is all this data managed - and does it cause resources to need to be split/merged when things change (and what impact does that have downstream - i.e. replicated directories)</li>
+    </ul>
+    <p>
+        Any/all of these factors could require constraining the use down to a single location on the resource and create separate HealthcareService resources covering the details of the referenced Location.
+    </p>
+    <p>
+        In a case where all this data is the same across all locations, then a single HealthcareService resource instance can be used with all the locations listed on it. 
+    </p>
+    <p>
+        Note that if the contact/availability/endpoint details of the HealthcareService are the same as the Location, then these may be omitted from the HealthcareService and use the Location (thus reducing administrative burden)
+    </p>
+</div>
+
 </div>

@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1076"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="PlanDefinition"/>
 	<title value="Plan Definition"/>
 	<status value="draft"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>

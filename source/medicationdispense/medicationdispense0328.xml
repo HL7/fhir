@@ -9,7 +9,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="1797870"/>
-            <display value="Nasonex 0.05mg/ACTUAT Nasal Inhaler"/>
+            <display value="Nasonex 0.05 MG/ACTUAT Metered Dose Nasal Spray"/>
         </coding>
         </concept>
     </medication>
@@ -75,6 +75,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

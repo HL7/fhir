@@ -9,7 +9,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/bodystructure-bodylandmarkorientation-clockface-position"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="BodystructureBodyLandmarkClockFacePosition"/>
   <title value="Bodystructure  Body Landmark  Clock  Face  Position"/>
   <status value="draft"/>

@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1283"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Procedure"/>
   <title value="Procedure"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -405,7 +405,7 @@
     </element>
     <element id="Procedure.focus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32504, J#33394"/>
+        <valueString value="J#32504, J#33394, J#41268"/>
       </extension>
       <path value="Procedure.focus"/>
       <short value="Who is the target of the procedure when it is not the subject of record only"/>
@@ -423,6 +423,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
+	  <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it changes who is the target of the procedure."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -623,7 +625,7 @@
     </element>
     <element id="Procedure.performer.function">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14446."/>
+        <valueString value="GF#14446, J#32815."/>
       </extension>
       <path value="Procedure.performer.function"/>
       <short value="Type of performance"/>
@@ -641,7 +643,7 @@
         </extension>
         <strength value="example"/>
         <description value="A code that identifies the role of a performer of the procedure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

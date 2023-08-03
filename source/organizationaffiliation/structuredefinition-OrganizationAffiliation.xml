@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1452"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="OrganizationAffiliation"/>
   <title value="Organization Affiliation"/>
   <status value="draft"/>
@@ -48,7 +48,7 @@
   </contact>
   <description value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship."/>
   <purpose value="Need to define relationships between organizations that are not sub-divisions of the same organization (part-of relationships)."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

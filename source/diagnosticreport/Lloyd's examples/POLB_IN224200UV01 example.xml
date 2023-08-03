@@ -5,7 +5,7 @@
     <item nullFlavor="UNC" extension="5234342" scope="OBJ" displayable="false" reliability="ISS"/>
   </id>
   <code code="58410-2" codeSystem="http://loinc.org">
-    <displayName value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+    <displayName value="CBC panel - Blood by Automated count"/>
     <translation code="CBC" codeSystem="http://www.nata.asn.au/accreditation">
       <displayName value="MASTER FULL BLOOD COUNT"/>
     </translation>

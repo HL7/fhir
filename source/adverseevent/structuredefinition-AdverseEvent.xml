@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1444"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="AdverseEvent"/>
   <title value="Adverse Event"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research participant. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management.  Adverse events can be reported by healthcare providers, patients, caregivers or by medical products manufacturers.  Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -232,7 +232,7 @@
     </element>
     <element id="AdverseEvent.subject">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#13890, GF#13893."/>
+        <valueString value="GF#13890, GF#13893, J#40657"/>
       </extension>
       <path value="AdverseEvent.subject"/>
       <short value="Subject impacted by event"/>
@@ -248,7 +248,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -284,14 +283,13 @@
         <map value="FiveWs.context"/>
       </mapping>
     </element>
-    <element id="AdverseEvent.occurrence[x]">
+    <element id="AdverseEvent.cause[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#24681."/>
+        <valueString value="GF#24681, J#37718"/>
       </extension>
-      <path value="AdverseEvent.occurrence[x]"/>
-      <short value="When the event occurred"/>
-      <definition value="The date (and perhaps time) when the adverse event occurred."/>
-      <alias value="timing"/>
+      <path value="AdverseEvent.cause[x]"/>
+      <short value="When the cause of the AdverseEvent occurred"/>
+      <definition value="The date (and perhaps time) when the cause of the AdverseEvent occurred."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -300,8 +298,30 @@
       <type>
         <code value="Period"/>
       </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+	<element id="AdverseEvent.effect[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#24681, J#37718"/>
+      </extension>
+      <path value="AdverseEvent.effect[x]"/>
+      <short value="When the effect of the AdverseEvent occurred"/>
+      <definition value="The date (and perhaps time) when the effect of the AdverseEvent occurred."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Timing"/>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -436,7 +456,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -446,11 +465,12 @@
     </element>
     <element id="AdverseEvent.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#18853."/>
+        <valueString value="GF#18853, J#38823"/>
       </extension>
       <path value="AdverseEvent.participant"/>
       <short value="Who was involved in the adverse event or the potential adverse event and what they did"/>
       <definition value="Indicates who or what participated in the adverse event and how they were involved."/>
+	  <comment value="The participant should not be used when there is another element to capture the participation, such as subject or recorder."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -490,12 +510,12 @@
     </element>
     <element id="AdverseEvent.participant.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#13894, GF#18853."/>
+        <valueString value="GF#13894, GF#18853, J#38823"/>
       </extension>
       <path value="AdverseEvent.participant.actor"/>
       <short value="Who was involved in the adverse event or the potential adverse event"/>
       <definition value="Indicates who or what participated in the event."/>
-      <comment value="For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history."/>
+      <comment value="For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history. The subject can be a participant if the subject was involved in the adverse event in another capacity beyond just being the subject, such as when the subject is a contributor or informant."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -507,7 +527,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -646,7 +665,7 @@
     </element>
     <element id="AdverseEvent.suspectEntity.causality.author">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20593."/>
+        <valueString value="GF#20593, J#38823"/>
       </extension>
       <path value="AdverseEvent.suspectEntity.causality.author"/>
       <short value="Author of the information on the possible cause of the event"/>
@@ -659,7 +678,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
     </element>

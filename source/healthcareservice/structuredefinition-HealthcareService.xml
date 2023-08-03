@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1302"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="HealthcareService"/>
   <title value="Healthcare Service"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -&gt; Pathology -&gt; Wound Cultures), this can be represented using a set of linked HealthcareServices."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -550,7 +550,7 @@
       <definition value="A collection of times that the healthcare service is available."/>
       <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays)."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Availability"/>
       </type>

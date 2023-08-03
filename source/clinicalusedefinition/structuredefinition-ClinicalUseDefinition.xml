@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1120"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ClinicalUseDefinition"/>
   <title value="Clinical Use Definition"/>
   <status value="draft"/>
@@ -46,8 +46,8 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure."/>
-  <fhirVersion value="5.0.0"/>
+  <description value="A single issue - either an indication, contraindication, interaction, undesirable effect or warning for a medicinal product, medication, device or procedure."/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -174,8 +174,8 @@
     </element>
     <element id="ClinicalUseDefinition.subject">
       <path value="ClinicalUseDefinition.subject"/>
-      <short value="The medication, product, substance, device, procedure etc. for which this is an indication"/>
-      <definition value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
+      <short value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning"/>
+      <definition value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning."/>
       <min value="0"/>
       <max value="*"/>
       <type>

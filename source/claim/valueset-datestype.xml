@@ -9,7 +9,7 @@
     <valueCode value="fm"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/datestype"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="DatesTypeCodes"/>
   <title value="Dates Type Codes"/>
   <status value="draft"/>

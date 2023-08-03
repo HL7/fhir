@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.995"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Organization"/>
   <title value="Organization"/>
   <status value="draft"/>
@@ -46,8 +46,8 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
-  <fhirVersion value="5.0.0"/>
+  <description value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action."/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -82,7 +82,7 @@
     <element id="Organization">
       <path value="Organization"/>
       <short value="A grouping of people or organizations with a common purpose"/>
-      <definition value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
+      <definition value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>

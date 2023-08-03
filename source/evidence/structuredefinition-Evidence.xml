@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1074"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="Evidence"/>
 	<title value="Evidence"/>
 	<status value="draft"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="w5"/>
 		<uri value="http://hl7.org/fhir/fivews"/>
@@ -876,6 +876,21 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
+		<element id="Evidence.statistic.modelCharacteristic.condition[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,150"/>
+			</extension>
+			<path value="Evidence.statistic.modelCharacteristic.condition[x]"/>
+			<short value="When this characteristic is used"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
 		<element id="Evidence.statistic.modelCharacteristic.code">
 			<path value="Evidence.statistic.modelCharacteristic.code"/>
 			<short value="Model specification"/>
@@ -893,15 +908,39 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-model-code"/>
 			</binding>
 		</element>
-		<element id="Evidence.statistic.modelCharacteristic.value">
-			<path value="Evidence.statistic.modelCharacteristic.value"/>
-			<short value="Numerical value to complete model specification"/>
-			<definition value="Further specification of the quantified value of the component of the method to generate the statistic."/>
+		<element id="Evidence.statistic.modelCharacteristic.value[x]">
+			<path value="Evidence.statistic.modelCharacteristic.value[x]"/>
+			<short value="The specific value (when paired with code)"/>
+			<definition value="Further specification of the value of the component of the method to generate the statistic."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="Quantity"/>
 				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.intended">
+			<path value="Evidence.statistic.modelCharacteristic.intended"/>
+			<short value="The plan for analysis"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.applied">
+			<path value="Evidence.statistic.modelCharacteristic.applied"/>
+			<short value="The analysis that was applied"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
 			</type>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable">
@@ -974,6 +1013,17 @@
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#Evidence.statistic.attributeEstimate"/>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.modelCharacteristic">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="AttributeEstimateAttributeEstimate"/>
+			</extension>
+			<path value="Evidence.statistic.modelCharacteristic.modelCharacteristic"/>
+			<short value="Model component"/>
+			<comment value="A nested model characteristic"/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#Evidence.statistic.modelCharacteristic"/>
 		</element>
 		<element id="Evidence.certainty">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">

@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1121"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="EpisodeOfCare"/>
   <title value="Episode Of Care"/>
   <status value="draft"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -451,7 +451,7 @@
       <path value="EpisodeOfCare.account"/>
       <short value="The set of accounts that may be used for billing for this EpisodeOfCare"/>
       <definition value="The set of accounts that may be used for billing for this EpisodeOfCare."/>
-      <comment value="The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules."/>
+      <comment value="The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules.&#xd;&#xd;Also note that the EpisodeOfCare.account properties are meant to represent long-running or perpetual accounts.  For short-lived, episodic accounts, see Account.covers."/>
       <min value="0"/>
       <max value="*"/>
       <type>

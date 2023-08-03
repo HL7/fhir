@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1326"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ConditionDefinition"/>
 	<title value="Condition Definition"/>
 	<status value="draft"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="A definition of a condition and information relevant to managing it."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="w5"/>
 		<uri value="http://hl7.org/fhir/fivews"/>
@@ -491,44 +491,9 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="BackboneElement"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
 			</type>
-		</element>
-		<element id="ConditionDefinition.observation.category">
-			<path value="ConditionDefinition.observation.category"/>
-			<short value="Category that is relevant"/>
-			<definition value="Category that is relevant."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ObservationCategory"/>
-				</extension>
-				<strength value="preferred"/>
-				<description value="Codes for high level observation categories."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/observation-category"/>
-			</binding>
-		</element>
-		<element id="ConditionDefinition.observation.code">
-			<path value="ConditionDefinition.observation.code"/>
-			<short value="Code for relevant Observation"/>
-			<definition value="Code for relevant Observation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ObservationCode"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Codes identifying names of simple observations."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
-			</binding>
 		</element>
 		<element id="ConditionDefinition.medication">
 			<path value="ConditionDefinition.medication"/>

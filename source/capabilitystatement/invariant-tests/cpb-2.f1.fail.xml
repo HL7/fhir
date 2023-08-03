@@ -38,7 +38,7 @@
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="instance"/>
   <instantiates value="http://ihe.org/fhir/CapabilityStatement/pixm-client"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <format value="xml"/>
   <format value="json"/>
   <patchFormat value="application/xml-patch+xml"/>

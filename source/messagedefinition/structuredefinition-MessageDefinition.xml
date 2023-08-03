@@ -30,7 +30,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1117"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="MessageDefinition"/>
 	<title value="Message Definition"/>
 	<status value="draft"/>
@@ -50,7 +50,7 @@
 	</contact>
 	<description value="Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted."/>
 	<purpose value="Allows messages to be defined once and re-used across systems."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="v2"/>
 		<uri value="http://hl7.org/v2"/>

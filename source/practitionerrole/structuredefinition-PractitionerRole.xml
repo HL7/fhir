@@ -28,7 +28,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1443"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="PractitionerRole"/>
   <title value="Practitioner Role"/>
   <status value="draft"/>
@@ -48,7 +48,7 @@
   </contact>
   <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time."/>
   <purpose value="Need to track services that a healthcare provider is able to provide at an organization's location, and the services that they can perform there."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -429,7 +429,7 @@
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
       <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Availability"/>
       </type>

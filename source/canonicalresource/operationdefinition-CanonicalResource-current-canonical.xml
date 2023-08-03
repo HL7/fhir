@@ -37,7 +37,7 @@
     <valueMarkdown value="If none of the instances define the versionAlgorithm to use, a server may  dynamically attempt to determine which versioning system is implied by the data.&#xD;&#xD;If the instances found with the provided canonical URL define different versionAlgorithm values the server may return an error.&#xD;&#xD;Note that the *CanonicalResource* is an interface and not an actual resource type, as such the operation is actually called on the canonical resource types such as CodeSystem, Questionnaire etc."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CanonicalResource-current-canonical"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Currentcanonical"/>
   <title value="Fetch the current version of a canonical resource (based on canonical versioning)"/>
   <status value="draft"/>
