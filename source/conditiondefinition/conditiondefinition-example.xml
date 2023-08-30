@@ -23,6 +23,12 @@
   <hasBodySite value="false"/>
   <hasStage value="false"/>
   <definition value="https://med.stanford.edu/content/dam/sm/cerc/documents/Hyperlipidemia%20Management%20Protocol.pdf"/>
+  <observation value="http://example.org/fhir/ObservationDefinition/lipid-panel"/>
+  <observation value="http://example.org/fhir/ObservationDefinition/cholesterol"/>
+  <observation value="http://example.org/fhir/ObservationDefinition/triglyceride"/>
+  <observation value="http://example.org/fhir/ObservationDefinition/cholesterol-hdl"/>
+  <observation value="http://example.org/fhir/ObservationDefinition/cholesterol-ldl"/>
+<!--
   <observation>
     <code>
       <coding>
@@ -73,6 +79,7 @@
       <text value="LDL Chol. (Calc)"/>
     </code>
   </observation>
+-->
   <medication>
     <code>
       <!-- <coding>

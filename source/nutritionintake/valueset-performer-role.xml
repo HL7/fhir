@@ -1,57 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-action"/>
+  <id value="performer-role"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-action"/>
+  <url value="http://hl7.org/fhir/ValueSet/performer-role"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.425"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.433"/>
   </identifier>
   <identifier>
     <use value="old"/>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.416"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.424"/>
   </identifier>
   <identifier>
     <use value="old"/>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.2.236"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.420"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="ProcedureDeviceActionCodes"/>
-  <title value="Procedure Device Action Codes"/>
+  <name value="ProcedurePerformerRoleCodes"/>
+  <title value="Procedure Performer Role Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="HL7 International - Patient Care WG"/>
+  <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+      <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Example codes indicating the change that happened to the device during the procedure.  Note that these are in no way complete and might not even be appropriate for some uses."/>
+  <description value="This example value set defines the set of codes that can be used to indicate a role of a procedure performer."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept>
-        <code value="129336009"/>
-      </concept>
-      <concept>
-        <code value="278312000"/>
-      </concept>
-      <concept>
-        <code value="282089006"/>
-      </concept>
-      <concept>
-        <code value="129303008"/>
-      </concept>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="223366009"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>
