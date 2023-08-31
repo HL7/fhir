@@ -13,7 +13,7 @@
             <coding>
                 <system value="http://hl7.org/fhir/sid/ndc"/>
                 <code value="0378-1800-10"/>
-                <display value="Levothyroxine Sodium, 1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)  (package)"/>
+                <display value="Levothyroxine Sodium, 1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10) (package)"/>
             </coding>
             <text value="Levothyroxine Sodium Tablets, USP (75mcg)"/>
         </concept>

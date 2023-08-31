@@ -9,7 +9,7 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0206-8862-02"/>
-                    <display value="Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02)  > 100 mL in 1 BAG (0206-8862-01)  (package)"/>
+                    <display value="Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02) > 100 mL in 1 BAG (0206-8862-01) (package)"/>
                     <!-- Zosyn (piperacillin/tazobactam) 4.5gm injection -->
                 </coding>
                 <text value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>

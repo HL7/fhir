@@ -10,7 +10,7 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="33261-141-20"/>
-                    <display value="PROCHLORPERAZINE MALEATE, 20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)  (package)"/>
+                    <display value="PROCHLORPERAZINE MALEATE, 20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20) (package)"/>
                 </coding>
                 <text value="Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)"/>
             </code>

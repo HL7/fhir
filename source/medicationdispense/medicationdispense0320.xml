@@ -19,7 +19,7 @@
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0338-1134-03"/>
-                            <display value="CLINIMIX, 1000 mL in 1 BAG (0338-1134-03)  (package)"/> <!--Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"-->
+                            <display value="CLINIMIX, 1000 mL in 1 BAG (0338-1134-03) (package)"/> <!--Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"-->
                         </coding>
                             <text value="Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"/>
                         </concept>
@@ -31,7 +31,7 @@
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0409-5779-01"/>
-                            <display value="TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01)  > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11)  (package)"/>
+                            <display value="TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01) > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11) (package)"/>
                         </coding>
                             <text value="TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL"/>
                         </concept>
@@ -43,7 +43,7 @@
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0338-0519-02"/>
-                            <display value="Intralipid, 250 mL in 1 BAG (0338-0519-02)  (package)"/>
+                            <display value="Intralipid, 250 mL in 1 BAG (0338-0519-02) (package)"/>
                         </coding>
                             <text value="Intralipid 20% IV Fat Emulsion"/>
                         </concept>

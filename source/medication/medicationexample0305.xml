@@ -11,7 +11,7 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="24208-813-10"/>
-      <display value="Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING (package)"/>
+      <display value="Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10) > 10 mL in 1 BOTTLE, DISPENSING (package)"/>
     </coding>
     <text value="Timoptic 5mg/ml solution"/>
   </code>

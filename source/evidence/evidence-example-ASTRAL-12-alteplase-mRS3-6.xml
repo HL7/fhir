@@ -72,7 +72,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/directness"/>
         <code value="high"/>
-        <display value="High quality match"/>
+        <display value="High quality match between observed and intended variable"/>
       </coding>
     </directnessMatch>
   </variableDefinition>
@@ -98,7 +98,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/directness"/>
         <code value="exact"/>
-        <display value="Exact match"/>
+        <display value="Exact match between observed and intended variable"/>
       </coding>
     </directnessMatch>
   </variableDefinition>

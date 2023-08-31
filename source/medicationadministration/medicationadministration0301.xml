@@ -9,7 +9,7 @@
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
           <code value="0409-6531-02"/>
-          <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12)  (package)"/>
+          <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02) > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12) (package)' (for the language(s)"/>
           <!-- Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" -->
         </coding>
         <text value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>

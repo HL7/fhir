@@ -52,7 +52,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/directness"/>
         <code value="moderate"/>
-        <display value="Moderate quality match"/>
+        <display value="Moderate quality match between observed and intended variable"/>
       </coding>
     </directnessMatch>
   </variableDefinition>

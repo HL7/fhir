@@ -11,7 +11,7 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="0169-7501-11"/>
-      <display value="NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS (package)"/>
+      <display value="NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11) > 10 mL in 1 VIAL, GLASS (package)"/>
     </coding>
     <text value="Novolog 100u/ml"/>
   </code> 
