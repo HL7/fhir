@@ -173,6 +173,9 @@
     </coding> 
     <text value="Blood Dispatch"/> 
  </type>
+  <stage>
+    <code value="dispatch"/>
+  </stage>
  <suppliedItem>
   <quantity> 
       <value value="3"/>
