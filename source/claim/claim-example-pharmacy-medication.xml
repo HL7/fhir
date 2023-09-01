@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
 	<id value="760151"/>
 
@@ -142,12 +142,12 @@
 		<informationSequence value="3"/>
 		<!-- type=packagemedication -->
 		<productOrService>
-			<!-- <coding>
+		  <coding>
 				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 				<code value="562721"/> 
-				<display value="Alprazolam 0.25mg (Xanax)"/>
-			</coding>  -->
-			<text value="Alprazolam 0.25mg (Xanax)"/>
+				<display value="amylase / cellulase / hyoscyamine / lipase / phenyltoloxamine / protease Oral Capsule"/>
+				<!-- <display value="Alprazolam 0.25mg (Xanax)"/> -->
+			</coding> 
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<quantity>

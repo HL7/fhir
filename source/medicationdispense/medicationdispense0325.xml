@@ -6,12 +6,11 @@
     <status value="in-progress"/>
     <medication>
         <concept>
-            <coding>
-                <system value="http://hl7.org/fhir/sid/ndc"/>
-                <code value="0406-9025-76"/>
-                <!-- <display value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/> -->
-            </coding>
-            <text value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/>
+        <coding>
+            <system value="http://hl7.org/fhir/sid/ndc"/>
+            <code value="0406-9025-76"/>
+            <display value="FENTANYL TRANSDERMAL, 5 POUCH in 1 CARTON (0406-9025-76) > 1 PATCH in 1 POUCH > 72 h in 1 PATCH (package)"/>
+        </coding>
         </concept>
     </medication>
     <subject>
