@@ -249,12 +249,13 @@
     <element id="SupplyDelivery.stage">
       <path value="SupplyDelivery.stage"/>
       <short value="Stage of delivery"/>
-      <definition value="Indicates the stage of the delivery. Optional if the stage of delivery is implicit in the usage or doesn't need differentiation"/>
+      <definition value="Indicates the stage of the delivery. Optional if the stage of delivery is implicit in the usage or doesn't need differentiation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Coding"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliveryStage"/>
