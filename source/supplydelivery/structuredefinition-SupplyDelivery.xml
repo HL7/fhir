@@ -245,6 +245,26 @@
         <map value=".code"/>
       </mapping>
     </element>
+
+    <element id="SupplyDelivery.stage">
+      <path value="SupplyDelivery.stage"/>
+      <short value="Stage of delivery"/>
+      <definition value="Indicates the stage of the delivery. Optional if the stage of delivery is implicit in the usage or doesn't need differentiation"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplyDeliveryStage"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The stage of supply delivery."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-stage"/>
+      </binding>
+    </element>
+
     <element id="SupplyDelivery.suppliedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,50"/>
