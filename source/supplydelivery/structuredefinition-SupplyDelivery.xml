@@ -250,7 +250,7 @@
       <path value="SupplyDelivery.stage"/>
       <short value="Stage of delivery"/>
       <definition value="Indicates the stage of the delivery. Optional if the stage of delivery is implicit in the usage or doesn't need differentiation"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Coding"/>
@@ -285,7 +285,7 @@
     <element id="SupplyDelivery.suppliedItem.quantity">
       <path value="SupplyDelivery.suppliedItem.quantity"/>
       <short value="Amount supplied"/>
-      <definition value="The amount of the item that has been supplied.  Unit of measure may be included."/>
+      <definition value="The amount of the item that has been supplied. Unit of measure may be included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -296,6 +296,16 @@
         <identity value="rim"/>
         <map value=".quantity"/>
       </mapping>
+    </element>
+    <element id="SupplyDelivery.suppliedItem.condition">
+      <path value="SupplyDelivery.suppliedItem.condition"/>
+      <short value="Amount supplied"/>
+      <definition value="The condition in which the item was at the event (shipment, or receipt, etc.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="SupplyDelivery.suppliedItem.item[x]">
       <path value="SupplyDelivery.suppliedItem.item[x]"/>
@@ -389,12 +399,15 @@
       </extension>
       <path value="SupplyDelivery.destination"/>
       <short value="Where the delivery was sent"/>
-      <definition value="Identification of the facility/location where the delivery was shipped to."/>
+      <definition value="Identification of the facility, location or person where the delivery is shipped to."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="rim"/>
