@@ -248,8 +248,8 @@
 
     <element id="SupplyDelivery.stage">
       <path value="SupplyDelivery.stage"/>
-      <short value="Stage of delivery"/>
-      <definition value="Indicates the stage of the delivery. Optional if the stage of delivery is implicit in the usage or doesn't need differentiation."/>
+      <short value="Stage or event of delivery"/>
+      <definition value="Indicates the stage of the delivery. In case the delivery is tracked only at the specific events (e.g. receipt), this resource represents the stage represented, not the entire history nor previous delivery stages."/>
       <min value="1"/>
       <max value="1"/>
       <type>
