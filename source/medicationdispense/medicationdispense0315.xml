@@ -1,18 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0315"/>
     <contained>
         <Medication>
             <id value="med0314"/>
             <code>
-                <!-- <coding>
+                <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="562721"/>
-                    <display value="Alprazolam 0.25mg (Xanax)"/>
-                </coding> -->
-                <text value="Alprazolam 0.25mg (Xanax)"/>
+  				    <display value="amylase / cellulase / hyoscyamine / lipase / phenyltoloxamine / protease Oral Capsule"/>
+  				    <!-- <display value="Alprazolam 0.25mg (Xanax)"/> -->
+                </coding>
             </code>
         </Medication>
     </contained>
@@ -20,13 +19,14 @@
     <medication>
         <!-- Linked to a RESOURCE Medication -->
         <reference>
-        <reference value="#med0314"/>
-        <display value="Alprazolam 0.25mg (Xanax)"/>
+            <reference value="#med0314"/>
+            <display value="amylase / cellulase / hyoscyamine / lipase / phenyltoloxamine / protease Oral Capsule"/>
+            <!-- <display value="Alprazolam 0.25mg (Xanax)"/> -->
         </reference>
     </medication>
     <subject>
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck "/> 
+        <display value="Donald Duck "/>
     </subject>
     <performer>
         <actor>
@@ -104,7 +104,7 @@
                 <value value="1"/>
                 <unit value="TAB"/>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="TAB"/> 
+                <code value="TAB"/>
             </doseQuantity>
         </doseAndRate>
 

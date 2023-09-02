@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="medrx0316"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0316"/>
     <contained>
         <Medication>
             <id value="med0306"/>
@@ -10,17 +9,17 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="51144-050-01"/>
-                    <!-- <display value="Adcetris"/> -->
+                    <display value="ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01) > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)"/>
                 </coding>
                 <text value="Adcetris"/>
             </code>
-                <doseForm>
-                    <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="421637006"/>
-                        <display value="Lyophilized powder for injectable solution (qualifier value) "/>
-                    </coding>
-                </doseForm>
+            <doseForm>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="421637006"/>
+                    <display value="Lyophilized powder for injectable solution (qualifier value) "/>
+                </coding>
+            </doseForm>
             <batch>
                 <lotNumber value="12345"/>
                 <expirationDate value="2019-10-31"/>
@@ -32,19 +31,19 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    
+
     <status value="completed"/>
     <intent value="order"/>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medication>        <!-- Linked to a RESOURCE Medication -->
         <reference>
-        <reference value="#med0306"/>
+            <reference value="#med0306"/>
         </reference>
-    </medication> 
-    <subject> <!-- Linked to the resource patient who needs the medication -->
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>         
+        <display value="Donald Duck"/>
     </subject>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <encounter>        <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </encounter>
@@ -53,7 +52,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    
+
     <dosageInstruction>
         <sequence value="1"/>
         <text value="1.8 mg/kg IV infusion over 20 minutes every 3 weeks for 16 cycles" />
@@ -84,29 +83,29 @@
                 <value value="1.8"/>
                 <unit value="mg/kg"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="mg/kg"/> 
+                <code value="mg/kg"/>
             </doseQuantity>
             <rateRatio>
-                <numerator> 
-                    <value value="1.8"/> 
-                    <system value="http://unitsofmeasure.org"/> 
-                    <code value="mg/kg"/> 
-                </numerator> 
-                <denominator> 
-                    <value value="20"/> 
-                    <system value="http://unitsofmeasure.org"/> 
-                    <code value="min"/> 
-                </denominator> 
+                <numerator>
+                    <value value="1.8"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="mg/kg"/>
+                </numerator>
+                <denominator>
+                    <value value="20"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="min"/>
+                </denominator>
             </rateRatio>
         </doseAndRate>
-        
+
         <maxDosePerLifetime>
             <value value="400"/>
             <unit value="mg"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="mg"/> 
+            <code value="mg"/>
         </maxDosePerLifetime>
-        
+
     </dosageInstruction>
-    
+
 </MedicationRequest>

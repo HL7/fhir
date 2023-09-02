@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
@@ -8,11 +8,10 @@
           <id value="med0308"/>
           <code>
               <coding>
-                <system value="http://hl7.org/fhir/sid/ndc"/>
-                <code value="63481-623-70"/>
-                <display value="PERCOCET, 100 TABLET in 1 BOTTLE (63481-623-70)  (package)"/>
-            </coding>
-            <text value="Percocet tablet"/>
+                  <system value="http://hl7.org/fhir/sid/ndc"/>
+                  <code value="63481-623-70"/>
+                  <display value="PERCOCET, 100 TABLET in 1 BOTTLE (63481-623-70) (package)"/>
+              </coding>
           </code>
       </Medication>
   </contained>
