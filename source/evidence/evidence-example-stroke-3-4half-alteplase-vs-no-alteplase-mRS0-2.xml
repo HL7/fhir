@@ -52,7 +52,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/directness"/>
         <code value="moderate"/>
-        <display value="Moderate quality match"/>
+        <display value="Moderate quality match between observed and intended variable"/>
       </coding>
     </directnessMatch>
   </variableDefinition>
@@ -167,7 +167,7 @@
       <coding>
         <system value="http://hl7.org/fhir/certainty-type"/>
         <code value="Overall"/>
-        <display value="Overall quality"/>
+        <display value="Overall certainty"/>
       </coding>
     </type>
     <rating>

@@ -64,6 +64,17 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+    <element id="ValueSet.extension">
+      <path value="ValueSet.extension"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+      <min value="1"/>
+    </element>
     <element id="ValueSet.extension:usageWarning">
       <path value="ValueSet.extension"/>
       <sliceName value="usageWarning"/>

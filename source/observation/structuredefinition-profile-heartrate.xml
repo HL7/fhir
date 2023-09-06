@@ -106,7 +106,8 @@
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-    </element>
+     <min value="1"/>
+     </element>
     <element id="Observation.code.coding:HeartRateCode">
       <path value="Observation.code.coding"/>
       <sliceName value="HeartRateCode"/>

@@ -254,7 +254,7 @@
 			<coding>
 				<system value="http://www.ama-assn.org/go/cpt"/>
 				<code value="62264"/>
-				<display value="Surgical Procedures on the Spine and Spinal Cord"/>
+				<display value="Percutaneous lysis of epidural adhesions using solution injection (eg, hypertonic saline, enzyme) or mechanical means (eg, catheter) including radiologic localization (includes contrast when administered), multiple adhesiolysis sessions; 1 day"/>
 			</coding>
 		</productOrService>
 		<servicedDate value="2015-10-13"/>

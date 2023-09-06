@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
- xmlns="http://hl7.org/fhir"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+  xmlns="http://hl7.org/fhir">
   <id value="medadmin0301"/>
   <contained>
     <Medication>
@@ -10,7 +9,8 @@
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
           <code value="0409-6531-02"/>
-          <!-- <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/> -->
+          <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02) > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12) (package)"/>
+          <!-- Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" -->
         </coding>
         <text value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
       </code>
@@ -42,11 +42,11 @@
           <display value="Author's Signature"/>
         </type>
         <when value="2017-02-01T17:23:07Z"/>
-		<who>
+        <who>
           <reference value="Practitioner/example"/>
           <display value="Dr Adam Careful"/>
-	  </who>
-		<targetFormat value="application/fhir+xml"/>
+        </who>
+        <targetFormat value="application/fhir+xml"/>
         <sigFormat value="application/signature+xml"/>
         <data value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
       </signature>
@@ -54,21 +54,21 @@
   </contained>
   <status value="in-progress"/>
   <medication>
-  <reference>
-    <reference value="#med0301"/> 
-  </reference>
+    <reference>
+      <reference value="#med0301"/>
+    </reference>
   </medication>
- <subject>
-   <reference value="Patient/pat1"/>
-   <display value="Donald Duck"/> 
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/>
   </subject>
-  <encounter> 
+  <encounter>
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
   </encounter>
   <occurencePeriod>
-  <start value="2015-01-15T14:30:00+01:00"/>
-</occurencePeriod>
+    <start value="2015-01-15T14:30:00+01:00"/>
+  </occurencePeriod>
   <performer>
     <actor>
       <reference>
