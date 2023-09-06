@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
-  <id value="DeviceAlert-search-params" />
+  <id value="DeviceAlert-search-params"/>
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceAlert-identifier" />
-        <extension
-          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use" />
+        <id value="DeviceAlert-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.identifier" />
+          <valueString value="DeviceAlert.category"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-identifier" />
-        <description value="The identifier of the device alert" />
-        <code value="identifier" />
-        <type value="token" />
-        <expression value="DeviceAlert.identifier" />
-        <processingMode value="normal" />
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-category"/>
+        <description value="The category of the metric"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="DeviceAlert.category"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-identifier"/>
+        <description value="The identifier of the metric"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="DeviceAlert.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-parent"/>
+        <description value="The device resource"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="DeviceAlert.device"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-type"/>
+        <description value="The type of metric"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="DeviceAlert.type"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="metric-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/metric-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.649"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.633"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.338"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertCategory"/>
+  <title value="Device Alert Category"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Describes the category of the metric."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="measurement"/>
+    <display value="Measurement"/>
+    <definition value="Observations generated for this DeviceAlert are measured."/>
+  </concept>
+  <concept>
+    <code value="setting"/>
+    <display value="Setting"/>
+    <definition value="Observations generated for this DeviceAlert is a setting that will influence the behavior of the Device."/>
+  </concept>
+  <concept>
+    <code value="calculation"/>
+    <display value="Calculation"/>
+    <definition value="Observations generated for this DeviceAlert are calculated."/>
+  </concept>
+  <concept>
+    <code value="unspecified"/>
+    <display value="Unspecified"/>
+    <definition value="The category of this DeviceAlert is unspecified."/>
+  </concept>
+</CodeSystem>

@@ -1,30 +1,29 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"></a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+ The DeviceAlert resource describes dynamic properties that characterize a direct or derived, quantitative or qualitative setting, or calculation produced by a medical device i.e, readings and settings of, or from the device. 
+ The DeviceAlert resource can also be used to describe the properties relevant to the metric such as status, last calibration time and type, measurement mode, color, and link to the parent Device.
 </p>
 </div>
 
-<!-- (recommended): 
 <div>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+ These are the DeviceAlert related resources:
 </p>
-</div>
--->
+<ul>
+ <li><a href="device.html">Device:</a>  The physical, virtual, or software device that this DeviceAlert is for. Note that the Device.property element is used to record static characteristics or properties of the Device.</li>
+</ul>
+ <ul>
+  <li><a href="device.html">DeviceDefinition:</a>  Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device the DeviceDefinition.property element may be used to record static characteristics or properties of the DeviceDefinition.</li>
+ </ul> 
+ <ul>
+  <li><a href="device.html">Observation:</a>  Used to record the particular value of the DeviceAlert at a point in time.</li>
+ </ul> 
 
-<!-- (optional):
-<div>
-<h2>Background and Context</h2>
-<p>
-Provides additional detail on exactly how the resource is to be used
-</p>
 </div>
--->
-
 </div>
