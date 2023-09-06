@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<[Name] xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-
-  <!-- insert contents here -->
-  
-</[Name]>
+<DeviceAlert xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<identifier>
+		<system value="http://goodcare.org/devicealert/id"/>
+		<value value="345675"/>
+	</identifier>
+	<type>
+		<coding>
+			<system value="urn:iso:std:iso:11073:10101"/>
+			<code value="150456"/>
+			<display value="MDC_PULS_OXIM_SAT_O2"/>
+		</coding>
+	</type>
+	<unit>
+		<coding>
+			<system value="urn:iso:std:iso:11073:10101"/>
+			<code value="262688"/>
+			<display value="MDC_DIM_PERCENT"/>
+		</coding>
+	</unit>
+	<device>
+		<reference value="Device/dev1"/>
+	</device>
+	<operationalStatus value="on"/>
+	<color value="blue"/>
+	<category value="measurement"/>
+ 	<measurementFrequency>
+		<value value="1"/> 
+		<unit value="Hertz"/> 
+		<system value="http://unitsofmeasure.org"/> 
+		<code value="Hz"/> 
+	</measurementFrequency>
+	<calibration>
+		<type value="two-point"/>
+		<state value="calibrated"/>
+		<time value="2016-12-28T09:03:04-05:00"/>
+	</calibration>
+</DeviceAlert>
