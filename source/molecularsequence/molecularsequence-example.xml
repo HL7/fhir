@@ -36,28 +36,20 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>
     </formatted>
     <relative>
-        <coordinateSystem>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="LA30100-4"/>
-                <display value="0-based interval counting"/>
-            </coding>
-            <text value="0-based interval counting"/>
-        </coordinateSystem>
-        <sequenceRange>
-            <low>
-                <value value="0"/>
-            </low>
-            <high>
-                <value value="725"/>
-            </high>
-        </sequenceRange>
         <startingSequence>
             <reference value="MolecularSequence/StartingSequenceExample"/>
             <type value="MolecularSequence"/>
             <display value="Starting Sequence Resource"/>
         </startingSequence>
         <edit>
+            <coordinateSystem>
+                <coding>
+                    <system value="http://loinc.org"/>
+                    <code value="LA30100-4"/>
+                    <display value="0-based interval counting"/>
+                </coding>
+                <text value="0-based interval counting"/>
+            </coordinateSystem>
             <start value="0"/>
             <end value="725"/>
             <replacementSequence>
