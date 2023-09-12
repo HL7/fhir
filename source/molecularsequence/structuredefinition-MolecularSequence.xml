@@ -260,7 +260,7 @@
           </type>
           <isSummary value="false"/>
         </element>-->
-    <element id="MolecularSequence.relative.sequenceRange">
+<!--    <element id="MolecularSequence.relative.sequenceRange">
       <path value="MolecularSequence.relative.sequenceRange"/>
       <short value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together"/>
       <definition value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together."/>
@@ -270,7 +270,7 @@
         <code value="Range"/>
       </type>
       <isSummary value="false"/>
-    </element>
+    </element>-->
     <element id="MolecularSequence.relative.startingSequence">
       <path value="MolecularSequence.relative.startingSequence"/>
       <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
