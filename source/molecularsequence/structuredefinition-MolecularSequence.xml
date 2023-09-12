@@ -275,7 +275,7 @@
       <path value="MolecularSequence.relative.startingSequence"/>
       <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
       <definition value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
