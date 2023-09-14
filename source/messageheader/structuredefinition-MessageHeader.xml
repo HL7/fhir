@@ -390,7 +390,7 @@
       </extension>
       <path value="MessageHeader.source.sender"/>
       <short value="Real world sender of the message"/>
-      <definition value="Identifies the sending system to allow the use of a trust relationship."/>
+      <definition value="Identifies the sending entity to allow the use of a trust relationship."/>
       <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information."/>
       <requirements value="Allows routing beyond just the application level."/>
       <min value="0"/>
@@ -570,8 +570,8 @@
     </element>
     <element id="MessageHeader.extensionv2Profile">
       <path value="MessageHeader.extensionv2Profile"/>
-      <short value="Mapping MSH-21 "/>
-      <definition value="Used to map MSH-21."/>
+      <short value="HL7 Version 2 mapping"/>
+      <definition value="Primary use is to map MSH-21."/>
       <comment value="Sites MAY use this field to assert adherence to, or reference, a message profile. Message profiles contain detailed explanations of grammar, syntax, and usage for a particular message or set of messages. "/>
       <requirements value="The mapper and receiver need to have access to MSH-21 to understand use and expectations.  This is in particular important for interpreting OBX-4 Sub Identifier."/>
       <min value="0"/>
