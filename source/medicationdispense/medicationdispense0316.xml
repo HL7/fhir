@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -9,7 +9,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="285018"/>
-            <display value="Lantus 100 UNT/ML Injectable Solution"/>
+            <display value="insulin glargine 100 UNT/ML Injectable Solution [Lantus]"/>
         </coding>
         </concept>
     </medication>

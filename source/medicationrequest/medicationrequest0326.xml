@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
@@ -14,8 +14,8 @@
     <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="746763"/>
-            <display value="Proventil HFA 90 MCG/ACTUAT Metered Dose Inhaler, 200 ACTUAT"/>
+        <code value="746763"/>
+            <display value="NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler [Proventil]"/>
         </coding>
     </concept>
     </medication>

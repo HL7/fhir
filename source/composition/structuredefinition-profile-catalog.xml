@@ -127,9 +127,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
     </element>
-    <element id="Composition.date:IssueDate">
+    <element id="Composition.date">
       <path value="Composition.date"/>
-      <sliceName value="IssueDate"/>
       <short value="When the Catalog was created"/>
       <definition value="When the Catalog was created."/>
       <alias value="IssueDate"/>
