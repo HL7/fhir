@@ -33,7 +33,7 @@ The study accession number can also be encoded as an <code>Reference.Identifier<
 <pre class="json">
 
 "basedOn": [
-    "reference": {
+    {
         "type": "ServiceRequest",
         "identifier":{
             "type" : {
@@ -70,7 +70,7 @@ Different Endpoint connection types may have different capabilities, protocols o
 <code>Endpoint.address</code> may require manipulation. See below for the details on use of imaging-related Endpoint connection types.
 </p>
 <a name="wado-rs"></a>
-<h4>WADO-RS</h4>
+<h3>WADO-RS</h3>
 <p>
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-RS service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
