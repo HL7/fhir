@@ -17,12 +17,11 @@
                 <ingredient>
                     <item>
                     <concept>
-                        <!-- <coding>
+                         <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="1114879"/>
-                            <display value="Dopamine"/>
-                        </coding> -->
-                        <text value="Dopamine"/>
+                            <display value="dopamine hydrochloride 40 MG/ML"/>
+                        </coding>
                     </concept>
                     </item>
                     <strengthRatio>
@@ -44,7 +43,7 @@
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0264-7510-10"/>
-                            <!-- <display value="Dextrose 5% injection USP"/> -->
+                            <display value="DEXTROSE, 24 CONTAINER in 1 CASE (0264-7510-10) > 500 mL in 1 CONTAINER (package)"/>
                         </coding>
                         <text value="Dextrose 5% injection USP"/>
                     </concept>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalUseDefinition xmlns="http://hl7.org/fhir">
+  <id value="example-contraindication"/>
+  <type value="contraindication"/>
+  <subject>
+    <reference value="MedicinalProductDefinition/example"/>
+  </subject>
+  <contraindication>
+    <diseaseSymptomProcedure>
+      <concept>
+        <text value="Concomitant treatment with any other anticoagulant agent"/>
+      </concept>
+    </diseaseSymptomProcedure>
+    <otherTherapy>
+      <relationshipType>
+        <coding>
+          <system value="http://ema.europa.eu/example/therapyrelationshiptype"/>
+          <code value="Co-therapy(with)"/>
+        </coding>
+      </relationshipType>
+      <treatment>
+        <concept>
+          <coding>
+            <system value="http://ema.europa.eu/example/medication"/>
+            <code value="Oralanticoagulants"/>
+          </coding>
+        </concept>
+      </treatment>
+    </otherTherapy>
+    <!-- or -->
+    <otherTherapy>
+      <relationshipType>
+        <coding>
+          <system value="http://ema.europa.eu/example/therapyrelationshiptype"/>
+          <code value="Co-therapy(with)"/>
+        </coding>
+      </relationshipType>
+      <treatment>
+        <concept>
+          <coding>
+            <system value="http://ema.europa.eu/example/medication"/>
+            <code value="Lowmolecularweightheparins"/>
+          </coding>
+        </concept>
+      </treatment>
+    </otherTherapy>
+  </contraindication>
+</ClinicalUseDefinition>
