@@ -1,11 +1,12 @@
-<MedicationKnowledge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationknowledge.xsd" xmlns="http://hl7.org/fhir">
+<MedicationKnowledge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationknowledge.xsd"
+  xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="0409-6531-02"/>
-      <!-- <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/> -->
+      <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02) > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12) (package)"/>
+      <!-- Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" -->
     </coding>
     <text value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
   </code>

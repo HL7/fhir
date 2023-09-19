@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
@@ -10,7 +10,7 @@
               <coding>
                   <system value="http://hl7.org/fhir/sid/ndc"/>
                   <code value="24208-813-10"/>
-                  <!-- <display value="Timoptic 5mg/ml solution"/> -->
+                  <display value="Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10) > 10 mL in 1 BOTTLE, DISPENSING (package)"/>
               </coding>
               <text value="Timoptic 5mg/ml solution"/>
           </code>

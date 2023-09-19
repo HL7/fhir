@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/working%20build/schema/account.xsd">
 	<id value="f001"/>
 	<type value="collection"/>
@@ -30,7 +30,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="58410-2"/>
-						<display value="CBC Pnl Bld Auto"/>
+						<display value="CBC panel - Blood by Automated count"/>
 					</coding>
 				</code>
 				<subject>

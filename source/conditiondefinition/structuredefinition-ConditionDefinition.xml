@@ -491,44 +491,9 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="BackboneElement"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
 			</type>
-		</element>
-		<element id="ConditionDefinition.observation.category">
-			<path value="ConditionDefinition.observation.category"/>
-			<short value="Category that is relevant"/>
-			<definition value="Category that is relevant."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ObservationCategory"/>
-				</extension>
-				<strength value="preferred"/>
-				<description value="Codes for high level observation categories."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/observation-category"/>
-			</binding>
-		</element>
-		<element id="ConditionDefinition.observation.code">
-			<path value="ConditionDefinition.observation.code"/>
-			<short value="Code for relevant Observation"/>
-			<definition value="Code for relevant Observation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ObservationCode"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Codes identifying names of simple observations."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
-			</binding>
 		</element>
 		<element id="ConditionDefinition.medication">
 			<path value="ConditionDefinition.medication"/>

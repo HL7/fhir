@@ -1,5 +1,5 @@
-﻿<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd"
+   xmlns="http://hl7.org/fhir">
    <id value="med0317"/>
    <isBrand value="false"/>
    <product>
@@ -16,7 +16,7 @@
             <coding>
                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                <code value="204520"/>
-               <display value="potassium chloride 2 MEQ/ML Injectable Solution"/>
+               <display value="potassium chloride 2 MEQ/ML Injectable Solutione"/>
             </coding>
             <text value="Potassium Chloride"/>
          </itemCodeableConcept>
@@ -38,7 +38,7 @@
             <coding>
                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                <code value="313002"/>
-               <display value="sodium chloride 0.9 % Injectable Solution"/>
+               <display value="sodium chloride 9 MG/ML Injectable Solution"/>
             </coding>
          </itemCodeableConcept>
          <amount>

@@ -106,6 +106,7 @@
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
+      <min value="1"/>
     </element>
     <element id="Observation.code.coding:BMICode">
       <path value="Observation.code.coding"/>
