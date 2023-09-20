@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -10,8 +10,9 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="51144-050-01"/>
-                    <display value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/>
+                    <display value="ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01) > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)"/>
                 </coding>
+                <text value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/>
             </code>
             <marketingAuthorizationHolder>
                 <reference value="Organization/mmanu" />
@@ -101,7 +102,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-
-

@@ -206,7 +206,7 @@
           <coding>
             <system value="http://snomed.info/sct" />
             <code value="394814009" />
-            <display value="General practice" />
+            <display value="General practice (specialty)" />
           </coding>
         </specialty>
       </PractitionerRole>
@@ -242,7 +242,7 @@
           <coding>
             <system value="http://snomed.info/sct" />
             <code value="394604002" />
-            <display value="Surgery-Ear, nose and throat surgery" />
+            <display value="Ear, nose and throat surgery" />
           </coding>
         </specialty>
       </PractitionerRole>
@@ -273,7 +273,7 @@
           <coding>
             <system value="http://snomed.info/sct" />
             <code value="394604002" />
-            <display value="Surgery-Ear, nose and throat surgery" />
+            <display value="Ear, nose and throat surgery" />
           </coding>
         </specialty>
       </PractitionerRole>
@@ -417,7 +417,7 @@
           <coding>
             <system value="http://snomed.info/sct" />
             <code value="394604002" />
-            <display value="Surgery-Ear, nose and throat surgery" />
+            <display value="Ear, nose and throat surgery" />
           </coding>
         </specialty>
       </PractitionerRole>
@@ -489,7 +489,7 @@
           <coding>
             <system value="http://snomed.info/sct" />
             <code value="394604002" />
-            <display value="Surgery-Ear, nose and throat surgery" />
+            <display value="Ear, nose and throat surgery" />
           </coding>
         </specialty>
       </PractitionerRole>

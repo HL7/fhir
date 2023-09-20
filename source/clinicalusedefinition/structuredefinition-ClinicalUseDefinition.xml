@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure."/>
+  <description value="A single issue - either an indication, contraindication, interaction, undesirable effect or warning for a medicinal product, medication, device or procedure."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -174,8 +174,8 @@
     </element>
     <element id="ClinicalUseDefinition.subject">
       <path value="ClinicalUseDefinition.subject"/>
-      <short value="The medication, product, substance, device, procedure etc. for which this is an indication"/>
-      <definition value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
+      <short value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning"/>
+      <definition value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning."/>
       <min value="0"/>
       <max value="*"/>
       <type>

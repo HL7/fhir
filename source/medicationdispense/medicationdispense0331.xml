@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0331"/>
     <contained>
         <Medication>
@@ -10,8 +9,10 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0056-0170-70"/>
-                    <display value="Coumadin 2mg tablet"/>
+                    <display value="COUMADIN, 1 BOTTLE in 1 CARTON (0056-0170-70) > 100 TABLET in 1 BOTTLE (package)"/>
+                    <!-- <display value="Coumadin 2mg tablet"/> -->
                 </coding>
+                <text value="Coumadin 2mg tablet"/>
             </code>
         </Medication>
     </contained>
@@ -19,8 +20,9 @@
     <medication>
         <!-- Linked to a RESOURCE Medication -->
         <reference>
-        <reference value="#med0352"/>
-        <display value="Coumadin 2mg tablet"/>
+            <reference value="#med0352"/>
+            <display value="COUMADIN, 1 BOTTLE in 1 CARTON (0056-0170-70) > 100 TABLET in 1 BOTTLE (package)"/>
+            <!-- <display value="Coumadin 2mg tablet"/> -->
         </reference>
     </medication>
     <subject>
@@ -85,6 +87,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-
