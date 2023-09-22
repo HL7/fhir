@@ -246,7 +246,9 @@ Meta Data: All resources have a meta.security element to hold descriptions (meta
 <h2>Break the Glass</h2>
 
 <p>
-There is a special security label to support the commonly encountered <a href="http://www.hl7.org/search/viewSearchResult.cfm?search_id=393442&amp;search_result_url=%2Fdocumentcenter%2Fpublic%2Fwg%2Fsecure%2FHL7%20Emergency%20Access%2Edoc">"break-the-glass" protocol</a>,
+Break-the-glass, or break-glass, as it's called within some EHR systems, refers to a procedure that enables a clinician or end user who doesn't have access privileges to gain access to ePHI in emergency circumstances. The name comes from the old-fashioned manual fire alarms that required their users to break a pane of glass before activating the alarm. The idea was that accidental contact wouldn't be forceful enough to break the glass, preventing the alarm from being triggered by mistake. Break-the-glass protocols typically involve alerting and control mechanisms, such as a pop-up screen warning the data about to be accessed is sensitive and restricted. Break-the-glass is a privileged function that is only given to the most trusted clinicians.
+</p><p></p>
+There is a special security label to support the commonly encountered "break-the-glass" protocol,
 where a clinician (usually in an emergency context) requests emergency
 extra-authorized access to the patient's record. The clinician would need to have authorization to declare break-the-glass, and the act of breaking the glass would result in audit logs that would alert the Safety office and the Privacy office.
 </p>
@@ -261,9 +263,9 @@ extra-authorized access to the patient's record. The clinician would need to hav
 </table>
 [%dragons-start%]
 <p>
-While the principle of <a href="http://www.hl7.org/search/viewSearchResult.cfm?search_id=393442&amp;search_result_url=%2Fdocumentcenter%2Fpublic%2Fwg%2Fsecure%2FHL7%20Emergency%20Access%2Edoc">break-the-glass</a> is well understood, implementing it well
+While the principle of break-the-glass is understood, implementing it well
 has some challenges. 
-Often break-the-glass is only implemented within an EHR system.
+Often break-the-glass is only implemented within an EHR system, and not exposed in an interoperability standards way.
 This section indicates some methods to indicate <a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-BTG">break-the-glass</a> as a <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">purpose of use</a>, 
 but does not define any policy or protocol around such requests.
 At a minimum, implementations must ensure:
@@ -275,34 +277,34 @@ At a minimum, implementations must ensure:
  <li>Any use is well-represented in an <a href="auditevent.html">AuditEvent</a> break the glass <a href="auditevent-example-breakglass-start.html">example</a>.</li>
  <li>How does the clinician know that break-the-glass is an option. An example <a href="operationoutcome-example-break-the-glass.html">OperationOutcome that might be used to indicate potential for break-the-glass</a>.</li>
 </ul>
-<p>
-See <a href="http://www.hl7.org/search/viewSearchResult.cfm?search_id=393442&amp;search_result_url=%2Fdocumentcenter%2Fpublic%2Fwg%2Fsecure%2FHL7%20Emergency%20Access%2Edoc">this paper</a> for
-discussion of the issues involved in break-the-glass operations.
-</p>
 [%dragons-end%]
-<p>The following are some potential methods of declaring break-the-glass. The first one uses OAuth to request an access token under break-the-glass conditions, placing the authorization decision within the security layer. The second one simply declares break-the-glass in the http request, relying on the Resource Server to confirm that break-the-glass is legitimate, authorized, and traced.</p>
+<p>The following are some potential methods of declaring break-the-glass. The first one uses OAuth 2 to request an access token under break-the-glass conditions, placing the authorization decision within the security layer. The second one simply declares break-the-glass in the http request, relying on the Resource Server to confirm that break-the-glass is legitimate, authorized, and traced.</p>
 <h3>using OAuth</h3>
 <p>
-The <a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-BTG">break-the-glass</a> <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">purpose of use</a> is requested in the OAuth access token request as part of an OAuth extension specific to purpose of use. The OAuth authorization server determines if the user is authorized to request break-the-glass permission, which might include User Interface interactions with the user to confirm the urgency and capture the rationale. The OAuth authorization server either grants or denies the request, logging the decision. If granted, the access token indicates break-the-glass authorization with expanded permissions, and the resource server enforces this elevated permissions.
+When using the OAuth 2 client credentials grant, which has no user interaction, some profiles of OAuth 2 support passing the requested purpose of use in the access token request. In this case HL7 defines the <a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-BTG">break-the-glass</a> as a <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">purpose of use</a>.
 </p>
-<p>For example in <a href="https://profiles.ihe.net/ITI/IUA/index.html#3714221-json-web-token-option">IHE IUA</a>, the purpose of use can be requested using the ihe_iua OAuth extension:</p>
+<p>For example in <a href="http://build.fhir.org/ig/HL7/fhir-udap-security-ig/b2b.html#b2b-authorization-extension-object">HL7 UDAP Security</a>, the purpose of use can be requested using hl7-b2b OAuth extension:</p>
 <div>
   <pre>
     "extensions" : {  
-      "ihe_iua" : {  
+      "hl7-b2b" : {  
         "subject_name": "Dr. John Smith",
-        "subject_organization": "Central Hospital",
+        "organization_name": "Central Hospital",
 ...
-        "purpose_of_use": [{
-            "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            "code": "BTG"
-          },{
-            "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-            "code": "TREAT"
-          }]
+        "purpose_of_use": [
+          "http://terminology.hl7.org/CodeSystem/v3-ActReason#BTG",
+          "http://terminology.hl7.org/CodeSystem/v3-ActReason#TREAT"
+          ]
       }}
   </pre>
 </div>
+<p>
+When using the OAuth 2 authorization code grant, the authorization server may provide User Interface interactions to request break-the-glass permission, confirm the urgency, and capture the rationale.
+</p>
+<p>
+In either case, the authorization server either grants or denies the request, logging the decision. If granted, the access token indicates break-the-glass authorization with expanded permissions, and the resource server enforces this elevated permissions.
+</p>
+  
 <h3>using http Category</h3>
 <p>
 This solution utilizes an http header, specifically a draft ietf specification for a <a href="https://tools.ietf.org/html/draft-johnston-http-category-header-02">web category</a>.  
@@ -326,7 +328,7 @@ Category: http://terminology.hl7.org/CodeSystem/v3-ActReason#BTG; scheme="http:/
 <p>
 The security labels described above are a subset of the full set of security labels defined by the
 HL7 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=345">Healthcare Privacy and Security Classification System</a>. 
-Note the use of "security label" is used broadly in FHIR to for all security tags. There is a more formal definition in the security labeling community of "security label" that refers to an overall assessment, in HL7 this would be represented with a value from the ConfidentialityCode value set. For more detailed on how to implement security tagging and labeling, HL7 has published <a href="http://www.hl7.org/fhir/uv/security-label-ds4p/index.html">Data Segmentation for Privacy Implementation Guide for FHIR</a>
+Note the use of "security label" is used broadly in FHIR for all security tags. There is a more formal definition in the security labeling community of "security label" that refers to an overall assessment, in HL7 this would be represented with a value from the ConfidentialityCode value set. For more detailed on how to implement security tagging and labeling, HL7 has published <a href="http://www.hl7.org/fhir/uv/security-label-ds4p/index.html">Data Segmentation for Privacy Implementation Guide for FHIR</a>
 </p>
 
 <p>Type of security metadata observation made about the classification of an IT resource (data, information object, service, or system capability), which may be used to make access control decisions. Security classification is defined by <a href="https://www.iso.org/standard/7243.html">ISO/IEC 2382-8:1998(E/F)/ T-REC-X.812-1995</a> as: <em>&quot;the determination of which specific degree of protection against access the data or information requires, together with a designation of that degree of protection.&quot;</em> </p>
