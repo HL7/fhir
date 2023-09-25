@@ -5,25 +5,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MessageHeader-author"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.author"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-author"/>
-        <description value="The source of the decision"/>
-        <code value="author"/>
-        <type value="reference"/>
-        <expression value="MessageHeader.author"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="MessageHeader-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -138,37 +119,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MessageHeader-responsible"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.responsible"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-responsible"/>
-        <description value="Final responsibility for event"/>
-        <code value="responsible"/>
-        <type value="reference"/>
-        <expression value="MessageHeader.responsible"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="MessageHeader-sender"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.sender"/>
+          <valueString value="MessageHeader.source.sender"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-sender"/>
         <description value="Real world sender of the message"/>
         <code value="sender"/>
         <type value="reference"/>
-        <expression value="MessageHeader.sender"/>
+        <expression value="MessageHeader.source.sender"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
