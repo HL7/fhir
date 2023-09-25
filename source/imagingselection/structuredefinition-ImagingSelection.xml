@@ -652,14 +652,14 @@
         <map value="Graphic Data (0070,0022)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.imageRegion3D">
+    <element id="ImagingSelection.imageRegion3D">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="ImageRegion3D"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
-      <path value="ImagingSelection.instance.imageRegion3D"/>
+      <path value="ImagingSelection.imageRegion3D"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
       <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>
       <requirements value="Requires that the ImagingSelection.frameOfReferenceUid element is present."/>
@@ -669,8 +669,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="ImagingSelection.instance.imageRegion3D.regionType">
-      <path value="ImagingSelection.instance.imageRegion3D.regionType"/>
+    <element id="ImagingSelection.imageRegion3D.regionType">
+      <path value="ImagingSelection.imageRegion3D.regionType"/>
       <short value="point | multipoint | polyline | polygon | ellipse | ellipsoid"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
@@ -693,8 +693,8 @@
         <map value="Graphic Type (0070,0023)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.imageRegion3D.coordinate">
-      <path value="ImagingSelection.instance.imageRegion3D.coordinate"/>
+    <element id="ImagingSelection.imageRegion3D.coordinate">
+      <path value="ImagingSelection.imageRegion3D.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
       <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
       <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
