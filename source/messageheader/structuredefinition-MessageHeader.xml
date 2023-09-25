@@ -568,54 +568,5 @@
         <map value="Not directly supported."/>
       </mapping>
     </element>
-    <element id="MessageHeader.extensionv2Profile">
-      <path value="MessageHeader.extensionv2Profile"/>
-      <short value="HL7 Version 2 mapping"/>
-      <definition value="Primary use is to map MSH-21."/>
-      <comment value="Sites MAY use this field to assert adherence to, or reference, a message profile. Message profiles contain detailed explanations of grammar, syntax, and usage for a particular message or set of messages. "/>
-      <requirements value="The mapper and receiver need to have access to MSH-21 to understand use and expectations.  This is in particular important for interpreting OBX-4 Sub Identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MessageHeader.extensionv2Profile.identifier">
-      <path value="MessageHeader.extensionv2Profile.identifier"/>
-      <short value="Identifier for the HL7 V2 Profile"/>
-      <definition value="A unique identifier for the HL7 Version MSH-21 Message Profile Identifier."/>
-      <requirements value="A unique identifier for the MSH-21"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MessageHeader.extensionv2Profile.namespace">
-      <path value="MessageHeader.extensionv2Profile.namespace"/>
-      <short value="The local coded item for the entity"/>
-      <definition value="The local coded item for the entity."/>
-      <requirements value="The local coded item for the entity"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MessageHeader.extensionv2Profile.universalIdentifier">
-      <path value="MessageHeader.extensionv2Profile.universalIdentifier"/>
-      <short value="Defines a given entity within a specified series of identifiers"/>
-      <definition value="The entity identifier defines a given entity within a specified series of identifiers."/>
-      <requirements value="The entity identifier defines a given entity within a specified series of identifiers"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
   </differential>
 </StructureDefinition>
