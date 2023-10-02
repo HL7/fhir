@@ -608,7 +608,7 @@ And where the value set would be something like this:
 </pre>
 [%example-json%]
 <pre class="json" fragment="ValueSet">
-  {  
+  {
     "resourceType" : "ValueSet",
     "url" : "http://hl7.org/fhir/ValueSet/clinistix",
     "name" : "Codes for Clinistix",
@@ -1139,7 +1139,7 @@ HumanName
 <pre class="json" fragment="HumanName">
   "name" : {
     "family" : "Everyman",
-    "given" : ["Adam", "A."] 
+    "given" : ["Adam", "A."]
   }
 </pre>
 [%example-end%]
@@ -1253,9 +1253,9 @@ Some people may also have a nickname that needs to be recorded:
 
 <p>
 Note that there is some ambiguity in real life as to whether a non-official name is the patient's <code>usual</code> name, or whether it's their
-<code>nickname</code>. In principle, nick names are used occasionally and informally, whereas the usual name is used consistently, and in 
-formal contexts. However, there is no formal criteria for the differentiating these usages, and even within a culture, people may vary in 
-their cases. 
+<code>nickname</code>. In principle, nick names are used occasionally and informally, whereas the usual name is used consistently, and in
+formal contexts. However, there is no formal criteria for the differentiating these usages, and even within a culture, people may vary in
+their cases.
 </p>
 </div>
 
@@ -1287,7 +1287,7 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
         "valueString" : "van"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
         "valueString" : "Hentenryck"
       }]
@@ -1316,7 +1316,7 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
       &lt;/extension&gt;
       &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name"&gt;
         &lt;valueString value="Hochheim-Weilenfels" /&gt;
-      &lt;/extension&gt;    
+      &lt;/extension&gt;
     &lt;/family&gt;
     &lt;given value="Regina"/&gt;
     &lt;given value="Johanna"/&gt;
@@ -1339,10 +1339,10 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
     "use" : "official",
     "family" : "von Hochheim-Weilenfels",
     "_family" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
         "valueString" : "von"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
         "valueString" : "Hochheim-Weilenfels"
       }]
@@ -1350,7 +1350,7 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
     "given" : ["Regina", "Johanna", "Maria"],
     "prefix" : "Dr. phil.",
     "_prefix" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
         "valueCode" : "AC"
       }]
@@ -1396,21 +1396,21 @@ This example makes use of the ISO 21090 extensions to carry the rarely used ISO 
 [%example-json%]
 <pre class="json" fragment="HumanName">
   "name" : [{
-    "extension" : [{ 
+    "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
       "valueCode" : "IDE"
     }],
     "family" : "木村",
     "given" : ["通男"]
   }, {
-    "extension" : [{ 
+    "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
       "valueCode" : "SYL"
     }],
     "family" : "きむら",
     "given" : ["みちお"]
   }, {
-    "extension" : [{ 
+    "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
       "valueCode" : "ABC"
     }],
@@ -1454,7 +1454,7 @@ extension.
 </pre>
 [%example-end%]
 <p>
-In  Russian  usage, these names are known as the domestic and foreign names respectively. 
+In  Russian  usage, these names are known as the domestic and foreign names respectively.
 The two forms are differentiated by the character subset each contains.
 </p>
 </div>
@@ -1487,7 +1487,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
     "family" : "Erikson",
     "given" : ["Jan", "Erik", "&#214;stlund"],
     "_given" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
         "valueCoding" : {
           "code" : "MID",
@@ -1553,7 +1553,7 @@ mellomnamn.
     "family" : "Erikson",
     "given" : ["Karin", "Hansen"]
     "_given" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
         "valueCoding" : {
           "code" : "MID",
@@ -1610,7 +1610,7 @@ her mother, her father or other family names as specified by naming laws of the 
     "family" : "Erikson",
     "given" : ["Karin", "Hansen"],
     "_given" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
         "valueCoding" : {
           "code" : "MID",
@@ -1623,7 +1623,7 @@ her mother, her father or other family names as specified by naming laws of the 
     "family" : "Berg",
     "given" : ["Karin", "Erikson"],
     "_given" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
         "valueCoding" : {
           "code" : "MID",
@@ -1708,11 +1708,11 @@ A Chinese name with a generational name:
 [%example-json%]
 <pre class="json" fragment="HumanName">
   "name" : [{
-    "text" : "毛泽东", // left to right 
+    "text" : "毛泽东", // left to right
     "family" : "毛",
     "given" : ["泽东"]
   }, {
-    "text" : "Mao Ze Dong", // left to right 
+    "text" : "Mao Ze Dong", // left to right
     "family" : "Mao",
     "given" : ["Ze Dong"]
   }]
@@ -1771,7 +1771,7 @@ Composite Family name:
   "name" : {
     "family" : "Carreño Quiñones",
     "_family" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-fathers",
         "valueString" : "Carreño"
       }, {
@@ -1804,9 +1804,9 @@ and not always of value, as in this Brazilian Example:
 </pre>
 [%example-end%]
 <p>
-Note that this naming pattern can become quite 
+Note that this naming pattern can become quite
 extreme ("Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga").
-A more practical example is 
+A more practical example is
 </p>
 [%example-start%]
 <pre class="xml" fragment="HumanName">
@@ -1827,10 +1827,10 @@ A more practical example is
   "name" : {
     "family" : "Costa Teixeira",
     "_family" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-fathers",
         "valueString" : "Costa"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-mothers",
         "valueString" : "Teixeira"
       }]
@@ -1840,7 +1840,7 @@ A more practical example is
 </pre>
 [%example-end%]
 <p>
-After marriage, this may change to 
+After marriage, this may change to
 </p>
 [%example-start%]
 <pre class="xml" fragment="HumanName">
@@ -1864,13 +1864,13 @@ After marriage, this may change to
   "name" : {
     "family" : "Costa Teixeira Sanches",
     "_family" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-fathers",
         "valueString" : "Costa"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-mothers",
         "valueString" : "Teixeira"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/humanname-partners-name",
         "valueString" : "Sanches"
       }]
@@ -2019,9 +2019,9 @@ Address
 
 <p>
 Note about these examples: the most important element in an address is the 'text' element - this defines
-what is printed on the envelope, the actual postal address. The other data elements are provided to 
-support either data analysis based on a patient's address, or for the many systems that exchange 
-fully structured addresses specific to a particular culture. For this reason, these examples focus 
+what is printed on the envelope, the actual postal address. The other data elements are provided to
+support either data analysis based on a patient's address, or for the many systems that exchange
+fully structured addresses specific to a particular culture. For this reason, these examples focus
 on the structured data elements of the address.
 </p>
 
@@ -2069,7 +2069,7 @@ on the structured data elements of the address.
       &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
         &lt;valueCoding value="IN"/&gt;
       &lt;/extension>
-    &lt;/state&gt;	 
+    &lt;/state&gt;
     &lt;postalCode value="46240" /&gt;
     &lt;state value="IN" /&gt;
     &lt;country value="United States"&gt;
@@ -2089,7 +2089,7 @@ on the structured data elements of the address.
     "city" : "Indianapolis",
     "state" : "IN",
     "_state" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-codedString",
         "valueCoding" : "IN"
       }]
@@ -2098,7 +2098,7 @@ on the structured data elements of the address.
     "state" : "IN",
     "country" : "United States",
     "_country" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-codedString",
         "valueCoding" : "US"
       }]
@@ -2133,7 +2133,7 @@ on the structured data elements of the address.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;use value="temp"/&gt; 
+    &lt;use value="temp"/&gt;
     &lt;type value="postal"/&gt;
     &lt;line value="PO Box 31445"/&gt;
     &lt;city value="Erewhon"/&gt;
@@ -2181,7 +2181,7 @@ on the structured data elements of the address.
 [%example-end%]
 
 <p>
-The next set of examples are taken from the official <a href="http://www.upu.int">international 
+The next set of examples are taken from the official <a href="http://www.upu.int">international
 postal union</a> examples.
 </p>
 
@@ -2271,7 +2271,7 @@ postal union</a> examples.
 [%example-json%]
 <pre class="json" fragment="Address">
   "address" : {
-    "extension" : [{ 
+    "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct",
       "valueCode" : "Kimashuku Village"
     }],
@@ -2375,9 +2375,9 @@ postal union</a> examples.
 </div>
 
 <p>
-Some of the extensions that provide further analysis 
-of the parts of the address require duplication of 
-address content. 
+Some of the extensions that provide further analysis
+of the parts of the address require duplication of
+address content.
 </p>
 [%example-start%]
 <pre class="xml" fragment="Address">
@@ -2408,23 +2408,23 @@ address content.
   "address" : {
     "line" : "Care of: Dr Smith",
     "_line" : {
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf",
         "valueString" : "Dr. Smith"
       }]
     },
     "line" : ["123 Somewhere Street NW"],
     "_line" : [{
-      "extension" : [{ 
+      "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
         "valueString" : "123"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
         "valueString" : "Somewhere"
-      } { 
+      } {
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
         "valueString" : "Street"
-      }, { 
+      }, {
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
         "valueString" : "NW"
       }]
@@ -2434,9 +2434,9 @@ address content.
 [%example-end%]
 
 <p>
-In some case, this may mean that the extension repeats the full value of the address line. 
-However, this is not a given for all lines of the specified type in all jurisdictions, and 
-thus the convention of repeating the 'part' of the line that applies in the extension, 
+In some case, this may mean that the extension repeats the full value of the address line.
+However, this is not a given for all lines of the specified type in all jurisdictions, and
+thus the convention of repeating the 'part' of the line that applies in the extension,
 even if it might be the whole line.
 </p>
 
@@ -2473,7 +2473,7 @@ ContactPoint
 </div>
 
 <p>
-In ISO 21090, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and other <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specifications, the TEL datatype requires that the telephone number be represented as a formal URI in <a href="http://www.ietf.org/rfc/rfc3966.txt">RFC 3166</a> syntax. 
+In ISO 21090, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and other <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specifications, the TEL datatype requires that the telephone number be represented as a formal URI in <a href="http://www.ietf.org/rfc/rfc3966.txt">RFC 3166</a> syntax.
 Many CDA documents violate this rule, since the telephone numbers are not collected from the user in conformance with the underlying rules (particularly around extensions, notes about use, etc.), so
 the base FHIR type does not require the phone number to be conformant. An ISO 21090 extension can be used to convey this if desired:
 </p>
@@ -2495,7 +2495,7 @@ the base FHIR type does not require the phone number to be conformant. An ISO 21
 [%example-json%]
 <pre class="json" fragment="ContactPoint">
   "telecom" : {
-    "extension" : [{ 
+    "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address",
       "valueUri" : "tel:+15556755745"
     }],
@@ -2670,6 +2670,15 @@ Note that the end date is inclusive like the end date of a Period.
 [%example-end%]
 </div>
 
+<a name="RelativeTime"></a>
+<a name="relativetime"></a>
+<h3>
+RelativeTime
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<!--xlp:RelativeTime-->See also <a no-external="true" href="datatypes.html#RelativeTime">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#RelativeTime">R4 Conversions</a>
+</p>
+
 <a name="Signature"></a>
 <a name="signature"></a>
 <h3>
@@ -2766,15 +2775,15 @@ Annotation
  if (!currentTabIndex)
    currentTabIndex = '0';
 
-  [%example-init%] 
+  [%example-init%]
 
 function store(currentTab) {
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){
   }
-  [%example-change%] 
-  
+  [%example-change%]
+
   document.activeElement.blur();
 }
 </script>
