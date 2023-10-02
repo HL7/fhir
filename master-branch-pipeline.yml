@@ -77,8 +77,7 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=PR Build success for master branch:thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results) 
-            Published webpage can be viewed [here](https://build.fhir.org/)
+            -d $"content=PR Build success for master branch:thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results) | Published webpage can be viewed [here](https://build.fhir.org/)
             "
 
   - task: Bash@3
