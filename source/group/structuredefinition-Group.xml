@@ -210,7 +210,7 @@
                   <valueString value="CharacteristicCombination"/>
             </extension>
             <strength value="required"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
+            <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
       </binding>
     </element>
     <element id="Group.combinationThreshold">
