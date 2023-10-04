@@ -736,7 +736,7 @@
 		</element>
 		<element id="EvidenceVariable.characteristic.definitionByCombination.code">
 			<path value="EvidenceVariable.characteristic.definitionByCombination.code"/>
-			<short value="all-of | any-of | at-least | at-most | statistical | net-effect | dataset"/>
+			<short value="all-of | any-of | at-least | at-most | except-subset | statistical | net-effect | dataset"/>
 			<definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
 			<requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
 			<min value="1"/>
