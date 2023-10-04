@@ -195,7 +195,7 @@
     </element>
     <element id="Group.combinationMethod">
       <path value="Group.combinationMethod"/>
-      <short value="all-of | any-of | at-least | at-most | except-subset | statistical"/>
+      <short value="all-of | any-of | at-least | at-most | except-subset"/>
       <definition value="Used to specify how two or more characteristics are combined."/>
       <min value="0"/>
       <max value="1"/>

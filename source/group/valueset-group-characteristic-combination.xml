@@ -61,10 +61,6 @@
         <code value="except-subset"/>
         <display value="Except subset"/>
       </concept>
-      <concept>
-        <code value="statistical"/>
-        <display value="Statistical"/>
-      </concept>
     </include>
   </compose>
 </ValueSet>
