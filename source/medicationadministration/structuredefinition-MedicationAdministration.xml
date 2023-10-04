@@ -523,7 +523,7 @@
     </element>
     <element id="MedicationAdministration.reason">
       <path value="MedicationAdministration.reason"/>
-      <short value="Concept, condition or observation that supports why the medication was administered"/>
+      <short value="Reason that supports why the medication was administered"/>
       <definition value="A code, Condition or observation that supports why the medication was administered."/>
       <min value="0"/>
       <max value="*"/>
@@ -531,7 +531,8 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>      
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
