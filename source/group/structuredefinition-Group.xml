@@ -79,6 +79,12 @@
       <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cnl-2"/>
+        <severity value="error"/>
+        <human value="Group.type SHALL be defined if Group.membership is either 'definitional' or 'enumerated'"/>
+        <expression value="Group.type.exists() or (Group.membership = 'conceptual')"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="Entity[determinerCode=&quot;GRP&quot; or determinerCode=&quot;GRP_KIND&quot;]"/>
@@ -188,6 +194,9 @@
       </type>
       <isSummary value="true"/>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="??"/>
+        </extension>
         <strength value="required"/>
         <description value="The basis for membership in a group"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis"/>
@@ -206,22 +215,22 @@
       <isModifierReason value="Changing the combinationMethod from all-of to any other value changes the interpretation of multiple characteristics."/>
       <isSummary value="true"/>
       <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                  <valueString value="CharacteristicCombination"/>
-            </extension>
-            <strength value="required"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CharacteristicCombination"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
       </binding>
     </element>
     <element id="Group.combinationThreshold">
-        <path value="Group.combinationThreshold"/>
-        <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
-        <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used for combinationMethod."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-            <code value="positiveInt"/>
-        </type>
+      <path value="Group.combinationThreshold"/>
+      <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
+      <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used for combinationMethod."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
     </element>
     <element id="Group.code">
       <path value="Group.code"/>
@@ -383,10 +392,10 @@
       <type>
         <code value="Reference"/>
       </type>
-	  <type>
+      <type>
         <code value="uri"/>
       </type>
-	  <type>
+      <type>
         <code value="Expression"/>
       </type>
       <isSummary value="true"/>
@@ -465,50 +474,50 @@
       </type>
     </element>
     <element id="Group.characteristic.offset">
-        <path value="Group.characteristic.offset"/>
-        <short value="Reference point for comparison"/>
-        <definition value="Defines the reference point for comparison when other than 0."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-            <code value="CodeableConcept"/>
-        </type>
-        <isModifier value="true"/>
-        <isModifierReason value="If offset is present it must be included to interpret the characteristic value."/>
-        <isSummary value="true"/>
-        <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                <valueString value="CharacteristicOffset"/>
-            </extension>
-            <strength value="example"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
-        </binding>
+      <path value="Group.characteristic.offset"/>
+      <short value="Reference point for comparison"/>
+      <definition value="Defines the reference point for comparison when other than 0."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="If offset is present it must be included to interpret the characteristic value."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CharacteristicOffset"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
+      </binding>
     </element>
     <element id="Group.characteristic.instances[x]">
-        <path value="Group.characteristic.instances[x]"/>
-        <short value="Number of occurrences meeting the characteristic"/>
-        <definition value="Number of occurrences meeting the characteristic."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-            <code value="Quantity"/>
-        </type>
-        <type>
-            <code value="Range"/>
-        </type>
+      <path value="Group.characteristic.instances[x]"/>
+      <short value="Number of occurrences meeting the characteristic"/>
+      <definition value="Number of occurrences meeting the characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
     </element>
     <element id="Group.characteristic.duration[x]">
-        <path value="Group.characteristic.duration[x]"/>
-        <short value="Length of time in which the characteristic is met"/>
-        <definition value="Length of time in which the characteristic is met."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-            <code value="Duration"/>
-        </type>
-        <type>
-            <code value="Range"/>
-        </type>
+      <path value="Group.characteristic.duration[x]"/>
+      <short value="Length of time in which the characteristic is met"/>
+      <definition value="Length of time in which the characteristic is met."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
     </element>
     <element id="Group.characteristic.period">
       <path value="Group.characteristic.period"/>
@@ -521,14 +530,14 @@
       </type>
     </element>
     <element id="Group.characteristic.timing">
-        <path value="Group.characteristic.timing"/>
-        <short value="Timing in which the characteristic is determined"/>
-        <definition value="Timing in which the characteristic is determined."/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-            <code value="RelativeTime"/>
-        </type>
+      <path value="Group.characteristic.timing"/>
+      <short value="Timing in which the characteristic is determined"/>
+      <definition value="Timing in which the characteristic is determined."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelativeTime"/>
+      </type>
     </element>
     <element id="Group.member">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
