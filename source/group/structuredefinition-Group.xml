@@ -105,10 +105,10 @@
     </element>
     <element id="Group.url">
       <path value="Group.url"/>
-      <short value="Canonical identifier for this {{title}}, represented as an absolute URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this {{title}} is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the {{title}} is stored on different servers."/>
+      <short value="Canonical identifier for this Group, represented as an absolute URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this Group when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Group is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Group is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the {{title}} to be referenced by a single globally unique identifier."/>
+      <requirements value="Allows the Group to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -154,9 +154,9 @@
     </element>
     <element id="Group.version">
       <path value="Group.version"/>
-      <short value="Business version of the {{title}}"/>
-      <definition value="The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
-      <comment value="There may be different {{title}}s that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the {{title}} with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <short value="Business version of the Group"/>
+      <definition value="The identifier that is used to identify this version of the Group when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Group author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
+      <comment value="There may be different Groups that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Group with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -202,7 +202,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired Group without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -250,9 +250,9 @@
     <element id="Group.experimental">
       <path value="Group.experimental"/>
       <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-      <comment value="Allows filtering of {{title}}s that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level {{title}}."/>
+      <definition value="A Boolean value to indicate that this Group is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+      <comment value="Allows filtering of Groups that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -408,8 +408,8 @@
     </element>
     <element id="Group.title">
       <path value="Group.title"/>
-      <short value="Name for this {{title}} (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the {{title}}."/>
+      <short value="Name for this Group (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the Group."/>
       <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -421,8 +421,8 @@
     <element id="Group.date">
       <path value="Group.date"/>
       <short value="Date last changed"/>
-      <definition value="The date (and optionally time) when the {{title}} was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xA;&#xA;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <definition value="The date (and optionally time) when the Group was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Group changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Group. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xA;&#xA;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -438,9 +438,9 @@
     <element id="Group.publisher">
       <path value="Group.publisher"/>
       <short value="Name of the publisher/steward (organization or individual)"/>
-      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the {{title}}."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the {{title}} is the organization or individual primarily responsible for the maintenance and upkeep of the {{title}}. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the {{title}}. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the {{title}}.  May also allow for contact."/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the Group."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the Group is the organization or individual primarily responsible for the maintenance and upkeep of the Group. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Group. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the Group.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -465,7 +465,7 @@
     <element id="Group.useContext">
       <path value="Group.useContext"/>
       <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate {{title}}s."/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Groups."/>
       <comment value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
       <min value="0"/>
@@ -480,9 +480,9 @@
         <valueCode value="deprecated"/>
       </extension>
       <path value="Group.jurisdiction"/>
-      <short value="Intended jurisdiction for {{title}} (if applicable)"/>
-      <definition value="A legal or geographic region in which the {{title}} is intended to be used."/>
-      <comment value="It may be possible for the {{title}} to be used in jurisdictions other than those for which it was originally designed or intended.&#xA;&#xA;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+      <short value="Intended jurisdiction for Group (if applicable)"/>
+      <definition value="A legal or geographic region in which the Group is intended to be used."/>
+      <comment value="It may be possible for the Group to be used in jurisdictions other than those for which it was originally designed or intended.&#xA;&#xA;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -503,9 +503,9 @@
     </element>
     <element id="Group.purpose">
       <path value="Group.purpose"/>
-      <short value="Why this {{title}} is defined"/>
-      <definition value="Explanation of why this {{title}} is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the {{title}}. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}."/>
+      <short value="Why this Group is defined"/>
+      <definition value="Explanation of why this Group is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the Group. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -523,9 +523,9 @@
     <element id="Group.copyright">
       <path value="Group.copyright"/>
       <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}."/>
+      <definition value="A copyright statement relating to the Group and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Group."/>
       <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the {{title}} and/or its content."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the Group and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
       <min value="0"/>
