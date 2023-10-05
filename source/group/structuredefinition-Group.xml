@@ -190,17 +190,35 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
     </element>
-    <element id="Group.title">
-      <path value="Group.title"/>
-      <short value="Name for this {{title}} (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the {{title}}."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+    <element id="Group.status">
+      <path value="Group.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The current state of this Group."/>
+      <comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <requirements value="Enables tracking the life-cycle of the content and filtering of Groups that are appropriate for use versus not."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
     </element>
     <element id="Group.active">
       <path value="Group.active"/>
@@ -387,6 +405,18 @@
         <identity value="interface"/>
         <map value="Participant.name"/>
       </mapping>
+    </element>
+    <element id="Group.title">
+      <path value="Group.title"/>
+      <short value="Name for this {{title}} (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the {{title}}."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Group.date">
       <path value="Group.date"/>
