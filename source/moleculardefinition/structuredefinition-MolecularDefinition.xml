@@ -113,6 +113,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
+    <element id="MolecularDefinition.name">
+      <path value="MolecularDefinition.name"/>
+      <short value="Label of this MolecularDefinition"/>
+      <definition value="The label associates with this MolecularDefinition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="MolecularDefinition.literal">
       <path value="MolecularDefinition.literal"/>
       <short value="A literal representation"/>
