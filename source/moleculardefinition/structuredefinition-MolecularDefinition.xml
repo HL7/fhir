@@ -124,6 +124,104 @@
       </type>
       <isSummary value="false"/>
     </element>
+
+    <element id="MolecularDefinition.location">
+      <path value="MolecularDefinition.location"/>
+      <short value="Location of this molecule"/>
+      <definition value="The molecular location of this molecule."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation">
+      <path value="MolecularDefinition.location.sequenceLocation"/>
+      <short value="Location of this molecule in context of a sequence"/>
+      <definition value="The Location of this molecule in context of a sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.sequenceContext">
+      <path value="MolecularDefinition.location.sequenceLocation.sequenceContext"/>
+      <short value="Reference sequence"/>
+      <definition value="The reference Sequence that contains this location."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval"/>
+      <short value="Coordinate Interval for this location"/>
+      <definition value="The coordinate interval for this location."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem"/>
+      <short value="Coordinate System"/>
+      <definition value="The coordinate system of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.start[x]">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.start[x]"/>
+      <short value="Start"/>
+      <definition value="The start of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.end[x]">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.end[x]"/>
+      <short value="End"/>
+      <definition value="The end of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.strand">
+      <path value="MolecularDefinition.location.sequenceLocation.strand"/>
+      <short value="Forward or Reverse"/>
+      <definition value="The identification of the strand direction, i.e, forward vs reverse strand."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+
+
     <element id="MolecularDefinition.literal">
       <path value="MolecularDefinition.literal"/>
       <short value="A literal representation"/>
