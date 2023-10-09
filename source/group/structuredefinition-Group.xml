@@ -63,10 +63,15 @@
     <uri value="http://hl7.org/fhir/fivews"/>
     <name value="FiveWs Pattern Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Group"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="Group">
@@ -79,6 +84,12 @@
       <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cnl-2"/>
+        <severity value="error"/>
+        <human value="Group.type SHALL be defined if Group.membership is either 'definitional' or 'enumerated'"/>
+        <expression value="Group.type.exists() or (Group.membership = 'conceptual')"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="Entity[determinerCode=&quot;GRP&quot; or determinerCode=&quot;GRP_KIND&quot;]"/>
@@ -90,6 +101,30 @@
       <mapping>
         <identity value="w5"/>
         <map value="administrative.group"/>
+      </mapping>
+    </element>
+    <element id="Group.url">
+      <path value="Group.url"/>
+      <short value="Canonical identifier for this Group, represented as an absolute URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this Group when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Group is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Group is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the Group to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
       </mapping>
     </element>
     <element id="Group.identifier">
@@ -117,32 +152,244 @@
         <map value="Participant.identifier"/>
       </mapping>
     </element>
-    <element id="Group.active">
-      <path value="Group.active"/>
-      <short value="Whether this group's record is in active use"/>
-      <definition value="Indicates whether the record for the group is available for use or is merely being retained for historical purposes."/>
-      <requirements value="Need to be able to mark a group record as not to be used because it was created in error or is otherwise no longer available (e.g. a herd that no longer exists)."/>
+    <element id="Group.version">
+      <path value="Group.version"/>
+      <short value="Business version of the Group"/>
+      <definition value="The identifier that is used to identify this version of the Group when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Group author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
+      <comment value="There may be different Groups that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Group with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="Group.versionAlgorithm[x]">
+      <path value="Group.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VersionAlgorithm"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
+    <element id="Group.name">
+      <path value="Group.name"/>
+      <short value="Label for Group"/>
+      <definition value="A label assigned to the group for human identification and communication."/>
+      <requirements value="Used to identify the group in human communication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./name[type=&quot;ST&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.name"/>
+      </mapping>
+    </element>
+    <element id="Group.title">
+      <path value="Group.title"/>
+      <short value="Name for this Group (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the Group."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Group.status">
+      <path value="Group.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The current state of this Group."/>
+      <comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <requirements value="Enables tracking the life-cycle of the content and filtering of Groups that are appropriate for use versus not."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired Group without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="Group.experimental">
+      <path value="Group.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this Group is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+      <comment value="Allows filtering of Groups that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
-      <isModifier value="true"/>
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.status"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Group.date">
+      <path value="Group.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date (and optionally time) when the Group was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Group changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Group. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xA;&#xA;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="Group.publisher">
+      <path value="Group.publisher"/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the Group."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the Group is the organization or individual primarily responsible for the maintenance and upkeep of the Group. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Group. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the Group.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="Group.contact">
+      <path value="Group.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.&#xA;&#xA;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Group.description">
+      <path value="Group.description"/>
+      <short value="Natural language description of the group"/>
+      <definition value="Explanation of what the group represents and how it is intended to be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Group.useContext">
+      <path value="Group.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Groups."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Group.purpose">
+      <path value="Group.purpose"/>
+      <short value="Why this Group is defined"/>
+      <definition value="Explanation of why this Group is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the Group. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
       </mapping>
       <mapping>
-        <identity value="rim"/>
-        <map value="./statusCode"/>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
       </mapping>
+    </element>
+    <element id="Group.copyright">
+      <path value="Group.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the Group and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Group."/>
+      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the Group and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
       <mapping>
-        <identity value="interface"/>
-        <map value="Participant.active"/>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
       </mapping>
+    </element>
+    <element id="Group.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Group.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Group.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -153,7 +400,7 @@
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
       <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, or Specimen for the other types.), or a Group of the resources of the appropriate type."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -176,10 +423,10 @@
         <map value="person: ./classCode=&quot;PSN&quot;  animal: ./classCode=&quot;ANM&quot;  device: ./classCode=&quot;DEV&quot;  medication: ./classCode=&quot;MMAT&quot; and ./playedRole[isNormalRole() and classCode=&quot;THER&quot;]  food: ./classCode=&quot;FOOD&quot;"/>
       </mapping>
     </element>
-    <element id="Group.membership">
+    <element id="Group.membership">	
       <path value="Group.membership"/>
-      <short value="definitional | enumerated"/>
-      <definition value="Basis for membership in the Group:&#xA;&#xA;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#xA;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
+      <short value="definitional | conceptual | enumerated"/>
+      <definition value="Basis for membership in the Group:&#xA;&#xA;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#xA;* 'conceptual': The Group.characteristics specified are both necessary and sufficient to determine membership. The 'conceptual' Group is a 'definitional' Group in which the Group.type is not bound to FHIR types.&#xA;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
       <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
       <min value="1"/>
       <max value="1"/>
@@ -188,6 +435,9 @@
       </type>
       <isSummary value="true"/>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GroupMembershipBasis"/>
+        </extension>
         <strength value="required"/>
         <description value="The basis for membership in a group"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis"/>
@@ -219,36 +469,6 @@
         <identity value="rim"/>
         <map value="./code"/>
       </mapping>
-    </element>
-    <element id="Group.name">
-      <path value="Group.name"/>
-      <short value="Label for Group"/>
-      <definition value="A label assigned to the group for human identification and communication."/>
-      <requirements value="Used to identify the group in human communication."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./name[type=&quot;ST&quot;]"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="Participant.name"/>
-      </mapping>
-    </element>
-    <element id="Group.description">
-      <path value="Group.description"/>
-      <short value="Natural language description of the group"/>
-      <definition value="Explanation of what the group represents and how it is intended to be used."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
     </element>
     <element id="Group.quantity">
       <path value="Group.quantity"/>
@@ -286,6 +506,36 @@
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
+    </element>
+    <element id="Group.combinationMethod">
+      <path value="Group.combinationMethod"/>
+      <short value="all-of | any-of | at-least | at-most | except-subset"/>
+      <definition value="Used to specify how two or more characteristics are combined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Changing the combinationMethod from all-of to any other value changes the interpretation of multiple characteristics."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CharacteristicCombination"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
+      </binding>
+    </element>
+    <element id="Group.combinationThreshold">
+      <path value="Group.combinationThreshold"/>
+      <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
+      <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used for combinationMethod."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
     </element>
     <element id="Group.characteristic">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -353,6 +603,12 @@
       <type>
         <code value="Reference"/>
       </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Expression"/>
+      </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -383,6 +639,97 @@
         <map value="./valueNegationInd"/>
       </mapping>
     </element>
+    <element id="Group.characteristic.description">
+      <path value="Group.characteristic.description"/>
+      <short value="Natural language description of the characteristic"/>
+      <definition value="A short, natural language description of the characteristic that could be used to communicate the criteria to an end-user."/>
+      <requirements value="Need to be able to describe characteristics in natural language so that end users can understand the criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Group.characteristic.method">
+      <path value="Group.characteristic.method"/>
+      <short value="Method for how the characteristic value was determined"/>
+      <definition value="Method for how the characteristic value was determined."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionMethod"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-method"/>
+      </binding>
+    </element>
+    <element id="Group.characteristic.determinedBy[x]">
+      <path value="Group.characteristic.determinedBy[x]"/>
+      <short value="Defines the characteristic"/>
+      <definition value="Defines the characteristic (without using type and value) by either a Reference or an Expression."/>
+      <requirements value="The value of the characteristic is what determines group membership."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
+      </type>
+      <type>
+        <code value="Expression"/>
+      </type>
+    </element>
+    <element id="Group.characteristic.offset">
+      <path value="Group.characteristic.offset"/>
+      <short value="Reference point for comparison"/>
+      <definition value="Defines the reference point for comparison when other than 0."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="If offset is present it must be included to interpret the characteristic value."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CharacteristicOffset"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
+      </binding>
+    </element>
+    <element id="Group.characteristic.instances[x]">
+      <path value="Group.characteristic.instances[x]"/>
+      <short value="Number of occurrences meeting the characteristic"/>
+      <definition value="Number of occurrences meeting the characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
+    <element id="Group.characteristic.duration[x]">
+      <path value="Group.characteristic.duration[x]"/>
+      <short value="Length of time in which the characteristic is met"/>
+      <definition value="Length of time in which the characteristic is met."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
     <element id="Group.characteristic.period">
       <path value="Group.characteristic.period"/>
       <short value="Period over which characteristic is tested"/>
@@ -391,6 +738,16 @@
       <max value="1"/>
       <type>
         <code value="Period"/>
+      </type>
+    </element>
+    <element id="Group.characteristic.timing">
+      <path value="Group.characteristic.timing"/>
+      <short value="Timing in which the characteristic is determined"/>
+      <definition value="Timing in which the characteristic is determined."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelativeTime"/>
       </type>
     </element>
     <element id="Group.member">
