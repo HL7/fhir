@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
  An example of a herd used in the subject screening observation for Mycoplasmal Pneumonia in Pigs
 (Enzootic pneumonia).  Many thanks to Veterinary Diagnostic Laboratory Iowa State University for the data.-->
 <Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Group.xsd">
@@ -16,7 +16,8 @@
 		<system value="https://vetmed.iastate.edu/vdl"/>
 		<value value="20171120-1234"/>
 	</identifier>
-	<active value="true"/>
+	<name value="Breeding herd"/>
+	<status value="active"/>
 	<type value="animal"/>
 	<membership value="enumerated"/>
 	<!-- describes a bunch of female breeding sows  added a translation from US APHIS codes to SNOMED CT-->
@@ -33,7 +34,6 @@
 		</coding>
 		<text value="Porcine"/>
 	</code>
-	<name value="Breeding herd"/>
 	<quantity value="2500"/>
 	<!-- the share the common charasteristic of being sows -->
 	<characteristic>
