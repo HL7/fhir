@@ -190,6 +190,38 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
     </element>
+    <element id="Group.name">
+      <path value="Group.name"/>
+      <short value="Label for Group"/>
+      <definition value="A label assigned to the group for human identification and communication."/>
+      <requirements value="Used to identify the group in human communication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./name[type=&quot;ST&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.name"/>
+      </mapping>
+    </element>
+    <element id="Group.title">
+      <path value="Group.title"/>
+      <short value="Name for this Group (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the Group."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="Group.status">
       <path value="Group.status"/>
       <short value="draft | active | retired | unknown"/>
@@ -283,6 +315,16 @@
         <code value="ContactDetail"/>
       </type>
       <isSummary value="true"/>
+    </element>
+    <element id="Group.description">
+      <path value="Group.description"/>
+      <short value="Natural language description of the group"/>
+      <definition value="Explanation of what the group represents and how it is intended to be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
     </element>
     <element id="Group.useContext">
       <path value="Group.useContext"/>
@@ -427,48 +469,6 @@
         <identity value="rim"/>
         <map value="./code"/>
       </mapping>
-    </element>
-    <element id="Group.name">
-      <path value="Group.name"/>
-      <short value="Label for Group"/>
-      <definition value="A label assigned to the group for human identification and communication."/>
-      <requirements value="Used to identify the group in human communication."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./name[type=&quot;ST&quot;]"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="Participant.name"/>
-      </mapping>
-    </element>
-    <element id="Group.title">
-      <path value="Group.title"/>
-      <short value="Name for this Group (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the Group."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Group.description">
-      <path value="Group.description"/>
-      <short value="Natural language description of the group"/>
-      <definition value="Explanation of what the group represents and how it is intended to be used."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
     </element>
     <element id="Group.quantity">
       <path value="Group.quantity"/>
