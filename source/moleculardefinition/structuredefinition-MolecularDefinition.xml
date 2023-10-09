@@ -33,7 +33,7 @@
   </identifier>
   <version value="6.0.0"/>
   <name value="MolecularDefinition"/>
-  <title value="Molecular Sequence"/>
+  <title value="Molecular Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Genomics)"/>
@@ -49,7 +49,7 @@
       <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Representation of a molecular sequence."/>
+  <description value="Representation of a molecular definition."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -69,8 +69,8 @@
   <differential>
     <element id="MolecularDefinition">
       <path value="MolecularDefinition"/>
-      <short value="Representation of a molecular sequence"/>
-      <definition value="Representation of a molecular sequence."/>
+      <short value="Representation of a molecular definition"/>
+      <definition value="Representation of a molecular definition."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -80,9 +80,9 @@
     </element>
     <element id="MolecularDefinition.identifier">
       <path value="MolecularDefinition.identifier"/>
-      <short value="Unique ID for this particular sequence"/>
-      <definition value="A unique identifier for this particular sequence instance."/>
-      <requirements value="Allows sequences to be distinguished and referenced."/>
+      <short value="Unique ID for this particular resource"/>
+      <definition value="A unique identifier for this particular resource instance."/>
+      <requirements value="Allows MolecularDefinition to be distinguished and referenced."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -97,7 +97,7 @@
     <element id="MolecularDefinition.type">
       <path value="MolecularDefinition.type"/>
       <short value="aa | dna | rna"/>
-      <definition value="The type of the Molecular Sequence (Amino Acid Sequence, DNA Sequence, RNA Sequence)."/>
+      <definition value="The type of the Molecular Definition (Amino Acid, DNA, RNA)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -113,81 +113,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
-    <!--    <element id="MolecularDefinition.subject">
-          <path value="MolecularDefinition.subject"/>
-          <short value="Subject this sequence is associated too"/>
-          <definition value="Indicates the subject this sequence is associated too."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-          </type>
-          <isSummary value="true"/>
-        </element>-->
-    <!--    <element id="MolecularDefinition.focus">
-          <path value="MolecularDefinition.focus"/>
-          <short value="What the molecular sequence is about, when it is not about the subject of record"/>
-          <definition value="The actual focus of a molecular sequence when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, child, or sibling. For example, in trio testing, the subject would be the child (proband) and the focus would be the parent."/>
-          <min value="0"/>
-          <max value="*"/>
-          <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-          </type>
-          <isSummary value="true"/>
-        </element>-->
-    <!--    <element id="MolecularDefinition.specimen">
-          <path value="MolecularDefinition.specimen"/>
-          <short value="Specimen used for sequencing"/>
-          <definition value="Specimen used for sequencing."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
-          </type>
-          <isSummary value="true"/>
-        </element>-->
-    <!--    <element id="MolecularDefinition.device">
-          <path value="MolecularDefinition.device"/>
-          <short value="The method for sequencing"/>
-          <definition value="The method for sequencing, for example, chip information."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-          </type>
-          <isSummary value="true"/>
-        </element>-->
-    <!--    <element id="MolecularDefinition.performer">
-          <path value="MolecularDefinition.performer"/>
-          <short value="Who should be responsible for test result"/>
-          <definition value="The organization or lab that should be responsible for this result."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-          </type>
-          <isSummary value="true"/>
-        </element>-->
-    <!--    <element id="MolecularDefinition.literal">
-          <path value="MolecularDefinition.literal"/>
-          <short value="Sequence that was observed"/>
-          <definition value="Sequence that was observed."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="string"/>
-          </type>
-          <isSummary value="true"/>
-        </element>-->
     <element id="MolecularDefinition.literal">
       <path value="MolecularDefinition.literal"/>
       <short value="A literal representation of a Molecular Sequence"/>
