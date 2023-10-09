@@ -109,14 +109,14 @@
           <valueString value="sequenceType"/>
         </extension>
         <strength value="required"/>
-        <description value="Type if a sequence -- DNA, RNA, or amino acid sequence."/>
+        <description value="Type of a molecule -- DNA, RNA, or amino acid sequence."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
     <element id="MolecularDefinition.literal">
       <path value="MolecularDefinition.literal"/>
-      <short value="A literal representation of a Molecular Sequence"/>
-      <definition value="A literal representation of a Molecular Sequence."/>
+      <short value="A literal representation"/>
+      <definition value="A literal representation."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -125,8 +125,8 @@
       <isSummary value="true"/>
     </element>
 
-    <element id="MolecularDefinition.literal.sequenceValue">
-      <path value="MolecularDefinition.literal.sequenceValue"/>
+    <element id="MolecularDefinition.literal.Value">
+      <path value="MolecularDefinition.literal.Value"/>
       <short value="The primary (linear) sequence, expressed as a literal string"/>
       <definition value="The primary (linear) sequence, expressed as a literal string."/>
       <min value="1"/>
@@ -152,8 +152,8 @@
 
     <element id="MolecularDefinition.formatted">
       <path value="MolecularDefinition.formatted"/>
-      <short value="A representation of a molecular sequence that optionally contains formatting in addition to the specification of the primary sequence itself"/>
-      <definition value="A representation of a molecular sequence that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
+      <short value="A representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
+      <definition value="A representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
       <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
       <min value="0"/>
       <max value="*"/>
@@ -164,8 +164,8 @@
     </element>
     <element id="MolecularDefinition.relative">
       <path value="MolecularDefinition.relative"/>
-      <short value="A Molecular Sequence that is represented as an ordered series of edits on a specified starting sequence"/>
-      <definition value="A Molecular Sequence that is represented as an ordered series of edits on a specified starting sequence."/>
+      <short value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence"/>
+      <definition value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -173,29 +173,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-
-    <!--    <element id="MolecularDefinition.relative.ordinalPosition">
-          <path value="MolecularDefinition.relative.ordinalPosition"/>
-          <short value="The order of this edit, relative to other edits on the starting sequence"/>
-          <definition value="The order of this edit, relative to other edits on the starting sequence."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="integer"/>
-          </type>
-          <isSummary value="false"/>
-        </element>-->
-<!--    <element id="MolecularDefinition.relative.sequenceRange">
-      <path value="MolecularDefinition.relative.sequenceRange"/>
-      <short value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together"/>
-      <definition value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Range"/>
-      </type>
-      <isSummary value="false"/>
-    </element>-->
     <element id="MolecularDefinition.relative.startingSequence">
       <path value="MolecularDefinition.relative.startingSequence"/>
       <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
@@ -206,150 +183,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
       </type>
-      <!--      <constraint>
-              <key value="msq-6"/>
-              <severity value="error"/>
-              <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
-              <expression value="genomeAssembly.exists() xor sequence.exists()"/>
-              <source value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-            </constraint>
-            <constraint>
-              <key value="msq-5"/>
-              <severity value="error"/>
-              <human value="Both genomeAssembly and chromosome must be both contained if either one of them is contained"/>
-              <expression value="chromosome.exists() = genomeAssembly.exists()"/>
-              <source value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-            </constraint>-->
       <isSummary value="true"/>
     </element>
-    <!--    <element id="MolecularDefinition.relative.startingSequence.genomeAssembly">
-          <path value="MolecularDefinition.relative.startingSequence.genomeAssembly"/>
-          <short value="The genome assembly used for starting sequence, e.g. GRCh38"/>
-          <definition value="The genome assembly used for starting sequence, e.g. GRCh38."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="CodeableConcept"/>
-          </type>
-          <condition value="msq-6"/>
-          <condition value="msq-5"/>
-          <isSummary value="true"/>
-          <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-              <valueString value="LL1040-6"/>
-            </extension>
-            <strength value="extensible"/>
-            <description value="Human reference sequence NCBI build ID."/>
-            <valueSet value="http://loinc.org/LL1040-6/"/>
-          </binding>
-        </element>
-        <element id="MolecularDefinition.relative.startingSequence.chromosome">
-          <path value="MolecularDefinition.relative.startingSequence.chromosome"/>
-          <short value="Chromosome Identifier"/>
-          <definition value="Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="CodeableConcept"/>
-          </type>
-          <condition value="msq-5"/>
-          <isSummary value="true"/>
-          <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-              <valueString value="LL2938-0"/>
-            </extension>
-            <strength value="required"/>
-            <description value="The chromosome containing the sequence."/>
-            <valueSet value="http://loinc.org/LL2938-0/"/>
-          </binding>
-        </element>
-        <element id="MolecularDefinition.relative.startingSequence.sequence[x]">
-          <path value="MolecularDefinition.relative.startingSequence.sequence[x]"/>
-          <short value="The reference sequence that represents the starting sequence"/>
-          <definition value="The reference sequence that represents the starting sequence."/>
-          <comment value="A starting sequence may be represented in one of three ways:&#xA;  1.  CodeableConcept, using NCBI, LRG or other appropriate code systems&#xA;  1.  a simple string of IUPAC codes&#xA;  1.  a reference to another MolecularDefinition resource."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="CodeableConcept"/>
-          </type>
-          <type>
-            <code value="string"/>
-          </type>
-          <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-          </type>
-          <condition value="msq-6"/>
-          <isSummary value="true"/>
-          <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-              <valueString value="Multiple bindings acceptable (NCBI or LRG)"/>
-            </extension>
-            <strength value="example"/>
-            <description value="Multiple bindings acceptable (NCBI or LRG)"/>
-          </binding>
-        </element>
-        <element id="MolecularDefinition.relative.startingSequence.windowStart">
-          <path value="MolecularDefinition.relative.startingSequence.windowStart"/>
-          <short value="Start position of the window on the starting sequence"/>
-          <definition value="Start position of the window on the starting sequence. This value should honor the rules of the coordinateSystem."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="integer"/>
-          </type>
-          <isSummary value="true"/>
-        </element>
-        <element id="MolecularDefinition.relative.startingSequence.windowEnd">
-          <path value="MolecularDefinition.relative.startingSequence.windowEnd"/>
-          <short value="End position of the window on the starting sequence"/>
-          <definition value="End position of the window on the starting sequence. This value should honor the rules of the  coordinateSystem."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="integer"/>
-          </type>
-          <isSummary value="true"/>
-        </element>
-        <element id="MolecularDefinition.relative.startingSequence.orientation">
-          <path value="MolecularDefinition.relative.startingSequence.orientation"/>
-          <short value="sense | antisense"/>
-          <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="code"/>
-          </type>
-          <isSummary value="true"/>
-          <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-              <valueString value="orientationType"/>
-            </extension>
-            <strength value="required"/>
-            <description value="Type for orientation"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/orientation-type"/>
-          </binding>
-        </element>
-        <element id="MolecularDefinition.relative.startingSequence.strand">
-          <path value="MolecularDefinition.relative.startingSequence.strand"/>
-          <short value="watson | crick"/>
-          <definition value="An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="code"/>
-          </type>
-          <isSummary value="true"/>
-          <binding>
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-              <valueString value="strandType"/>
-            </extension>
-            <strength value="required"/>
-            <description value="Type for strand"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/strand-type"/>
-          </binding>
-        </element>-->
     <element id="MolecularDefinition.relative.edit">
       <path value="MolecularDefinition.relative.edit"/>
       <short value="An edit (change) made to a sequence"/>
