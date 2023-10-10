@@ -13,12 +13,12 @@
     <system value="http://someveterinarianclinic.org/fhir/NamingSystem/herds"/>
     <value value="12345"/>
   </identifier>
+  <name value="John's herd"/>
   <type value="animal"/>
   <membership value="enumerated"/>
   <code>
     <text value="Horse"/>
   </code>
-  <name value="John's herd"/>
   <quantity value="25"/>
   <characteristic>
     <code>
