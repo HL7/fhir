@@ -61,6 +61,11 @@
     <definition value="Meet at most the threshold number of characteristics for definition."/>
   </concept>
   <concept>
+    <code value="except-subset"/>
+    <display value="Except subset"/>
+    <definition value="Meet the inclusion criteria under the condition that the basis does not match the exclusion criteria."/>
+  </concept>
+  <concept>
     <code value="statistical"/>
     <display value="Statistical"/>
     <definition value="Combine characteristics statistically. Use method to specify the statistical method."/>
