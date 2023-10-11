@@ -220,7 +220,238 @@
       </type>
       <isSummary value="false"/>
     </element>
+    <element id="MolecularDefinition.location.cytobandLocation">
+      <path value="MolecularDefinition.location.cytobandLocation"/>
+      <short value="Location of this molecule in context of a cytoband"/>
+      <definition value="The Location of this molecule in context of a cytoband."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly"/>
+      <short value="Reference Genome"/>
+      <definition value="The reference genome assemble."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.organism">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.organism"/>
+      <short value="Species of the organism"/>
+      <definition value="Species of the organism."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.build">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.build"/>
+      <short value="Build number"/>
+      <definition value="The build number of this genome assemble."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.accession">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.accession"/>
+      <short value="Accession"/>
+      <definition value="The accession of this genome assemble."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.description">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.description"/>
+      <short value="Genome assemble description"/>
+      <definition value="The description of this genome assemble."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval"/>
+      <short value="Cytoband Interval"/>
+      <definition value="The Cytoband Interval."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome"/>
+      <short value="Chromosome"/>
+      <definition value="The chromosome where this cytoband interval occurs."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband"/>
+      <short value="Start"/>
+      <definition value="The start of this cytoband Interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm"/>
+      <short value="Arm"/>
+      <definition value="The arm of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region"/>
+      <short value="Region"/>
+      <definition value="The region of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band"/>
+      <short value="Band"/>
+      <definition value="The band of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand"/>
+      <short value="SuBand"/>
+      <definition value="The sub-band of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
 
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband"/>
+      <short value="End"/>
+      <definition value="The end of this cytoband Interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm"/>
+      <short value="Arm"/>
+      <definition value="The arm of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region"/>
+      <short value="Region"/>
+      <definition value="The region of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band"/>
+      <short value="Band"/>
+      <definition value="The band of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand"/>
+      <short value="SuBand"/>
+      <definition value="The sub-band of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
 
     <element id="MolecularDefinition.literal">
       <path value="MolecularDefinition.literal"/>
