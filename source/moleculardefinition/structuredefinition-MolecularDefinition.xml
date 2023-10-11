@@ -474,6 +474,18 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularDefinition.memberState">
+      <path value="MolecularDefinition.memberState"/>
+      <short value="Member"/>
+      <definition value="A member or part of this molecule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
     <element id="MolecularDefinition.literal">
       <path value="MolecularDefinition.literal"/>
