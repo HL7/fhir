@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MolecularSequence xmlns="http://hl7.org/fhir">
+<MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example"/>
     <type value="dna"/>
     <!--    <subject>
@@ -10,8 +10,9 @@
             <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
             <title value="GA4GH API"/>
         </formatted>-->
+    <representation>
     <literal>
-        <sequenceValue value="ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
+        <value value="ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
 TTTTACTAAGTGTTCAAATACCAGTGAACTTAAAGAATTTGTCAATCCTAGCCTTCCAAGAGAAGAAAAA
 GAAGAGAAACTAGAAACAGTTAAAGTGTCTAATAATGCTGAAGACCCCAAAGATCTCATGTTAAGTGGAG
 AAAGGGTTTTGCAAACTGAAAGATCTGTAGAGAGTAGCAGTATTTCAYTGGTACCTGGTACTGATTATGG
@@ -31,14 +32,14 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         <text value=""/>
     </encoding>-->
     </literal>
-    <formatted>
+    <resolvable>
         <contentType value="text/html"/>
         <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>
-    </formatted>
+    </resolvable>
     <relative>
         <startingSequence>
-            <reference value="MolecularSequence/StartingSequenceExample"/>
-            <type value="MolecularSequence"/>
+            <reference value="MolecularDefinition/StartingSequenceExample"/>
+            <type value="MolecularDefinition"/>
             <display value="Starting Sequence Resource"/>
         </startingSequence>
         <edit>
@@ -53,21 +54,21 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             <start value="0"/>
             <end value="725"/>
             <replacementSequence>
-                <reference value="MolecularSequence/ReplacementSequenceExample"/>
-                <type value="MolecularSequence"/>
+                <reference value="MolecularDefinition/ReplacementSequenceExample"/>
+                <type value="MolecularDefinition"/>
                 <display value="Replacement Sequence Resource"/>
             </replacementSequence>
             <replacedSequence>
-                <reference value="MolecularSequence/ReplacedSequenceExample"/>
-                <type value="MolecularSequence"/>
+                <reference value="MolecularDefinition/ReplacedSequenceExample"/>
+                <type value="MolecularDefinition"/>
                 <display value="Replaced Sequence Resource"/>
             </replacedSequence>
         </edit>
     </relative>
     <extracted>
         <startingSequence>
-            <reference value="MolecularSequence/StartingSequenceExample"/>
-            <type value="MolecularSequence"/>
+            <reference value="MolecularDefinition/StartingSequenceExample"/>
+            <type value="MolecularDefinition"/>
             <display value="Starting Sequence Resource"/>
         </startingSequence>
         <start value="0"/>
@@ -84,8 +85,8 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
     </extracted>
     <!--    <repeated>
             <sequenceMotif>
-                <reference value="MolecularSequence/SequenceMotifExample"/>
-                <type value="MolecularSequence"/>
+                <reference value="MolecularDefinition/SequenceMotifExample"/>
+                <type value="MolecularDefinition"/>
                 <display value="Sequence Motif Resource"/>
             </sequenceMotif>
             <copyCount value="5"/>
@@ -93,28 +94,28 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
     <concatenated>
         <sequenceElement>
             <sequence>
-                <reference value="MolecularSequence/Sequence0ConcatenatedExample"/>
-                <type value="MolecularSequence"/>
+                <reference value="MolecularDefinition/Sequence0ConcatenatedExample"/>
+                <type value="MolecularDefinition"/>
                 <display value="Sequence-of index 0-Resource for concatenated sequence example"/>
             </sequence>
             <ordinalIndex value="0"/>
         </sequenceElement>
         <sequenceElement>
             <sequence>
-                <reference value="MolecularSequence/Sequence1ConcatenatedExample"/>
-                <type value="MolecularSequence"/>
+                <reference value="MolecularDefinition/Sequence1ConcatenatedExample"/>
+                <type value="MolecularDefinition"/>
                 <display value="Sequence-of index 1-Resource for concatenated sequence example"/>
             </sequence>
             <ordinalIndex value="1"/>
         </sequenceElement>
         <sequenceElement>
             <sequence>
-                <reference value="MolecularSequence/Sequence2ConcatenatedExample"/>
-                <type value="MolecularSequence"/>
+                <reference value="MolecularDefinition/Sequence2ConcatenatedExample"/>
+                <type value="MolecularDefinition"/>
                 <display value="Sequence-of index 2-Resource for concatenated sequence example"/>
             </sequence>
             <ordinalIndex value="2"/>
         </sequenceElement>
     </concatenated>
-
-</MolecularSequence>
+    </representation>
+</MolecularDefinition>
