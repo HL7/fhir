@@ -580,7 +580,7 @@
     <Cell><Data ss:Type="String">target</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
+    <Cell><Data ss:Type="String">MolecularDefinition</Data></Cell>
     <!--<Cell><Data ss:Type="String">subject</Data></Cell>-->
    </Row>
    <Row ss:AutoFitHeight="0">
