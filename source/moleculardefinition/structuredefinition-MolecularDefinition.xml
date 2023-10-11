@@ -486,9 +486,21 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularDefinition.representation">
+      <path value="MolecularDefinition.representation"/>
+      <short value="Representation"/>
+      <definition value="The representation of this molecular definition, e.g., as a literal or repeated elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
-    <element id="MolecularDefinition.literal">
-      <path value="MolecularDefinition.literal"/>
+
+    <element id="MolecularDefinition.representation.literal">
+      <path value="MolecularDefinition.representation.literal"/>
       <short value="A literal representation"/>
       <definition value="A literal representation."/>
       <min value="0"/>
@@ -499,8 +511,8 @@
       <isSummary value="true"/>
     </element>
 
-    <element id="MolecularDefinition.literal.Value">
-      <path value="MolecularDefinition.literal.Value"/>
+    <element id="MolecularDefinition.representation.literal.Value">
+      <path value="MolecularDefinition.representation.literal.Value"/>
       <short value="The primary (linear) sequence, expressed as a literal string"/>
       <definition value="The primary (linear) sequence, expressed as a literal string."/>
       <min value="1"/>
@@ -511,8 +523,8 @@
       <isSummary value="true"/>
     </element>
 
-    <element id="MolecularDefinition.literal.encoding">
-      <path value="MolecularDefinition.literal.encoding"/>
+    <element id="MolecularDefinition.representation.literal.encoding">
+      <path value="MolecularDefinition.representation.literal.encoding"/>
       <short value="The encoding used for the expression of the primary sequence"/>
       <definition value="The encoding used for the expression of the primary sequence. This defines the characters that may be used in the primary sequence and it permits the explicit inclusion/exclusion of IUPAC ambiguity codes."/>
       <min value="0"/>
@@ -524,10 +536,10 @@
     </element>
 
 
-    <element id="MolecularDefinition.formatted">
-      <path value="MolecularDefinition.formatted"/>
-      <short value="A representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
-      <definition value="A representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
+    <element id="MolecularDefinition.representation.resolvable">
+      <path value="MolecularDefinition.representation.resolvable"/>
+      <short value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
+      <definition value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
       <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
       <min value="0"/>
       <max value="*"/>
@@ -536,8 +548,162 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative">
-      <path value="MolecularDefinition.relative"/>
+
+    <element id="MolecularDefinition.representation.extracted">
+      <path value="MolecularDefinition.representation.extracted"/>
+      <short value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence"/>
+      <definition value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.startingSequence">
+      <path value="MolecularDefinition.representation.extracted.startingSequence"/>
+      <short value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted"/>
+      <definition value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.start">
+      <path value="MolecularDefinition.representation.extracted.start"/>
+      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
+      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.end">
+      <path value="MolecularDefinition.representation.extracted.end"/>
+      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
+      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateSystem">
+      <path value="MolecularDefinition.representation.extracted.coordinateSystem"/>
+      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>
+      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.reverseComplement">
+      <path value="MolecularDefinition.representation.extracted.reverseComplement"/>
+      <short value="A flag that indicates whether the extracted sequence should be reverse complemented"/>
+      <definition value="A flag that indicates whether the extracted sequence should be reverse complemented."/>
+      <comment value="This attribute might be needed in all sequence representation classes, so that any sequence representation could be reverseComplemented."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularDefinition.representation.repeated">
+      <path value="MolecularDefinition.representation.repeated"/>
+      <short value="A Molecular Sequence that is represented as a repeated sequence motif"/>
+      <definition value="A Molecular Sequence that is represented as a repeated sequence motif."/>
+      <comment value="This class represents motifs that occur in tandem (immediately adjacent to each other) and without edits (each copy of the motif is identical)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.repeated.sequenceMotif">
+      <path value="MolecularDefinition.representation.repeated.sequenceMotif"/>
+      <short value="The sequence that defines the repeated motif"/>
+      <definition value="The sequence that defines the repeated motif."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.repeated.copyCount">
+      <path value="MolecularDefinition.representation.repeated.copyCount"/>
+      <short value="The number of repeats (copies) of the sequence motif"/>
+      <definition value="The number of repeats (copies) of the sequence motif."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.concatenated">
+      <path value="MolecularDefinition.representation.concatenated"/>
+      <short value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences"/>
+      <definition value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.concatenated.sequenceElement">
+      <path value="MolecularDefinition.representation.concatenated.sequenceElement"/>
+      <short value="One element of a concatenated Molecular Sequence"/>
+      <definition value="One element of a concatenated Molecular Sequence."/>
+      <comment value="At least two sequenceElement elements are required to represent a concatenated sequence."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <!--    More descriptive short and definition to be added later-->
+    <element id="MolecularDefinition.representation.concatenated.sequenceElement.sequence">
+      <path value="MolecularDefinition.representation.concatenated.sequenceElement.sequence"/>
+      <short value="The Molecular Sequence corresponding to this element"/>
+      <definition value="The Molecular Sequence corresponding to this element."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex">
+      <path value="MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex"/>
+      <short value="The ordinal position of this sequence element within the concatenated Molecular Sequence"/>
+      <definition value="The ordinal position of this sequence element within the concatenated Molecular Sequence."/>
+      <comment value="0 or 1 based indices are possible, could potentially skip numbers in the sequence, suggest implementers sort numerically prior to concatenating"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative">
+      <path value="MolecularDefinition.representation.relative"/>
       <short value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence"/>
       <definition value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence."/>
       <min value="0"/>
@@ -547,8 +713,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative.startingSequence">
-      <path value="MolecularDefinition.relative.startingSequence"/>
+    <element id="MolecularDefinition.representation.relative.startingSequence">
+      <path value="MolecularDefinition.representation.relative.startingSequence"/>
       <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
       <definition value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied."/>
       <min value="1"/>
@@ -559,8 +725,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative.edit">
-      <path value="MolecularDefinition.relative.edit"/>
+    <element id="MolecularDefinition.representation.relative.edit">
+      <path value="MolecularDefinition.representation.relative.edit"/>
       <short value="An edit (change) made to a sequence"/>
       <definition value="An edit (change) made to a sequence."/>
       <comment value = "Edits are applied sequentially. The sequence that results from one edit operation is used as the 'starting' sequence of the next edit operation."/>
@@ -571,8 +737,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative.edit.editOrder">
-      <path value="MolecularDefinition.relative.edit.editOrder"/>
+    <element id="MolecularDefinition.representation.relative.edit.editOrder">
+      <path value="MolecularDefinition.representation.relative.edit.editOrder"/>
       <short value="The order of this edit, relative to other edits on the starting sequence"/>
       <definition value="The order of this edit, relative to other edits on the starting sequence."/>
       <min value="0"/>
@@ -582,8 +748,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.relative.edit.coordinateSystem">
-      <path value="MolecularDefinition.relative.edit.coordinateSystem"/>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateSystem">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateSystem"/>
       <short value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based"/>
       <definition value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based."/>
       <min value="1"/>
@@ -601,8 +767,8 @@
         <valueSet value="http://loinc.org/LL5323-2/"/>
       </binding>
     </element>
-    <element id="MolecularDefinition.relative.edit.start">
-      <path value="MolecularDefinition.relative.edit.start"/>
+    <element id="MolecularDefinition.representation.relative.edit.start">
+      <path value="MolecularDefinition.representation.relative.edit.start"/>
       <short value="The start coordinate of the interval that will be edited"/>
       <definition value="The start coordinate of the interval that will be edited."/>
       <min value="1"/>
@@ -612,8 +778,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative.edit.end">
-      <path value="MolecularDefinition.relative.edit.end"/>
+    <element id="MolecularDefinition.representation.relative.edit.end">
+      <path value="MolecularDefinition.representation.relative.edit.end"/>
       <short value="The end coordinate of the interval that will be edited"/>
       <definition value="The end coordinate of the interval that will be edited."/>
       <min value="1"/>
@@ -623,8 +789,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative.edit.replacementSequence">
-      <path value="MolecularDefinition.relative.edit.replacementSequence"/>
+    <element id="MolecularDefinition.representation.relative.edit.replacementSequence">
+      <path value="MolecularDefinition.representation.relative.edit.replacementSequence"/>
       <short value="The sequence that defines the replacement sequence used in the edit operation"/>
       <definition value="The sequence that defines the replacement sequence used in the edit operation."/>
       <min value="1"/>
@@ -635,8 +801,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.relative.edit.replacedSequence">
-      <path value="MolecularDefinition.relative.edit.replacedSequence"/>
+    <element id="MolecularDefinition.representation.relative.edit.replacedSequence">
+      <path value="MolecularDefinition.representation.relative.edit.replacedSequence"/>
       <short value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit"/>
       <definition value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit."/>
       <min value="0"/>
@@ -644,160 +810,6 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
-    <element id="MolecularDefinition.extracted">
-      <path value="MolecularDefinition.extracted"/>
-      <short value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence"/>
-      <definition value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.extracted.startingSequence">
-      <path value="MolecularDefinition.extracted.startingSequence"/>
-      <short value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted"/>
-      <definition value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.extracted.start">
-      <path value="MolecularDefinition.extracted.start"/>
-      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
-      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.extracted.end">
-      <path value="MolecularDefinition.extracted.end"/>
-      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
-      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.extracted.coordinateSystem">
-      <path value="MolecularDefinition.extracted.coordinateSystem"/>
-      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>
-      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.extracted.reverseComplement">
-      <path value="MolecularDefinition.extracted.reverseComplement"/>
-      <short value="A flag that indicates whether the extracted sequence should be reverse complemented"/>
-      <definition value="A flag that indicates whether the extracted sequence should be reverse complemented."/>
-      <comment value="This attribute might be needed in all sequence representation classes, so that any sequence representation could be reverseComplemented."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
-    <element id="MolecularDefinition.repeated">
-      <path value="MolecularDefinition.repeated"/>
-      <short value="A Molecular Sequence that is represented as a repeated sequence motif"/>
-      <definition value="A Molecular Sequence that is represented as a repeated sequence motif."/>
-      <comment value="This class represents motifs that occur in tandem (immediately adjacent to each other) and without edits (each copy of the motif is identical)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.repeated.sequenceMotif">
-      <path value="MolecularDefinition.repeated.sequenceMotif"/>
-      <short value="The sequence that defines the repeated motif"/>
-      <definition value="The sequence that defines the repeated motif."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.repeated.copyCount">
-      <path value="MolecularDefinition.repeated.copyCount"/>
-      <short value="The number of repeats (copies) of the sequence motif"/>
-      <definition value="The number of repeats (copies) of the sequence motif."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.concatenated">
-      <path value="MolecularDefinition.concatenated"/>
-      <short value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences"/>
-      <definition value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.concatenated.sequenceElement">
-      <path value="MolecularDefinition.concatenated.sequenceElement"/>
-      <short value="One element of a concatenated Molecular Sequence"/>
-      <definition value="One element of a concatenated Molecular Sequence."/>
-      <comment value="At least two sequenceElement elements are required to represent a concatenated sequence."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
-    <!--    More descriptive short and definition to be added later-->
-    <element id="MolecularDefinition.concatenated.sequenceElement.sequence">
-      <path value="MolecularDefinition.concatenated.sequenceElement.sequence"/>
-      <short value="The Molecular Sequence corresponding to this element"/>
-      <definition value="The Molecular Sequence corresponding to this element."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.concatenated.sequenceElement.ordinalIndex">
-      <path value="MolecularDefinition.concatenated.sequenceElement.ordinalIndex"/>
-      <short value="The ordinal position of this sequence element within the concatenated Molecular Sequence"/>
-      <definition value="The ordinal position of this sequence element within the concatenated Molecular Sequence."/>
-      <comment value="0 or 1 based indices are possible, could potentially skip numbers in the sequence, suggest implementers sort numerically prior to concatenating"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
       </type>
       <isSummary value="true"/>
     </element>
