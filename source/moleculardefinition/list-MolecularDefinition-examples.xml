@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <List xmlns="http://hl7.org/fhir">
-  <id value="MolecularSequence-examples"/>
+  <id value="MolecularDefinition-examples"/>
   <status value="current"/>
   <mode value="working"/>
   <entry>
@@ -9,60 +9,60 @@
       <valueString value="Simple sequence example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="molecularsequence-example"/>
+      <valueString value="moleculardefinition-example"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/example"/>
-      <display value="Example of MolecularSequence"/>
+      <reference value="MolecularDefinition/example"/>
+      <display value="Example of MolecularDefinition"/>
     </item>
   </entry>
   <!--
     <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence example from precisionFDA"/>
+      <valueString value="MolecularDefinition example from precisionFDA"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="sequence-example-fda"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/fda-example"/>
-      <display value="MolecularSequence example for precisionFDA"/>
+      <reference value="MolecularDefinition/fda-example"/>
+      <display value="MolecularDefinition example for precisionFDA"/>
     </item>
   </entry>
   -->
   <!--<entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of representing complex variants in MolecularSequence resource"/>
+      <valueString value="Example of representing complex variants in MolecularDefinition resource"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="sequence-complex-variant"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/sequence-complex-variant"/>
+      <reference value="MolecularDefinition/sequence-complex-variant"/>
       <display value="Complex Variations"/>
     </item>
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a single varaint on a reference MolecularSequence related to a haplotype observation in PGx example"/>
+      <valueString value="Example of a single varaint on a reference MolecularDefinition related to a haplotype observation in PGx example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="sequence-example-pgx-1"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/example-pgx-1"/>
+      <reference value="MolecularDefinition/example-pgx-1"/>
       <display value="Variant refer to a haplotype observation"/>
     </item>
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of another single varaint on a reference MolecularSequence related to a haplotype observation in PGx example, which will form with the other haplotype data to be a diplotype observation."/>
+      <valueString value="Example of another single varaint on a reference MolecularDefinition related to a haplotype observation in PGx example, which will form with the other haplotype data to be a diplotype observation."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="sequence-example-pgx-2"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/example-pgx-2"/>
+      <reference value="MolecularDefinition/example-pgx-2"/>
       <display value="Another variant refer to a haplotype observation"/>
     </item>
   </entry>
@@ -74,7 +74,7 @@
       <valueString value="sequence-example-TPMT-one"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/example-TPMT-one"/>
+      <reference value="MolecularDefinition/example-TPMT-one"/>
       <display value="TPMT sequence refer to a haplotype obs. -1"/>
     </item>
   </entry>
@@ -86,7 +86,7 @@
       <valueString value="sequence-example-TPMT-two"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/example-TPMT-two"/>
+      <reference value="MolecularDefinition/example-TPMT-two"/>
       <display value="TPMT sequence refer to a haplotype obs. -2"/>
     </item>
   </entry>
@@ -98,8 +98,8 @@
       <valueString value="coord-0base-example"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/coord-0-base"/>
-      <display value="MolecularSequence example for 0-based coordinatesytem usage"/>
+      <reference value="MolecularDefinition/coord-0-base"/>
+      <display value="MolecularDefinition example for 0-based coordinatesytem usage"/>
     </item>
   </entry>
   <entry>
@@ -110,31 +110,31 @@
       <valueString value="coord-1base-example"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/coord-1-base"/>
-      <display value="MolecularSequence example for 1-based coordinatesytem usage"/>
+      <reference value="MolecularDefinition/coord-1-base"/>
+      <display value="MolecularDefinition example for 1-based coordinatesytem usage"/>
     </item>
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence example for patient with breast cancer gene variant"/>
+      <valueString value="MolecularDefinition example for patient with breast cancer gene variant"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="sequence-genetics-example-breastcancer"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/breastcancer"/>
+      <reference value="MolecularDefinition/breastcancer"/>
       <display value="patient with breast cancer gene variant"/>
     </item>
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence example for long fusion RNA molecule of FGFR and MET"/>
+      <valueString value="MolecularDefinition example for long fusion RNA molecule of FGFR and MET"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="sequence-example-ordinal"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/seq-ordinal"/>
+      <reference value="MolecularDefinition/seq-ordinal"/>
       <display value="Long fusion of FGFR and MET"/>
     </item>
   </entry>
@@ -146,7 +146,7 @@
       <valueString value="sequence-example-fusion"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/sequence-example-fusion"/>
+      <reference value="MolecularDefinition/sequence-example-fusion"/>
       <display value="BCR-ABL1 fusion"/>
     </item>
   </entry>
@@ -155,10 +155,10 @@
       <valueString value="Example of focus (the mother was sequenced) versus subject (a child is the patient of record)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="molecularsequence-focus-example"/>
+      <valueString value="MolecularDefinition-focus-example"/>
     </extension>
     <item>
-      <reference value="MolecularSequence/molecularsequence-focus-example"/>
+      <reference value="MolecularDefinition/MolecularDefinition-focus-example"/>
       <display value="Example of focus (the mother was sequenced) versus subject (a child is the patient of record)"/>
     </item>
   </entry>-->
