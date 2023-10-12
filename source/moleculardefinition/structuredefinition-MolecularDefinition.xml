@@ -788,8 +788,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.replacementSequence">
-      <path value="MolecularDefinition.representation.relative.edit.replacementSequence"/>
+    <element id="MolecularDefinition.representation.relative.edit.replacementMolecule">
+      <path value="MolecularDefinition.representation.relative.edit.replacementMolecule"/>
       <short value="The sequence that defines the replacement sequence used in the edit operation"/>
       <definition value="The sequence that defines the replacement sequence used in the edit operation."/>
       <min value="1"/>
@@ -800,8 +800,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.replacedSequence">
-      <path value="MolecularDefinition.representation.relative.edit.replacedSequence"/>
+    <element id="MolecularDefinition.representation.relative.edit.replacedMolecule">
+      <path value="MolecularDefinition.representation.relative.edit.replacedMolecule"/>
       <short value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit"/>
       <definition value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit."/>
       <min value="0"/>
