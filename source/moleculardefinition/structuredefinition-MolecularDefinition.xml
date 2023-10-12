@@ -553,14 +553,14 @@
       <short value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence"/>
       <definition value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.startingSequence">
-      <path value="MolecularDefinition.representation.extracted.startingSequence"/>
+    <element id="MolecularDefinition.representation.extracted.startingMolecule">
+      <path value="MolecularDefinition.representation.extracted.startingMolecule"/>
       <short value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted"/>
       <definition value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted."/>
       <min value="1"/>
