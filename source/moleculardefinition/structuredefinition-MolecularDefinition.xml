@@ -181,8 +181,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.start[x]">
-      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.start[x]"/>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.start[x]">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.start[x]"/>
       <short value="Start"/>
       <definition value="The start of this interval."/>
       <min value="0"/>
@@ -195,8 +195,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.end[x]">
-      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem.end[x]"/>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.end[x]">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.end[x]"/>
       <short value="End"/>
       <definition value="The end of this interval."/>
       <min value="0"/>
