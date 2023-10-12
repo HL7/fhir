@@ -623,7 +623,7 @@
       <definition value="A Molecular Sequence that is represented as a repeated sequence motif."/>
       <comment value="This class represents motifs that occur in tandem (immediately adjacent to each other) and without edits (each copy of the motif is identical)."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -706,7 +706,7 @@
       <short value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence"/>
       <definition value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
