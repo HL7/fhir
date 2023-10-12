@@ -712,8 +712,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.startingSequence">
-      <path value="MolecularDefinition.representation.relative.startingSequence"/>
+    <element id="MolecularDefinition.representation.relative.startingMolecule">
+      <path value="MolecularDefinition.representation.relative.startingMolecule"/>
       <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
       <definition value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied."/>
       <min value="1"/>
