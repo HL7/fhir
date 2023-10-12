@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n441"
+   version="1.1"
+   width="907.914559"
+   height="386.8318432"
+   sodipodi:docname="molecularsequence.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6321"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3723758"
+     inkscape:cx="453.95728"
+     inkscape:cy="193.09579"
+     inkscape:window-width="1390"
+     inkscape:window-height="1198"
+     inkscape:window-x="0"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n441" />
+  <defs
+     id="defs6125">
+    <filter
+       id="shadow1"
+       x="-0.034415584"
+       y="-0.067948718"
+       width="1.0883117"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset6116" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix6118" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6120" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend6122" />
+    </filter>
+  </defs>
+  <g
+     id="n442">
+    <rect
+       id="MolecularSequence"
+       x="17.073013899999992"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="269.28000000000003"
+       height="176.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n443"
+       x1="17.073013899999992"
+       y1="28.0"
+       x2="286.3530139"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n444"
+       x="151.71301390000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">MolecularSequence<tspan
+   class="diagram-class-title-link"
+   id="tspan6130"> (<a
+   id="n445"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n446"
+       x="23.073013899999992"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n447"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.identifier"><title
+   id="title6133">A unique identifier for this particular sequence instance</title>identifier</a> : <a
+   id="n448"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n452"
+       x="23.073013899999992"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n453"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.type"><title
+   id="title6138">Amino Acid Sequence/ DNA Sequence / RNA Sequence</title>type</a> : <a
+   id="n454"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n455"
+   xlink:href="valueset-sequence-type.html"><title
+   id="n456">null (Strength=Required)</title>SequenceType</a>! »</text>
+    <text
+       id="n462"
+       x="23.073013899999992"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n463"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.subject"><title
+   id="title6145">Indicates the subject this sequence is associated too</title>subject</a> : <a
+   id="n464"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n465"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n466"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n467"
+   xlink:href="substance.html#Substance">Substance</a>|</text>
+    <text
+       id="n468"
+       x="43.07301389999999"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n469"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a
+   id="n470"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a> »</text>
+    <text
+       id="n480"
+       x="23.073013899999992"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n481"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.focus"><title
+   id="title6156">The actual focus of a molecular sequence when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, child, or sibling. For example, in trio testing, the subject would be the child (proband) and the focus would be the parent</title>focus</a> : <a
+   id="n482"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n483"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n488"
+       x="23.073013899999992"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n489"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.specimen"><title
+   id="title6162">Specimen used for sequencing</title>specimen</a> : <a
+   id="n490"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n491"
+   xlink:href="specimen.html#Specimen">Specimen</a> »</text>
+    <text
+       id="n496"
+       x="23.073013899999992"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n497"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.device"><title
+   id="title6168">The method for sequencing, for example, chip information</title>device</a> : <a
+   id="n498"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n499"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n504"
+       x="23.073013899999992"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n505"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.performer"><title
+   id="title6174">The organization or lab that should be responsible for this result</title>performer</a> : <a
+   id="n506"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n507"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n512"
+       x="23.073013899999992"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n513"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.literal"><title
+   id="title6180">Sequence that was observed</title>literal</a> : <a
+   id="n514"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n518"
+       x="23.073013899999992"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n519"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.formatted"><title
+   id="title6185">Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system</title>formatted</a> : <a
+   id="n520"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text>
+  </g>
+  <g
+     id="n524"
+     transform="translate(48.091782,2.9146535)">
+    <rect
+       id="MolecularSequence.relative"
+       x="406.53934"
+       y="188.1974"
+       rx="4"
+       ry="4"
+       width="237.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n525"
+       x1="406.53934"
+       y1="216.1974"
+       x2="644.13934"
+       y2="216.1974"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n526"
+       x="525.33936"
+       y="208.1974"
+       fill="#000000"
+       class="diagram-class-title">Relative</text>
+    <text
+       id="n527"
+       x="412.53934"
+       y="230.1974"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n528"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.coordinateSystem"><title
+   id="title6194">These are different ways of identifying nucleotides or amino acids within a sequence. Different databases and file types may use different systems. For detail definitions, see https://loinc.org/92822-6/ for more detail</title>coordinateSystem</a> : <a
+   id="n529"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n530"
+   xlink:href="http://loinc.org/LL5323-2/"><title
+   id="n531">null (Strength=Extensible)</title>LL5323-2</a>+ »</text>
+    <text
+       id="n537"
+       x="412.53934"
+       y="244.1974"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n538"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.ordinalPosition"><title
+   id="title6201">Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together</title>ordinalPosition</a> : <a
+   id="n539"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n543"
+       x="412.53934"
+       y="258.19739"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n544"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.sequenceRange"><title
+   id="title6206">Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together</title>sequenceRange</a> : <a
+   id="n545"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
+  </g>
+  <g
+     id="n549">
+    <rect
+       id="MolecularSequence.relative.startingSequence"
+       x="0.0"
+       y="208.8318432"
+       rx="4"
+       ry="4"
+       width="290.40000000000003"
+       height="148.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n550"
+       x1="0.0"
+       y1="236.8318432"
+       x2="290.40000000000003"
+       y2="236.8318432"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n551"
+       x="145.20000000000002"
+       y="228.8318432"
+       fill="black"
+       class="diagram-class-title">StartingSequence</text>
+    <text
+       id="n552"
+       x="6.0"
+       y="250.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n553"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.genomeAssembly"><title
+   id="title6215">The genome assembly used for starting sequence, e.g. GRCh38</title>genomeAssembly</a> : <a
+   id="n554"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n555"
+   xlink:href="http://loinc.org/LL1040-6/"><title
+   id="n556">null (Strength=Extensible)</title>LL1040-6</a>+ » « <a
+   id="n557"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n558">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n566"
+       x="6.0"
+       y="264.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n567"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.chromosome"><title
+   id="title6224">Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))</title>chromosome</a> : <a
+   id="n568"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n569"
+   xlink:href="http://loinc.org/LL2938-0/"><title
+   id="n570">null (Strength=Required)</title>LL2938-0</a>! » « <a
+   id="n571"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n572">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n580"
+       x="6.0"
+       y="278.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n581"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.sequence_x_"><title
+   id="title6233">The reference sequence that represents the starting sequence</title>sequence[x]</a> : <a
+   id="n582"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n583"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n584"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n585"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n586"
+       x="26.0"
+       y="292.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n587"
+   xlink:href="molecularsequence.html#MolecularSequence">MolecularSequence</a>); <title
+   id="title6242">null (Strength=Example)</title>Multiple bindings acceptable ...?? » « <a
+   id="n588"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n589">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n600"
+       x="6.0"
+       y="306.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n601"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.windowStart"><title
+   id="title6247">Start position of the window on the starting sequence. This value should honor the rules of the coordinateSystem</title>windowStart</a> : <a
+   id="n602"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n606"
+       x="6.0"
+       y="320.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n607"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.windowEnd"><title
+   id="title6252">End position of the window on the starting sequence. This value should honor the rules of the  coordinateSystem</title>windowEnd</a> : <a
+   id="n608"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n612"
+       x="6.0"
+       y="334.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n613"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.orientation"><title
+   id="title6257">A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand</title>orientation</a> : <a
+   id="n614"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n615"
+   xlink:href="valueset-orientation-type.html"><title
+   id="n616">null (Strength=Required)</title>OrientationType</a>! »</text>
+    <text
+       id="n622"
+       x="6.0"
+       y="348.8318432"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n623"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence.strand"><title
+   id="title6264">An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm</title>strand</a> : <a
+   id="n624"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n625"
+   xlink:href="valueset-strand-type.html"><title
+   id="n626">null (Strength=Required)</title>StrandType</a>! »</text>
+  </g>
+  <g
+     id="n632">
+    <rect
+       id="MolecularSequence.relative.edit"
+       x="453.914559"
+       y="31.209608199999995"
+       rx="4"
+       ry="4"
+       width="154.0"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n633"
+       x1="453.914559"
+       y1="59.20960819999999"
+       x2="607.914559"
+       y2="59.20960819999999"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n634"
+       x="530.914559"
+       y="51.20960819999999"
+       fill="black"
+       class="diagram-class-title">Edit</text>
+    <text
+       id="n635"
+       x="459.914559"
+       y="73.20960819999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n636"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.edit.start"><title
+   id="title6275">Start position of the edit on the starting sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive</title>start</a> : <a
+   id="n637"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n641"
+       x="459.914559"
+       y="87.20960819999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n642"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.edit.end"><title
+   id="title6280">End position of the edit on the starting sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position</title>end</a> : <a
+   id="n643"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n647"
+       x="459.914559"
+       y="101.20960819999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n648"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.edit.replacementSequence"><title
+   id="title6285">Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end</title>replacementSequence</a> : <a
+   id="n649"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n653"
+       x="459.914559"
+       y="115.20960819999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n654"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.edit.replacedSequence"><title
+   id="title6290">Allele in the starting sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the starting sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end</title>replacedSequence</a> : <a
+   id="n655"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <line
+     id="n659"
+     x1="406.539339"
+     y1="244.5841058233363"
+     x2="290.40000000000003"
+     y2="261.5814203270334"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n660"
+     points="406.539339,244.5841058233363 412.539339,248.5841058233363 418.539339,244.5841058233363 412.539339,240.5841058233363 406.539339,244.5841058233363"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(171.6737151752465 406.539339 244.5841058233363)" />
+  <rect
+     id="n661"
+     x="313.0"
+     y="246.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n662"
+     x="348.0"
+     y="256.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n663"
+       xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.startingSequence"><title
+   id="title6299">A sequence that is used as a starting sequence to describe variants that are present in a sequence analyzed</title>startingSequence</a></text>
+  <text
+     id="n664"
+     x="305.40000000000003"
+     y="257.5814203270334"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n665"
+     x1="526.7890142228922"
+     y1="188.19739619999928"
+     x2="529.2046856601785"
+     y2="123.20960820000255"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n666"
+     points="526.7890142228922,188.19739619999928 532.7890142228922,192.19739619999928 538.7890142228922,188.19739619999928 532.7890142228922,184.19739619999928 526.7890142228922,188.19739619999928"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-87.87122951379726 526.7890142228922 188.19739619999928)" />
+  <rect
+     id="n667"
+     x="518.5"
+     y="148.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n668"
+     x="527.0"
+     y="158.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n669"
+       xlink:href="molecularsequence-definitions.html#MolecularSequence.relative.edit"><title
+   id="title6307">Changes in sequence from the starting sequence</title>edit</a></text>
+  <text
+     id="n670"
+     x="529.2046856601785"
+     y="137.20960820000255"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n671"
+     x1="286.3530139"
+     y1="138.16118020953658"
+     x2="420.6575915198701"
+     y2="188.19739620000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n672"
+     points="286.3530139,138.16118020953658 292.3530139,142.16118020953658 298.3530139,138.16118020953658 292.3530139,134.16118020953658 286.3530139,138.16118020953658"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(20.433269702868337 286.3530139 138.16118020953658)" />
+  <rect
+     id="n673"
+     x="335.5"
+     y="156.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n674"
+     x="353.0"
+     y="166.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n675"
+       xlink:href="molecularsequence-definitions.html#MolecularSequence.relative"><title
+   id="title6315">A sequence defined relative to another sequence</title>relative</a></text>
+  <text
+     id="n676"
+     x="420.6575915198701"
+     y="184.19739620000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
