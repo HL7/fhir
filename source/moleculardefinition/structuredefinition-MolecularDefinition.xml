@@ -511,18 +511,6 @@
       <isSummary value="true"/>
     </element>
 
-    <element id="MolecularDefinition.representation.literal.Value">
-      <path value="MolecularDefinition.representation.literal.Value"/>
-      <short value="The primary (linear) sequence, expressed as a literal string"/>
-      <definition value="The primary (linear) sequence, expressed as a literal string."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
     <element id="MolecularDefinition.representation.literal.encoding">
       <path value="MolecularDefinition.representation.literal.encoding"/>
       <short value="The encoding used for the expression of the primary sequence"/>
@@ -535,6 +523,17 @@
       <isSummary value="true"/>
     </element>
 
+    <element id="MolecularDefinition.representation.literal.Value">
+      <path value="MolecularDefinition.representation.literal.Value"/>
+      <short value="The primary (linear) sequence, expressed as a literal string"/>
+      <definition value="The primary (linear) sequence, expressed as a literal string."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
     <element id="MolecularDefinition.representation.resolvable">
       <path value="MolecularDefinition.representation.resolvable"/>
@@ -542,7 +541,7 @@
       <definition value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
       <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Attachment"/>
       </type>
