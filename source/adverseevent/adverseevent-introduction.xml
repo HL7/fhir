@@ -38,15 +38,14 @@
 			The AdverseEvent resource is designed to represent events that had a harmful impact on a subject, or had the potential to cause harm to a subject but were avoided.  In the course of medical care, there are many actions that may impact how a subject responds to a particular treatment impacting patient safety.  Therefore, the AdverseEvent resource may reference multiple other resources to represent the context or details of an adverse event such as Observation, Condition, MedicationAdministration, Immunization, Procedure, or ResearchStudy.  
 		</p>
 		<p>
-			A DetectedIssue reference is also related to the context of an AdverseEvent to the extent that a known risk for a potential issue, such as a drug-drug interaction, is documented. If, in the context of a known issue, an adverse event occurs, citing this relationship is important for preventing such an occurrence in the future.
-		</p>
-		<p>
 			The AdverseEvent resource should not be used when a more specific resource exists. 
 		</p>
 		<ul>
 			<li>The AllergyIntolerance resource is a case specific means of capturing the condition of an allergy or intolerance and the criticality (or potential for future harm) based on the response of a particular individual.</li>
 			<li>The Clinical Reasoning module provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts, such as clinical decision support rules, quality measures, order sets, and protocols.  The suite of resources within the clinical reasoning module should be used to capture clinical quality measures and clinical protocols that help drive clinical best practices.</li>
 			<li>The AdverseEvent resource is not intended to be used to capture potential subject risk in a prospective manner.  A more appropriate resource for this purpose would be RiskAssessment which captures predicted outcomes for a patient or population on the basis of source information. Examples include a prognosis statement for a particular condition, risk of health outcome (heart attack, particular type of cancer) on the basis of lifestyle factors and/or family history, or list of potential health risks based on a patient's genetic analysis.</li>
+			<li>A DetectedIssue reference is also related to the context of an AdverseEvent to the extent that a known risk for a potential issue, such as a drug-drug interaction, is documented. If, in the context of a known issue, an adverse event occurs, citing this relationship is important for preventing such an occurrence in the future. DetectedIssue only applies to documenting a risk associated with a specific planned or ongoing action, or the lack of an action which should be planned - not a general propensity to risk.</li>
+			<li>Flags highlight highly condensed view of information found in other resources, which may include AdverseEvent. The purpose of these other resources is to provide detailed clinical information. The purpose of a Flag is to alert practitioners to information that is important to influence their interaction with a Patient prior to detailed review of the record.</li>
 		</ul>
 	</div>
 
