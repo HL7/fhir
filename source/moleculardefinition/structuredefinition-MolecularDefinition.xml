@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MolecularDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+      <valueString value="Clinical.Diagnostics"/>
+    </extension>-->
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Definitional Artifacts"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+      <valueCode value="patient"/>
+    </extension>-->
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1301"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="MolecularDefinition"/>
+  <title value="Molecular Definition"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Representation of a molecular definition."/>
+  <fhirVersion value="6.0.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="MolecularDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="MolecularDefinition">
+      <path value="MolecularDefinition"/>
+      <short value="Representation of a molecular definition"/>
+      <definition value="Representation of a molecular definition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="MolecularDefinition.identifier">
+      <path value="MolecularDefinition.identifier"/>
+      <short value="Unique ID for this particular resource"/>
+      <definition value="A unique identifier for this particular resource instance."/>
+      <requirements value="Allows MolecularDefinition to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="MolecularDefinition.type">
+      <path value="MolecularDefinition.type"/>
+      <short value="aa | dna | rna"/>
+      <definition value="The type of the Molecular Definition (Amino Acid, DNA, RNA)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="sequenceType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Type of a molecule -- DNA, RNA, or amino acid sequence."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
+      </binding>
+    </element>
+    <element id="MolecularDefinition.name">
+      <path value="MolecularDefinition.name"/>
+      <short value="Label of this MolecularDefinition"/>
+      <definition value="The label associates with this MolecularDefinition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+
+    <element id="MolecularDefinition.location">
+      <path value="MolecularDefinition.location"/>
+      <short value="Location of this molecule"/>
+      <definition value="The molecular location of this molecule."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation">
+      <path value="MolecularDefinition.location.sequenceLocation"/>
+      <short value="Location of this molecule in context of a sequence"/>
+      <definition value="The Location of this molecule in context of a sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.sequenceContext">
+      <path value="MolecularDefinition.location.sequenceLocation.sequenceContext"/>
+      <short value="Reference sequence"/>
+      <definition value="The reference Sequence that contains this location."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval"/>
+      <short value="Coordinate Interval for this location"/>
+      <definition value="The coordinate interval for this location."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem"/>
+      <short value="Coordinate System"/>
+      <definition value="The coordinate system of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.start[x]">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.start[x]"/>
+      <short value="Start"/>
+      <definition value="The start of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.end[x]">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.end[x]"/>
+      <short value="End"/>
+      <definition value="The end of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.strand">
+      <path value="MolecularDefinition.location.sequenceLocation.strand"/>
+      <short value="Forward or Reverse"/>
+      <definition value="The identification of the strand direction, i.e, forward vs reverse strand."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation">
+      <path value="MolecularDefinition.location.cytobandLocation"/>
+      <short value="Location of this molecule in context of a cytoband"/>
+      <definition value="The location of this molecule in context of a cytoband."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly"/>
+      <short value="Reference Genome"/>
+      <definition value="The reference genome assemble."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.organism">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.organism"/>
+      <short value="Species of the organism"/>
+      <definition value="Species of the organism."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.build">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.build"/>
+      <short value="Build number"/>
+      <definition value="The build number of this genome assemble."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.accession">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.accession"/>
+      <short value="Accession"/>
+      <definition value="The accession of this genome assemble."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.description">
+      <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.description"/>
+      <short value="Genome assemble description"/>
+      <definition value="The description of this genome assemble."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval"/>
+      <short value="Cytoband Interval"/>
+      <definition value="The Cytoband Interval."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome"/>
+      <short value="Chromosome"/>
+      <definition value="The chromosome where this cytoband interval occurs."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband"/>
+      <short value="Start"/>
+      <definition value="The start of this cytoband Interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm"/>
+      <short value="Arm"/>
+      <definition value="The arm of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region"/>
+      <short value="Region"/>
+      <definition value="The region of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band"/>
+      <short value="Band"/>
+      <definition value="The band of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand"/>
+      <short value="SuBand"/>
+      <definition value="The sub-band of this start interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband"/>
+      <short value="End"/>
+      <definition value="The end of this cytoband Interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm"/>
+      <short value="Arm"/>
+      <definition value="The arm of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region"/>
+      <short value="Region"/>
+      <definition value="The region of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band"/>
+      <short value="Band"/>
+      <definition value="The band of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand"/>
+      <short value="SuBand"/>
+      <definition value="The sub-band of this end interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.location.featureLocation">
+      <path value="MolecularDefinition.location.featureLocation"/>
+      <short value="Location in context of a feature"/>
+      <definition value="The location of this molecule in context of a feature."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.featureLocation.geneId">
+      <path value="MolecularDefinition.location.featureLocation.geneId"/>
+      <short value="Gene Id"/>
+      <definition value="The gene Id where this molecule occurs."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.memberState">
+      <path value="MolecularDefinition.memberState"/>
+      <short value="Member"/>
+      <definition value="A member or part of this molecule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation">
+      <path value="MolecularDefinition.representation"/>
+      <short value="Representation"/>
+      <definition value="The representation of this molecular definition, e.g., as a literal or repeated elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+
+    <element id="MolecularDefinition.representation.literal">
+      <path value="MolecularDefinition.representation.literal"/>
+      <short value="A literal representation"/>
+      <definition value="A literal representation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularDefinition.representation.literal.encoding">
+      <path value="MolecularDefinition.representation.literal.encoding"/>
+      <short value="The encoding used for the expression of the primary sequence"/>
+      <definition value="The encoding used for the expression of the primary sequence. This defines the characters that may be used in the primary sequence and it permits the explicit inclusion/exclusion of IUPAC ambiguity codes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularDefinition.representation.literal.Value">
+      <path value="MolecularDefinition.representation.literal.Value"/>
+      <short value="The primary (linear) sequence, expressed as a literal string"/>
+      <definition value="The primary (linear) sequence, expressed as a literal string."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularDefinition.representation.resolvable">
+      <path value="MolecularDefinition.representation.resolvable"/>
+      <short value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
+      <definition value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
+      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularDefinition.representation.extracted">
+      <path value="MolecularDefinition.representation.extracted"/>
+      <short value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence"/>
+      <definition value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.startingMolecule">
+      <path value="MolecularDefinition.representation.extracted.startingMolecule"/>
+      <short value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted"/>
+      <definition value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.start">
+      <path value="MolecularDefinition.representation.extracted.start"/>
+      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
+      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.end">
+      <path value="MolecularDefinition.representation.extracted.end"/>
+      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
+      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateSystem">
+      <path value="MolecularDefinition.representation.extracted.coordinateSystem"/>
+      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>
+      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.reverseComplement">
+      <path value="MolecularDefinition.representation.extracted.reverseComplement"/>
+      <short value="A flag that indicates whether the extracted sequence should be reverse complemented"/>
+      <definition value="A flag that indicates whether the extracted sequence should be reverse complemented."/>
+      <comment value="This attribute might be needed in all sequence representation classes, so that any sequence representation could be reverseComplemented."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <element id="MolecularDefinition.representation.repeated">
+      <path value="MolecularDefinition.representation.repeated"/>
+      <short value="A Molecular Sequence that is represented as a repeated sequence motif"/>
+      <definition value="A Molecular Sequence that is represented as a repeated sequence motif."/>
+      <comment value="This class represents motifs that occur in tandem (immediately adjacent to each other) and without edits (each copy of the motif is identical)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.repeated.sequenceMotif">
+      <path value="MolecularDefinition.representation.repeated.sequenceMotif"/>
+      <short value="The sequence that defines the repeated motif"/>
+      <definition value="The sequence that defines the repeated motif."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.repeated.copyCount">
+      <path value="MolecularDefinition.representation.repeated.copyCount"/>
+      <short value="The number of repeats (copies) of the sequence motif"/>
+      <definition value="The number of repeats (copies) of the sequence motif."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.concatenated">
+      <path value="MolecularDefinition.representation.concatenated"/>
+      <short value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences"/>
+      <definition value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.concatenated.sequenceElement">
+      <path value="MolecularDefinition.representation.concatenated.sequenceElement"/>
+      <short value="One element of a concatenated Molecular Sequence"/>
+      <definition value="One element of a concatenated Molecular Sequence."/>
+      <comment value="At least two sequenceElement elements are required to represent a concatenated sequence."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <!--    More descriptive short and definition to be added later-->
+    <element id="MolecularDefinition.representation.concatenated.sequenceElement.sequence">
+      <path value="MolecularDefinition.representation.concatenated.sequenceElement.sequence"/>
+      <short value="The Molecular Sequence corresponding to this element"/>
+      <definition value="The Molecular Sequence corresponding to this element."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex">
+      <path value="MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex"/>
+      <short value="The ordinal position of this sequence element within the concatenated Molecular Sequence"/>
+      <definition value="The ordinal position of this sequence element within the concatenated Molecular Sequence."/>
+      <comment value="0 or 1 based indices are possible, could potentially skip numbers in the sequence, suggest implementers sort numerically prior to concatenating"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative">
+      <path value="MolecularDefinition.representation.relative"/>
+      <short value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence"/>
+      <definition value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.startingMolecule">
+      <path value="MolecularDefinition.representation.relative.startingMolecule"/>
+      <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
+      <definition value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit">
+      <path value="MolecularDefinition.representation.relative.edit"/>
+      <short value="An edit (change) made to a sequence"/>
+      <definition value="An edit (change) made to a sequence."/>
+      <comment value = "Edits are applied sequentially. The sequence that results from one edit operation is used as the 'starting' sequence of the next edit operation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.editOrder">
+      <path value="MolecularDefinition.representation.relative.edit.editOrder"/>
+      <short value="The order of this edit, relative to other edits on the starting sequence"/>
+      <definition value="The order of this edit, relative to other edits on the starting sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateSystem">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateSystem"/>
+      <short value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based"/>
+      <definition value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL5323-2"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Genomic coordinate system."/>
+        <valueSet value="http://loinc.org/LL5323-2/"/>
+      </binding>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.start">
+      <path value="MolecularDefinition.representation.relative.edit.start"/>
+      <short value="The start coordinate of the interval that will be edited"/>
+      <definition value="The start coordinate of the interval that will be edited."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.end">
+      <path value="MolecularDefinition.representation.relative.edit.end"/>
+      <short value="The end coordinate of the interval that will be edited"/>
+      <definition value="The end coordinate of the interval that will be edited."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.replacementMolecule">
+      <path value="MolecularDefinition.representation.relative.edit.replacementMolecule"/>
+      <short value="The sequence that defines the replacement sequence used in the edit operation"/>
+      <definition value="The sequence that defines the replacement sequence used in the edit operation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.replacedMolecule">
+      <path value="MolecularDefinition.representation.relative.edit.replacedMolecule"/>
+      <short value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit"/>
+      <definition value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>
