@@ -101,6 +101,13 @@
         <human value="If category is problems list item, the clinicalStatus should not be unknown"/>
         <expression value="category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()"/>
       </constraint>
+	  <constraint>
+        <key value="con-4"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Condition.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </constraint>
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 243796009 |Situation with explicit context| : 246090004 |Associated finding| = ( ( &lt; 404684003 |Clinical finding| MINUS ( &lt;&lt; 420134006 |Propensity to adverse reactions| OR &lt;&lt; 473010000 |Hypersensitivity condition| OR &lt;&lt; 79899007 |Drug interaction| OR &lt;&lt; 69449002 |Drug action| OR &lt;&lt; 441742003 |Evaluation finding| OR &lt;&lt; 307824009 |Administrative status| OR &lt;&lt; 385356007 |Tumor stage finding|)) OR &lt; 272379006 |Event|)"/>
@@ -350,7 +357,7 @@
       <path value="Condition.bodySite"/>
       <short value="Anatomical location, if relevant"/>
       <definition value="The anatomical location where this condition manifests itself."/>
-      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodyStructure resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="Only used if not implicit in code found in Condition.code."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -368,6 +375,7 @@
         <description value="SNOMED CT Body site concepts"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
       </binding>
+	  <condition value="con-4"/>
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 442083009  |Anatomical or acquired body structure|"/>
@@ -381,7 +389,25 @@
         <map value="363698007"/>
       </mapping>
     </element>
-    <element id="Condition.subject">
+    <element id="Condition.bodyStructure">
+      <path value="Condition.bodyStructure"/>
+      <short value="Anatomical body structure"/>
+      <definition value="Indicates the body structure on the subject's body where this condition manifests itself."/>
+      <comment value="Should be consistent with Condition.code. Cannot be used if Condition.bodySite is used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <condition value="con-4"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="targetSiteCode"/>
+      </mapping>
+    </element>
+	
+	<element id="Condition.subject">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3701]."/>
       </extension>
