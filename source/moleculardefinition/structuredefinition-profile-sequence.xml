@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="bmi"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+    </text>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+        <valueMarkdown value="to do"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="0"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="cg"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
+        <valueString value="to do"/>
+    </extension>
+    <url value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="0000"/>
+    </identifier>
+    <version value="6.0.0"/>
+    <name value="MolecularDefinitionSequence"/>
+    <title value="Molecular Definition as Sequence Profile"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2023-10-19"/>
+    <publisher value="Health Level Seven International (Clinical Genomics Workgroup)"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
+        </telecom>
+    </contact>
+    <description value="FHIR Sequence Profile"/>
+    <fhirVersion value="6.0.0"/>
+
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="MolecularDefinition"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="MolecularDefinition">
+            <path value="MolecularDefinition"/>
+            <short value="FHIR Sequence Profile"/>
+            <definition value="This profile defines  how to represent molecular sequence in FHIR."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="MolecularDefinition.type">
+            <path value="MolecularDefinition.type"/>
+            <short value="Sequence type, e.g., aa, dna, or rna"/>
+            <definition value="The type of the sequence, e.g., amino acid, DNA, or RNA sequence."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="MolecularDefinition.location">
+            <path value="MolecularDefinition.location"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="MolecularDefinition.memberState">
+            <path value="MolecularDefinition.memberState"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+    </differential>
+</StructureDefinition>
