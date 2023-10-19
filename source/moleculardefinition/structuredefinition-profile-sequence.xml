@@ -72,5 +72,49 @@
             <min value="0"/>
             <max value="0"/>
         </element>
+        <element id="MolecularDefinition.representation.extracted.startingMolecule">
+            <path value="MolecularDefinition.representation.extracted.startingMolecule"/>
+            <short value="Starting sequence"/>
+            <definition value="The starting or base sequence from which this sequence is extracted."/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+            </type>
+        </element>
+        <element id="MolecularDefinition.representation.repeated.sequenceMotif">
+            <path value="MolecularDefinition.representation.repeated.sequenceMotif"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+            </type>
+        </element>
+        <element id="MolecularDefinition.representation.concatenated.sequenceElement.sequence">
+            <path value="MolecularDefinition.representation.concatenated.sequenceElement.sequence"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+            </type>
+        </element>
+        <element id="MolecularDefinition.representation.relative.startingMolecule">
+            <path value="MolecularDefinition.representation.relative.startingMolecule"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+            </type>
+        </element>
+        <element id="MolecularDefinition.representation.relative.edit.replacementMolecule">
+            <path value="MolecularDefinition.representation.relative.edit.replacementMolecule"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+            </type>
+        </element>
+        <element id="MolecularDefinition.representation.relative.edit.replacedMolecule">
+            <path value="MolecularDefinition.representation.relative.edit.replacedMolecule"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+            </type>
+        </element>
     </differential>
 </StructureDefinition>
