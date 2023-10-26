@@ -22,6 +22,9 @@
       <display value="Bacterial infectious disease"/>
     </coding>
   </code>
+  <bodyStructure> 
+    <reference value="BodyStructure/skin-patch"/> 
+  </bodyStructure> 
   <subject>
     <reference value="Patient/f201"/>
     <display value="Roel"/>
