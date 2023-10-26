@@ -40,7 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/characteristic-combination"/>
+      <system value="http://hl7.org/fhir/group-characteristic-combination"/>
       <concept>
         <code value="all-of"/>
         <display value="All of"/>
