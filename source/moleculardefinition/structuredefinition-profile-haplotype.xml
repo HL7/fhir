@@ -81,11 +81,11 @@
             <min value="0"/>
             <max value="0"/>
         </element>
-        <element id="MolecularDefinition.representation.resolvable">
+<!--        <element id="MolecularDefinition.representation.resolvable">
             <path value="MolecularDefinition.representation.resolvable"/>
             <min value="0"/>
             <max value="0"/>
-        </element>
+        </element>-->
         <element id="MolecularDefinition.representation.extracted">
             <path value="MolecularDefinition.representation.extracted"/>
             <min value="0"/>
