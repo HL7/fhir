@@ -21,14 +21,14 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
         <valueString value="to do"/>
     </extension>
-    <url value="http://hl7.org/fhir/StructureDefinition/allele"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/haplotype"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
         <value value="0000"/>
     </identifier>
     <version value="6.0.0"/>
-    <name value="MolecularDefinitionAllele"/>
-    <title value="Molecular Definition as Allele Profile"/>
+    <name value="MolecularDefinitionHaplotype"/>
+    <title value="Molecular Definition as Haplotype Profile"/>
     <status value="draft"/>
     <experimental value="false"/>
     <date value="2023-10-19"/>
@@ -45,12 +45,12 @@
     <kind value="resource"/>
     <abstract value="false"/>
     <type value="MolecularDefinition"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/allele"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/haplotype"/>
     <derivation value="constraint"/>
     <differential>
         <element id="MolecularDefinition">
             <path value="MolecularDefinition"/>
-            <short value="FHIR Allele Profile"/>
+            <short value="FHIR Haplotype Profile"/>
             <definition value="This profile defines  how to represent haplotype in FHIR."/>
             <min value="0"/>
             <max value="*"/>
