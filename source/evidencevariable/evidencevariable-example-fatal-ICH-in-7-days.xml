@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <EvidenceVariable xmlns="http://hl7.org/fhir">
-  <id value="example-alive-independent-90day"/>
+  <id value="example-fatal-ICH-in-7-days"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       <p>
-        &quot;Alive and not functionally dependent at 90 days&quot; is an outcome used in expressing what an Evidence is about.
+        &quot;Fatal Intracranial Hemorrhage Within Seven Days&quot; is an outcome used in expressing what an Evidence is about.
       </p>
 	
     </div>
@@ -15,10 +15,10 @@
   <contained>
 	<Group>
 		<id value="Definition-Group"/>
-		<title value="VariableDefinition: Alive and not functionally dependent at 90 days"/>
+		<title value="VariableDefinition: Fatal Intracranial Hemorrhage Within Seven Days"/>
 		<type value="person"/>
 		<membership value="definitional"/>
-		<combinationMethod value="all-of"/>
+		<combinationMethod value="any-of"/>
 		<characteristic>
 			<code>
 				<coding>
@@ -30,12 +30,12 @@
 			<valueCodeableConcept>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="419099009"/>
-					<display value="Dead (finding)"/>
+					<code value="1386000"/>
+					<display value="Intracranial hemorrhage (disorder)"/>
 				</coding>
 			</valueCodeableConcept>
-			<exclude value="true"/>
-			<description value="alive at 90 days (excluding dead at 90 days)"/>
+			<exclude value="false"/>
+			<description value="intracranial hemorrhage within 7 days"/>
 			<timing>
 				<contextCode>
 					<coding>
@@ -45,7 +45,7 @@
 					</coding>
 				</contextCode>
 				<offsetDuration>
-					<value value="90"/>
+					<value value="7"/>
 					<unit value="days"/>
 					<system value="http://unitsofmeasure.org"/>
 					<code value="d"/>
@@ -63,12 +63,12 @@
 			<valueCodeableConcept>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="718705001"/>
-					<display value="Functionally dependent (finding)"/>
+					 <code value="419620001"/>
+					<display value="Death (event)"/>
 				</coding>
 			</valueCodeableConcept>
 			<exclude value="true"/>
-			<description value="not functionally dependent at 90 days (excluding functionally dependent at 90 days)"/>
+			<description value="death within 7 days"/>
 			<timing>
 				<contextCode>
 					<coding>
@@ -78,7 +78,7 @@
 					</coding>
 				</contextCode>
 				<offsetDuration>
-					<value value="90"/>
+					<value value="7"/>
 					<unit value="days"/>
 					<system value="http://unitsofmeasure.org"/>
 					<code value="d"/>
@@ -87,11 +87,14 @@
 		</characteristic>
 	</Group>
   </contained>
-  <name value="AliveAndNotFunctionallyDependentAt90Days"/>
-  <title value="Alive and not functionally dependent at 90 days"/>
+  <name value="FatalIntracranialHemorrhageWithinSevenDays"/>
+  <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <status value="draft"/>
-  <description value="Alive and not functionally dependent at 90 days"/>
-  <actual value="false"/>
+  <description value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+  <note>
+    <text value="Death must be due to intracranial hemorrhage"/>
+  </note>
+  <actual value="true"/>
   <definition>
 	<reference>
 		<reference value="#Definition-Group"/>
