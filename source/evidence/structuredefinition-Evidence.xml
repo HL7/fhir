@@ -550,6 +550,17 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
 			</binding>
 		</element>
+		<element id="Evidence.variableDefinition.comparatorCategory">
+			<path value="Evidence.variableDefinition.comparatorCategory"/>
+			<short value="The reference value used for comparison"/>
+			<definition value="The reference value used for comparison."/>
+			<comment value="Value should match EvidenceVariable.category.name in the EvidenceVariable referenced in the observed or intended element."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
 		<element id="Evidence.variableDefinition.observed">
 			<path value="Evidence.variableDefinition.observed"/>
 			<short value="Definition of the actual variable related to the statistic(s)"/>
