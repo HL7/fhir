@@ -57,9 +57,9 @@
   <description value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
   <actual value="true"/>
     <definition>
-	<reference>
+	  <reference>
 		<reference value="#Definition-Group"/>
-	</reference>
-  </definition>
+	  </reference>
+    </definition>
   <handling value="dichotomous"/>
 </EvidenceVariable>

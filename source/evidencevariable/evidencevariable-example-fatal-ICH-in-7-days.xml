@@ -14,11 +14,10 @@
   </text>
   <contained>
 	<Group>
-		<id value="Definition-Group"/>
-		<title value="VariableDefinition: Fatal Intracranial Hemorrhage Within Seven Days"/>
-		<type value="person"/>
-		<membership value="definitional"/>
-		<combinationMethod value="any-of"/>
+		<id value="Cohort-Definition"/>
+		<title value="CohortDefinition: Fatal Intracranial Hemorrhage"/>
+		<membership value="conceptual"/>
+		<combinationMethod value="all-of"/>
 		<characteristic>
 			<code>
 				<coding>
@@ -35,30 +34,11 @@
 				</coding>
 			</valueCodeableConcept>
 			<exclude value="false"/>
-			<description value="intracranial hemorrhage within 7 days"/>
-			<timing>
-				<contextCode>
-					<coding>
-						<system value="http://hl7.org/fhir/evidence-variable-event"/>
-						<code value="study-start"/>
-						<display value="Study Start"/>
-					</coding>
-				</contextCode>
-				<offsetDuration>
-					<value value="7"/>
-					<unit value="days"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="d"/>
-				</offsetDuration>
-			</timing>
+			<description value="intracranial hemorrhage"/>
 		</characteristic>
 		<characteristic>
 			<code>
-				<coding>
-					<system value="http://snomed.info/sct"/>
-					<code value="260905004"/>
-					<display value="Condition"/>
-				</coding>
+				<text value="resulting in"/>
 			</code>
 			<valueCodeableConcept>
 				<coding>
@@ -67,8 +47,30 @@
 					<display value="Death (event)"/>
 				</coding>
 			</valueCodeableConcept>
-			<exclude value="true"/>
-			<description value="death within 7 days"/>
+			<exclude value="false"/>
+			<description value="resulting in death"/>
+		</characteristic>
+	</Group>
+  </contained>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: Fatal Intracranial Hemorrhage Within Seven Days"/>
+		<type value="person"/>
+		<membership value="definitional"/>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueReference>
+				<reference value="#Cohort-Definition"/>
+			</valueReference>
+			<exclude value="false"/>
+			<description value="fatal intracranial hemorrhage within 7 days"/>
 			<timing>
 				<contextCode>
 					<coding>
@@ -91,9 +93,6 @@
   <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <status value="draft"/>
   <description value="Fatal Intracranial Hemorrhage Within Seven Days"/>
-  <note>
-    <text value="Death must be due to intracranial hemorrhage"/>
-  </note>
   <actual value="true"/>
   <definition>
 	<reference>
