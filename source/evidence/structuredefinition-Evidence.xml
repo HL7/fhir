@@ -533,9 +533,28 @@
 		</element>
 		<element id="Evidence.variableDefinition.variableRole">
 			<path value="Evidence.variableDefinition.variableRole"/>
-			<short value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder"/>
-			<definition value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder."/>
+			<short value="population | exposure | outcome | covariate"/>
+			<definition value="Classification of the role of the variable."/>
 			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableRole"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The role that the variable plays."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
+			</binding>
+		</element>
+		<element id="Evidence.variableDefinition.roleSubtype">
+			<path value="Evidence.variableDefinition.roleSubtype"/>
+			<short value="subgroup | variable-A | variable-B | variable-AB | confounder | collider | mediator | effect-modifier"/>
+			<definition value="Sub-classification of the role of the variable."/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
@@ -543,11 +562,11 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableRole"/>
+					<valueString value="EvidenceVariableRoleSubtype"/>
 				</extension>
 				<strength value="extensible"/>
-				<description value="The role that the assertion variable plays."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
+				<description value="The sub-role that the variable plays."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role-subtype"/>
 			</binding>
 		</element>
 		<element id="Evidence.variableDefinition.comparatorCategory">
