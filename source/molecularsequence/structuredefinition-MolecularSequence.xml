@@ -115,8 +115,8 @@
     </element>
     <!--    <element id="MolecularSequence.subject">
           <path value="MolecularSequence.subject"/>
-          <short value="Subject this sequence is associated too"/>
-          <definition value="Indicates the subject this sequence is associated too."/>
+          <short value="Subject this sequence is associated to"/>
+          <definition value="Indicates the subject this sequence is associated to."/>
           <min value="0"/>
           <max value="1"/>
           <type>
@@ -179,8 +179,8 @@
         </element>-->
     <!--    <element id="MolecularSequence.literal">
           <path value="MolecularSequence.literal"/>
-          <short value="Sequence that was observed"/>
-          <definition value="Sequence that was observed."/>
+          <short value="Sequence that was identified"/>
+          <definition value="Sequence that was identified."/>
           <min value="0"/>
           <max value="1"/>
           <type>
