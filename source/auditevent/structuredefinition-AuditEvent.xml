@@ -148,7 +148,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="EventId"/>
+        <map value="EventTypeCode"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -192,7 +192,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="EventTypeCode"/>
+        <map value="EventID"/>
       </mapping>
     </element>
     <element id="AuditEvent.action">

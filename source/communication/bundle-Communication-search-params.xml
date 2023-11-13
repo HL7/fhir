@@ -341,4 +341,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Communication-in-response-to"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Communication.inResponseTo"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Communication-in-response-to"/>
+        <description value="Reply to"/>
+        <code value="in-response-to"/>
+        <type value="reference"/>
+        <expression value="Communication.inResponseTo"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

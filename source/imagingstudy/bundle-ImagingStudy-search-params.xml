@@ -215,14 +215,35 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ImagingStudy-reason"/>
+        <id value="ImagingStudy-reason-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-reason"/>
-        <description value="The reason for the study"/>
-        <code value="reason"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.reason.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-reason-concept"/>
+        <description value="The reason code for the study"/>
+        <code value="reason-concept"/>
         <type value="token"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-reason-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.reason.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-reason-reference"/>
+        <description value="The resource reference describing the reason for the study"/>
+        <code value="reason-reference"/>
+        <type value="reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

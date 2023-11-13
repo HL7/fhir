@@ -2,7 +2,7 @@
 
 <!-- insert xhtml content here -->
 <a name="notes"></a>
-<h3>Implementation Notes</h3>
+<h2>Notes</h2>
 <p>
 A referenced DICOM SOP instance could be:
 <ul>
@@ -33,7 +33,7 @@ The study accession number can also be encoded as an <code>Reference.Identifier<
 <pre class="json">
 
 "basedOn": [
-    "reference": {
+    {
         "type": "ServiceRequest",
         "identifier":{
             "type" : {
@@ -70,7 +70,7 @@ Different Endpoint connection types may have different capabilities, protocols o
 <code>Endpoint.address</code> may require manipulation. See below for the details on use of imaging-related Endpoint connection types.
 </p>
 <a name="wado-rs"></a>
-<h4>WADO-RS</h4>
+<h3>WADO-RS</h3>
 <p>
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-RS service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
@@ -133,7 +133,7 @@ For further details on DICOM WADO-RS capabilities including additional rendering
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <a name="wado-uri"></a>
-<h4>WADO-URI</h4>
+<h3>WADO-URI</h3>
 <p>An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-URI service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
 That is, only the scheme, authority and path are included. Neither a question mark (“?”) nor any query parameters shall be included.
@@ -182,7 +182,7 @@ For further details on DICOM WADO-URI capabilities including additional renderin
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <a name="iid"></a>
-<h4>IID</h4>
+<h3>IID</h3>
 <p>An <code>Endpoint.connectionType</code> of code <code>ihe-iid</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies an IHE <b>Invoke Image Display (IID)</b> service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
 That is, only the scheme, authority and path are included. Neither a question mark (“?”) nor any query parameters shall be included.
@@ -217,7 +217,7 @@ or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_D
 
 
 <a name="additional-dicom-attributes"></a>
-<h4>Additional DICOM attributes</h4>
+<h3>Additional DICOM attributes</h3>
 <p>
 Some imaging uses may require information beyond what is present in an ImagingStudy resource. Many of the DICOM patient and study level attributes are found in the FHIR Patient, Procedure, or other resources which are referenced from an ImagingStudy instance. Other DICOM content may be transformed into other FHIR resources, such as DiagnosticReports or Observations, which are not directly referenced, but may be easily found.
 </p><p>
@@ -225,7 +225,7 @@ Although many ImagingStudy consumers are expected to need only the DICOM informa
 </p><p>
 A benefit of using the metadata endpoint in this way is that the ImagingStudy creator does not need to know each of the attributes that each of the (current or future) ImagingStudy consumers is (or will be) interested in.
 </p>
-<h5>Example Metadata Retrieval</h5>
+<h4>Example Metadata Retrieval</h4>
 <p>
 A client retrieves the following ImagingStudy:
 </p>

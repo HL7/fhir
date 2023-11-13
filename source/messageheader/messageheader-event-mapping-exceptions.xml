@@ -14,45 +14,6 @@
             <resource value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification are defined by the implementation.  Alternatively a canonical uri to the EventDefinition."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.performer.actor" resourcePath="MessageHeader.sender">
-        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(CareTeam,Patient,RelatedPerson)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed message header"/>
-            <resource value="Real world sender of the message"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the message header."/>
-            <resource value="Identifies the sending system to allow the use of a trust relationship."/>
-        </definitionUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.performer.actor" resourcePath="MessageHeader.author">
-        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(CareTeam,Patient,RelatedPerson)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed message header"/>
-            <resource value="The source of the decision"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the message header."/>
-            <resource value="The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
-        </definitionUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.performer.actor" resourcePath="MessageHeader.responsible">
-        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed message header"/>
-            <resource value="Final responsibility for event"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the message header."/>
-            <resource value="The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party."/>
-        </definitionUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="MessageHeader.reason">
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes
@@ -78,6 +39,7 @@
     <unmappedElement patternPath="Event.status" reason="Unknown"/>
     <unmappedElement patternPath="Event.subject" reason="Unknown"/>
     <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.note" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
