@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="EvidenceVariable"/>
 	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+		<lastUpdated value="2023-11-08T10:01:24.148+11:00"/>
 	</meta>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
 		<valueString value="Specialized.Evidence-Based Medicine"/>
@@ -562,6 +562,10 @@
 			</type>
 			<type>
 				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 			</type>
 		</element>
 	</differential>

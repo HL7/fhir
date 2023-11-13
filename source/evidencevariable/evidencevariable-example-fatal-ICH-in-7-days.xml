@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
+  <id value="example-fatal-ICH-in-7-days"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>
+        &quot;Fatal Intracranial Hemorrhage Within Seven Days&quot; is an outcome used in expressing what an Evidence is about.
+      </p>
+	
+    </div>
+  </text>
+  <contained>
+	<Group>
+		<id value="Cohort-Definition"/>
+		<title value="CohortDefinition: Fatal Intracranial Hemorrhage"/>
+		<membership value="conceptual"/>
+		<combinationMethod value="all-of"/>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="1386000"/>
+					<display value="Intracranial hemorrhage (disorder)"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="false"/>
+			<description value="intracranial hemorrhage"/>
+		</characteristic>
+		<characteristic>
+			<code>
+				<text value="resulting in"/>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					 <code value="419620001"/>
+					<display value="Death (event)"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="false"/>
+			<description value="resulting in death"/>
+		</characteristic>
+	</Group>
+  </contained>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: Fatal Intracranial Hemorrhage Within Seven Days"/>
+		<type value="person"/>
+		<membership value="definitional"/>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueReference>
+				<reference value="#Cohort-Definition"/>
+			</valueReference>
+			<exclude value="false"/>
+			<description value="fatal intracranial hemorrhage within 7 days"/>
+			<timing>
+				<contextCode>
+					<coding>
+						<system value="http://hl7.org/fhir/evidence-variable-event"/>
+						<code value="study-start"/>
+						<display value="Study Start"/>
+					</coding>
+				</contextCode>
+				<offsetDuration>
+					<value value="7"/>
+					<unit value="days"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="d"/>
+				</offsetDuration>
+			</timing>
+		</characteristic>
+	</Group>
+  </contained>
+  <name value="FatalIntracranialHemorrhageWithinSevenDays"/>
+  <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+  <status value="draft"/>
+  <description value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+  <actual value="true"/>
+  <definition>
+	<reference>
+		<reference value="#Definition-Group"/>
+	</reference>
+  </definition>
+  <handling value="dichotomous"/>
+</EvidenceVariable>

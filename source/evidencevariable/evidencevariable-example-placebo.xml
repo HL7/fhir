@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
+  <id value="example-placebo"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+		
+      <p>
+			In a study of response rates if placebo is given, &quot;placcebo given&quot; may be the variable for the exposure of interest.
+      </p>
+	
+    </div>
+  </text>
+  <name value="Placebo"/>
+  <title value="Placebo"/>
+  <status value="draft"/>
+  <description value="Placebo"/>
+  <actual value="true"/>
+  <definition>
+	<concept>
+	  <coding>
+	    <system value="http://snomed.info/sct"/>
+	    <code value="182886004"/>
+	    <display value="Placebo given (situation)"/>
+	  </coding>
+	</concept>
+  </definition>
+  <handling value="dichotomous"/>
+</EvidenceVariable>

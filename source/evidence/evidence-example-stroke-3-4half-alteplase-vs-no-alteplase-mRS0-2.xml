@@ -31,13 +31,7 @@
   </relatedArtifact>
   <description value="mRS 0-2 at 90 days Odds Ratio 1.2 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 3-4.5 hours prior"/>
   <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="population"/>
-        <display value="population"/>
-      </coding>
-    </variableRole>
+    <variableRole value="population"/>
     <observed>
       <reference value="EvidenceVariable/Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
       <type value="EvidenceVariable"/>
@@ -57,13 +51,7 @@
     </directnessMatch>
   </variableDefinition>
   <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="measuredVariable"/>
-        <display value="measured variable"/>
-      </coding>
-    </variableRole>
+    <variableRole value="outcome"/>
     <observed>
       <reference value="EvidenceVariable/example-mRS0-2-at-90days"/>
       <type value="EvidenceVariable"/>
@@ -76,42 +64,13 @@
     </intended>
   </variableDefinition>
   <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="exposure"/>
-        <display value="exposure"/>
-      </coding>
-    </variableRole>
+    <variableRole value="exposure"/>
+    <comparatorCategory value="No Alteplase"/>
     <observed>
-      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <reference value="EvidenceVariable/example-group-assignment-alteplase-for-stroke-vs-no-alteplase"/>
       <type value="EvidenceVariable"/>
-      <display value="Alteplase for Stroke"/>
+      <display value="Group Assignment: Alteplase for Stroke vs No Alteplase"/>
     </observed>
-    <intended>
-      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-      <type value="EvidenceVariable"/>
-      <display value="Alteplase for Stroke"/>
-    </intended>
-  </variableDefinition>
-  <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="referenceExposure"/>
-        <display value="reference exposure"/>
-      </coding>
-    </variableRole>
-    <observed>
-      <reference value="EvidenceVariable/example-no-alteplase"/>
-      <type value="EvidenceVariable"/>
-      <display value="no alteplase"/>
-    </observed>
-    <intended>
-      <reference value="EvidenceVariable/example-no-alteplase"/>
-      <type value="EvidenceVariable"/>
-      <display value="no alteplase"/>
-    </intended>
   </variableDefinition>
   <synthesisType>
     <coding>
