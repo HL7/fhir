@@ -16,4 +16,88 @@
       <display value="Alive and not functionally dependent 90 days"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Alteplase for Stroke"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-alteplase-for-stroke"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <display value="Alteplase for Stroke"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="No Alteplase"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-no-alteplase"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-no-alteplase"/>
+      <display value="No Alteplase"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Placebo"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-placebo"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-placebo"/>
+      <display value="Placebo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-fatal-ICH-in-7-days"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
+      <display value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dead or functionally dependent at 90 days"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-dead-or-dependent-90day"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-dead-or-dependent-90day"/>
+      <display value="Dead or functionally dependent at 90 days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Modified Rankin Scale score 0-2 at 90 days after treatment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-mRS0-2-at-90days"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-mRS0-2-at-90days"/>
+      <display value="Modified Rankin Scale score 0-2 at 90 days after treatment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-mRS3-6-at-90days"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
+      <display value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+    </item>
+  </entry>
 </List>

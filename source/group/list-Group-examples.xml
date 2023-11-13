@@ -52,4 +52,16 @@
       <display value="Patient List"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+    </extension>
+    <item>
+      <reference value="Group/example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+      <display value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
+    </item>
+  </entry>
 </List>

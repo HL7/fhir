@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
+  <id value="example-mRS3-6-at-90days"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>
+        &quot;mRS 3-6 at 90 days&quot; is an outcome, defined by a CQL expression, used in expressing what an Evidence is about.
+      </p>
+	
+    </div>
+  </text>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: mRS 3-6 at 90 days"/>
+		<type value="person"/>
+		<membership value="definitional"/>
+		<characteristic>
+   		  <code>
+   		    <coding>
+   		      <system value="http://snomed.info/sct"/>
+   		      <code value="260905004"/>
+   		      <display value="Condition"/>
+   		    </coding>
+   		  </code>
+   		  <valueExpression>
+   		    <description value="mRS 3-6"/>
+  		    <language value="text/cql"/>
+   		    <expression value="[&quot;Observation&quot;: code in &quot;75859-9|LOINC&quot;] mRS where mRS.value between 3 and 6"/>
+  		  </valueExpression>
+  		  <exclude value="false"/>
+   		  <description value="mRS 3-6 at 90 days"/>
+   		  <timing>
+   		    <contextCode>
+   		      <coding>
+   		        <system value="http://hl7.org/fhir/evidence-variable-event"/>
+   		        <code value="study-start"/>
+   		        <display value="Study Start"/>
+   		      </coding>
+   		    </contextCode>
+   		    <offsetDuration>
+   		      <value value="90"/>
+   		      <unit value="days"/>
+   		      <system value="http://unitsofmeasure.org"/>
+   		      <code value="d"/>
+   		    </offsetDuration>
+   		  </timing>
+		</characteristic>
+	</Group>
+  </contained>
+  <name value="ModifiedRankinScaleScore36At90DaysAfterTreatment"/>
+  <title value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+  <status value="draft"/>
+  <description value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+  <actual value="true"/>
+    <definition>
+	  <reference>
+		<reference value="#Definition-Group"/>
+	  </reference>
+    </definition>
+  <handling value="dichotomous"/>
+</EvidenceVariable>

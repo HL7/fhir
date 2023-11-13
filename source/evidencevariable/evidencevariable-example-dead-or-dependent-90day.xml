@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <EvidenceVariable xmlns="http://hl7.org/fhir">
-  <id value="example-alive-independent-90day"/>
+  <id value="example-dead-or-dependent-90day"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       <p>
-        &quot;Alive and not functionally dependent at 90 days&quot; is an outcome used in expressing what an Evidence is about.
+        &quot;Dead or functionally dependent at 90 days&quot; is an outcome used in expressing what an Evidence is about.
       </p>
 	
     </div>
@@ -18,7 +18,7 @@
 		<title value="VariableDefinition: Alive and not functionally dependent at 90 days"/>
 		<type value="person"/>
 		<membership value="definitional"/>
-		<combinationMethod value="all-of"/>
+		<combinationMethod value="any-of"/>
 		<characteristic>
 			<code>
 				<coding>
@@ -34,8 +34,8 @@
 					<display value="Dead (finding)"/>
 				</coding>
 			</valueCodeableConcept>
-			<exclude value="true"/>
-			<description value="alive at 90 days (excluding dead at 90 days)"/>
+			<exclude value="false"/>
+			<description value="dead at 90 days"/>
 			<timing>
 				<contextCode>
 					<coding>
@@ -67,8 +67,8 @@
 					<display value="Functionally dependent (finding)"/>
 				</coding>
 			</valueCodeableConcept>
-			<exclude value="true"/>
-			<description value="not functionally dependent at 90 days (excluding functionally dependent at 90 days)"/>
+			<exclude value="false"/>
+			<description value="functionally dependent at 90 days"/>
 			<timing>
 				<contextCode>
 					<coding>
@@ -87,10 +87,10 @@
 		</characteristic>
 	</Group>
   </contained>
-  <name value="AliveAndNotFunctionallyDependentAt90Days"/>
-  <title value="Alive and not functionally dependent at 90 days"/>
+  <name value="DeadOrFunctionallyDependentAt90Days"/>
+  <title value="Dead or functionally dependent at 90 days"/>
   <status value="draft"/>
-  <description value="Alive and not functionally dependent at 90 days"/>
+  <description value="Dead or functionally dependent at 90 days"/>
   <actual value="false"/>
   <definition>
 	<reference>
