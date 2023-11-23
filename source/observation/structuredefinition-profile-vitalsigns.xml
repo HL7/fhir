@@ -32,7 +32,7 @@
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2016-03-25"/>
-  <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
+  <publisher value="HL7 International / Orders and Observations"/>
   <contact>
     <telecom>
       <system value="url"/>
