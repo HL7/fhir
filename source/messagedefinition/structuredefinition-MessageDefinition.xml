@@ -524,7 +524,7 @@
     <element id="MessageDefinition.event[x]">
       <path value="MessageDefinition.event[x]"/>
       <short value="Real world event that triggered this message"/>
-      <definition value="Event code, uri, or link to one of EventDefinition or SubscriptionTopic"/>
+      <definition value="Event code, uri, or link to one of EventDefinition or SubscriptionTopic."/>
       <min value="1"/>
       <max value="1"/>
       <type>
