@@ -177,7 +177,7 @@
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Why was medication administration performed?"/>
-            <resource value="Concept, condition or observation that supports why the medication was administered"/>
+            <resource value="Reason that supports why the medication was administered"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the medication administration occurred in coded or textual form or Indicates another resource whose existence justifies this medication administration."/>
