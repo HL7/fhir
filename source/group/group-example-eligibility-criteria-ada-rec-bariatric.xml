@@ -30,8 +30,7 @@
 	<Group>
 		<id value="BMI-Asian-Americans"/>
 		<title value="CohortDefinition: BMI ≥ 37.5 kg/m2 in Asian Americans"/>
-		<type value="person"/>
-		<membership value="definitional"/>
+		<membership value="conceptual"/>
 		<combinationMethod value="all-of"/>
 		<characteristic>
 			<code>
@@ -81,8 +80,7 @@
 		<id value="BMI-35-to-less-than-40"/>
 		<title value="BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 who do not achieve durable weight loss and improvement in comorbidities with nonsurgical methods"/>
 		<description value="BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
-		<type value="person"/>
-		<membership value="definitional"/>
+		<membership value="conceptual"/>
 		<combinationMethod value="all-of"/>
 		<characteristic>
 			<code>
@@ -126,8 +124,7 @@
 		<id value="BMI-32.5-to-less-than-37.5"/>
 		<title value="BMI ≥ 32.5 kg/m2 and ≤ 37.4 kg/m2 in Asian Americans who do not achieve durable weight loss and improvement in comorbidities with nonsurgical methods"/>
 		<description value="BMI ≥ 32.5 kg/m2 and ≤ 37.4 kg/m2 in Asian Americans who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
-		<type value="person"/>
-		<membership value="definitional"/>
+		<membership value="conceptual"/>
 		<combinationMethod value="all-of"/>
 		<characteristic>
 			<code>
@@ -194,8 +191,7 @@
 		<id value="BMI-Qualifying-Group"/>
 		<title value="Body Mass Index (BMI) ≥ 40.0 kg/m2 (BMI ≥ 37.5 kg/m2 in Asian Americans), or BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 (BMI 32.5-37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities with nonsurgical methods"/>
 		<description value="Body Mass Index (BMI) ≥ 40.0 kg/m2 (BMI ≥ 37.5 kg/m2 in Asian Americans), or BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 (BMI 32.5-37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
-		<type value="person"/>
-		<membership value="definitional"/>
+		<membership value="conceptual"/>
 		<combinationMethod value="any-of"/>
 		<characteristic>
 			<code>
