@@ -372,11 +372,10 @@ See also the <a href="#custom">Custom Headers</a> table.
 <a name="return"></a>
 <h4>Managing Return Content</h4>
 <p>
-If the server has a default timezone, it SHOULD return the default timezone in the HTTP Response headers using the "<code>Date</code>" header.
-</p>
-<p>
-In the interests of managing band-width, this specification allows clients
-to specify what kind of content to return for resources.
+In the interests of managing bandwidth, this specification allows clients
+to specify what kind of content to return for resources.  For more information,
+see <a href="#ops">Return preference</a> and the <code>_format</code> and <code>_summary</code>
+<a href="#parameters">General Parameters</a>.
 </p>
 
 <a name="cread"></a>
@@ -390,7 +389,7 @@ or the server does not support conditional request).
 <p>
 Servers can return <code>304 Not Modified</code> where content is unchanged because the
 <code>If-Modified-Since</code> date-time or the <code>If-None-Match</code> ETag was specified, or they can
-return the full content as normal. This optimisation is relevant in reducing bandwidth for caching purposes and servers are encouraged but
+return the full content as normal. This optimization is relevant in reducing bandwidth for caching purposes and servers are encouraged but
 not required to support this. If servers don't support conditional read, they just return the full content.
 </p>
 
@@ -1074,7 +1073,7 @@ status code when the server wishes to indicate that the resource is deleted. For
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
 Upon successful deletion, or if the resource does not exist at all, the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload,
-or a <code>202 Accepted</code> if the server wishes to be non-commital about the outcome of the delete.
+or a <code>202 Accepted</code> if the server wishes to be non-committal about the outcome of the delete.
 <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
 </p>
@@ -1229,7 +1228,7 @@ For additional information on how systems may behave when processing updates, re
 <a name="ccreate"></a>
 <h4>Conditional create</h4>
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the conditional create, update, patche and delete are trial use until
+Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
 further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
 </p>
 <p>
@@ -1994,7 +1993,7 @@ Additional Notes about maintaining a history of resources:
 <ul>
  <li>The history is a record version history on a per-resource basis. It is not intended to support concurrent versions, or multi-branch version history</li>
  <li>Accordingly, there is no way to update or delete past versions of the record, except that the <a href="resource-operations.html">metadata can be modified</a> (mainly for access control purposes)</li>
- <li>All past versions of a resource are considered to be superceded, and no longer active, but retained for audit/integrity purposes</li>
+ <li>All past versions of a resource are considered to be superseded, and no longer active, but retained for audit/integrity purposes</li>
  <li>In the case that a past version of a resource needs to be explicitly documented as <a href="lifecycle.html#error">'entered-in-error'</a>, use a <a href="provenance.html">Provenance</a> resource pointing to the past version of the resource</li>
  <li>When tracing the history of a specific resource, applications should retrieve any provenance resources relating to the resource or its past versions</li>
  <li>If a request is made for a history that is not available (e.g. the system does not keep a history for the type, or the particular instance), the server should return a <code>404 Not Found</code> along with an <a href="operationoutcome.html">OperationOutcome</a> explaining the problem</li>
