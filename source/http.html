@@ -1072,8 +1072,9 @@ Subsequent <a href="#read">non-version specific reads</a> of the resource return
 status code when the server wishes to indicate that the resource is deleted. For security reasons, the
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
 Upon successful deletion, or if the resource does not exist at all, the server should return either a
-<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload,
-or a <code>202 Accepted</code> if the server wishes to be non-committal about the outcome of the delete.
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
+using the <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+the server wishes to be non-committal about the outcome of the delete.
 <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
 </p>
@@ -1171,7 +1172,7 @@ content when it is subsequently read. However some systems might not be able to 
 the note on <a href="#transactional-integrity">transactional integrity</a> (and also <a href="updates.html">Variations between Submitted data and Retrieved data</a>).
 </p>
 <p>
-The server returns a <code>201 Created</code> HTTP status code, and SHALL also return a <code>Location</code> header which
+If the <code>create</code> request is successful, the server returns a <code>201 Created</code> HTTP status code, and SHALL also return a <code>Location</code> header which
 contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of
 the created resource version:
 </p>
@@ -1187,6 +1188,11 @@ Location MAY be an absolute or relative URL.
 <p>
 Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code> (if versioning is supported) and a <code>Last-Modified</code> header.
 The body of response is as described in <a href="http.html#return">Managing Return Content</a>.
+</p>
+<p>
+Servers using the <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+the server wishes to be non-committal about the outcome of the create.  Note that when returning a <code>202 Accepted</code>, the server
+is not expected to return a <code>Location</code> or <code>eTag</code>.
 </p>
 <p>
 When the resource syntax or data is incorrect or invalid, and cannot be used to create a new resource, the server returns a <code>400 Bad Request</code> HTTP status code.
@@ -1207,12 +1213,14 @@ Notes:
 <li>A client may attempt to create a resource containing a <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them</li>
 </ul>
 <p>
-Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
+Common HTTP Status codes returned (in addition to normal HTTP errors related to security, header and content type negotiation issues):
 </p>
 <ul>
- <li><b><code>400 Bad Request</code></b> - resource could not be parsed or failed basic FHIR validation rules</li>
- <li><b><code>404 Not Found</code></b> - resource type not supported, or not a FHIR end-point</li>
- <li><b><code>422 Unprocessable Entity</code></b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
+  <li><b><code>201 Created</code></b> - success code - resource has been created</li>
+  <li><b><code>202 Accepted</code></b> - the server wishes to be non-committal about the outcome of the create - see <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> for details.</li>
+ <li><b><code>400 Bad Request</code></b> - error code - resource could not be parsed or failed basic FHIR validation rules</li>
+ <li><b><code>404 Not Found</code></b> - error code - resource type not supported, or not a FHIR end-point</li>
+ <li><b><code>422 Unprocessable Entity</code></b> - error code - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
 </ul>
 <p>
 In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a <code>400</code>,
