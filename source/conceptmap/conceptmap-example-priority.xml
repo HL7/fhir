@@ -4,6 +4,19 @@
    <version value="20220809"/>
    <title value="Example map with priorities"/>
    <status value="draft"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
    <description value="Example inspired by UK extended complex map (999002271000000101)"/>
    <copyright value="Creative Commons 0"/>
    <sourceScopeUri value="http://snomed.info/sct?fhir_vs"/>

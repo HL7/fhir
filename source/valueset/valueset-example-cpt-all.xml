@@ -12,7 +12,19 @@
   <status value="active"/>
   <experimental value="true"/>
   <date value="2015-03-12"/>
-  <publisher value="HL7 International / Terminology Infrastructure"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="A value set that includes all CPT codes"/>
   <useContext>
     <code>

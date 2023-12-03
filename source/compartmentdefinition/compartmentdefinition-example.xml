@@ -10,10 +10,15 @@
   <date value="2017-02-24"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
-    <name value="[string]"/>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
   <description value="The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only)."/>
