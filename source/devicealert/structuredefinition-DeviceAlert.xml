@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="DeviceAlert"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Entities"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="devices"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".operationalStatus = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/DeviceAlert"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1170"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="DeviceAlert"/>
+  <title value="Device Alert"/>
+  <status value="draft"/>
+  <date value="2023-10-02T09:00:31+11:00"/>
+  <publisher value="Health Level Seven International (Devices)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Describes a physiological or technical alert condition report originated by a device.  The DeviceAlert resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable. "/>
+  <fhirVersion value="6.0.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DeviceAlert"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="DeviceAlert">
+      <path value="DeviceAlert"/>
+      <short value="Measurement, calculation or setting capability of a medical device"/>
+      <definition value="Describes a measurement, calculation or setting capability of a device."/>
+      <comment value="The DeviceAlert resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.device"/>
+      </mapping>
+    </element>
+    <element id="DeviceAlert.identifier">
+      <path value="DeviceAlert.identifier"/>
+      <short value="Instance identifier"/>
+      <definition value="Instance identifiers assigned to a device, by the device or gateway software, manufacturers, other organizations or owners. For example, handle ID."/>
+      <comment value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to any identifier of the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="DeviceAlert.type">
+      <path value="DeviceAlert.type"/>
+      <short value="Identity of Alert, for example Heart Rate or PEEP Setting"/>
+      <definition value="Describes the type of the Alert. For example: Heart Rate, PEEP Setting, etc."/>
+      <comment value="DeviceAlert.type can be referred to either IEEE 11073-10101 or LOINC."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+         <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    
+    <element id="DeviceAlert.device">
+      <path value="DeviceAlert.device"/>
+      <short value="Describes the link to the device originating te alert"/>
+      <definition value="Describes the link to the Device.  This is also known as a channel device."/>
+      <comment value="Note if this is not the top level device - also know as the source device, it may be referenced in the device.parent element."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+        
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="DeviceAlert.operationalStatus">
+      <path value="DeviceAlert.operationalStatus"/>
+      <short value="on | off | standby | entered-in-error"/>
+      <definition value="Indicates current operational state of the device. For example: On, Off, Standby, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      </element>
+    
+   
+    
+    
+    
+    
+  </differential>
+</StructureDefinition>
