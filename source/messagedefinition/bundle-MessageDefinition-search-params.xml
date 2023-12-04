@@ -262,25 +262,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MessageDefinition-parent"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageDefinition.parent"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-parent"/>
-        <description value="A resource that is the parent of the definition"/>
-        <code value="parent"/>
-        <type value="reference"/>
-        <expression value="MessageDefinition.parent"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="MessageDefinition-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
