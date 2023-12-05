@@ -4,11 +4,21 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/tools/ValueSet/additional-binding-purpose"/>
   <name value="AdditionalBindingPurposeVS"/>
   <title value="Additional Binding Purpose ValueSet"/>
   <status value="active"/>
   <experimental value="true"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
+    </telecom>
+  </contact>
   <description value="Additional Binding Purpose"/>
   <jurisdiction>
     <coding>

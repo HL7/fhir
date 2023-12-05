@@ -5,11 +5,11 @@
   <title value="All UCUM Expression for Distance"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
     </telecom>
   </contact>
   <description value="Unified Code for Units of Measure (UCUM). This value set includes all possible UCUM codes used for distance measures - that it is, all units which have the same canonical unit as 'm' (metre)"/>
