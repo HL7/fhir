@@ -24,6 +24,7 @@
 			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
 		</telecom>
 	</contact>
+  <description value="Mapping between CDS Hooks Indicator and Request Priority"/>
   <sourceScopeCanonical value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
   <targetScopeCanonical value="http://hl7.org/fhir/ValueSet/request-priority"/>
   <group>
