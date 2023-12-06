@@ -97,7 +97,19 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-12-21T16:40:38+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="German Translations for Bundle Type"/>
   <copyright value="Creative Commons 0"/>
   <content value="supplement"/>
