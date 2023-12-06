@@ -50,12 +50,17 @@
 	<status value="draft"/>
 	<experimental value="true"/>
 	<date value="2015-06-22"/>
-	<publisher value="HL7 International"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
 	<contact>
-		<name value="FHIR project team"/>
 		<telecom>
 			<system value="url"/>
 			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
 		</telecom>
 	</contact>
 	<description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>

@@ -33,7 +33,7 @@
   <title value="Medication Administration"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Pharmacy)"/>
+  <publisher value="HL7 International / Pharmacy"/>
   <contact>
     <telecom>
       <system value="url"/>
