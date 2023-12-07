@@ -2785,7 +2785,7 @@
     <Cell ss:StyleID="s68">
                     <NamedCell ss:Name="_FilterDatabase" /></Cell>
    </Row>
-            <Row>
+<!--             <Row>
                 <Cell>
                     <Data ss:Type="String">DeviceAlert.status</Data>
                     <NamedCell ss:Name="_FilterDatabase" />
@@ -2877,8 +2877,8 @@
                 <Cell ss:StyleID="s68">
                     <NamedCell ss:Name="_FilterDatabase" />
                 </Cell>
-            </Row>
-   <Row>
+            </Row>-->
+    <Row>
     <Cell><Data ss:Type="String">DeviceDispense.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s64"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
