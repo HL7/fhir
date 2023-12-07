@@ -62,6 +62,10 @@ resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
   defines what specific role that they are fulfilling within the team, and might or might not have actual practitioner role resources
   created for the practitioner (and in the care team context, the organization the practitioner is representing)
 </p>
+<p>
+  When an autonomous system or machine is an actor or participant, the <a href="device.html">Device</a> resource should be used to represent that system.
+  This would include artificial intelligence or machine learning (AI/ML) systems, as well as other automated systems. 
+</p>
 </div>
 
 <div>

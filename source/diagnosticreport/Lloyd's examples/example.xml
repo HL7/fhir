@@ -20,7 +20,7 @@
 	  <coding>
 	    <code>58410-2</code>
       <system>http://loinc.org</system>
-      <display>Complete blood count (hemogram) panel - Blood by Automated count</display>
+      <display>CBC panel - Blood by Automated count</display>
     </coding>
 	  <coding>
 	    <code>CBC</code>

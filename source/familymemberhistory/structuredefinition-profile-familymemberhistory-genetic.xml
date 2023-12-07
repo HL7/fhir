@@ -20,13 +20,13 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1229"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="FamilyMemberHistoryForGeneticsAnalysis"/>
   <title value="Family member history for genetics analysis"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2019-05-29"/>
-  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <publisher value="HL7 International / Clinical Genomics"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -34,7 +34,7 @@
     </telecom>
   </contact>
   <description value="Adds additional information to a family member history supporting both the capture of mother/father relationships as well as additional observations necessary to enable genetics-based risk analysis for patients"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1006"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="AuditEvent"/>
   <title value="Audit Event"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
-  <publisher value="Health Level Seven International (Security)"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -148,7 +148,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="EventId"/>
+        <map value="EventTypeCode"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -192,7 +192,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="EventTypeCode"/>
+        <map value="EventID"/>
       </mapping>
     </element>
     <element id="AuditEvent.action">

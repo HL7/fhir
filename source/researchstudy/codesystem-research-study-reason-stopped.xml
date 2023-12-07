@@ -15,7 +15,7 @@
 		<valueInteger value="0"/>
 	</extension>
 	<url value="http://hl7.org/fhir/research-study-reason-stopped"/>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ResearchStudyReasonStopped"/>
 	<title value="ResearchStudy Reason Stopped Code System"/>
 	<status value="draft"/>

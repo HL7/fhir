@@ -177,6 +177,39 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Ingredient-strength-concentration-numerator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-concentration-numerator"/>
+        <description value="Ingredient concentration strength numerator (mainly for use in strength-concentration-ratio)"/>
+        <code value="strength-concentration-numerator"/>
+        <type value="quantity"/>
+        <expression value="Ingredient.substance.strength.concentration.ofType(Ratio).numerator"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-strength-concentration-denominator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-concentration-denominator"/>
+        <description value="Ingredient concentration strength denominator (mainly for use in strength-concentration-ratio)"/>
+        <code value="strength-concentration-denominator"/>
+        <type value="quantity"/>
+        <expression value="Ingredient.substance.strength.concentration.ofType(Ratio).denominator"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Ingredient-strength-concentration-ratio"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -189,16 +222,49 @@
         <processingMode value="normal"/>
         <component>
           <definition value="numerator"/>
-          <expression value="numerator"/>
+          <expression value="strength-concentration-numerator"/>
         </component>
         <component>
           <definition value="denominator"/>
-          <expression value="denominator"/>
+          <expression value="strength-concentration-denominator"/>
         </component>
       </SearchParameter>
     </resource>
   </entry>
 
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-strength-presentation-numerator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-presentation-numerator"/>
+        <description value="Ingredient presentation strength numerator (mainly for use in strength-presentation-ratio)"/>
+        <code value="strength-presentation-numerator"/>
+        <type value="quantity"/>
+        <expression value="Ingredient.substance.strength.presentation.ofType(Ratio).numerator"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-strength-presentation-denominator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-presentation-denominator"/>
+        <description value="Ingredient presentation strength denominator (mainly for use in strength-presentation-ratio)"/>
+        <code value="strength-presentation-denominator"/>
+        <type value="quantity"/>
+        <expression value="Ingredient.substance.strength.presentation.ofType(Ratio).denominator"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
   <entry>
     <resource>
       <SearchParameter>
@@ -214,11 +280,11 @@
         <processingMode value="normal"/>
         <component>
           <definition value="numerator"/>
-          <expression value="numerator"/>
+          <expression value="strength-presentation-numerator"/>
         </component>
         <component>
           <definition value="denominator"/>
-          <expression value="denominator"/>
+          <expression value="strength-presentation-denominator"/>
         </component>
       </SearchParameter>
     </resource>

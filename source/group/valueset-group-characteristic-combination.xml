@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="characteristic-combination"/>
+  <id value="group-characteristic-combination"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -14,17 +14,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
+  <url value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3060"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1344"/>
   </identifier>
-  <version value="5.0.0"/>
-  <name value="CharacteristicCombination"/>
-  <title value="Characteristic Combination"/>
+  <version value="6.0.0"/>
+  <name value="GroupCharacteristicCombination"/>
+  <title value="Group Characteristic Combination"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2023-10-02T17:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,11 +36,31 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Logical grouping of characteristics."/>
+  <description value="Logical grouping of characteristics for the Group Resource."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/characteristic-combination"/>
+      <system value="http://hl7.org/fhir/group-characteristic-combination"/>
+      <concept>
+        <code value="all-of"/>
+        <display value="All of"/>
+      </concept>
+      <concept>
+        <code value="any-of"/>
+        <display value="Any of"/>
+      </concept>
+      <concept>
+        <code value="at-least"/>
+        <display value="At least"/>
+      </concept>
+      <concept>
+        <code value="at-most"/>
+        <display value="At most"/>
+      </concept>
+      <concept>
+        <code value="except-subset"/>
+        <display value="Except subset"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

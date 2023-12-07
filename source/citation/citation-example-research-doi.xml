@@ -110,7 +110,7 @@
         <type>
           <coding>
             <system value="http://hl7.org/fhir/published-in-type"/>
-            <version value="5.0.0"/>
+            <version value="6.0.0"/>
             <code value="D019991"/>
             <display value="Database"/>
           </coding>
@@ -135,7 +135,7 @@
       <classifier>
         <coding>
           <system value="http://hl7.org/fhir/artifact-url-classifier"/>
-          <version value="5.0.0"/>
+          <version value="6.0.0"/>
           <code value="webpage"/>
           <display value="Webpage"/>
         </coding>
@@ -146,7 +146,7 @@
       <classifier>
         <coding>
           <system value="http://hl7.org/fhir/artifact-url-classifier"/>
-          <version value="5.0.0"/>
+          <version value="6.0.0"/>
           <code value="doi-based"/>
           <display value="DOI Based"/>
         </coding>
@@ -157,7 +157,7 @@
       <classifier>
         <coding>
           <system value="http://hl7.org/fhir/artifact-url-classifier"/>
-          <version value="5.0.0"/>
+          <version value="6.0.0"/>
           <code value="doi-based"/>
           <display value="DOI Based"/>
         </coding>
@@ -169,7 +169,7 @@
       <classifier>
         <coding>
           <system value="http://hl7.org/fhir/artifact-url-classifier"/>
-          <version value="5.0.0"/>
+          <version value="6.0.0"/>
           <code value="compressed-file"/>
           <display value="Compressed file"/>
         </coding>
@@ -193,7 +193,7 @@
       <classifier>
         <coding>
           <system value="http://hl7.org/fhir/citation-artifact-classifier"/>
-          <version value="5.0.0"/>
+          <version value="6.0.0"/>
           <code value="D064886"/>
           <display value="Dataset"/>
         </coding>
@@ -373,7 +373,7 @@
         <type>
           <coding>
             <system value="http://hl7.org/fhir/contributor-summary-type"/>
-            <version value="5.0.0"/>
+            <version value="6.0.0"/>
             <code value="author-string"/>
             <display value="Author string"/>
           </coding>

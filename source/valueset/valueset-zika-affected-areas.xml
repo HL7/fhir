@@ -21,7 +21,19 @@
   <title value="Zika Affected Areas"/>
   <status value="active"/>
   <experimental value="true"/>
-  <publisher value="PHINVADS"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="Zika Affected Areas"/>
   <compose>
     <include>

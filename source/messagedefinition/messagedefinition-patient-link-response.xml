@@ -17,11 +17,17 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-02-03"/>
-  <publisher value="Health Level Seven, Int'l"/>
+  <publisher value="HL7 International / Infrastructure and Messaging"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/inm/index.cfm"/>
     </telecom>
   </contact>
   <description value="Optional response to a patient link notification."/>
@@ -41,7 +47,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America (the)"/>
+      <display value="United States of America"/>
     </coding>
   </jurisdiction>
   <purpose value="Optional response message that may provide additional information on the outcome of the patient link operation."/>

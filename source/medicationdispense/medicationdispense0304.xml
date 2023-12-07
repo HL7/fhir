@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0304"/>
     <contained>
         <Medication>
@@ -10,8 +9,10 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0206-8862-02"/>
-                    <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+                    <display value="Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02) > 100 mL in 1 BAG (0206-8862-01) (package)"/>
+                    <!-- Zosyn (piperacillin/tazobactam) 4.5gm injection -->
                 </coding>
+                <text value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
             </code>
         </Medication>
     </contained>
@@ -19,13 +20,13 @@
     <medication>
         <!-- Linked to a RESOURCE Medication -->
         <reference>
-        <reference value="#med0302"/>
-        <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+            <reference value="#med0302"/>
+            <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
         </reference>
     </medication>
     <subject>
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/> 
+        <display value="Donald Duck"/>
     </subject>
     <performer>
         <actor>
@@ -62,7 +63,7 @@
             <repeat>
                 <frequency value="1"/>
                 <period value="6"/>
-                <periodUnit value="h"/>	
+                <periodUnit value="h"/>
             </repeat>
         </timing>
         <site>
@@ -105,7 +106,7 @@
                 </denominator>
             </rateRatio>
         </doseAndRate>
- 
+
 
     </dosageInstruction>
 </MedicationDispense>

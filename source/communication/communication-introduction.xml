@@ -34,7 +34,9 @@ Non-patient specific communication use cases may include:
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource represents a communication that has been or will be presented to a human being. If your use case does not require 
+This resource represents a communication that has been or will be presented to a human being or where the communication process has at least initiated. 
+It does not have to represent the actual flow of communication, but in some use cases could represent the actual flow of 
+communication (for example secure messaging between provider and patient). If your use case does not require 
 presenting information to a recipient, consider a more structured and automated exchange protocol (see 
 <a href="exchanging.html">Approaches to Exchanging FHIR Data</a>).
 While <a href="auditevent.html">AuditEvent</a> can track electronic disclosures of information, it cannot track conversations,

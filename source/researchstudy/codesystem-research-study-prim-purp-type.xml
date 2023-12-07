@@ -15,7 +15,7 @@
 		<valueInteger value="0"/>
 	</extension>
 	<url value="http://hl7.org/fhir/research-study-prim-purp-type"/>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ResearchStudyPrimaryPurposeType"/>
 	<title value="ResearchStudy Primary Purpose Type Code System"/>
 	<status value="draft"/>

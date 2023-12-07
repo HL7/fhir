@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -9,7 +9,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="1797870"/>
-            <display value="Nasonex 0.05mg/ACTUAT Nasal Inhaler"/>
+            <display value="mometasone furoate 0.05 MG/ACTUAT Metered Dose Nasal Spray [Nasonex]"/>
         </coding>
         </concept>
     </medication>
@@ -75,6 +75,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-
