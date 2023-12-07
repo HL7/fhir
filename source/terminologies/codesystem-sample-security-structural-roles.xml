@@ -9,6 +9,19 @@
   <title value="Sample Codes for Security Structural Role"/>
   <status value="draft"/>
   <experimental value="true"/>
+  <publisher value="HL7 International / Security"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/security/index.cfm"/>
+    </telecom>
+  </contact>
   <description value="This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions.."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>

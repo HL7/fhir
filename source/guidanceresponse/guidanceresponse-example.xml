@@ -15,7 +15,7 @@
 		  <coding>
 			<system value="http://www.ama-assn.org/go/cpt"/>
 			<code value="70450"/>
-			<display value="CT, head, wo iv contrast"/>
+			<display value="Computed tomography, head or brain; without contrast material"/>
 		  </coding>
 		</valueCodeableConcept>
       </parameter>

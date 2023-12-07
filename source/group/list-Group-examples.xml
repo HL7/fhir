@@ -52,4 +52,28 @@
       <display value="Patient List"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+    </extension>
+    <item>
+      <reference value="Group/example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+      <display value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Inclusion Criteria: [[1]] Adults. [[2]] Diagnosed with type 2 diabetes. [[3]] Body Mass Index (BMI) ≥ 40.0 kg/m2 (BMI ≥ 37.5 kg/m2 in Asian Americans), or BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 (BMI 32.5-37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods. [[4]] Screened surgical candidates."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-eligibility-criteria-ada-rec-bariatric"/>
+    </extension>
+    <item>
+      <reference value="Group/example-eligibility-criteria-ada-rec-bariatric"/>
+      <display value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
+    </item>
+  </entry>
 </List>

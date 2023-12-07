@@ -130,7 +130,7 @@
        class="diagram-class-detail"><a
    id="n1061"
    xlink:href="appointment-definitions.html#Appointment.cancellationReason"><title
-   id="title40">The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply</title>cancellationReason</a> : <a
+   id="title40">The coded reason for the appointment being cancelled. This is often used in reporting/billing/further processing to determine if further actions are required, or specific fees apply</title>cancellationReason</a> : <a
    id="n1062"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1063"

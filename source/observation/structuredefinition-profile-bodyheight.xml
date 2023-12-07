@@ -32,7 +32,7 @@
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-08-11"/>
-  <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
+  <publisher value="HL7 International / Orders and Observations"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -106,6 +106,7 @@
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
+      <min value="1"/>
     </element>
     <element id="Observation.code.coding:BodyHeightCode">
       <path value="Observation.code.coding"/>
