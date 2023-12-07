@@ -12,13 +12,30 @@
 	
     </div>
   </text>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: Alteplase for Stroke"/>
+		<membership value="conceptual"/>
+		<characteristic>
+			<code>
+				<text value="Defined by Reference"/>
+			</code>
+			<valueUri value="http://example.org/fhir/ActivityDefinition/example-alteplase-dosing"/>
+			<exclude value="false"/>
+			<description value="IV alteplase 0.9 mg/kg (maximum 90 mg) as 10% of dose over 1 minute and 90% over 1 hour"/>
+		</characteristic>
+	</Group>
+  </contained>
   <name value="AlteplaseForStroke"/>
   <title value="Alteplase for Stroke"/>
   <status value="draft"/>
   <description value="Alteplase for Stroke"/>
-  <actual value="true"/>
-  <characteristic>
-    <description value="IV alteplase 0.9 mg/kg (maximum 90 mg) as 10% of dose over 1 minute and 90% over 1 hour"/>
-    <definitionCanonical value="http://example.org/fhir/ActivityDefinition/example-alteplase-dosing"/>
-  </characteristic>
+  <actual value="false"/>
+  <definition>
+	<reference>
+		<reference value="#Definition-Group"/>
+	</reference>
+  </definition>
+  <handling value="dichotomous"/>
 </EvidenceVariable>

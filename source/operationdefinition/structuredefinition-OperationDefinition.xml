@@ -33,12 +33,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1386"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="OperationDefinition"/>
   <title value="Operation Definition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -52,7 +52,7 @@
     </telecom>
   </contact>
   <description value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

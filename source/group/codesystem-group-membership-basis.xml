@@ -17,7 +17,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1962"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="GroupMembershipBasis"/>
   <title value="Group Membership Basis"/>
   <status value="draft"/>
@@ -42,6 +42,11 @@
     <code value="definitional"/>
     <display value="Definitional"/>
     <definition value="The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete."/>
+  </concept>
+  <concept>
+    <code value="conceptual"/>
+    <display value="Conceptual"/>
+    <definition value="The Group.characteristics specified are both necessary and sufficient to determine membership. The 'conceptual' Group is a 'definitional' Group in which the Group.type is not bound to FHIR types."/>
   </concept>
   <concept>
     <code value="enumerated"/>

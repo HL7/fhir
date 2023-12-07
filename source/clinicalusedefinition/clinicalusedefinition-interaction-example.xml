@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalUseDefinition xmlns="http://hl7.org/fhir">
+  <id value="example-interaction"/>
+  <!-- example product interacts with other drugs -->
+  <type value="interaction"/>
+  <subject>
+    <reference value="MedicinalProductDefinition/example"/>
+  </subject>
+  <interaction>
+    <interactant>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://ema.europa.eu/example/interactant"/>
+          <code value="alphaconazole"/>
+        </coding>
+      </itemCodeableConcept>
+    </interactant>
+    <interactant>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://ema.europa.eu/example/interactant"/>
+          <code value="betaconazole"/>
+        </coding>
+      </itemCodeableConcept>
+    </interactant>
+    <type>
+      <coding>
+        <system value="http://ema.europa.eu/example/interactionsType"/>
+        <code value="Inhibitor"/>
+      </coding>
+    </type>
+    <effect>
+      <concept>
+        <text value="Increased plasma concentration"/>
+      </concept>
+    </effect>
+    <management>
+      <text value="Careful monitoring of dose"/>
+    </management>
+  </interaction>
+</ClinicalUseDefinition>

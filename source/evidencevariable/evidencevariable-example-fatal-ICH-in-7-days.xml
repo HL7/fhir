@@ -12,74 +12,92 @@
 	
     </div>
   </text>
+  <contained>
+	<Group>
+		<id value="Cohort-Definition"/>
+		<title value="CohortDefinition: Fatal Intracranial Hemorrhage"/>
+		<membership value="conceptual"/>
+		<combinationMethod value="all-of"/>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="1386000"/>
+					<display value="Intracranial hemorrhage (disorder)"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="false"/>
+			<description value="intracranial hemorrhage"/>
+		</characteristic>
+		<characteristic>
+			<code>
+				<text value="resulting in"/>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					 <code value="419620001"/>
+					<display value="Death (event)"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="false"/>
+			<description value="resulting in death"/>
+		</characteristic>
+	</Group>
+  </contained>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: Fatal Intracranial Hemorrhage Within Seven Days"/>
+		<type value="person"/>
+		<membership value="definitional"/>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueReference>
+				<reference value="#Cohort-Definition"/>
+			</valueReference>
+			<exclude value="false"/>
+			<description value="fatal intracranial hemorrhage within 7 days"/>
+			<timing>
+				<contextCode>
+					<coding>
+						<system value="http://hl7.org/fhir/evidence-variable-event"/>
+						<code value="study-start"/>
+						<display value="Study Start"/>
+					</coding>
+				</contextCode>
+				<offsetDuration>
+					<value value="7"/>
+					<unit value="days"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="d"/>
+				</offsetDuration>
+			</timing>
+		</characteristic>
+	</Group>
+  </contained>
   <name value="FatalIntracranialHemorrhageWithinSevenDays"/>
   <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <status value="draft"/>
   <description value="Fatal Intracranial Hemorrhage Within Seven Days"/>
-  <note>
-    <text value="Death must be due to intracranial hemorrhage"/>
-  </note>
   <actual value="true"/>
-  <characteristic>
-    <description value="intracranial hemorrhage within 7 days"/>
-    <definitionCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="1386000"/>
-        <display value="Intracranial hemorrhage (disorder)"/>
-      </coding>
-    </definitionCodeableConcept>
-    <timeFromEvent>
-      <description value="within 7 days"/>
-      <eventCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/evidence-variable-event"/>
-          <code value="study-start"/>
-          <display value="Study Start"/>
-        </coding>
-      </eventCodeableConcept>
-      <range>
-        <low>
-          <value value="0"/>
-          <unit value="day"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="d"/>
-        </low>
-        <high>
-          <value value="7"/>
-          <unit value="day"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="d"/>
-        </high>
-      </range>
-    </timeFromEvent>
-  </characteristic>
-  <characteristic>
-    <description value="death within 7 days"/>
-    <definitionCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="419620001"/>
-        <display value="Death (event)"/>
-      </coding>
-    </definitionCodeableConcept>
-    <timeFromEvent>
-      <description value="within 7 days"/>
-      <range>
-        <low>
-          <value value="0"/>
-          <unit value="day"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="d"/>
-        </low>
-        <high>
-          <value value="7"/>
-          <unit value="day"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="d"/>
-        </high>
-      </range>
-    </timeFromEvent>
-  </characteristic>
+  <definition>
+	<reference>
+		<reference value="#Definition-Group"/>
+	</reference>
+  </definition>
   <handling value="dichotomous"/>
 </EvidenceVariable>

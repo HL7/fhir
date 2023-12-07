@@ -15,7 +15,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ServiceRequestOrderDetailParameterCode"/>
   <title value="Servicerequest OrderDetail Parameter Code"/>
   <status value="draft"/>

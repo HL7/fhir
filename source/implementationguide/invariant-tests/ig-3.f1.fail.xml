@@ -12,7 +12,7 @@
   <description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
   <packageId value="hl7.fhir.us.daf"/>
   <license value="CC0-1.0"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <definition>
     <page>
       <sourceString value="demosource"/>

@@ -9,7 +9,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/inventoryitem-status"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="InventoryItemStatus"/>
   <title value="InventoryItem Status Codes"/>
   <status value="draft"/>

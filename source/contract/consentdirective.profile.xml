@@ -15,7 +15,7 @@
   <name value="ConsentDirective"/>
   <title value="Consent Directive"/>
   <status value="draft"/>
-  <publisher value="Health Level Seven International (Community Based Collaborative Care)"/>
+  <publisher value="HL7 International / Community Based Collaborative Care"/>
   <contact>
     <telecom>
       <system value="other"/>
@@ -24,7 +24,7 @@
   </contact>
   <date value="2014-01-31"/>
   <description value="Consent Directive"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

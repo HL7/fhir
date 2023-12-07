@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -9,7 +9,7 @@
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
             <code value="0074-3043-13"/>
-            <display value="Vicodin 5mg Hydrocodone, 500mg Acetaminophen tablet "/>
+            <display value="Vicodin ES, 100 TABLET in 1 BOTTLE (0074-3043-13) (package)"/>
         </coding>
         </concept>
     </medication>

@@ -16,7 +16,7 @@
   <title value="Observation Vital Signs Panel Profile"/>
   <status value="draft"/>
   <date value="2018-08-11T08:17:46.560"/>
-  <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
+  <publisher value="HL7 International / Orders and Observations"/>
   <description value="Defines constraints and extensions on the Observation resource for use in querying and retrieving  the vital signs panel."/>
   <definition>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">

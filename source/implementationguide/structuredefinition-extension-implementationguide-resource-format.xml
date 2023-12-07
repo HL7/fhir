@@ -16,7 +16,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1372"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="IGResourceFormat"/>
   <title value="ImplementationGuide Resource Format"/>
   <status value="draft"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="This extension specifies the format (= mime type) of a binary resource, when the binary resource is provided as raw content (rather than as a FHIR binary resource with base64 content). Tooling support is required to import "/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <kind value="complex-type"/>
   <abstract value="false"/>
   <context>

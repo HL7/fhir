@@ -23,7 +23,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.241"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ProcedureCategoryCodesSNOMEDCT"/>
   <title value="Procedure Category Codes (SNOMED CT)"/>
   <status value="draft"/>
@@ -53,7 +53,13 @@
         <code value="387713003"/>
       </concept>
       <concept>
-        <code value="103693007"/>
+        <code value="15220000"/>
+      </concept>
+	  <concept>
+        <code value="363679005"/>
+      </concept>
+	  <concept>
+        <code value="122869004"/>
       </concept>
       <concept>
         <code value="46947000"/>

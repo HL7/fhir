@@ -23,7 +23,19 @@
   <title value="FHIR Defined Concept Properties"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="FHIR Project"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="A set of common concept properties for use on coded systems throughout the FHIR eco-system."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/concept-properties"/>
