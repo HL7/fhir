@@ -326,7 +326,7 @@ parameter(s)</span>
 <p>
   In addition to the self link, many bundles MAY contain links relevant to paging.  These are identified
   via the <code>relation</code> value in the links.  Common links include: <code>first</code>, <code>last</code>,
-  <code>next</code>, and <code>prev</code>.
+  <code>next</code>, and <code>previous</code>.
 </p>
 <p>
   As with the self link, all relevant paging links SHALL be expressed as GET requests <span class="stu">TU</span>.  
@@ -4429,7 +4429,7 @@ This way, the last matching resource will be returned.
 <p>
 If <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
 server returns a bundle that reports the total number of resources that match in Bundle.total,
-but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
+but with no entries, and no previous/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
 <a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
 In the same way, the _count parameter only applies to resources with <code>entry.search.mode = match</code>, and does not include
