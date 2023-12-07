@@ -1044,9 +1044,6 @@
 			</binding>
 		</element>
 		<element id="CapabilityStatement.rest.resource.readHistory">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.readHistory"/>
 			<short value="Whether vRead can return past versions"/>
 			<definition value="A flag for whether the server is able to return past versions as part of the vRead operation."/>
@@ -1058,9 +1055,6 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.updateCreate">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.updateCreate"/>
 			<short value="If update can commit to a new identity"/>
 			<definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server."/>
@@ -1072,9 +1066,6 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalCreate">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalCreate"/>
 			<short value="If allows/uses conditional create"/>
 			<definition value="A flag that indicates that the server supports conditional create."/>
@@ -1086,9 +1077,6 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalRead">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalRead"/>
 			<short value="not-supported | modified-since | not-match | full-support"/>
 			<definition value="A code that indicates how the server supports conditional read."/>
@@ -1108,9 +1096,6 @@
 			</binding>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalUpdate">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalUpdate"/>
 			<short value="If allows/uses conditional update"/>
 			<definition value="A flag that indicates that the server supports conditional update."/>
@@ -1122,9 +1107,6 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalPatch">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalPatch"/>
 			<short value="If allows/uses conditional patch"/>
 			<definition value="A flag that indicates that the server supports conditional patch."/>
@@ -1136,9 +1118,6 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalDelete">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalDelete"/>
 			<short value="not-supported | single | multiple - how conditional delete is supported"/>
 			<definition value="A code that indicates how the server supports conditional delete."/>
