@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="characteristic-combination"/>
+  <id value="group-characteristic-combination"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,14 +14,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/characteristic-combination"/>
+  <url value="http://hl7.org/fhir/group-characteristic-combination"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1952"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="CharacteristicCombination"/>
-  <title value="Characteristic Combination"/>
+  <name value="GroupCharacteristicCombination"/>
+  <title value="Group Characteristic Combination"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -38,7 +38,7 @@
   </contact>
   <description value="Logical grouping of characteristics."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
   <content value="complete"/>
   <concept>
     <code value="all-of"/>
@@ -59,6 +59,11 @@
     <code value="at-most"/>
     <display value="At most"/>
     <definition value="Meet at most the threshold number of characteristics for definition."/>
+  </concept>
+  <concept>
+    <code value="except-subset"/>
+    <display value="Except subset"/>
+    <definition value="Meet the inclusion criteria under the condition that the basis does not match the exclusion criteria."/>
   </concept>
   <concept>
     <code value="statistical"/>

@@ -26,7 +26,13 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
+    </telecom>
+  </contact>
   <description value="Example codes for possible virtual service connection types."/>
   <immutable value="true"/>
   <compose>

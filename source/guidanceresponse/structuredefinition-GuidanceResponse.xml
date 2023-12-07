@@ -33,7 +33,7 @@
   <title value="Guidance Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <publisher value="HL7 International / Clinical Decision Support"/>
   <contact>
     <telecom>
       <system value="url"/>

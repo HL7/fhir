@@ -12,62 +12,90 @@
 	
     </div>
   </text>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: Alive and not functionally dependent at 90 days"/>
+		<type value="person"/>
+		<membership value="definitional"/>
+		<combinationMethod value="all-of"/>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="419099009"/>
+					<display value="Dead (finding)"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="true"/>
+			<description value="alive at 90 days (excluding dead at 90 days)"/>
+			<timing>
+				<contextCode>
+					<coding>
+						<system value="http://hl7.org/fhir/evidence-variable-event"/>
+						<code value="study-start"/>
+						<display value="Study Start"/>
+					</coding>
+				</contextCode>
+				<offsetDuration>
+					<value value="90"/>
+					<unit value="days"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="d"/>
+				</offsetDuration>
+			</timing>
+		</characteristic>
+		<characteristic>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260905004"/>
+					<display value="Condition"/>
+				</coding>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="718705001"/>
+					<display value="Functionally dependent (finding)"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="true"/>
+			<description value="not functionally dependent at 90 days (excluding functionally dependent at 90 days)"/>
+			<timing>
+				<contextCode>
+					<coding>
+						<system value="http://hl7.org/fhir/evidence-variable-event"/>
+						<code value="study-start"/>
+						<display value="Study Start"/>
+					</coding>
+				</contextCode>
+				<offsetDuration>
+					<value value="90"/>
+					<unit value="days"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="d"/>
+				</offsetDuration>
+			</timing>
+		</characteristic>
+	</Group>
+  </contained>
   <name value="AliveAndNotFunctionallyDependentAt90Days"/>
   <title value="Alive and not functionally dependent at 90 days"/>
   <status value="draft"/>
   <description value="Alive and not functionally dependent at 90 days"/>
   <actual value="false"/>
-  <characteristic>
-    <description value="not functionally dependent at 90 days"/>
-    <exclude value="true"/>
-    <definitionCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="718705001"/>
-        <display value="Functionally dependent (finding)"/>
-      </coding>
-    </definitionCodeableConcept>
-    <timeFromEvent>
-      <eventCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/evidence-variable-event"/>
-          <code value="study-start"/>
-          <display value="Study Start"/>
-        </coding>
-      </eventCodeableConcept>
-      <quantity>
-        <value value="90"/>
-        <unit value="day"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="d"/>
-      </quantity>
-    </timeFromEvent>
-  </characteristic>
-  <characteristic>
-    <description value="alive at 90 days"/>
-    <exclude value="true"/>
-    <definitionCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="419099009"/>
-        <display value="Dead (finding)"/>
-      </coding>
-    </definitionCodeableConcept>
-    <timeFromEvent>
-      <eventCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/evidence-variable-event"/>
-          <code value="study-start"/>
-          <display value="Study Start"/>
-        </coding>
-      </eventCodeableConcept>
-      <quantity>
-        <value value="90"/>
-        <unit value="day"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="d"/>
-      </quantity>
-    </timeFromEvent>
-  </characteristic>
+  <definition>
+	<reference>
+		<reference value="#Definition-Group"/>
+	</reference>
+  </definition>
   <handling value="dichotomous"/>
 </EvidenceVariable>

@@ -49,11 +49,11 @@
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Type of individual the defined service is for"/>
-            <resource value="The medication, product, substance, device, procedure etc. for which this is an indication"/>
+            <resource value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code or group definition that describes the intended subject of instantiations of this definition."/>
-            <resource value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
+            <resource value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Many protocols, order sets and guidelines are intended for use only with specific types of patients or subjects."/>

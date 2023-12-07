@@ -31,32 +31,7 @@
   </relatedArtifact>
   <description value="0.4% incidence of fatal intracranial hemorrhage within 7 days without alteplase in patients with acute ischemic stroke"/>
   <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="population"/>
-        <display value="population"/>
-      </coding>
-    </variableRole>
-    <observed>
-      <reference value="Group/AcuteIschemicStroke"/>
-      <type value="Group"/>
-      <display value="adults with acute ischemic stroke"/>
-    </observed>
-    <intended>
-      <reference value="Group/AcuteIschemicStroke"/>
-      <type value="Group"/>
-      <display value="adults with acute ischemic stroke"/>
-    </intended>
-  </variableDefinition>
-  <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="population"/>
-        <display value="population"/>
-      </coding>
-    </variableRole>
+    <variableRole value="population"/>
     <observed>
       <reference value="Group/Emberson-2014-IPD-MA-No-Alteplase-Cohort"/>
       <type value="Group"/>
@@ -69,13 +44,7 @@
     </intended>
   </variableDefinition>
   <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="measuredVariable"/>
-        <display value="measured variable"/>
-      </coding>
-    </variableRole>
+    <variableRole value="outcome"/>
     <observed>
       <reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
       <type value="EvidenceVariable"/>

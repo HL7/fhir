@@ -30,6 +30,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-ASTRAL-12-alteplase-mRS3-6"/>
+    </extension>
+    <item>
+      <reference value="Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
+      <display value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -50,18 +62,6 @@
     <item>
       <reference value="Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
       <display value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="evidence-example-ASTRAL-12-alteplase-mRS3-6"/>
-    </extension>
-    <item>
-      <reference value="Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
-      <display value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
     </item>
   </entry>
 </List>
