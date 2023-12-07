@@ -2398,9 +2398,10 @@ Date searches can be controlled through the use of prefixes as described in the 
    <td><code>[parameter]=ap2013-03-14</code></td>
    <td>
     <ul>
-     <li style="list-style-image: url('assets/images/tick.gif')">14-Mar 2013 is included - as it exactly matches</li>
-     <li style="list-style-image: url('assets/images/cross.png')">21-Jan 2013 is not included because that is near 14-Mar 2013</li>
-     <li style="list-style-image: url('assets/images/cross.png')">15-Jun 2015 is not included - as it is not near 14-Mar 2013. Note that the exact value here is at the discretion of the system</li>
+     <li>Note that actual comparison used for the <code>ap</code> prefix for <code>date</code> search types is an implementation detail. For these examples, the system will be based on a 10% difference between target and execution date, and execution on 01-Jan 2023.</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">14-Mar 2013 is included, because it exactly matches</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">21-Jan 2013 is included, because it is near 14-Mar 2013 (less than 10% difference between search date and current date)</li>
+     <li style="list-style-image: url('assets/images/cross.png')">15-Jun 2015 is not included, because it is not near 14-Mar 2013 (more than 10% difference between search date and current date)</li>
     </ul>
    </td>
   </tr>
