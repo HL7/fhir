@@ -51,13 +51,20 @@ In addition to a number of <a href="#general">General Considerations</a> this pa
   <tr><td><a href="#read">read</a></td><td>Read the current state of the resource</td></tr>
   <tr><td><a href="#vread">vread</a></td><td>Read the state of a specific version of the resource</td></tr>
   <tr><td><a href="#update">update</a></td><td>Update an existing resource by its id (or create it if it is new)</td></tr>
+  <tr><td><a href="#cond-update">conditional update</a></td><td>Update an existing resource based on some identification criteria (or create it if it is new)</td></tr>
   <tr><td><a href="#patch">patch</a></td><td>Update an existing resource by posting a set of changes to it</td></tr>
+  <tr><td><a href="#cond-patch">conditional patch</a></td><td>Update an existing resource, based on some identification criteria, by posting a set of changes to it</td></tr>
   <tr><td><a href="#delete">delete</a></td><td>Delete a resource</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource</td></tr>
+
+
+
   <tr><td colspan="2"><b>Type Level Interactions</b></td></tr>
   <tr><td><a href="#create">create</a></td><td>Create a new resource with a server assigned id</td></tr>
+  <tr><td><a href="#ccreate">conditional create</a></td><td>Create a new resource with a server assigned id if an equivalent resource does not already exist</td></tr>
   <tr><td><a href="#search">search</a></td><td>Search the resource type based on some filter criteria</td></tr>
-  <tr><td><a href="#cdelete">delete</a></td><td>Conditional Delete across a particular resource type based on some filter criteria</td></tr>
+  <tr><td><a href="#cdelete">conditional delete single</a></td><td>Conditional delete a single resource based on some identification criteria</td></tr>
+  <tr><td><a href="#cdelete">conditional delete multiple</a></td><td>Conditional delete one or more resources based on some identification criteria</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
   <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
   <tr><td><a href="#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
@@ -834,16 +841,10 @@ whether they do or not). In practice, servers may also return <code>5xx</code> e
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
-<div class="draft-content">
 <a name="cond-update"></a>
 <h4>Conditional update</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
-
 <p>
-The conditional update interaction allows a client to update an existing resource based on some identification criteria,
+The <code>conditional update</code> interaction allows a client to update an existing resource based on some identification criteria,
 rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues a <code>PUT</code> as shown:
 </p>
 <pre class="http">
@@ -878,7 +879,7 @@ The resource MAY contain an <code>id</code> element, but does not need to (this 
 one of the few cases where a resource exists without an <code>id</code> element).
 </p>
 <p>
-The conditional <code>update</code> interaction also allows a client to update a resource only if a specified version
+The <code>conditional update</code> interaction also allows a client to update a resource only if a specified version
 of the resource does not already exist on the server. The client defines this version using an HL7 defined extension
 header "<code>If-None-Match</code>" as the weak ETag (<code><a href="resource.html#metadata">Version Id</a></code>) value as shown:
 </p>
@@ -892,7 +893,7 @@ to indicate where no existing versions of the resource exist as shown:
 <pre class="http">
   If-None-Match: *
 </pre>
-</div>
+
 
 <a name="versionaware"></a>
 <a name="concurrency"></a>
@@ -974,16 +975,12 @@ support <a href="#versionaware">Resource Contention</a> on the PATCH operation.
 Clients SHOULD always consider using version specific PATCH operations so that inappropriate
 actions are not executed.
 </p>
-<div class="draft-content">
+
 <a name="cond-patch"></a>
 <h4>Conditional patch</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
 <p>
 Servers that support PATCH, and that support <a href="#cond-update">Conditional Update</a> SHOULD
-also support conditional PATCH. When the server processes a conditional PATCH, it performs a search using its standard
+also support <code>conditional patch</code>. When the server processes a conditional PATCH, it performs a search using its standard
 <a href="search.html">search facilities</a> for the resource type, with the goal of resolving a single logical id for this request. The action it takes depends
 on how many matches are found:
 </p>
@@ -992,7 +989,7 @@ on how many matches are found:
  <li><b>One Match</b>: The server performs the update against the matching resource</li>
  <li><b>Multiple matches</b>: The server returns a <code>412 Precondition Failed</code> error indicating the client's criteria were not selective enough</li>
 </ul>
-</div>
+
 <p>
 The server SHALL ensure that the narrative in a resource is not clinically unsafe after the PATCH interaction is performed.
 Exactly how this is defined and can be achieved depends on the context, and how narrative is being maintained, but servers may wish to consider:
@@ -1020,6 +1017,7 @@ Patch interactions may be performed as part of Batch or Transaction Operations u
 <p>
 Patch is not defined for all resources - see <a href="binary.html#patch">note about PATCH on Binary</a>.
 </p>
+
 <div class="draft-content">
 <a name="jsonpatch-transaction"></a>
 <h4>Patch Using JSON Patch (batch/transaction)</h4>
@@ -1055,6 +1053,7 @@ The following example shows a base64 encoded JSON Path content in a Binary resou
 }
 </pre>
 </div>
+
 <a name="delete"></a>
 <h3>delete</h3>
 <p>
@@ -1101,8 +1100,12 @@ about the state of the real-world corresponding resource implied.
 For servers that maintain a version history, the <code>delete</code> interaction does not
 remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
-no content and is marked as deleted. Note that
-there is no support for deleting past versions - see notes on the <a href="#history">history</a> interaction.
+no content and is marked as deleted.
+Note that there are different interactions for deleting historical versions of a resource - 
+see <a href="#delete-history">delete history</a>. and <a href="#delete-history-version">delete history version</a>
+for details.
+</p>
+<p>
 Since deleted resources may be brought back to life, servers MAY include an <code>ETag</code> on the delete response
 to allow version contention management when a resource is brought back to life.
 </p>
@@ -1111,16 +1114,13 @@ Note that irrespective of this rule, servers are free to completely delete the r
 if policy or business rules make this the appropriate action to take.
 </p>
 
-<div class="draft-content">
 <a name="cdelete"></a>
 <h4>Conditional delete</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
 <p>
-The conditional delete interaction allows a client to delete an existing resource or all matching resources based on some selection criteria,
-rather than by a specific <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues an HTTP <code>DELETE</code> as shown:
+There are two conditional delete interactions defined: one that can only delete a single resource (<code>delete-conditional-single</code>) and
+one that can delete multiple resources (<code>delete-conditional-multiple</code>).  Both interactions allow a client to delete an existing 
+resource or all matching resources based on some selection criteria, rather than by a specific <a href="resource.html#meta">logical id</a>. 
+To accomplish this, the client issues an HTTP <code>DELETE</code> as shown:
 </p>
 <pre class="http">
   DELETE [base]/[type]?[search parameters]
@@ -1132,9 +1132,13 @@ When the server processes this delete, it performs a search as specified using t
 on how many matches are found:
 </p>
 <ul>
- <li><b>No matches</b> or <b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
- <li><b>Multiple matches</b>: A server may choose to delete all the matching resources, or it may choose to return a <code>412 Precondition Failed</code> error indicating the client's criteria were not selective enough.
-   A server indicates whether it can delete multiple resources in its <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalDelete">Capability Statement (.rest.resource.conditionalDelete)</a></li>
+ <li><b>No matches</b>: The server attempts an ordinary <code>delete</code> and responds as appropriate (e.g., <code>404 NotFound</code>)</li>
+ <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
+ <li>
+  <b>Multiple matches</b>: A server may choose to delete all the matching resources (<code>delete-conditional-multiple</code>), or it may 
+  choose to return a <code>412 Precondition Failed</code> error indicating the client's criteria were not selective enough (<code>delete-conditional-single</code>).
+  A server indicates whether it can delete multiple resources in its <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.interaction">Capability Statement (.rest.resource.interaction)</a>
+  </li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
@@ -1147,12 +1151,96 @@ not expected that every server will implement them. Servers that don't support t
 update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
-The <code>conditional delete</code> interaction also allows a client to delete a resource only if a specified version of the resource
+The <code>conditional delete single</code> interaction also allows a client to delete a resource only if a specified version of the resource
 is the current version on the server.  The client defined this version using the standard <code>If-Match</code> header with the
 weak ETag (<code>Version Id</code>) value as shown:
 <pre class="http">
   If-Match: W/"[ETag]"
 </pre>
+</p>
+</div>
+
+<div class="draft-content">
+  <a name="delete-history"></a>
+  <h3>delete history</h3>
+  <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+  The definition and behavior of using the <code>delete-history</code> interaction is trial use until further
+  experience is gained with its use. Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+  </p>
+    
+  <p>
+  The <code>delete history</code> interaction removes all versions of the resource except the current version (which 
+  if the resource has been deleted, will be an empty placeholder). The interaction
+  is performed by an HTTP <code>DELETE</code> command as shown:
+  </p>
+  <pre>
+    DELETE [base]/[type]/[id]/_history
+  </pre>
+  <p>
+  The request body SHALL be empty.
+  </p>
+<p>
+A <code>delete history</code> interaction means that the historical versions of a resource can no longer be accessed.
+Subsequent <a href="#vread">version specific reads</a> of the resource can return a <code>410 Gone</code> HTTP
+status code when the server wishes to indicate that the resource is deleted, or a <code>404 Not Found</code> HTTP status
+code when it does not. For security reasons, the
+server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
+Upon successful deletion, or if the resource does not exist at all, the server should return either a
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
+using the <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+the server wishes to be non-committal about the outcome of the delete.
+</p>
+<p>
+Whether to support <code>delete history</code> at all, or for a particular resource type or a particular instance is at the
+discretion of the server based on the policy and business rules that apply in its context.
+If the server refuses to delete the history of resources of that type as a blanket policy, then it should return the <code>405
+Method Not Allowed</code> status code. If the server refuses to delete the history a resource because of reasons specific
+to that resource, such as referential integrity, it should return the <code>409 Conflict</code> status code.
+Note that the servers MAY choose to enforce business rules regarding deletion of histories of resources that are being referenced by other resources, but they also might not do so.
+Performing this interaction on a resource that contains no history (e.g., already deleted) no effect, and the server should return either a
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
+</p>
+</div>
+
+<div class="draft-content">
+  <a name="delete-history-version"></a>
+  <h3>delete history version</h3>
+  <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+  The definition and behavior of using the <code>delete-history-version</code> interaction is trial use until further
+  experience is gained with its use. Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+  </p>
+    
+  <p>
+  The <code>delete history version</code> interaction removes a specific historical version of the resource, except the current version (which 
+  if the resource has been deleted, will be an empty placeholder). The interaction
+  is performed by an HTTP <code>DELETE</code> command as shown:
+  </p>
+  <pre>
+    DELETE [base]/[type]/[id]/_history/[vid]
+  </pre>
+  <p>
+  The request body SHALL be empty.
+  </p>
+<p>
+A <code>delete history version</code> interaction means that a historical version of a resource can no longer be accessed.
+Subsequent <a href="#vread">version specific reads</a> of the resource for that version can return a <code>410 Gone</code> HTTP
+status code when the server wishes to indicate that the resource is deleted, or a <code>404 Not Found</code> HTTP status
+code when it does not. For security reasons, the
+server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
+Upon successful deletion, or if the resource does not exist at all, the server should return either a
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
+using the <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+the server wishes to be non-committal about the outcome of the delete.
+</p>
+<p>
+Whether to support <code>delete history version</code> at all, or for a particular resource type or a particular instance is at the
+discretion of the server based on the policy and business rules that apply in its context.
+If the server refuses to delete specific historical versions of resources of that type as a blanket policy, then it should return the <code>405
+Method Not Allowed</code> status code. If the server refuses to delete a historical version of a resource because of reasons specific
+to that resource, such as referential integrity, it should return the <code>409 Conflict</code> status code.
+Note that the servers MAY choose to enforce business rules regarding deletion of histories of resources that are being referenced by other resources, but they also might not do so.
+Performing this interaction on a resource that contains no history (e.g., already deleted) no effect, and the server should return either a
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
 </p>
 </div>
 
@@ -1241,15 +1329,10 @@ whether they do or not). In practice, servers may also return <code>5xx</code> e
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
-<div class="draft-content">
 <a name="ccreate"></a>
 <h4>Conditional create</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
 <p>
-The conditional <code>create</code> interaction allows a client to create a new resource only if some equivalent resource
+The <code>conditional create</code> interaction allows a client to create a new resource only if some equivalent resource
 does not already exist on the server. The client defines what equivalence means in this case by supplying
 a FHIR search query using an HL7 defined extension header "<code>If-None-Exist</code>" as shown:
 </p>
@@ -1280,7 +1363,7 @@ Note that transactions and conditional create/update/delete are complex interact
 not expected that every server will implement them. Servers that don't support the conditional
 update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
-</div>
+
 
 <a name="search"></a>
 <h3>search</h3>
