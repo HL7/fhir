@@ -33,7 +33,7 @@
   <title value="Appointment"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <publisher value="HL7 International / Patient Administration"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -229,7 +229,7 @@
     <element id="Appointment.cancellationReason">
       <path value="Appointment.cancellationReason"/>
       <short value="The coded reason for the appointment being cancelled"/>
-      <definition value="The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply."/>
+      <definition value="The coded reason for the appointment being cancelled. This is often used in reporting/billing/further processing to determine if further actions are required, or specific fees apply."/>
       <min value="0"/>
       <max value="1"/>
       <type>

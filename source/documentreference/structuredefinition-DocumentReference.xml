@@ -33,7 +33,7 @@
   <title value="Document Reference"/>
   <status value="draft"/>
   <date value="2022-06-09T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <publisher value="HL7 International / Orders and Observations"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -178,7 +178,7 @@
     </element>
     <element id="DocumentReference.version">
       <path value="DocumentReference.version"/>
-      <short value="An explicitly assigned identifer of a variation of the content in the DocumentReference"/>
+      <short value="An explicitly assigned identifier of a variation of the content in the DocumentReference"/>
       <comment value="While each resource, including the DocumentReference itself, has its own version identifier, this is a formal identifier for the logical version of the DocumentReference as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
       <min value="0"/>
       <max value="1"/>

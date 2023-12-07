@@ -2,23 +2,19 @@
 <ClinicalUseDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <type value="contraindication"/>
+  <subject>
+    <reference value="MedicinalProductDefinition/example"/>
+  </subject>
+  <!-- example product is contraindicated with Hepatic disease -->
   <contraindication>
     <diseaseSymptomProcedure>
       <concept>
         <coding>
           <system value="http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure"/>
-          <code value="Coagulopathiesandbleedingdiatheses(exclthrombocytopenic)"/>
+          <code value="hepatic-example-code"/>
         </coding>
         <text value="Hepatic disease associated with coagulopathy and clinically relevant bleeding risk"/>
       </concept>
     </diseaseSymptomProcedure>
-    <comorbidity>
-      <concept>
-        <coding>
-          <system value="http://ema.europa.eu/example/comorbidity"/>
-          <code value="Hepaticdisease"/>
-        </coding>
-      </concept>
-    </comorbidity>
   </contraindication>
 </ClinicalUseDefinition>

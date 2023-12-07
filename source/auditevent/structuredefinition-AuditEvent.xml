@@ -33,7 +33,7 @@
   <title value="Audit Event"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
-  <publisher value="Health Level Seven International (Security)"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -148,7 +148,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="EventId"/>
+        <map value="EventTypeCode"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -192,7 +192,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="EventTypeCode"/>
+        <map value="EventID"/>
       </mapping>
     </element>
     <element id="AuditEvent.action">

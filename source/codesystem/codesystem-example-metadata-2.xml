@@ -15,14 +15,19 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2022-07-21"/>
-  <publisher value="FHIR (Example)"/>
-  <contact>
-    <name value="FHIR project team"/>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="This is an example code system that illustrates usage of the metadata resource elements introduced in R5"/>
 
   <approvalDate value="2021-07-21"/>

@@ -32,7 +32,7 @@
     <status value="draft"/>
     <experimental value="false"/>
     <date value="2023-02-11"/>
-    <publisher value="Health Level Seven International (Clinical Genomics Workgroup - Information Modeling Subgroup)"/>
+    <publisher value="HL7 International / Clinical Genomics"/>
     <contact>
         <telecom>
             <system value="url"/>

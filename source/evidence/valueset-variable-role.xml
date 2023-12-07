@@ -36,11 +36,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The role that the assertion variable plays."/>
+  <description value="The role that the variable plays."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+      <system value="http://hl7.org/fhir/variable-role"/>
     </include>
   </compose>
 </ValueSet>

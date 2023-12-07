@@ -13,21 +13,19 @@
   <status value="active"/>
   <experimental value="true"/>
   <date value="2020-08-12"/>
-  <publisher value="HL7 International"/>
-  <contact>
-    <name value="HL7 Orders and Observations Workgroup"/>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/Special/committees/orders/index.cfm"/>
-    </telecom>
-  </contact>
-  <contact>
-    <name value="Keith W. Boone"/>
-    <telecom>
-      <system value="email"/>
-      <value value="kboone@ainq.com"/>
-    </telecom>
-  </contact>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="This ConceptMap represents a mapping from the HL7 V2 Message ADT_A04 to the FHIR Message Bundle."/>
   <jurisdiction>
     <coding>
