@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeviceMetric xmlns="http://hl7.org/fhir">
-	<id value="example"/>
+<DeviceAlert xmlns="http://hl7.org/fhir">
+	<id value="example" />
 	<identifier>
-		<system value="http://goodcare.org/devicemetric/id"/>
-		<value value="345675"/>
+		<system value="http://goodcare.org/DeviceAlert/id" />
+		<value value="345675" />
 	</identifier>
-</DeviceMetric>
+	<type value="physiological" />
+	<device>
+		<reference value="Device/prod1" />
+	</device>
+</DeviceAlert>
