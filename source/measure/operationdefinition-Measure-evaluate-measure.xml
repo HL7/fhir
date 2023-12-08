@@ -37,7 +37,7 @@
     <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject(s), or all subjects if no subject is supplied. For individual and subject-list reports, the result is a set of Bundles, one for each evaluated subject, where the first entry in each bundle is a MeasureReport resource, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a single MeasureReport of type summary. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-evaluate-measure"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Evaluatemeasure"/>
   <title value="Evaluate Measure"/>
   <status value="draft"/>

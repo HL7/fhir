@@ -8,6 +8,19 @@
   <title value="Example of High-Risk Patient Query"/>
   <status value="draft"/>
   <kind value="query"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
   <description value="Example Named Query of Patients based on risk assessments"/>
   <code value="example-query-high-risk"/>
   <resource value="Patient"/>

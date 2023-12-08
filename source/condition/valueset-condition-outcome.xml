@@ -39,11 +39,18 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="404684003"/>
-      </filter>
+      <concept>
+        <code value="419099009"/>
+      </concept>
+      <concept>
+        <code value="370996005"/>
+      </concept>
+      <concept>
+        <code value="765205004"/>
+      </concept>
+	  <concept>
+        <code value="21134002"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

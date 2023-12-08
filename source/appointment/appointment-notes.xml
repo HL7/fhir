@@ -485,7 +485,6 @@
 		</tr>
 	</table>
 	
-	
 <a name="notes"></a>
 	<h2>Notes:</h2>
 	<ul>
@@ -509,6 +508,24 @@
 			The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
 		</li>
 	</ul>
+
+<a name="insurance"></a>
+<h3>Insurance for Appointments</h3>
+<p>
+When appointments are scheduled, often insurance information is collected.  This may be a single coverage, or multiple coverages.
+To document this preliminary coverage information, Appointment.account may be used to reference an Account which would contain the
+ordered list of Coverages that are expected to apply to the Appointment.
+</p>
+
+<a name="insurance"></a>
+<h3>Payment Authorization for Appointments</h3>
+<p>
+Prior authorization for an Appointment would involve a Claim (to submit the prior authorization request) and a ClaimResponse
+(to receive the prior authorization approval).  In this case, the Claim and ClaimResponse associated with the prior auth would
+reference the planned Appointment that was authorized.  How the association between the prior authorization and the authorized
+services is described may vary by jurisdiction (e.g., Da Vinci PAS in the US).
+</p>
+
 
 [%stu-note dstu%]
 Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.

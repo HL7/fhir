@@ -49,7 +49,7 @@
   <software>
     <name value="ACME PHR Server"/>
   </software>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <format value="json"/>
   <format value="xml"/>
   <rest>

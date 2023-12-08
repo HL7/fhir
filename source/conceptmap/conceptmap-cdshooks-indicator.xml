@@ -11,7 +11,20 @@
   <title value="Indicator To Request Priority"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This concept map defines a mapping from CDS Hooks indicator to request priority."/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
+  <description value="Mapping between CDS Hooks Indicator and Request Priority"/>
   <sourceScopeCanonical value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
   <targetScopeCanonical value="http://hl7.org/fhir/ValueSet/request-priority"/>
   <group>

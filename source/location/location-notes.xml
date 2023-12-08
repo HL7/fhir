@@ -143,7 +143,7 @@ Mobile Services (kind)
 		For example:
     </p>	
 <pre>
- GET [base]/Location?near=-83.694810|42.256500|11.20|km&amp;_sortby=near
+ GET [base]/Location?near=-83.694810|42.256500|11.20|km&amp;_sort=near
 </pre>	
 
 <h4>Contains: Locations with a boundary that contains the provided geocode</h4>

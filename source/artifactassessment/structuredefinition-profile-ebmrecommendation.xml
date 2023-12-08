@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1263"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="EBMRecommendation"/>
   <title value="EBM Recommendation"/>
   <status value="draft"/>
@@ -57,15 +57,15 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="ArtifactAssessment.citeAs">
-      <path value="ArtifactAssessment.citeAs"/>
+    <element id="ArtifactAssessment.citeAs[x]">
+      <path value="ArtifactAssessment.citeAs[x]"/>
       <short value="How to cite the recommendation"/>
       <definition value="Display of or reference to the bibliographic citation of the recommendation."/>
       <min value="0"/>
       <max value="1"/>
     </element>
-    <element id="ArtifactAssessment.artifact">
-      <path value="ArtifactAssessment.artifact"/>
+    <element id="ArtifactAssessment.artifact[x]">
+      <path value="ArtifactAssessment.artifact[x]"/>
       <definition value="A reference to a resource, canonical resource, or non-FHIR resource which is the recommendation this comment or assessment is about."/>
       <min value="1"/>
       <max value="1"/>

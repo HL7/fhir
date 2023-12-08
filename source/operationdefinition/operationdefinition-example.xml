@@ -9,12 +9,17 @@
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2015-08-04"/>
-  <publisher value="Acme Healthcare Services"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
-    <name value="System Administrator"/>
     <telecom>
-      <system value="email"/>
-      <value value="beep@coyote.acme.com"/>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
   <description value="Limited implementation of the Populate Questionnaire implementation"/>
@@ -36,7 +41,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="GB"/>
-      <display value="United Kingdom of Great Britain and Northern Ireland (the)"/>
+      <display value="United Kingdom of Great Britain and Northern Ireland"/>
     </coding>
   </jurisdiction>
   <code value="populate"/>

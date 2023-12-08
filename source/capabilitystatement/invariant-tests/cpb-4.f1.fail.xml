@@ -10,7 +10,7 @@
   <experimental value="true"/>
   <date value="2012-01-04"/>
   <kind value="instance"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <format value="xml"/>
   <format value="json"/>
   <patchFormat value="application/xml-patch+xml"/>

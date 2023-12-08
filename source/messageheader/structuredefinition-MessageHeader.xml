@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1434"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="MessageHeader"/>
   <title value="Message Header"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Infrastructure And Messaging)"/>
+  <publisher value="HL7 International / Infrastructure And Messaging"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -48,7 +48,7 @@
   </contact>
   <description value="The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle."/>
   <purpose value="Many implementations are not prepared to use REST and need a messaging based infrastructure."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -103,8 +103,8 @@
     </element>
     <element id="MessageHeader.event[x]">
       <path value="MessageHeader.event[x]"/>
-      <short value="Event code or link to EventDefinition"/>
-      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification are defined by the implementation.  Alternatively a canonical uri to the EventDefinition."/>
+      <short value="The real world event that triggered this messsage"/>
+      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification are defined by the implementation.  Alternatively a uri , canonical uri to the EventDefinition or SubscriptionTopic."/>
       <comment value="The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp)."/>
       <requirements value="Drives the behavior associated with this message."/>
       <min value="1"/>
@@ -113,8 +113,12 @@
         <code value="Coding"/>
       </type>
       <type>
+        <code value="uri"/>
+      </type>
+      <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -255,75 +259,6 @@
         <map value="Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText"/>
       </mapping>
     </element>
-    <element id="MessageHeader.sender">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Is this in the 80%?"/>
-      </extension>
-      <path value="MessageHeader.sender"/>
-      <short value="Real world sender of the message"/>
-      <definition value="Identifies the sending system to allow the use of a trust relationship."/>
-      <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information."/>
-      <requirements value="Allows routing beyond just the application level."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PRT-5:PRT-4='WAYR' / PRT-8:PRT-4='WAYR'"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText"/>
-      </mapping>
-    </element>
-    <element id="MessageHeader.author">
-      <path value="MessageHeader.author"/>
-      <short value="The source of the decision"/>
-      <definition value="The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
-      <comment value="Usually only for the request but can be used in a response.Proposing to remove and rely on Task to convey this information. "/>
-      <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ORC-19 / PRT-5:PRT-4='AUT' / ROL where ROL-3 ='IP' or ORC-12"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])"/>
-      </mapping>
-    </element>
     <element id="MessageHeader.source">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="MessageSource"/>
@@ -453,37 +388,25 @@
         <map value="unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/scopesRole[normalRole() and classCode=&quot;CON&quot; and layer[classCode=&quot;PSN&quot;]/telecom[isNormalDatatype()])"/>
       </mapping>
     </element>
-    <element id="MessageHeader.responsible">
-      <path value="MessageHeader.responsible"/>
-      <short value="Final responsibility for event"/>
-      <definition value="The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party."/>
-      <comment value="Usually only for the request but can be used in a response.Proposing to remove and rely on Task to convey this information."/>
-      <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
+    <element id="MessageHeader.source.sender">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Is this in the 80%?"/>
+      </extension>
+      <path value="MessageHeader.source.sender"/>
+      <short value="Real world sender of the message"/>
+      <definition value="Identifies the sending entity to allow the use of a trust relationship."/>
+      <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information."/>
+      <requirements value="Allows routing beyond just the application level."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ORC-12 /  PRT-5:PRT-4='OP' /  PRT-8:PRT-4='OP' / ROL where ROL-3 is 'RO' or ORC-11"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=&quot;PSN&quot; and determinerCode=&quot;INST&quot;] or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/scoper[isNormalEntity() and classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;])"/>
-      </mapping>
     </element>
     <element id="MessageHeader.reason">
       <path value="MessageHeader.reason"/>

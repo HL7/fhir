@@ -13,7 +13,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/testplan-status"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="TestPlanStatus"/>
   <title value="TestPlanStatus"/>
   <status value="draft"/>

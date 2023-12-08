@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
@@ -20,7 +20,7 @@
                         <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="1114879"/>
-                            <display value="Dopamine"/>
+                            <display value="dopamine hydrochloride 40 MG/ML"/>
                         </coding>
                         </concept>
                     </item>
@@ -43,8 +43,9 @@
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0264-7510-10"/>
-                            <display value="Dextrose 5% injection USP"/>
+                            <display value="DEXTROSE, 24 CONTAINER in 1 CASE (0264-7510-10) > 500 mL in 1 CONTAINER (package)"/>
                         </coding>
+                        <text value="Dextrose 5% injection USP"/>
                     </concept>
                     </item>
                     <strengthRatio>

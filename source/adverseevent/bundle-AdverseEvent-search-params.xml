@@ -62,18 +62,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AdverseEvent-date"/>
+        <id value="AdverseEvent-cause"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AdverseEvent.occurrence[x]"/>
+          <valueString value="AdverseEvent.cause[x]"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-date"/>
-        <description value="When the event occurred"/>
-        <code value="date"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-cause"/>
+        <description value="When the cause of the event occurred"/>
+        <code value="cause"/>
         <type value="date"/>
-        <expression value="AdverseEvent.occurrence.ofType(dateTime) | AdverseEvent.occurrence.ofType(Period) | AdverseEvent.occurrence.ofType(Timing)"/>
+        <expression value="AdverseEvent.cause.ofType(dateTime) | AdverseEvent.cause.ofType(Period)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-effect"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.effect[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-effect"/>
+        <description value="When the effect of the event occurred"/>
+        <code value="effect"/>
+        <type value="date"/>
+        <expression value="AdverseEvent.effect.ofType(dateTime) | AdverseEvent.effect.ofType(Period)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

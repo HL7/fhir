@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -9,7 +9,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="746763"/>
-            <display value="Proventil 0.09mg/actuat (Albuterol sulfate 0.108mg/actuat from mouthpiece)"/>
+            <display value="NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler [Proventil]"/>
         </coding>
         </concept>
     </medication>
@@ -76,6 +76,3 @@
 
     </dosageInstruction>
 </MedicationDispense>
-
-
-

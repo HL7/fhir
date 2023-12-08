@@ -30,12 +30,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1116"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ConceptMap"/>
   <title value="Concept Map"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Vocabulary)"/>
+  <publisher value="HL7 International / Terminology Infrastructure"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -49,7 +49,7 @@
     </telecom>
   </contact>
   <description value="A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -1014,7 +1014,7 @@
 			</extension>
       <path value="ConceptMap.group.element.target.property.value[x]"/>
       <short value="Value of the property for this concept"/>
-      <definition value="The value of this property. If the type chosen for this element is 'code', then the property SHALL be defined in a ConceptMap.property element."/>
+      <definition value="The value of this property. If the type chosen for this element is 'code', then the property SHALL be defined in a ConceptMap.property element and that ConceptMap.property element SHALL have a system element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1078,8 +1078,7 @@
     <element id="ConceptMap.group.element.target.dependsOn.value[x]">
       <path value="ConceptMap.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced data element"/>
-      <definition value="Data element value that the map depends on / produces."/>
-      <comment value="If the data type is a code, then the code system is .group.source for .dependsOn.valueCode and .group.target for .product.valueCode."/>
+      <definition value="Data element value that the map depends on / produces. If the data type is a code, that code SHALL come from the .group.source code system for .dependsOn.valueCode or from the .group.target code system for .product.valueCode."/>
       <min value="0"/>
       <max value="1"/>
       <type>
