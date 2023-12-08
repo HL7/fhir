@@ -1384,6 +1384,7 @@
 	</item>
 	<item id="MSG_REMOTE_FAIL" ecode="true">
 		<translation lang="en">Unable to resolve local reference to resource %s</translation>
+		<translation lang="nl">Kon referentie naar lokale resource %s niet vinden</translation>
 	</item>
 	<item id="MSG_NO_MATCH" ecode="true">
 		<translation lang="en">No Resource found matching the query "%s"</translation>
@@ -1471,6 +1472,7 @@
 	</item>
   <item id="MSG_PARAM_INVALID_TARGETTYPE">
 		<translation lang="en">Parameter "%s" is invalid because the type of resource referenced is not specified</translation>
+  	<translation lang="nl">Parameter "%s" is ongeldig omdat het type ontbreekt van de resource waarnaar wordt verwezen</translation>
   </item>
 	<item id="MSG_RESOURCE_EXAMPLE_PROTECTED" ecode="true">
 		<translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
@@ -2247,63 +2249,83 @@
 
 	<item id="DJSON-ASYNC">
 		<translation lang="en">ND-json is only supported for asynchronous calls</translation>
+		<translation lang="nl">ND-json wordt alleen ondersteund voor asynchrone aanroepen</translation>
 	</item>
 	<item id="VERSION_MISSING">
 		<translation lang="en">No specific version specified in the Accept: header</translation>
+		<translation lang="nl">Geen specifieke versie opgenomen in de Accept: header</translation>
 	</item>
 	<item id="VERSION_UNSUPPORTED">
 		<translation lang="en">The version %s is not supported</translation>
+		<translation lang="nl">Versie %s wordt niet ondersteund</translation>
 	</item>
 	<item id="CANNOT_FIND">
 		<translation lang="en">Unable to fetch %s/%s</translation>
+		<translation lang="nl">Kan %s/%s niet ophalen</translation>
 	</item>
 	<item id="LOGIN_REQUIRED">
 		<translation lang="en">You must login before performing this action</translation>
+		<translation lang="nl">Voor deze actie is inloggen vereist</translation>
 	</item>
 	<item id="NO_ASYNC">
 		<translation lang="en">Asynchronous processing not supported for this request</translation>
+		<translation lang="nl">Asynchrone verwerking wordt niet ondersteund voor dit verzoek</translation>
 	</item>
 	<item id="TASK_FMT_MISMATCH">
 		<translation lang="en">Error: the request format (%s) does not match the task format (%s)</translation>
+		<translation lang="nl">Fout: het request-formaat (%s) komt niet overeen met het task-formaat (%s)</translation>
 	</item>
 	<item id="FORMAT_UNRECOGNIZED">
 		<translation lang="en">Unable to determine the format for %s</translation>
+		<translation lang="nl">Kon het formaat niet bepalen voor %s</translation>
 	</item>
 	<item id="VERSION_HEADER_MISMATCH">
 		<translation lang="en">Version mismatch between Accept: and Content-Type: Headers</translation>
+		<translation lang="nl">Versies komen niet overeen tussen Accept: en Content-Type: headers</translation>
 	</item>
 	<item id="GRAPHQL_NOT_FOUND">
 		<translation lang="en">Unable to find GraphQL to execute</translation>
+		<translation lang="nl">Kon GraphQL niet vinden om uit te voeren</translation>
 	</item>
 	<item id="GRAPHQL_ERROR">
 		<translation lang="en">Error processing graphQL</translation>
+		<translation lang="nl">Fout bij verwerken graphQL</translation>
 	</item>
 	<item id="NOT_DONE_YET">
 		<translation lang="en">Not Done Yet</translation>
+		<translation lang="nl">Nog niet gereed</translation>
 	</item>
 	<item id="UNKNOWN_QUERY">
 		<translation lang="en">The query "%s" is not known</translation>
+		<translation lang="nl">De query "%s" is onbekend</translation>
 	</item>
 	<item id="SUBSETTED">
 		<translation lang="en">Error %s: This resource has been subsetted, and cannot be used as the basis for this operation</translation>
+		<translation lang="nl">Fout %s: Deze resource is een subset van gemaakt en kan niet als basis dienen voor deze bewerking</translation>
 	</item>
 	<item id="UNKNOWN_FILTER_OPERATOR">
 		<translation lang="en">Unhandled filter operator value "%s"</translation>
+		<translation lang="nl">Niet-verwerkte filteroperatorwaarde "%s"</translation>
 	</item>
 	<item id="COMPARTMENT_ERROR">
 		<translation lang="en">Compartment error: no access to compartment for %s</translation>
+		<translation lang="nl">Compartment fout: geen toegang tot compartment voor %s</translation>
 	</item>
 	<item id="JWT_NO_SOURCE">
 		<translation lang="en">No Source System specified</translation>
+		<translation lang="nl">Geen Source System gespecificeerd</translation>
 	</item>
 	<item id="OP_NO_RESOURCE">
 		<translation lang="en">Unable to find %s to expand (not provided by id, identifier, or directly)</translation>
+		<translation lang="nl">Kon %s niet vinden voor expansie (niet op id, identifier of direct)</translation>
 	</item>
 	<item id="TRANSACTION_RESOURCE_MISSING">
 		<translation lang="en">A resource must be provided unless the entry has a transaction with method = delete and a url (entry %s)</translation>
+		<translation lang="nl">Er moet een resource wordt meegegeven tenzij de entry een transactie heeft met methode = delete en een url (entry %s)</translation>
 	</item>
 	<item id="MSG_UNKNOWN_COMPARTMENT">
 		<translation lang="en">Unknown Compartment %s    </translation>
+		<translation lang="nl">Onbekende compartment %s    </translation>
 	</item>
 
 
