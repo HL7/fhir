@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="InsuranceProduct-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A general insurance product example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="insuranceproduct-example"/>
+    </extension>
+    <item>
+      <reference value="InsuranceProduct/example"/>
+      <display value="general"/>
+    </item>
+  </entry>
+</List>

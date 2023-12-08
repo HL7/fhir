@@ -1,0 +1,17 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+	<div>
+<a name="notes"></a>
+	<h2>
+		Notes:
+	</h2>
+	<!-- <ul>
+		<li>
+			There are two places for contact information: one on Organization itself and zero or more using the ContactEntity construct.
+			The first one is to be used for the generic, public organization point of contact. The ContactEntity is to be used for
+			reaching a person or party that has been designated by the organization to be contacted for a specific purpose or goal.
+		</li>
+	</ul> -->
+</div>
+
+</div>
