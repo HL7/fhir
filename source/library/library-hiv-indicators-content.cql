@@ -6,9 +6,9 @@ session on the use of FHIR quality reporting functionality to report public heal
 indicators: https://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV
 */
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '3.0.0'
+include FHIRHelpers version '4.0.1'
 
 // SNOMED-CT, International Edition
 codesystem "SNOMED-CT": 'http://snomed.info/sct/900000000000207008'
@@ -19,6 +19,9 @@ codesystem "LOINC": 'http://loinc.org'
 codesystem "ISO-8601-Derived Periods": 'http://ohie.org/ValueSet/iso-8601-derived-periods' // { 'P0Y--P1Y', 'P1Y--P5Y', ... }
 codesystem "PMTCT HIV Status Codes": 'TBD' // { 'known-positive', 'newly-identified-positive', 'newly-identified-negative' }
 codesystem "PMTCT ART Status Codes": 'TBD' // { 'already-on-art', 'new-on-art' }
+
+codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+codesystem "ConditionVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
 
 valueset "HIV Testing Services": 'TBD' // Should use HIV tests
 valueset "Viral Load Test": 'TBD'
@@ -65,6 +68,22 @@ code "Newly Identified Negative": 'newly-identified-negative' from "PMTCT HIV St
 code "Pregnant": '146789000' from "SNOMED-CT" display 'Pregnant'
 code "Breastfeeding": '169750002' from "SNOMED-CT" display 'Breastfeeding'
 
+// Condition Clinical Status Codes - Consider value sets for these
+code "active": 'active' from "ConditionClinicalStatusCodes"
+code "recurrence": 'recurrence' from "ConditionClinicalStatusCodes"
+code "relapse": 'relapse' from "ConditionClinicalStatusCodes"
+code "inactive": 'inactive' from "ConditionClinicalStatusCodes"
+code "remission": 'remission' from "ConditionClinicalStatusCodes"
+code "resolved": 'resolved' from "ConditionClinicalStatusCodes"
+
+// Condition Verification Status Codes - Consider value sets for these
+code "unconfirmed": 'unconfirmed' from ConditionVerificationStatusCodes
+code "provisional": 'provisional' from ConditionVerificationStatusCodes
+code "differential": 'differential' from ConditionVerificationStatusCodes
+code "confirmed": 'confirmed' from ConditionVerificationStatusCodes
+code "refuted": 'refuted' from ConditionVerificationStatusCodes
+code "entered-in-error": 'entered-in-error' from ConditionVerificationStatusCodes
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -75,8 +94,8 @@ define "ART Therapy Observation":
 
 define "ART Therapy Condition":
   ["Condition": "History of antiretroviral therapy (situation)"] C
-    where C.verificationStatus = 'confirmed'
-      and C.clinicalStatus in { 'active', 'relapsed', 'well-controlled', 'poorly-controlled' }
+    where C.verificationStatus ~ "confirmed"
+      and (C.clinicalStatus ~ "active" or C.clinicalStatus ~ "recurrence" or C.clinicalStatus ~ "relapse")
 
 define "ART Therapy Medication":
   ["MedicationDispense": "ART Medications"] M
@@ -158,8 +177,8 @@ define "Newly enrolled on antiretroviral therapy (ART) during measurement period
 
 define "Is Pregnant":
   exists ([Condition: "Pregnancy Codes"] C
-    where C.verificationStatus = 'confirmed'
-      and C.clinicalStatus = 'active'
+    where C.verificationStatus ~ "confirmed"
+      and C.clinicalStatus ~ "active"
       and C.onset during "Measurement Period"
   )
 

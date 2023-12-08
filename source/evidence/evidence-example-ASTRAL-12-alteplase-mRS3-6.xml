@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       <p>
-        &quot;Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12&quot; is a univariate risk estimate.
+        &quot;Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12&quot; is a univariate risk estimate (non-comparative evidence).
       </p>
 	
     </div>
@@ -31,33 +31,21 @@
   </relatedArtifact>
   <description value="5.3% risk of mRS 3-6 at 90 days"/>
   <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="population"/>
-        <display value="population"/>
-      </coding>
-    </variableRole>
+    <variableRole value="population"/>
     <observed>
-      <reference value="Group/ASTRAL-Cooray-validation-cohort"/>
+      <reference value="Group/ASTRAL-Cooray-validation-cohort-and-received-alteplase"/>
       <type value="Group"/>
-      <display value="ASTRAL validation cohort"/>
+      <display value="ASTRAL validation cohort and received alteplase"/>
     </observed>
     <intended>
-      <reference value="Group/ASTRAL-12"/>
+      <reference value="Group/ASTRAL-12-and-received-alteplase"/>
       <type value="Group"/>
-      <display value="patients 0-4.5 hours after acute ischemic stroke onset with ASTRAL score = 12"/>
+      <display value="patients 0-4.5 hours after acute ischemic stroke onset with ASTRAL score = 12 and received alteplase"/>
     </intended>
   </variableDefinition>
   <variableDefinition>
     <description value="functionally dependent or dead at 3 months"/>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="measuredVariable"/>
-        <display value="measured variable"/>
-      </coding>
-    </variableRole>
+    <variableRole value="outcome"/>
     <observed>
       <reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
       <type value="EvidenceVariable"/>
@@ -72,33 +60,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/directness"/>
         <code value="high"/>
-        <display value="High quality match"/>
-      </coding>
-    </directnessMatch>
-  </variableDefinition>
-  <variableDefinition>
-    <variableRole>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-        <code value="exposure"/>
-        <display value="exposure"/>
-      </coding>
-    </variableRole>
-    <observed>
-      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-      <type value="EvidenceVariable"/>
-      <display value="Alteplase for Stroke"/>
-    </observed>
-    <intended>
-      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-      <type value="EvidenceVariable"/>
-      <display value="Alteplase for Stroke"/>
-    </intended>
-    <directnessMatch>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/directness"/>
-        <code value="exact"/>
-        <display value="Exact match"/>
+        <display value="High quality match between observed and intended variable"/>
       </coding>
     </directnessMatch>
   </variableDefinition>
@@ -134,7 +96,7 @@
       <coding>
         <system value="http://hl7.org/fhir/certainty-type"/>
         <code value="Overall"/>
-        <display value="Overall quality"/>
+        <display value="Overall certainty"/>
       </coding>
     </type>
     <rating>

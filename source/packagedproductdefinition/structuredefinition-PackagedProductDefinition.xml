@@ -33,7 +33,7 @@
   <title value="Packaged Product Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <publisher value="HL7 International / Biomedical Research and Regulation"/>
   <contact>
     <telecom>
       <system value="url"/>

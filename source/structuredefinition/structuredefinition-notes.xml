@@ -151,7 +151,6 @@ This list shows a number of examples, with links to real examples for each:
   "kind": "complex-type",
   "type": "Extension",
   "abstract" : false,
-  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
 }
 </pre>

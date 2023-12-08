@@ -54,7 +54,9 @@
         <reference value="DiagnosticReport/F004"/>
         <display value="???????????"/>
     </report>
-    <followUp>
-      <text value="described in care plan"/>
-    </followUp>
+	<followUp>
+		<concept>
+			<text value="described in care plan"/>
+		</concept>
+	</followUp>
 </Procedure>

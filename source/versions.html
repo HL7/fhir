@@ -334,6 +334,18 @@ For further information, see <a href="versioning.html">Managing Multiple FHIR Ve
 
 <a name="change"></a>
 <h3>Rules for Inter-version change</h3>
+
+<p>
+The following kinds of changes may be made to the specification:
+</p>
+<ul>
+ <li><b>Non-substantive changes</b> should not cause changes in any conformant resource instances. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
+    In addition, this covers corrections that are judged not to create any expectation of change to a conformant resource instance.</li>
+ <li><b>Substantive changes</b> are changes that introduce new functionality - changes to the specification that create new capabilities - but would not render
+  unchanged existing applications non-conformant</li>
+ <li><b>Breaking changes</b> are changes that mean that previously conformant resource instances are no longer conformant to the updated specification</li>
+</ul>
+
 [%dragons-start%]
 <p>
 The intent of these rules is to ensure that applications that are conformant to an existing
@@ -344,18 +356,15 @@ based on feedback from implementers.
 [%dragons-end%]
 
 <p>
+Content with a status of <i>Draft</i> or <i>Trial Use</i> can change - including Breaking Changes - from
+version to version, subject to the rules described by the <a href="#maturity">Maturity Process</a>.  There are no rules for maintaining any sort of compatibility between versions for content with these statuses, though of course we will only make breaking changes based on feedback from the community.
+</p>
+<p>
 Once an artifact achieves <i>Normative</i> status, specific rules come into play around inter-version compatibility.  These rules have implication for both forward and backward compatibility and are intended to allow implementations to exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data between systems using different versions of FHIR.  These rules do not apply to non-normative content, including STU content within normative artifacts.
 </p>
 <p>
-The following kinds of changes may be made to normative portions of the specification:
+In rare circumstances, HL7 may approve changes that technically break content with a status of <i>Normative</i> where there is a high level of confidence that the change will not impact existing implementers.  Such deviations from the declared rules will involve broad notification, extensive community consultation and reviews by multiple levels of HL7 governance processes.
 </p>
-<ul>
- <li><b>Breaking changes</b> are changes that mean that previously conformant resource instances are no longer conformant to the updated specification</li>
- <li><b>Substantive changes</b> are changes that introduce new functionality - changes to the specification that create new capabilities - but would not render
-  unchanged existing applications non-conformant</li>
- <li><b>Non-substantive changes</b> should not cause changes in any conformant resource instances. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification.
-    In addition, this covers corrections that are judged not to create any expectation of change to a conformant resource instance.</li>
-</ul>
 [%dragons-start%]
 <p>
 Yes, this this is the second dragon in as many paragraphs.  Inter-version compatibility is complicated...
@@ -368,10 +377,7 @@ The assertion around non-breaking change does NOT mean that the types of changes
 <p>
 NOTE: The examples provided as part of this specification are never substantive. While every effort is made to ensure that FHIR examples are correct, changes to the examples in the specification are not considered substantive.
 </p>
-<p>
-Content with a status of <i>Draft</i> or <i>Trial Use</i> can change - including Breaking Changes - from
-version to version, subject to the rules described by the <a href="#maturity">Maturity Process</a>.  There are no rules for maintaining any sort of compatibility between versions for content with these statuses, though of we will only make breaking changes based on feedback from the community.
-</p>
+
 <p>
 <b>Forward compatibility</b> means that content that is conformant in an old release will remain conformant with future versions.  Once normative, FHIR's rules try to enforce forward compatibility.  However, that doesn't guarantee that all old systems will interoperate with future systems.
 </p>
@@ -581,12 +587,6 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     </tr>
   </tbody>
 </table>
-<p>
-NOTE: In rare circumstances, HL7 may approve changes that technically break one of the above rules in situations where there is a high level of confidence that the change will not impact existing implementers.  Such deviations from these declared rules will involve broad notification, extensive community consultation and reviews by multiple levels of HL7 governance processes.
-</p>
-<p>
-&nbsp;
-</p>
 
 <a name="deprecation"></a>
 <h4>Deprecation / Withdrawal of Normative Content</h4>
