@@ -26,7 +26,7 @@
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2019-05-29"/>
-  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <publisher value="HL7 International / Clinical Genomics"/>
   <contact>
     <telecom>
       <system value="url"/>

@@ -1022,7 +1022,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Health Level Seven International (Clinical Genomics)</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">HL7 International / Clinical Genomics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">author.reference</Data></Cell>

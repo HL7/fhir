@@ -205,7 +205,7 @@ table.codes td {
 table.grid{
 	margin-bottom: 10px;
         border: 1px black solid;
-        margin-right: auto;
+        margin-right: inherit;
 	
 }
 
