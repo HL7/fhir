@@ -841,6 +841,9 @@
 	<item id="InsurancePlan">
 		<translation lang="en">InsurancePlan</translation>
 	</item>
+	<item id="InsuranceProduct">
+		<translation lang="en">InsuranceProduct</translation>
+	</item>
 	<item id="Network">
 		<translation lang="en">Network</translation>
 	</item>
