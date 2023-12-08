@@ -55,5 +55,9 @@
     <uri value="http://hl7.org/fhir/concept-properties#interface"/> 
     <type value="boolean"/> 
   </property> 
+  <concept> 
+    <code value="InsuranceProduct"/> 
+    <display value="InsuranceProduct"/> 
+  </concept> 
   <!-- filled in by the build -->
 </CodeSystem>
