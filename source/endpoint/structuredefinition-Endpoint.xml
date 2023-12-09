@@ -350,7 +350,7 @@
     <element id="Endpoint.payload.profile[x]">
       <path value="Endpoint.payload.profile[x]"/>
       <short value="The profile that is expected at this endpoint"/>
-      <definition value="The profile that is expected at this endpoint, typically a FHIR profile describing the resources that are handled, or even simply which resource types -e.g. Vital Sign Observations or QuestionnaireResponse.&#xD;A Uri may be used when a FHIR Structure Definition is not available/appropriate.&#xD;&#xD;e.g. CDA Template ID expressed as an OID (in the Uri)" />
+      <definition value="The profile that is expected at this endpoint, typically a FHIR profile describing the resources that are handled, or even simply which resource types -e.g. Vital Sign Observations or QuestionnaireResponse.&#xD;A Uri may be used when a FHIR Structure Definition is not available/appropriate.&#xD;&#xD;e.g. CDA Template ID expressed as an OID (in the Uri)." />
       <min value="0"/>
       <max value="*"/>
       <type>
