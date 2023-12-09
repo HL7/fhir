@@ -387,5 +387,47 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+    <element id="InsuranceProduct.related">
+      <path value="InsuranceProduct.related"/>
+      <short value="Related product"/>
+      <definition value="Another product that is related to this product. Often used to create relationships to parents or families of products."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsuranceProduct.related.product">
+      <path value="InsuranceProduct.related.product"/>
+      <short value="Related Product reference"/>
+      <definition value="The Related Product reference."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsuranceProduct"/>
+      </type>
+    </element>
+    <element id="InsuranceProduct.related.relationship">
+      <path value="InsuranceProduct.related.relationship"/>
+      <short value="Relationship of this product to the related product"/>
+      <definition value="The relationship of this product to the related product. an example would be 'sub-plan' where this product is a sub-plan of the related.product."/>
+      <comment value="Use `CodeableConcept.text` element if the data is free (uncoded) text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsuranceProduct.related.period">
+      <path value="InsuranceProduct.related.period"/>
+      <short value="Period that this Relationship is valid"/>
+      <definition value="Period of time that the product relationship is valid. The start and/or end dates can be empty if this is an open ended relationship."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
   </differential>
 </StructureDefinition>

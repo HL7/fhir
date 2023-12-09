@@ -404,7 +404,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s67"><Data ss:Type="String">care-manager</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

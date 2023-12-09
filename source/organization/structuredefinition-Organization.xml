@@ -355,6 +355,7 @@
       <path value="Organization.endpoint"/>
       <short value="Technical endpoints providing access to services operated for the organization"/>
       <definition value="Technical endpoints providing access to services operated for the organization."/>
+      <comment value="Note that an organization may have endpoints listed in any of the referenced directory resources, not just at the top Organization level (i.e. sub Organizations, Locations, HealthcareServices, PractitionerRoles)&#xD;&#xD;The Endpoint.managingOrganization property indicates the organization that is supporting/managing the technical endpoint." />
       <requirements value="Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
       <min value="0"/>
       <max value="*"/>
