@@ -263,7 +263,7 @@ Programatic rules (rules that apply but are not schema or schematron-enforced):
 							<xs:documentation>Indicates datatypes not fully supported and what the limitations on those datatypes are.  Cascades through all static models supported by this element.</xs:documentation>
 							<xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
 						</xs:annotation>
-						<!-- Todo: Translation of datatype to actually interpretted flavor -->
+						<!-- Todo: Translation of datatype to actually interpreted flavor -->
 					</xs:element>
 					<xs:element name="additionalVocabularyModel" type="VocabularyModel" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -276,14 +276,14 @@ Programatic rules (rules that apply but are not schema or schematron-enforced):
 							<xs:documentation>Indicates domains, valuesets and code systems not fully supported and what the limitations on those vocabulary elements are.  Cascades through all static models supported by this element.</xs:documentation>
 							<xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
 						</xs:annotation>
-						<!-- Todo: Translation of datatype to actually interpretted flavor -->
+						<!-- Todo: Translation of datatype to actually interpreted flavor -->
 					</xs:element>
 					<xs:element name="subjectAreaPackage" type="SubjectAreaPackage" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Identifies a 'sub-package' owned by the current static package.  All classes within the 'sub-packages' are always imported into their parent static package.  This means the names of all classes within a static package must be unique.  Graphically it represents a grouping of classes that may be represented on a separate page.</xs:documentation>
 							<xs:documentation>UML: SubjectAreaPackage stereotype</xs:documentation>
 						</xs:annotation>
-						<!-- Todo: Handle varying presentations for wrap-arround boxes and 'fill-in' shapes.  Also, enforce rules that contained elements don't appear for fill-in shapes unless they appear in two. -->
+						<!-- Todo: Handle varying presentations for wrap-around boxes and 'fill-in' shapes.  Also, enforce rules that contained elements don't appear for fill-in shapes unless they appear in two. -->
 					</xs:element>
 					<xs:element name="definitionalCode" type="VocabularyCodeRef" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -328,7 +328,7 @@ Programatic rules (rules that apply but are not schema or schematron-enforced):
 			</xs:element>
 			<xs:element name="substituteDatatype" type="DatatypeRef">
 				<xs:annotation>
-					<xs:documentation>Indicates the datatype or datatype flavor that should be interpretted in place of the non-supported datatype</xs:documentation>
+					<xs:documentation>Indicates the datatype or datatype flavor that should be interpreted in place of the non-supported datatype</xs:documentation>
 					<xs:documentation>UML: Complex tag</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -336,7 +336,7 @@ Programatic rules (rules that apply but are not schema or schematron-enforced):
 	</xs:complexType>
 	<xs:complexType name="VocabularyLimitation">
 		<xs:annotation>
-			<xs:documentation>Identifies a vocabulary domain, code-system or value-set which is not fully supported, along with a different domain, code-system or value-set which should be interpretted in its place.</xs:documentation>
+			<xs:documentation>Identifies a vocabulary domain, code-system or value-set which is not fully supported, along with a different domain, code-system or value-set which should be interpreted in its place.</xs:documentation>
 			<xs:documentation>UML: Complex tag</xs:documentation>
 			<!-- Todo: Ensure that packagetypes are vocabulary and that package types are the same (i.e. both domains, both value-sets, etc.) -->
 		</xs:annotation>
@@ -349,7 +349,7 @@ Programatic rules (rules that apply but are not schema or schematron-enforced):
 			</xs:element>
 			<xs:element name="substituteVocabularyElement" type="PackageRef" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates the domain, code-system or value-set that should be interpretted in place of the non-supported vocabulary element</xs:documentation>
+					<xs:documentation>Indicates the domain, code-system or value-set that should be interpreted in place of the non-supported vocabulary element</xs:documentation>
 					<xs:documentation>UML: Complex tag</xs:documentation>
 				</xs:annotation>
 			</xs:element>
