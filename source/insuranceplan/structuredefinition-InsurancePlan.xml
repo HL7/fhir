@@ -78,7 +78,8 @@
     <element id="InsurancePlan.identifier">
       <path value="InsurancePlan.identifier"/>
       <short value="Business Identifier for Product"/>
-      <definition value="Business identifiers assigned to this health insurance plan which remain constant as the resource is updated and propagates from server to server."/>
+      <definition value="Identifiers, such as the plan ID and/or group ID associated with the insurance plan."/>
+      <comment value="In some markets, the combination of a plan ID and a group ID are needed to uniquely identify an InsurancePlan.  For example, if a single plan (Bronze) is offered to two employer groups (Boilermakers and Aviation), you would represent that using two InsurancePlan resources, as shown below:&#xD;```&#xD;InsurancePlan.identifier  0..*  (Boilermakers)   InsurancePlan/bm&#xD;     [0].value = 1234   (bronze plan)&#xD;     [0].type = Plan&#xD;     [0].system = https://insurance-payer.com/plan-numbers&#xD;&#xD;     [1].value = Boilermakers&#xD;     [1].type = Group&#xD;     [1].system = https:// insurance-payer.com /group-numbers&#xD;```&#xD;```&#xD;InsurancePlan.identifier  0..*  (Aviation)   InsurancePlan/av&#xD;     [0].value = 1234  (bronze plan)&#xD;     [0].type = Plan&#xD;     [0].system = https:// insurance-payer.com /plan-numbers&#xD;&#xD;     [1].value = Aviation&#xD;     [1].type = Group&#xD;     [1].system = https:// insurance-payer.com /group-numbers&#xD;```" />
       <min value="0"/>
       <max value="*"/>
       <type>
