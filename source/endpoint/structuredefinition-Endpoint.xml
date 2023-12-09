@@ -346,16 +346,26 @@
         <map value="n/a"/>
       </mapping>
     </element>
-
-    <element id="Endpoint.payload.profile[x]">
-      <path value="Endpoint.payload.profile[x]"/>
+    <element id="Endpoint.payload.profileCanonical">
+      <path value="Endpoint.payload.profileCanonical"/>
       <short value="The profile that is expected at this endpoint"/>
-      <definition value="The profile that is expected at this endpoint, typically a FHIR profile describing the resources that are handled, or even simply which resource types -e.g. Vital Sign Observations or QuestionnaireResponse.&#xD;A Uri may be used when a FHIR Structure Definition is not available/appropriate.&#xD;&#xD;e.g. CDA Template ID expressed as an OID (in the Uri)." />
+      <definition value="The FHIR profile that is expected at this endpoint. It describes the resources that are handled, or even simply which resource types -e.g. Vital Sign Observations or QuestionnaireResponse.&#xD;The `profileUri` may be used when a FHIR Structure Definition is not available/appropriate." />
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="canonical"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Endpoint.payload.profileUri">
+      <path value="Endpoint.payload.profileUri"/>
+      <short value="The non-fhir based profile that is expected at this endpoint"/>
+      <definition value="The profile (as a uri) that is expected at this endpoint when not represented using a FHIR profile.&#xD;&#xD;e.g. CDA Template ID expressed as an OID (in the Uri)." />
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="uri"/>
       </type>
@@ -364,7 +374,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-
     <element id="Endpoint.address">
       <path value="Endpoint.address"/>
       <short value="The technical base address for connecting to this endpoint"/>
