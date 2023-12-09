@@ -105,6 +105,22 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+    <element id="InsurancePlan.product">
+      <path value="InsurancePlan.product"/>
+      <short value="The product that this plan is available under"/>
+      <definition value="The product that this plan is available under."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsuranceProduct"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="InsurancePlan.coverageArea">
       <path value="InsurancePlan.coverageArea"/>
       <short value="Where product applies"/>
