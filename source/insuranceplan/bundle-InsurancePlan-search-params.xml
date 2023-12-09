@@ -5,6 +5,44 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="InsurancePlan-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-identifier"/>
+        <description value="External identifiers for this item"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="InsurancePlan.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-type"/>
+        <description value="A code for the type of insurance plan"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="InsurancePlan.type"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="InsurancePlan-product"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -12,11 +50,49 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsurancePlan.product"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-subject"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-product"/>
         <description value="The product this plan is available to"/>
         <code value="product"/>
         <type value="reference"/>
         <expression value="InsurancePlan.product"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-coverage-area"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.coverageArea"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-coverage-area"/>
+        <description value="Location(s) insurance product is intended for/available to"/>
+        <code value="coverage-area"/>
+        <type value="reference"/>
+        <expression value="InsurancePlan.coverageArea"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-network"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.network"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-network"/>
+        <description value="The product this plan is available to"/>
+        <code value="network"/>
+        <type value="reference"/>
+        <expression value="InsurancePlan.network"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
