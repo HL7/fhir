@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="devicealert-status"/>
+  <id value="devicealert-priority"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/devicealert-status"/>
+  <url value="http://hl7.org/fhir/ValueSet/devicealert-priority"/>
   <version value="6.0.0"/>
-  <name value="DeviceAlertStatusCodes"/>
-  <title value="DeviceAlert Status Codes"/>
+  <name value="DeviceAlertPriorityCodes"/>
+  <title value="DeviceAlert Priority Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -21,10 +21,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="DeviceAlert Status Codes"/>
+  <description value="DeviceAlert Priority Codes"/>
   <compose>
     <include>
-        <system value="http://hl7.org/fhir/devicealert-status"/>
+        <system value="http://hl7.org/fhir/devicealert-priority"/>
     </include>
   </compose>
 </ValueSet>

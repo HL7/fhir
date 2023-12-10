@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="devicealert-manifestation"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/devicealert-manifestation"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertManifestation"/>
+  <title value="Device Alert Manifestation"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2023-12-10T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Describes the manifestation of a DeviceAlert."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-manifestation"/>
+  <content value="complete"/>
+  <concept>
+    <code value="audible"/>
+    <display value="Audible"/>
+    <!-- <definition value="The alert condition has been raised, and not yet cleared, or not all signals have been addressed."/> -->
+  </concept>
+  <concept>
+    <code value="tangible"/>
+    <display value="Tangible"/>
+    <!-- <definition value="The metric needs to be calibrated."/> -->
+  </concept>
+  <concept>
+    <code value="visual"/>
+    <display value="Visual"/>
+    <!-- <definition value="The metric has been calibrated."/> -->
+  </concept>
+</CodeSystem>
