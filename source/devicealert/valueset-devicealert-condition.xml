@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="devicealert-condition"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/devicealert-condition"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertConditionCodes"/>
+  <title value="DeviceAlert Condition Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="DeviceAlert Condition Codes"/>
+  <compose>
+    <include>
+       <system value="urn:iso:std:iso:11073:10101"/>
+    </include>
+  </compose>
+</ValueSet>
