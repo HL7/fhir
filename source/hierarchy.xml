@@ -312,8 +312,7 @@ signatures.html
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
-	    <page type="resource" resource="InsuranceProduct"/>
-	    <!-- <page type="resource" resource="Network"/> -->
+      <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationAffiliation"/>
 	    <page type="resource" resource="VerificationResult"/>
     </page>
