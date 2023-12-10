@@ -393,6 +393,12 @@
       <definition value="Does this service have specific eligibility requirements that need to be met in order to use the service?"/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="hcs-1" />
+        <severity value="error" />
+        <human value="To use an eligibility value a code must also be provided to determine the type of eligibility the value applies to." />
+        <expression value="value.exists() implies code.exists()" />
+      </constraint>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -411,11 +417,38 @@
           <valueString value="ServiceEligibility"/>
         </extension>
         <strength value="example"/>
-        <description value="Coded values underwhich a specific service is made available."/>
+        <description value="Coded values under which a specific service is made available."/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT]"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="HealthcareService.eligibility.value[x]">
+      <path value="HealthcareService.eligibility.value[x]"/>
+      <short value="Value associated with the eligibility code"/>
+      <definition value="Sometimes an eligibility code requires additional data to calculate the eligibility rules."/>
+      <comment value="The example binding could utilize the value where the eligibility code is not sufficient alone.&#xD;&#xD;* pediatric-patients (with value age range)&#xD;* existing-patients (bool value)&#xD;* new-patients (bool value)&#xD;* low-income-patients (maybe codeableconcept for ranges)&#xD;* uninsured-patients (bool value)&#xD;* renal-patients (e.g., for dialysis services)&#xD;* speciailist-referral-required (value codeableconcept for type of referral)&#xD;* assessment-required (bool/codeableconcept value)" />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT].text"/>
       </mapping>
     </element>
     <element id="HealthcareService.eligibility.comment">
@@ -423,6 +456,20 @@
       <short value="Describes the eligibility conditions for the service"/>
       <definition value="Describes the eligibility conditions for the service."/>
       <comment value="The description of service eligibility should, in general, not exceed one or two paragraphs. It should be sufficient for a prospective consumer to determine if they are likely to be eligible or not. Where eligibility requirements and conditions are complex, it may simply be noted that an eligibility assessment is required. Where eligibility is determined by an outside source, such as an Act of Parliament, this should be noted, preferably with a reference to a commonly available copy of the source document such as a web page."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT].text"/>
+      </mapping>
+    </element>
+    <element id="HealthcareService.eligibility.period">
+      <path value="HealthcareService.eligibility.period"/>
+      <short value="The period this eligibility rule applies"/>
+      <definition value="The period that this eligibility rule is a requirement for this service."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -527,10 +574,25 @@
         <map value=".actrelationship[typeCode=PERT].observation"/>
       </mapping>
     </element>
+    <element id="HealthcareService.referralRequired">
+      <path value="HealthcareService.referralRequired"/>
+      <short value="A referral is required for access to this service"/>
+      <definition value="Indicates whether or not a prospective consumer will require a referral for a particular service at a site to be provided by the Organization."/>
+      <comment value="If more than just a general referral is required then you can combine this with the eligibility property to specify additional requirements, such as using the sample code `specialist-referral-required` or other textual details provided in the eligibility comment." />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="HealthcareService.appointmentRequired">
       <path value="HealthcareService.appointmentRequired"/>
-      <short value="If an appointment is required for access to this service"/>
-      <definition value="Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service."/>
+      <short value="An appointment is required for access to this service"/>
+      <definition value="Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization."/>
       <min value="0"/>
       <max value="1"/>
       <type>

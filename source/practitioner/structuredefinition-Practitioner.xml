@@ -441,6 +441,28 @@
         <map value="./Qualifications.Value"/>
       </mapping>
     </element>
+    <element id="Practitioner.qualification.status">
+      <path value="Practitioner.qualification.status"/>
+      <short value="Status/progress  of the qualification"/>
+      <definition value="Qualifications often take time to attain and might be tracked during this time, and completed qualifications might not always be valid. This status concept has some overlap with period and both should be considered together. Refer to the descriptions of the codes for how the period should be interpreted.&#xD;&#xD;If a qualification is revoked or otherwise cancelled, then the period is likely to be ignored, and m be related to when it was active." />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QualificationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Status of the Qualification"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/qualification-status"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="Practitioner.qualification.period">
       <path value="Practitioner.qualification.period"/>
       <short value="Period during which the qualification is valid"/>
