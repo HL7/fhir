@@ -1103,7 +1103,10 @@ deleting a resource is the equivalent of creating a special kind of history entr
 no content and is marked as deleted.
 Note that there are different interactions for deleting historical versions of a resource - 
 see <a href="#delete-history">delete history</a>. and <a href="#delete-history-version">delete history version</a>
-for details.
+for details.  Additionally, there is an operation defined that can be used to delete the contents of one
+or more patient compartments, <a href="patient-operation-purge.html">$purge</a>.  If servers support
+the operation, it will be advertised in the <a href="CapabilityStatement.html">CapabilityStatement</a> for that
+server.
 </p>
 <p>
 Since deleted resources may be brought back to life, servers MAY include an <code>ETag</code> on the delete response
