@@ -56,9 +56,6 @@ In addition to a number of <a href="#general">General Considerations</a> this pa
   <tr><td><a href="#cond-patch">conditional patch</a></td><td>Update an existing resource, based on some identification criteria, by posting a set of changes to it</td></tr>
   <tr><td><a href="#delete">delete</a></td><td>Delete a resource</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource</td></tr>
-
-
-
   <tr><td colspan="2"><b>Type Level Interactions</b></td></tr>
   <tr><td><a href="#create">create</a></td><td>Create a new resource with a server assigned id</td></tr>
   <tr><td><a href="#ccreate">conditional create</a></td><td>Create a new resource with a server assigned id if an equivalent resource does not already exist</td></tr>
@@ -894,7 +891,6 @@ to indicate where no existing versions of the resource exist as shown:
   If-None-Match: *
 </pre>
 
-
 <a name="versionaware"></a>
 <a name="concurrency"></a>
 
@@ -1073,7 +1069,7 @@ status code when the server wishes to indicate that the resource is deleted. For
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
 Upon successful deletion, or if the resource does not exist at all, the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
-using the <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+using the <a href="async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code>, if 
 the server wishes to be non-committal about the outcome of the delete.
 <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
