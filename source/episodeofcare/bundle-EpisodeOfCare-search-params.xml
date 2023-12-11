@@ -13,7 +13,7 @@
           <valueString value="EpisodeOfCare.careManager"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-care-manager"/>
-        <description value="Care manager/care coordinator for the patient"/>
+        <description value="Care manager/care coordinator for the episodeOfCare"/>
         <code value="care-manager"/>
         <type value="reference"/>
         <expression value="EpisodeOfCare.careManager.where(resolve() is Practitioner)"/>

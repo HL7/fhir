@@ -61,7 +61,7 @@
       Information about an episode is often shared across systems, and in some cases organizational and disciplinary boundaries.
       An EpisodeOfCare contains details about the purpose of the care and can exist without any activities.<br/>
 
-      The minimal information that would be required in an episode of care would be a patient, organization and a reason for the ongoing association.
+      The minimal information that would be required in an episode of care would be a patient/group, organization and a reason for the ongoing association.
       Other reasons for creating an EpisodeOfCare could be for tracking the details required for government reporting or billing.
     </p>
     <h3>Expected Implementations</h3>

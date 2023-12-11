@@ -81,7 +81,7 @@
       </extension>
       <path value="RelatedPerson"/>
       <short value="A person that is related to a patient, but who is not a direct target of care"/>
-      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare."/>
+      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the primary target of healthcare."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
