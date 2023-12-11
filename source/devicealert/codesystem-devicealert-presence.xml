@@ -9,10 +9,10 @@
     <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/devicealert-presence"/>
   <version value="6.0.0"/>

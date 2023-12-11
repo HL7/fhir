@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="DeviceAlert-identifier" />
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use" />
+          <valueCode value="draft" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.identifier" />
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="DeviceAlert-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.subject"/>
@@ -45,7 +45,7 @@
     <SearchParameter>
       <id value="DeviceAlert-status"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.status"/>
@@ -64,7 +64,7 @@
     <SearchParameter>
       <id value="DeviceAlert-code"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.condition.code"/>
@@ -83,7 +83,7 @@
     <SearchParameter>
       <id value="DeviceAlert-presence"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.presence"/>
@@ -102,7 +102,7 @@
     <SearchParameter>
       <id value="DeviceAlert-timing"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.condition.timing"/>
@@ -121,7 +121,7 @@
     <SearchParameter>
       <id value="DeviceAlert-priority"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.priority"/>
@@ -139,7 +139,7 @@
     <SearchParameter>
       <id value="DeviceAlert-type"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.type"/>
@@ -158,7 +158,7 @@
     <SearchParameter>
       <id value="DeviceAlert-source"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.source"/>
@@ -177,7 +177,7 @@
     <SearchParameter>
       <id value="DeviceAlert-derivedFrom"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="draft"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="DeviceAlert.derivedFrom"/>
@@ -196,7 +196,7 @@
       <SearchParameter>
         <id value="DeviceAlert-signalPresence"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.presence"/>
@@ -215,7 +215,7 @@
       <SearchParameter>
         <id value="DeviceAlert-annunciatorConcept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.annunciator.concept"/>
@@ -234,7 +234,7 @@
       <SearchParameter>
         <id value="DeviceAlert-annunciatorDevice"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.annunciator.reference"/>
@@ -253,7 +253,7 @@
       <SearchParameter>
         <id value="DeviceAlert-manifestation"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.manifestation"/>
@@ -272,7 +272,7 @@
       <SearchParameter>
         <id value="DeviceAlert-indication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.indication"/>

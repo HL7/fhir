@@ -9,7 +9,7 @@
     <valueString value="Base.Entities"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -21,7 +21,7 @@
     <valueCode value="devices"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".operationalStatus = entered-in-error"/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceAlert"/>
   <identifier>
@@ -221,8 +221,8 @@
       <isSummary value="false" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric" />
       </type>
     </element>
     <element id="DeviceAlert.derivedFrom">
@@ -253,7 +253,7 @@
       <short value="Annunciation or notification of the alert condition" />
 <!--       <definition value="" /> -->
       <min value="0" />
-      <max value="1" />
+      <max value="*" />
       <isSummary value="false" />
       <type>
         <code value="BackboneElement" />

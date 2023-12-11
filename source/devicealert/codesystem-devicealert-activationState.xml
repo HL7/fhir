@@ -9,10 +9,10 @@
     <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/devicealert-activationState"/>
   <version value="6.0.0"/>
@@ -34,7 +34,7 @@
   </contact>
   <description value="Describes the activation state of a DeviceAlert."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState"/>
   <content value="complete"/>
   <concept>
     <code value="on"/>
