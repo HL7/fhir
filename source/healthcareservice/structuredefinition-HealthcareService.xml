@@ -418,6 +418,7 @@
         </extension>
         <strength value="example"/>
         <description value="Coded values under which a specific service is made available."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility"/>
       </binding>
       <mapping>
         <identity value="rim"/>

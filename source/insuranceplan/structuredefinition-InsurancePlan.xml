@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Details of a Health Insurance product/plan provided by an organization."/>
+  <description value="Details of a Health Insurance plan provided by an organization under an InsuranceProduct."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -77,7 +77,7 @@
     </element>
     <element id="InsurancePlan.identifier">
       <path value="InsurancePlan.identifier"/>
-      <short value="Business Identifier for Product"/>
+      <short value="Business Identifier for Plan"/>
       <definition value="Identifiers, such as the plan ID and/or group ID associated with the insurance plan."/>
       <comment value="In some markets, the combination of a plan ID and a group ID are needed to uniquely identify an InsurancePlan.  For example, if a single plan (Bronze) is offered to two employer groups (Boilermakers and Aviation), you would represent that using two InsurancePlan resources, as shown below:&#xD;```&#xD;InsurancePlan.identifier  0..*  (Boilermakers)   InsurancePlan/bm&#xD;     [0].value = 1234   (bronze plan)&#xD;     [0].type = Plan&#xD;     [0].system = https://insurance-payer.com/plan-numbers&#xD;&#xD;     [1].value = Boilermakers&#xD;     [1].type = Group&#xD;     [1].system = https:// insurance-payer.com /group-numbers&#xD;```&#xD;```&#xD;InsurancePlan.identifier  0..*  (Aviation)   InsurancePlan/av&#xD;     [0].value = 1234  (bronze plan)&#xD;     [0].type = Plan&#xD;     [0].system = https:// insurance-payer.com /plan-numbers&#xD;&#xD;     [1].value = Aviation&#xD;     [1].type = Group&#xD;     [1].system = https:// insurance-payer.com /group-numbers&#xD;```" />
       <min value="0"/>
@@ -97,7 +97,7 @@
     </element>
     <element id="InsurancePlan.type">
       <path value="InsurancePlan.type"/>
-      <short value="Type of plan"/>
+      <short value="Classification of Plan"/>
       <definition value="Type of plan. For example, &quot;Platinum&quot; or &quot;High Deductable&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -123,7 +123,7 @@
     </element>
     <element id="InsurancePlan.coverageArea">
       <path value="InsurancePlan.coverageArea"/>
-      <short value="Where product applies"/>
+      <short value="Where product-plan applies"/>
       <definition value="The geographic region in which a health insurance plan's benefits apply."/>
       <min value="0"/>
       <max value="*"/>
@@ -157,7 +157,7 @@
     </element>
     <element id="InsurancePlan.generalCost.type">
       <path value="InsurancePlan.generalCost.type"/>
-      <short value="Type of cost"/>
+      <short value="Classification of specific cost"/>
       <definition value="Type of cost."/>
       <min value="0"/>
       <max value="1"/>
@@ -197,8 +197,8 @@
     </element>
     <element id="InsurancePlan.specificCost">
       <path value="InsurancePlan.specificCost"/>
-      <short value="Specific costs"/>
-      <definition value="Costs associated with the coverage provided by the product."/>
+      <short value="Individual cost elements"/>
+      <definition value="Costs associated with the coverage provided by the product-plan."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -230,7 +230,7 @@
     </element>
     <element id="InsurancePlan.specificCost.benefit.type">
       <path value="InsurancePlan.specificCost.benefit.type"/>
-      <short value="Type of specific benefit"/>
+      <short value="Classification of benefit provided"/>
       <definition value="Type of specific benefit (preventative; primary care office visit; speciality office visit; hospitalization; emergency room; urgent care)."/>
       <min value="1"/>
       <max value="1"/>
@@ -250,7 +250,7 @@
     </element>
     <element id="InsurancePlan.specificCost.benefit.cost.type">
       <path value="InsurancePlan.specificCost.benefit.cost.type"/>
-      <short value="Type of cost"/>
+      <short value="Classification of specific cost"/>
       <definition value="Type of cost (copay; individual cap; family cap; coinsurance; deductible)."/>
       <min value="1"/>
       <max value="1"/>
@@ -276,8 +276,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/insuranceplan-applicability"/>
       </binding>
     </element>
-    <element id="InsurancePlan.specificCost.benefit.cost.qualifiers">
-      <path value="InsurancePlan.specificCost.benefit.cost.qualifiers"/>
+    <element id="InsurancePlan.specificCost.benefit.cost.qualifier">
+      <path value="InsurancePlan.specificCost.benefit.cost.qualifier"/>
       <short value="Additional information about the cost"/>
       <definition value="Additional information about the cost, such as information about funding sources (e.g. HSA, HRA, FSA, RRA)."/>
       <min value="0"/>
