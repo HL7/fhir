@@ -45,7 +45,7 @@ Notes:
 <a name="timezone-discovery"></a>
 <h3>Timezone Discovery</h3>
 <p>
-If a server has a default timezone, it should be indicated via the <a href="StructureDefinition-timezone.html">timezone code</a> on <code>CapabilityStatement.meta</code>.
+If a server has a default timezone, it should be indicated via the <a href="http://hl7.org/fhir/extensions/StructureDefinition-timezone.html">timezone code extension</a> on <code>CapabilityStatement.meta</code>.
 </p>
 
 <a name="search-decl"></a>
