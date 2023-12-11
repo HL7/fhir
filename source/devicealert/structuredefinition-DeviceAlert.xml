@@ -109,14 +109,14 @@
       </type>
       <binding>
         <strength value="required" />
-        <!-- <description value="in-progress | completed | entered-in-error" /> -->
+        <description value="in-progress | completed | entered-in-error" />
         <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-status" />
       </binding>
     </element>
     <element id="DeviceAlert.condition">
       <path value="DeviceAlert.condition" />
       <short value="The condition, event, or state being reported" />
-<!--       <definition value="" /> -->
+      <!-- <definition value="" /> -->
       <min value="1" />
       <max value="1" />
       <isSummary value="true" />
@@ -166,6 +166,7 @@
     </element>
     <element id="DeviceAlert.priority">
       <path value="DeviceAlert.priority" />
+      <short value="high | medium | low | info"/>
       <!-- <short value="The severity of the potential or actual hazard associated with the condition" /> -->
       <definition
         value="The alert priority is usually reported by the source. A priority of `info` may indicate that the alert is &quot;for information only&quot; and not urgent action is required. The element may be omitted if the priority is unknown." />
@@ -183,6 +184,7 @@
     </element>
     <element id="DeviceAlert.type">
       <path value="DeviceAlert.type" />
+      <short value="physiological | technical" />
       <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
 <!--       <definition value="" /> -->
       <min value="0" />
@@ -259,6 +261,7 @@
     </element>
     <element id="DeviceAlert.signal.activationState">
       <path value="DeviceAlert.signal.activationState" />
+      <short value="on | off | paused" />
       <!-- <short value="Whether the signal is configured to announce the alert configuration" /> -->
       <definition
         value="Paused indicates that annunciation has temporarily been disabled (&quot;snooze&quot;)." />
@@ -276,6 +279,7 @@
     </element>
     <element id="DeviceAlert.signal.presence">
       <path value="DeviceAlert.signal.presence" />
+      <short value="on | latched | off | ack" />
       <!-- <short value="Whether the signal is currently being annunciated" /> -->
       <definition value="Indicates whether the signal is currently being annunciated. An on signal is currently being annunciated; a latched signal is currently being being annunciated although the alert condition has ended; an off signal is not currently being annunciated; and an acknowledged signal is not currently being annuciated because the user has acknowledged the signal." />
       <min value="0" />

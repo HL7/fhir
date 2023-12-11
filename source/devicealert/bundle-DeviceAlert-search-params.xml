@@ -128,7 +128,7 @@
       </extension>
       <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-priority"/>
       <description value="Priority of the alert condition"/>
-      <code value="DeviceAlert-priority"/>
+      <code value="priority"/>
       <type value="token"/>
       <expression value="DeviceAlert.priority"/>
       <processingMode value="normal"/>
@@ -146,7 +146,7 @@
       </extension>
       <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-type"/>
       <description value="Whether the alert is physiological or technical"/>
-      <code value="type`"/>
+      <code value="type"/>
       <type value="token"/>
       <expression value="DeviceAlert.type"/>
       <processingMode value="normal"/>
@@ -184,7 +184,7 @@
       </extension>
       <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-derivedFrom"/>
       <description value="Whether the alert is currently occuring"/>
-      <code value="derivedFrom"/>
+      <code value="derived-from"/>
       <type value="reference"/>
       <expression value="DeviceAlert.derivedFrom"/>
       <processingMode value="normal"/>
@@ -213,18 +213,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceAlert-annunciatorCode"/>
+        <id value="DeviceAlert-annunciatorConcept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.annunciator.code"/>
+          <valueString value="DeviceAlert.signal.annunciator.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-annunciatorCode"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-annunciatorConcept"/>
         <description value="The whether the signalling device annunciating the condition is local or remote to the detecting device"/>
-        <code value="annunciator-code"/>
+        <code value="annunciator-concept"/>
         <type value="token"/>
-        <expression value="DeviceAlert.signal.annunciator.code"/>
+        <expression value="DeviceAlert.signal.annunciator.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +237,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.annunciator.reference"/>
+          <valueString value="DeviceAlert.signal.annunciator.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-annunciatorDevice"/>
         <description value="The signalling device annunciating the condition"/>
