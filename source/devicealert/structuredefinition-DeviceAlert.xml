@@ -99,7 +99,7 @@
     </element>
     <element id="DeviceAlert.status">
       <path value="DeviceAlert.status" />
-      <!-- <short value="in-progress | completed | entered-in-error" /> -->
+      <short value="in-progress | completed | entered-in-error" />
 <!--       <definition value="" /> -->
       <min value="1" />
       <max value="1" />
@@ -292,7 +292,7 @@
     </element>
     <element id="DeviceAlert.signal.annunciator">
       <path value="DeviceAlert.signal.annunciator" />
-      <!-- <short value="Where the signal is being annunciated" /> -->
+      <short value="Where the signal is being annunciated" />
       <definition value="Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the actual signalling device may also be present." />
       <min value="0" />
       <max value="1" />
@@ -360,20 +360,6 @@
       <type>
         <code value="Range" />
       </type>
-    </element>
-    <element id="DeviceAlert.device">
-      <path value="DeviceAlert.device"/>
-      <short value="Describes the link to the device originating te alert"/>
-      <definition value="Describes the link to the Device.  This is also known as a channel device."/>
-      <comment value="Note if this is not the top level device - also know as the source device, it may be referenced in the device.parent element."/>
-      <min value="1"/>
-      <max value="1"/>
-      <isSummary value="true"/>
-      <type>
-        <code value="string"/>
-        
-      </type>
-      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>
