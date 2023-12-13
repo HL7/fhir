@@ -38,7 +38,9 @@
   </contact>
   <description value="Logical grouping of characteristics."/>
   <caseSensitive value="true"/>
+  <!-- todo: why?
   <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
+  -->
   <content value="complete"/>
   <concept>
     <code value="all-of"/>
