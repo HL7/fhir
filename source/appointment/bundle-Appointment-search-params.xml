@@ -18,6 +18,8 @@
         <type value="reference"/>
         <expression value="Appointment.participant.actor"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,6 +39,8 @@
         <type value="token"/>
         <expression value="Appointment.appointmentType"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -56,6 +60,8 @@
         <type value="reference"/>
         <expression value="Appointment.basedOn"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -75,6 +81,8 @@
         <type value="date"/>
         <expression value="(start | requestedPeriod.start).first()"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -94,6 +102,8 @@
         <type value="token"/>
         <expression value="Appointment.identifier"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -114,6 +124,8 @@
         <expression value="Appointment.participant.actor.where(resolve() is Location)"/>
         <processingMode value="normal"/>
         <target value="Location"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -133,6 +145,8 @@
         <type value="token"/>
         <expression value="Appointment.participant.status"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -152,6 +166,8 @@
         <type value="reference"/>
         <expression value="Appointment.subject"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -172,6 +188,8 @@
         <expression value="Appointment.participant.actor.where(resolve() is Patient) | Appointment.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
         <target value="Patient"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -192,6 +210,8 @@
         <expression value="Appointment.participant.actor.where(resolve() is Group) | Appointment.subject.where(resolve() is Group)"/>
         <processingMode value="normal"/>
         <target value="Group"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -212,6 +232,8 @@
         <expression value="Appointment.participant.actor.where(resolve() is Practitioner)"/>
         <processingMode value="normal"/>
         <target value="Practitioner"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -231,6 +253,8 @@
         <type value="token"/>
         <expression value="Appointment.reason.concept"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -250,6 +274,8 @@
         <type value="reference"/>
         <expression value="Appointment.reason.reference"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -269,6 +295,8 @@
         <type value="token"/>
         <expression value="Appointment.serviceCategory"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -288,6 +316,8 @@
         <type value="token"/>
         <expression value="Appointment.serviceType.concept"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -307,6 +337,8 @@
         <type value="reference"/>
         <expression value="Appointment.serviceType.reference"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -326,6 +358,8 @@
         <type value="reference"/>
         <expression value="Appointment.slot"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -345,6 +379,8 @@
         <type value="token"/>
         <expression value="Appointment.specialty"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -364,6 +400,8 @@
         <type value="token"/>
         <expression value="Appointment.status"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -383,6 +421,8 @@
         <type value="reference"/>
         <expression value="Appointment.supportingInformation"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -402,6 +442,8 @@
         <type value="date"/>
         <expression value="requestedPeriod"/>
         <processingMode value="normal"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
       </SearchParameter>
     </resource>
   </entry>

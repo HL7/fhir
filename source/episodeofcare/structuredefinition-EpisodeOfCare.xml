@@ -33,7 +33,7 @@
   <title value="Episode Of Care"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <publisher value="HL7 International / Patient Administration"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -338,15 +338,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diagnosis-use"/>
       </binding>
     </element>
-    <element id="EpisodeOfCare.patient">
-      <path value="EpisodeOfCare.patient"/>
-      <short value="The patient who is the focus of this episode of care"/>
-      <definition value="The patient who is the focus of this episode of care."/>
+    <element id="EpisodeOfCare.subject">
+      <path value="EpisodeOfCare.subject"/>
+      <short value="The patient/group who is the focus of this episode of care"/>
+      <definition value="The patient/group who is the focus of this episode of care."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>

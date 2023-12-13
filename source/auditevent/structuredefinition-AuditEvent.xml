@@ -33,7 +33,7 @@
   <title value="Audit Event"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
-  <publisher value="Health Level Seven International (Security)"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>

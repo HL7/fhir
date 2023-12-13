@@ -1,61 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <InsurancePlan xmlns="http://hl7.org/fhir">
     <id value="example-onc" />
-    <text>
-        <status value="generated" />
-        <div xmlns="http://www.w3.org/1999/xhtml">
-			Sample Plan
-        </div>
-    </text>
-    <status value="active" />
-    <name value="Sample Plan" />
-    <alias value="PPO Sample Plan" />
-    <period>
-        <start value="2017-01-01" />
-    </period>
-    <ownedBy>
-        <reference value="Organization/Test" />
-        <display value="Test" />
-    </ownedBy>
-    <administeredBy>
-        <reference value="Organization/Test" />
-        <display value="Test" />
-    </administeredBy>
-    <contact>
-        <address>
-            <line value="123 Fake Street" />
-            <city value="Washington" />
-            <state value="DC" />
-            <postalCode value="20005" />
-            <country value="USA" />
-        </address>
-    </contact>
-    <coverageArea>
-        <reference value="Location/2" />
-        <display value="National" />
-    </coverageArea>
-    <coverage>
-        <type>
-            <text value="Medical" />
-        </type>
-        <benefit>
-            <type>
-                <text value="Diagnostic and treatment services" />
-            </type>
-            <limit>
-                <code>
-                    <text value="primary care visit" />
-                </code>
-            </limit>
-            <limit>
-                <code>
-                    <text value="specialty care visit" />
-                </code>
-            </limit>
-        </benefit>
-    </coverage>
-    <!-- May need to change the data type for the value elements. We don't necessarily use currency each time (this example has values as currency and values as a percentage) -->
-    <plan>
         <type>
             <text value="Standard" />
         </type>
@@ -176,8 +121,4 @@
                 </cost>
             </benefit>
         </specificCost>
-    </plan>
-    <endpoint>
-        <reference value="Endpoint/example" />
-    </endpoint>
 </InsurancePlan>

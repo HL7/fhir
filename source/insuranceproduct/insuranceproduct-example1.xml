@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<InsuranceProduct xmlns="http://hl7.org/fhir">
+	<id value="example1" />
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Health Level Seven International Staff Plan
+		</div>
+	</text>
+	<!-- HL7 itself -->
+	<name value="Health Level Seven International Staff Plan" />
+	<alias value="HL7 International" />
+	<period>
+		<start value="2017-01-01" />
+	</period>
+	<ownedBy>
+		<reference value="Organization/hl7" />
+		<display value="Health Level Seven International" />
+	</ownedBy>
+	<administeredBy>
+		<reference value="Organization/hl7" />
+		<display value="Health Level Seven International" />
+	</administeredBy>
+	<contact>
+
+		<address>
+			<line value="3300 Washtenaw Avenue, Suite 227" />
+			<city value="Ann Arbor" />
+			<state value="MI" />
+			<postalCode value="48104" />
+			<country value="USA" />
+		</address>
+	</contact>
+	<coverageArea>
+		<reference value="Location/2" />
+		<display value="USSS Enterprise-D" />
+	</coverageArea>
+	<coverage>
+		<type>
+			<text value="Substance Abuse" />
+		</type>
+		<benefit>
+			<type>
+				<text value="Primary Care" />
+			</type>
+			<limit>
+				<value>
+					<value value="450.23" />
+					<unit value="USD" />
+				</value>
+				<code>
+					<text value="day" />
+				</code>
+			</limit>
+		</benefit>
+	</coverage>
+	<plan>
+		<type>
+			<text value="Silver" />
+		</type>
+		<generalCost>
+			<cost>
+				<value value="2000" />
+				<currency value="USD" />
+			</cost>
+		</generalCost>
+	</plan>
+	<endpoint>
+		<!-- Endpoint that handles the v2 messaging for the external organization -->
+		<reference value="Endpoint/example" />
+	</endpoint>
+</InsuranceProduct>

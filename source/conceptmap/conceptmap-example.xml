@@ -17,14 +17,19 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-06-13"/>
-  <publisher value="HL7, Inc"/>
-  <contact>
-    <name value="FHIR project team (example)"/>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
   <useContext>
     <code>

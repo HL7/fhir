@@ -40,7 +40,8 @@ a specific individual - essentially the insurance card information. This may alt
 				<td><a href="insuranceplan.html">InsurancePlan</a></td>
 				<td>The InsurancePlan resource holds the definition of an insurance plan which an insurer may offer to potential clients through
 				insurance brokers or an online insurance marketplace. This is only the plan definition and does not contain or reference 
-				a list of individuals who have purchased the plan.			
+				a list of individuals who have purchased the plan.<br/>
+				TODO: Do we need to reference the InsuranceProduct here instead?		
 				</td>
 			</tr>
 		</table>

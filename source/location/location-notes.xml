@@ -68,13 +68,13 @@ Hospital A Building C (instance)
                 Room 2 (instance)
                     ...
             Theatre EM-TA (instance)
-            Coridor (generic)
+            Corridor (generic)
         Level 2 (instance)
             Reception (instance)
                 ...
             Nurses Station EM-ns1 (instance)
                 Medication Cupboard A (instance)
-            Coridor (generic)
+            Corridor (generic)
 Mobile Services (kind)
     Ambulance (kind)
         Ambulance AMB1 (instance)
@@ -157,7 +157,7 @@ Mobile Services (kind)
     GET [base]/Location?contains=-83.694810|42.256500
 </pre>
 <p>
-    Support for multiple points can also be provided using the <code>,</code> syntax which is interpretted as the location returned in the search contains at least 1 of the provided co-ordinates.
+    Support for multiple points can also be provided using the <code>,</code> syntax which is interpreted as the location returned in the search contains at least 1 of the provided co-ordinates.
 </p>
 <blockquote>
     <p>

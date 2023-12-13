@@ -1001,21 +1001,21 @@ RatioRange
   &lt;result&gt;
     &lt;lowNumerator&gt;
       &lt;value value="10" /&gt;
-	  &lt;unit value="milliliter" /&gt;
-	  &lt;code value="mL" /&gt;
-	  &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+	    &lt;unit value="milliliter" /&gt;
+	    &lt;code value="mL" /&gt;
+	    &lt;system value="http://unitsofmeasure.org" /&gt;
     &lt;/lowNumerator&gt;
     &lt;highNumerator&gt;
       &lt;value value="15" /&gt;
-	  &lt;unit value="milliliter" /&gt;
-	  &lt;code value="mL" /&gt;
-	  &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+	    &lt;unit value="milliliter" /&gt;
+	    &lt;code value="mL" /&gt;
+	    &lt;system value="http://unitsofmeasure.org" /&gt;
     &lt;/highNumerator&gt;
     &lt;denominator&gt;
       &lt;value value="100" /&gt;
-	  &lt;unit value="gram" /&gt;
-	  &lt;code value="g" /&gt;
-	  &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+	    &lt;unit value="gram" /&gt;
+	    &lt;code value="g" /&gt;
+	    &lt;system value="http://unitsofmeasure.org" /&gt;
     &lt;/denominator&gt;
   &lt;/result&gt;
 </pre>
@@ -1024,21 +1024,21 @@ RatioRange
   "result" : {
     "lowNumerator" : {
       "value" : "10",
-	  "unit" : "milliliter",
-	  "code" : "mL",
-	  "uri" : "http://hl7.org/fhir/ValueSet/ucum-units"
+	    "unit" : "milliliter",
+	    "code" : "mL",
+	    "system" : "http://unitsofmeasure.org"
     },
     "highNumerator" : {
       "value" : "15",
-	  "unit" : "milliliter",
-	  "code" : "mL",
-	  "uri" : "http://hl7.org/fhir/ValueSet/ucum-units"
+	    "unit" : "milliliter",
+  	  "code" : "mL",
+	    "system" : "http://unitsofmeasure.org"
     },
     "denominator" : {
       "value" : "100",
-	  "unit" : "gram",
-	  "code" : "g",
-	  "uri" : "http://hl7.org/fhir/ValueSet/ucum-units"
+  	  "unit" : "gram",
+	    "code" : "g",
+	    "system" : "http://unitsofmeasure.org"
     }
   }
 </pre>
@@ -1108,7 +1108,7 @@ SampledData
      "system" : "http://unitsofmeasure.org",
      "code" : "uV"
    },
-   "period" : "2",
+   "interval" : "2",
    "factor" : "2.5",
    "dimensions" : "1",
    "data" : "-4 -13 -18 -18 -18 -17 -16 -16 -16 -16 -16 -17 -18 -18 -18 ...."
@@ -1189,7 +1189,7 @@ these cases. Composite names separated by "-" should be treated as a single name
     "given" : ["Peter", "James"]
   }, {
     "use" : "usual",
-    "given" : "Jim"
+    "given" : ["Jim"]
   }]
 </pre>
 [%example-end%]
@@ -1348,14 +1348,14 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
       }]
     },
     "given" : ["Regina", "Johanna", "Maria"],
-    "prefix" : "Dr. phil.",
-    "_prefix" : {
+    "prefix" : ["Dr. phil."],
+    "_prefix" : [{
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
         "valueCode" : "AC"
       }]
-    },
-    "suffix" : "NCFSA"
+    }],
+    "suffix" : ["NCFSA"]
   }, {
     "use" : "maiden",
     "family" : "Hochheim"
@@ -1443,14 +1443,13 @@ extension.
 </pre>
 [%example-json%]
 <pre class="json" fragment="HumanName">
-  "name" : {
+  "name" : [{
     "family" : "ЕМЕЛИН",
     "given" : ["ИВАН", "ВЛАДИМИРОВИЧ"]
-  },
-  "name" : {
+  }, {
     "family" : "EMELIN",
     "given" : ["IVAN", "VLADIMIROVICH"]
-  }
+  }]
 </pre>
 [%example-end%]
 <p>
@@ -1486,7 +1485,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
     "use" : "official",
     "family" : "Erikson",
     "given" : ["Jan", "Erik", "&#214;stlund"],
-    "_given" : {
+    "_given" : [{
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
         "valueCoding" : {
@@ -1494,7 +1493,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
           "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"
         }
       }]
-    }
+    }]
   }]
 </pre>
 [%example-end%]
@@ -1551,8 +1550,8 @@ mellomnamn.
   "name" : {
     "use" : "official",
     "family" : "Erikson",
-    "given" : ["Karin", "Hansen"]
-    "_given" : {
+    "given" : ["Karin", "Hansen"],
+    "_given" : [{
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
         "valueCoding" : {
@@ -1560,7 +1559,7 @@ mellomnamn.
           "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"
         }
       }]
-    }
+    }]
   }
 </pre>
 [%example-end%]
@@ -1609,7 +1608,7 @@ her mother, her father or other family names as specified by naming laws of the 
     "use" : "old",
     "family" : "Erikson",
     "given" : ["Karin", "Hansen"],
-    "_given" : {
+    "_given" : [{
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
         "valueCoding" : {
@@ -1617,12 +1616,12 @@ her mother, her father or other family names as specified by naming laws of the 
           "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"
         }
       }]
-    }
+    }]
   }, {
     "use" : "official",
     "family" : "Berg",
     "given" : ["Karin", "Erikson"],
-    "_given" : {
+    "_given" : [{
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
         "valueCoding" : {
@@ -1630,11 +1629,11 @@ her mother, her father or other family names as specified by naming laws of the 
           "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"
         }
       }]
-    }
+    }]
   }, {
     "use" : "usual",
     "family" : "Berg",
-    "given" : "Karin"
+    "given" : ["Karin"]
   }]
 </pre>
 [%example-end%]
@@ -1979,23 +1978,23 @@ Other Examples:
     "text" : "Kogaddu Birappa Timappa Nair",
     "family" : "Nair",
     "given" : ["Birappa", "Timappa"],
-    "prefix" : "Kogaddu"
+    "prefix" : ["Kogaddu"]
   }, {
     "text" : "Aditya Pratap Singh Chauhan",
     "family" : "Singh",
     "given" : ["Aditya", "Pratap"],
-    "suffix" : "Chauhan"
+    "suffix" : ["Chauhan"]
   }, {
     "text" : "Madurai Mani Iyer",
     "given" : ["Mani"],
-    "prefix" : "Madurai",
-    "suffix" : "Iyer"
+    "prefix" : ["Madurai"],
+    "suffix" : ["Iyer"]
   }, {
     "text" : "Abu Karim Muhammad al-Jamil ibn Nidal ibn Abdulaziz al-Filistini",
     "family" : "ibn Nidal ibn Abdulaziz",
     "given" : ["Muhammad", "al-Jamil"],
-    "prefix" : "Abu Karim",
-    "suffix" : "al-Filistini"
+    "prefix" : ["Abu Karim"],
+    "suffix" : ["al-Filistini"]
   }]
 </pre>
 [%example-end%]
@@ -2045,8 +2044,7 @@ on the structured data elements of the address.
 <pre class="json" fragment="Address">
   "address" : {
    "use" : "work",
-   "text" : "1050 W Wishard Blvd&#13;&#10;RG,
-         5th floor&#13;&#10;Indianapolis, IN 46240",
+   "text" : "1050 W Wishard Blvd&#13;&#10;RG, 5th floor&#13;&#10;Indianapolis, IN 46240",
    "line" : ["1050 W Wishard Blvd", "RG 5th floor"],
    "city" : "Indianapolis",
    "state" : "IN",
@@ -2067,14 +2065,19 @@ on the structured data elements of the address.
     &lt;city value="Indianapolis" /&gt;
     &lt;state value="IN"&gt;
       &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
-        &lt;valueCoding value="IN"/&gt;
+        &lt;valueCoding&gt;
+          &lt;system value="urn:iso:std:iso:3166"/&gt;
+          &lt;code value="US"/&gt;
+        &lt;/valueCoding&gt;
       &lt;/extension>
     &lt;/state&gt;	 
     &lt;postalCode value="46240" /&gt;
-    &lt;state value="IN" /&gt;
     &lt;country value="United States"&gt;
       &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
-        &lt;valueCoding value="US"/&gt;
+        &lt;valueCoding&gt;
+          &lt;system value="urn:iso:std:iso:3166"/&gt;
+          &lt;code value="US"/&gt;
+        &lt;/valueCoding&gt;
       &lt;/extension>
 	  &lt;/country&gt;
   &lt;/address&gt;
@@ -2091,16 +2094,21 @@ on the structured data elements of the address.
     "_state" : {
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-codedString",
-        "valueCoding" : "IN"
+        "valueCoding" : {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "IN"
+        }
       }]
     },
     "postalCode" : "46240",
-    "state" : "IN",
     "country" : "United States",
     "_country" : {
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-codedString",
-        "valueCoding" : "US"
+        "valueCoding" :{
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "IN"
+        }
       }]
     }
   }
@@ -2406,22 +2414,18 @@ address content.
 [%example-json%]
 <pre class="json" fragment="Address">
   "address" : {
-    "line" : "Care of: Dr Smith",
-    "_line" : {
+    "line" : ["Care of: Dr Smith", "123 Somewhere Street NW"],
+    "_line" : [{
       "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf",
         "valueString" : "Dr. Smith"
-      }]
-    },
-    "line" : ["123 Somewhere Street NW"],
-    "_line" : [{
-      "extension" : [{ 
+      },{
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
         "valueString" : "123"
       }, { 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
         "valueString" : "Somewhere"
-      } { 
+      }, { 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
         "valueString" : "Street"
       }, { 
@@ -2579,7 +2583,7 @@ Timing
         "start" : "2011-12-23",
         "end" : "2012-01-02"
       },
-      "when" : "ACM",
+      "when" : ["ACM"],
       "offset" : "30"
     }
   }
@@ -2710,11 +2714,11 @@ Signature
 [%example-json%]
 <pre class="json" fragment="Signature">
   "signature" : {
-    "type" : {
+    "type" : [{
       "system" : "urn:iso-astm:E1762-95:2013",
       "code" : "1.2.840.10065.1.12.1.1",
       "display" : "Author&apos;s Signature"
-    },
+    }],
     "when" : "2022-02-08T10:16:32.000+10:00",
     "who" : {
       "reference" : "Practitioner/example"

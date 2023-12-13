@@ -30,7 +30,7 @@
   <title value="Substance Protein"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
-  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <publisher value="HL7 International / Biomedical Research and Regulation"/>
   <contact>
     <telecom>
       <system value="url"/>

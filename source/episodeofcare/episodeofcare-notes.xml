@@ -7,7 +7,7 @@
 	<h2>Status Management</h2>
 		<h3>History and Period</h3>
 		<p>
-			When an organization assumes responsibility for a patient, then the EpisodeOfCare is created and a start date
+			When an organization assumes responsibility for a patient/group, then the EpisodeOfCare is created and a start date
 			entered to show when it has begun.<br/>
 			As the organization's responsibility changes, so does the status of the EpisodeOfCare.<br/>
 			This is described via an example below for an intake workflow.
