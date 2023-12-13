@@ -86,6 +86,13 @@
       <definition value="An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing."/>
       <min value="0"/>
       <max value="*"/>
+	    <constraint>
+        <key value="con-4"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Procedure.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -844,13 +851,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-	  <constraint>
-        <key value="con-4"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if Procedure.bodySite is not present"/>
-        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="targetSiteCode"/>
