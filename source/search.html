@@ -2301,10 +2301,20 @@ HTTP headers.
 <a name="type-mapping"></a>
 <h4>Search Types and FHIR Types</h4>
 <p>
-The following table shows the mapping between the search types and the FHIR types that can be used with them.
-Note that additionally, implementations may choose to map any search type into "complex" elements (elements
-that contain other elements - e.g., <a href="types.html#BackboneElement">Backbone Elements</a>).  More information
-about this mapping can be found in the <a href="search.html#combining">Combining</a> section of the search page.
+The following table shows the mapping between search types and FHIR types that they can be tested against.
+</p>
+<p>
+Note that in addition to elements of the specified type, any search type is allowed to be tested against elements
+that contain other elements, such as <a href="types.html#BackboneElement">Backbone Elements</a> and complex 
+<a href="datatypes.html">datatypes</a>, that contain at least one element of a valid FHIR type.
+</p>
+<p>
+Generally, search testing against complex elements are performed by "or-joining" each valid sub-element of an 
+appropriate FHIR type (see <a href="search.html#combining">Combining</a> for details).
+However, some types may include additional guidance or specific behavior - for example, when performing 
+<a href="search.html#string">string</a> searches against <a href="datatypes.html#humanname">HumanName</a>
+and <a href="datatypes.html#address">Address</a> elements (see <a href="search.html#string">string</a>).
+For clarity, the table below generally excludes FHIR types that are just containers for other elements.
 </p>
 <table class="grid">
   <tr><th>Search Type</th><th>Short</th><th>FHIR Types</th></tr>
