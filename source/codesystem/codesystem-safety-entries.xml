@@ -3,6 +3,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-use-markdown">
     <valueBoolean value="true"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/safety-entries"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
