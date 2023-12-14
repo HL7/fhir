@@ -7,7 +7,7 @@
 	"reason": "subscription for beginning of a clinical encounter for patient 123",
 	"filterBy": [
 		{
-			"resourceType": "http://hl7.org/fhir/StructureDefinition/Encounter",
+			"resource": "http://hl7.org/fhir/StructureDefinition/Encounter",
 			"searchParamName": "patient",
 			"value": "Patient/123"
 		}
