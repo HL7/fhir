@@ -36,41 +36,12 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         <contentType value="text/html"/>
         <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>
     </resolvable>
-    <relative>
-        <startingSequence>
-            <reference value="MolecularDefinition/StartingSequenceExample"/>
-            <type value="MolecularDefinition"/>
-            <display value="Starting Sequence Resource"/>
-        </startingSequence>
-        <edit>
-            <coordinateSystem>
-                <coding>
-                    <system value="http://loinc.org"/>
-                    <code value="LA30100-4"/>
-                    <display value="0-based interval counting"/>
-                </coding>
-                <text value="0-based interval counting"/>
-            </coordinateSystem>
-            <start value="0"/>
-            <end value="725"/>
-            <replacementSequence>
-                <reference value="MolecularDefinition/ReplacementSequenceExample"/>
-                <type value="MolecularDefinition"/>
-                <display value="Replacement Sequence Resource"/>
-            </replacementSequence>
-            <replacedSequence>
-                <reference value="MolecularDefinition/ReplacedSequenceExample"/>
-                <type value="MolecularDefinition"/>
-                <display value="Replaced Sequence Resource"/>
-            </replacedSequence>
-        </edit>
-    </relative>
     <extracted>
-        <startingSequence>
+        <startingMolecule>
             <reference value="MolecularDefinition/StartingSequenceExample"/>
             <type value="MolecularDefinition"/>
             <display value="Starting Sequence Resource"/>
-        </startingSequence>
+        </startingMolecule>
         <start value="0"/>
         <end value="745"/>
         <coordinateSystem>
@@ -83,14 +54,6 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         </coordinateSystem>
         <reverseComplement value="false"/>
     </extracted>
-    <!--    <repeated>
-            <sequenceMotif>
-                <reference value="MolecularDefinition/SequenceMotifExample"/>
-                <type value="MolecularDefinition"/>
-                <display value="Sequence Motif Resource"/>
-            </sequenceMotif>
-            <copyCount value="5"/>
-        </repeated>-->
     <concatenated>
         <sequenceElement>
             <sequence>
@@ -117,5 +80,44 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             <ordinalIndex value="2"/>
         </sequenceElement>
     </concatenated>
+    <relative>
+        <startingMolecule>
+            <reference value="MolecularDefinition/StartingSequenceExample"/>
+            <type value="MolecularDefinition"/>
+            <display value="Starting Sequence Resource"/>
+        </startingMolecule>
+        <edit>
+            <coordinateSystem>
+                <coding>
+                    <system value="http://loinc.org"/>
+                    <code value="LA30100-4"/>
+                    <display value="0-based interval counting"/>
+                </coding>
+                <text value="0-based interval counting"/>
+            </coordinateSystem>
+            <start value="0"/>
+            <end value="725"/>
+            <replacementMolecule>
+                <reference value="MolecularDefinition/ReplacementSequenceExample"/>
+                <type value="MolecularDefinition"/>
+                <display value="Replacement Sequence Resource"/>
+            </replacementMolecule>
+            <replacedMolecule>
+                <reference value="MolecularDefinition/ReplacedSequenceExample"/>
+                <type value="MolecularDefinition"/>
+                <display value="Replaced Sequence Resource"/>
+            </replacedMolecule>
+        </edit>
+    </relative>
+
+    <!--    <repeated>
+            <sequenceMotif>
+                <reference value="MolecularDefinition/SequenceMotifExample"/>
+                <type value="MolecularDefinition"/>
+                <display value="Sequence Motif Resource"/>
+            </sequenceMotif>
+            <copyCount value="5"/>
+        </repeated>-->
+
     </representation>
 </MolecularDefinition>
