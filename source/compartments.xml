@@ -119,13 +119,13 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="174" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
-            <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0" />
-            <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0" />
-            <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0" />
-            <Column ss:StyleID="s65" ss:Width="149.0" />
-            <Column ss:StyleID="s65" ss:Width="198.0" />
-            <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="210.0" />
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="176" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
+   <Column ss:StyleID="s65" ss:Width="149.0"/>
+   <Column ss:StyleID="s65" ss:Width="198.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="210.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
@@ -223,8 +223,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
-    <Cell>
-                    <Data ss:Type="String" /></Cell>
+    <Cell><Data ss:Type="String"/></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
    </Row>
@@ -241,7 +240,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Citation</Data></Cell>
-                <Cell ss:StyleID="s67" />
+    <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
@@ -342,7 +341,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAlert</Data></Cell>
-    </Row>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">subject | source | annunciator-device</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
     <Cell><Data ss:Type="String">subject | operator</Data></Cell>
@@ -903,7 +904,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>69</TopRowBottomPane>
+   <TopRowBottomPane>42</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
