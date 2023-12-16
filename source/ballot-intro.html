@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle FHIR STU5 Ballot Welcome%]
+[%settitle FHIR STU6 Ballot Welcome%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -10,72 +10,37 @@
 
 
 
-<h2>R5 Ballot Roadmap</h2>
+<h2>R6 Ballot Roadmap</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the FHIR Release 5 (R5) ballot. The R5 release of FHIR has content labeled with different ballot statuses: 
-</p>
-<ul>
- <li><span style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Normative</b></span>: Content that is subject to normative ballot rules. Once passed, <a href="versions.html#change">strict rules</a> are imposed on future change to help ensure inter-version compatibility</li>
- <li><span style="background-color: #fff5e6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Trial Use</b></span>: Content that is undergoing <a href="versions.html#maturity">FHIR maturity Model</a> based testing. In a future ballot cycle, once sufficiently mature, it will be balloted as normative</li>
- <li><span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>: Content that is advisory (e.g. implementers are not required to conform to the content), or navigational content - tables of contents, generated lists, etc.</li>
- <li><span style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Draft</b></span>: Content added late in the balloting process that has no formal standing, but is published for visibility. It might not be suitable for use in production systems.</li>
- <li><span style="background-color: #ffcccc; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Deprecated</b></span>: Content that is in the process of being removed (see <a href="versions.html#deprecation">deprecation</a>).</li>
- <li><span style="background-color: #e6ffff; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>External</b></span>: Content that is replicated from external standards (e.g. HL7 V2, DICOM) and is not subject to ballot comment. This content is mostly being moved out of the specification now</li>
-</ul>
-[%stu-note overall%]
-That the entirety of R5 is considered <b>trial-use</b>. Any content introduced 
-as part of R5 is subject to revision after implementation experience. If any new content is 
-labelled as normative, this should be understood to mean that the committees intention is that 
-the content will be normative in R6.
-[%end-note%]
-<p>
-  Other new content labelled trial-use may also be candidate material for normative in R6 by
-  the normal rules. Any existing content that was normative in R4 will be subject to normative 
-  change rules based on the difference from R4, not R5. R5 is a trial-use version of FHIR.
+Welcome to the FHIR Release 6 (R6) ballot. 
 </p>
 <p>
-There are a number of notes requesting input from reviewers as part of this ballot:
+This ballot is the first ballot of R6. This is only a draft ballot seeking review on the following items:
+
 </p>
-<ul>
-  <li><a href="bundle.html#breaking">Bundle</a>: Request for ballot comment on potentially breaking changes</li>
-  <li><a href="citation.html#fmg">Citation</a>: Call for ballot comments on whether this should exist at all</li>
-  <li><a href="codesystem.html#filters">CodeSystem</a>: Should some default filters be defined for all code systems?</li>
-  <li><a href="diff.html#r4r5">R4/R5 differences</a>: These are not updated for the ballot (also <a href="r4maps.html#r4r5">R4 Maps</a></li>
-  <li><a href="exchange-module.html#dstu">Exchange Module</a>: Last call on supporting Protocol-Buffers</li>
-  <li><a href="messaging.html#id-feedback">Messaging</a>: Question about reworking reliable messaging to use Bundle.identifier not Bundle.id</li>
-  <li><a href="operations-for-large-resources.html#large-operations-stu-note">Operations on Large Resources</a>: This needs ballot support or it won't make it into the published standard</li>
-  <li><a href="researchstudy.html#dstu">ResearchStudy</a>: Several questions for balloters</li>
-  <li><a href="storage.html#cfc">Storage</a>: Is an extension needed</li>
-  <li><a href="supplyrequest.html#dstu">SupplyRequest</a>: Should this be combined with DeviceRequest?</li>
-  <li><a href="supplyrequest.html#scope1">SupplyRequest</a>: Request for ballot comments on whether this should merge with DeviceRequest</li>
-  <li><a href="valueset.html#implicit">ValueSet</a>: Should servers declare their support for implicit valuesets?</li>
-</ul>
-
-
-comparison ballot 
+<p>
+The intention is that once this ballot is reconciled, there will be no further significant change before
+the final normative ballot. Comments are able to be made outside these specific areas as part of this ballot,
+but they'll be considered out of scope, and the underlying Jira issues handled just like any other Jira issue.
+</p>
 
 <a name="process"></a>
-<h3>The FHIR R5 Ballot Process</h3>
+<h3>The FHIR R6 Ballot Process</h3>
 
 <p>
-This is the full ballot for FHIR R5. No additional ballot is expected, since this is a trial-use 
-ballot.
+This is the first of a series of draft ballots on R6, where different candidate resources for normative 
+status in the final R6 version undergo focused review in order to try and reduce the overall ballot load
+of the final R6 ballot. 
 </p>
 
-<p>
-This ballot introduces many small but significant changes from the previous draft ballot. For a slightly more detailed list,
-see <a href="history.html#r5.0.0-ballot">the version history</a>. Note that there are 
-<a href="https://jira.hl7.org/browse/FHIR-5507?filter=19551">3157 change requests</a> applied to R5, of which 
-<a href="https://jira.hl7.org/browse/FHIR-7612?filter=19552">1486 changes</a> were considered substantive.
-</p>
 <p>
 Balloter's attention is drawn to two useful links at the bottom of every page: <img src="compare-links-r5-ballot.png"/>.
 These are very useful when preparing ballot comments.
 </p>
 <p>
-This ballot is using HL7's new <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>. As such, ballot comments will need to 
+This ballot is using HL7's <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>. As such, ballot comments will need to 
 be submitted in Jira and, in general, balloting spreadsheets will not be used. Some organizational 
 and affiliate balloters may continue to use spreadsheets but will be responsible for importing 
 them into Jira themselves and may have slightly different processes for consolidating ballots 
