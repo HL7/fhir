@@ -163,9 +163,11 @@
   </BiologicallyDerivedProduct>
  </contained>
  <identifier>
-<system value="https://www.isbt128.org/uri/ProductConsignment" />
-<value value="A999922123450101" />
+  <system value="https://www.isbt128.org/uri/ProductConsignment" />
+  <value value="A999922123450101" />
  </identifier>
+  <status value="completed"/>
+
  <type>
     <coding> 
       <system value="http://hl7.org/fhir/supplydelivery-supplyitemtype"/> 
