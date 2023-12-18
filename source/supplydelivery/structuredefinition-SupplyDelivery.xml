@@ -175,7 +175,7 @@
       <short value="in-progress | completed | abandoned | entered-in-error"/>
       <definition value="A code specifying the state of the dispense event."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
