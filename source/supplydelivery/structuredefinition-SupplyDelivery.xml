@@ -79,8 +79,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="SupplyDelivery"/>
-      <short value="Delivery of bulk Supplies"/>
-      <definition value="Record of delivery of what is supplied."/>
+      <short value="Record of movement of supplies from one location to another"/>
+      <definition value="Record of movement of supplies from one location to another."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -232,7 +232,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliverySupplyItemType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of supply dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
       </binding>
@@ -260,7 +260,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliveryStage"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The stage of supply delivery."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-stage"/>
       </binding>
