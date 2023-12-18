@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObservationDefinition xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <id value="example"/>
+  <status value="active"/>  
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="13980-8"/>
+      <display value="Albumin/Protein.total in Serum or Plasma by Electrophoresis"/>
+    </coding>
+  </code>
+  <permittedDataType value="Quantity"/>
+  <multipleResultsAllowed value="false"/>
+  <method>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="115341008"/>
+      <display value="Total measurement"/>
+    </coding>
+  </method>
+  <preferredReportName value="Serum albumin/​Protein total"/>
+  <permittedUnit>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="%"/>
+    <display value="%"/>
+  </permittedUnit>
+  <qualifiedValue>
+    <context>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
+    </context>
+    <rangeCategory value="reference"/>
+    <range>
+      <low>
+        <value value="50"/>
+      </low>
+    </range>
+  </qualifiedValue>
+  <qualifiedValue>
+    <context>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
+    </context>
+    <rangeCategory value="critical"/>
+    <range>
+      <high>
+        <value value="40"/>
+      </high>
+    </range>
+  </qualifiedValue>
+</ObservationDefinition>
