@@ -24,7 +24,7 @@ Those associations are done in dedicated resources such as the MedicationDispens
 <li>Rejection of a delivery due to item condition</li>
 <li>Noting the loss of a delivery due to transportation failure</li>
 </ul>
-<p>The SupplyDelivery enables the documentation of the one or more relevant stages, such as dispatch of and reception of a shipment.  One may opt to document multiple stages given a particular use case, e.g., shipments of biologically derived products in a tightly controlled process, or only use a singular stage to summarize the shipment.  Examples would include the dispatch and reception stages that in certain use cases need to be documented separately using two or more instances.<p>
+<p>The SupplyDelivery enables the documentation of the one or more relevant stages, such as dispatch of and reception of a shipment.  One may opt to document multiple stages given a particular use case, e.g., shipments of biologically derived products in a tightly controlled process, or only use a singular stage to summarize the shipment.  Examples would include the dispatch and reception stages that in certain use cases need to be documented separately using two or more instances.</p>
 
 </div>
 
