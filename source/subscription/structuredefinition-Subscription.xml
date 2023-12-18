@@ -33,7 +33,7 @@
   <title value="Subscription"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -236,8 +236,8 @@
       </constraint>
       <isSummary value="true"/>
     </element>
-    <element id="Subscription.filterBy.resourceType">
-      <path value="Subscription.filterBy.resourceType"/>
+    <element id="Subscription.filterBy.resource">
+      <path value="Subscription.filterBy.resource"/>
       <short value="Allowed Resource (reference to definition) for this Subscription filter"/>
       <definition value="A resource listed in the `SubscriptionTopic` this `Subscription` references (`SubscriptionTopic.canFilterBy.resource`). This element can be used to differentiate filters for topics that include more than one resource type."/>
       <min value="0"/>

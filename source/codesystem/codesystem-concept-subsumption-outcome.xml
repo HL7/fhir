@@ -17,6 +17,19 @@
   <name value="ConceptSubsumptionOutcome"/>
   <title value="Concept Subsumption Outcome code system"/>
   <experimental value="true"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem."/>
   <caseSensitive value="true"/>
   <content value="complete"/>

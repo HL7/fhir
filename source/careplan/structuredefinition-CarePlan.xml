@@ -33,7 +33,7 @@
   <title value="Care Plan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Care)"/>
+  <publisher value="HL7 International / Patient Care"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -555,7 +555,7 @@
     </element>
     <element id="CarePlan.addresses">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20168."/>
+        <valueString value="GF#20168, J#32512."/>
       </extension>
       <path value="CarePlan.addresses"/>
       <short value="Health issues this plan addresses"/>
@@ -567,6 +567,8 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
       </type>
       <isSummary value="true"/>
       <binding>

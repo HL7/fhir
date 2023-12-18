@@ -160,7 +160,7 @@ Purpose:
           <xs:documentation>Indicates datatypes not fully supported and what the limitations on those datatypes are.  Cascades through all static models supported by this element.</xs:documentation>
           <xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
         </xs:annotation>
-        <!-- Todo: Translation of datatype to actually interpretted flavor -->
+        <!-- Todo: Translation of datatype to actually interpreted flavor -->
       </xs:element>
       <xs:element name="additionalVocabularyModel" type="VocabularyModel" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
@@ -173,7 +173,7 @@ Purpose:
           <xs:documentation>Indicates domains, valuesets and code systems not fully supported and what the limitations on those vocabulary elements are.  Cascades through all static models supported by this element.</xs:documentation>
           <xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
         </xs:annotation>
-        <!-- Todo: Translation of datatype to actually interpretted flavor -->
+        <!-- Todo: Translation of datatype to actually interpreted flavor -->
       </xs:element>
     </xs:sequence>
   </xs:complexType>

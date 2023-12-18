@@ -33,7 +33,7 @@
   <title value="Location"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <publisher value="HL7 International / Patient Administration"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -115,7 +115,7 @@
     <element id="Location.status">
       <path value="Location.status"/>
       <short value="active | suspended | inactive"/>
-      <definition value="The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location."/>
+      <definition value="The status property covers the general availability of the resource, not the current value which may be covered by the operationalStatus, or by a schedule/slots if they are configured for the location."/>
       <min value="0"/>
       <max value="1"/>
       <type>

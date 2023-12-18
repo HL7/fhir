@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <name value="CommonUCUMCodesForDuration"/>
   <title value="Common UCUM Codes for Duration"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
+    </telecom>
+  </contact>
   <contact>
     <telecom>
       <system value="url"/>

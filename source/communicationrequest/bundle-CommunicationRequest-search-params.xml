@@ -307,4 +307,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-about"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.about"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-about"/>
+        <description value="Resources that pertain to this communication request"/>
+        <code value="about"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.about"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

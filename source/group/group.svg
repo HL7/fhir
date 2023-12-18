@@ -353,8 +353,8 @@ period</a>
      transform="translate(0.68802815,35.089436)">
     <rect
        id="Group.member"
-       x="200"
-       y="180"
+       x="330"
+       y="250"
        rx="4"
        ry="4"
        width="290.39999"
@@ -362,21 +362,21 @@ period</a>
        style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
     <line
        id="n395"
-       x1="200"
-       y1="208"
+       x1="330"
+       y1="278"
        x2="490.39999"
        y2="208"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n396"
-       x="345.20001"
-       y="200"
+       x="475.20001"
+       y="270"
        class="diagram-class-title"
        style="fill:#000000">Member</text>
     <text
        id="n397"
-       x="206"
-       y="222"
+       x="336"
+       y="292"
        class="diagram-class-detail"
        style="fill:#000000"><a
    xlink:href="group-definitions.html#Group.member.entity"
@@ -398,8 +398,8 @@ entity</a>
 |</text>
     <text
        id="n403"
-       x="226"
-       y="236"
+       x="356"
+       y="306"
        class="diagram-class-detail"
        style="fill:#000000"><a
    xlink:href="device.html#Device"
@@ -416,8 +416,8 @@ entity</a>
  »</text>
     <text
        id="n419"
-       x="206"
-       y="250"
+       x="336"
+       y="320"
        class="diagram-class-detail"
        style="fill:#000000"><a
    xlink:href="group-definitions.html#Group.member.period"
@@ -430,8 +430,8 @@ period</a>
  [0..1]</text>
     <text
        id="n425"
-       x="206"
-       y="264"
+       x="336"
+       y="334"
        class="diagram-class-detail"
        style="fill:#000000"><a
    xlink:href="group-definitions.html#Group.member.inactive"

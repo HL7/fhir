@@ -63,15 +63,14 @@
             <resource value="A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="EpisodeOfCare.patient">
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+    <divergentElement patternPath="Event.subject" resourcePath="EpisodeOfCare.subject">
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="The patient who is the focus of this episode of care"/>
+            <resource value="The patient/group who is the focus of this episode of care"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The patient who is the focus of this episode of care."/>
+            <resource value="The patient/group who is the focus of this episode of care."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the episode of care to the Patient context.  May also affect access control."/>

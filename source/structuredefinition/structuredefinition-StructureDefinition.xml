@@ -38,7 +38,7 @@
 	<title value="Structure Definition"/>
 	<status value="active"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<publisher value="HL7 International / FHIR Infrastructure"/>
 	<contact>
 		<telecom>
 			<system value="url"/>

@@ -7,7 +7,7 @@
   <title value="example-constraint"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <description value="Search Composition Bundle"/>
   <code value="example-constraint"/>
   <base value="Bundle"/>

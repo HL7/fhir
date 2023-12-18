@@ -43,7 +43,7 @@
 					<reference value="http://acme.com/ehr/fhir/Patient/pat1"/>
 				</focus>
 				<focus>
-					<reference value="http://acme.com/ehr/fhir/Patient/pat12"/>
+					<reference value="http://acme.com/ehr/fhir/Patient/pat2"/>
 				</focus>
 			</MessageHeader>
 		</resource>
@@ -97,7 +97,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://acme.com/ehr/fhir/Patient/pat12"/>
+		<fullUrl value="http://acme.com/ehr/fhir/Patient/pat2"/>
 		<resource>
 			<Patient>
 				<id value="pat2"/>

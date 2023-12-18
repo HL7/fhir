@@ -35,7 +35,7 @@
 	<title value="Observation Definition"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
-	<publisher value="Health Level Seven International (Orders and Observations)"/>
+	<publisher value="HL7 International / Orders and Observations"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
@@ -96,7 +96,7 @@
 				<key value="obd-0"/>
 				<severity value="error"/>
 				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
-				<expression value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<expression value="permittedUnit.exists() implies permittedDataType.exists(value = 'Quantity')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<mapping>
@@ -948,8 +948,7 @@
 				<key value="obd-1"/>
 				<severity value="error"/>
 				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
-				<expression
-					value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<expression value="permittedUnit.exists() implies permittedDataType.exists(value = 'Quantity')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<type>
