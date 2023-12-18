@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="sample-security-structural-roles"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
   <url value="http://hl7.org/fhir/sample-security-structural-roles"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

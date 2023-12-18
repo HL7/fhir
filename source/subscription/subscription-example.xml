@@ -15,7 +15,7 @@
   </contact>
 	<reason value="Example subscription for example topic"/>
 	<filterBy>
-		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
 		<filterParameter value="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
