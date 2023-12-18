@@ -300,8 +300,8 @@
     </element>
     <element id="SupplyDelivery.suppliedItem.condition">
       <path value="SupplyDelivery.suppliedItem.condition"/>
-      <short value="Amount supplied"/>
-      <definition value="The condition in which the item was at the event (shipment, or receipt, etc.)."/>
+      <short value="A description of the supplied item's condition (e.g., box is damaged)"/>
+      <definition value="The condition in which the supplied item was at the event (shipment, or receipt, etc.).  For example, to indicate when the supplied item is not suitable for use (e.g., damaged or out of temperature control)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
