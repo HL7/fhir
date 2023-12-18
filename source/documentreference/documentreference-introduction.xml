@@ -37,7 +37,7 @@ further structure within the Observation instances. The DocumentReference resour
 representation of such forms of information as it exposes the metadata relevant for interpreting the information.
 There is some overlap potential such as a scan of a CBC report that can either be referenced by way of a DocumentReference, 
 or included in a DiagnosticReport as a presentedForm together with the structured, discrete data.
-Specific implementation guides would further clarify when one approach is more appropriate than another.
+In some cases, a single in-system entity may be represented as both resources if they provide relevant metadata or workflow-specific attributes. Specific implementation guides would further clarify which approach is more appropriate.
 </p>
 <p>
 This resource is able to contain medical images in a DICOM format. These images may also be made 
@@ -71,6 +71,7 @@ the document it references. Like all resources, there is overlap between the inf
 resource directly, and in the general <a href="provenance.html">Provenance</a> resource. This is
 discussed as <a href="provenance.html#overlap">part of the description of the Provenance resource</a>.
 </p>
-</div>
 
+
+</div>
 </div>
