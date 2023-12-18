@@ -884,7 +884,7 @@
           <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-string"/>
-        <description value="String in valueString"/>
+        <description value="String in valueString."/>
         <code value="value-string"/>
         <type value="string"/>
         <expression value="value.ofType(string)"/>
