@@ -39,13 +39,13 @@
             <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
         </telecom>
     </contact>
-    <description value="FHIR Sequence Profile"/>
+    <description value="FHIR Haplotype Profile"/>
     <fhirVersion value="6.0.0"/>
 
     <kind value="resource"/>
     <abstract value="false"/>
     <type value="MolecularDefinition"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/haplotype"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
     <derivation value="constraint"/>
     <differential>
         <element id="MolecularDefinition">

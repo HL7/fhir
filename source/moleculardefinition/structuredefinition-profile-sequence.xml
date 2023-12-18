@@ -45,7 +45,7 @@
     <kind value="resource"/>
     <abstract value="false"/>
     <type value="MolecularDefinition"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
     <derivation value="constraint"/>
     <differential>
         <element id="MolecularDefinition">
