@@ -144,7 +144,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.device.location"/>
+          <valueString value="Specimen.container.device.reference.location"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-location"/>
         <description value="The location of the specimen"/>
