@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="characteristic-offset"/>
+  <id value="insuranceproduct-applicability"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="pa"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
-  </extension>
-  <url value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
+  <url value="http://hl7.org/fhir/ValueSet/insuranceproduct-applicability"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3061"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.871"/>
   </identifier>
-  <version value="5.0.0"/>
-  <name value="CharacteristicOffset"/>
-  <title value="Characteristic Offset"/>
+  <version value="6.0.0"/>
+  <name value="BenefitCostApplicability"/>
+  <title value="Benefit Cost Applicability"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2022-03-04T16:55:11+11:00"/>
+  <date value="2018-06-05T14:06:02+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,11 +30,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Reference point for characteristic.valueQuantity."/>
+  <description value="Whether the cost applies to in-network or out-of-network providers."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/characteristic-offset"/>
+      <system value="http://terminology.hl7.org/CodeSystem/applicability"/>
     </include>
   </compose>
 </ValueSet>

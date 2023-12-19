@@ -15,7 +15,7 @@
     <valueInteger value="3"/>
   </extension>
   <url value="http://hl7.org/fhir/ConceptMap/start-relationship-type"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="StartRelationshipType"/>
   <title value="Start Relationship Type"/>
   <status value="draft"/>

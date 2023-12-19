@@ -30,12 +30,12 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1082"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="TestScript"/>
 	<title value="Test Script"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<publisher value="HL7 International / FHIR Infrastructure"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
@@ -987,7 +987,6 @@
 				<code value="BackboneElement"/>
 			</type>
 			<condition value="tst-1"/>
-			<condition value="tst-2"/>
 			<constraint>
 				<key value="tst-7"/>
 				<severity value="error"/>
@@ -1007,8 +1006,6 @@
 				<code value="Coding"/>
 			</type>
 			<condition value="tst-7"/>
-			<condition value="tst-8"/>
-			<condition value="tst-9"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="TestScriptOperationCode"/>
@@ -1185,8 +1182,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-7"/>
-			<condition value="tst-8"/>
-			<condition value="tst-9"/>
 		</element>
 		<element id="TestScript.setup.action.operation.requestHeader">
 			<path value="TestScript.setup.action.operation.requestHeader"/>
@@ -1253,8 +1248,6 @@
 				<code value="id"/>
 			</type>
 			<condition value="tst-7"/>
-			<condition value="tst-8"/>
-			<condition value="tst-9"/>
 		</element>
 		<element id="TestScript.setup.action.operation.targetId">
 			<path value="TestScript.setup.action.operation.targetId"/>
@@ -1267,8 +1260,6 @@
 				<code value="id"/>
 			</type>
 			<condition value="tst-7"/>
-			<condition value="tst-8"/>
-			<condition value="tst-9"/>
 		</element>
 		<element id="TestScript.setup.action.operation.url">
 			<path value="TestScript.setup.action.operation.url"/>
@@ -1281,8 +1272,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-7"/>
-			<condition value="tst-8"/>
-			<condition value="tst-9"/>
 		</element>
 		<element id="TestScript.setup.action.assert">
 			<path value="TestScript.setup.action.assert"/>
@@ -1295,7 +1284,6 @@
 				<code value="BackboneElement"/>
 			</type>
 			<condition value="tst-1"/>
-			<condition value="tst-2"/>
 			<constraint>
 				<key value="tst-12"/>
 				<severity value="error"/>
@@ -1351,7 +1339,6 @@
 				<code value="code"/>
 			</type>
 			<condition value="tst-12"/>
-			<condition value="tst-13"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AssertionDirectionType"/>
@@ -1374,7 +1361,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-10"/>
-			<condition value="tst-11"/>
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourceExpression">
 			<path value="TestScript.setup.action.assert.compareToSourceExpression"/>
@@ -1387,7 +1373,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-10"/>
-			<condition value="tst-11"/>
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourcePath">
 			<path value="TestScript.setup.action.assert.compareToSourcePath"/>
@@ -1400,7 +1385,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-10"/>
-			<condition value="tst-11"/>
 		</element>
 		<element id="TestScript.setup.action.assert.contentType">
 			<path value="TestScript.setup.action.assert.contentType"/>
@@ -1417,7 +1401,6 @@
 				<valueCode value="application/fhir+xml"/>
 			</example>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="MimeType"/>
@@ -1467,7 +1450,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.headerField">
 			<path value="TestScript.setup.action.assert.headerField"/>
@@ -1480,7 +1462,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.minimumId">
 			<path value="TestScript.setup.action.assert.minimumId"/>
@@ -1493,7 +1474,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.navigationLinks">
 			<path value="TestScript.setup.action.assert.navigationLinks"/>
@@ -1506,7 +1486,6 @@
 				<code value="boolean"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.operator">
 			<path value="TestScript.setup.action.assert.operator"/>
@@ -1542,7 +1521,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.requestMethod">
 			<path value="TestScript.setup.action.assert.requestMethod"/>
@@ -1555,7 +1533,6 @@
 				<code value="code"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="TestScriptRequestMethodCode"/>
@@ -1587,7 +1564,6 @@
 				<code value="uri"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRConcreteType"/>
@@ -1612,8 +1588,6 @@
 			</type>
 			<condition value="tst-12"/>
 			<condition value="tst-5"/>
-			<condition value="tst-13"/>
-			<condition value="tst-6"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AssertionResponseTypes"/>
@@ -1638,8 +1612,6 @@
 			</type>
 			<condition value="tst-12"/>
 			<condition value="tst-5"/>
-			<condition value="tst-13"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.sourceId">
 			<path value="TestScript.setup.action.assert.sourceId"/>
@@ -1674,7 +1646,6 @@
 				<code value="id"/>
 			</type>
 			<condition value="tst-5"/>
-			<condition value="tst-6"/>
 		</element>
 		<element id="TestScript.setup.action.assert.value">
 			<path value="TestScript.setup.action.assert.value"/>

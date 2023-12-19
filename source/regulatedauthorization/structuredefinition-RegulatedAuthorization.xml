@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1055"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="RegulatedAuthorization"/>
   <title value="Regulated Authorization"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
-  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <publisher value="HL7 International / Biomedical Research and Regulation"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>

@@ -22,17 +22,17 @@
 	  <Group>
 	    <id value="group1" />
 	    <type value = "animal" />
-		<membership value = "enumerated" />
-		<member>
-		  <entity>
-		    <reference value="#bed1" />
-		  </entity>
-		</member>
-		<member>
-		  <entity>
-		    <reference value="#bed2" />
-		  </entity>
-		</member>
+	    <membership value = "enumerated" />
+	    <member>
+		    <entity>
+		      <reference value="#bed1" />
+		    </entity>
+	    </member>
+	    <member>
+		    <entity>
+		      <reference value="#bed2" />
+		    </entity>
+	    </member>
 	  </Group>
 	</contained>
 	<identifier>
@@ -41,7 +41,7 @@
 		<value value="20171014-1234"/>
 	</identifier>
 	<status value="preliminary"/>
-	<!-- 
+	<!--
     Observations are often coded in multiple code systems.
       - LOINC
 		- or SNOMED

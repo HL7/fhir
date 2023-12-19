@@ -61,9 +61,9 @@
       </coding>
     </use>
   </diagnosis>
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
-  </patient>
+  </subject>
   <managingOrganization>
     <reference value="Organization/hl7" />
   </managingOrganization>

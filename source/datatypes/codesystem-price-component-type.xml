@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1807"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="PriceComponentType"/>
   <title value="Price Component Type"/>
   <status value="draft"/>
@@ -48,27 +48,27 @@
   </concept>
   <concept>
     <code value="surcharge"/>
-    <display value="surcharge"/>
+    <display value="Surcharge"/>
     <definition value="the amount is a surcharge applied on the base price."/>
   </concept>
   <concept>
     <code value="deduction"/>
-    <display value="deduction"/>
+    <display value="Deduction"/>
     <definition value="the amount is a deduction applied on the base price."/>
   </concept>
   <concept>
     <code value="discount"/>
-    <display value="discount"/>
+    <display value="Discount"/>
     <definition value="the amount is a discount applied on the base price."/>
   </concept>
   <concept>
     <code value="tax"/>
-    <display value="tax"/>
+    <display value="Tax"/>
     <definition value="the amount is the tax component of the total price."/>
   </concept>
   <concept>
     <code value="informational"/>
-    <display value="informational"/>
+    <display value="Informational"/>
     <definition value="the amount is of informational character, it has not been applied in the calculation of the total price."/>
   </concept>
 </CodeSystem>

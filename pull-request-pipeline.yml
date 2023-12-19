@@ -59,7 +59,7 @@ jobs:
       gradleWrapperFile: 'gradlew'
       javaHomeOption: 'JDKVersion'
       publishJUnitResults: false
-      tasks: 'publish --stacktrace'
+      tasks: 'publish --stacktrace --refresh-dependencies'
 
   # We need a valid ssh key to upload to build.fhir.org. This is stored in the azure pipelines secure filesystem.
   # This step downloads the file for use within this job.

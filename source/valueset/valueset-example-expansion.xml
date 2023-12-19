@@ -74,11 +74,17 @@
 	<!--   Expansions that are not intended for persistence often do not have 
    all the metadata. But this one, intended for persistence, does   -->
 	<date value="2015-06-22"/>
-	<publisher value="FHIR Project team"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
 			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
 		</telecom>
 	</contact>
 	<description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>

@@ -18,7 +18,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="1313112"/>
-            <display value="Phenytoin 25mg/ml oral suspension"/>
+            <display value="phenytoin 25 MG/ML Oral Suspension"/>
         </coding>
     </concept>
     </medication>

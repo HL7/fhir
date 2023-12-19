@@ -166,7 +166,19 @@
   <status value="active"/>
   <experimental value="false"/>
   <date value="2010-01-29"/>
-  <publisher value="Nationwide Health Information Network (NHIN)"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <contact>
     <telecom>
       <system value="url"/>

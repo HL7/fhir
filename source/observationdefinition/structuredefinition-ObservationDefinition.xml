@@ -30,12 +30,12 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1325"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ObservationDefinition"/>
 	<title value="Observation Definition"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
-	<publisher value="Health Level Seven International (Orders and Observations)"/>
+	<publisher value="HL7 International / Orders and Observations"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
@@ -50,7 +50,7 @@
 	</contact>
 	<description value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
 	<purpose value="In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
@@ -96,7 +96,7 @@
 				<key value="obd-0"/>
 				<severity value="error"/>
 				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
-				<expression value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<expression value="permittedUnit.exists() implies permittedDataType.exists(value = 'Quantity')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<mapping>
@@ -948,8 +948,7 @@
 				<key value="obd-1"/>
 				<severity value="error"/>
 				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
-				<expression
-					value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<expression value="permittedUnit.exists() implies permittedDataType.exists(value = 'Quantity')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<type>

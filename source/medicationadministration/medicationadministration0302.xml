@@ -1,65 +1,65 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
- xmlns="http://hl7.org/fhir"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+  xmlns="http://hl7.org/fhir">
   <id value="medadmin0302"/>
   <contained>
     <Medication>
       <id value="med0317"/>
-        <doseForm>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="385219001"/>
-            <display value="Injection Solution (qualifier value)"/>
-          </coding>
-          <text value="Injection Solution (qualifier value)"/>
-        </doseForm>
-        <ingredient>
-          <item>
-            <concept>
+      <doseForm>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="385219001"/>
+          <display value="Injection Solution (qualifier value)"/>
+        </coding>
+        <text value="Injection Solution (qualifier value)"/>
+      </doseForm>
+      <ingredient>
+        <item>
+          <concept>
             <coding>
               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
               <code value="204520"/>
-              <display value="Potassium Chloride"/>
+              <display value="potassium chloride 2 MEQ/ML Injectable Solution"/>
             </coding>
-            </concept>
-          </item>
-          <strengthRatio>
-            <numerator>
-              <value value="2"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="meq"/>
-            </numerator>
-            <denominator>
-              <value value="1"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="mL"/>
-            </denominator>
-          </strengthRatio>
-        </ingredient>
-        <ingredient>
-          <item>
+            <text value="Potassium Chloride"/>
+          </concept>
+        </item>
+        <strengthRatio>
+          <numerator>
+            <value value="2"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="meq"/>
+          </numerator>
+          <denominator>
+            <value value="1"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/>
+          </denominator>
+        </strengthRatio>
+      </ingredient>
+      <ingredient>
+        <item>
           <concept>
             <coding>
               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
               <code value="313002"/>
-              <display value="Sodium Chloride 0.9% injectable solution"/>
+              <display value="sodium chloride 9 MG/ML Injectable Solution"/>
             </coding>
           </concept>
-          </item>
-          <strengthRatio>
-            <numerator>
-              <value value="0.9"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="g"/>
-            </numerator>
-            <denominator>
-              <value value="100"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="mL"/>
-            </denominator>
-          </strengthRatio>
-        </ingredient>   
+        </item>
+        <strengthRatio>
+          <numerator>
+            <value value="0.9"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g"/>
+          </numerator>
+          <denominator>
+            <value value="100"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/>
+          </denominator>
+        </strengthRatio>
+      </ingredient>
     </Medication>
   </contained>
   <partOf>
@@ -75,27 +75,27 @@
   </category>
   <medication>
     <reference>
-    <reference value="#med0317"/> 
+      <reference value="#med0317"/>
     </reference>
   </medication>
- <subject>
-   <reference value="Patient/pat1"/>
-   <display value="Donald Duck"/> 
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/>
   </subject>
-  <encounter> 
+  <encounter>
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
   </encounter>
- <occurencePeriod>
-  <start value="2015-01-15T04:30:00+01:00"/>
-   <end value="2015-01-15T14:30:00+01:00"/>
-</occurencePeriod>
+  <occurencePeriod>
+    <start value="2015-01-15T04:30:00+01:00"/>
+    <end value="2015-01-15T14:30:00+01:00"/>
+  </occurencePeriod>
   <performer>
     <actor>
       <reference>
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
-      </reference> 
+      </reference>
     </actor>
   </performer>
   <reason>

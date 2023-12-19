@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1283"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Procedure"/>
   <title value="Procedure"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Care)"/>
+  <publisher value="HL7 International / Patient Care"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -86,6 +86,13 @@
       <definition value="An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing."/>
       <min value="0"/>
       <max value="*"/>
+	    <constraint>
+        <key value="con-4"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Procedure.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -173,6 +180,9 @@
       </mapping>
     </element>
     <element id="Procedure.basedOn">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#32503"/>
+      </extension>
       <path value="Procedure.basedOn"/>
       <short value="A request for this procedure"/>
       <definition value="A reference to a resource that contains details of the request for this procedure."/>
@@ -183,6 +193,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -405,7 +416,7 @@
     </element>
     <element id="Procedure.focus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32504, J#33394"/>
+        <valueString value="J#32504, J#33394, J#41268"/>
       </extension>
       <path value="Procedure.focus"/>
       <short value="Who is the target of the procedure when it is not the subject of record only"/>
@@ -423,6 +434,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
+	  <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it changes who is the target of the procedure."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -532,11 +545,12 @@
     </element>
     <element id="Procedure.recorder">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#12633."/>
+        <valueString value="GF#12633, J#32505"/>
       </extension>
       <path value="Procedure.recorder"/>
       <short value="Who recorded the procedure"/>
       <definition value="Individual who recorded the record and takes responsibility for its content."/>
+	  <comment value="The recorder takes responsibility for the recorded content.  The source from where they got the information can be captured using reportedReference.  If you want to capture the scribe, that's typically handled with Provenance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -623,7 +637,7 @@
     </element>
     <element id="Procedure.performer.function">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14446."/>
+        <valueString value="GF#14446, J#32815."/>
       </extension>
       <path value="Procedure.performer.function"/>
       <short value="Type of performance"/>
@@ -641,7 +655,7 @@
         </extension>
         <strength value="example"/>
         <description value="A code that identifies the role of a performer of the procedure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -796,12 +810,12 @@
       <path value="Procedure.bodySite"/>
       <short value="Target body sites"/>
       <definition value="Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion."/>
-      <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure]]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <condition value="con-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -821,6 +835,25 @@
       <mapping>
         <identity value="rim"/>
         <map value=".targetSiteCode"/>
+      </mapping>
+    </element>
+	<element id="Procedure.bodyStructure">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#39288"/>
+      </extension>
+      <path value="Procedure.bodyStructure"/>
+      <short value="Target body structure"/>
+      <definition value="Indicates the body structure on the subject's body where the procedure was performed."/>
+      <comment value="Should be consistent with Procedure.code.  Cannot be used if Procedure.bodySite is used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="targetSiteCode"/>
       </mapping>
     </element>
     <element id="Procedure.outcome">
@@ -893,13 +926,18 @@
       </mapping>
     </element>
     <element id="Procedure.followUp">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#32512"/>
+      </extension>
       <path value="Procedure.followUp"/>
       <short value="Instructions for follow up"/>
-      <definition value="If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used."/>
+      <definition value="If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used. CarePlan can reference the Procedure via CarePlan.addresses."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
+	  <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

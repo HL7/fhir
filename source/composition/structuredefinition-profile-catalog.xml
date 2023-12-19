@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1175"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ProfileForCatalog"/>
   <title value="Profile for  Catalog"/>
   <status value="draft"/>
@@ -34,7 +34,7 @@
     </telecom>
   </contact>
   <description value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -127,9 +127,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
     </element>
-    <element id="Composition.date:IssueDate">
+    <element id="Composition.date">
       <path value="Composition.date"/>
-      <sliceName value="IssueDate"/>
       <short value="When the Catalog was created"/>
       <definition value="When the Catalog was created."/>
       <alias value="IssueDate"/>

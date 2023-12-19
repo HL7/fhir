@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0318"/>
     <identifier>
         <use value="official"/>
@@ -11,11 +10,12 @@
     <status value="in-progress"/>
     <medication>
         <concept>
-        <coding>
-            <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="0378-1800-10"/>
-            <display value="Levothyroxine Sodium Tablets, USP (75mcg)"/>
-        </coding>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/ndc"/>
+                <code value="0378-1800-10"/>
+                <display value="Levothyroxine Sodium, 1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10) (package)"/>
+            </coding>
+            <text value="Levothyroxine Sodium Tablets, USP (75mcg)"/>
         </concept>
     </medication>
     <subject>
@@ -23,7 +23,7 @@
         <display value="Donald Duck"/>
     </subject>
     <encounter>
-        <reference value="Encounter/f001"/> 
+        <reference value="Encounter/f001"/>
     </encounter>
     <performer>
         <actor>
@@ -85,27 +85,27 @@
             </doseQuantity>
         </doseAndRate>
 
-    </dosageInstruction> 
-<substitution>
-    <wasSubstituted value="true"></wasSubstituted>
-    <type>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution"/>
-            <code value="F"/>
-            <display value="formulary"/>
-        </coding>
-    </type>
-    <reason>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-            <code value="FP"/>
-            <display value="Formulary Policy"/>
-        </coding>
-    </reason>
-    <responsibleParty>
-        <reference value="Practitioner/f006"></reference>
-    </responsibleParty>
-</substitution>
+    </dosageInstruction>
+    <substitution>
+        <wasSubstituted value="true"></wasSubstituted>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution"/>
+                <code value="F"/>
+                <display value="formulary"/>
+            </coding>
+        </type>
+        <reason>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+                <code value="FP"/>
+                <display value="Formulary Policy"/>
+            </coding>
+        </reason>
+        <responsibleParty>
+            <reference value="Practitioner/f006"></reference>
+        </responsibleParty>
+    </substitution>
 </MedicationDispense>
 
 

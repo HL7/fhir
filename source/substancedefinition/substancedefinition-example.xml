@@ -52,7 +52,7 @@
          </coding>
       </language>
    </name>
-   <name>
+   <!-- <name>
       <name value="ΠΑΡΑΚΕΤΑΜΌΛΗ"/>
       <status>
          <coding>
@@ -66,10 +66,10 @@
          <coding>
          	<system value="urn:ietf:bcp:47"/>
             <code value="el"/>
-            <display value="Greek"/>
+            <display value="Modern Greek (1453-)"/>
          </coding>
       </language>
-   </name>
+   </name> -->
    <name>
       <name value="ПАРАЦЕТАМОЛ"/>
       <status>

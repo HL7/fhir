@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1396"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ExampleLipidProfile"/>
   <title value="Example  Lipid  Profile"/>
   <status value="draft"/>
@@ -34,7 +34,7 @@
     </telecom>
   </contact>
   <description value="HDL Cholesterol Result"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
