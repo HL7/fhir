@@ -86,7 +86,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.device.owner"/>
+          <valueString value="Specimen.container.device.reference.owner"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-organization"/>
         <description value="The organization where the specimen is located"/>
