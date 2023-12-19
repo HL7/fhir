@@ -240,8 +240,8 @@
     </element>
     <element id="BiologicallyDerivedProduct.productStatus">
       <path value="BiologicallyDerivedProduct.productStatus"/>
-      <short value="available | unavailable"/>
-      <definition value="Whether the product is currently available."/>
+      <short value="available | unavailable | processed | applied | discarded"/>
+      <definition value="The current status of the product."/>
       <min value="0"/>
       <max value="1"/>
       <type>
