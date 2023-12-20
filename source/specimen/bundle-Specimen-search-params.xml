@@ -136,7 +136,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="Specimen-location"/>
@@ -154,7 +154,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
