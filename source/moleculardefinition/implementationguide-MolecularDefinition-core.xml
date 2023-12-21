@@ -18,20 +18,5 @@
                 <reference value="StructureDefinition/sequence"/>
             </reference>
         </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/allele"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/haplotype"/>
-            </reference>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/genotype"/>
-            </reference>
-        </resource>
     </definition>
 </ImplementationGuide>
