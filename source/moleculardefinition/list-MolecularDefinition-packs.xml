@@ -9,4 +9,9 @@
       <reference value="ImplementationGuide/MolecularDefinition-core"/>
     </item>
   </entry>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/MolecularDefinition-geneticmols"/>
+    </item>
+  </entry>
 </List>
