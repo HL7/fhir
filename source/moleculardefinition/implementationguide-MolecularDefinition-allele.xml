@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-    <id value="moleculardefinition-geneticmols"/>
+    <id value="moleculardefinition-allele"/>
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
         <valueInteger value="0"/>
     </extension>
@@ -12,8 +12,8 @@
         <valueString value="moleculardefinition-geneticmols-profile-notes.xml"/>
     </extension>
     <version value="0.01"/>
-    <name value="MolecularDefinitiongeneticmols"/>
-    <title value="Molecular Definitions Genetic MOlecules Profile"/>
+    <name value="MolecularDefinitionallele"/>
+    <title value="Molecular Definitions Genetic Molecules Profile"/>
     <status value="draft"/>
     <date value="2023-12-22T12:11:11"/>
     <publisher value="HL7 International / Clinical Genomics"/>
@@ -37,6 +37,5 @@
                 <reference value="StructureDefinition/genotype"/>
             </reference>
         </resource>
-
     </definition>
 </ImplementationGuide>
