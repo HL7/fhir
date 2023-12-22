@@ -479,7 +479,7 @@
       <short value="Member"/>
       <definition value="A member or part of this molecule."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
