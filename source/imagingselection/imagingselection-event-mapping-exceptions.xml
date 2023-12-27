@@ -82,20 +82,16 @@
             <resource value="Selector of the instances – human or machine."/>
         </definitionUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
-    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Event.reason" reason="Unknown"/>
-    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.code" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
-    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.note" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
-    <unmappedElement patternPath="Event.encounter" reason="Unknown"/>
-    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="Event.occurrence" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
-    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+    <unmappedElement patternPath="Event.partOf" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.reported" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.reason" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.location" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.note" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.encounter" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.recorded" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.occurrence" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.product" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Not relevant for this resource"/>
 </mappingExceptions>

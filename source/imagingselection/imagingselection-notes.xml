@@ -15,4 +15,44 @@
   </ul>
   <p>The type of subset is determined by the SOP Class of the parent instance.</p>
   <p>Subsets can only reference sub-resources that are already defined within the selected DICOM SOP Instance.</p>
+
+  <h3>Use of ImagingSelection.code and ImagingSelection.category</h3>
+  <p>
+  The code and category element can be used to information relevant for applications that want to identify specific types of ImagingSelection resources.
+  </p>
+  <p>
+  As code is required and limited to a single value, it holds the primary purpose of the ImagingSelection. Additional applicable values populate the category element.
+  </p>
+  <p>
+  For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as RadLex RID35862 - and the category could contain values of the DICOM Image Type <code>(0008,0008)</code> attribute - such as DERVIED and SECONDARY.
+  </p>
+  <code>
+  {
+    "resource": {
+      "resourceType": "ImagingSelection",
+      "id": "fa8e0948175f3117a3b8c4be2ff972ec",
+      "subject": {
+        "reference": "Patient/acb045960122378999c97cd7ca532f8b"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://radlex.org/",
+            "code": "RID12769",
+            "display": "volume rendering"
+          }
+        ]
+      },
+      "category": [
+        {
+          "text": "DERIVED"
+        },
+        {
+          "text": "SECONDARY"
+        }
+      ]
+    }
+  }
+  </code>
+
 </div>

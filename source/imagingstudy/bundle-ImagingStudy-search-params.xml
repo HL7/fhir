@@ -72,7 +72,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-dicom-class"/>
         <description value="The type of the instance"/>
         <code value="dicom-class"/>
-        <type value="token"/>
+        <type value="uri"/>
         <expression value="ImagingStudy.series.instance.sopClass"/>
         <processingMode value="normal"/>
       </SearchParameter>
