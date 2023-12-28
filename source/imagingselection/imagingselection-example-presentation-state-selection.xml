@@ -6,6 +6,9 @@
     <value value="urn:oid:1.2.840.113747.20080222.104120739293836151163903631439818.2.1"/>
   </identifier>
 	<status value="available"/>
+  <code>
+    <text value="Referenced DICOM Grayscale Softcopy Presentation State"/>
+  </code>
 	<subject>
     <type value="Patient"/>
     <identifier>
@@ -13,9 +16,6 @@
       <value value="WMQVWGBPNPQHAWCO"/>
     </identifier>
   </subject>
-  <code>
-    <text value="Referenced DICOM Grayscale Softcopy Presentation State"/>
-  </code>
   <studyUid value="1.2.840.113747.20080222.104120739293836153163903631439818"/>
   <derivedFrom>
     <type value="ImagingStudy"/>

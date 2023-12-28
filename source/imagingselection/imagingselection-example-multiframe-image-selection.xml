@@ -6,16 +6,16 @@
     <value value="urn:oid:1.2.840.113747.20080222.307765875869300980245024554221747.2.1"/>
   </identifier>
  <status value="available"/> 
- <subject>
+ <code>
+  <text value="Key Frames"/>
+</code>
+<subject>
     <type value="Patient"/>
     <identifier>
       <system value="https://fhirhospital.org"/>
       <value value="MNSOIISABIDCHRCY"/>
     </identifier>
   </subject>
-  <code>
-    <text value="Key Frames"/>
-  </code>
   <studyUid value="1.2.840.113747.20080222.307765875869300489345024554221747"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
