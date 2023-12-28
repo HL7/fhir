@@ -16,6 +16,9 @@
       <value value="MNSOIISABIDCHRCY"/>
     </identifier>
   </subject>
+  <basedOn>
+    <reference value="Appointment/2docs"/>
+  </basedOn>
   <studyUid value="1.2.840.113747.20080222.307765875869300489345024554221747"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
@@ -26,6 +29,16 @@
   </derivedFrom>
   <seriesUid value="1.2.840.113747.20080222.307765875869300489245024554221747.1"/>
   <frameOfReferenceUid value="1.2.840.113747.20080222.307765875869350980245024554221747.0"/>
+  <bodySite>
+    <concept>
+    <coding>
+    <!-- Added body site to support duplicate checking example -->
+    <system value="http://snomed.info/sct"/>
+    <code value="67734004"/>
+    <display value="Upper Trunk Structure"/>
+    </coding>
+    </concept>
+  </bodySite>
   <instance>
     <uid value="1.2.840.113747.20080222.307765875869300489355024554221747.1.0"/>
     <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
