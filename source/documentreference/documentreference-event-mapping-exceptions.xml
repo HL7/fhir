@@ -111,7 +111,7 @@
             <_pattern value="When document reference was first captured in the subject's record"/>
             <resource value="When this document reference was created"/>
         </shortUnmatched>
-        <definitionUnmatched reason="may not be known">
+        <definitionUnmatched reason="might not be known">
             <_pattern value="The date the occurrence of the document reference was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="When the document reference was created."/>
         </definitionUnmatched>
