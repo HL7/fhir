@@ -482,7 +482,6 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Request"/>
         <!-- no need for any subset, so whatever is considered a Request pattern should be good. -->
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
