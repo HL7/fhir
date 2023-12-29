@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The audit event is based on the IHE-ATNA Audit record definitions, originally from <a href="http://tools.ietf.org/html/rfc3881">RFC 3881</a>, and now managed by
+The audit event is based on the <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">IHE-ATNA Audit record definitions</a>, originally from <a href="http://tools.ietf.org/html/rfc3881">RFC 3881</a>, and now managed by
 DICOM (see <a href="http://medical.nema.org/medical/dicom/current/output/html/part15.html#sect_A.5">DICOM Part 15 Annex A5</a>). 
 </p>
 <ul>
@@ -63,12 +63,12 @@ What objects were used/created/updated is recorded as the entity.
 An entity is an identifiable physical, digital, conceptual or other kind of thing; entities may be real or imaginary.
 </p>
 <p>
-The content of an AuditEvent is intended for use by security system administrators, security and privacy information 
-managers, and records management personnel.  This content is not intended to be accessible or used directly by other 
-healthcare users, such as providers or patients, although reports generated from the raw data would be useful. An 
-example is a patient-centric accounting of disclosures or an access report. Servers that provide support for AuditEvent resources would not generally accept update or delete operations on the resources, as this would compromise 
-the integrity of the audit record. Access to the AuditEvent would typically be limited to security, privacy, 
-or other system administration purposes.
+    The content of an AuditEvent is primarily intended for administrative use; used by security system administrators, security and privacy information managers, records management personnel, etc. 
+    The AuditEvent may also inform the Patient about uses of their data.  
+    This content can be accessible or used directly by other healthcare users, such as providers or patients for gaining insight into who and what has been done. 
+    The AuditEvent record includes very sensitive information so access to the AuditEvent would be highly privileged and controlled. 
+    For example, when providing AuditEvent to a patient the data feed would be limited to the Patient compartment, and the content may be subsetted or masked in order to meet privacy needs. 
+    The AuditEvent record is not intended to replace other audit logs, but rather used to enhance them, or to be used as an API to many audit logs.
 </p>
 <p>
 Relationship of AuditEvent and Provenance resources are often (though not exclusively) created by the application 
@@ -83,4 +83,3 @@ create/update of the resource and may be persisted with the AuditEvent target re
 
 
 </div>
-
