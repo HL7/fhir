@@ -2,9 +2,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.basedOn" resourcePath="Provenance.basedOn">
-        <missingTypes _pattern="Reference(Request)" reason="not different"/>
-        <extraTypes
-            _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,Task,Transport,VisionPrescription,Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,VisionPrescription)" reason="not different"/>
+        <missingTypes _pattern="Reference(Request)" reason="More specific to the use-case"/>
+        <extraTypes _resource="Reference(Resource)" reason="More specific to the use-case"/>
         <summary _pattern="true" _resource="false" reason="Not needed"/>
         <shortUnmatched reason="More specific to the use-case">
             <_pattern value="Fulfills plan, proposal or order"/>

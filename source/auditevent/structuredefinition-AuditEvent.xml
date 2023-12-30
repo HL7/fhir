@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+ 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AuditEvent"/>
   <meta>
@@ -482,7 +482,9 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <!-- no need for any subset, so whatever is considered a Request pattern should be good. -->
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+
+        <!-- 
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
@@ -498,7 +500,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+        -->
       </type>
       <mapping>
         <identity value="workflow"/>
