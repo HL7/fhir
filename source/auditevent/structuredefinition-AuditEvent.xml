@@ -733,7 +733,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.author, FiveWs.source, FiveWs.actor, FiveWs.cause, FiveWs.witness, FiveWs.who"/>
+        <map value="FiveWs.author,  FiveWs.source,  FiveWs.actor,  FiveWs.cause,  FiveWs.witness,  FiveWs.who"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
