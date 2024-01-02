@@ -693,8 +693,8 @@
     </element>
     <element id="Specimen.processing.performer">
       <path value="Specimen.processing.performer"/>
-      <short value="Processing performer"/>
-      <definition value="The performer of the specimen processing."/>
+      <short value="Specimen processing performer"/>
+      <definition value="The performer of the processing of the specimen."/>
       <min value="0"/>
       <max value="1"/>
       <type>
