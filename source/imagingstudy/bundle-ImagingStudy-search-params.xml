@@ -59,7 +59,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <!--
+  <!-- this will cause a build error -->
   <entry>
     <resource>
       <SearchParameter>
@@ -79,7 +79,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  -->
+  <!-- -->
   <entry>
     <resource>
       <SearchParameter>
