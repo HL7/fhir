@@ -104,7 +104,7 @@
 				<coding>
 					<!--     Added body site to support duplicate checking example     -->
 					<system value="http://snomed.info/sct"/>
-					<code value="T-15460"/>
+					<code value="74670003"/>
 					<display value="Wrist Joint"/>
 				</coding>
 			</concept>

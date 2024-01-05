@@ -18,7 +18,7 @@
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="333346007"/>
-				<display value="Silver nitrate 20% solution (product)"/>
+				<display value="Silver nitrate 200 mg/mL cutaneous solution"/>
 			</coding>
 		</concept>
 	</code>

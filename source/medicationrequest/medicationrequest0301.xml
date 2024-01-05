@@ -10,7 +10,7 @@
               <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="430127000"/>
-                  <display value="Oral Form Oxycodone (product)"/>
+                  <display value="Oxycodone-containing product in oral dose form"/>
               </coding>
           </code>
       </Medication>

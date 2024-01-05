@@ -8,7 +8,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="3024-7"/>
-			<display value="Thyroxine (T4) free [Mass/​volume] in Serum or Plasma"/>
+			<display value="Thyroxine (T4) free [Mass/volume] in Serum or Plasma"/>
 		</coding>
 		<text value="Free T4"/>
 	  </concept>

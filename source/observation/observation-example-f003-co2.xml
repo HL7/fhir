@@ -10,7 +10,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="11557-6"/>
-			<display value="Carbon dioxide in blood"/>
+			<display value="Carbon dioxide [Partial pressure] in Blood"/>
 		</coding>
 	</code>
 	<subject>

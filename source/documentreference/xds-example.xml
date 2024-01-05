@@ -42,7 +42,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="47039-3"/>
-						<display value="Inpatient Admission history and physical note"/>
+						<display value="Hospital Admission history and physical note"/>
 					</coding>
 				</category>
 				<subject>

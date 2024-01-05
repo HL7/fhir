@@ -21,7 +21,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="398254007"/>
-      <display value="  Pre-eclampsia (disorder)"/>
+      <display value="Pre-eclampsia (disorder)"/>
     </coding>
     <text value="Pre-eclampsia"/>
   </statusReason>

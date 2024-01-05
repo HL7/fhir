@@ -22,7 +22,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385057009"/>
-        <display value="Film-coated tablet (qualifier value)"/>
+        <display value="Film-coated tablet (basic dose form)"/>
       </coding>
     </doseForm>
     <ingredient>
