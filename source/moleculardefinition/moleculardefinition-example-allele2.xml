@@ -5,6 +5,31 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
     <type value="dna"/>
+    <location>
+        <sequencelocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/SequenceLrg584"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource"/>
+                <coordinateInterval>
+                    <numberingSystem>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
+                        </coding>
+                        <text value="0-based interval counting"/>
+                        <startQuantity>
+                            <value value="5001"/>
+                        </startQuantity>
+                        <endQuantity>
+                            <value value="97867"/>
+                        </endQuantity>
+                    </numberingSystem>
+                </coordinateInterval>
+            </sequenceContext>
+        </sequencelocation>
+    </location>
     <representation>
         <relative>
             <startingMolecule>
