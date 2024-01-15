@@ -5,14 +5,6 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
     <type value="dna"/>
-    <!--    <subject>
-            <reference value="Patient/example"/>
-        </subject>-->
-    <!--    <formatted>
-            <contentType value="application/json"/>
-            <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
-            <title value="GA4GH API"/>
-        </formatted>-->
     <representation>
         <literal>
             <value value="ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
@@ -26,14 +18,6 @@ AGAAAGTGAACTTGATGCTCAGTATTTGCAGAATACATTCAAGGTTTCAAAGCGCCAGTCATTTGCTCYG
 TTTTCAAATCCAGGAAATGCAGAAGAGGAATGTGCAACATTCTCTGCCCACTCTGGGTCCTTAAAGAAAC
 AAAGTCCAAAAGTCACTTTTGAATGTGAACAAAAGGAAGAAAATCAAGGAAAGAATGAGTCTAATATCAA
 GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
-            <!--    <encoding>
-            <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/..."/>
-                <code value=""/>
-                <display value=""/>
-            </coding>
-            <text value=""/>
-        </encoding>-->
         </literal>
         <resolvable>
             <contentType value="text/html"/>
@@ -60,7 +44,7 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         <concatenated>
             <sequenceElement>
                 <sequence>
-                    <reference value="MolecularDefinition/Sequence0ConcatenatedExample"/>
+                    <reference value="MolecularDefinition/Sequence02bConcatenated"/>
                     <type value="MolecularDefinition"/>
                     <display value="Sequence-of index 0-Resource for concatenated sequence example"/>
                 </sequence>
@@ -68,7 +52,7 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             </sequenceElement>
             <sequenceElement>
                 <sequence>
-                    <reference value="MolecularDefinition/Sequence1ConcatenatedExample"/>
+                    <reference value="MolecularDefinition/Sequence12bConcatenated"/>
                     <type value="MolecularDefinition"/>
                     <display value="Sequence-of index 1-Resource for concatenated sequence example"/>
                 </sequence>
@@ -76,7 +60,7 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             </sequenceElement>
             <sequenceElement>
                 <sequence>
-                    <reference value="MolecularDefinition/Sequence2ConcatenatedExample"/>
+                    <reference value="MolecularDefinition/Sequence22bConcatenated"/>
                     <type value="MolecularDefinition"/>
                     <display value="Sequence-of index 2-Resource for concatenated sequence example"/>
                 </sequence>
@@ -112,15 +96,5 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
                 </replacedMolecule>
             </edit>
         </relative>
-
-        <!--    <repeated>
-                <sequenceMotif>
-                    <reference value="MolecularDefinition/SequenceMotifExample"/>
-                    <type value="MolecularDefinition"/>
-                    <display value="Sequence Motif Resource"/>
-                </sequenceMotif>
-                <copyCount value="5"/>
-            </repeated>-->
-
     </representation>
 </MolecularDefinition>
