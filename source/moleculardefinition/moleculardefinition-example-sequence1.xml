@@ -99,14 +99,14 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
                     <text value="0-based interval counting"/>
                 </coordinateSystem>
                 <start value="0"/>
-                <end value="725"/>
+                <end value="5"/>
                 <replacementMolecule>
-                    <reference value="MolecularDefinition/ReplacementSequenceExample"/>
+                    <reference value="MolecularDefinition/ReplacementSequence"/>
                     <type value="MolecularDefinition"/>
                     <display value="Replacement Sequence Resource"/>
                 </replacementMolecule>
                 <replacedMolecule>
-                    <reference value="MolecularDefinition/ReplacedSequenceExample"/>
+                    <reference value="MolecularDefinition/ReplacedSequence"/>
                     <type value="MolecularDefinition"/>
                     <display value="Replaced Sequence Resource"/>
                 </replacedMolecule>
