@@ -46,7 +46,7 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
                 <display value="Starting Sequence Resource"/>
             </startingMolecule>
             <start value="0"/>
-            <end value="745"/>
+            <end value="754"/>
             <coordinateSystem>
                 <coding>
                     <system value="http://loinc.org"/>
