@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="example"/>
+    <id value="sequence1"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
@@ -41,7 +41,7 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         </resolvable>
         <extracted>
             <startingMolecule>
-                <reference value="MolecularDefinition/StartingSequenceExample"/>
+                <reference value="MolecularDefinition/StartingSequence2bExtracted"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
             </startingMolecule>
@@ -85,7 +85,7 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         </concatenated>
         <relative>
             <startingMolecule>
-                <reference value="MolecularDefinition/StartingSequenceExample"/>
+                <reference value="MolecularDefinition/StartingSequence2bRelative"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
             </startingMolecule>
