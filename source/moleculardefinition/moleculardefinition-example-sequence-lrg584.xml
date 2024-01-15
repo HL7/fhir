@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="sequence-lrg584"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <representation>
+        <resolvable>
+            <contentType value="text/html"/>
+            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NG_008384.3?report=fasta"/>
+        </resolvable>
+    </representation>
+</MolecularDefinition>
