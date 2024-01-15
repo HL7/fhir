@@ -5,8 +5,9 @@
 <ul>
  <li>The resources maintain one way relationships that point backwards - e.g., the document that replaces one document points towards the document that it replaced. The reverse relationships can be followed by using 
   indexes built from the resources. Typically, this is done using the search parameters described below. Given that documents may have other documents that replace or append them, clients should always check these relationships when accessing documents</li>
-  <li>The _content search parameter shall search across the DocumentReference.content.attachment.data, and DocumentReference.content.url.</li>
-  <li>If the referenced resource changes, then the corresponding DocumentRefererence may be out of sync temporarily. Coordination will be needed to ensure that the DocumentReference gets updated if the referenced resource changes (and to not allow updates to the DocumentReference that cause it to be misaligned with the referenced resource).</li>
+  <li>The _content search parameter shall search across the <code>DocumentReference.content.attachment.data</code>, and <code>DocumentReference.content.attachment.url</code>.</li>
+  <li>If the referenced resource changes, then the corresponding <code>DocumentReference</code> may be out of sync temporarily. Coordination will be needed to ensure that the <code>DocumentReference</code> gets updated if the referenced resource changes (and to not allow updates to the <code>DocumentReference</code> that cause it to be misaligned with the referenced resource).</li>
+  <li><code>DocumentReference</code> might be appropriate for including a rendered DICOM image in cases where the full image context is not important. When this is done, the <code>DocumentReference.event.reference</code> should point at the <a href="imagingstudy.html">ImagingStudy</a> or <a href="imagingselection.html">ImagingSelection</a>. </li>
 </ul>
 <!--   No longer needed now that we have format code vocabulary
 <h3>Document Formats</h3>
