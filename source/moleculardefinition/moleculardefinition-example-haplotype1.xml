@@ -6,6 +6,7 @@
     </meta>
     <type value="dna"/>
     <name value="CYP2C19*1B"/>
+    <name value="CYP2C19*1.002"/>
     <location>
         <sequenceLocation>
             <sequenceContext>
