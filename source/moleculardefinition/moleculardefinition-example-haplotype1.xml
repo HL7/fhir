@@ -5,12 +5,14 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
     <type value="dna"/>
+    <name value="CYP2C19*1B"/>
     <location>
-        <sequencelocation>
+        <sequenceLocation>
             <sequenceContext>
                 <reference value="MolecularDefinition/SequenceLrg584"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
+            </sequenceContext>
                 <coordinateInterval>
                     <numberingSystem>
                         <coding>
@@ -19,16 +21,15 @@
                             <display value="0-based interval counting"/>
                         </coding>
                         <text value="0-based interval counting"/>
-                        <startQuantity>
-                            <value value="5001"/>
-                        </startQuantity>
-                        <endQuantity>
-                            <value value="97867"/>
-                        </endQuantity>
                     </numberingSystem>
+                    <startQuantity>
+                        <value value="5001"/>
+                    </startQuantity>
+                    <endQuantity>
+                        <value value="97867"/>
+                    </endQuantity>
                 </coordinateInterval>
-            </sequenceContext>
-        </sequencelocation>
+        </sequenceLocation>
     </location>
     <memberState>
         <reference value="MolecularDefinition/Allele1"/>
