@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="allele6"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <name value="HLA00001.1:c.126G>A"/>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/SequenceHla000011"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource"/>
+            </sequenceContext>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <relative>
+            <startingMolecule>
+                <reference value="MolecularDefinition/SequenceHla000011"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource"/>
+            </startingMolecule>
+            <edit>
+                <coordinateSystem>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="LA30100-4"/>
+                        <display value="0-based interval counting"/>
+                    </coding>
+                    <text value="0-based interval counting"/>
+                </coordinateSystem>
+                <start value="125"/>
+                <end value="126"/>
+                <replacementMolecule>
+                    <reference value="MolecularDefinition/SequenceA"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Replacement Sequence Resource"/>
+                </replacementMolecule>
+                <replacedMolecule>
+                    <reference value="MolecularDefinition/SequenceG"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Replaced Sequence Resource"/>
+                </replacedMolecule>
+            </edit>
+        </relative>
+    </representation>
+</MolecularDefinition>
