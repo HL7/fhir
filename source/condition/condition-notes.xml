@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>Use of Condition.code</h3>
 <p>
@@ -32,13 +32,16 @@ a value - instead, the value must be understood from the Condition.code.
   <p>Also note that care should be used when adding new Condition resources to a list to ensure that any negation statements that are voided by the addition of a new record are removed from the list.  E.g. If the list contains a "no known problems" record and you add a "diabetes" condition record, then be sure that you remove the "no known problems" record.
   </p>
 
-[%stu-note dstu-1%]
+<a name="dstu-1"></a>
+<blockquote class="stu-note">
+<p><b>Note to Implementers:</b>
+
 There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://hl7.org/fhir-issues">feedback</a> is sought regarding the preferred approach.
 </p>
 <p>
 Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
-[%end-note%]
+</p></blockquote>
 
   <p>
     <b>Patient Denies Condition</b>
@@ -93,4 +96,5 @@ To represent the numeric ranking of the diagnosis within an encounter, such as p
 <p> A known issue exists with circular references between Condition and ClinicalImpression, which is due to the low maturity level of ClinicalImpression. The Patient Care work group intends to address this issue when ClinicalImpression is considered substantially complete and ready for implementation.
 </p>
 
+</div>
 </div>

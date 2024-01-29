@@ -1,4 +1,4 @@
-﻿_language
+_language
 _query
 excluded_structure
 _in

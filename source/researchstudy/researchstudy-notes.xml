@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <a name="statemachine"></a>
 <h2>ResearchStudy State Machine</h2>
   <p>
@@ -6,3 +6,4 @@
   </p>
 <img src="researchstudy-state-machine.png" alt="Diagram showing typical state machine for the ResearchStudy resource"/> 
   </div>
+</div>
