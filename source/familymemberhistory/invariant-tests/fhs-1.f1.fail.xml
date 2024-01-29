@@ -61,7 +61,7 @@
     <code>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="315619001"/>
+      <code value="22298006"/>
       <display value="Myocardial Infarction"/>
     </coding>
     <text value='Heart Attack'/>

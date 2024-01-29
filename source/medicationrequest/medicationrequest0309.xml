@@ -10,7 +10,7 @@
                 <coding>
                     <system value="http://snomed.info/sct"/>
                     <code value="108761006"/>
-                    <display value="Capecitabine (product)"/>
+                    <display value="Product containing capecitabine (medicinal product)"/>
                 </coding>
             </code>
         </Medication>

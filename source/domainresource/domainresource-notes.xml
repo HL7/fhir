@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="contained"></a>
 <h2>Using Contained Resources</h2>
@@ -25,7 +25,4 @@
 <p>The expression for the search parameter would typically end with <code>extension('http://yourextensionurlhere').value</code>.  The expression would also need to provide a path to the extension, including handling situations where an extension appears on multiple paths if necessary.  Additional constraints could also be added if necessary (e.g. <code>.exists()</code>, <code>=true</code>, etc.)</p>
 
 </div>
-
-
-
-
+</div>

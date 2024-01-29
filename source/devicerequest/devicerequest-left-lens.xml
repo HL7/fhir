@@ -25,7 +25,7 @@
       <coding>
         <system value="http://loinc.org"/>
           <code value="28842-3"/>
-        <display value="Sphere distance Glasses prescription.lens - left"/>
+        <display value="Left glasses lens prescription Sphere far"/>
       </coding>
       <text value="sphere, left lens"/>
     </code>
@@ -42,7 +42,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="28843-1"/>
-        <display value="Cylinder base distance Glasses prescription.lens - left"/>
+        <display value="Left glasses lens prescription Cylinder far"/>
       </coding>
       <text value="cylinder, left lens"/>
     </code>
@@ -59,7 +59,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="28844-9"/>
-        <display value="	Axis distance Glasses prescription.lens - left"/>
+        <display value="Left glasses lens prescription Axis far"/>
       </coding>
       <text value="axis, left lens"/>
     </code>
