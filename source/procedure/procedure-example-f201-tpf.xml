@@ -47,7 +47,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="272676008"/>
-        <display value="Sphenoid bone"/>
+        <display value="Entire sphenoid bone (body structure)"/>
       </coding>
   </bodySite>
   <!--No outcomes, reports, complications or follow-ups were available-->

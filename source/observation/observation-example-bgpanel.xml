@@ -14,7 +14,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="34532-2"/>
-			<display value="	Blood type and Indirect antibody screen panel - Blood"/>
+			<display value="Blood type and Indirect antibody screen panel - Blood"/>
 		</coding>
 		<text value="Blood Group Panel"/>
 	</code>

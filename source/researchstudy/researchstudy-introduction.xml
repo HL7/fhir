@@ -1,11 +1,14 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
 <!--
-[%ballot-note stu%]
+<a name="stu"></a>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+
 <b>Ballot Questions:</b>
 In terms of scope and usage, the BR&amp;R workgroup wish to
 draw the attention of reviewers and implementers to the following topics:
@@ -18,7 +21,7 @@ draw the attention of reviewers and implementers to the following topics:
 				<li>WG seeks input in how research study sites should be represented in FHIR. There are two proposals under consideration. Option 1: Develop a ResearchStudySite Profile of ResearchStudy resource, Option 2: Develop a NEW FHIR resource called ResearchStudySite. For now, the WG is doing analysis to see if the profile option (Option 1) would work. All input is welcome.</li>
 			</ol>
 <p>
-[%end-note%]
+</p></blockquote>
 -->
 
 <p>This resource is a <a href="workflow.html#definition">
@@ -51,4 +54,5 @@ draw the attention of reviewers and implementers to the following topics:
 
 </div>
 
+</div>
 </div>
