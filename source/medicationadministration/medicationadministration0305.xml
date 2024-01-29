@@ -19,7 +19,7 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="421637006"/>
-          <display value="Lyophilized powder for injectable solution (qualifier value) "/>
+          <display value="Lyophilised powder for conventional release solution for injection"/>
         </coding>
       </doseForm>
       <batch>

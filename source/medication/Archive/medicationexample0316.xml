@@ -5,7 +5,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="317935006"/>
-      <display value="Chlorthalidone 50mg tablet (product)"/>
+      <display value="Chlorthalidone 50 mg oral tablet"/>
     </coding>
   </code>
   <isBrand value="false"/>
@@ -14,7 +14,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385055001"/>
-        <display value="Tablet dose form (qualifier value)"/>
+        <display value="Tablet (basic dose form)"/>
       </coding>
     </form>
     <ingredient>

@@ -41,7 +41,7 @@
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="394913002"/>
-				<display value="Psychotherapy"/>
+				<display value="Psychotherapy (specialty)"/>
 			</coding>
 	</type>
 	<type>
