@@ -7,7 +7,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385221006"/>
-        <display value="Injection emulsion"/>
+        <display value="Conventional release emulsion for injection (dose form)"/>
       </coding>
     </doseForm>
     <ingredient>

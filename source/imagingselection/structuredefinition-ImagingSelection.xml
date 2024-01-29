@@ -141,6 +141,68 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="ImagingSelection.category">
+      <path value="ImagingSelection.category"/>
+      <short value="Classifies the imaging selection"/>
+      <definition value="Classifies the imaging selection."/>
+      <requirements value="Used for filtering what imaging selections are retrieved and displayed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Key Object Selection Document Title."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.code">
+      <path value="ImagingSelection.code"/>
+      <short value="Imaging Selection purpose text or code"/>
+      <definition value="Reason for referencing the selected content."/>
+      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
+      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
+      <alias value="Description"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Key Object Selection Document Title."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Concept Name Code Sequence (0040,A043)"/>
+      </mapping>
+    </element>
     <element id="ImagingSelection.subject">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
         <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
@@ -214,7 +276,7 @@
       </mapping>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
+        <map value="Event.performer"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -287,52 +349,6 @@
       <mapping>
         <identity value="dicom"/>
         <map value="Accession Number and Issuer (0080,0050)+(0080,0051)"/>
-      </mapping>
-    </element>
-    <element id="ImagingSelection.category">
-      <path value="ImagingSelection.category"/>
-      <short value="Classifies the imaging selection"/>
-      <definition value="Classifies the imaging selection."/>
-      <requirements value="Used for filtering what imaging selections are retrieved and displayed."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingSelectionCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Key Object Selection Document Title."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
-      </binding>
-    </element>
-    <element id="ImagingSelection.code">
-      <path value="ImagingSelection.code"/>
-      <short value="Imaging Selection purpose text or code"/>
-      <definition value="Reason for referencing the selected content."/>
-      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
-      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
-      <alias value="Description"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingSelectionCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Key Object Selection Document Title."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
-      </binding>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="Concept Name Code Sequence (0040,A043)"/>
       </mapping>
     </element>
     <element id="ImagingSelection.studyUid">
@@ -552,23 +568,12 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="oid"/>
       </type>
       <example>
         <label value="General"/>
         <valueId value="1.2.840.10008.5.1.4.1.1.2"/>
       </example>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="sopClass"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="DICOM SOP Classes."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"/>
-      </binding>
       <mapping>
         <identity value="dicom"/>
         <map value="SOP Class UID (0008,0016)"/>

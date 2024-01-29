@@ -5,7 +5,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="24701-5"/>
-			<display value="Femur DXA Bone density"/>
+			<display value="DXA Femur [Mass/Area] Bone density"/>
 		</coding>
 		<text value="BMD - Left Femur"/>
 	</code>

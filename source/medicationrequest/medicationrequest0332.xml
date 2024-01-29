@@ -10,7 +10,7 @@
               <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="375860009"/>
-                  <display value="Ceftriaxone sodium 500mg powder for injection solution vial (product)"/>
+                  <display value="Ceftriaxone (as ceftriaxone sodium) 500 mg powder for solution for injection vial"/>
               </coding>
           </code>
       </Medication>

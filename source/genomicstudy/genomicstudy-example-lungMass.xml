@@ -17,7 +17,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="443968007"/>
-            <display value="Whole Exome Sequencing - Sequencing of entire coding region of gene (procedure)"/>
+            <display value="Sequencing of entire coding region of gene (procedure)"/>
         </coding>
     </type>
     <subject>
@@ -41,7 +41,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="309529002"/>
-                <display value="Lung mass (finding) "/>
+                <display value="Lung mass (finding)"/>
             </coding>
         </concept>
     </reason>
