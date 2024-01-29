@@ -103,7 +103,10 @@
       <type>
         <code value="code" />
       </type>
-      <binding>
+      <isModifier value="true" />
+      <isModifierReason
+        value="This element is labeled as a modifier because it has a potential code that indicates the Alert was entered in error." />
+       <binding>
         <strength value="required" />
         <description value="in-progress | completed | entered-in-error" />
         <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-status" />
