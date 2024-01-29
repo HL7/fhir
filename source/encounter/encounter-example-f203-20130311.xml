@@ -28,7 +28,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="183807002"/>
-            <display value="Inpatient stay for nine days"/>
+            <display value="Inpatient stay 9 days"/>
         </coding>
     </type>
     <subject>

@@ -105,7 +105,7 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="385055001"/>
-          <display value="Tablet dose form"/>
+          <display value="Tablet (basic dose form)"/>
         </coding>
         <text value="Tablet dose form"/>
       </doseForm>
@@ -204,7 +204,7 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="385055001"/>
-          <display value="Tablet dose form"/>
+          <display value="Tablet (basic dose form)"/>
         </coding>
         <text value="Tablet dose form"/>
       </doseForm>
@@ -300,7 +300,7 @@
         <coding>
           <system value="http://snomed.info/sct" />
           <code value="385055001" />
-          <display value="Tablet dose form" />
+          <display value="Tablet (basic dose form)" />
         </coding>
         <text value="Tablet dose form" />
       </form>
@@ -399,7 +399,7 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="385055001"/>
-          <display value="Tablet dose form"/>
+          <display value="Tablet (basic dose form)"/>
         </coding>
         <text value="Tablet dose form"/>
       </doseForm>
@@ -546,8 +546,8 @@
     <valueCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="look up value"/>
-        <display value="appropriate snomed condition"/>
+        <code value="56265001"/>
+        <display value="Heart disease (disorder)"/>
       </coding>
     </valueCodeableConcept>
   </useContext>

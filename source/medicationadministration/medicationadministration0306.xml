@@ -10,7 +10,7 @@
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="324252006"/>
-            <display value="Azithromycin 250mg capsule (product)"/>
+            <display value="Azithromycin (as azithromycin dihydrate) 250 mg oral capsule"/>
           </coding>
         </code>
       </Medication>
