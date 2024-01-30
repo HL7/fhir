@@ -802,56 +802,210 @@ This table shows the mapping between primitive datatypes across versions:
  <tr> <td>integer64</td>    <td><i>string</i></td>  <td><i>string</i></td> <td><i>string</i></td> </tr>
 </table>
 
-<p><b>Example of a complex extension</b></p>
+<a name="extensions-examples"></a>
+<h4>Examples</h4>
+
+<p><b>Examples of a complex extension</b></p>
 <p>
-Example of <code>ValueSet.expansion.contains.property.subProperty</code> added in R5:
+There is several different variations when it comes to representing a complex datatype that has no equivalent in an earlier version.
+This section illustrates those situations.
 </p>
-<pre class="json" fragment="ValueSet">
-{
-  "resourceType" : "ValueSet",
-  "expansion" : {
-    "contains" : [{
-      "property" : [{
-        "code" : "prop-code",
-        "valueString" : "prop-value",
-        "subProperty" : [{
-          "code" : "sub-prop-code",
-          "valueCode" : "sub-prop-value"
-        }]
-      }]
-    }]
+<p><b>A complex datatype in a resource</b></p>
+<p>
+This is how it appears in R6:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Immunization",
+    ...
+    "administeredProduct" : {
+      "reference" : {
+        "reference" : "Medication/something"
+      }
+    },
+    ...
   }
-}
 </pre>
 <p>
-In R4, this would look like:
+  This is how it appears in R4 using a cross-version extension:
 </p>
-<pre class="json" fragment="ValueSet">
-{
-  "resourceType" : "ValueSet",
-  "expansion" : {
-    "contains" : [{
-      "property" : [{
-        "code" : "prop-code",
-        "valueString" : "prop-value",
+<pre class="json">
+  {
+    "resourceType" : "Immunization",
+    ...
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/4.0/StructureDefinition/extension-Immunization.administeredProduct",
+      "extension" : [{
+        "url" : "reference",
+        "valueReference" : {
+          "reference" : "Medication/something"
+        }
+      }]
+    }],
+    ...
+  }
+</pre>
+<p>
+Note that this is an R5 extension, since valueAttachment was introduced in R5. 
+</p>
+<p><b>A complex datatype in a resource for a choice element</b></p>
+
+<p>
+  This is how it appears in R6:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Parameters",
+    ...
+    "parameter" : [{
+      "name" : "ref",
+      "valueCodeableReference" : {
+        "concept" : {
+          "text" : "Something"
+        }
+      }
+    }]
+  }
+</pre>
+
+<p>
+  This is how it appears in R4 using a cross-version extension:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Parameters",
+    ...
+    "parameter" : [{
+      "name" : "ref",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/4.0/StructureDefinition/extension-Parameters.parameter.value%5Bx%5D",
         "extension" : [{
-          "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.contains.property.subProperty",
-          "extension" : [{
-            "url" :"code",
-            "valueCode" : "sub-prop-code"
-          },{
-            "url" : "value",
-            "valueCode" : "sub-prop-value"
-          }]
-        }]
+          "url" : "_datatype",
+          "valueString" : "CodeableReference"
+        },{
+          "url" : "concept",
+          "valueCodeableConcept" : {
+            "text" : "Something"
+          }
+        }
       }]
     }]
   }
-}
 </pre>
+    
+<p><b>A complex data type in an extension</b></p>
 <p>
-Formal Definitions for extensions:
+  This is how it appears in R5:
+  </p>
+  <pre class="json">
+    {
+      "resourceType" : "Immunization",
+      ...
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/immunization-procedure",
+        "valueCodeableReference" : {
+          "concept" : {
+            "text" : "something"
+          },
+          "reference" : {
+            "display" : "something"
+          }
+        }
+      }],
+      ...
+    }
+  </pre>
+  
+  <p>
+    This is how it appears in R4 using a cross-version extension:
+  </p>
+  <pre class="json">
+    {
+      "resourceType" : "Immunization",
+      ...
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/immunization-procedure",
+        "extension" : [{
+          "url" : "_datatype",
+          "valueString" : "CodeableReference"
+        }, {
+          "url" : "concept",
+          "valueCodeableConcept" : {
+            "text" : "something"
+          }
+        }, {
+          "url" : "reference",
+          "valueReference" : {
+            "display" : "something"
+          }
+        }]
+      }],
+      ...
+    }
+  </pre>
+    
+
+<p><b>A complex data type in an sub-extension</b></p>
+<p>
+This is how it appears in R5:
 </p>
+<pre class="json">
+  {
+    "resourceType" : "Patient",
+    ...
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity",
+      "extension" : [{
+        "url" : "supportingInfo",
+        "valueCodeableReference" : {
+          "concept" : {
+            "text" : "Per Registration Questions"
+          },
+          "reference" : {
+            "display" : "DocumentReference/Something"
+          }
+        }
+      }
+    }
+    ...
+  }
+</pre>
+
+<p>
+  This is how it appears in R4 using a cross-version extension:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Patient",
+    ...
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity",
+      "extension" : [{
+        "url" : "supportingInfo",
+        "extension" : [{
+          "url" : "_datatype",
+          "valueString" : "valueCodeableReference"
+        },{
+          "url" : "concept",
+          "valueReference" : {
+            "text" : "Per Registration Questions"
+          }
+        },{
+          "url" : "reference",
+          "valueReference" : {
+            "display" : "DocumentReference/Something"
+          }
+        }]
+      }]
+    }]
+    ...
+  }
+</pre>
+  
+
+<a name="extensions-definitions"></a>
+<h4>Formal Definitions for extensions</h4>
+  
 <table class="grid">
   <tr>
 	  <td>Format:</td>
