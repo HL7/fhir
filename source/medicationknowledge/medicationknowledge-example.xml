@@ -17,7 +17,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385268001"/>
-        <display value="Oral Dose Form (qualifier value)"/>
+        <display value="Oral dose form (dose form)"/>
       </coding>
     </doseForm>
   </definitional>

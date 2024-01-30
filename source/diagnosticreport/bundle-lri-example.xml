@@ -85,11 +85,11 @@
 				</result>
 				<result>
 					<reference value="Observation/organism2"/>
-					<display value="Klebsiella pneumoniae"/>
+					<display value="Klebsiella pneumoniaee"/>
 				</result>
 				<result>
 					<reference value="Observation/organism3"/>
-					<display value="Staphlyococcuc aureus"/>
+					<display value="Staphylococcus aureus"/>
 				</result>
 				<result>
 					<reference value="Observation/gramstain1"/>
@@ -144,7 +144,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="664-3"/>
-						<display value="Gram Stn XXX"/>
+						<display value="Gram Stn Spec"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -166,7 +166,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -184,7 +184,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -234,7 +234,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="664-3"/>
-						<display value="Gram Stn XXX"/>
+						<display value="Gram Stn Spec"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -256,7 +256,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -274,7 +274,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -324,7 +324,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="664-3"/>
-						<display value="Gram Stn XXX"/>
+						<display value="Gram Stn Spec"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -346,7 +346,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -364,7 +364,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -414,7 +414,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="664-3"/>
-						<display value="Gram Stn XXX"/>
+						<display value="Gram Stn Spec"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -436,7 +436,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -454,7 +454,7 @@
 						<coding>
 							<system value="http://loinc.org"/>
 							<code value="664-3"/>
-							<display value="Gram Stn XXX"/>
+							<display value="Gram Stn Spec"/>
 						</coding>
 						<text value="Gram Stain"/>
 					</code>
@@ -690,7 +690,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="28-1"/>
-						<display value="Ampicilin Islt MIC"/>
+						<display value="Ampicillin Islt MIC"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -894,7 +894,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="28-1"/>
-						<display value="Ampicilin Islt MIC"/>
+						<display value="Ampicillin Islt MIC"/>
 					</coding>
 					<coding>
 						<system value="https://acme.org/codes"/>
@@ -1173,9 +1173,9 @@
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="56415008"/>
-						<display value="Klebsiella pneumonia"/>
+						<display value="Klebsiella pneumoniae"/>
 					</coding>
-					<text value="Klebsiella pneumonia"/>
+					<text value="Klebsiella pneumoniae"/>
 				</valueCodeableConcept>
 				<hasMember>
 					<reference value="Observation/growth2"/>
@@ -1251,9 +1251,9 @@
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="3092008"/>
-						<display value="Staphlyococcuc aureus"/>
+						<display value="Staphylococcus aureus"/>
 					</coding>
-					<text value="Staphlyococcuc aureus"/>
+					<text value="Staphylococcus aureus"/>
 				</valueCodeableConcept>
 				<hasMember>
 					<reference value="Observation/growth3"/>

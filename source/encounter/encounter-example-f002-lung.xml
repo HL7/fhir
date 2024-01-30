@@ -54,7 +54,7 @@
             <concept>
                 <coding>
                     <system value="http://snomed.info/sct"/>
-                    <code value="34068001"/>
+                    <code value="359615001"/>
                     <display value="Partial lobectomy of lung"/>
                 </coding>
             </concept>

@@ -282,7 +282,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="787-2"/>
-						<display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
+						<display value="MCV [Entitic volume] by Automated count"/>
 					</coding>
 					<text value="Mean Cell Volume"/>
 				</code>
@@ -332,7 +332,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="785-6"/>
-						<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+						<display value="MCH [Entitic mass] by Automated count"/>
 					</coding>
 					<text value="Mean Cell Haemoglobin"/>
 				</code>

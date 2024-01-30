@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
     <p>ORAL DOSAGE FORMS</p>
     <p>The following examples are MedicationRequest resources for Oral Dosage Forms that reference Medication Resources for generic formulations:
     </p>
@@ -94,4 +94,5 @@
         <li><a href="medicationrequestexample4.html">Request with multiple dosages and timings.</a></li>
     </ul>
     
+</div>
 </div>
