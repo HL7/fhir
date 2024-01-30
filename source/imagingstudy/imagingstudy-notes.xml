@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
 <a name="notes"></a>
@@ -383,4 +383,5 @@ When populating an ImagingStudy resource, storing an update for each DICOM insta
 </p><p>
 Although not reflected in the ImagingStudy resource, the size of an individual referenced instance may be anywhere from a few kilobytes (a compressed 256x256 pixel MR or 640x480 pixel ultrasound image) to a gigabyte or more (for digital breast tomography imaging). When retrieving the referenced content of an ImagingStudy, consider whether all DICOM instances are needed, whether DICOM instances are used concurrently or sequentially, and what rendering or Transfer Syntax is appropriate for the use case.
 </p>
+</div>
 </div>

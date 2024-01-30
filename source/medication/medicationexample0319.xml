@@ -62,7 +62,7 @@
             <coding>
                <system value="http://snomed.info/sct"/>
                <code value="126066007"/>
-               <display value="White Petrolatum (substance)"/>
+               <display value="White petroleum (substance)"/>
             </coding>
          </concept>
          </item>

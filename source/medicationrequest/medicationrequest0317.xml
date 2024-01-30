@@ -42,7 +42,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="92814006"/>
-            <display value="Chronic Lymphoid Leukemia (disorder)"/>
+            <display value="Chronic lymphoid leukemia, disease (disorder)"/>
         </coding>
       </concept>
     </reason>
@@ -69,7 +69,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="47625008"/>
-                <display value="Intravenous route (qualifier value)"/>
+                <display value="Intravenous route"/>
             </coding>
         </route>
         <method>
@@ -119,7 +119,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="47625008"/>
-                <display value="Intravenous route (qualifier value)"/>
+                <display value="Intravenous route"/>
             </coding>
         </route>
         <method>
@@ -169,7 +169,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="47625008"/>
-                <display value="Intravenous route (qualifier value)"/>
+                <display value="Intravenous route"/>
             </coding>
         </route>
         <method>

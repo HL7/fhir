@@ -25,7 +25,7 @@ editor Eric Haas Health eData Inc
 			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="6547210000124112"/>
+				<code value="441581000124101"/>
 				<display value="Diabetic specialty enteral formula"/>
 			</coding>
 		</concept>

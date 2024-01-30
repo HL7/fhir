@@ -17,7 +17,7 @@
 	<priority>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="103391001"/>
+			<code value="183496005"/>
 			<display value="Non-urgent ear, nose and throat admission"/>
 		</coding>
 	</priority>

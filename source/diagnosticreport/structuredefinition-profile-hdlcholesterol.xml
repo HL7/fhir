@@ -91,7 +91,7 @@
         <coding>
           <system value="http://loinc.org"/>
           <code value="2085-9"/>
-          <display value="HDL Cholesterol"/>
+          <display value="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
         </coding>
       </fixedCodeableConcept>
       <mustSupport value="true"/>

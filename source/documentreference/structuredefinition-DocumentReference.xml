@@ -138,7 +138,7 @@
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
       <short value="Business identifiers for the document"/>
-      <definition value="Other business identifiers associated with the document, including version independent identifiers."/>
+      <definition value="Business identifiers assigned to this document reference by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
       <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
       <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
       <min value="0"/>
@@ -223,6 +223,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=FLFS].target"/>
       </mapping>
@@ -234,7 +238,7 @@
     <element id="DocumentReference.status">
       <path value="DocumentReference.status"/>
       <short value="current | superseded | entered-in-error"/>
-      <definition value="The status of this document reference."/>
+      <definition value="The current state of the document reference."/>
       <comment value="This is the status of the DocumentReference object, which might be independent from the docStatus element.&#xA;&#xA;This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
@@ -289,6 +293,8 @@
       <type>
         <code value="code"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -411,6 +417,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/referenced-item-category"/>
       </binding>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
@@ -473,8 +483,10 @@
     </element>
     <element id="DocumentReference.context">
       <path value="DocumentReference.context"/>
-      <short value="Context of the document content"/>
-      <definition value="Describes the clinical encounter or type of care that the document content is associated with."/>
+      <short value="Encounter the document reference is part of"/>
+      <definition value="The Encounter during which this document reference was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the document reference was created during, but some document references may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <requirements value="Links the document reference to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -485,6 +497,7 @@
       </type>
       <condition value="docRef-1"/>
       <condition value="docRef-2"/>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.encounter"/>
@@ -647,6 +660,14 @@
       </type>
       <isSummary value="true"/>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.event.period"/>
       </mapping>
@@ -677,7 +698,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.occurrence[x]"/>
+        <map value="Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -715,6 +736,10 @@
         <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.author"/>
       </mapping>
@@ -749,10 +774,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
       <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.attester"/>
@@ -871,10 +892,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
       <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.custodian"/>

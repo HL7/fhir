@@ -8,7 +8,7 @@
 				<coding>
 					<system value="http://snomed.info/sct"/>
 					<code value="446141000124107"/>
-					<display value="Identifies as female gender (finding)"/>
+					<display value="Female gender identity"/>
 				</coding>
 			</valueCodeableConcept>
 		</extension>

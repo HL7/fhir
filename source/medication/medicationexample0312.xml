@@ -20,15 +20,15 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="324689003"/>
-      <display value="Nystatin 100,000 units/ml oral suspension (product)"/>
+      <display value="Product containing precisely nystatin 100000 unit/1 milliliter conventional release oral suspension (clinical drug)"/>
     </coding>
   </code>
   
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="387048002"/>
-        <display value="Oral suspension (qualifier value)"/>
+        <code value="385024007"/>
+        <display value="Oral suspension"/>
       </coding>
     </doseForm>
     <ingredient>

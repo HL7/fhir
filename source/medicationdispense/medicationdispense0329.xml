@@ -20,7 +20,7 @@
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="387253001"/>
-                        <display value="Salicyclic Acid (substance)"/>
+                        <display value="Salicylic acid (substance)"/>
                     </coding>
                     </concept>
                 </item>
@@ -66,7 +66,7 @@
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="126066007"/>
-                        <display value="White Petrolatum (substance)"/>
+                        <display value="White petroleum (substance)"/>
                     </coding>
                     </concept>
                 </item>

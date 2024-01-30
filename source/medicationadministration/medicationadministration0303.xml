@@ -50,7 +50,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="47625008"/>
-        <display value="Intravenous route (qualifier value)"/>
+        <display value="Intravenous route"/>
       </coding>
     </route>
     <dose>
