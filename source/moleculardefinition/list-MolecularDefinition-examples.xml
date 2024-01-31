@@ -285,10 +285,10 @@
       <valueString value="Simple Sequence example to be extracted"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-2b-extracted"/>
+      <valueString value="moleculardefinition-example-starting-sequence-2b-extracted"/>
     </extension>
     <item>
-      <reference value="MolecularDefinition/example-sequence-2b-extracted"/>
+      <reference value="MolecularDefinition/example-starting-sequence-2b-extracted"/>
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
@@ -297,10 +297,10 @@
       <valueString value="Simple Sequence example to be relative"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-2b-relative"/>
+      <valueString value="moleculardefinition-example-starting-sequence-2b-relative"/>
     </extension>
     <item>
-      <reference value="MolecularDefinition/example-sequence-2b-relative"/>
+      <reference value="MolecularDefinition/example-starting-sequence-2b-relative"/>
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
