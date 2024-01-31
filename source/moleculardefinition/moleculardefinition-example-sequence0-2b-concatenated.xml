@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="sequence0-2b-concatenated"/>
+    <id value="example-sequence0-2b-concatenated"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>

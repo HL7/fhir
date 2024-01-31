@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="haplotype2"/>
+    <id value="example-haplotype2"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
@@ -10,34 +10,34 @@
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/SequenceHla000011"/>
+                <reference value="MolecularDefinition/example-sequenceHla000011"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
             </sequenceContext>
         </sequenceLocation>
     </location>
     <memberState>
-        <reference value="MolecularDefinition/Allele3"/>
+        <reference value="MolecularDefinition/example-allele3"/>
         <type value="MolecularDefinition"/>
         <display value="First Allele, HLA00001.1:c.98T>C"/>
     </memberState>
     <memberState>
-        <reference value="MolecularDefinition/Allele4"/>
+        <reference value="MolecularDefinition/example-allele4"/>
         <type value="MolecularDefinition"/>
         <display value="Second Allele, HLA00001.1:c.121C>A"/>
     </memberState>
     <memberState>
-        <reference value="MolecularDefinition/Allele5"/>
+        <reference value="MolecularDefinition/example-allele5"/>
         <type value="MolecularDefinition"/>
         <display value="Third Allele, HLA00001.1:c.123C>T"/>
     </memberState>
     <memberState>
-        <reference value="MolecularDefinition/Allele6"/>
+        <reference value="MolecularDefinition/example-allele6"/>
         <type value="MolecularDefinition"/>
         <display value="Fourth Allele, HLA00001.1:c.126G>A"/>
     </memberState>
     <memberState>
-        <reference value="MolecularDefinition/Allele7"/>
+        <reference value="MolecularDefinition/example-allele7"/>
         <type value="MolecularDefinition"/>
         <display value="Fifth Allele, HLA00001.1:c.144C>A"/>
     </memberState>
