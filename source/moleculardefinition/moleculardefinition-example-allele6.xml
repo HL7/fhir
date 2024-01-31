@@ -2,7 +2,7 @@
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-allele6"/>
     <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/allele"/>
     </meta>
     <type value="dna"/>
     <name value="HLA00001.1:c.126G>A"/>
