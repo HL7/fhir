@@ -21,7 +21,7 @@
       <valueString value="Simple Allele example 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele1"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele1"/>
@@ -33,7 +33,7 @@
       <valueString value="Simple Allele example 2"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele2"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele2"/>
@@ -45,7 +45,7 @@
       <valueString value="Simple Allele example 3"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele3"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele3"/>
@@ -57,7 +57,7 @@
       <valueString value="Simple Allele example 4"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele4"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele4"/>
@@ -69,7 +69,7 @@
       <valueString value="Simple Allele example 5"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele5"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele5"/>
@@ -81,7 +81,7 @@
       <valueString value="Simple Allele example 6"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele6"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele6"/>
@@ -93,7 +93,7 @@
       <valueString value="Simple Allele example 7"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-allele7"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-allele7"/>
@@ -105,7 +105,7 @@
       <valueString value="Simple Genotype example 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-genotype1"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-genotype1"/>
@@ -117,7 +117,7 @@
       <valueString value="Simple Haplotype example 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-haplotype1"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-haplotype1"/>
@@ -129,7 +129,7 @@
       <valueString value="Simple Haplotype example 2"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-haplotype2"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-haplotype2"/>
@@ -141,7 +141,7 @@
       <valueString value="Simple Replaced Sequence example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-replaced-sequence"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-replaced-sequence"/>
@@ -153,7 +153,7 @@
       <valueString value="Simple replacement Sequence example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-replacement-sequence"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-replacement-sequence"/>
@@ -165,7 +165,7 @@
       <valueString value="Simple Sequence example 0 to be concatenated"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence0-2b-concatenated"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence0-2b-concatenated"/>
@@ -177,7 +177,7 @@
       <valueString value="Simple Sequence example 1 to be concatenated"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence1-2b-concatenated"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence1-2b-concatenated"/>
@@ -189,7 +189,7 @@
       <valueString value="Simple Sequence example 2 to be concatenated"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence2-2b-concatenated"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence2-2b-concatenated"/>
@@ -201,7 +201,7 @@
       <valueString value="Simple Sequence example 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence1"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence1"/>
@@ -213,7 +213,7 @@
       <valueString value="Simple Sequence example A"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-a"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-a"/>
@@ -225,7 +225,7 @@
       <valueString value="Simple Sequence example C"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-c"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-c"/>
@@ -237,7 +237,7 @@
       <valueString value="Simple Sequence example G"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-g"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-g"/>
@@ -249,7 +249,7 @@
       <valueString value="Simple Sequence example T"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-t"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-t"/>
@@ -261,7 +261,7 @@
       <valueString value="Simple Sequence example HLA00001-1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-hla000011"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-hla000011"/>
@@ -273,7 +273,7 @@
       <valueString value="Simple Sequence example LRG-584"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-lrg584"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-lrg584"/>
@@ -285,7 +285,7 @@
       <valueString value="Simple Sequence example to be extracted"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-2b-extracted"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-2b-extracted"/>
@@ -297,7 +297,7 @@
       <valueString value="Simple Sequence example to be relative"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example"/>
+      <valueString value="moleculardefinition-example-sequence-2b-relative"/>
     </extension>
     <item>
       <reference value="MolecularDefinition/example-sequence-2b-relative"/>
