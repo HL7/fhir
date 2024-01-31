@@ -727,7 +727,8 @@ following:
 Implementers should be aware of the following issues when using these extensions:
 </p>
 <ul>
- <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r4maps.html">maps</a> (and their equivalent for other versions) can help</li>
+ <li>Implementations SHALL always use the equivalent element for data when one exists.  Cross-version extensions can be used for elements that don't exist, elements with types that do not exist, or elements whose maximum
+   cardinality has changed from 1 to *. The version <a href="diff.html">differences</a> and <a href="r4maps.html">maps</a> (and their equivalent for other versions) can help determine when cross-version extensions are appropriate</li>
  <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc.)</li>
  <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
@@ -802,56 +803,326 @@ This table shows the mapping between primitive datatypes across versions:
  <tr> <td>integer64</td>    <td><i>string</i></td>  <td><i>string</i></td> <td><i>string</i></td> </tr>
 </table>
 
-<p><b>Example of a complex extension</b></p>
+<a name="extensions-examples-primitive"></a>
+<h4>Examples for Primitive Data Types</h4>
+
 <p>
-Example of <code>ValueSet.expansion.contains.property.subProperty</code> added in R5:
+To Do
 </p>
-<pre class="json" fragment="ValueSet">
-{
-  "resourceType" : "ValueSet",
-  "expansion" : {
-    "contains" : [{
-      "property" : [{
-        "code" : "prop-code",
-        "valueString" : "prop-value",
-        "subProperty" : [{
-          "code" : "sub-prop-code",
-          "valueCode" : "sub-prop-value"
-        }]
-      }]
-    }]
+
+<a name="extensions-examples-complex"></a>
+<h4>Examples for Complex Data Types</h4>
+
+<p>
+There are several different variations when it comes to representing a complex datatype that has no equivalent in an earlier version.
+This section illustrates those situations.
+</p>
+<p><b>A complex datatype in a resource</b></p>
+<p>
+This is how it appears in R6:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Immunization",
+    "status" : "completed",
+    "vaccineCode" : {
+      "text" : "something"
+    },
+    "patient" : {
+      "reference" : "Patient/something"
+    },
+    "administeredProduct" : {
+      "reference" : {
+        "reference" : "Medication/something"
+      }
+    },
+    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
   }
-}
 </pre>
 <p>
-In R4, this would look like:
+  This is how the same data appears in R4 using a cross-version extension:
 </p>
-<pre class="json" fragment="ValueSet">
-{
-  "resourceType" : "ValueSet",
-  "expansion" : {
-    "contains" : [{
-      "property" : [{
-        "code" : "prop-code",
-        "valueString" : "prop-value",
+<pre class="json">
+  {
+    "resourceType" : "Immunization",
+    "status" : "completed",
+    "vaccineCode" : {
+      "text" : "something"
+    },
+    "patient" : {
+      "reference" : "Patient/something"
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-Immunization.administeredProduct",
+      "extension" : [{
+        "url" : "reference",
+        "valueReference" : {
+          "reference" : "Medication/something"
+        }
+      }]
+    }],
+    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
+  }
+</pre>
+<p>
+Note that this is an R5 extension, since valueAttachment was introduced in R5. 
+</p>
+<p><b>A complex datatype in a resource for a choice element</b></p>
+
+<p>
+  This is how it appears in R6:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Parameters",
+    "parameter" : [{
+      "name" : "ref",
+      "valueCodeableReference" : {
+        "concept" : {
+          "text" : "Something"
+        }
+      }
+    }]
+  }
+</pre>
+
+<p>
+  This is how the same data appears in R4 using a cross-version extension:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Parameters",
+    "parameter" : [{
+      "name" : "ref",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/4.0/StructureDefinition/extension-Parameters.parameter.value%5Bx%5D",
         "extension" : [{
-          "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.contains.property.subProperty",
-          "extension" : [{
-            "url" :"code",
-            "valueCode" : "sub-prop-code"
-          },{
-            "url" : "value",
-            "valueCode" : "sub-prop-value"
+          "url" : "_datatype",
+          "valueString" : "CodeableReference"
+        },{
+          "url" : "concept",
+          "valueCodeableConcept" : {
+            "text" : "Something"
+          }
+        }
+      }]
+    }]
+  }
+</pre>
+    
+<p><b>A complex data type in an extension</b></p>
+<p>
+  This is how it appears in R5:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Immunization",
+    "status" : "completed",
+    "vaccineCode" : {
+      "text" : "something"
+    },
+    "patient" : {
+      "reference" : "Patient/something"
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/immunization-procedure",
+      "valueCodeableReference" : {
+        "concept" : {
+          "text" : "something"
+        },
+        "reference" : {
+          "display" : "something"
+        }
+      }
+    }],
+    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
+  }
+</pre>
+
+<p>
+  This is how the same data appears in R4 using a cross-version extension:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Immunization",
+    "id" : "xver-immunization2-r4",
+    "status" : "completed",
+    "vaccineCode" : {
+      "text" : "something"
+    },
+    "patient" : {
+      "reference" : "Patient/something"
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/immunization-procedure",
+      "extension" : [{
+        "url" : "_datatype",
+        "valueString" : "CodeableReference"
+      }, {
+        "url" : "concept",
+        "valueCodeableConcept" : {
+          "text" : "something"
+        }
+      }, {
+        "url" : "reference",
+        "valueReference" : {
+          "display" : "something"
+        }
+      }]
+    }],
+    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
+  }
+</pre>
+    
+
+<p><b>A complex data type in an sub-extension</b></p>
+<p>
+This is how it appears in R5:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Patient",
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/patient-sexParameterForClinicalUse",
+      "extension" : [{
+        "url" : "value",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/sex-parameter-for-clinical-use",
+            "code" : "specified"
           }]
+        }
+      },{
+        "url" : "supportingInfo",
+        "valueCodeableReference" : {
+          "concept" : {
+            "text" : "Per Registration Questions"
+          },
+          "reference" : {
+            "display" : "DocumentReference/Something"
+          }
+        }
+      }]
+    }]
+  }
+</pre>
+
+<p>
+  This is how the same data appears in R4 using a cross-version extension:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Patient",
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity",
+      "extension" : [{
+        "url" : "supportingInfo",
+        "extension" : [{
+          "url" : "_datatype",
+          "valueString" : "valueCodeableReference"
+        },{
+          "url" : "concept",
+          "valueReference" : {
+            "text" : "Per Registration Questions"
+          }
+        },{
+          "url" : "reference",
+          "valueReference" : {
+            "display" : "DocumentReference/Something"
+          }
         }]
       }]
     }]
   }
-}
+</pre>
+  
+
+<a name="extensions-examples-mandatory"></a>
+<h4>Examples for working with Mandatory elements</h4>
+
+<p>
+The situation with required elements is more complicated. This is when the data that is 
+being represented using a cross-version extension is data for an element that is mandatory
+in the earlier version. The intent of the mandatory element is that proper data 
+must be provided, but the desire is to provide a different form of data using a cross-version extension.
+</p>
+<p>
+Implementers should note that wherever possible, the correct data should be provided. But in 
+the case that this is not possible, this example shows how the cross-version extension should be used.
+</p>
+<p>
+Here is the data in R6 format, a CodeableReference in a <a href="task.html">Task</a> input parameter:
+</p>
+<pre class="json">
+  {
+    "resourceType" : "Task",
+    "status" : "draft",
+    "input" : [{
+      "type" : { "text" : "code-me-please" },
+      "valueCodeableReference" : {
+        "concept" : {
+          "text" : "Something"
+        }
+      }
+    }]
+  }
 </pre>
 <p>
-Formal Definitions for extensions:
+The representation of the cross-version extension is the same in R4, but there must also be 
+an actual Task.input.value that is valid in R4. This is done using the 
+<a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">Data Absent Reason</a> extension:
 </p>
+<pre class="json">
+  {
+    "resourceType" : "Task",
+    "id" : "xver-task-r5",
+    "status" : "draft",
+    "input" : [{
+      "type" : { "text" : "code-me-please" },
+      "_valueBoolean" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueCode" : "unsupported"
+        }]
+      },
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-Task.input.value%5Bx%5D",
+        "extension" : [{
+          "url" : "_datatype",
+          "valueString" : "CodeableReference"
+        }, {
+          "url" : "concept",
+          "valueCodeableConcept": {
+            "text" : "Something"
+          }
+        }]
+      }]
+    }]
+  }
+</pre>
+<p>
+Implementer Notes:
+</p>
+<ul>
+ <li>Systems processing the resource that find the <a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">Data Absent Reason</a>
+code of <code>  unsupported</code> can observe the presence of a cross-version extension to understand that the system that authored
+the resource had the data available but not a supported way to represent in the earlier (or later) version.</li>
+ <li> 
+When processing the data, it is valid (and recommended) for a system to ignore or remove the place-holder value and use the correct value
+instead (e.g. storing the data in a database or converting the resource to a version that does contain a compatible definition). 
+</li>
+<li>
+  Again, it is always preferable to provide the data in a form that can be processed correctly by applications that don't understand 
+  cross-version extensions; this technique here is documented for situations where that isn't possible. In this specific case, for 
+  instance, it would generally be better to use a valueCodeableConcept and provide the reference as an extension. However 
+  doing this requires specific knowledge of the use of the parameter, and isn't a decision that can be made be intermediaries or
+  generic library code.
+</li>
+</ul>
+
+<a name="extensions-definitions"></a>
+<h4>Formal Definitions for extensions</h4>
+  
 <table class="grid">
   <tr>
 	  <td>Format:</td>
