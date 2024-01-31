@@ -50,6 +50,16 @@
     <uri value="http://hl7.org/fhir/fivews" />
     <name value="FiveWs Pattern Mapping" />
   </mapping>
+  <mapping>
+    <identity value="DIM" />
+    <uri value="urn:iso:std:iso:11073:10201" />
+    <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+  </mapping>
+  <mapping>
+    <identity value="IEEESDC" />
+    <uri value="urn:iso:std:iso:11073:20701" />
+    <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="DeviceAlert" />
@@ -88,6 +98,14 @@
         <identity value="w5" />
         <map value="FiveWs.identifier" />
       </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/alert-info-id" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertOccurenceIdentifier" />
+      </mapping>
     </element>
     <element id="DeviceAlert.status">
       <path value="DeviceAlert.status" />
@@ -100,6 +118,11 @@
         <identity value="w5" />
         <map value="FiveWs.status" />
       </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertState" />
+      </mapping>
+
       <type>
         <code value="code" />
       </type>
@@ -135,6 +158,14 @@
         <identity value="w5" />
         <map value="FiveWs.what[x]" />
       </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/alert-code" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertConditionDescriptor/Type" />
+      </mapping>
       <type>
         <code value="CodeableConcept" />
       </type>
@@ -151,6 +182,10 @@
       <min value="1" />
       <max value="1" />
       <isSummary value="true" />
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertConditionState/Presence" />
+      </mapping>
       <type>
         <code value="boolean" />
       </type>
@@ -167,6 +202,10 @@
         <identity value="w5" />
         <map value="FiveWs.init" />
         <map value="FiveWs.done[x]" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertConditionState/DeterminationTime" />
       </mapping>
       <type>
         <code value="Period" />
@@ -186,6 +225,14 @@
         <identity value="w5" />
         <map value="FiveWs.grade" />
       </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/alert-type" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="If present, AlertConditionState/ActualPriority; otherwise AlertConditionDescriptor/Priority" />
+      </mapping>
       <type>
         <code value="code" />
       </type>
@@ -203,6 +250,14 @@
       <min value="0" />
       <max value="1" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/alert-type" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertConditionDescriptor/Kind" />
+      </mapping>
       <type>
         <code value="code" />
       </type>
@@ -241,6 +296,14 @@
         <identity value="w5" />
         <map value="FiveWs.source" />
       </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/alert-source" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertConditionDescriptor/Source" />
+      </mapping>
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
@@ -271,6 +334,14 @@
       <min value="0" />
       <max value="1" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/Label-String" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertConditionDescriptor/TypeConceptDescription" />
+      </mapping>
       <type>
         <code value="string" />
       </type>
@@ -282,6 +353,14 @@
       <min value="0" />
       <max value="*" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/AlertFlags; AlertCondition/AlertControls" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertSignalState" />
+      </mapping>
       <type>
         <code value="BackboneElement" />
       </type>
@@ -295,6 +374,14 @@
       <min value="1" />
       <max value="1" />
       <isSummary value="true" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/AlertState" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertSignalState/ActivationState" />
+      </mapping>
       <type>
         <code value="code" />
       </type>
@@ -313,6 +400,10 @@
       <min value="0" />
       <max value="1" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertSignalState/Presence" />
+      </mapping>
       <type>
         <code value="code" />
       </type>
@@ -326,10 +417,18 @@
       <path value="DeviceAlert.signal.annunciator" />
       <short value="Where the signal is being annunciated" />
       <definition
-        value="Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the actual signalling device may also be present." />
+        value="Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the &quot;top level&quot; signalling device may also be present." />
       <min value="0" />
       <max value="1" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/AlertFlags" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertSignalDescriptor/Manifestation" />
+      </mapping>
       <type>
         <code value="CodeableReference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
@@ -347,6 +446,14 @@
       <min value="0" />
       <max value="*" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="AlertCondition/AlertFlags" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertSignalState/Location" />
+      </mapping>
       <type>
         <code value="CodeableConcept" />
       </type>
@@ -364,6 +471,10 @@
       <min value="0" />
       <max value="*" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="AlertSystemDescriptor/AlertSignal/Type" />
+      </mapping>
       <type>
         <code value="CodeableConcept" />
       </type>
@@ -376,10 +487,17 @@
     <element id="DeviceAlert.signal.indication">
       <path value="DeviceAlert.signal.indication" />
       <short value="When the signal was being annuciated" />
-      <!--       <definition value="" /> -->
+      <definition
+        value="The period during which the signal was being annunciated. If there is no indicated period end, the annunciation is on-going." />
+      <comment
+        value="The indication period start when the signal precense is first on (or latched) and ends when the signal becomes off or acknowledged." />
       <min value="0" />
       <max value="1" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&lt;br&gt;End: Change of AlertConditionState/DeterminationTime" />
+      </mapping>
       <type>
         <code value="Period" />
       </type>
@@ -393,6 +511,14 @@
       <min value="0" />
       <max value="1" />
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM" />
+        <map value="Limit-Specification" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="LimitAlertConditionState/Limits" />
+      </mapping>
       <type>
         <code value="Range" />
       </type>

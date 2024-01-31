@@ -39,23 +39,24 @@
   <concept>
     <code value="on" />
     <display value="On" />
-    <definition value="The signal is annunciated due to a present alert condition" />
+    <definition value="The signal is annunciated due to the presence of the alert condition" />
   </concept>
   <concept>
     <code value="latched" />
     <display value="Latched" />
-    <definition value="The signal is annunciated due to a no-longer present alert condition" />
+    <definition
+      value="The signal is annunciated after the alert condition is no longer present, until it is stopped by deliberate operator action" />
   </concept>
   <concept>
     <code value="off" />
     <display value="Off" />
     <definition
-      value="The signal is not being annunciated and the alert condition is no-longer present" />
+      value="The signal is not being annunciated and the alert condition is no longer present" />
   </concept>
   <concept>
     <code value="ack" />
     <display value="Acknowledged" />
     <definition
-      value="The signal is not being annunciated due to user acknowledgement, although the alert condition is present" />
+      value="The signal is no longer annunciated having been stopped by deliberate operator action although the alert condition is still present" />
   </concept>
 </CodeSystem>
