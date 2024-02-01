@@ -12,7 +12,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="27658006"/>
-      <display value="Amoxicillin (product)"/>
+      <display value="Product containing amoxicillin (medicinal product)"/>
     </coding>
     </concept>
   </medication>

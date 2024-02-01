@@ -70,14 +70,14 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="255560000"/>
-                <display value="Intravenous route (qualifier value)"/>
+                <display value="Intravenous"/>
             </coding>
         </site>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="47625008"/>
-                <display value="IV intravascular route that begins within a vein)"/>
+                <display value="An intravascular route that begins within a vein."/>
             </coding>
         </route>
         <doseAndRate>
