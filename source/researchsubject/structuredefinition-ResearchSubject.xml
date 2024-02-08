@@ -155,133 +155,6 @@
         <map value=".status"/>
       </mapping>
     </element>
-    <element id="ResearchSubject.progress">
-      <path value="ResearchSubject.progress"/>
-      <short value="Subject status"/>
-      <definition value="The current state (status) of the subject and resons for status change where appropriate."/>
-      <comment value="This is intended to deal with the confusion routinely created by haing two conflated concepts of being in a particular state and having achieved a particular milestone.  In strict terms a milestone is a point of time event that results in a change from one state to another.  The state before the milestone is achieved is often given the same name as the milestone, and sometimes the state may have the same description.  For instance &quot;Randomised&quot; and &quot;Visit 1&quot; may be different milestones but the state remains at &quot;on study&quot; after each of them. &#xA;&#xA;It is likely that more than one &quot;state&quot; pattern will be recorded for a subject and a type has been introduced to allow this simultaneous recording."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ResearchSubject.progress.type">
-      <path value="ResearchSubject.progress.type"/>
-      <short value="state | milestone"/>
-      <definition value="Identifies the aspect of the subject's journey that the state refers to."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchSubjectStateType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Identifies the kind of state being refered to."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state-type"/>
-      </binding>
-    </element>
-    <element id="ResearchSubject.progress.subjectState">
-      <path value="ResearchSubject.progress.subjectState"/>
-      <short value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
-      <definition value="The current state of the subject."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchSubjectProgresss"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Indicates the progression of a study subject through a study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="StudySubject.statusCode"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".status"/>
-      </mapping>
-    </element>
-    <element id="ResearchSubject.progress.milestone">
-      <path value="ResearchSubject.progress.milestone"/>
-      <short value="SignedUp | Screened | Randomized"/>
-      <definition value="The milestones the subject has passed through."/>
-      <comment value="There can be multiple entries but it is also valid to just have the most recent.  This should npt be rlied upon as the full path the subject has taken."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchSubjectMilestone"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates the progression of a study subject through the study milestones."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="StudySubject.statusCode"/>
-      </mapping>
-    </element>
-    <element id="ResearchSubject.progress.reason">
-      <path value="ResearchSubject.progress.reason"/>
-      <short value="State change reason"/>
-      <definition value="The reason for the state change.  If coded it should follow the formal subject state model."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StateChangeReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates why the state of the subject changed."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/state-change-reason"/>
-      </binding>
-    </element>
-    <element id="ResearchSubject.progress.startDate">
-      <path value="ResearchSubject.progress.startDate"/>
-      <short value="State change date"/>
-      <definition value="The date when the new status started."/>
-      <comment value="This is NOT the date the change in state was recorded."/>
-      <requirements value="This was originally defined as the date when the change in status occurred.  This assumed all                      states were recorded which is not true.  Hence the need to track the end of the state."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-    </element>
-    <element id="ResearchSubject.progress.endDate">
-      <path value="ResearchSubject.progress.endDate"/>
-      <short value="State change date"/>
-      <definition value="The date when the state ended."/>
-      <requirements value="See the requirement on the start date."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-    </element>
     <element id="ResearchSubject.period">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
         <valueString value=".effectiveTime."/>
@@ -338,6 +211,84 @@
         <identity value="BRIDG5.1"/>
         <map value="StudySubject"/>
       </mapping>
+    </element>
+    <element id="ResearchSubject.subjectState">
+      <path value="ResearchSubject.subjectState"/>
+      <short value="A duration in the lifecycle of the ResearchSubject within a ResearchStudy"/>
+      <definition value="A duration in the lifecycle of the ResearchSubject within a ResearchStudy."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.subjectState.code">
+      <path value="ResearchSubject.subjectState.code"/>
+      <short value="candidate | in-prescreening | in-screening | eligible | ineligible | on-study | on-study-intervention | in-follow-up | off-study"/>
+      <definition value="Identifies the aspect of the subject's journey that the state refers to."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchSubjectState"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Indicates the progression of a study subject through a study."/>
+		<valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject.statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.subjectState.startDate">
+      <path value="ResearchSubject.subjectState.startDate"/>
+      <short value="The date a research subject entered the given state"/>
+      <definition value="The date a research subject entered the given state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.subjectState.endDate">
+      <path value="ResearchSubject.subjectState.endDate"/>
+      <short value="The date a research subject exited or left the given state"/>
+      <definition value="The date a research subject exited or left the given state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.subjectState.reason">
+      <path value="ResearchSubject.subjectState.reason"/>
+      <short value="State change reason"/>
+      <definition value="The reason for the state change. If coded it should follow the formal subject state model."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="StateChangeReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the state of the subject changed."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/state-change-reason"/>
+      </binding>
     </element>
     <element id="ResearchSubject.assignedComparisonGroup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
