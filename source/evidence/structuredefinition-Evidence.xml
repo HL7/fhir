@@ -1022,23 +1022,12 @@
 				<code value="Range"/>
 			</type>
 		</element>
-		<element id="Evidence.statistic.modelCharacteristic.attributeEstimate">
-			<path value="Evidence.statistic.modelCharacteristic.attributeEstimate"/>
+		<element id="Evidence.statistic.modelCharacteristic.attribute">
+			<path value="Evidence.statistic.modelCharacteristic.attribute"/>
 			<short value="An attribute of the statistic used as a model characteristic"/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#Evidence.statistic.attributeEstimate"/>
-		</element>
-		<element id="Evidence.statistic.modelCharacteristic.modelCharacteristic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-				<valueString value="AttributeEstimateAttributeEstimate"/>
-			</extension>
-			<path value="Evidence.statistic.modelCharacteristic.modelCharacteristic"/>
-			<short value="Model component"/>
-			<comment value="A nested model characteristic"/>
-			<min value="0"/>
-			<max value="*"/>
-			<contentReference value="#Evidence.statistic.modelCharacteristic"/>
 		</element>
 		<element id="Evidence.certainty">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
