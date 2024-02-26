@@ -49,7 +49,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+  <description value="Demographics and other administrative information about an individual or animal that is the subject of potential, past, current, or future health-related care, services, or processes."/>
   <purpose value="Tracking patient is the center of the healthcare process."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
@@ -91,7 +91,7 @@
     <element id="Patient">
       <path value="Patient"/>
       <short value="Information about an individual or animal receiving health care services"/>
-      <definition value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+      <definition value="Demographics and other administrative information about an individual or animal that is the subject of potential, past, current, or future health-related care, services, or processes."/>
       <alias value="SubjectOfCare Client Resident"/>
       <min value="0"/>
       <max value="*"/>
