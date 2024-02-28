@@ -270,9 +270,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LocationType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Indicates the type of function performed at the location."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/service-type"/>
       </binding>
       <mapping>
         <identity value="w5"/>
