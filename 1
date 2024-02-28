@@ -1,0 +1,33 @@
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/Users/jrhoads/.gradle/caches/modules-2/files-2.1/org.hl7.fhir/kindling/1.9.1-SNAPSHOT/b50fbebf87f7f2a86bed1c87439a0265ca903acd/kindling-1.9.1-SNAPSHOT-all.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+Type error at char 1 in xsl:apply-templates/@select on line 14 column 70 
+  XTTE0570: An empty sequence is not allowed as the value of variable $groups
+  in global variable $groups (#13)
+Error 
+  SXXP0003: Error reported by XML parser: Premature end of file.
+java.lang.Exception: Errors executing build. Details logged.
+	at org.hl7.fhir.tools.publisher.Publisher.checkAllOk(Publisher.java:2579)
+	at org.hl7.fhir.tools.publisher.Publisher.validate(Publisher.java:2565)
+	at org.hl7.fhir.tools.publisher.Publisher.execute(Publisher.java:803)
+	at org.hl7.fhir.tools.publisher.Publisher.main(Publisher.java:583)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':publish'.
+> Process 'command '/usr/local/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1m

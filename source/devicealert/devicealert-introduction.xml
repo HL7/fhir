@@ -1,29 +1,90 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
-<p>
- The DeviceAlert resource describes dynamic properties that characterize a direct or derived, quantitative or qualitative setting, or calculation produced by a medical device i.e, readings and settings of, or from the device. 
- The DeviceAlert resource can also be used to describe the properties relevant to the metric such as status, last calibration time and type, measurement mode, color, and link to the parent Device.
-</p>
-</div>
-
-<div>
-<a name="bnr"></a>
-<h2>Boundaries and Relationships</h2>
-<p>
- These are the DeviceAlert related resources:
-</p>
-<ul>
- <li><a href="device.html">Device:</a>  The physical, virtual, or software device that this DeviceAlert is for. Note that the Device.property element is used to record static characteristics or properties of the Device.</li>
-</ul>
- <ul>
-  <li><a href="device.html">DeviceDefinition:</a>  Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device the DeviceDefinition.property element may be used to record static characteristics or properties of the DeviceDefinition.</li>
- </ul> 
- <ul>
-  <li><a href="device.html">Observation:</a>  Used to record the particular value of the DeviceAlert at a point in time.</li>
- </ul> 
-
-</div>
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+</head>
+<body>
+    <div>
+        <a name="scope" id="scope"></a>
+        <h2>Scope and Usage</h2>
+        <p>A DeviceAlert represents an exceptional condition or occurrence determined to 
+        exist by a device.</p>
+        <p>The term "alert" covers both alarms and non-alarm informational data.</p>
+        <p>Alerts may be physiological (about the state of a patient) or technical 
+        (about the state of the device, for example indicating that a particular 
+        observation cannot be made due to a malfunction)</p>
+        <p>An alert often requires notification and possibly urgent or timely action by a 
+        clinician or biomedical technician</p>
+        <p>It has a severity attribute which may be notification-only, a concerning 
+        medium-priority condition requiring awareness, or a possibly life-threatening 
+        requiring immediate action</p>
+        <p>The state described in a DeviceAlert instance requires electronic handling 
+        different from the usual periodic (repetitive, scheduled) observations that may 
+        be sent by a device to an electronic medical record system for charting. Since 
+        these are scheduled according to charting preferences, 
+        there is a need for a different message type that is sent as fast as technically 
+        feasible, by a specialized, low-latency subsystem of the device.</p>
+        <p>The purpose of the DeviceAlert resource is:</p>
+        
+        <ul>
+            <li>to bring the occurrence and lifecycle of an alert condition and associated 
+            signals into the FHIR ecosystem, available to other systems and functions.</li>
+            <li>The track the existence of one or more kinds of signals emitted by a 
+            device as a result of the condition, such as audible, visual, or haptic</li>
+        </ul>
+        <p>This requires tracking of the condition's state, time of its persistence if it 
+           is no longer active, state of local and remote signals relating to the condition 
+           and whether they have been responded to.</p>
+        <p>It should be noted that the handling and use of such information is subject to 
+        safety, regulatory, manufacturing, testing and technical standards. Any integrators 
+        of a system making use of device alerts and signals is responsible for rigorous 
+        risk analysis and testing to assure safety, efficacy, and security of the intended 
+        use of the system in its system environment.</p>
+    </div>
+    <div>
+        <h3>Kinds</h3>
+        <p>Examples of alert conditions represented by a DeviceAlert:</p>
+        <ul>
+            <li>abnormal heart rhythm</li>
+            <li>physiological measurement that is high or low relative to a threshold 
+            preselected as significant for the patient</li>
+            <li>malfunction of life-supporting or therapy-supporting equipment, such as 
+            occluded infusion line</li>
+            <li>technical condition interfering with monitoring function such as 
+            a detached or loose ECG leads</li>
+        </ul>
+    </div>
+    <div>
+        <a name="bnr" id="bnr"></a>
+        <h2>Boundaries and Relationships</h2>
+        <p>These are the DeviceAlert related resources:</p>
+        <ul>
+            <li><a href="device.html">Device:</a> The physical, virtual, or software device 
+            that this DeviceAlert is for. Note that the Device.property element is used to 
+            record static characteristics or properties of the Device. 
+            A DeviceAlert is originated by a device represented by a Device resource, which 
+            may be a component of another Device: 
+            a specific subsystem, channel, or metric. An additional alert signal may be 
+            emitted by a device, system, or equipment (such as an annunciator) other than 
+            the device that determined the signal.</li>
+        </ul>
+        <ul>
+            <li><a href="devicedefinition.html">DeviceDefinition:</a> Describes a "kind" 
+            of device - not a specific instance of the device. Note alternatively to Device 
+            the DeviceDefinition.property element may be used to record static characteristics 
+            or properties of the DeviceDefinition.</li>
+        </ul>
+        <ul>
+            <li><a href="observation.html">Observation:</a> Used to record the particular 
+            value underlying or supporting the DeviceAlert at a point in time.</li>
+        </ul>
+        <ul>
+            <li><a href="devicemetric.html">DeviceMetric:</a> In some cases, a DeviceAlert 
+            is supported by information about a particular metric subsystem in a DeviceMetric 
+            resource, such as the configured alarm limits set for a measurement.</li>
+        </ul>
+    </div>
+</body>
+</html>
