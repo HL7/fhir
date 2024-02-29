@@ -276,6 +276,7 @@
       <path value="ResearchSubject.subjectState.reason"/>
       <short value="State change reason"/>
       <definition value="The reason for the state change. If coded it should follow the formal subject state model."/>
+      <comment value="Example, if the milestone is &quot;Randomized&quot; then the reason could be &quot;sponsor IVRS randomization code allocated&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
