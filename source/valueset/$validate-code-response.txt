@@ -14,7 +14,7 @@ HTTP/1.1 200 OK
   },
   {
     "name" : "display",
-    "valueString" : "Bicarbonate [Moles/volume] in Serum"
+    "valueString" : "Bicarbonate [Moles/volume] in Serum or Plasma"
   }
   ]
 }

@@ -24,7 +24,7 @@
   <category>
     <coding>
       <system value="http://loinc.org"/> 
-      <code value="LP173421-1"/> 
+      <code value="LP183761-8"/> 
       <display value="Report"/> 
     </coding>
   </category>
