@@ -8,13 +8,13 @@
   </text>
 
   <contained>
-    <Patient>
+    <Practitioner>
       <id value="pr1"/>
       <name>
         <family value="Dietician"/>
         <given value="Dorothy"/>
       </name>
-    </Patient>
+    </Practitioner>
   </contained>
   <identifier>
        <value value="12345"/>
@@ -47,13 +47,6 @@
 	</participant>
 
 	<participant>
-		<role>
-			<text value="adviser"/>
-		</role>
-		<member>
-			<reference value="#pr1"/>
-			<display value="Dorothy Dietition"/>
-		</member>
 		<onBehalfOf>
 			<reference value="Organization/f001"/>
 		</onBehalfOf>
