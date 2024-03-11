@@ -895,7 +895,7 @@ Note that this is an R5 extension, since valueAttachment was introduced in R5.
     "parameter" : [{
       "name" : "ref",
       "extension" : [{
-        "url" : "http://hl7.org/fhir/4.0/StructureDefinition/extension-Parameters.parameter.value%5Bx%5D",
+        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-Parameters.parameter.value%5Bx%5D",
         "extension" : [{
           "url" : "_datatype",
           "valueString" : "CodeableReference"
@@ -912,7 +912,9 @@ Note that this is an R5 extension, since valueAttachment was introduced in R5.
     
 <p><b>A complex data type in an extension</b></p>
 <p>
-  This is how it appears in R5:
+  The extension <code>http://hl7.org/fhir/StructureDefinition/immunization-procedure</code> is defined
+  in the extensions pack, but uses the R5 specific data type <code>CodeableReference</code>. This 
+  is how it appears in R6:
 </p>
 <pre class="json">
   {
@@ -940,7 +942,7 @@ Note that this is an R5 extension, since valueAttachment was introduced in R5.
 </pre>
 
 <p>
-  This is how the same data appears in R4 using a cross-version extension:
+  This is how the same extension appears in R4 using a cross-version representation of the CodeableReference:
 </p>
 <pre class="json">
   {
@@ -977,7 +979,7 @@ Note that this is an R5 extension, since valueAttachment was introduced in R5.
 
 <p><b>A complex data type in an sub-extension</b></p>
 <p>
-This is how it appears in R5:
+This is how it appears in R6:
 </p>
 <pre class="json">
   {
@@ -1104,6 +1106,7 @@ an actual Task.input.value that is valid in R4. This is done using the
 Implementer Notes:
 </p>
 <ul>
+  <li>The choice of boolean as the placeholder value that holds the data-absent-reason is arbitrary, and another type could be used, but it's a lot simpler for implementations if it's a primitive type of some kind.  </li>
  <li>Systems processing the resource that find the <a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">Data Absent Reason</a>
 code of <code>  unsupported</code> can observe the presence of a cross-version extension to understand that the system that authored
 the resource had the data available but not a supported way to represent in the earlier (or later) version.</li>
