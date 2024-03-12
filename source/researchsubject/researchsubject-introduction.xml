@@ -9,11 +9,12 @@
   <p>Note that in a human drug trial the human is the research subject even though the drug is what is being investigated.</p>
   <p>The scope of ResearchSubject is intended to support the following use cases:</p>
   <ul>
-   <li>Humans and Animals for Clinical and Pre-clinical Trials</li>
-   <li>Drug Products for Stability Studies and other Tests</li>
-   <li>Devices for non-clinical laboratory studies - in-vivo and in-vitro</li>
-   <li>Tissue Sample for bench science studies</li>
+    <li>Humans and Animals for Clinical and Pre-clinical Trials</li>
+    <li>Drug Products for Stability Studies and other Tests</li>
+    <li>Devices for non-clinical laboratory studies - in-vivo and in-vitro</li>
+    <li>Tissue Sample for bench science studies</li>
   </ul>
+  <p>The Subject State is the research subject's (participant’s) movement through the study protocol from the subject's point of view.  The Subject Milestone is how the study activities relate to the subject's movement through the study protocol. The two are separate. State is driven by the subject and the Milestone is driven by the study protocol. The values in each element may be the same if necessary for study reasons.</p>
 </div>
 
 </div>

@@ -13,13 +13,9 @@
     <divergentElement patternPath="FiveWs.context" resourcePath="AuditEvent.entity.detail">
         <upperCardinality _pattern="1" _resource="*" reason="Audit needs to be more open"/>
     </divergentElement>
-    <unmappedElement patternPath="FiveWs.author" reason="Not missing, see entity.who"/>
-    <unmappedElement patternPath="FiveWs.actor" reason="Not missing, see entity.who"/>
-    <unmappedElement patternPath="FiveWs.cause" reason="Not missing, see entity.who"/>
     <unmappedElement patternPath="FiveWs.version" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.init" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.identifier" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="FiveWs.source" reason="Not missing, see entity.who"/>
     <unmappedElement patternPath="FiveWs.grade" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.status" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.planned" reason="Not relevant for this resource"/>
