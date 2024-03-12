@@ -81,6 +81,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Specimen-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.container.device.reference.owner"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-organization"/>
+        <description value="The organization where the specimen is located"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="Specimen.container.device.resolve().owner"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Specimen-procedure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -117,6 +136,25 @@
       </SearchParameter>
     </resource>
   </entry>
+  <!-- <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.container.device.reference.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-location"/>
+        <description value="The location of the specimen"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="Specimen.container.device.resolve().location"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
@@ -127,7 +165,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Specimen.identifier"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-identifier"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-identifier"/> 
         <description value="The unique identifier associated with the specimen"/>
         <code value="identifier"/>
         <type value="token"/>
