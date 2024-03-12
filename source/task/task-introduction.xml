@@ -33,48 +33,13 @@
       to by various agents, enabling automation of workflows in FHIR using existing search and subscription
       mechanisms.  Owners, requesters, other agents (e.g. workflow managers) can thus be ready to
       initiate the next steps in a complex workflow.</p>
-    <h3>Tasks State Machine</h3>
-    <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
-      the Ready state, indicating that they are ready to be performed. Once the owner initiates
-      activity on the task, the task transitions to the In Progress state, indicating that work is
-      being performed. Upon normal completion, the task enters the Completed state. If there is a
-      failure during the task execution that prevents the task from being completed, it can also
-      enter a Failed state, indicating an abnormal termination of the task. A task in any
-      non-terminal state may also be Cancelled, representing an abnormal termination of the task due
-      to external forces, rather than an error condition.</p>
-    <p>Tasks in any non-terminal state (Created, Ready, In Progress) can be suspended and resumed.
-      When a task is suspended, it is typically resumed in the state it was in when it was
-      originally suspended. Suspending a task suspends all of its children as well. Resuming a task
-      resumes all of its children.</p>
-    <p>An In-progress task can also be stopped, returning it to a Ready state. This may be in
-      preparation for delegation or reassignment (e.g., because it cannot be completed by the
-      current owner), to restart a task due to a temporary failure (e.g., to reattempt completion of
-      the activity), or in preparation to allow others to claim the task.</p>
-<!--    <h3>Using Tasks with operations</h3>
-    <p>The Task resource defines several operations to enable rich control over the task execution
-      environment. A server managing task resources may allow unfettered read access to all tasks
-      that it maintains, but restrict write access to the task resources to itself in order to exert
-      control over the task state machine. Instead, it might offer operations on tasks that enable
-      strictly controlled write operations following commonly accepted business rules for task
-      management. For example, only tasks that are in the "In Process" state might be allowed to be
-      "Completed" or "Failed". Use or support of these operations is not essential in simple
-      workflow environments where task activity needs little management. </p>
-    <p>There is no distinct operation for creating a new task because the FHIR RESTful API already
-      distinguishes between the create and update operations.</p>-->
-    <p>The task history allows applications monitoring the state of a workflow to identify tasks
-      that are long running, perhaps stuck in some queue, to enable management activities that could
-      ensure completion. It also enables tracking of task statistics such as wait time, or time in
-      progress, or time to completion, enabling capture of important task metrics in support of
-      optimization and quality improvement. </p>
-
+    
       [%stu-note dstu%]
       Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.
       </p>
       <p>
       Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
       [%end-note%]
-
-
 
   </div>
   <div>
