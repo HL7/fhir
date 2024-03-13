@@ -4,15 +4,10 @@
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="Provenance.target">
         <upperCardinality _pattern="1" _resource="*" reason="Many outcomes can be documented by one Provenance"/>
     </divergentElement>
-    <unmappedElement patternPath="FiveWs.author" reason="Not missing, see agent.who"/>
-    <unmappedElement patternPath="FiveWs.actor" reason="Not missing, see agent.who"/>
-    <unmappedElement patternPath="FiveWs.cause" reason="Not missing, see agent.who"/>
     <unmappedElement patternPath="FiveWs.version" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="FiveWs.witness" reason="Not missing, see agent.who"/>
     <unmappedElement patternPath="FiveWs.class" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.init" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.identifier" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="FiveWs.source" reason="Not missing, see agent.who"/>
     <unmappedElement patternPath="FiveWs.grade" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.status" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="FiveWs.planned" reason="Not relevant for this resource"/>
