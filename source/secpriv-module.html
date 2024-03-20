@@ -254,13 +254,13 @@ all API access and other security- and privacy-relevant events".
 use by FHIR clients and servers to record when a security or privacy relevant
 event has occurred. This form of audit logging records as much detail as
 reasonable at the time the event happened. 
-The FHIR AuditEvent is aligned and cross-referenced with IHE Audit Trail and Node Authentication (ATNA) Profile.
+The FHIR AuditEvent is aligned and cross-referenced with <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">IHE Audit Trail and Node Authentication (ATNA)</a> Profile.
 
 For details, see
 <a href="security.html#audit">Security: Audit</a>.
 
 </p>
-
+<p>Organizations should have a policy regarding purging of data, such as AuditEvent resources which can become numerous. Some types of AuditEvent may have limited value after a period (e.g. year) of time and may be archived and purged. This purge must be in alignment with regulations such as medical records retention, security, and privacy regulations. For example, purging AuditEvents that are related to Patient Privacy Transparency would not be purged until that patient was purged (See <a href="patient-operation-purge.html">Purge Patient Record Operation</a>).</p>
 <a name="AoD"></a>
 <h4>Accounting of Disclosures and/or Access Report</h4>
 <p>
