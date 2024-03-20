@@ -254,18 +254,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-code"/>
+        <id value="AuditEvent-subtype"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.code"/>
+          <valueString value="AuditEvent.subtype"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-subtype"/>
         <description value="More specific code for the event"/>
-        <code value="code"/>
+        <code value="subtype"/>
         <type value="token"/>
-        <expression value="AuditEvent.code"/>
+        <expression value="AuditEvent.subtype"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -273,18 +273,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-category"/>
+        <id value="AuditEvent-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.category"/>
+          <valueString value="AuditEvent.type"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-category"/>
-        <description value="Category of event"/>
-        <code value="category"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-type"/>
+        <description value="Type (category) of event"/>
+        <code value="type"/>
         <type value="token"/>
-        <expression value="AuditEvent.category"/>
+        <expression value="AuditEvent.type"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
