@@ -442,11 +442,11 @@
     </element>
     <element id="CommunicationRequest.payload.content[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20770."/>
+        <valueString value="GF#20770, J#38783."/>
       </extension>
       <path value="CommunicationRequest.payload.content[x]"/>
       <short value="Message part content"/>
-      <definition value="The communicated content (or for multi-part communications, one portion of the communication)."/>
+      <definition value="The content (or for multi-part communications, one portion of the communication) to be communicated."/>
       <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#xA;&#xA;If the content isn't codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
       <min value="1"/>
       <max value="1"/>
