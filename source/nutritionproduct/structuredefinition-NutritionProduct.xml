@@ -254,6 +254,17 @@
         <code value="Ratio"/>
       </type>
     </element>
+    <element id="NutritionProduct.ingredientSummary">
+      <path value="NutritionProduct.ingredientSummary"/>
+      <short value="Textual description of product ingredients"/>
+      <definition value="The textual description of the ingredients in the product.  For example, the following is a concatenated list of the ingredients for a peanut butter would read 'ROASTED PEANUTS, SUGAR, HYDROGENATED VEGETABLE OIL (COTTONSEED, SOYBEAN AND RAPESEED OIL) TO PREVENT SEPARATION, SALT.'"/>
+			<comment value="If structured ingredient information is present, the ingredientSummary should be consistent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="NutritionProduct.ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="375,100"/>

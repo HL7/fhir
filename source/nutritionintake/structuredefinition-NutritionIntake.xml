@@ -333,8 +333,8 @@
     </element>
     <element id="NutritionIntake.reported[x]">
       <path value="NutritionIntake.reported[x]"/>
-      <short value="Person or organization that provided the information about the consumption of this food or fluid"/>
-      <definition value="The person or organization that provided the information about the consumption of this food or fluid. Note: Use derivedFrom when a NutritionIntake is derived from other resources."/>
+      <short value="Indicates if this is a reported rather than a primary record.  Can also indicate the person or organization that provided the information about the consumption."/>
+      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth.  It may also indicate the source of the intake record."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -347,6 +347,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -357,7 +358,7 @@
       <path value="NutritionIntake.consumedItem"/>
       <short value="What food or fluid product or item was consumed"/>
       <definition value="What food or fluid product or item was consumed."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
@@ -367,7 +368,7 @@
       <path value="NutritionIntake.consumedItem.type"/>
       <short value="The type of food or fluid product"/>
       <definition value="Indicates what a category of item that was consumed: e.g., food, fluid, enteral, etc."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -390,7 +391,7 @@
       <short value="Code that identifies the food or fluid product that was consumed"/>
       <definition value="Identifies the food or fluid product that was consumed. This is potentially a link to a resource representing the details of the food product (TBD) or a simple attribute carrying a code that identifies the food from a known list of foods."/>
       <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of a new nutritionProduct resource is recommended."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
@@ -563,6 +564,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="NutritionIntake.location">
