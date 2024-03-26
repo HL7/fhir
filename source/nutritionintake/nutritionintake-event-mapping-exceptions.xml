@@ -75,7 +75,6 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="NutritionIntake.consumedItem.nutritionProduct">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(NutritionProduct)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
