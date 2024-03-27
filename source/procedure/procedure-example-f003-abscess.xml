@@ -49,7 +49,9 @@
         
     </bodySite>
     <outcome>
-      <text value="removal of the retropharyngeal abscess"/>
+		<concept>
+			<text value="removal of the retropharyngeal abscess"/>
+		</concept>
     </outcome>
     <report>
         <reference value="DiagnosticReport/f001"/>

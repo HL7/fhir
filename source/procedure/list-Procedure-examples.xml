@@ -196,4 +196,16 @@
       <display value="HCBS"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a physical therapy neck manipulation procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-physicaltherapy-neck"/>
+    </extension>
+    <item>
+      <reference value="Procedure/physicaltherapy-neck"/>
+      <display value="Physical Therapy - Neck"/>
+    </item>
+  </entry>
 </List>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir">
+    <id value="physicaltherapy-neck"/>
+    <status value="completed"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="119600000"/>
+            <display value="Neck manipulation"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="399010004"/>
+            <display value="Manipulation of the cervical spine - non-surgical (procedure)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <occurrenceDateTime value="2024-01-12"/>
+    <performer>
+        <actor>
+            <display value="Paul Therapist, PT"/>
+        </actor>
+    </performer>
+    <location>
+        <display value="Sawbones Orthopedic Clinic"/>
+    </location>
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="298253002"/>
+                <display value="Cervical facet joint pain (finding)"/>
+            </coding>
+        </concept>
+    </reason>
+    <bodySite>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="410737007"/>
+			<display value="Joint structure of sixth cervical vertebra (body structure)"/>
+		</coding>
+		<text value="Cervical spine C6 joint"/>
+    </bodySite>
+    <outcome>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="298429006"/>
+				<display value="Normal active range of cervical spine right lateral flexion (finding)"/>
+			</coding>
+		</concept>
+    </outcome>
+    <outcome>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="298434005"/>
+				<display value="Normal passive range of cervical spine right lateral flexion (finding)"/>
+			</coding>
+		</concept>
+    </outcome>
+    <outcome>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="298451003"/>
+				<display value="Normal active range of cervical spine right rotation (finding)"/>
+			</coding>
+		</concept>
+    </outcome>
+    <outcome>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="298456008"/>
+				<display value="Normal passive range of cervical spine right rotation (finding)"/>
+			</coding>
+		</concept>
+    </outcome>
+	<outcome>
+		<reference>
+			<reference value="Observation/example"/>
+		</reference>
+	</outcome>
+</Procedure>

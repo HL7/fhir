@@ -53,7 +53,9 @@
         
     </bodySite>
     <outcome>
-      <text value="improved blood circulation"/>
+		<concept>
+			<text value="improved blood circulation"/>
+		</concept>
     </outcome>
     <report>
         <reference value="DiagnosticReport/f001"/>
