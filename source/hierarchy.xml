@@ -291,6 +291,7 @@ signatures.html
       <page type="resource" resource="Flag"/>
 
       <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAlert"/>
       <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>
@@ -311,8 +312,8 @@ signatures.html
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
-	    <page type="resource" resource="InsuranceProduct"/>
-	    <!-- <page type="resource" resource="Network"/> -->
+      <page type="resource" resource="InsuranceProduct"/>
+      <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationAffiliation"/>
 	    <page type="resource" resource="VerificationResult"/>
     </page>
@@ -371,7 +372,7 @@ signatures.html
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
       <page type="resource" resource="Transport"/>
-<!--      <page type="resource" resource="Definition"/>
+      <!--      <page type="resource" resource="Definition"/>
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/> -->
       <page title="Definition Pattern" filename="definition.html"/>
