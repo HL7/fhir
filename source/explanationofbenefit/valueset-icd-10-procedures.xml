@@ -4,6 +4,9 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
   <name value="ICD10ProcedureCodes"/>
   <title value="ICD-10 Procedure Codes"/>
   <status value="draft"/>

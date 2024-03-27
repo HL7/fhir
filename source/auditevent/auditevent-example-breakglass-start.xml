@@ -2,22 +2,22 @@
 	<id value="example-breakglass-start"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Authorized Break-Glass period has been declared to enable immediate emergent treatment condition. This AuditEvent indicates the start of the Break-Glass event. Another would indicate the stop of that Break-Glass period, providd there is a session or state that can detect the end of the break-glass event.</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">Authorized Break-Glass period has been declared to enable immediate emergent treatment condition. This AuditEvent indicates the start of the Break-Glass event. Another would indicate the stop of that Break-Glass period, provided there is a session or state that can detect the end of the break-glass event.</div>
 	</text>
-	<category>
+	<type>
 	   <coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110113"/>
 		<display value="Security Alert"/>
 	   </coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 	   <coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110127"/>
 		<display value="Emergency Override Started"/>
 	   </coding>
-	</code>
+	</subtype>
 	<action value="E"/>
 	<!-- when was the break-glass started -->
 	<recorded value="2013-09-22T00:08:00Z"/>

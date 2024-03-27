@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-media"/>
-	<category>
+	<type>
 		<coding>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="110106"/>
 			<display value="Export"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 			<system value="urn:ihe:event-type-code"/>
 			<code value="ITI-32"/>
 			<display value="Distribute Document Set on Media"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="R"/>
 	<recorded value="2015-08-27T23:42:24Z"/>
 	<outcome>
