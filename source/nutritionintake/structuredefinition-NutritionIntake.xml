@@ -333,7 +333,7 @@
     </element>
     <element id="NutritionIntake.reported[x]">
       <path value="NutritionIntake.reported[x]"/>
-      <short value="Indicates if this is a reported rather than a primary record.  Can also indicate the person or organization that provided the information about the consumption."/>
+      <short value="Indicates if this is a reported rather than a primary record.  Can also indicate the person or organization that provided the information about the consumption"/>
       <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth.  It may also indicate the source of the intake record."/>
       <min value="0"/>
       <max value="1"/>

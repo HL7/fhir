@@ -257,7 +257,7 @@
     <element id="NutritionProduct.ingredientSummary">
       <path value="NutritionProduct.ingredientSummary"/>
       <short value="Textual description of product ingredients"/>
-      <definition value="The textual description of the ingredients in the product.  For example, the following is a concatenated list of the ingredients for a peanut butter would read 'ROASTED PEANUTS, SUGAR, HYDROGENATED VEGETABLE OIL (COTTONSEED, SOYBEAN AND RAPESEED OIL) TO PREVENT SEPARATION, SALT.'"/>
+      <definition value="The textual description of the ingredients in the product.  For example, the following is a concatenated list of the ingredients for a peanut butter would read 'ROASTED PEANUTS, SUGAR, HYDROGENATED VEGETABLE OIL (COTTONSEED, SOYBEAN AND RAPESEED OIL) TO PREVENT SEPARATION, SALT'."/>
 			<comment value="If structured ingredient information is present, the ingredientSummary should be consistent."/>
       <min value="0"/>
       <max value="1"/>
