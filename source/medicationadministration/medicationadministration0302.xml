@@ -9,9 +9,9 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="385219001"/>
-          <display value="Injection Solution (qualifier value)"/>
+          <display value="Solution for injection"/>
         </coding>
-        <text value="Injection Solution (qualifier value)"/>
+        <text value="Solution for injection"/>
       </doseForm>
       <ingredient>
         <item>
@@ -123,7 +123,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="47625008"/>
-        <display value="Intravenous route (qualifier value)"/>
+        <display value="Intravenous route"/>
       </coding>
     </route>
     <method>

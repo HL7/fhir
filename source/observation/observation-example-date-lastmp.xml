@@ -14,9 +14,9 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="8665-2"/>
-			<display value="Date last menstrual period"/>
+			<display value="Last menstrual period start date"/>
 		</coding>
-		<text value="Date last menstrual period"/>
+		<text value="Last menstrual period start date"/>
 	</code>
 	<subject>
 		<reference value="Patient/pat2"/>

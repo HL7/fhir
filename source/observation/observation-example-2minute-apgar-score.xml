@@ -97,7 +97,7 @@
           <valueDecimal value="1"/>
         </extension>
         <system value="http://loinc.org"/>
-        <code value="LA6720-2"/>
+        <code value="LA6717-8"/>
         <display value="Fewer than 100 beats per minute"/>
       </coding>
       <coding>
@@ -124,7 +124,7 @@
         </extension>
         <system value="http://loinc.org"/>
         <code value="LA6721-0"/>
-        <display value="Grimace during suctioning"/>
+        <display value="Grimace and pulling away, cough, or sneeze during suctioning"/>
       </coding>
       <coding>
         <system value="http://acme.ped/apgarreflexirritability"/>

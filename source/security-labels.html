@@ -95,31 +95,44 @@ An example XML Patient Resource with a "Restricted" tag associated with it, as r
 &lt;/Patient&gt;
 </pre>
 <p>
-A JSON search result that includes a resource that the receiving application must delete all copies of the resource after using it:
+A JSON search result example fragment that includes resources that the receiving application must delete all copies of the resource after using it <code>DELAU</code>:
 </p>
 <pre>
-{
-  "resourceType" : "Bundle",
-  "type" : "searchset",
+  {
+    "resourceType" : "Bundle",
+    "meta" : {
+      "security" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code" : "DELAU"     
+      },{       
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",       
+        "code" : "R" }
+        ]
+      },
+    "type" : "searchset",
   ... other headers etc.....
-  "entry" : [
-     ... other entries ....
-     {
-       "resource": {
-         "id" : "1",
-         "meta" : {
-           "security" : [{
-             "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-             "code" : "DELAU",
-             "display" : "delete after use"
-           }]
+    "entry" : [
+       ... other entries ....
+       {
+         "resource": {
+           "resourceType" : "Observation",
+           "id" : "1",
+           "meta" : {
+              "security" : [{
+                "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",             
+                "code" : "ETHUD" 
+              },{             
+                "system" : "http://terminology.hl7.org/CodeSystem/v3-Confidentiality",             
+                "code" : "R" }
+                ]
+              },
+           ... other content etc.....
          }
-         ... other content etc.....
-       }
-     },
-     ... other entries ....
-  ]
-}
+       },
+       ... other entries ....    
+  
+    ]
+  }
 </pre>
 </div>
 

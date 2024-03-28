@@ -47,7 +47,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="41857-4"/>
-			<display value="Vibrio parahaemolyticus DNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+			<display value="Vibrio parahaemolyticus DNA [Presence] in Specimen by NAA with probe detection"/>
 		</coding>
 		<!-- here is the local code -->
 		<coding>

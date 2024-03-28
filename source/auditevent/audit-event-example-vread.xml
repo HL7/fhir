@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-rest"/>
-	<category>
+	<type>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 			<code value="rest"/>
 			<display value="Restful Operation"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 			<system value="http://hl7.org/fhir/restful-interaction"/>
 			<code value="vread"/>
 			<display value="vread"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="R"/>
 	<recorded value="2013-06-20T23:42:24Z"/>
 	<outcome>

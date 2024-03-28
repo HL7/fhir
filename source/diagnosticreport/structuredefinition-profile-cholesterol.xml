@@ -89,7 +89,7 @@
         <coding>
           <system value="http://loinc.org"/>
           <code value="35200-5"/>
-          <display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
+          <display value="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
         </coding>
       </fixedCodeableConcept>
       <mustSupport value="true"/>

@@ -204,7 +204,7 @@
                               </span>
                               <span style="padding-left: 25px;">
                                  <b>display: </b>
-                                 <span>Major depression, recurrent, mild</span>
+                                 <span>Mild recurrent major depression</span>
                               </span>
                            </span>
                         </span>
@@ -736,7 +736,7 @@
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385055001"/>
-            <display value="Tablet dose form"/>
+            <display value="Tablet (basic dose form)"/>
           </coding>
           <text value="Tablet dose form"/>
         </doseForm>
@@ -839,7 +839,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="40379007"/>
-        <display value="Major depression, recurrent, mild"/>
+        <display value="Mild recurrent major depression"/>
       </coding>
     </valueCodeableConcept>
   </useContext>

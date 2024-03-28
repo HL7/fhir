@@ -18,7 +18,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="90105005"/>
-      <display value="Biopsy of soft tissue of forearm (Procedure)"/>
+      <display value="Biopsy of soft tissue of forearm, superficial"/>
     </coding>
     <text value="Biopsy of suspected melanoma L) arm"/>
   </code>

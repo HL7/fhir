@@ -15,7 +15,7 @@
 			<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="80582002"/>
-			<display value="Glycerin 1800 mg"/>
+			<display value="Glycerol (substance)"/>
 			</coding>
 		</concept>
     </medication>
