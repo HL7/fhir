@@ -46,7 +46,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="11840006"/>
-                <display value="Traveller's Diarrhea (disorder)"/>
+                <display value="Traveler's diarrhea (disorder)"/>
             </coding>
         </concept>
     </reason>

@@ -32,7 +32,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Some potential code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DocumentCompletion.html)&#xA;- [v3-DataOperation](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DataOperation.html)&#xA;- [v3-ActCode](http://hl7.org/fhir/v3/ActCode/cs.html)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)"/>
+  <description value="Some potential code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion)&#xA;- [v3-DataOperation](http://terminology.hl7.org/CodeSystem/v3-DataOperation)&#xA;- [v3-ActCode](http://terminology.hl7.org/CodeSystem/v3-ActCode)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)&#xA;- [FHIR RESTful interactions](codesystem-restful-interaction.html)"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>

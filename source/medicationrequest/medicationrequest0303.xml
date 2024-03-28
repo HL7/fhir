@@ -10,7 +10,7 @@
               <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="373994007"/>
-                  <display value="Prednisone 5mg tablet (Product)"/>
+                  <display value="Prednisone 5 mg oral tablet"/>
               </coding>
           </code>
       </Medication>

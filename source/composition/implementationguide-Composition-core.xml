@@ -12,11 +12,6 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/clinicaldocument"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/catalog"/>
       </reference>
     </resource>
