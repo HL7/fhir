@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-logout"/>
-	<category>
+	<type>
 		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110114"/>
 		<display value="User Authentication"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110123"/>
 		<display value="Logout"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="E"/>
 	<recorded value="2013-06-20T23:46:41Z"/>
 	<outcome>

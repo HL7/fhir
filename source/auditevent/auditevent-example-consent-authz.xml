@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir">
 	<id value="example-consent-permit-authz"/>
-
-	<code>
+	<type>
+		<coding>
+		 <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+		 <code value="110113"/>
+		 <display value="Security Alert"/>
+		</coding>
+	 </type>
+	<subtype>
 		<coding>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="110112"/>
 			<display value="Query"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="E"/>
 	<recorded value="2021-09-08T21:51:59.932Z"/>
 	<outcome>
