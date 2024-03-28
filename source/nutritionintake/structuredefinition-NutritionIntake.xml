@@ -363,6 +363,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="nin-1"/>
+        <severity value="error"/>
+        <human value="If consumedItem is present then SHALL have at least one of consumedItem.type or consumedItem.nutritionProduct[x]"/>
+        <expression value="(type.exists() or nutritionProduct.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NutritionIntake"/>
+      </constraint>
     </element>
     <element id="NutritionIntake.consumedItem.type">
       <path value="NutritionIntake.consumedItem.type"/>
