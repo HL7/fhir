@@ -1011,19 +1011,19 @@
       <groupingBehavior value="logical-group"/>
       <selectionBehavior value="at-most-one"/>
       <action>
-        <title value="First-Line Antidepressants"/>
+         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                <code value="high"/>
+              </coding>
+              <text value="High Quality"/>
+            </valueCodeableConcept>
+         </extension>
+         <title value="First-Line Antidepressants"/>
           <documentation>
             <type value="citation"/>
             <document>
-            <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-			  <valueCodeableConcept>
-			    <coding>
-			      <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-			      <code value="high"/>
-			    </coding>
-			    <text value="High Quality"/>
-			  </valueCodeableConcept>
-            </extension>
             <contentType value="text/html"/>
             <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
             <title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>

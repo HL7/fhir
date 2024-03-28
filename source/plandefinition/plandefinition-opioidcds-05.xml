@@ -94,30 +94,29 @@
   </relatedArtifact>
   <library value="http://example.org/fhir/Library/opioidcds-recommendation-05"/>
   <action>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+          <code value="strong"/>
+          <display value="Strong"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+          <code value="low"/>
+          <display value="Low quality"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
     <title value="High risk for opioid overdose."/>
     <description value="Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50."/>
     <documentation>
       <type value="documentation"/>
-      <document>
-        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-              <code value="strong"/>
-              <display value="Strong"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-              <code value="low"/>
-              <display value="Low quality"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-      </document>
+      <document/>
     </documentation>
     <trigger>
       <type value="named-event"/>

@@ -94,30 +94,29 @@
   </relatedArtifact>
   <library value="http://example.org/fhir/Library/opioidcds-recommendation-04"/>
   <action>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+          <code value="strong"/>
+          <display value="Strong"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+          <code value="low"/>
+          <display value="Low quality"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
     <title value="Extended-release opioid prescription triggered."/>
     <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #4 workflow."/>
     <documentation>
       <type value="documentation"/>
-      <document>
-        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-              <code value="strong"/>
-              <display value="Strong"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-              <code value="low"/>
-              <display value="Low quality"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-      </document>
+      <document/>
     </documentation>
     <trigger>
       <type value="named-event"/>
