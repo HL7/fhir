@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+ 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AuditEvent"/>
   <meta>
@@ -111,14 +111,15 @@
         <map value="infrastructure.information"/>
       </mapping>
     </element>
-    <element id="AuditEvent.category">
-      <path value="AuditEvent.category"/>
-      <short value="Type/identifier of event"/>
-      <definition value="Classification of the type of event."/>
-      <requirements value="Codes that classify the general type of event that happened."/>
-      <alias value="type"/>
-      <min value="0"/>
-      <max value="*"/>
+    <element id="AuditEvent.type">
+      <path value="AuditEvent.type"/>
+      <short value="High level categorization of audit event"/>
+      <definition value="Partitions the audit event into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+      <comment value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#xa;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+      <alias value="category"/>
+      <alias value="EventTypeCode"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -136,11 +137,11 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.code"/>
+        <map value="Event.category"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
+        <map value="FiveWs.class"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -155,14 +156,15 @@
         <map value="Activity"/>
       </mapping>
     </element>
-    <element id="AuditEvent.code">
-      <path value="AuditEvent.code"/>
+    <element id="AuditEvent.subtype">
+      <path value="AuditEvent.subtype"/>
       <short value="Specific type of event"/>
-      <definition value="Describes what happened. The most specific code for the event."/>
+      <definition value="Describes what happened. The most specific codes for the event."/>
       <requirements value="This field enables queries of messages by implementation-defined event categories."/>
-      <alias value="subtype"/>
-      <min value="1"/>
-      <max value="1"/>
+      <alias value="code"/>
+      <alias value="EventID"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -178,6 +180,10 @@
         <description value="Specific type of event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-sub-type"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -472,25 +478,37 @@
       <path value="AuditEvent.basedOn"/>
       <short value="Workflow authorization within which this event occurred"/>
       <definition value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+      <requirements value="Allows tracing of authorization for the audit event and tracking whether proposals/recommendations were acted upon."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+
+        <!-- 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+        -->
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.code"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
+        <map value="Event.basedOn"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -508,13 +526,14 @@
       <path value="AuditEvent.patient"/>
       <short value="The patient is the subject of the data used/created/updated/deleted during the activity"/>
       <definition value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
-      <requirements value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
+      <requirements value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.subject"/>
@@ -536,6 +555,8 @@
       <path value="AuditEvent.encounter"/>
       <short value="Encounter within which this event occurred or which the event is tightly associated"/>
       <definition value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <comment value="This will typically be the encounter the audit event was created during, but some audit events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <requirements value="Links the audit event to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -544,7 +565,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.code"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -713,7 +734,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.who"/>
+        <map value="FiveWs.author, FiveWs.source, FiveWs.actor, FiveWs.cause, FiveWs.witness, FiveWs.who"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1093,10 +1114,6 @@
         <description value="DICOM Audit Event Entity Role"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/object-role"/>
       </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="role.code (not sure what this would mean for an Act)"/>

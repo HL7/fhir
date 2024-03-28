@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
+      <valueString value="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="formularyitemexample01"/>

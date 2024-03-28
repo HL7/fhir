@@ -49,66 +49,46 @@
   <concept>
     <code value="candidate"/>
     <display value="Candidate"/>
-    <definition value="An identified person that can be considered for inclusion in a study."/>
+    <definition value="A subject (ResearchSubject) potentially eligible for participation in a study (ResearchStudy) who has not completed an evaluation to determine whether they are eligible or ineligible for consideration."/>
+  </concept>
+  <concept>
+    <code value="in-prescreening"/>
+    <display value="In Prescreening"/>
+    <definition value="A subject (ResearchSubject) undergoing an initial evaluation to determine if they are eligible or ineligible for consideration for inclusion in a study (ResearchStudy).A subject (ResearchSubject) potentially eligible for participation in a study (ResearchStudy) who has not completed an evaluation to determine whether they are eligible or ineligible for consideration."/>
+  </concept>
+  <concept>
+    <code value="in-screening"/>
+    <display value="In Screening"/>
+    <definition value="A subject (ResearchSubject) undergoing a full evaluation to determine if they are eligible or ineligible for inclusion in a study (ResearchStudy)."/>
   </concept>
   <concept>
     <code value="eligible"/>
     <display value="Eligible"/>
-    <definition value="A person that has met the eligibility criteria for inclusion in a study."/>
-  </concept>
-  <concept>
-    <code value="follow-up"/>
-    <display value="Follow-up"/>
-    <definition value="A person is no longer receiving study intervention and/or being evaluated with tests and procedures according to the protocol, but they are being monitored on a protocol-prescribed schedule."/>
+    <definition value="A subject (ResearchSubject) who has passed a full evaluation against the protocol specified eligibility criteria to determine if they are eligible or ineligible for inclusion in a study (ResearchStudy)."/>
   </concept>
   <concept>
     <code value="ineligible"/>
     <display value="Ineligible"/>
-    <definition value="A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or&#xA;is ineligible for the study."/>
-  </concept>
-  <concept>
-    <code value="not-registered"/>
-    <display value="Not Registered"/>
-    <definition value="A person for whom registration was not completed."/>
-  </concept>
-  <concept>
-    <code value="off-study"/>
-    <display value="Off-study"/>
-    <definition value="A person that has ended their participation on a study either because their treatment/observation is complete or through not&#xA;responding, withdrawal, non-compliance and/or adverse event."/>
+    <definition value="A subject (ResearchSubject) who has failed an  evaluation against the protocol specified eligibility criteria to determine if they are eligible or ineligible for inclusion in a study (ResearchStudy)."/>
   </concept>
   <concept>
     <code value="on-study"/>
     <display value="On-study"/>
-    <definition value="A person that is enrolled or registered on a study."/>
+    <definition value="A subject (ResearchSubject) who is enrolled in a study (ResearchStudy)."/>
   </concept>
   <concept>
     <code value="on-study-intervention"/>
     <display value="On-study-intervention"/>
-    <definition value="The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating."/>
+    <definition value="A subject (ResearchSubject) who is in an intervention phase of a study (ResearchStudy)."/>
   </concept>
   <concept>
-    <code value="on-study-observation"/>
-    <display value="On-study-observation"/>
-    <definition value="The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is &quot;short-term follow-up&quot;."/>
+    <code value="in-follow-up"/>
+    <display value="In follow-up"/>
+    <definition value="A subject (ResearchSubject) who has completed planned study (ResearchStudy) procedures and tests and is being monitored based on a protocol-prescribed schedule. "/>
   </concept>
   <concept>
-    <code value="pending-on-study"/>
-    <display value="Pending on-study"/>
-    <definition value="A person is pre-registered for a study."/>
-  </concept>
-  <concept>
-    <code value="potential-candidate"/>
-    <display value="Potential Candidate"/>
-    <definition value="A person that is potentially eligible for participation in the study."/>
-  </concept>
-  <concept>
-    <code value="screening"/>
-    <display value="Screening"/>
-    <definition value="A person who is being evaluated for eligibility for a study."/>
-  </concept>
-  <concept>
-    <code value="withdrawn"/>
-    <display value="Withdrawn"/>
-    <definition value="The person has withdrawn their participation in the study before registration."/>
+    <code value="off-study"/>
+    <display value="Off-study"/>
+    <definition value="A subject (ResearchSubject) who is no longer participating in a study (ResearchStudy)."/>
   </concept>
 </CodeSystem>

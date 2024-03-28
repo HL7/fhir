@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>BDP Examples</h3>
 	<p>The following are examples of biologicall-derived product resource uses:
@@ -13,4 +13,5 @@
 			<a href="biologicallyderivedproduct-example-autologousHCT.html">Autologous stem cell transplant for Patient A</a>
 		</li>
     </ul>
+</div>
 </div>

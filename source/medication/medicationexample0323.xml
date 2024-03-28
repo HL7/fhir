@@ -68,7 +68,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="739006009"/>
-        <display value="Solution (basic dose form) (qualifier value)"/>
+        <display value="Solution (basic dose form)"/>
       </coding>
     </doseForm>
  

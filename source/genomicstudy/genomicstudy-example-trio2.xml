@@ -45,7 +45,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="67799006"/>
-                <display value="Cystic fibrosis, prenatal detection (procedure) |"/>
+                <display value="Cystic fibrosis, prenatal detection (procedure)"/>
             </coding>
         </concept>
     </reason>

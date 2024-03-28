@@ -90,7 +90,7 @@ HTTP/1.1 200 OK
                    {
                      "system": "http://loinc.org",
                      "code": "14647-2",
-                     "display": "Cholesterol [Moles/​volume] in Serum or Plasma"
+                     "display": "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
                    }
                  ],
                  "text": "Cholesterol"
