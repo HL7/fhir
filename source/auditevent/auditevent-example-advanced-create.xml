@@ -3,20 +3,20 @@
 	<id value="example-advanced-create"/>
 	<!-- to include elements not typically populated, but for which there are query parameters -->
 	<!-- derived off of example in IHE.BALP IG -->
-	<category>
+	<type>
 		<coding>
 			<system value="http://hl7.org/fhir/restful-interaction"/>
 			<code value="create"/>
 			<display value="create"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 			<code value="rest"/>
 			<display value="Restful Operation"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="C"/>
 	<severity value="informational"/>
 	<occurredDateTime value="2020-04-29T09:49:00.000Z"/>
