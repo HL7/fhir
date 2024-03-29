@@ -646,9 +646,6 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="Bundle.signature">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="Bundle.signature"/>
 			<short value="Digital Signature"/>
 			<definition value="Digital Signature - base64 encoded. XML-DSig or a JWS."/>

@@ -18,20 +18,20 @@
 			</issue>
 		</OperationOutcome>
 	</contained>
-	<category>
+	<type>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 			<code value="rest"/>
 			<display value="Restful Operation"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 			<system value="http://hl7.org/fhir/restful-interaction"/>
 			<code value="create"/>
 			<display value="create"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="C"/>
 	<recorded value="2017-09-07T23:42:24Z"/>
 	<outcome>
