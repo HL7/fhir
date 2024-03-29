@@ -2,7 +2,6 @@
 
 <PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="opioidcds-07"/>
-  <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-07"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.11.6"/>
@@ -94,30 +93,28 @@
   </relatedArtifact>
   <library value="http://example.org/fhir/Library/opioidcds-recommendation-07"/>
   <action>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+          <code value="strong"/>
+          <display value="Strong"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+          <code value="low"/>
+          <display value="Low quality"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
     <title value="Existing patient should be evaluated for risk of continued opioid therapy."/>
     <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #7 workflow."/>
     <documentation>
       <type value="documentation"/>
-      <document>
-        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-              <code value="strong"/>
-              <display value="Strong"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-              <code value="low"/>
-              <display value="Low quality"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-      </document>
     </documentation>
     <trigger>
       <type value="named-event"/>
