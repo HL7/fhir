@@ -2,20 +2,20 @@
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-pixQuery"/>
 
-	<category>
-			<coding>
+	<type>
+		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110112"/>
 		<display value="Query"/>
-			</coding>
-	</category>
-	<code>
-			<coding>
+		</coding>
+	</type>
+	<subtype>
+		<coding>
 		<system value="urn:oid:1.3.6.1.4.1.19376.1.2"/>
 		<code value="ITI-9"/>
 		<display value="PIX Query"/>
-			</coding>
-	</code>
+		</coding>
+	</subtype>
 	<action value="E"/>
 	<recorded value="2015-08-26T23:42:24Z"/>
 	<outcome>

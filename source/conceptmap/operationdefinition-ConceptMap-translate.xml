@@ -139,7 +139,7 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="The target code that is to be translated to. If a code is provided, a system must be provided"/>
-    <type value="uri"/>
+    <type value="code"/>
   </parameter>
   <parameter>
     <name value="targetCoding"/>
@@ -147,7 +147,7 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="A target coding to translate to"/>
-    <type value="uri"/>
+    <type value="Coding"/>
   </parameter>
   <parameter>
     <name value="targetCodeableConcept"/>
@@ -155,7 +155,7 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="A full codeableConcept to validate. The server can translate any of the coding values (e.g. existing translations) as it chooses"/>
-    <type value="uri"/>
+    <type value="CodeableConcept"/>
   </parameter>
   <parameter>
     <name value="targetScope"/>
