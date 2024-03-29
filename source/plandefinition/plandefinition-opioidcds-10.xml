@@ -2,7 +2,6 @@
 
 <PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="opioidcds-10"/>
-  <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-10"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.11.3"/>
@@ -109,7 +108,6 @@
     <description value="Patient has not had a urine screening in the past 12 months"/>
     <documentation>
       <type value="documentation"/>
-      <document/>
     </documentation>
     <trigger>
       <type value="named-event"/>

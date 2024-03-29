@@ -2,7 +2,6 @@
 
 <PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="opioidcds-04"/>
-  <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-04"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.11.4"/>
@@ -116,7 +115,6 @@
     <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #4 workflow."/>
     <documentation>
       <type value="documentation"/>
-      <document/>
     </documentation>
     <trigger>
       <type value="named-event"/>
