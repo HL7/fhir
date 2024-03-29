@@ -49,6 +49,24 @@
       <concept>
         <code value="385670004"/>
       </concept>
+	  <concept>
+        <code value="704302001"/>
+      </concept>
+	  <concept>
+        <code value="247758009"/>
+      </concept>
+	  <concept>
+        <code value="284778005"/>
+      </concept>
+	  <concept>
+        <code value="307085007"/>
+      </concept>
+	  <concept>
+        <code value="298429006"/>
+      </concept>
+	  <concept>
+        <code value="298434005"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
