@@ -258,7 +258,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
           <valueBoolean value="false"/>
         </extension>
-        <key value="ctm-1"/>
+        <key value="ctm-2"/>
         <severity value="warning"/>
         <human value="CareTeam.participant.role or CareTeam.participant.member exists"/>
         <expression value="role.exists() or member.exists()"/>
@@ -282,7 +282,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="ctm-1"/>
+      <condition value="ctm-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -320,7 +320,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
-      <condition value="ctm-1"/>
+      <condition value="ctm-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
