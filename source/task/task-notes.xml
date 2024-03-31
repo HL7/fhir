@@ -46,7 +46,7 @@
       that are long running, perhaps stuck in some queue, to enable management activities that could
       ensure completion. It also enables tracking of task statistics such as wait time, or time in
       progress, or time to completion, enabling capture of important task metrics in support of
-      optimization and quality improvement. </p>
+      optimization and quality improvement. </p> 
   <p>
     The following diagram reflects the "typical" state machine for Task.  Note that not all states will be supported by all workflows
     and that some workflows may support additional transitions, including transitions from terminal states (e.g. back to "in-progress"
