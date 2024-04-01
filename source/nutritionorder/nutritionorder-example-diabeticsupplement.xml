@@ -45,7 +45,7 @@ edited by Eric Haas Health eData Inc
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="443051000124104"/>
-				<display value="Adult diabetes specialty formula"/>
+				<display value="Adult diabetic specialty formula"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/supplement-type-codes"/>

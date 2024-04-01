@@ -16,7 +16,7 @@ HTTP/1.1 200 OK
   },
   {
     "name" : "display",
-    "valueString" : "Bicarbonate [Moles/volume] in Serum"
+    "valueString" : "Bicarbonate [Moles/volume] in Serum or Plasma"
   },
   {
     "name" : "abstract",
@@ -27,7 +27,7 @@ HTTP/1.1 200 OK
     "part" : [
     {
       "name" : "value",
-      "valueString" : "Bicarbonate [Moles/volume] in Serum"
+      "valueString" : "Bicarbonate [Moles/volume] in Serum or Plasma"
     }
     ]
   }

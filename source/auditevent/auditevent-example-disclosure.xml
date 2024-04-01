@@ -2,19 +2,19 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-disclosure"/>
-	<category>
+	<type>
 		<coding>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="110106"/>
 			<display value="Export"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 			<code value="Disclosure"/>
 			<display value="HIPAA disclosure"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="R"/>
 	<severity value="notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>

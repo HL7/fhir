@@ -430,7 +430,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -1626,7 +1626,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -2805,7 +2805,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -3971,7 +3971,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -5128,7 +5128,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -6263,7 +6263,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -7404,7 +7404,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -8548,7 +8548,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -9702,7 +9702,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -10881,7 +10881,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -12047,7 +12047,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -13204,7 +13204,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -14339,7 +14339,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -15480,7 +15480,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="1963-8"/>
-									<display value="Bicarbonate [Moles/volume] in Serum"/>
+									<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 								</coding>
 								<coding>
 									<system value="http://snomed.info/sct"/>
@@ -16487,7 +16487,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="11475-1"/>
-									<display value="Microorganism identified in Unspecified specimen by Culture"/>
+									<display value="Microorganism identified in Specimen by Culture"/>
 								</coding>
 							</code>
 							<subject>
@@ -16498,7 +16498,7 @@
 								<display value="Acme Laboratory, Inc"/>
 							</performer>
 							<valueCodeableConcept>
-								<text value="KLEBSIELLA PNEUMONIAE"/>
+								<text value="Klebsiella pneumoniaeE"/>
 							</valueCodeableConcept>
 						</Observation>
 					</resource>
@@ -16513,7 +16513,7 @@
 								<coding>
 									<system value="http://loinc.org"/>
 									<code value="43161-9"/>
-									<display value="Microorganism [#/volume] in Unspecified specimen by Viability count"/>
+									<display value="Microorganism [#/volume] in Specimen by Viability count"/>
 								</coding>
 							</code>
 							<subject>

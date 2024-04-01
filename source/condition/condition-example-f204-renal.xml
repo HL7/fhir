@@ -37,14 +37,14 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="36225005"/>
-      <display value="Acute renal insufficiency specified as due to procedure"/>
+      <display value="Acute renal failure due to procedure"/>
     </coding>
   </code>
   <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="181414000"/>
-      <display value="Kidney"/>
+      <display value="Entire kidney"/>
     </coding>
   </bodySite>
   <subject>

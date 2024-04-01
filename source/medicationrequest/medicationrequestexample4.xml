@@ -9,9 +9,10 @@
                 <code>
                     <coding>
                         <system value="http://snomed.info/sct"/>
-                        <code value="0944-2700"/>
-                        <display value="GAMMAGARD Liquid"/>
+                        <code value="116805008"/>
+                        <display value="Immune serum globulin administration by intravascular infusion"/>
                     </coding>
+                    <text value="GAMMAGARD Liquid"/>
                 </code>
         </Medication>
     </contained>

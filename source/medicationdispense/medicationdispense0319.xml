@@ -20,7 +20,7 @@
     <medication>
         <reference>
         <reference value="#med0320"></reference>
-        <display value="Azithromycin 250mg capsule (product)"/>
+        <display value="Azithromycin (as azithromycin dihydrate) 250 mg oral capsule"/>
         </reference>
     </medication>
     <subject>
