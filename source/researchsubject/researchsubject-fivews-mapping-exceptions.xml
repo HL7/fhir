@@ -1,10 +1,7 @@
 <mappingExceptions pattern="FiveWs" resource="ResearchSubject"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <divergentElement patternPath="FiveWs.status" resourcePath="ResearchSubject.progress.subjectState">
-        <modifier _pattern="true" _resource="false" reason="Unknown"/>
-    </divergentElement>
-    <divergentElement patternPath="FiveWs.status" resourcePath="ResearchSubject.progress.milestone">
+    <divergentElement patternPath="FiveWs.status" resourcePath="ResearchSubject.subjectState.code">
         <modifier _pattern="true" _resource="false" reason="Unknown"/>
     </divergentElement>
     <unmappedElement patternPath="FiveWs.what" reason="Unknown"/>

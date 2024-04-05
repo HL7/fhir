@@ -237,12 +237,13 @@
       <path value="Permission.rule"/>
       <short value="Constraints to the Permission"/>
       <definition value="A set of rules."/>
+      <comment value="Each `.rule` is evaulated within the combining rule identified in the `.combining` element."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
-      <orderMeaning value="The order of the rules processing is defined in rule-combining"/>
+      <orderMeaning value="The order of the rules processing is defined in rule combining selected in .combining element."/>
       <isSummary value="true"/>
     </element>
     <element id="Permission.rule.type">
@@ -277,6 +278,9 @@
       <path value="Permission.rule.data"/>
       <short value="The selection criteria to identify data that is within scope of this provision"/>
       <definition value="A description or definition of which activities are allowed to be done on the data."/>
+      <comment value="Within a `.rule` any repititions of the `.data` element are in an OR relationship. That is to say that the data identified by the rule is all the data identified by all repititions of `.data`. Thus to identify one rule that applies to data tagged with `STD` and data that is tagged with `HIV`, one would repeat this at the `.data` level.
+        
+      Within the `.data` element, all elements and all repetitions of elements, are in an AND relationship. Thus to select data that has both `STD` and `HIV` one puts both into one `.rule`. To have different rules for `STD` from `HIV`, one would need to have two `.rule` elements. To have a rule that applies to both, those that have just `STD` and just `HIV`, this repitition may also be done at the data level as described above."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -354,7 +358,7 @@
       <definition value="Clinical or Operational Relevant period of time that bounds the data controlled by this rule."/>
       <comment value="This has a different sense to the .validity."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Period"/>
       </type>
@@ -386,6 +390,9 @@
       <path value="Permission.rule.activity"/>
       <short value="A description or definition of which activities are allowed to be done on the data"/>
       <definition value="A description or definition of which activities are allowed to be done on the data."/>
+      <comment value="Within a `.rule` any repititions of the `.activity` element are in an OR relationship. That is to say that the rule applies to all the repititions of `.activity`. Thus to identify one rule that applies to both `TREAT` and `HOPERAT`, one would have one rule with repititions at the .activity level.
+
+      Within the `.activity` element, all elements and all repetitions of elements, are in an AND relationship. Thus to control an actity that is covering purpose of both `TREAT` and `HOPERAT`, one rule with an `.activity` `.purpose` holding both `TREAT` and `HOPERAT` can define that rule. However this will not cover activities covering only `TREAT`, for that repeat at the `.activity` with just a `.purpose` of `TREAT`."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -467,6 +474,7 @@
       <path value="Permission.rule.limit"/>
       <short value="What limits apply to the use of the data"/>
       <definition value="What limits apply to the use of the data."/>
+      <comment value="Within a `.rule` all repititions of the `.limit` all apply to the rule. That is to say if there are multiple limits, and the rule permits the activity, then all the identified limits are applied to that authorized activity."/>
       <min value="0"/>
       <max value="*"/>
       <type>
