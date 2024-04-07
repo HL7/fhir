@@ -6,7 +6,7 @@
 		<value value="ret4421"/>
 	</identifier>
 	<basedOn>
-		<display value="ServiceRequest for Myringotomy and insertion of tympanic ventilation tube"/>
+		<display value="ServiceRequest for Myringotomy and insertion of short-term grommet"/>
 	</basedOn>
 	<replaces>
 		<display value="prior ServiceRequest"/>
@@ -29,7 +29,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="172676009"/>
-			<display value="Myringotomy and insertion of tympanic ventilation tube"/>
+			<display value="Myringotomy and insertion of short-term grommet"/>
 		</coding>
 		<text value="Insertion of grommets"/>
 	   </concept>

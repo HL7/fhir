@@ -199,7 +199,7 @@
           <coding>
             <system value="http://snomed.info/sct" />
             <code value="33526004" />
-            <display value="Electronic laboratory reporting" />
+            <display value="Laboratory reporting, electronic" />
           </coding>
         </code>
         <specialty>

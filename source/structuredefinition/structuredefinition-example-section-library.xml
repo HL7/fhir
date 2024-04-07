@@ -90,7 +90,7 @@
         <coding>
           <system value="http://loinc.org"/>
           <code value="18776-5"/>
-          <display value="Plan of treatment (narrative)"/>
+          <display value="Plan of care note"/>
         </coding>
       </patternCodeableConcept>
     </element>

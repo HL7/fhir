@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="low-suicide-risk-order-set"/>
   <text>
     <status value="generated"/>
@@ -204,7 +204,7 @@
                               </span>
                               <span style="padding-left: 25px;">
                                  <b>display: </b>
-                                 <span>Major depression, recurrent, mild</span>
+                                 <span>Mild recurrent major depression</span>
                               </span>
                            </span>
                         </span>
@@ -736,7 +736,7 @@
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385055001"/>
-            <display value="Tablet dose form"/>
+            <display value="Tablet (basic dose form)"/>
           </coding>
           <text value="Tablet dose form"/>
         </doseForm>
@@ -839,7 +839,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="40379007"/>
-        <display value="Major depression, recurrent, mild"/>
+        <display value="Mild recurrent major depression"/>
       </coding>
     </valueCodeableConcept>
   </useContext>
@@ -1011,19 +1011,19 @@
       <groupingBehavior value="logical-group"/>
       <selectionBehavior value="at-most-one"/>
       <action>
-        <title value="First-Line Antidepressants"/>
+         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                <code value="high"/>
+              </coding>
+              <text value="High Quality"/>
+            </valueCodeableConcept>
+         </extension>
+         <title value="First-Line Antidepressants"/>
           <documentation>
             <type value="citation"/>
             <document>
-            <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-			  <valueCodeableConcept>
-			    <coding>
-			      <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-			      <code value="high"/>
-			    </coding>
-			    <text value="High Quality"/>
-			  </valueCodeableConcept>
-            </extension>
             <contentType value="text/html"/>
             <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
             <title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>

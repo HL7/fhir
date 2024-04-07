@@ -22,7 +22,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="75359005"/>
-        <display value="Opthalmic Solution (qualifier value)"/>
+        <display value="Timolol maleate (substance)"/>
       </coding>
     </doseForm>
     <ingredient>

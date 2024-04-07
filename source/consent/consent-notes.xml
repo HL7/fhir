@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">'
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">'
 
   <a name="policies"></a>
   <h2>Policies</h2>
@@ -251,4 +251,5 @@ necessary consent content derived from a Consent Directive for use in workflow m
     <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc.) as above</li>
     <li>Inspect Consent.provision.provision (et.al) for exceptions</li>
   </ol>
+</div>
 </div>

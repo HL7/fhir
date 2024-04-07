@@ -44,7 +44,7 @@
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="392259005"/>
-				<display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)"/>
+				<display value="Product containing precisely amoxicillin 875 milligram and clavulanic acid (as clavulanate potassium) 125 milligram/1 each conventional release oral tablet (clinical drug)"/>
 			</coding>
 		</concept>
 	</code>

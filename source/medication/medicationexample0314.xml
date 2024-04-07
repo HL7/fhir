@@ -13,7 +13,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385055001"/>
-        <display value="Tablet dose form (qualifier value)"/>
+        <display value="Tablet (basic dose form)"/>
       </coding>
     </doseForm>
     <ingredient>

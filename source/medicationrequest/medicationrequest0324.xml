@@ -15,7 +15,7 @@
         <coding>
         <system value="http://snomed.info/sct"/>
         <code value="322254008"/>
-        <display value="Paracetamol 240mg suppository (product)"/>
+        <display value="Acetaminophen 240 mg rectal suppository"/>
         </coding>
     </concept>
     </medication>
