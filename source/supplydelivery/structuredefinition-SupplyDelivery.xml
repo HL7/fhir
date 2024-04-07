@@ -305,8 +305,16 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplyDeliverySupplyItemCondition"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The condition of the supplied or received item."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemcondition"/>
+      </binding>
     </element>
     <element id="SupplyDelivery.suppliedItem.item[x]">
       <path value="SupplyDelivery.suppliedItem.item[x]"/>
