@@ -37,7 +37,7 @@ The DeviceDispense and MedicationDispense resources are used to associate the de
 where the targeted patient or other person (e.g., devices used by a clinician), if included, are for delivery context only.</p>
 
 <p>
-To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
+To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done, as the context of the use case actually determines which date of either resource is considered the purchase date.
 </p>
 
 
