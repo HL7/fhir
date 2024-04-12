@@ -40,6 +40,8 @@
        </concept>
   </reason>
   <outcome>
+	<concept>
       <text value="delivery of healthy male infant"/>
+	</concept>
   </outcome> 
 </Procedure>

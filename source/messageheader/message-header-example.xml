@@ -53,9 +53,7 @@
 		    
 		    <!-- this is to indicate to the Acme Message Gateway that this particular message 
 		       is intended for Practitioner "xcda" -->
-		    <target>
-		      <reference value="Device/example"/>
-		    </target>
+
 		    <endpointUrl value="llp:10.11.12.14:5432"/>
 		    <receiver>
 		      <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
