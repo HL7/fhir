@@ -323,8 +323,8 @@
     </element>
     <element id="BiologicallyDerivedProduct.collection.procedure">
       <path value="BiologicallyDerivedProduct.collection.procedure"/>
-      <short value="The procedure during which the product was collected"/>
-      <definition value="The procedure during which the product was collected."/>
+      <short value="The procedure involved in the collection"/>
+      <definition value="The procedure performed to collect the biologically derived product."/>
       <min value="0"/>
       <max value="1"/>
       <type>
