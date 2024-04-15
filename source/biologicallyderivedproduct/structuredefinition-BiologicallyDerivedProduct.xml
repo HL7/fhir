@@ -97,10 +97,10 @@
     </element>
     <element id="BiologicallyDerivedProduct.productCategory">
       <path value="BiologicallyDerivedProduct.productCategory"/>
-      <short value="organ | tissue | fluid | cells | biologicalAgent"/>
-      <definition value="Broad category of this product."/>
+      <short value="A category or classification of the product"/>
+      <definition value="A category or classification of the product.  Products may be assigned multiple categories, for example a human heart valve can be categorized as an 'MPHO' and 'tissue'."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Coding"/>
       </type>
@@ -319,6 +319,17 @@
       </type>
       <type>
         <code value="Period"/>
+      </type>
+    </element>
+    <element id="BiologicallyDerivedProduct.collection.procedure">
+      <path value="BiologicallyDerivedProduct.collection.procedure"/>
+      <short value="The procedure during which the product was collected"/>
+      <definition value="The procedure during which the product was collected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
     </element>
     <element id="BiologicallyDerivedProduct.storageTempRequirements">
