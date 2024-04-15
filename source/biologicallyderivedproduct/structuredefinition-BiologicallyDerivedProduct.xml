@@ -321,6 +321,17 @@
         <code value="Period"/>
       </type>
     </element>
+    <element id="BiologicallyDerivedProduct.collection.procedure">
+      <path value="BiologicallyDerivedProduct.collection.procedure"/>
+      <short value="The procedure during which the product was collected"/>
+      <definition value="The procedure during which the product was collected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+    </element>
     <element id="BiologicallyDerivedProduct.storageTempRequirements">
       <path value="BiologicallyDerivedProduct.storageTempRequirements"/>
       <short value="Product storage temperature requirements"/>
