@@ -764,6 +764,9 @@
       <type>
         <code value="Period"/>
       </type>
+      <type>
+        <code value="Duration"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value=".effectiveTime"/>

@@ -14,18 +14,20 @@
             <resource value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.category" resourcePath="AuditEvent.category">
+    <divergentElement patternPath="Event.category" resourcePath="AuditEvent.type">
+        <lowerCardinality _pattern="0" _resource="1" reason="More specific to the use-case"/>
+        <upperCardinality _pattern="*" _resource="1" reason="More specific to the use-case"/>
         <bindingExistence _pattern="false" _resource="true" reason="not sure"/>
     </divergentElement>
-    <divergentElement patternPath="Event.code" resourcePath="AuditEvent.code">
-        <lowerCardinality _pattern="0" _resource="1" reason="Always manditor"/>
+    <divergentElement patternPath="Event.code" resourcePath="AuditEvent.subtype">
+        <upperCardinality _pattern="1" _resource="*" reason="More specific to the use-case"/>
         <shortUnmatched reason="More specific to the use-case">
             <_pattern value="What service was done"/>
             <resource value="Specific type of event"/>
         </shortUnmatched>
         <definitionUnmatched reason="More specific to the use-case">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
-            <resource value="Describes what happened. The most specific code for the event."/>
+            <resource value="Describes what happened. The most specific codes for the event."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="AuditEvent.patient">
