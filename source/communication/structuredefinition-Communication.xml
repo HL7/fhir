@@ -156,16 +156,26 @@
       </mapping>
     </element>
     <element id="Communication.basedOn">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#38783."/>
+      </extension>
       <path value="Communication.basedOn"/>
       <short value="Request fulfilled by this communication"/>
       <definition value="An order, proposal or plan fulfilled in whole or in part by this Communication."/>
-      <comment value="This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ServiceRequest, MedicationRequest, etc."/>
       <alias value="fulfills"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
       <isSummary value="true"/>
       <mapping>
