@@ -30,8 +30,6 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="root"></a>
         <h2>Ad-Hoc Workflow Communication Patterns</h2>
 
-        <p><i>TODO: Discussion (or reference to one) on Polling and Subscription</i></p>
-
         <a name="optiona"></a>
         <h3>Option A: Simple RESTful POST or PUT</h3>
         <h4>Steps</h4>
@@ -59,7 +57,7 @@ in order to support consistent definitions for schema and UML derived code.
             execution, then this approach won't suffice. This approach is listed here to make sure that implementers consider whether they can make this one work first before falling back to one of the more sophisticated patterns.
         </p>
         <h4>Usage Examples</h4>
-        <p><i>???</i></p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternA-SimpleRESTfulPOSTorPUT">HL7 Confluence page</a></p>
 
         <a name="optionb"></a>
         <h3>Option B: Direct POST of request to fulfiller's system</h3>
@@ -96,8 +94,7 @@ in order to support consistent definitions for schema and UML derived code.
             actually use messaging architecture.
         </p>
         <h4>Usage Examples</h4>
-        <p>
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternB-DirectPOSTofrequesttofulfiller'ssystem">HL7 Confluence page</a></p>
 
         <a name="optionc"></a>
         <h3>Option C: POST of request to placer/queue server system, receiver uses polling or subscription</h3>
@@ -134,6 +131,7 @@ in order to support consistent definitions for schema and UML derived code.
             This pattern could be used when there's no support/need for complexity of Task, usually for simple two step workflows. This is a more typically RESTful approach where data resides on the server "owned" by the data creator and is accessed by other systems.
         </p>
         <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternC-POSTofrequesttoplacer/queueserversystem,receiverusespollingorsubscription">HL7 Confluence page</a></p>
         <!--
         <a name="optioni"></a>
         <h3>Option I: POST of "request" resource for filler system, response via Task</h3>
@@ -207,6 +205,8 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             Existing messaging infrastructure (e.g. v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
         </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternD-Messagingrequestfromplacertofiller&acknowledgment">HL7 Confluence page</a></p>
 
         <a name="optione"></a>
         <h3>Option E: Services request from placer to filler &amp; acknowledgment</h3>
@@ -232,6 +232,8 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             TBD
         </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternE-Servicesrequestfromplacertofiller&acknowledgment">HL7 Confluence page</a></p>
 
         <a name="additional"></a>
         <h3>Additional Scenarios</h3>

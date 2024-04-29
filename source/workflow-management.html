@@ -92,14 +92,9 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
 
         <h4>Usage examples</h4>
-        <p><b>Lab order to known performer</b></p>
-        <p>A provider orders a bilirubin test for a patient, to be done at the provider's facility lab....</p>
-        <p><b>"Open" lab order</b></p>
-        <p>
-            A patient is scheduled for their physical, and the provider sends her a secure message to have a fasting blood test performed before the office visit. The message has a link to a requisition, and a list of possible lab locations where the test can be
-            done. The patient chooses a lab location near her place of employment and a test is scheduled. The lab gets the requisition from the patient and, using the information on how to retrieve the Task from the provider's system, claims the test
-            to be performed...
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternF-CreationofTaskonplacer'ssystem">HL7 Confluence page</a></p>
+        <p>Also see the example scenario of a workflow using this approach on the <a href="workflow-examples.html#optionF-ex1">examples tab</a>, including example instances.</p>
+
 
         <a name="optiong"></a>
         <h3>Option G: POST of Task to fulfiller's system</h3>
@@ -155,13 +150,8 @@ in order to support consistent definitions for schema and UML derived code.
             <li>When the fulfiller needs to manage the Task resource</li>
         </ul>
         <h4>Usage Examples</h4>
-        <p><b>Outpatient prescription</b></p>
-        <p>
-            A patient is suffering from a poison ivy rash and is prescribed a steroid medication to manage the reaction. The provider asks the patient for his preferred pharmacy and creates the Task at the specified pharmacy's system. The patient is running late
-            and by the time he arrives at the pharmacy, it is closed. He calls the clinic where the provider practices and requests that the pharmacy where the order is to be fulfilled is changed to one that is open around the clock. The staff at the
-            clinic cancels the Task at the original pharmacy and creates a new Task at the requested new one. By the time the patient arrives at the new pharmacy, the medication is ready for pickup. Once the request is fulfilled, the clinic receives
-            the notification that the Task is complete, and the prescription is also marked as complete.
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternG-POSTofTasktofulfiller'ssystem">HL7 Confluence page</a></p>
+        <p>Also see the example scenario of a workflow using this approach on the <a href="workflow-examples.html#optionG-ex1">examples tab</a>, including example instances.</p>
 
         <a name="optionh"></a>
         <h3>Option H: POST of Task to a workflow broker </h3>
@@ -193,8 +183,8 @@ in order to support consistent definitions for schema and UML derived code.
             Appropriate in environments that have a workflow engine that takes on responsibility for ensuring fulfillment
         </p>
         <h4>Usage Examples</h4>
-        <p>
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternH-POSTofTasktoaworkflowbroker">HL7 Confluence page</a></p>
+
         <a name="optioni"></a>
         <h3>Option I: POST of Task to fulfiller's system, followed by POST of sub-Task on placer's system</h3>
         <img alt="Diagram showing mutual POSTs of a Task to filler system and Task to placer system workflow" src="workflow-optioni.png" />
@@ -250,19 +240,8 @@ in order to support consistent definitions for schema and UML derived code.
             <li>When messaging-like functionality is needed, but a messaging infrastructure is not available</li>
         </ul>
         <h4>Usage Examples</h4>
-        <p><b>Outpatient referral</b></p>
-        <p>
-            A patient is seen by her Primary Care Provider (PCP) for shortness of breath and the provider decides to refer her to a cardiologist. Because of the referral, the provider's system creates ServiceRequest resource and POSTs a Task resource to a cardiologist's practice
-            system, requesting a referral. This places the referral request on a referral coordinator's work list to review. Upon accepting the referral, the Task is updated as accepted and a new sub-Task, referencing both the ServiceRequest and the
-            Task created by the provider's system, is created on the provider's system. The patient gets an appointment with the cardiologist and the sub-Task is updated with that information, allowing the provider's system to inform the provider of
-            the change.
-        </p>
-        <p>
-            The patient misplaces the information about the appointment and misses the visit with the cardiologist. The cardiologist's system updates the sub-Task to indicate the no-show and the PCP is alerted of the missed appointment. The provider's staff gets
-            hold of the patient and schedules another appointment for her with the cardiologist. Because of the cardiologist's system scheduling the appointment, the sub-Task is updated with that information. The patient is seen and the sub-Task
-            is updated accordingly. The cardiologist document the findings about the patient and updates the sub-Task as complete, adding references to the resources representing the findings. The PCP is alerted of the updates and marks the referral
-            as complete, which updates the original Task and the ServiceRequest as complete as well.
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternI-POSTofTasktofulfiller'ssystem,followedbyPOSTofsub-Taskonplacer'ssystem">HL7 Confluence page</a></p>
+        <p>Also see the example scenario of a workflow using this approach on the <a href="workflow-examples.html#optionI-ex1">examples tab</a>, including example instances.</p>
 
         <a name="optionj"></a>
         <h3>Option J: Messaging Task from placer to fulfiller</h3>
@@ -297,9 +276,9 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             Appropriate when existing messaging infrastructure can be used (e.g. HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.), and a need to stay consistent with that architecture.
         </p>
-        <h4>Usage examples</h4>
-        <p>
-        </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternJ-MessagingTaskfromplacertofulfiller">HL7 Confluence page</a></p>
+
         <a name="optionk"></a>
         <h3>Option K: Service request referencing Task from placer to fulfiller</h3>
         <p>
@@ -325,9 +304,9 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             TBD
         </p>
-        <h4>Usage examples</h4>
-        <p>
-        </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternK-ServicerequestreferencingTaskfromplacertofulfiller">HL7 Confluence page</a></p>
+
         <a name="optionl"></a>
         <h3>Option L: Combining workflow approaches</h3>
         <p>This approach requires the presence of an active FHIR-aware intermediary/broker, that provides the appropriate interface to requester and fulfiller with different capabilities. The broker translates between multiple workflow fulfillment approaches. For example, messaging in, REST out, or REST in, operation out.</p>
@@ -356,6 +335,10 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             This approach may enable a gradual introduction for FHIR RESTful exchange patterns 
         </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternL-Combiningworkflowapproaches">HL7 Confluence page</a></p>
+
+
         <h3>Additional Scenarios</h3>
         <p>
             <i>TODO: needs review and update. Possibly add options about using messaging and/or services instead of polling/subscription in above scenarios</i>
