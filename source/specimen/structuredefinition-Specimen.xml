@@ -539,7 +539,7 @@
     <element id="Specimen.collection.device">
       <path value="Specimen.collection.device"/>
       <short value="Device used to perform collection"/>
-      <definition value="A coded value specifying the technique that is used to perform the procedure."/>
+      <definition value="A coded value specifying the device that is used to perform the procedure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -763,6 +763,9 @@
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Duration"/>
       </type>
       <mapping>
         <identity value="rim"/>

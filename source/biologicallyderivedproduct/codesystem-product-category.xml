@@ -61,8 +61,13 @@
     <definition value="Collection of cells."/>
   </concept>
   <concept>
-    <code value="biologicalAgent"/>
+    <code value="biological-agent"/>
     <display value="BiologicalAgent"/>
     <definition value="Biological agent of unspecified type."/>
   </concept>
+  <concept>
+    <code value="mpho"/>
+    <display value="Medical Product of Human Origin (MPHO)"/>
+    <definition value="A product derived from a human donor intended for clinical application in a human recipient."/>
+  </concept>  
 </CodeSystem>
