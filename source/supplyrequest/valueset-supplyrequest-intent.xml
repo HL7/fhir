@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="supplyrequest-intent"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/supplyrequest-intent"/>
+  <name value="SupplyRequestIntent"/>
+  <title value="SupplyRequest Intent"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="SupplyRequest Intent Codes"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/supplyrequest-intent"/>
+    </include>
+  </compose>
+</ValueSet>
