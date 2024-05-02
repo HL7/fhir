@@ -154,23 +154,4 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="MessageHeader-target"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.destination.target"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-target"/>
-        <description value="Particular delivery destination within the destination"/>
-        <code value="target"/>
-        <type value="reference"/>
-        <expression value="MessageHeader.destination.target"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
 </Bundle>
