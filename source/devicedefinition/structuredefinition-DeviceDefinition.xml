@@ -891,6 +891,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMaterialSubstance"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The values for the substance that are contained in the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.material.alternate">
       <path value="DeviceDefinition.material.alternate"/>
