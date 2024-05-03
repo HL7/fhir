@@ -15,7 +15,6 @@
   </p>
   <a name="statemachine"> </a>
   <h2>Task state machine</h2> 
-
     <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
       the Ready state, indicating that they are ready to be performed. Once the owner initiates
       activity on the task, the task transitions to the In Progress state, indicating that work is
@@ -47,21 +46,21 @@
       that are long running, perhaps stuck in some queue, to enable management activities that could
       ensure completion. It also enables tracking of task statistics such as wait time, or time in
       progress, or time to completion, enabling capture of important task metrics in support of
-      optimization and quality improvement. </p>
-
-      
-
-
-
-
-
+      optimization and quality improvement. </p> 
   <p>
     The following diagram reflects the "typical" state machine for Task.  Note that not all states will be supported by all workflows
     and that some workflows may support additional transitions, including transitions from terminal states (e.g. back to "in-progress"
     from "failed" or "completed").
   </p>
   <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource"/>
-
+  <p/>
+  [%stu-note dstu%]
+      Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.
+      </p>
+      <p>
+      Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
+      [%end-note%]
+  <p/>
   <a name="cancelled"> </a>
   <h2>The Cancelled state</h2>
   <p>
