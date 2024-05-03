@@ -927,13 +927,13 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceProductionIdentifierInUDI"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
       </binding>
