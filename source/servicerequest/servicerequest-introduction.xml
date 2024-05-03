@@ -45,5 +45,14 @@ Examples include:
 		<p>
 			ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist.  For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
     </p>
+		<blockquote class="stu-note">
+		<p><b>Note to Implementers:</b>
+		</p>
+		<p>
+		The ServiceRequest.orderDetail structure is subject to further feedback based on use as the modeling creates a challenge when there is no focus, while an alternate structure would yield a requirement to repeat the focus attribute on each code/value pair.
+		</p>
+		<p>
+		Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
+		</p></blockquote>
 	</div>
 </div>
