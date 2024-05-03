@@ -62,7 +62,7 @@
   </concept>
   <concept>
     <code value="biological-agent"/>
-    <display value="BiologicalAgent"/>
+    <display value="Biological agent"/>
     <definition value="Biological agent of unspecified type."/>
   </concept>
   <concept>
