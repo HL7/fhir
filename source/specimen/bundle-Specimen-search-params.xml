@@ -159,7 +159,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Specimen.identifier"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-identifier"/> 
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-identifier"/>
         <description value="The unique identifier associated with the specimen"/>
         <code value="identifier"/>
         <type value="token"/>
