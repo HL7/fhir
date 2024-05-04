@@ -166,6 +166,42 @@
         <map value=".status"/>
       </mapping>
     </element>
+
+    <element id="SupplyRequest.intent">
+      <path value="SupplyRequest.intent"/>
+      <short value="proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <definition value="Whether the request is a proposal, plan, or an original order."/>
+      <comment value="This element is immutable. It cannot be changed for the same resource instance. It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplyRequestIntent"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The intent of the order existing."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplyrequest-intent"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.intent"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)"/>
+      </mapping>
+    </element>
+
     <element id="SupplyRequest.basedOn">
       <path value="SupplyRequest.basedOn"/>
       <short value="What other request is fulfilled by this supply request"/>

@@ -356,7 +356,7 @@
       <path value="ServiceRequest.intent"/>
       <short value="proposal | plan | directive | order +"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -581,7 +581,7 @@
         <valueString value="[#14002][#12966]."/>
       </extension>
       <path value="ServiceRequest.orderDetail"/>
-      <short value="Additional order information"/>
+      <short value="Additional information about the request"/>
       <definition value="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied."/>
       <comment value="For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element."/>
       <alias value="detailed instructions"/>

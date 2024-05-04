@@ -208,6 +208,16 @@
         <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       </mapping>
     </element>
+    <element id="Device.udiCarrier.deviceIdentifierSystem">
+      <path value="Device.udiCarrier.deviceIdentifierSystem"/>
+      <short value="The namespace for the device identifier value"/>
+      <definition value="Establishes the namespace for the device identifier value that is an URL, OID, urn or uuid."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
     <element id="Device.udiCarrier.issuer">
       <path value="Device.udiCarrier.issuer"/>
       <short value="UDI Issuing Organization"/>
