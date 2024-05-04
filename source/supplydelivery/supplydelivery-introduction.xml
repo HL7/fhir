@@ -5,8 +5,8 @@
 <h2>Scope and Usage</h2>
 
 [%stu-note dstu%]
-This resouce can represent different stages of supply delivery. After a request to create two separate resources to address dispatch vs. reception, current discussion concluded that one resource with multiple, extensible stages provided a better approach to support the variety of needs to document the different steps.
-HL7 seeks specific feedback on the implementability of one resource type with multiple stages, each represented with specific profiles in the base standard to determine specific attributes/value sets applicable to each stage, or whether two (or more) resource types would be more adequate.
+This resource can represent different stages of supply delivery. After a request to create two separate resources to address dispatch vs. reception, current discussion concluded that one resource with multiple, extensible stages provided a better approach to support the variety of needs to document the different steps.
+HL7 seeks specific feedback on the implementability of one resource type with multiple stages (likely represented in a future IG with specific profiles to determine specific attributes/value sets applicable to each stage - see <a href="valueset-supplydelivery-stage.html">valueset-supplydelivery-stage</a>), or whether two (or more) resource types would be more adequate.
 [%end-note%]
 
 

@@ -12,16 +12,4 @@
   <date value="2018-08-11T08:17:46.560"/>
   <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
   <description value="Defines constraints and extensions on the SupplyDelivery resource."/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/supplydispatch"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/supplyreceipt"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>
