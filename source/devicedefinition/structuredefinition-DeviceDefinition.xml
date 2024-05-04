@@ -927,6 +927,7 @@
       <path value="DeviceDefinition.productionIdentifierInUDI"/>
       <short value="lot-number | manufactured-date | serial-number | expiration-date | biological-source | software-version"/>
       <definition value="Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label."/>
+      <comment value = "Jurisdictions may define other production identifier types and by way of regulation and/or implementation guidance indicate which identifier(s) are to be used for that jurisdiction."/>
       <min value="0"/>
       <max value="*"/>
       <type>
