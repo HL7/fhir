@@ -171,7 +171,7 @@
       <path value="SupplyRequest.intent"/>
       <short value="proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, or an original order."/>
-      <comment value="It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+      <comment value="This element is immutable. It cannot be changed for the same resource instance. It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
       <min value="1"/>
       <max value="1"/>
       <type>

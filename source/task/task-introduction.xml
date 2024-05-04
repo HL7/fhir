@@ -8,6 +8,14 @@
       initiated, and eventually, represents the successful or unsuccessful completion of that
       activity.
     </p>
+    <p> Concretely the Task resource could be used in FHIR to serve different purposes like: </p>
+<ul>
+<li>operationalizing a Request (but could exists without a Request)</li>
+<li>communicate between Filler and Placer</li>
+<li>tracking of business status (i.e. collection of specimen, dispense of medication, procedure scheduled)</li>
+<li>communicate the results of the execution (e.g. via .output)</li>
+</ul>
+
     <p> Note that there are a variety of processes associated with making and processing orders.
       Some orders may be handled immediately by automated systems but most require real-world
       actions by one or more humans. Some orders can only be processed when other real-world actions

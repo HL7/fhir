@@ -356,7 +356,7 @@
       <path value="ServiceRequest.intent"/>
       <short value="proposal | plan | directive | order +"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
