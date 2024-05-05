@@ -373,16 +373,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Device-udi-carrier"/>
+        <id value="Device-udi-carrier-hrf"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.udiCarrier"/>
+          <valueString value="Device.udiCarrier.carrierHRF"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Device-udi-carrier"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-udi-carrier-hrf"/>
         <description value="UDI Barcode (RFID or other technology) string in *HRF* format."/>
-        <code value="udi-carrier"/>
+        <code value="udi-carrier-hrf"/>
         <type value="string"/>
         <expression value="Device.udiCarrier.carrierHRF"/>
         <processingMode value="normal"/>
@@ -489,5 +489,28 @@
       </SearchParameter>
     </resource>
   </entry>  
-
+   <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-version-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-type-version"/>
+        <description value="Value and type of version"/>
+        <code value="version-type"/>
+        <type value="composite"/>
+        <expression value="Device.deviceVersion"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="type"/>
+          <expression value="type"/>
+        </component>
+        <component>
+          <definition value="value"/>
+          <expression value="value"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
