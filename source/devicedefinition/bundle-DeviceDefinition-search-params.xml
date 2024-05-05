@@ -286,6 +286,23 @@
       </SearchParameter>
     </resource>
   </entry>
-
-
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-part-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.partNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-devicedefinition-part-number"/>
+        <description value="The part number or catalog number of the device."/>
+        <code value="part-number"/>
+        <type value="string"/>
+        <expression value="DeviceDefinition.partNumber"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
