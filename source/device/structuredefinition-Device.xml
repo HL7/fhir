@@ -680,11 +680,11 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
-    <element id="Device.version">
+    <element id="Device.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="800,100"/>
       </extension>
-      <path value="Device.version"/>
+      <path value="Device.deviceVersion"/>
       <short value="The actual design of the device or software version running on the device"/>
       <definition value="The actual design of the device or software version running on the device."/>
       <min value="0"/>
@@ -693,8 +693,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.version.type">
-      <path value="Device.version.type"/>
+    <element id="Device.deviceVersion.type">
+      <path value="Device.deviceVersion.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
       <alias value="Σ"/>
@@ -712,8 +712,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
     </element>
-    <element id="Device.version.component">
-      <path value="Device.version.component"/>
+    <element id="Device.deviceVersion.component">
+      <path value="Device.deviceVersion.component"/>
       <short value="The hardware or software module of the device to which the version applies"/>
       <definition value="The hardware or software module of the device to which the version applies."/>
       <comment value="Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version."/>
@@ -727,8 +727,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="Device.version.installDate">
-      <path value="Device.version.installDate"/>
+    <element id="Device.deviceVersion.installDate">
+      <path value="Device.deviceVersion.installDate"/>
       <short value="The date the version was installed on the device"/>
       <definition value="The date the version was installed on the device."/>
       <min value="0"/>
@@ -741,8 +741,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="Device.version.value">
-      <path value="Device.version.value"/>
+    <element id="Device.deviceVersion.value">
+      <path value="Device.deviceVersion.value"/>
       <short value="The version text"/>
       <definition value="The version text."/>
       <min value="1"/>

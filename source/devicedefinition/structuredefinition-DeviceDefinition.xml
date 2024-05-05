@@ -618,11 +618,11 @@
       <max value="*"/>
       <contentReference value="#DeviceDefinition.packaging"/>
     </element>
-    <element id="DeviceDefinition.version">
+    <element id="DeviceDefinition.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,100"/>
       </extension>
-      <path value="DeviceDefinition.version"/>
+      <path value="DeviceDefinition.deviceVersion"/>
       <short value="The version of the device or software"/>
       <definition value="The version of the device or software."/>
       <min value="0"/>
@@ -631,8 +631,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="DeviceDefinition.version.type">
-      <path value="DeviceDefinition.version.type"/>
+    <element id="DeviceDefinition.deviceVersion.type">
+      <path value="DeviceDefinition.deviceVersion.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
       <alias value="Σ"/>
@@ -642,8 +642,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="DeviceDefinition.version.component">
-      <path value="DeviceDefinition.version.component"/>
+    <element id="DeviceDefinition.deviceVersion.component">
+      <path value="DeviceDefinition.deviceVersion.component"/>
       <short value="The hardware or software module of the device to which the version applies"/>
       <definition value="The hardware or software module of the device to which the version applies."/>
       <comment value="Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version."/>
@@ -657,8 +657,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.version.value">
-      <path value="DeviceDefinition.version.value"/>
+    <element id="DeviceDefinition.deviceVersion.value">
+      <path value="DeviceDefinition.deviceVersion.value"/>
       <short value="The version text"/>
       <definition value="The version text."/>
       <min value="1"/>
