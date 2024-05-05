@@ -648,7 +648,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">
