@@ -160,6 +160,16 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Definition valueset"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes to identify device definition concepts."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
+
     </element>
     <element id="Device.udiCarrier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
