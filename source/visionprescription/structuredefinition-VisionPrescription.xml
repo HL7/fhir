@@ -120,6 +120,37 @@
         <map value="id"/>
       </mapping>
     </element>
+    <element id="VisionPrescription.basedOn">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#10296][#11119]#13196]."/>
+      </extension>
+      <path value="VisionPrescriptiont.basedOn"/>
+      <short value="What prescription fulfills"/>
+      <definition value="Presciption fulfilled by this request."/>
+      <alias value="fulfills"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-8 (plus others)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+    </element>
     <element id="VisionPrescription.status">
       <path value="VisionPrescription.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
