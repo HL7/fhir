@@ -245,6 +245,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+<!--
       <constraint>
         <key value="ctm-1"/>
         <severity value="error"/>
@@ -252,6 +253,7 @@
         <expression value="onBehalfOf.exists() implies (member.resolve() is Practitioner)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </constraint>
+-->
       <constraint>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
           <valueBoolean value="false"/>
@@ -318,7 +320,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
-      <condition value="ctm-1"/>
       <condition value="ctm-2"/>
       <isSummary value="true"/>
       <mapping>
@@ -335,17 +336,24 @@
       </mapping>
     </element>
     <element id="CareTeam.participant.onBehalfOf">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#42928"/>
+      </extension>
       <path value="CareTeam.participant.onBehalfOf"/>
-      <short value="Organization of the practitioner"/>
-      <definition value="The organization of the practitioner."/>
-      <requirements value="Practitioners can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of."/>
+      <short value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of"/>
+      <definition value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of."/>
+      <requirements value="Allows specifying which organization a practitioner is acting on behalf of in context of this care team when practitioners are associated with multiple organizations."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
-      <condition value="ctm-1"/>
       <isSummary value="true"/>
     </element>
     <element id="CareTeam.participant.coverage[x]">

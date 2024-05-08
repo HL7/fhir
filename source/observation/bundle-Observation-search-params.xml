@@ -749,18 +749,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Observation-value-markdown"/>
+        <id value="Observation-value-string"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.value[x]"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-markdown"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-string"/>
         <description value="The value of the observation, if the value is a string, and also searches in CodeableConcept.text"/>
-        <code value="value-markdown"/>
+        <code value="value-string"/>
         <type value="string"/>
-        <expression value="Observation.value.ofType(markdown) | Observation.value.ofType(CodeableConcept).text"/>
+        <expression value="Observation.value.ofType(string) | Observation.value.ofType(CodeableConcept).text"/>
         <processingMode value="normal"/>
       </SearchParameter>
    </resource>

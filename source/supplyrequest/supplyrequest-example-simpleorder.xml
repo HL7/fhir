@@ -5,6 +5,7 @@
     <value value="Order10284"/>
   </identifier>
   <status value="active"/>
+  <intent value="order"/>
   <category>
     <coding>
       <code value="central"/>

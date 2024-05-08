@@ -8,9 +8,9 @@
 	<type>
 		<text value="EHR"/>
 	</type>
-	<version>
+	<deviceVersion>
 	  <value value="10.23-23423"/>
-	</version> 
+	</deviceVersion> 
 	<contact>
 		<system value="url"/>
 		<value value="http://acme.com"/>
