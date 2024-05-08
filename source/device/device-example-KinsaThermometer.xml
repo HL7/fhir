@@ -45,7 +45,7 @@
     </coding>
     <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
   </type>
-  <version>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -54,8 +54,8 @@
       <text value="MDC_ID_PROD_SPEC_FW: Firmware revision"/>
     </type>
     <value value="1.00"/>
-  </version>
-  <version>
+  </deviceVersion>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -64,8 +64,8 @@
       <text value="MDC_ID_PROD_SPEC_SW: Software revision"/>
     </type>
     <value value="V2.19"/>
-  </version>
-  <version>
+  </deviceVersion>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -74,7 +74,7 @@
       <text value="MDC_ID_PROD_SPEC_SW: Hardware revision"/>
     </type>
     <value value="1.00"/>
-  </version>
+  </deviceVersion>
   <conformsTo>
     <specification>
       <coding>
