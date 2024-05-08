@@ -510,6 +510,18 @@
       <isSummary value="true"/>
     </element>
 
+    <element id="MolecularDefinition.representation.system">
+      <path value="MolecularDefinition.representation.system"/>
+      <short value="The system of the representation"/>
+      <definition value="A representation system, e.g., VCF, SPDI, or HGVS."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
     <element id="MolecularDefinition.representation.literal">
       <path value="MolecularDefinition.representation.literal"/>
       <short value="A literal representation"/>
