@@ -212,7 +212,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.basedOn"/>
+        <map value="Request.basedOn"/> 
       </mapping>
       <mapping>
         <identity value="v2"/>
