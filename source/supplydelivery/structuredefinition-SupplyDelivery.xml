@@ -79,8 +79,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="SupplyDelivery"/>
-      <short value="Delivery of bulk Supplies"/>
-      <definition value="Record of delivery of what is supplied."/>
+      <short value="Record of movement of supplies from one location to another"/>
+      <definition value="Record of movement of supplies from one location to another."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -175,7 +175,7 @@
       <short value="in-progress | completed | abandoned | entered-in-error"/>
       <definition value="A code specifying the state of the dispense event."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -232,7 +232,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliverySupplyItemType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of supply dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
       </binding>
@@ -245,6 +245,27 @@
         <map value=".code"/>
       </mapping>
     </element>
+
+    <element id="SupplyDelivery.stage">
+      <path value="SupplyDelivery.stage"/>
+      <short value="Stage or event of delivery"/>
+      <definition value="Indicates the stage of the delivery. In case the delivery is tracked only at the specific events (e.g. receipt), this resource represents the stage represented, not the entire history nor previous delivery stages."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplyDeliveryStage"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The stage of supply delivery."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-stage"/>
+      </binding>
+    </element>
+
     <element id="SupplyDelivery.suppliedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,50"/>
@@ -265,7 +286,7 @@
     <element id="SupplyDelivery.suppliedItem.quantity">
       <path value="SupplyDelivery.suppliedItem.quantity"/>
       <short value="Amount supplied"/>
-      <definition value="The amount of the item that has been supplied.  Unit of measure may be included."/>
+      <definition value="The amount of the item that has been supplied. Unit of measure may be included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -276,6 +297,24 @@
         <identity value="rim"/>
         <map value=".quantity"/>
       </mapping>
+    </element>
+    <element id="SupplyDelivery.suppliedItem.condition">
+      <path value="SupplyDelivery.suppliedItem.condition"/>
+      <short value="A description of the supplied item's condition (e.g., box is damaged)"/>
+      <definition value="The condition in which the supplied item was at the event (shipment, or receipt, etc.).  For example, to indicate when the supplied item is not suitable for use (e.g., damaged or out of temperature control)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplyDeliverySupplyItemCondition"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The condition of the supplied or received item."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemcondition"/>
+      </binding>
     </element>
     <element id="SupplyDelivery.suppliedItem.item[x]">
       <path value="SupplyDelivery.suppliedItem.item[x]"/>
@@ -369,12 +408,15 @@
       </extension>
       <path value="SupplyDelivery.destination"/>
       <short value="Where the delivery was sent"/>
-      <definition value="Identification of the facility/location where the delivery was shipped to."/>
+      <definition value="Identification of the facility, location or person where the delivery is shipped to."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="rim"/>

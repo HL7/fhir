@@ -1680,18 +1680,25 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="TestScript.setup.action.assert.requirement.link[x]">
-			<path value="TestScript.setup.action.assert.requirement.link[x]"/>
-			<short value="Link or reference to the testing requirement"/>
-			<definition value="Link or reference providing traceability to the testing requirement for this test."/>
-			<min value="0"/>
+		<element id="TestScript.setup.action.assert.requirement.reference">
+			<path value="TestScript.setup.action.assert.requirement.reference"/>
+			<short value="Canonical reference to the Requirements instance"/>
+			<definition value="Canonical reference providing traceability to the testing requirement for this assert."/>
+			<min value="1"/>
 			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.assert.requirement.key">
+			<path value="TestScript.setup.action.assert.requirement.key"/>
+			<short value="Requirements statement key identifier"/>
+			<definition value="Requirements.statement.key that identifies the statement that this assert satisfies."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
 			</type>
 		</element>
 		<element id="TestScript.test">
