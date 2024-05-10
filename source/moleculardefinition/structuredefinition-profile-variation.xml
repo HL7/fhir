@@ -72,6 +72,19 @@
             <min value="0"/>
             <max value="0"/>
         </element>
+        <element id="MolecularDefinition.representation">
+            <path value="MolecularDefinition.representation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code.coding.code"/>
+                </discriminator>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <min value="2"/>
+            <max value="*"/>
+        </element>
         <element id="MolecularDefinition.representation.code.coding">
             <path value="MolecularDefinition.representation.code.coding"/>
             <slicing>
@@ -94,19 +107,7 @@
             </type>
             <fixedCode value="genomic-state"/>
         </element>
-        <element id="MolecularDefinition.representation">
-            <path value="MolecularDefinition.representation"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="2"/>
-            <max value="*"/>
-        </element>
+
 <!--        context state slice-->
         <element id="MolecularDefinition.representation:ContextState">
             <path value="MolecularDefinition.representation"/>
