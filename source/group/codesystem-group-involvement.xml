@@ -25,11 +25,11 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <valueCode value="http://hl7.org/fhir"/>
     </telecom>
     <telecom>
       <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
+      <valueCode value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
   <description value="A code that describes how a member of the group participates in the group."/>
@@ -49,7 +49,7 @@
     <definition value="The first case that is the reason for creating the group. Usually the first known infection, but other kinds of first are known."/>
     <property>
       <code value="group-type"/>
-      <value value="patient-list"/>
+      <valueCode value="patient-list"/>
     </property>
   </concept>
 
@@ -59,7 +59,7 @@
     <definition value="Patient is included in the list on the grounds of being a primary exposure case (sometimes, but not neceessarily, direct exposure to the index case, or a known infected person)."/>
     <property>
       <code value="group-type"/>
-      <value value="patient-list"/>
+      <valueCode value="patient-list"/>
     </property>
   </concept>
 
@@ -69,7 +69,7 @@
     <definition value="Patient is included in the list on the grounds of being a secondary exposure case - that is, exposed to a potentially infected patient or person of interest."/>
     <property>
       <code value="group-type"/>
-      <value value="patient-list"/>
+      <valueCode value="patient-list"/>
     </property>
   </concept>
 
@@ -79,7 +79,7 @@
     <definition value="Household member is a legally / officially registered owner of the dwelling that contains the household. Or at least, considers themselves the rightful owner."/>
     <property>
       <code value="group-type"/>
-      <value value="household"/>
+      <valueCode value="household"/>
     </property>
   </concept>
 
@@ -89,7 +89,7 @@
     <definition value="Household member is a resident - that is, they consistently reside in the dwelling."/>
     <property>
       <code value="group-type"/>
-      <value value="household"/>
+      <valueCode value="household"/>
     </property>
   </concept>
 
@@ -99,11 +99,11 @@
     <definition value="Household member is transiently visiting the dwelling during (part of) the period of interest, or, for a workplace, a person who was/is in the workplace but not an employee"/>
     <property>
       <code value="group-type"/>
-      <value value="household"/>
+      <valueCode value="household"/>
     </property>
     <property>
       <code value="group-type"/>
-      <value value="workplace"/>
+      <valueCode value="workplace"/>
     </property>
   </concept>
 
@@ -113,7 +113,7 @@
     <definition value="Household member is a member of the staff working in the dwelling (and by implication, not a resident)."/>
     <property>
       <code value="group-type"/>
-      <value value="household"/>
+      <valueCode value="household"/>
     </property>
   </concept>
 
@@ -123,11 +123,11 @@
     <definition value="Group member is animal kept as a pet by the family/household."/>
     <property>
       <code value="group-type"/>
-      <value value="famkily"/>
+      <valueCode value="famkily"/>
     </property>
     <property>
       <code value="group-type"/>
-      <value value="household"/>
+      <valueCode value="household"/>
     </property>
   </concept>
 
@@ -137,7 +137,7 @@
     <definition value="This is the group member's primary workplace on a consistent basis."/>
     <property>
       <code value="group-type"/>
-      <value value="workplace"/>
+      <valueCode value="workplace"/>
     </property>
   </concept>
 
@@ -147,7 +147,7 @@
     <definition value="The group member works in the workplace, but on an occasional basis."/>
     <property>
       <code value="group-type"/>
-      <value value="workplace"/>
+      <valueCode value="workplace"/>
     </property>
   </concept>
 
@@ -157,7 +157,7 @@
     <definition value="The group member was working in the workplace, but is not consistently present."/>
     <property>
       <code value="group-type"/>
-      <value value="workplace"/>
+      <valueCode value="workplace"/>
     </property>
   </concept>
 

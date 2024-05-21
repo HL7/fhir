@@ -14,13 +14,13 @@ compared to real world language usage
 <Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Group.xsd">
   <id value="Family"/>
   <type value="person"/>
+  <membership value="enumerated"/>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/ValueSet/group-code"/>
       <code value="family"/>
     </coding>
   </code>
-  <membership value="enumerated"/>
   <member>
     <entity>
       <reference value="Patient/xcda"/>
