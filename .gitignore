@@ -6,6 +6,7 @@
 *.~*
 *.gen.svg
 *.bck
+newProject.xpr
 holder.txt
 /schema/*.xsd
 /schema/codegen
