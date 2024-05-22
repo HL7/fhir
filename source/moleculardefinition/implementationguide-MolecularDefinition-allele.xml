@@ -29,6 +29,11 @@
         </resource>
         <resource>
             <reference>
+                <reference value="StructureDefinition/allelesliced"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="StructureDefinition/haplotype"/>
             </reference>
         </resource>

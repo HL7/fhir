@@ -96,7 +96,7 @@
                 <ordered value="false"/>
                 <rules value="open"/>
             </slicing>
-            <min value="2"/>
+            <min value="1"/>
         </element>
         <element id="MolecularDefinition.representation.code.coding:state.code">
         <path value="MolecularDefinition.representation.code.coding.code"/>
@@ -128,6 +128,7 @@
             <short value="Context State Representation"/>
             <definition value="The various representations of the context state."/>
             <min value="1"/>
+        </element>
         </element>
         <element id="MolecularDefinition.representation:ContextState.code.coding:ContextSateCode">
             <path value="MolecularDefinition.representation.code.coding"/>
