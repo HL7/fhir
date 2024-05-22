@@ -129,7 +129,6 @@
             <definition value="The various representations of the context state."/>
             <min value="1"/>
         </element>
-
     <element id="MolecularDefinition.representation:ContextState.code.coding:ContextSateCode">
         <path value="MolecularDefinition.representation.code.coding"/>
         <sliceName value="ContextSateCode"/>
