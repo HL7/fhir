@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="goal-accept-status"/>
+  <meta>
+    <lastUpdated value="2023-01-31T07:07:38.434+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/goal-accept-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1270"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.837"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.431"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="GoalAcceptStatus"/>
+  <title value="Goal acceptance status code system"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International / Patient Care"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare"/>
+    </telecom>
+  </contact>
+  <description value="GoalAcceptanceStatus"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="agree"/>
+    <display value="Agree"/>
+    <definition value="Stakeholder supports pursuit of the goal."/>
+  </concept>
+  <concept>
+    <code value="disagree"/>
+    <display value="Disagree"/>
+    <definition value="Stakeholder is not in support of the pursuit of the goal."/>
+  </concept>
+  <concept>
+    <code value="pending"/>
+    <display value="Pending"/>
+    <definition value="Stakeholder has not yet made a decision on whether they support the goal."/>
+  </concept>
+</CodeSystem>
