@@ -54,6 +54,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Read Common TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-readcommon"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-readcommon"/>
+      <display value="Read Common Test"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Search TestScript Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
