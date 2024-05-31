@@ -673,10 +673,10 @@
     </element>
     <element id="CarePlan.activity.performedActivity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#26064."/>
+        <valueString value="J#26064, J#45000"/>
       </extension>
       <path value="CarePlan.activity.performedActivity"/>
-      <short value="Results of the activity (concept, or Appointment, Encounter, Procedure, etc.)"/>
+      <short value="Activities that are completed or in progress (concept, or Appointment, Encounter, Procedure, etc.)"/>
       <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
       <comment value="Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
       <requirements value="Links plan to resulting actions."/>
