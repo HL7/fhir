@@ -9,12 +9,17 @@
   <title value="Code system summary example for ACME body sites"/>
 	<status value="draft"/>
 	<experimental value="true"/>
-	<publisher value="HL7 International"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
 	<contact>
-		<name value="FHIR project team"/>
 		<telecom>
 			<system value="url"/>
 			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
 		</telecom>
 	</contact>
 	<description value="This is an example code system summary for the ACME codes for body site."/>

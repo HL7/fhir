@@ -26,12 +26,12 @@
 		<valueString value="CanonicalResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="TestPlan"/>
 	<title value="Test Plan"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
-	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<publisher value="HL7 International / FHIR Infrastructure"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
@@ -45,7 +45,7 @@
 		</telecom>
 	</contact>
 	<description value="A plan for executing testing on an artifact or specifications"/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
@@ -508,6 +508,7 @@
 			<max value="*"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
 		<element id="TestPlan.testTools">
@@ -548,6 +549,7 @@
 			<max value="1"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
 			</type>
 		</element>
 		<element id="TestPlan.exitCriteria">
@@ -570,6 +572,26 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
+		<element id="TestPlan.testCase.key">
+			<path value="TestPlan.testCase.key"/>
+			<short value="Key that identifies this test case"/>
+			<definition value="Key that identifies this test case (unique within this resource)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
+		<element id="TestPlan.testCase.description">
+			<path value="TestPlan.testCase.description"/>
+			<short value="Narrative description explaining the purpose of this test case"/>
+			<definition value="Narrative description using markdown content to explain the purpose of this test case."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
 		<element id="TestPlan.testCase.sequence">
 			<path value="TestPlan.testCase.sequence"/>
 			<short value="Sequence of test case in the test plan"/>
@@ -588,6 +610,39 @@
 			<max value="*"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+		</element>
+		<element id="TestPlan.testCase.requirement">
+			<path value="TestPlan.testCase.requirement"/>
+			<short value="Links or references to the testing requirements"/>
+			<definition value="Links or references providing traceability to the testing requirements for this assert."/>
+			<comment value="TestPlan instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TestPlan.testCase.requirement.reference">
+			<path value="TestPlan.testCase.requirement.reference"/>
+			<short value="Canonical reference to the Requirements instance"/>
+			<definition value="Canonical reference providing traceability to the testing requirement for this test case."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+			</type>
+		</element>
+		<element id="TestPlan.testCase.requirement.key">
+			<path value="TestPlan.testCase.requirement.key"/>
+			<short value="Requirements statement key identifier"/>
+			<definition value="Requirements.statement.key that identifies the statement that this test case satisfies."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.dependency">
@@ -613,14 +668,25 @@
 				<code value="markdown"/>
 			</type>
 		</element>
-		<element id="TestPlan.testCase.dependency.predecessor">
-			<path value="TestPlan.testCase.dependency.predecessor"/>
-			<short value="Link to predecessor test plans"/>
-			<definition value="Link to predecessor test plans."/>
+		<element id="TestPlan.testCase.dependency.reference">
+			<path value="TestPlan.testCase.dependency.reference"/>
+			<short value="Canonical reference to the TestPlan dependency instance"/>
+			<definition value="Canonical reference providing traceability to the TestPlan dependency instance for this test case."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="Reference"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
+			</type>
+		</element>
+		<element id="TestPlan.testCase.dependency.key">
+			<path value="TestPlan.testCase.dependency.key"/>
+			<short value="TestPlan dependency instance testCase key identifier"/>
+			<definition value="TestPlan.testCase.key that identifies the testCase in the TestPlan dependency instance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.testRun">
@@ -674,6 +740,7 @@
 			</type>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.testData">
@@ -704,6 +771,7 @@
 			<max value="1"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.testData.source[x]">
@@ -717,6 +785,7 @@
 			</type>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.assertion">

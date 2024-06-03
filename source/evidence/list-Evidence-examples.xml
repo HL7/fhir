@@ -30,6 +30,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-ASTRAL-12-alteplase-mRS3-6"/>
+    </extension>
+    <item>
+      <reference value="Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
+      <display value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -54,14 +66,14 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+      <valueString value="An example of using the relatedArtifact element to quote a line of text from the evidence source."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="evidence-example-ASTRAL-12-alteplase-mRS3-6"/>
+      <valueString value="evidence-example-quoted-source"/>
     </extension>
     <item>
-      <reference value="Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
-      <display value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+      <reference value="Evidence/example-quoted-source"/>
+      <display value="Quoted Source: Prevalence of PASC at 30 days"/>
     </item>
   </entry>
 </List>

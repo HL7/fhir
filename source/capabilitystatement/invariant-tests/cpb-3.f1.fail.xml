@@ -31,7 +31,7 @@
     <description value="main EHR at ACME"/>
     <url value="http://10.2.3.4/fhir"/>
   </implementation>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <format value="xml"/>
   <format value="json"/>
   <patchFormat value="application/xml-patch+xml"/>

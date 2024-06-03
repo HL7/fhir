@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1970"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="LocationCharacteristic"/>
   <title value="Location Characteristic"/>
   <status value="draft"/>
@@ -32,31 +32,31 @@
   <concept>
     <code value="wheelchair"/>
     <display value="Wheelchair accessible"/>
-    <definition value="The location is accessible to thosre requiring wheelchair access"/>
+    <definition value="The location is accessible to those requiring wheelchair access"/>
   </concept>
   <concept>
     <code value="has-translation"/>
-    <display value="translation services available"/>
+    <display value="Translation services available"/>
     <definition value="The location has translation services available"/>
   </concept>
   <concept>
     <code value="has-oxy-nitro"/>
-    <display value="oxygen/nitrogen available"/>
+    <display value="Oxygen/nitrogen available"/>
     <definition value="The location has oxygen and nitrogen services available"/>
   </concept>
   <concept>
     <code value="has-neg-press"/>
-    <display value="negative pressure rooms available"/>
+    <display value="Negative pressure rooms available"/>
     <definition value="The location has negative pressure rooms available"/>
   </concept>
   <concept>
     <code value="has-iso-ward"/>
-    <display value="isolation ward"/>
+    <display value="Isolation ward"/>
     <definition value="The location is or has an isolation ward"/>
   </concept>
   <concept>
     <code value="has-icu"/>
-    <display value="has ICU"/>
+    <display value="Has ICU"/>
     <definition value="The location is or has an intensive care unit"/>
   </concept>
 </CodeSystem>

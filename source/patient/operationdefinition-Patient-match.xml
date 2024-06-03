@@ -37,7 +37,7 @@
     <valueMarkdown value="The response from an &quot;mpi&quot; query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension &quot;[[[http://hl7.org/fhir/StructureDefinition/match-grade]]]&quot; that indicates the MPI's position on the match quality."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Patient-match"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Match"/>
   <title value="Find patient matches using MPI based logic"/>
   <status value="draft"/>
@@ -78,11 +78,19 @@
     <type value="Resource"/>
   </parameter>
   <parameter>
+    <name value="onlySingleMatch"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If there are multiple potential matches, the server should identify the single most appropriate match that should be used with future interactions with the server (for example, as part of a subsequent create interaction)."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
     <name value="onlyCertainMatches"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If there are multiple potential matches, then the match should not return the results with this flag set to true.  When false, the server may return multiple results with each result graded accordingly."/>
+    <documentation value="If there are multiple potential matches, the server should be certain that each of the records are for the same patients.  This could happen if the records are duplicates, are the same person for the purpose of data segregation, or other reasons.  When false, the server may return multiple results with each result graded accordingly."/>
     <type value="boolean"/>
   </parameter>
   <parameter>

@@ -11,8 +11,9 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="63481-623-70"/>
-      <display value="Percocet tablet"/>
+      <display value="PERCOCET, 100 TABLET in 1 BOTTLE (63481-623-70) (package)"/>
     </coding>
+    <text value="Percocet tablet"/>
   </code>
   
   <marketingAuthorizationHolder>
@@ -22,7 +23,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385055001"/>
-        <display value="Tablet dose form (qualifier value)"/>
+        <display value="Tablet (basic dose form)"/>
       </coding>
     </doseForm>
     <ingredient>
@@ -31,7 +32,7 @@
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="82063"/>
-          <display value="Oxycodone HCl"/>
+          <display value="oxycodone hydrochloride"/>
         </coding>
       </concept>
       </item>
@@ -54,8 +55,9 @@
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="161"/>
-          <display value="Acetaminophen"/>
+          <!-- <display value="Acetaminophen"/> -->
         </coding>
+        <text value="Acetaminophen"/>
       </concept>
       </item>
       <strengthRatio>

@@ -10,7 +10,7 @@
 			<coding> 
 			  <system value="http://snomed.info/sct"/> 
 			  <code value="14106009"/> 
-			  <display value="Cardiac pacemaker implant"/> 
+			  <display value="Cardiac pacemaker, device (physical object)"/> 
 			</coding> 
 		</type> 
 		<!-- <association> 
@@ -51,8 +51,10 @@
        </concept>
   </reason>
   <followUp>
-      <text value="ROS 5 days  - 2013-04-10"/>
-  </followUp>
+		<concept>
+			<text value="ROS 5 days  - 2013-04-10"/>
+		</concept>
+   </followUp>
   <note> <text value="Routine Appendectomy. Appendix was inflamed and in retro-caecal position"/>
   </note>
   <focalDevice>

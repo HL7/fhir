@@ -9,6 +9,9 @@ for other resources that need to reference organizations, perhaps as a <a href="
 as a <a href="references.html#contained">contained</a> resource.  If using a registry approach, it's entirely possible for multiple registries to exist, each dealing
 with different types or levels of organization.
 </p>
+<p>
+  Examples of Organizations include companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
+</p>
 </div>
 
 <div>
@@ -19,6 +22,10 @@ The Organization resource is used for collections of people that have come toget
 The <a href="group.html">Group</a> resource is used to identify a collection of people (or animals, devices, etc.) 
 that are gathered for the purpose of analysis or acting upon, but are not expected to act themselves.
 </p>
+	<p>
+		In the context of service provision, the Organization provides the services, the HealthcareService describes the services provided,
+		and the Location describes the place where the service(s) are offered/available.
+	</p>
 	<p>
 		The Organization resource often exists as a hierarchy of organization resources, using the <i>part-of</i> property to provide
 		the association of the child to its parent organization.<br/>

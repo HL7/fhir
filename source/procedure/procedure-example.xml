@@ -13,7 +13,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="80146002"/>
-      <display value="Appendectomy (Procedure)"/>
+      <display value="Excision of appendix"/>
     </coding>
     <text value="Appendectomy"/>
   </code>
@@ -41,8 +41,10 @@
        </concept>
   </reason>
   <followUp>
-    <text value="ROS 5 days  - 2013-04-10"/>
-  </followUp>
+		<concept>
+			<text value="ROS 5 days  - 2013-04-10"/>
+		</concept>
+   </followUp>
   <note>
     <text value="Routine Appendectomy. Appendix was inflamed and in retro-caecal position"/>
   </note>

@@ -1,8 +1,9 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <a name="statemachine"></a>
 <h2>ResearchSubject State Machine</h2>
   <p>
     The following diagram reflects the "typical" state machine for ResearchSubject. 
   </p>
   <img src="researchsubject-state-machine.png" alt="Diagram showing typical state machine for the ResearchSubject resource"/> 
+</div>
 </div>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="group-characteristic-combination"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/group-characteristic-combination"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1952"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="GroupCharacteristicCombination"/>
+  <title value="Group Characteristic Combination"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Logical grouping of characteristics."/>
+  <caseSensitive value="true"/>
+  <!-- todo: why?
+  <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
+  -->
+  <content value="complete"/>
+  <concept>
+    <code value="all-of"/>
+    <display value="All of"/>
+    <definition value="Combine characteristics with AND."/>
+  </concept>
+  <concept>
+    <code value="any-of"/>
+    <display value="Any of"/>
+    <definition value="Combine characteristics with OR."/>
+  </concept>
+  <concept>
+    <code value="at-least"/>
+    <display value="At least"/>
+    <definition value="Meet at least the threshold number of characteristics for definition."/>
+  </concept>
+  <concept>
+    <code value="at-most"/>
+    <display value="At most"/>
+    <definition value="Meet at most the threshold number of characteristics for definition."/>
+  </concept>
+  <concept>
+    <code value="except-subset"/>
+    <display value="Except subset"/>
+    <definition value="Meet the inclusion criteria under the condition that the basis does not match the exclusion criteria."/>
+  </concept>
+  <concept>
+    <code value="statistical"/>
+    <display value="Statistical"/>
+    <definition value="Combine characteristics statistically. Use method to specify the statistical method."/>
+  </concept>
+  <concept>
+    <code value="net-effect"/>
+    <display value="Net effect"/>
+    <definition value="Combine characteristics by addition of benefits and subtraction of harms."/>
+  </concept>
+  <concept>
+    <code value="dataset"/>
+    <display value="Dataset"/>
+    <definition value="Combine characteristics as a collection used as the dataset."/>
+  </concept>
+</CodeSystem>

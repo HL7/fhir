@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1089"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="ImagingStudy"/>
   <title value="Imaging Study"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Imaging Integration)"/>
+  <publisher value="HL7 International / Imaging Integration"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -996,19 +996,8 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="oid"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="sopClass"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The sopClass for the instance."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"/>
-      </binding>
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&quot;sop class&quot;].value"/>

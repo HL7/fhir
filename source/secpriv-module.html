@@ -74,7 +74,7 @@ The Security and Privacy module includes the following materials:
   <a href="security-labels.html">Security Labels</a>
 </li>
 <li>
-  <a href="signatures.html">Signatures</a>
+  <a href="signatures.html">Signature Use</a>
 </li>
 </ul>
    </td>
@@ -91,7 +91,7 @@ The following common use-cases are elaborated below:
 <li><a href="#AoD">Accounting of Disclosures and Access Reports</a></li>
 <li><a href="#privacy-consent">Privacy Consent</a></li>
 <li><a href="#provenance">Provenance</a></li>
-<li><a href="#signature">Digital and Electronic Signatures</a></li>
+<li><a href="signatures.html">Digital and Electronic Signatures</a></li>
 <li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
 <li><a href="#testData">Security Considerations on Test Data</a></li>
 <li><a href="#privacy-of-ids">Risks to Privacy by Exposing Links</a></li>
@@ -219,7 +219,7 @@ declared when these roles are related to the functionality the user is interacti
 be conveyed using standard codes from <a href="valueset-security-role-type.html">Security Role Vocabulary</a>.
 </p><p>
 A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
-should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
+should be conveyed using standard codes from <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Purpose of Use Vocabulary</a>.
 </p><p>
 The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
 beyond healthcare workflows. A RESTful User resource is defined in 
@@ -254,13 +254,13 @@ all API access and other security- and privacy-relevant events".
 use by FHIR clients and servers to record when a security or privacy relevant
 event has occurred. This form of audit logging records as much detail as
 reasonable at the time the event happened. 
-The FHIR AuditEvent is aligned and cross-referenced with IHE Audit Trail and Node Authentication (ATNA) Profile.
+The FHIR AuditEvent is aligned and cross-referenced with <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">IHE Audit Trail and Node Authentication (ATNA)</a> Profile.
 
 For details, see
 <a href="security.html#audit">Security: Audit</a>.
 
 </p>
-
+<p>Organizations should have a policy regarding purging of data, such as AuditEvent resources which can become numerous. Some types of AuditEvent may have limited value after a period (e.g. year) of time and may be archived and purged. This purge must be in alignment with regulations such as medical records retention, security, and privacy regulations. For example, purging AuditEvents that are related to Patient Privacy Transparency would not be purged until that patient was purged (See <a href="patient-operation-purge.html">Purge Patient Record Operation</a>).</p>
 <a name="AoD"></a>
 <h4>Accounting of Disclosures and/or Access Report</h4>
 <p>
@@ -333,32 +333,6 @@ then one uses reverse include to request that all Provenance records also be ret
 That is to add <code>?_revinclude=Provenance:target</code>. 
 
 For details, see <a href="search.html#revinclude">_revinclude</a>.
-</p>
-
-
-<a name="signature"></a>
-<h4>Signature</h4>
-<p>
-<em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
-</p><p>
-<em>Approach:</em> FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
-As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
-This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
-Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
-
-For details, see
-<a href="signatures.html">Security: Digital Signatures</a>.
-</p><p>
-Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
-When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
-the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
-These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
-One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
-created/updated Resource is as expected, then the Digital Signature is formed.
-</p><p>
-A variation of this happens in Messaging, Documents, and other interaction models. 
-For details, see 
-<a href="updates.html">Ramifications of storage/retrieval variations</a>
 </p>
 
 

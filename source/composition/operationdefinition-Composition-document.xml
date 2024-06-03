@@ -37,7 +37,7 @@
     <valueMarkdown value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#xA;* this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Composition-document"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Document"/>
   <title value="Generate a Document"/>
   <status value="draft"/>

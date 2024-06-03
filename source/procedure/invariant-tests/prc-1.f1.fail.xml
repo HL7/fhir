@@ -25,7 +25,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="80146002"/>
-      <display value="Appendectomy (Procedure)"/>
+      <display value="Excision of appendix"/>
     </coding>
     <text value="Appendectomy"/>
   </code> -->

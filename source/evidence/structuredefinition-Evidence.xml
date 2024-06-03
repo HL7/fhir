@@ -30,12 +30,12 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1074"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="Evidence"/>
 	<title value="Evidence"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (Clinical Decision Support)"/>
+	<publisher value="HL7 International / Clinical Decision Support"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="w5"/>
 		<uri value="http://hl7.org/fhir/fivews"/>
@@ -455,6 +455,7 @@
 			<path value="Evidence.relatedArtifact"/>
 			<short value="Link or citation to artifact associated with the summary"/>
 			<definition value="Link or citation to artifact associated with the summary."/>
+			<comment value="Use type value 'derived-from' to denote the source for the Evidence content. To express exact phrasing in the source material, use a classifier instance with a coding value of 'Quotation' and a text value of the quoted content. The coding value of 'Quotation' can be expressed with a system value of 'http://hl7.org/fhir/provenance-entity-role', a code value of 'quotation' and a display value of 'Quotation'."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -533,9 +534,28 @@
 		</element>
 		<element id="Evidence.variableDefinition.variableRole">
 			<path value="Evidence.variableDefinition.variableRole"/>
-			<short value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder"/>
-			<definition value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder."/>
+			<short value="population | exposure | outcome | covariate"/>
+			<definition value="Classification of the role of the variable."/>
 			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableRole"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The role that the variable plays."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
+			</binding>
+		</element>
+		<element id="Evidence.variableDefinition.roleSubtype">
+			<path value="Evidence.variableDefinition.roleSubtype"/>
+			<short value="subgroup | variable-A | variable-B | variable-AB | confounder | collider | mediator | effect-modifier"/>
+			<definition value="Sub-classification of the role of the variable."/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
@@ -543,12 +563,23 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableRole"/>
+					<valueString value="EvidenceVariableRoleSubtype"/>
 				</extension>
 				<strength value="extensible"/>
-				<description value="The role that the assertion variable plays."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
+				<description value="The sub-role that the variable plays."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role-subtype"/>
 			</binding>
+		</element>
+		<element id="Evidence.variableDefinition.comparatorCategory">
+			<path value="Evidence.variableDefinition.comparatorCategory"/>
+			<short value="The reference value used for comparison"/>
+			<definition value="The reference value used for comparison."/>
+			<comment value="Value should match EvidenceVariable.category.name in the EvidenceVariable referenced in the observed or intended element."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
 		</element>
 		<element id="Evidence.variableDefinition.observed">
 			<path value="Evidence.variableDefinition.observed"/>
@@ -893,15 +924,39 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-model-code"/>
 			</binding>
 		</element>
-		<element id="Evidence.statistic.modelCharacteristic.value">
-			<path value="Evidence.statistic.modelCharacteristic.value"/>
-			<short value="Numerical value to complete model specification"/>
-			<definition value="Further specification of the quantified value of the component of the method to generate the statistic."/>
+		<element id="Evidence.statistic.modelCharacteristic.value[x]">
+			<path value="Evidence.statistic.modelCharacteristic.value[x]"/>
+			<short value="The specific value (when paired with code)"/>
+			<definition value="Further specification of the value of the component of the method to generate the statistic."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="Quantity"/>
 				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.intended">
+			<path value="Evidence.statistic.modelCharacteristic.intended"/>
+			<short value="The plan for analysis"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.applied">
+			<path value="Evidence.statistic.modelCharacteristic.applied"/>
+			<short value="The analysis that was applied"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
 			</type>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable">
@@ -968,8 +1023,8 @@
 				<code value="Range"/>
 			</type>
 		</element>
-		<element id="Evidence.statistic.modelCharacteristic.attributeEstimate">
-			<path value="Evidence.statistic.modelCharacteristic.attributeEstimate"/>
+		<element id="Evidence.statistic.modelCharacteristic.attribute">
+			<path value="Evidence.statistic.modelCharacteristic.attribute"/>
 			<short value="An attribute of the statistic used as a model characteristic"/>
 			<min value="0"/>
 			<max value="*"/>

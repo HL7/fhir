@@ -5,7 +5,7 @@
     <system value="urn:ietf:rfc:3986"/> 
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2113"/> 
   </identifier> 
-  <version value="5.0.0"/> 
+  <version value="6.0.0"/> 
   <name value="FHIROldTypes"/> 
   <title value="Old FHIR Types"/> 
   <status value="active"/> 
@@ -195,5 +195,9 @@
   <concept> 
     <code value="SubstanceSpecification"/> 
     <display value="SubstanceSpecification"/> 
+  </concept> 
+  <concept> 
+    <code value="InsuranceProduct"/> 
+    <display value="InsuranceProduct"/> 
   </concept> 
 </CodeSystem>

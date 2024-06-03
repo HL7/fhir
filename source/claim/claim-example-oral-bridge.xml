@@ -11,7 +11,7 @@
 	<contained>
 		<Device>
 			<id value="device-bridge"/>
-			<!-- rest of the resource ommitted for brevity -->
+			<!-- rest of the resource omitted for brevity -->
 		</Device>
 	</contained>
 

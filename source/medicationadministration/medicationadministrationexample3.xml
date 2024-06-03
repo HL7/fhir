@@ -10,7 +10,7 @@
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="1594660"/>
-          <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+          <display value="alemtuzumab 10 MG/ML [Lemtrada]"/>
         </coding>
       </code>
     </Medication>
@@ -20,7 +20,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="373147003"/>
-      <display value="Administration of medication not done due to a contraindication (situation)"/>
+      <display value="Administration of medication not done due to contraindication (situation)"/>
     </coding>
   </statusReason>
   <medication>

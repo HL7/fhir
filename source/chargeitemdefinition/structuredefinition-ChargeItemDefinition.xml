@@ -30,12 +30,12 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.5.1383"/>
 	</identifier>
-	<version value="5.0.0"/>
+	<version value="6.0.0"/>
 	<name value="ChargeItemDefinition"/>
 	<title value="Charge Item Definition"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (Patient Administration)"/>
+	<publisher value="HL7 International / Patient Administration"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
@@ -49,7 +49,7 @@
 		</telecom>
 	</contact>
 	<description value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
-	<fhirVersion value="5.0.0"/>
+	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
@@ -395,6 +395,19 @@
 				<identity value="rim"/>
 				<map value="N/A"/>
 			</mapping>
+		</element>
+		<element id="ChargeItemDefinition.account">
+			<path value="ChargeItemDefinition.account"/>
+			<short value="Candidate account(s) for charge items"/>
+			<definition value=" A set of candidate accounts to which charge items using this definition may be assigned."/>
+			<comment value="An Account resource may represent either a patient-oriented account or an organizational account (e.g., a cost center).  This property is intended for use with the cost center style accounts, and is not expected to refer to patient-oriented accounts.  For example, if a ChargeItemDefinition is created to bill for a research procedure, this property could indicate that all charges for that procedure could be directed to the specified account."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="ChargeItemDefinition.publisher">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">

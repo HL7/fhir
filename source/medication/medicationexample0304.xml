@@ -11,8 +11,9 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="76388-713-25"/>
-      <display value="Myleran 2mg tablet, film coated"/>
+      <display value="MYLERAN, 25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25) (package)"/>
     </coding>
+    <text value="Myleran 2mg tablet, film coated"/>
   </code>
   <marketingAuthorizationHolder>
     <reference value="#mmanu" />
@@ -21,7 +22,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385057009"/>
-        <display value="Film-coated tablet (qualifier value)"/>
+        <display value="Film-coated tablet (basic dose form)"/>
       </coding>
     </doseForm>
     <ingredient>

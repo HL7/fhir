@@ -32,15 +32,18 @@
     
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <name value="SNOMEDCTRouteCodes"/>
   <title value="SNOMED CT Route Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
     </telecom>
   </contact>
   <description value="This value set includes all Route codes from SNOMED CT - provided as an exemplar."/>

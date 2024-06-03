@@ -50,7 +50,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="35200-5"/>
-        <display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
+        <display value="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
       </coding>
       <text value="Cholesterol"/>
     </code>
@@ -60,7 +60,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="35217-9"/>
-        <display value="Triglyceride [Moles/​volume] in Serum or Plasma"/>
+        <display value="Triglyceride [Mass or Moles/volume] in Serum or Plasma"/>
       </coding>
       <text value="Triglyceride"/>
     </code>
@@ -70,7 +70,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="2085-9"/>
-        <display value="HDL Cholesterol"/>
+        <display value="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
       </coding>
       <text value="Cholesterol in HDL"/>
     </code>
@@ -90,7 +90,7 @@
       <coding>
         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
         <code value="203151"/>
-        <display value="Gemfibrozil"/>
+        <display value="fenoldopam mesylate"/>
       </coding>
     </code>
   </medication>

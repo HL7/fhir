@@ -32,23 +32,25 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.280"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="FilterOperator"/>
   <title value="Filter Operator"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
-    </telecom>
-  </contact>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
   <description value="The kind of operation to perform as a part of a property based filter."/>
   <immutable value="true"/>
   <compose>

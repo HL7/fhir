@@ -12,20 +12,36 @@
 	
     </div>
   </text>
+  <contained>
+	<Group>
+		<id value="Definition-Group"/>
+		<title value="VariableDefinition: No alteplase"/>
+		<membership value="conceptual"/>
+		<characteristic>
+			<code>
+				<text value="Defined by CodeableConcept"/>
+			</code>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+					<code value="8410"/>
+					<display value="alteplase"/>
+				</coding>
+			</valueCodeableConcept>
+			<exclude value="true"/>
+			<description value="No alteplase"/>
+		</characteristic>
+	</Group>
+  </contained>
   <name value="NoAlteplase"/>
-  <title value="no alteplase"/>
+  <title value="No Alteplase"/>
   <status value="draft"/>
   <description value="no alteplase"/>
   <actual value="false"/>
-  <characteristic>
-    <description value="no alteplase"/>
-    <exclude value="true"/>
-    <definitionCodeableConcept>
-      <coding>
-        <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-        <code value="8410"/>
-        <display value="alteplase"/>
-      </coding>
-    </definitionCodeableConcept>
-  </characteristic>
+  <definition>
+	<reference>
+		<reference value="#Definition-Group"/>
+	</reference>
+  </definition>
+  <handling value="dichotomous"/>
 </EvidenceVariable>

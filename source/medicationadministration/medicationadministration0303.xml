@@ -1,37 +1,38 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
- xmlns="http://hl7.org/fhir"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+  xmlns="http://hl7.org/fhir">
   <id value="medadmin0303"/>
   <contained>
-      <Medication>
-        <id value="med0303"/>
-        <code>
-          <coding>
-            <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="0206-8862-02"/>
-            <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
-          </coding>
-        </code>
-      </Medication>
+    <Medication>
+      <id value="med0303"/>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="0206-8862-02"/>
+          <display value="Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02) > 100 mL in 1 BAG (0206-8862-01) (package)"/>
+          <!-- Zosyn (piperacillin/tazobactam) 4.5gm injection -->
+        </coding>
+      </code>
+    </Medication>
   </contained>
   <status value="entered-in-error"/>
   <medication>
-  <reference>
-    <reference value="#med0303"/> </reference>
+    <reference>
+      <reference value="#med0303"/>
+    </reference>
   </medication>
- <subject>
-   <reference value="Patient/pat1"/>
-   <display value="Donald Duck"/> 
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/>
   </subject>
-  <encounter> 
+  <encounter>
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
   </encounter>
   <occurencePeriod>
-  <start value="2015-01-15T04:30:00+01:00"/>
-   <end value="2015-01-15T14:30:00+01:00"/>
-</occurencePeriod>
+    <start value="2015-01-15T04:30:00+01:00"/>
+    <end value="2015-01-15T14:30:00+01:00"/>
+  </occurencePeriod>
   <performer>
     <actor>
       <reference>
@@ -49,7 +50,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="47625008"/>
-        <display value="Intravenous route (qualifier value)"/>
+        <display value="Intravenous route"/>
       </coding>
     </route>
     <dose>

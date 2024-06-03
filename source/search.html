@@ -59,6 +59,7 @@ search declarations</a>, and clients are encouraged to do this too.
       <li><a href="#modifiers">Modifiers</a></li>
       <li><a href="#prefix">Prefixes</a></li>
       <li><a href="#escaping">Escaping Search Parameters</a></li>
+      <li><a href="#type-mapping">Search Types and FHIR Types</a></li>
       <li>Basic Parameter Types: <a href="#date">date</a>, <a href="#number">number</a>, 
         <a href="#quantity">quantity</a>, <a href="#reference">reference</a>, 
         <a href="#string">string</a>, <a href="#token">token</a>, 
@@ -118,7 +119,7 @@ search declarations</a>, and clients are encouraged to do this too.
   <li><a href="#conformance">Server Conformance</a></li>
   <li><a href="#currency">Search Result Currency</a></li>
   <li><a href="#conformancesummary">Conformance Summary</a></li>
-  <li><a href="#summary">Summary Tables</a></li>
+  <li><a href="#table">Summary Tables</a></li>
 </ul>
 
 <a name="introduction"></a>
@@ -326,7 +327,8 @@ parameter(s)</span>
 <p>
   In addition to the self link, many bundles MAY contain links relevant to paging.  These are identified
   via the <code>relation</code> value in the links.  Common links include: <code>first</code>, <code>last</code>,
-  <code>next</code>, and <code>prev</code>.
+  <code>next</code>, <code>prev</code>, and <code>previous</code>.  Note that <code>prev</code> and <code>previous</code>
+  are widely-used synonyms and are interchangeable.
 </p>
 <p>
   As with the self link, all relevant paging links SHALL be expressed as GET requests <span class="stu">TU</span>.  
@@ -395,7 +397,7 @@ _id=101</span>
       </td>
     </tr>
     <tr>
-      <td>A parameter may reference a non-existent resource, such as if no Patient with MRN "1234" exists</td>
+      <td>A parameter may refer to a non-existent resource, such as if no Patient with MRN "1234" exists</td>
       <td>
         <span class="http-verb-display">
           <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/mrn|1234</span>
@@ -1134,13 +1136,14 @@ name=valueA,valueB</span>
   <h5>above</h5>
   <p>
     The <code>above</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>above</code> modifier is only
-    allowed on search parameters of type <a href="#reference">reference</a>, <a href="#token">token</a>, and <a href="#uri">uri</a>.
+    allowed on search parameters with search types <a href="#reference">reference</a>, <a href="#token">token</a>, and <a href="#uri">uri</a>.
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
-  <h6>above with <em>reference</em> type search parameters</h6>
+  <h6>above with <em>reference</em> search type parameters and <code>Reference</code> FHIR type targets</h6>
   <p>
-    When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
+    When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter and the target is an element with
+    the FHIR type <code>Reference</code>, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>above</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
     same type of resource where those references establish a hierarchy.  For example, the <a href="location.html">Location</a> resource can define a
@@ -1150,7 +1153,7 @@ name=valueA,valueB</span>
     type of search can be found in the section <a href="#recursive">Searching Hierarchies</a>.
   </p>
   <p>
-    When using the <code>above</code> modifier on a reference, all typically-valid search parameter reference inputs are allowed.
+    When using the <code>above</code> modifier on a reference search type parameter, all typically-valid search parameter reference inputs are allowed.
     Note that the actual Resources that establish hierarchical references and the search parameters used are listed in the 
     <a href="references.html#circular">Circular Resource References</a> section of the References page.
   </p>
@@ -1173,10 +1176,11 @@ location:above=A101</span>
     </ul>
   </p>
 
-  <h6>above with <em>canonical references</em></h6>
+  <h6>above with <em>reference</em> search type parameters and <code>canonical</code> FHIR type targets</h6>
   <p>
-    When the <code>above</code> modifier is used with a <a href="#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
-    reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
+    When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter and the target is an element with
+    the FHIR type <a href="datatypes.html#canonical">canonical</a>, the search is interpreted 
+    as a version search against the canonical resource.  The format of the parameter is either 
     <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.  This search is only allowed if the version scheme for the
     resource is known (e.g., a known version-scheme extension or element).  Version-related search criteria against 
     resources with unknown versioning schemes SHALL be either ignored or rejected <span class="stu">TU</span>.  The <code>above</code>
@@ -1191,7 +1195,7 @@ location:above=A101</span>
     More information can be found in the section <a href="#versions">References and Versions</a>.
   </p>
 
-  <h6>above with <em>token</em> type search parameters</h6>
+  <h6>above with <em>token</em> search type parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="codesystem.html#subsumption">subsumes</a> the 
@@ -1225,7 +1229,7 @@ code:above=http://snomed.info/sct|3738000</span>
     Note that there are two hierarchical parents to the requested code and parent matches traverse up each path.
   </p>
 
-  <h6>above with <em>uri</em> type search parameters</h6>
+  <h6>above with <em>uri</em> search type parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#uri">uri</a> type search parameter, the value is used for partial matching
     based on URL path segments.  Because of the hierarchical behavior of <code>above</code>, the modifier only applies to URIs that are URLs and cannot
@@ -1264,9 +1268,10 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
-  <h6>below with <em>reference</em> type search parameters - hierarchical searches</h6>
+  <h6>below with <em>reference</em> type search parameters and <code>Reference</code> FHIR type targets</h6>
   <p>
-    When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
+    When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter and the target is an element with
+    the FHIR type <code>Reference</code>, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>below</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
     same type of resource where those references establish a hierarchy.  For example, the <a href="location.html">Location</a> resource can define a
@@ -1302,10 +1307,11 @@ location:below=BuildingA</span>
     </ul>
   </p>
 
-  <h6>below with <em>canonical references</em></h6>
+  <h6>below with <em>reference</em> type search parameters and <code>canonical</code> FHIR type targets</h6>
   <p>
-    When the <code>below</code> modifier is used with a <a href="#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
-    reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
+    When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter and the target is an element
+    with the FHIR type <a href="datatypes.html#canonical">canonical</a>, the search is interpreted 
+    as a version search against the canonical resource.  The format of the parameter is either 
     <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.  This search is only allowed if the version scheme for the
     resource is known (e.g., a known version-scheme extension or element).  Version-related search criteria against 
     resources with unknown versioning schemes SHALL be either ignored or rejected <span class="stu">TU</span>.  The <code>below</code>
@@ -1491,13 +1497,14 @@ family:exact=Son</span>
   <h5>identifier</h5>
   <p>
     The <code>identifier</code> modifier allows clients to indicate that a supplied <code>token</code> should be used to
-    match against the <a href="references-definitions.html#Reference.identifier">identifier</a> element of a reference instead
-    of the <a href="references-definitions.html#Reference.reference">reference</a> element.  The format of the parameter is
+    match against the <a href="references-definitions.html#Reference.identifier">Reference.identifier</a> element of a reference instead
+    of the <a href="references-definitions.html#Reference.reference">Reference.reference</a> element.  The format of the parameter is
     <b><code>[system]|[code]</code></b>.  Note that chaining is not supported when using the <code>identifier</code> modifier 
     and the modifier is not supported on canonical elements since they do not have an identifier separate from the reference itself.
   </p>
   <p>
-    <code>identifier</code> is only allowed on <a href="#reference">reference</a> type search parameters. When using the 'identifier' modifier,
+    <code>identifier</code> is only allowed on <a href="#reference">reference</a> type search parameters and target elements that are 
+    the <code>Reference</code> FHIR type. When using the 'identifier' modifier,
     all typically-valid search parameter token inputs are allowed.
   </p>
   <p>
@@ -1568,11 +1575,11 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
   <p>
     When the <code>in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
     a <a href="#uri">uri</a>  (relative or absolute) that identifies a value set, and the search parameter 
-    tests whether the coding is in the specified value set. The reference may be literal (to an address where 
-    the value set can be found) or logical (a reference to <code>ValueSet.url</code>). If the server can treat 
-    the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.  Note 
+    tests whether the coding is in the specified value set. The search input value may be literal (to an address where 
+    the value set can be found) or logical (values of <code>ValueSet.url</code>). If the server can treat 
+    the value as a literal URL, it does, else it tries to match known logical <code>ValueSet.url</code> values.  Note 
     that the URI need not point to the root value set, <code>http://snomed.info/sct?fhir_vs=isa/235862008</code>
-    is a valid reference to a subset of SNOMED CT 'Hepatitis due to infection', but the parameter value will
+    is a valid input as a reference to a subset of SNOMED CT 'Hepatitis due to infection', but the parameter value will
     need to be URL Encoded in order to be a valid parameter.
   </p>
   <p>
@@ -1637,10 +1644,10 @@ code=http://snomed.info/sct|3738000&amp;_include=Observation:patient&amp;_includ
       </span>
     </span>
     would match any observations with the SNOMED code <code>3738000</code> (Viral hepatitis (disorder)).  
-    The results would include resources from following the search reference <code>Observation.patient</code>,
+    The results would include resources found by following the chained search reference <code>Observation.patient</code>,
     which are <code>Patient</code> resources linked via <code>Observation.subject</code>. Additionally, the 
     server would <i>iterate</i> through the included patient records and follow the <code>Patient.link</code> 
-    references, including linked <code>Patient</code> or <code>RelatedPerson</code> resources.
+    FHIR references, including linked <code>Patient</code> or <code>RelatedPerson</code> resources.
   </p>
   <p>
     More information can be found in the section <a href="#include">Including other resources</a>
@@ -1767,11 +1774,11 @@ Composition?section:not=48765-2</span>
   <p>
     When the <code>not-in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
     a <a href="#uri">uri</a> (relative or absolute) that identifies a value set, and the search parameter 
-    tests whether the coding is not in the specified value set. The reference may be literal (to an address where 
-    the value set can be found) or logical (a reference to <code>ValueSet.url</code>). If the server can treat 
-    the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.  Note 
+    tests whether the coding is not in the specified value set. The search input value may be literal (to an address where 
+    the value set can be found) or logical (values of <code>ValueSet.url</code>). If the server can treat 
+    the value as a literal URL, it does, else it tries to match known logical <code>ValueSet.url</code> values.  Note 
     that the URI need not point to the root value set, <code>http://snomed.info/sct?fhir_vs=isa/235862008</code>
-    is a valid reference to a subset of SNOMED CT 'Hepatitis due to infection', but the parameter value will
+    is a valid input as a reference to a subset of SNOMED CT 'Hepatitis due to infection', but the parameter value will
     need to be URL Encoded in order to be a valid parameter.
   </p>
   <p>
@@ -2047,13 +2054,14 @@ code:text-ad=headache</span>
   <a name="modifiertype"></a>
   <h5>[type]</h5>
   <p>
-    The <code>[type]</code> modifier allows clients to restrict the resource type of a reference.  The modifier does not use
+    The <code>[type]</code> modifier allows clients to restrict the resource type when following a resource reference.  The modifier does not use
     the literal '[type]' in any way, but rather the name of a resource - e.g., <code>Patient</code>, <code>Encounter</code>, etc..
     Note that the modifier cannot be used with a reference to a resource found on another server, since the server would not usually know 
-    what type that resource has. However, since these are absolute references, there can be no ambiguity about the type.
+    what type that resource has. However, since external references are always absolute references, there can be no ambiguity about the type.
   </p>
   <p>
-    <code>[type]</code> is only allowed on <a href="#reference">reference</a> type search parameters. When using the '[type]' modifier,
+    <code>[type]</code> is only allowed on <a href="#reference">reference</a> type search parameters that target elements with the 
+    <a href="references.html#Reference">Reference</a> FHIR type. When using the '[type]' modifier,
     all typically-valid search parameter reference inputs are allowed, but the value format is restricted to only <code>[id]</code>.
   </p>
   <p>
@@ -2264,18 +2272,140 @@ url=http%3A%2F%2Facme.org%2Ffhir%2FValueSet%2F123%2Chttp%3A%2F%2Facme.org%2Ffhir
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,ValueSet/125</span>
+    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123%2Chttp://acme.org/fhir/ValueSet/124,ValueSet/125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
 Content-Type: application/x-www-form-urlencoded
-url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,ValueSet/125</span>
+url=http://acme.org/fhir/ValueSet/123%2Chttp://acme.org/fhir/ValueSet/124,ValueSet/125</span>
   </span>
 </span>
 </p>
 <p>
+  Note that both escaped and non-escaped delimiters can appear in the same request, for example:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,ValueSet/125</span>
+      <span class="http-verb-display-post">POST [base]/ValueSet/_search
+  Content-Type: application/x-www-form-urlencoded
+  url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,ValueSet/125</span>
+    </span>
+  </span>
+  is a request for ValueSets with a url literal of <code>http://acme.org/fhir/ValueSet/123</code> or <code>http://acme.org/fhir/ValueSet/124,ValueSet/125</code>.
+</p>
+  <p>
 This specification defines this additional form of escape because the escape syntax using \ applies
 to all parameter values after they have been 'unescaped' on the server while being read from the
 HTTP headers.
 </p>
+
+<a name="type-mapping"></a>
+<h4>Search Types and FHIR Types</h4>
+<p>
+The following table shows the mapping between search types and FHIR types that they can be tested against.
+</p>
+<p>
+Note that in addition to elements of the specified type, any search type is allowed to be tested against elements
+that contain other elements, such as <a href="types.html#BackboneElement">Backbone Elements</a> and complex 
+<a href="datatypes.html">datatypes</a>, that contain at least one element of a valid FHIR type.
+</p>
+<p>
+Generally, search testing against complex elements are performed by "or-joining" each valid sub-element of an 
+appropriate FHIR type (see <a href="search.html#combining">Combining</a> for details).
+However, some types may include additional guidance or specific behavior - for example, when performing 
+<a href="search.html#string">string</a> searches against <a href="datatypes.html#humanname">HumanName</a>
+and <a href="datatypes.html#address">Address</a> elements (see <a href="search.html#string">string</a>).
+For clarity, the table below generally excludes FHIR types that are just containers for other elements.
+</p>
+<table class="grid">
+  <tr><th>Search Type</th><th>Short</th><th>FHIR Types</th></tr>
+  <tr>
+    <td><a href="datatypes.html#date">date</a></td>
+    <td>Partial or complete date or time values</td>
+    <td>
+      <a href="datatypes.html#date">date</a>,
+      <a href="datatypes.html#dateTime">dateTime</a>,
+      <a href="datatypes.html#instant">instant</a>,
+      <a href="datatypes.html#Period">Period</a>,
+      <a href="datatypes.html#Timing">Timing</a>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="datatypes.html#number">number</a></td>
+    <td>Numbers of various types</td>
+    <td>
+      <a href="datatypes.html#decimal">decimal</a>,
+      <a href="datatypes.html#integer">integer</a>,
+      <a href="datatypes.html#integer64">integer64</a>,
+      <a href="datatypes.html#unsignedInt">unsignedInt</a>,
+      <a href="datatypes.html#positiveInt">positiveInt</a>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="datatypes.html#quantity">quantity</a></td>
+    <td>Quantity values (including currencies)</td>
+    <td>
+      <a href="datatypes.html#Age">Age</a>,
+      <a href="datatypes.html#Count">Count</a>,
+      <a href="datatypes.html#Distance">Distance</a>,
+      <a href="datatypes.html#Duration">Duration</a>,
+      <a href="datatypes.html#MoneyQuantity">MoneyQuantity</a>,
+      <a href="datatypes.html#Quantity">Quantity</a>,
+      <a href="datatypes.html#SimpleQuantity">SimpleQuantity</a>,
+    </td>
+  </tr>
+  <tr>
+    <td><a href="datatypes.html#reference">reference</a></td>
+    <td>References to other resources</td>
+    <td>
+      <a href="references.html#canonical">canonical</a>,
+      <a href="references.html#oid">OID</a>,
+      <a href="references.html#uri">URI</a>,
+      <a href="references.html#url">URL</a>,
+      <a href="references.html#uuid">UUID</a>,
+      <a href="references.html#Reference">Reference</a>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="datatypes.html#string">string</a></td>
+    <td>String values</td>
+    <td>
+      <a href="datatypes.html#id">id</a>,
+      <a href="datatypes.html#markdown">markdown</a>,
+      <a href="datatypes.html#string">string</a>,
+      <a href="datatypes.html#xhtml">xHTML</a>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="datatypes.html#token">token</a></td>
+    <td>Token values</td>
+    <td>
+      <a href="datatypes.html#boolean">boolean</a>,
+      <a href="datatypes.html#canonical">canonical</a>,
+      <a href="datatypes.html#code">code</a>,
+      <a href="datatypes.html#CodeableConcept">CodeableConcept</a>,
+      <a href="datatypes.html#Coding">Coding</a>,
+      <a href="datatypes.html#ContactPoint">ContactPoint</a>,
+      <a href="datatypes.html#id">id</a>,
+      <a href="datatypes.html#Identifier">Identifier</a>,
+      <a href="datatypes.html#oid">OID</a>,
+      <a href="datatypes.html#string">string</a>,
+      <a href="datatypes.html#uri">URI</a>,
+      <a href="datatypes.html#url">URL</a>,
+      <a href="datatypes.html#uuid">UUID</a>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="datatypes.html#uri">uri</a></td>
+    <td>URI values</td>
+    <td>
+      <a href="datatypes.html#canonical">canonical</a>,
+      <a href="datatypes.html#oid">OID</a>,
+      <a href="datatypes.html#uri">URI</a>,
+      <a href="datatypes.html#url">URL</a>,
+      <a href="datatypes.html#uuid">UUID</a>
+    </td>
+  </tr>
+</table> 
 
 <a name="date"></a>
 <h4>date</h4>
@@ -2398,9 +2528,10 @@ Date searches can be controlled through the use of prefixes as described in the 
    <td><code>[parameter]=ap2013-03-14</code></td>
    <td>
     <ul>
-     <li style="list-style-image: url('assets/images/tick.gif')">14-Mar 2013 is included - as it exactly matches</li>
-     <li style="list-style-image: url('assets/images/cross.png')">21-Jan 2013 is not included because that is near 14-Mar 2013</li>
-     <li style="list-style-image: url('assets/images/cross.png')">15-Jun 2015 is not included - as it is not near 14-Mar 2013. Note that the exact value here is at the discretion of the system</li>
+     <li>Note that actual comparison used for the <code>ap</code> prefix for <code>date</code> search types is an implementation detail. For these examples, the system will be based on a 10% difference between target and execution date, and execution on 01-Jan 2023.</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">14-Mar 2013 is included, because it exactly matches</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">21-Jan 2013 is included, because it is near 14-Mar 2013 (less than 10% difference between search date and current date)</li>
+     <li style="list-style-image: url('assets/images/cross.png')">15-Jun 2015 is not included, because it is not near 14-Mar 2013 (more than 10% difference between search date and current date)</li>
     </ul>
    </td>
   </tr>
@@ -2636,8 +2767,8 @@ in <a href="http://unitsofmeasure.org">UCUM</a>
 <a name="reference"></a>
 <h4>reference</h4>
 <p>
-A reference parameter refers to <a href="references.html">references between resources</a>.  For example, find all
-Conditions where the subject reference is a particular patient, where the patient is selected by name or identifier.
+The <em>reference</em> search parameter type is used to search <a href="references.html">references between resources</a>.  For example, find all
+Conditions where the subject is a particular patient, where the patient is selected by name or identifier.
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
@@ -2719,7 +2850,7 @@ subject=123</span>
 </p>
 
 <p>
-Some references may point to more than one type of resource; e.g. <code>subject: Reference(Patient|Group|Device|..)</code>.
+Some resource references may point to more than one type of resource; e.g. <code>subject: Reference(Patient|Group|Device|..)</code>.
 In these cases, multiple resources may have the same logical identifier. Servers SHOULD reject a search where
 the logical id refers to more than one matching resource across different types.
 In order to allow the client to perform a search in these situations the type is specified explicitly:
@@ -2750,7 +2881,7 @@ subject:Patient/23</span>
 <p>
 This has the same effect as the previous search. The modifier becomes useful when used with chaining
 as explained in the next section. Note: The <code>[type]</code> modifier can't be used with a reference to a resource found on another server,
-since the server would not usually know what type that resource has.  However, since these are absolute references,
+since the server would not usually know what type that resource has.  However, since external references are always absolute references,
 there can be no ambiguity about the type.
 </p>
 <p>
@@ -2764,7 +2895,7 @@ the patient search parameter, there is no need to specify ":Patient" as a modifi
 in the search value, as this must always be true.
 </p>
 <p>
-References are also allowed to have an <code>identifier</code>. The modifier :identifier
+FHIR <a href="references.html#Reference">References</a> are also allowed to have an <code>identifier</code>. The modifier <code>:identifier</code>
 allows for searching by the identifier rather than the literal reference:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -2784,12 +2915,15 @@ separate from the reference itself.
 </p>
 <p>
 Chaining is not supported when using the :identifier modifier, nor are chaining, includes
-or reverse includes supported for reference elements that do not have a <code>reference</code>
-element.
+or reverse includes supported for reference search parameters that target elements without 
+a <code>reference</code> element.  For example, a search parameter that targets an element 
+with the <a href="references.html#Reference">Reference</a> FHIR type can be chained through,
+but a search parameter that targets a <a href="references.html#canonical">canonical</a> element
+cannot.
 </p>
 <p>
-The reference search parameter is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>.
-However, it is also be used to search resource elements of type Resource - i.e. where
+The reference search parameter type is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>.
+However, it is also be used to search resource elements of type <a href="resource.html">Resource</a> - i.e. where
 one resource is directly nested within another - see the <a href="bundle.html#search">Bundle
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
@@ -2926,8 +3060,8 @@ Notes:
 </p>
 <ul>
  <li>The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
-If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
-then just the form [parameter]=[code] is used.</li>
+If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>),
+then just the form <code>[parameter]=[code]</code> is used.</li>
  <li>For token parameters on elements of type <a href="datatypes.html#id">id</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a>, 
   <a href="datatypes.html#uri">uri</a>, or <a href="datatypes.html#boolean">boolean</a>, the pipe symbol 
   SHALL NOT be used - only the <code>[parameter]=[code]</code> form is allowed</li>
@@ -3171,7 +3305,7 @@ A server defined search (link to search page) that may consider matching any of 
  <a name="uri"></a>
  <h4>uri</h4>
  <p>
- The uri parameter refers to an element that contains a URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>).
+ The uri search parameter type is used to search elements that contain a URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>).
  By default, matches are precise, case and accent sensitive, and the entire URI must match.
  The modifier <code>:above</code> or <code>:below</code> can be used to indicate
  that partial matching is used. For example (note that the search parameter <code>ValueSet.url</code> is of type <code>uri</code>):
@@ -3212,8 +3346,8 @@ url=urn:oid:1.2.3.4.5</span>
  </ul>
  <p>
  The search type <code>uri</code> is used with elements of type <a href="datatypes.html#uri">uri</a> and <a href="datatypes.html#url">url</a>.
- The type <a href="#reference">reference</a> is used for the types <a href="references.html#Reference">Reference</a> and
- <a href="datatypes.html#canonical">canonical</a>.
+ Note that the search type <a href="#reference">reference</a> is used for the types <a href="references.html#Reference">Reference</a> and
+ <a href="datatypes.html#canonical">canonical</a>, even though they may contain URI values.
  </p>
 
  <a name="special"></a>
@@ -3247,10 +3381,10 @@ url=urn:oid:1.2.3.4.5</span>
   <span class="http-search-example">
     <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
     <span class="http-verb-display">
-      <span class="http-verb-display-get">GET [base]/Observation?code-value-quantity=code$loinc|12907-2,value$ge150|http://unitsofmeasure.org|mmol/L</span>
+      <span class="http-verb-display-get">GET [base]/Observation?code-value-quantity=loinc|12907-2$ge150|http://unitsofmeasure.org|mmol/L</span>
       <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
-code-value-quantity=code$loinc|12907-2,value$ge150|http://unitsofmeasure.org|mmol/L</span>
+code-value-quantity=loinc|12907-2$ge150|http://unitsofmeasure.org|mmol/L</span>
     </span>
   </span>
   will match Observation records with a LOINC code of "12907-2" (Sodium [Moles/volume] in Red Blood Cells) AND a value
@@ -3408,7 +3542,7 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   and <a href="careteam.html">CareTeam</a>) are used to maintain collections of other resources.
   For example, a Group of Patients representing a cohort or a List of patient allergies.
   While it is possible to retrieve the collection resource, iterate over the entries, and fetch each
-  referenced resource, using search criterion allows for fewer round-trips and additional search criteria 
+  resource listed therein, using search criterion allows for fewer round-trips and additional search criteria 
   to be specified in-line.
 </p>
 <p>
@@ -3434,9 +3568,10 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   search parameter is a <a href="#token">token</a> type - see the <a href="#token">token search type</a> for details.
 </p>
 <p>
-  It is often useful to search via reference across resource links.  For example, if you have the MRN for a patient and do not know
-  the logical identifier, it is desireable to perform searches like "encounters for the patient with MRN 1234".  There are two ways
-  of searching references by identifier, depending on how data is stored in the system: via <a href="#chaining">chaining</a> or via the 
+  It is often useful to search via identifier across resource links.  For example, if you have the MRN for a patient and do not know
+  the logical identifier, it is desireable to perform searches like "encounters for the patient with MRN 1234".  When elements are of the
+  <a href="references.html#Reference">Reference</a> FHIR type, there are two ways
+  of traversing resource references by identifier, depending on how data is stored in the system: via <a href="#chaining">chaining</a> or via the 
   <a href="#modifieridentifier"><code>identifier</code></a> search modifier.
 </p>
 
@@ -3465,7 +3600,7 @@ patient.identifier=http://example.org/facilityA|1234</span>
   (in <a href="references-definitions.html#Reference.identifier">Reference.identifier</a>), which is then accessible by
   the <a href="#modifieridentifier"><code>identifier</code></a> search modifier.  Note that this approach requires
   additional bookkeeping by the server - if a patient record is modified, e.g., to add an additional identifier, <b>every</b> 
-  resource that reference that patient record would need to be updated.
+  resource that refers to that patient record would need to be updated.
 </p>
 <p>
   The <code>identifier</code> modifier functions by testing the <code>Reference.identifier</code> element within resources.
@@ -3506,7 +3641,7 @@ patient:identifier=http://example.org/facilityA|1234</span>
 <a name="versions"></a>
 <h4>References and Versions</h4>
 <p>
-Elements of type <a href="references.html#Reference">Reference</a> may contain a <a href="references.html#versions">versioned</a> reference:
+Elements of the FHIR type <a href="references.html#Reference">Reference</a> may contain a <a href="references.html#versions">versioned</a> reference:
 <span class="fhir-example">
   <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
@@ -3533,7 +3668,7 @@ Elements of type <a href="references.html#Reference">Reference</a> may contain a
 </span>
 </p>
 <p>
-When searching on versioned references, the following rules apply:
+When searching on versioned References, the following rules apply:
 </p>
 <ul>
  <li>
@@ -3575,7 +3710,7 @@ but this version is different in both meaning and format to version specific ref
 </span>
 </p>
 <p>
-This version is a reference to the business version of the resource.
+This version is a canonical reference to the business version of the resource.
 </p>
 <p>
 For canonical references, servers SHOULD support searching by Canonical URLs, and SHOULD support
@@ -3623,7 +3758,7 @@ see <a href="references.html#canonical-matching">Choosing the right Canonical Re
 <a name="recursive"></a>
 <h4>Searching Hierarchies</h4>
 <p>
-Some references are <a href="references.html#circular">circular</a> - that is, the reference
+Some resource references are <a href="references.html#circular">circular</a> - that is, the Reference
 points to another resource of the same type. When the reference establishes a strict hierarchy,
 the modifiers <code><a href="#modifierabove">above</a></code> and <code><a href="#modifierbelow">below</a></code>
 can be used to search transitively through the hierarchy:
@@ -3717,12 +3852,13 @@ contenttype:below=image</span>
 <h4>Chaining (chained parameters)</h4>
 <p>
 In order to save a client from performing a series of search operations,
-reference parameters may be "chained" by appending them with
+some reference parameters may be "chained" by appending them with
 a period (<code>.</code>) followed by the name of a search parameter defined for the target
 resource. This can be done recursively, following a logical path
-through a graph of related resources, separated by <code>.</code>.
-For instance, given that
-the resource <a href="diagnosticreport.html">DiagnosticReport</a>
+through a graph of related resources, separated by <code>.</code>.  Note that chaining is only
+allowed for reference search parameters that target <a href="references.html#Reference">Reference</a> 
+FHIR type elements.
+For instance, given that the resource <a href="diagnosticreport.html">DiagnosticReport</a>
 has a search parameter named <i>subject</i>, which is usually a
 reference to a <a href="patient.html">Patient</a> resource, and
 the Patient resource includes a parameter <i>name</i> which
@@ -4429,7 +4565,7 @@ This way, the last matching resource will be returned.
 <p>
 If <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
 server returns a bundle that reports the total number of resources that match in Bundle.total,
-but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
+but with no entries, and no previous/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
 <a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
 In the same way, the _count parameter only applies to resources with <code>entry.search.mode = match</code>, and does not include
@@ -4720,18 +4856,19 @@ _revinclude=Provenance:target</span>
 </p>
 <p>
 The first search requests all matching MedicationRequests, and asks the server to follow
-the references to any "requester" for each medication returned and include them in the 
-returned result set.  The second search requests all prescriptions, and that any
-Provenance resources referring to those prescriptions be included in the result set.
+the resource references found via the <code>requester</code> search parameter value for each medication 
+returned, and include them in the result set.  The second search requests all prescriptions and any
+Provenance resources that refer to those prescriptions.
 </p>
 
 <p>
 For each returned resource, the server identifies the resources that meet
 the criteria expressed in the join, and adds to the results,
 with the <a href="bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode</a>
-set to "include" (in some searches, it is not obvious which resources are
-matches, and which are includes). If there is no reference, or no matching resource, the resource
-cannot be retrieved (e.g. on a different server), then the resource is omitted, and no
+set to <code>include</code>.  Note that if a resource is both a <code>match</code> directly
+and an <code>include</code>, the mode will be set to <code>match</code> (in some searches, it is not obvious 
+which resources arematches, and which are includes). If there is no value in the reference element, 
+no matching resource, or the resource cannot be retrieved (e.g. on a different server), then the resource is omitted and no
 error is returned.
 </p>
 <p>
@@ -5076,8 +5213,8 @@ pages.  This approach allows both sender and receiver to avoid caching results o
 <a name="all"></a>
 <h4>Parameters for all resources</h4>
 <p>
-The following parameters apply <a href="resource.html#search">to all resources</a>: [%allparams%]. In addition, the search
-parameters <a href="#text"><code>_text</code></a> and <a href="#filter"><code>_filter</code></a>, (documented below) also applies to all resources (as do the search result parameters).
+The following parameters apply <a href="resource.html#search">to all resources</a>: [%allparams%]. Note that in addition to these
+search parameters, the search result parameters also apply to all resources.
 </p>
 
 <a name="_content"></a>

@@ -6,6 +6,9 @@
     <lastUpdated value="2016-08-22T09:53:05.364+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/written-languages"/>
   
   <version value="3.1.0"/>
@@ -14,11 +17,11 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2016-08-22T09:53:05+00:00"/>
-  <publisher value="HL7 International - FHIR-Infrastructure"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
     </telecom>
   </contact>
   <description value="This value set includes common codes from BCP-47 (see http://tools.ietf.org/html/bcp47) for the purpose of writing; this value set (unlike the common languages value set) doesn't include dialects except where they are relevant for written languages"/>

@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1997"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductStatus"/>
   <title value="Biologically Derived Product Status"/>
   <status value="draft"/>
@@ -50,5 +50,20 @@
     <code value="unavailable"/>
     <display value="Unavailable"/>
     <definition value="Product is not currently available for use."/>
+  </concept>
+  <concept>
+    <code value="processed"/>
+    <display value="Processed"/>
+    <definition value="The biologically derived product has been further processed to one or more other products. Canonical map to replaced."/>
+  </concept>
+  <concept>
+    <code value="applied"/>
+    <display value="Applied"/>
+    <definition value="The biologically derived product has been clinically applied. Canonical map to complete."/>
+  </concept>
+  <concept>
+    <code value="Discarded"/>
+    <display value="Discarded"/>
+    <definition value="The biologically derived product has been discarded. Canonical map to abandoned."/>
   </concept>
 </CodeSystem>

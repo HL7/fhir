@@ -50,7 +50,7 @@
         <!-- build tool to fill out narrative -->
         <url value="http://hl7.org/fhir/StructureDefinition/cda-clinicaldocument"/>
         <name value="ClinicalDocument"/>
-        <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+        <publisher value="HL7 International / Structured Documents"/>
         <contact>
           <telecom>
             <system value="url"/>
@@ -696,7 +696,7 @@
         <!-- build tool to fill out narrative -->
         <url value="http://hl7.org/fhir/StructureDefinition/cda-patient-role"/>
         <name value="PatientRole"/>
-        <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+        <publisher value="HL7 International / Structured Documents"/>
         <contact>
           <telecom>
             <system value="url"/>
@@ -1129,7 +1129,7 @@
         <!-- build tool to fill out narrative -->
         <url value="http://hl7.org/fhir/StructureDefinition/cda-organization"/>
         <name value="Organization"/>
-        <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+        <publisher value="HL7 International / Structured Documents"/>
         <contact>
     <telecom>
           <system value="url"/>
@@ -1317,7 +1317,7 @@
         <!-- build tool to fill out narrative -->
         <url value="http://hl7.org/fhir/StructureDefinition/cda-location"/>
         <name value="Location"/>
-        <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+        <publisher value="HL7 International / Structured Documents"/>
         <contact>
     <telecom>
           <system value="url"/>
@@ -1433,7 +1433,7 @@
         <!-- build tool to fill out narrative -->
         <url value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOfDxOrder"/>
         <name value="inFulFillmentOfDiagnosticOrder"/>
-        <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+        <publisher value="HL7 International / Structured Documents"/>
         <contact>
     <telecom>
           <system value="url"/>
@@ -1606,7 +1606,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-language-preference"/>
       <name value="CDA Language Preference"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1656,7 +1656,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-language-proficiency"/>
       <name value="CDA Language Proficiency"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1710,7 +1710,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-language-mode"/>
       <name value="CDA Language Mode"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1764,7 +1764,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-guardian-id"/>
       <name value="CDA Guardian Identifier"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1814,7 +1814,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-birthplace"/>
       <name value="CDA Birthplace"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1865,7 +1865,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-effectivetime"/>
       <name value="CDA Organization Relationship Effective time"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1915,7 +1915,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-statuscode"/>
       <name value="CDA Organization Relationship Status"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -1969,7 +1969,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-org-partof-code"/>
       <name value="CDA Organization Relationship Type"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -2023,7 +2023,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-whole-organization"/>
       <name value="CDA Organizational Parent"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
         <telecom>
           <system value="url"/>
@@ -2070,7 +2070,7 @@
       </meta>
       <url value="http://hl7.org/fhir/StructureDefinition/cda-inFulFillmentOf"/>
       <name value="CDA In Fulfillment of"/>
-      <publisher value="Health Level Seven International (Structured Documents - CDA on FHIR)"/>
+      <publisher value="HL7 International / Structured Documents"/>
       <contact>
     <telecom>
         <system value="url"/>

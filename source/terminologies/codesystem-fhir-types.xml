@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1802"/>
   </identifier>
-  <version value="5.0.0"/> 
+  <version value="6.0.0"/> 
   <name value="FHIRTypes"/> 
   <title value="All FHIR Types"/> 
   <status value="active"/> 
@@ -42,17 +42,17 @@
   <content value="complete"/> 
   <property> 
     <code value="abstract-type"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#abstract-type"/> 
+    <uri value="http://hl7.org/fhir/type-properties#abstract-type"/> 
     <type value="boolean"/> 
   </property> 
   <property> 
     <code value="kind"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#kind"/> 
+    <uri value="http://hl7.org/fhir/type-properties#kind"/> 
     <type value="code"/> 
   </property> 
   <property> 
     <code value="interface"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#interface"/> 
+    <uri value="http://hl7.org/fhir/type-properties#interface"/> 
     <type value="boolean"/> 
   </property> 
   <!-- filled in by the build -->

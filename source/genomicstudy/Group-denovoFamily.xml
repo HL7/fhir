@@ -1,16 +1,16 @@
 <Group xmlns="http://hl7.org/fhir">
-  <id value="groupDenovoFamily"/> 
-  <text> 
-    <status value="additional"/> 
+  <id value="groupDenovoFamily"/>
+  <text>
+    <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p> Denovo mutation study members </p> 
-      <ul> 
-        <li> Patient: Child Junior Doe</li> 
-        <li> Mother: Jane Mother Doe</li> 
-        <li> Father: John Father Doe</li> 
-      </ul> 
-    </div> 
-  </text> 
+      <p> Denovo mutation study members </p>
+      <ul>
+        <li> Patient: Child Junior Doe</li>
+        <li> Mother: Jane Mother Doe</li>
+        <li> Father: John Father Doe</li>
+      </ul>
+    </div>
+  </text>
   <identifier>
     <use value="temp"/>
     <type>
@@ -29,44 +29,41 @@
       <display value="Child Hospital"/>
     </assigner>
   </identifier>
- <active value="true"/>
- <type value="person"/>
- <membership value="enumerated"/><!-- 1..1 definitional | enumerated -->
- <!-- <code></code> -->
- <name value="Denovo Mutation Example Group"/><!-- 0..1 Label for Group -->
- <description value="[markdown]"/><!-- 0..1 Natural language description of the group -->
- <quantity value="3"/>
- <managingEntity>
+  <name value="Denovo Mutation Example Group"/><!-- 0..1 Label for Group -->
+  <status value="active"/>
+  <description value="[markdown]"/><!-- 0..1 Natural language description of the group -->
+  <type value="person"/>
+  <membership value="enumerated"/><!-- 1..1 definitional | enumerated -->
+  <!-- <code></code> -->
+  <quantity value="3"/>
+  <managingEntity>
     <reference value="Practitioner/practitioner02"/>
- </managingEntity>
-
- <member>
-  <entity>
-    <reference value="Patient/proband"/>
-  </entity>
-  <period> 
-      <start value="2021-01-01T01:01:10-06:00"/> 
-  </period>
-  <inactive value="false"/>
- </member>
-
+  </managingEntity>
   <member>
-  <entity>
-    <reference value="RelatedPerson/relatedPersonDenovoMother"/>
-  </entity>
-  <period> 
-      <start value="2021-01-01T01:01:10-06:00"/> 
-  </period>
-  <inactive value="false"/>
- </member>
-
+    <entity>
+      <reference value="Patient/proband"/>
+    </entity>
+    <period>
+      <start value="2021-01-01T01:01:10-06:00"/>
+    </period>
+    <inactive value="false"/>
+  </member>
   <member>
-  <entity>
-    <reference value="RelatedPerson/relatedPersonDenovoFather"/>
-  </entity>
-  <period> 
-      <start value="2021-01-01T01:01:10-06:00"/> 
-  </period>
-  <inactive value="false"/>
- </member>
+    <entity>
+      <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+    </entity>
+    <period>
+    <start value="2021-01-01T01:01:10-06:00"/>
+    </period>
+    <inactive value="false"/>
+  </member>
+  <member>
+    <entity>
+      <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+    </entity>
+    <period>
+      <start value="2021-01-01T01:01:10-06:00"/>
+    </period>
+    <inactive value="false"/>
+  </member>
 </Group>

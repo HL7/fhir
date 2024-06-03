@@ -1,5 +1,30 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+<h2>Notes</h2>
+<h3>Perpetual and Episodic Accounts</h3>
+<p>
+    There may be two types of accounts that are used to track billing activities with medical systems:
+</p>
+<ul>
+<li><b>Episodic Account:</b>
+An account that collects the charges for a specific set of services offered over a limited time period.  For example, a hospital account might contain all charges related
+to a given admission, including any inpatient appointments, and possibly re-admissions, of the billing for those re-admissions should be grouped with the initial admission
+for the purpose of claim submission.<br/>
 
+Episodic Accounts often exist for the duration of a relatively short billing cycle (for example, a month, or possibly a quarter).  One a given billing cycle ends, the
+associated Episodic Account would close, and a new account would open for the next billing cycle.  A patient that is admitted for 6 months, where the billing cycle is
+monthly, would have 6 episodic accounts each covering one month.<br/>
+
+Episodic Accounts may be communicated using the Account.covers property.
+</li>
+<li><b>Perpetual Account</b>
+A long running account that accumulates charges and payments associated with a specific beneficiary.  This account is often open for as long as the beneficiary has a
+relationship with the healthcare organization.  It may be linked to an EpisodeOfCare.  A beneficiary may have different perpetual accounts.  For example, one for charges
+related to car crash (i.e., third party liability).  One associated with charges related to a research study the patient is participating in.  And one for their general
+personal/family care, which would be covered by their normal insurance.<br/>
+
+Perpetual Accounts may be communicated using the Encounter.account or EpisodeOfCare.account properties.
+</li>
+</ul>
 </div>

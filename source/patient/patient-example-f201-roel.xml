@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <Patient xmlns="http://hl7.org/fhir">
   <id value="f201"/>
@@ -110,7 +110,7 @@
       <coding>
         <system value="urn:ietf:bcp:47"/>
         <code value="nl-NL"/>
-        <display value="Dutch"/>
+        <display value="Dutch (Netherlands)"/>
       </coding>
     </language>
     <preferred value="true"/>

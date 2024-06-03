@@ -47,13 +47,17 @@
         </coding>    
     </bodySite>
     <outcome>
-      <text value="removal of the retropharyngeal abscess"/>
+		<concept>
+			<text value="removal of the retropharyngeal abscess"/>
+		</concept>
     </outcome>
     <report>
         <reference value="DiagnosticReport/f001"/>
         <display value="???????????"/>
     </report>
     <followUp>
-      <text value="described in care plan"/>
-    </followUp>
+		<concept>
+			<text value="described in care plan"/>
+		</concept>
+	</followUp>
 </Procedure>

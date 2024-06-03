@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1410"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="Communication"/>
   <title value="Communication"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Care)"/>
+  <publisher value="HL7 International / Patient Care"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="A clinical or business level record of information being transmitted or shared; e.g. an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -156,16 +156,26 @@
       </mapping>
     </element>
     <element id="Communication.basedOn">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#38783."/>
+      </extension>
       <path value="Communication.basedOn"/>
       <short value="Request fulfilled by this communication"/>
       <definition value="An order, proposal or plan fulfilled in whole or in part by this Communication."/>
-      <comment value="This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ServiceRequest, MedicationRequest, etc."/>
       <alias value="fulfills"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
       <isSummary value="true"/>
       <mapping>

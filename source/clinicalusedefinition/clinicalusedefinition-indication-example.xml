@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalUseDefinition xmlns="http://hl7.org/fhir">
+  <id value="example-indication"/>
+  <!-- example product is indicated for Prevention of venous thromboembolic events, in adults (18+) -->
+  <!-- product is for 18 years and above -->
+  <contained>
+    <Group>
+      <id value="group"/>
+      <type value="person"/>
+      <membership value="definitional"/>
+      <characteristic>
+        <code>
+          <coding>
+            <system value="http://ema.europa.eu/example/characteristic"/>
+            <code value="age-range"/>
+          </coding>
+        </code>
+        <valueRange>
+          <low>
+            <value value="18"/>
+            <unit value="a"/>
+          </low>
+        </valueRange>
+        <exclude value="false"/>
+      </characteristic>
+    </Group>
+  </contained>
+  <type value="indication"/>
+  <subject>
+    <reference value="MedicinalProductDefinition/example"/>
+  </subject>
+  <!-- example product is indicated for Prevention of venous thromboembolic events -->
+  <indication>
+    <diseaseSymptomProcedure>
+      <concept>
+        <coding>
+          <system value="http://ema.europa.eu/example/indicationasdisease-symptom-procedure"/>
+          <code value="Pulmonary-embolism-and-thrombosis-example-code"/>
+        </coding>
+        <text value="Prevention of venous thromboembolic events (VTE) in adult patients who have undergone elective hip or knee replacement surgery. Prevention of stroke and systemic embolism in adult patients with non-valvular atrial fibrillation (NVAF), with one or more risk factors, such as prior stroke or transient ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes mellitus; symptomatic heart failure (NYHA Class ≥ II). Treatment of deep vein thrombosis (DVT) and pulmonary embolism (PE), and prevention of recurrent DVT and PE in adults."/>
+      </concept>
+    </diseaseSymptomProcedure>
+    <diseaseStatus>
+      <concept>
+        <coding>
+          <system value="http://ema.europa.eu/example/diseasestatus"/>
+          <code value="Recurrent"/>
+        </coding>
+      </concept>
+    </diseaseStatus>
+    <intendedEffect>
+      <concept>
+        <coding>
+          <system value="http://ema.europa.eu/example/intendedeffect"/>
+          <code value="PRYLX"/>
+        </coding>
+      </concept>
+    </intendedEffect>
+  </indication>
+  <population>
+    <reference value="#group"/>
+  </population>
+</ClinicalUseDefinition>

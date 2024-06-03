@@ -278,7 +278,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
     "element" : [{
       // first, the patient root element
       // - can be copy/paste from the base patient profile
-      "path" : "Patient",
+      "path" : "Patient"
       // snip definition
     }, {
      //  now, the general definition for extensions,
@@ -297,7 +297,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
         "ordered" : "false",
         // Other extensions are allowed in addition to this one
         "rules" : "open"
-      },
+      }
       // snip definition
     }, {
       // now, the slice that contains our extension
@@ -543,13 +543,13 @@ Note that the URL of the extension refers to the registered location.
 <pre class="json" fragment="HumanName">
 "name" : {
   "use" : "official",
-  "given" : "Östlund",
-  "_given" : {
+  "given" : ["Östlund"],
+  "_given" : [{
      "extension" : [{ 
         "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
         "valueCode" : "MID"
      }]
-    }
+    }]
   }
 </pre>
 [%example-end%]
@@ -999,7 +999,7 @@ NOTE: This extension is properly defined in the <a href="[%extensions-location%]
 
   &lt;!-- snip metadata --&gt;
 
-  &lt;fhirVersion value="5.0.0"/&gt;
+  &lt;fhirVersion value="6.0.0"/&gt;
   &lt;kind value="complex-type"/&gt;
   &lt;abstract value="false"/&gt;
   &lt;context&gt;
@@ -1053,7 +1053,7 @@ NOTE: This extension is properly defined in the <a href="[%extensions-location%]
     "resourceType" : "StructureDefinition",
     "url" : "http://hl7.org/fhir/StructureDefinition/artifact-status",
     // snip various metadata
-    "fhirVersion" : "5.0.0",
+    "fhirVersion" : "6.0.0",
     "kind" : "complex-type",
     "abstract" : false,
     "context" : [{

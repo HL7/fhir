@@ -30,7 +30,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Whether this location record is in active use."/>
-            <resource value="The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location."/>
+            <resource value="The status property covers the general availability of the resource, not the current value which may be covered by the operationalStatus, or by a schedule/slots if they are configured for the location."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Participant.name" resourcePath="Location.name">

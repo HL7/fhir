@@ -13,7 +13,7 @@
   <title value="Batch bundle" />
   <status value="active" />
   <description value="This profile holds all the requirements and constraints related to a FHIR batch bundle." />
-  <fhirVersion value="5.0.0-snapshot1" />
+  <fhirVersion value="6.0.0" />
   <mapping>
     <identity value="v2" />
     <uri value="http://hl7.org/v2" />

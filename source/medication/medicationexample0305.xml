@@ -11,8 +11,9 @@
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
       <code value="24208-813-10"/>
-      <display value="Timoptic 5mg/ml solution"/>
+      <display value="Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10) > 10 mL in 1 BOTTLE, DISPENSING (package)"/>
     </coding>
+    <text value="Timoptic 5mg/ml solution"/>
   </code>
   <marketingAuthorizationHolder>
     <reference value="#mmanu" />
@@ -21,7 +22,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="75359005"/>
-        <display value="Opthalmic Solution (qualifier value)"/>
+        <display value="Timolol maleate (substance)"/>
       </coding>
     </doseForm>
     <ingredient>

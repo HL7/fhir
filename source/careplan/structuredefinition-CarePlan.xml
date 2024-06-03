@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1057"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="CarePlan"/>
   <title value="Care Plan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Care)"/>
+  <publisher value="HL7 International / Patient Care"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -350,6 +350,7 @@
       <path value="CarePlan.description"/>
       <short value="Summary of nature of plan"/>
       <definition value="A description of the scope and nature of the plan."/>
+	  <comment value="CarePlan.description is not intended to convey the entire care plan.  It is possible to convey the entire care plan narrative using CarePlan.text instead."/>
       <requirements value="Provides more detail than conveyed by category."/>
       <min value="0"/>
       <max value="1"/>
@@ -554,7 +555,7 @@
     </element>
     <element id="CarePlan.addresses">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20168."/>
+        <valueString value="GF#20168, J#32512."/>
       </extension>
       <path value="CarePlan.addresses"/>
       <short value="Health issues this plan addresses"/>
@@ -566,6 +567,8 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -670,10 +673,10 @@
     </element>
     <element id="CarePlan.activity.performedActivity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#26064."/>
+        <valueString value="J#26064, J#45000"/>
       </extension>
       <path value="CarePlan.activity.performedActivity"/>
-      <short value="Results of the activity (concept, or Appointment, Encounter, Procedure, etc.)"/>
+      <short value="Activities that are completed or in progress (concept, or Appointment, Encounter, Procedure, etc.)"/>
       <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
       <comment value="Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
       <requirements value="Links plan to resulting actions."/>

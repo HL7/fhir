@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="medrx0318"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0318"/>
     <contained>
         <Medication>
             <id value="med0301"/>
@@ -10,8 +9,10 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0409-6531-02"/>
-                    <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+                    <display value="Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02) > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12) (package)"/>
+                    <!-- Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" -->
                 </coding>
+                <text value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
             </code>
         </Medication>
     </contained>
@@ -22,16 +23,16 @@
     </identifier>
     <status value="active"/>
     <intent value="order"/>
-    <medication> <!-- Linked to a RESOURCE Medication -->
-    <reference>
-        <reference value="#med0301"/>
+    <medication>        <!-- Linked to a RESOURCE Medication -->
+        <reference>
+            <reference value="#med0301"/>
         </reference>
-    </medication> 
-    <subject> <!-- Linked to the resource patient who needs the medication -->
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>            
+        <display value="Donald Duck"/>
     </subject>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <encounter>        <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </encounter>
@@ -41,18 +42,18 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
-      <concept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="11840006"/>
-            <display value="Traveller's Diarrhea (disorder)"/>
-        </coding>
-      </concept>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="11840006"/>
+                <display value="Traveler's diarrhea (disorder)"/>
+            </coding>
+        </concept>
     </reason>
     <note>
         <text value="culture expected back in 12 hours - may switch depending on results"/>
     </note>
-    
+
     <dosageInstruction>
         <sequence value="1"/>
         <text value="500mg IV q6h x 3 days" />
@@ -99,5 +100,5 @@
         </doseAndRate>
 
     </dosageInstruction>
-    
+
 </MedicationRequest>

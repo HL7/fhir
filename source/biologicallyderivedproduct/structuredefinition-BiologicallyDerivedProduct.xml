@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1124"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="BiologicallyDerivedProduct"/>
   <title value="Biologically Derived Product"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <publisher value="HL7 International / Orders and Observations"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -97,12 +97,12 @@
     </element>
     <element id="BiologicallyDerivedProduct.productCategory">
       <path value="BiologicallyDerivedProduct.productCategory"/>
-      <short value="organ | tissue | fluid | cells | biologicalAgent"/>
-      <definition value="Broad category of this product."/>
+      <short value="A category or classification of the product"/>
+      <definition value="A category or classification of the product.  Products may be assigned multiple categories, for example a human heart valve can be categorized as an 'MPHO' and 'tissue'."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -240,8 +240,8 @@
     </element>
     <element id="BiologicallyDerivedProduct.productStatus">
       <path value="BiologicallyDerivedProduct.productStatus"/>
-      <short value="available | unavailable"/>
-      <definition value="Whether the product is currently available."/>
+      <short value="available | unavailable | processed | applied | discarded"/>
+      <definition value="The current status of the product."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -319,6 +319,17 @@
       </type>
       <type>
         <code value="Period"/>
+      </type>
+    </element>
+    <element id="BiologicallyDerivedProduct.collection.procedure">
+      <path value="BiologicallyDerivedProduct.collection.procedure"/>
+      <short value="The procedure involved in the collection"/>
+      <definition value="The procedure performed to collect the biologically derived product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
     </element>
     <element id="BiologicallyDerivedProduct.storageTempRequirements">

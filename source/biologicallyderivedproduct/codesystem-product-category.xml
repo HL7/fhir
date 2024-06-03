@@ -19,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.901"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductCategory"/>
   <title value="Biologically Derived Product Category"/>
   <status value="draft"/>
@@ -61,8 +61,13 @@
     <definition value="Collection of cells."/>
   </concept>
   <concept>
-    <code value="biologicalAgent"/>
-    <display value="BiologicalAgent"/>
+    <code value="biological-agent"/>
+    <display value="Biological agent"/>
     <definition value="Biological agent of unspecified type."/>
   </concept>
+  <concept>
+    <code value="mpho"/>
+    <display value="Medical Product of Human Origin (MPHO)"/>
+    <definition value="A product derived from a human donor intended for clinical application in a human recipient."/>
+  </concept>  
 </CodeSystem>

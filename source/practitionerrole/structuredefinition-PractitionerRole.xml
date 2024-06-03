@@ -28,12 +28,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1443"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="PractitionerRole"/>
   <title value="Practitioner Role"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <publisher value="HL7 International / Patient Administration"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -48,7 +48,7 @@
   </contact>
   <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time."/>
   <purpose value="Need to track services that a healthcare provider is able to provide at an organization's location, and the services that they can perform there."/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -226,8 +226,9 @@
     </element>
     <element id="PractitionerRole.organization">
       <path value="PractitionerRole.organization"/>
-      <short value="Organization where the roles are available"/>
-      <definition value="The organization where the Practitioner performs the roles associated."/>
+      <short value="Organization where the role is available"/>
+      <definition value="The organization where the Practitioner is available to perform the roles associated."/>
+      <comment value="Some relationships (represented as PractitionerRoles) that may exist between practitioners and organizations include:&#xD;* A practitioner may act as a pediatrician when associated with an organization that runs a family clinic.  PractitionerRole.organization would represent the family clinic.&#xD;* The same practitioner may act as a physician when providing physicals for an athletics department at a school.  PractitionerRole.organization would represent the school.&#xD;* A practitioner may perform coumadin / anticoagulation services for a clinic run by a health system.   PractitionerRole.organization would represent the coumadin clinic.&#xD;* A practitioner may act as an inpatient pharmacist reviewing and dispensing medications.  PractitionerRole.organization would represent the hospital pharmacy.&#xD;* A practitioner may perform medication management and adherence services for an internal medicine clinic.  PractitionerRole.organization would represent the internal medicine clinic.&#xD;* A practitioner is part of a payer's network (such as a preferred provider organization (PPO), or health maintenance organizations (HMO)).  PractitionerRole.organization would represent the payer's network." />
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -277,6 +278,18 @@
         <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"/>
       </mapping>
     </element>
+    <element id="PractitionerRole.name">
+      <path value="PractitionerRole.name"/>
+      <short value="Denormalized practitioner name, role, organization and location"/>
+      <definition value="A name that describes the intersection of the practitioner, organization, and the role of the practitioner within the organization.  This is not the human name of the practitioner, though the textual representation of that human name may be a part of this property."/>
+      <comment value="The PractitionerRole name may be considered a de-normalized value from Practitioner and/or Organization for the purposes of convenient display in both the PractitionerRole resources and reference to it.  When a system is consuming a PractitionerRole resource and displaying a name to a user, they may choose to use PractitionerRole.name, or they could use one or both of the names from the referenced Practitioner and/or Organization resources along with the role or other relevant properties in PractitionerRole."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>    
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
@@ -429,7 +442,7 @@
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
       <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Availability"/>
       </type>

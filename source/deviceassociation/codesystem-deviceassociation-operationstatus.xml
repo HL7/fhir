@@ -16,7 +16,7 @@
     <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/deviceassociation-operationstatus"/>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="FHIRDeviceAssociationOperationStatus"/>
   <title value="FHIR DeviceAssociation Operation Status"/>
   <status value="draft"/>

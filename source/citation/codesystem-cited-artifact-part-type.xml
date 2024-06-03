@@ -19,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1877"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="6.0.0"/>
   <name value="CitedArtifactPartType"/>
   <title value="Cited Artifact Part Type"/>
   <status value="draft"/>
@@ -40,6 +40,11 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-part-type"/>
   <content value="complete"/>
+  <concept>
+    <code value="chapters"/>
+    <display value="chapters"/>
+    <definition value="Denotes specific chapter or chapters of an article or artifact."/>
+  </concept>
   <concept>
     <code value="pages"/>
     <display value="pages"/>

@@ -23,20 +23,20 @@
 <h3>StructureDefinition Root Elements</h3>
 
 <p>
-The very first element in a snapshot (the one with an element id of just the type name) 
+The very first element in a snapshot (the one with an element id of just the type name)
 defines characteristics that apply to the type as a whole.  Some of these characteristics
-affect the constraints that can hold on an element that references the type.  For example, 
-if the root element cardinality is <code>0..1</code>, then an element declared to be of that type 
-cannot have a maximum cardinality greater than 1. (This is often used when defining 
-extensions to indicate that multiple extension repetitions of that type are not allowed 
+affect the constraints that can hold on an element that references the type.  For example,
+if the root element cardinality is <code>0..1</code>, then an element declared to be of that type
+cannot have a maximum cardinality greater than 1. (This is often used when defining
+extensions to indicate that multiple extension repetitions of that type are not allowed
 within a single element.)
 </p>
 <p>
-In some cases, there can be redundancy between content defined on the root element and 
+In some cases, there can be redundancy between content defined on the root element and
 that defined on the StructureDefinition itself.  For example, ElementDefinition has
-'definition' while StructureDefinition has 'description'.  These may have the same 
-content put both places, though technically the 'definition' is text that describes 
-what the type 'means', while 'description' is broader and may talk a bit about what 
+'definition' while StructureDefinition has 'description'.  These may have the same
+content put both places, though technically the 'definition' is text that describes
+what the type 'means', while 'description' is broader and may talk a bit about what
 the resource/data type/profile is for, in addition to its meaning.
 </p>
 
@@ -101,20 +101,6 @@ This list shows a number of examples, with links to real examples for each:
 </pre>
  </li>
 
- <li>Constraint on a resource (example: <a href="clinicaldocument.html">Clinical Document Profile for Composition</a> - <a href="clinicaldocument.profile.xml.html">XML</a>, <a href="clinicaldocument.profile.json.html">JSON</a>): <br/>
-<pre class="json" fragment="StructureDefinition">
-{
-  "resourceType": "StructureDefinition",
-  "url": "http://hl7.org/fhir/StructureDefinition/clinicaldocument",
-  "name": "Clinical Document Profile for Composition",
-  "kind": "resource",
-  "type": "Composition",
-  "abstract" : false,
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition"
-}
-</pre>
- </li>
-
  <li>Base Extension (a standard data type) (example: <a href="extensibility.html#Extension">Extension</a> - <a href="extension.profile.xml.html">XML</a>, <a href="extension.profile.json.html">JSON</a>): <br/>
 <pre class="json" fragment="StructureDefinition">
 {
@@ -150,7 +136,6 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Race codes used by institution (a subset of meaningful use codes)",
   "kind": "complex-type",
   "type": "Extension",
-  "abstract" : false,
   "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
 }
@@ -196,7 +181,7 @@ This list shows a number of examples, with links to real examples for each:
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/Base"
 }
 </pre>
- </li> 
+ </li>
 </ol>
 
 <p>

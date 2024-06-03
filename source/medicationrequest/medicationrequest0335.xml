@@ -15,7 +15,7 @@
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="884308"/>
-            <display value="Nystatin 100UNT/MG Topical Ointment"/>
+            <display value="nystatin 100 UNT/MG Topical Ointment"/>
         </coding>
     </concept>
     </medication>

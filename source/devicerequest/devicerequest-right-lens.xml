@@ -25,7 +25,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="28826-6"/>
-        <display value="Sphere distance Glasses prescription.lens - right"/>
+        <display value="Right glasses lens prescription Sphere far"/>
       </coding>
       <text value="sphere, right lens"/>
     </code>
@@ -42,7 +42,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="28829-0"/>
-        <display value="Prism base distance Glasses prescription.lens - right"/>
+        <display value="Right glasses lens prescription Prism base direction"/>
       </coding>
       <text value="prisms, right lens"/>
     </code>
@@ -59,7 +59,7 @@
       <coding>
         <system value="http://loinc.org"/>
         <code value="28810-0"/>
-        <display value="Add 1 LM glasses lens - right"/>
+        <display value="Right corrective lens Add 1 by Lensmeter"/>
       </coding>
       <text value="add, right lens"/>
     </code>

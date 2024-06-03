@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="medrx0319"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0319"/>
     <contained>
         <Medication>
             <id value="med0302"/>
@@ -10,8 +9,10 @@
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
                     <code value="0206-8862-02"/>
-                    <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
+                    <display value="Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02) > 100 mL in 1 BAG (0206-8862-01) (package)"/>
+                    <!-- Zosyn (piperacillin/tazobactam) 4.5gm injection -->
                 </coding>
+                <text value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
             </code>
         </Medication>
     </contained>
@@ -23,14 +24,14 @@
     <status value="completed"/>
     <intent value="order"/>
     <medication>
-    <reference>
-        <reference value="#med0302"/>
-        <display value="Piperacillin/Tazobactam 4.5gm"/>
-    </reference>
-    </medication> 
-    <subject> <!-- Linked to the resource patient who needs the medication -->
+        <reference>
+            <reference value="#med0302"/>
+            <display value="Piperacillin/Tazobactam 4.5gm"/>
+        </reference>
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>           
+        <display value="Donald Duck"/>
     </subject>
     <authoredOn value="2015-01-15"/>
     <requester>
@@ -38,15 +39,15 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
-      <concept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="385093006"/>
-            <display value="Community acquired pneumonia (disorder)"/>
-        </coding>
-      </concept>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="385093006"/>
+                <display value="Community acquired pneumonia (disorder)"/>
+            </coding>
+        </concept>
     </reason>
-    
+
     <dosageInstruction>
         <sequence value="1"/>
         <text value="4.5 grams in D5W 250 ml. IV every 6 hours.Infuse over 30 min at 8L/min " />
@@ -61,7 +62,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="47625008"/>
-                <display value="Intravenous route (qualifier value)"/>
+                <display value="Intravenous route"/>
             </coding>
         </route>
         <doseAndRate>
@@ -86,5 +87,5 @@
         </doseAndRate>
 
     </dosageInstruction>
-    
+
 </MedicationRequest>

@@ -5,5 +5,10 @@
 	<h2>Notes</h2>
 	<ul>
 		<li>The IHE connection types that were defined in R4 have been moved to IHE defined profiles and vocabulary at <a href="https://profiles.ihe.net/ITI/mCSD">https://profiles.ihe.net/ITI/mCSD</a></li>
+		<li>
+			Endpoint.period is meant to represent the general <b>planned</b> period of time when the Endpoint may be used, for example when an endpoint is being commissioned or decommissioned.
+			It is not meant to account for temporary downtimes or other short terms changes of availability.<br/>
+			For example, if an Endpoint is only available during business hours (9-5), the lack of availability during the night would not be reflected in Endpoint.period.
+		</li>
 	</ul>
 </div>

@@ -5,20 +5,20 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Application Start for under service login "Grahame" (id: Grahame's Test HL7Connect)</div>
 	</text>
-	<category>
+	<type>
 		<coding>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="110100"/>
 			<display value="Application Activity"/>
 		</coding>
-	</category>
-	<code>
+	</type>
+	<subtype>
 		<coding>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="110120"/>
 			<display value="Application Start"/>
 		</coding>
-	</code>
+	</subtype>
 	<action value="E"/>
 	<recorded value="2012-10-25T22:04:27+11:00"/>
 	<outcome>
