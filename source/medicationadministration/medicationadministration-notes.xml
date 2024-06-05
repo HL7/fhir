@@ -92,7 +92,7 @@
             <td>Dose of medication that was administered.  If the drug is intravenous, you may represent this a rate e.g. 60 ml/30 minutes</td>
         </tr>
         <tr>
-            <td>MedicationAdministration.occurrence.dateTime or period</td>
+            <td>MedicationAdministration.occurrenceDateTime or .occurrencePeriod</td>
             
             <td>Date and time or, date/time of the period over which the medication was administered</td>
         </tr>
