@@ -177,8 +177,8 @@
         <map value="ManufacturedProduct.subjectOf.DocumentEvent.author"/>
       </mapping>
     </element>
-    <element id="MedicationKnowledge.intendedJurisdiction">
-      <path value="MedicationKnowledge.intendedJurisdiction"/>
+    <element id="MedicationKnowledge.jurisdiction">
+      <path value="MedicationKnowledge.jurisdiction"/>
       <short value="Codes that identify the different jurisdictions for which the information of this resource was created"/>
       <definition value="Lists the jurisdictions that this medication knowledge was written for."/>
       <comment value="The codes could have varying granularity from a country or group of countries down to a specific district."/>
