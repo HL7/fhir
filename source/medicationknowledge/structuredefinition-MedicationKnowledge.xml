@@ -152,7 +152,7 @@
         </extension>
         <strength value="required"/>
         <description value="A coded concept defining if the medication is in active use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -165,10 +165,9 @@
       <definition value="The creator or owner of the knowledge or information about the medication."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
@@ -194,7 +193,7 @@
       <short value="A name associated with the medication being described"/>
       <definition value="All of the names for a medication, for example, the name(s) given to a medication in different countries.  For example, acetaminophen and paracetamol or salbutamol and albuterol."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="string"/>
       </type>
