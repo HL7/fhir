@@ -77,11 +77,7 @@
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="focus.coding.code"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="focus.coding.system"/>
+                    <path value="focus"/>
                 </discriminator>
                 <ordered value="false"/>
                 <rules value="open"/>
