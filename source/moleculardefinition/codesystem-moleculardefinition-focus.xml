@@ -52,6 +52,11 @@
     <definition value="The alternative sequence."/>
   </concept>
   <concept>
+    <code value="allele-state"/>
+    <display value="Allele State"/>
+    <definition value="The allele sequence."/>
+  </concept>
+  <concept>
     <code value="context-state"/>
     <display value="Context State"/>
     <definition value="The context sequence, i.e., the current sequence."/>
