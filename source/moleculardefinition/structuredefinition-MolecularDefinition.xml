@@ -498,6 +498,18 @@
       <isSummary value="true"/>
     </element>
 
+    <element id="MolecularDefinition.representation.focus">
+      <path value="MolecularDefinition.representation.focus"/>
+      <short value="The focus of the representation"/>
+      <definition value="A representation focus, e.g., reference or alternative state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
     <element id="MolecularDefinition.representation.code">
       <path value="MolecularDefinition.representation.code"/>
       <short value="A code of the representation"/>
