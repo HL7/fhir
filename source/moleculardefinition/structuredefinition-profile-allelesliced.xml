@@ -177,7 +177,7 @@
                 <ordered value="false"/>
                 <rules value="open"/>
             </slicing>
-            <short value="Context State Representation"/>
+            <short value="Allelic State Representation"/>
             <definition value="The representation of the allelic state."/>
             <min value="1"/>
         </element>
