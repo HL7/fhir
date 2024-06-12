@@ -113,17 +113,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
-    <element id="MolecularDefinition.name">
-      <path value="MolecularDefinition.name"/>
-      <short value="Label of this MolecularDefinition"/>
-      <definition value="The label associates with this MolecularDefinition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="false"/>
-    </element>
 
     <element id="MolecularDefinition.location">
       <path value="MolecularDefinition.location"/>
@@ -515,19 +504,7 @@
       <short value="A code of the representation"/>
       <definition value="A representation code."/>
       <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
-    <element id="MolecularDefinition.representation.system">
-      <path value="MolecularDefinition.representation.system"/>
-      <short value="The system of the representation"/>
-      <definition value="A representation system, e.g., VCF, SPDI, or HGVS."/>
-      <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
