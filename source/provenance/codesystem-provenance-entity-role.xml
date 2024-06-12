@@ -32,14 +32,14 @@
   <version value="6.0.0"/>
   <name value="ProvenanceEntityRole"/>
   <title value="Provenance Entity Role"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-10-01T10:01:24+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <date value="2024-06-12"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
     </telecom>
     <telecom>
       <system value="email"/>
