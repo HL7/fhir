@@ -104,11 +104,18 @@
             <sliceName value="ContextState"/>
             <min value="0"/>
             <max value="1"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                    <code value="context-state"/>
+                </coding>
+            </patternCodeableConcept>
+            <mustSupport value="true"/>
         </element>
         <!--<element id="MolecularDefinition.representation:ContextState.focus">
             <path value="MolecularDefinition.representation.focus"/>
         </element>-->
-        <element id="MolecularDefinition.representation:ContextState.focus.coding">
+        <!--<element id="MolecularDefinition.representation:ContextState.focus.coding">
             <path value="MolecularDefinition.representation.focus.coding"/>
             <slicing>
                 <discriminator>
@@ -151,15 +158,22 @@
                 <code value="code"/>
             </type>
             <fixedCode value="context-state"/>
-        </element>
+        </element>-->
         <!--        Allele state slice-->
         <element id="MolecularDefinition.representation:ReferenceState">
             <path value="MolecularDefinition.representation"/>
             <sliceName value="AlleleState"/>
             <min value="1"/>
             <max value="1"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                    <code value="reference-state"/>
+                </coding>
+            </patternCodeableConcept>
+            <mustSupport value="true"/>
         </element>
-        <element id="MolecularDefinition.representation:ReferenceState.focus.coding">
+        <!--<element id="MolecularDefinition.representation:ReferenceState.focus.coding">
             <path value="MolecularDefinition.representation.focus.coding"/>
             <slicing>
                 <discriminator>
@@ -176,8 +190,8 @@
             <short value="Reference State Representation"/>
             <definition value="The representation of the reference state."/>
             <min value="1"/>
-        </element>
-        <element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus">
+        </element>-->
+        <!--<element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus">
             <path value="MolecularDefinition.representation.focus.coding"/>
             <sliceName value="ReferenceStateFocus"/>
             <short value="Reference State Representation"/>
@@ -202,15 +216,22 @@
                 <code value="code"/>
             </type>
             <fixedCode value="reference-state"/>
-        </element>
+        </element>-->
 <!--        alternative state slice-->
         <element id="MolecularDefinition.representation:AlternativeState">
             <path value="MolecularDefinition.representation"/>
             <sliceName value="AlternativeState"/>
             <min value="1"/>
             <max value="1"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                    <code value="alternative-state"/>
+                </coding>
+            </patternCodeableConcept>
+            <mustSupport value="true"/>
         </element>
-        <element id="MolecularDefinition.representation:AlternativeState.focus.coding">
+        <!--<element id="MolecularDefinition.representation:AlternativeState.focus.coding">
             <path value="MolecularDefinition.representation.focus.coding"/>
             <slicing>
                 <discriminator>
@@ -253,6 +274,6 @@
                 <code value="code"/>
             </type>
             <fixedCode value="alternative-state"/>
-        </element>
+        </element>-->
     </differential>
 </StructureDefinition>
