@@ -99,8 +99,8 @@
             <min value="1"/>
         </element>
         <!--        context state slice-->
-        <element id="MolecularDefinition.representation:ContextState">
-            <path value="MolecularDefinition.representation"/>
+        <element id="MolecularDefinition.representation.focus:ContextState">
+            <path value="MolecularDefinition.representation.focus"/>
             <sliceName value="ContextState"/>
             <min value="0"/>
             <max value="1"/>
@@ -160,8 +160,8 @@
             <fixedCode value="context-state"/>
         </element>-->
         <!--        Allele state slice-->
-        <element id="MolecularDefinition.representation:ReferenceState">
-            <path value="MolecularDefinition.representation"/>
+        <element id="MolecularDefinition.representation.focus:ReferenceState">
+            <path value="MolecularDefinition.representation.focus"/>
             <sliceName value="AlleleState"/>
             <min value="1"/>
             <max value="1"/>
@@ -218,8 +218,8 @@
             <fixedCode value="reference-state"/>
         </element>-->
 <!--        alternative state slice-->
-        <element id="MolecularDefinition.representation:AlternativeState">
-            <path value="MolecularDefinition.representation"/>
+        <element id="MolecularDefinition.representation.focus:AlternativeState">
+            <path value="MolecularDefinition.representation.focus"/>
             <sliceName value="AlternativeState"/>
             <min value="1"/>
             <max value="1"/>
