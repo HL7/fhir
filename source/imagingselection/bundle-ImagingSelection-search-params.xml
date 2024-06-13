@@ -108,11 +108,30 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.code"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-code"/>
         <description value="The imaging selection description text or code"/>
         <code value="code"/>
         <type value="token"/>
         <expression value="ImagingSelection.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingSelection-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-category"/>
+        <description value="The imaging selection category"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="ImagingSelection.category"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

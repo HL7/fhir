@@ -16,7 +16,6 @@
       <value value="PNWYPXNBXMPGMTWX"/>
     </identifier>
   </subject>
-  <studyUid value="1.2.840.113747.20080222.189914271934870656966024988586343"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
@@ -24,6 +23,7 @@
       <value value="urn:oid:1.2.840.113747.20080222.189914271956923329266024988586343"/>
     </identifier>
   </derivedFrom>
+  <studyUid value="1.2.840.113747.20080222.189914271934870656966024988586343"/>
   <seriesUid value="1.2.840.113747.20080222.189914271934870659266024988586343.1"/>
   <frameOfReferenceUid value="1.2.840.113747.20080222.189914270656923329266024988586343.0"/>
   <instance>
