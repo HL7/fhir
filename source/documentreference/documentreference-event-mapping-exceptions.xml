@@ -105,8 +105,6 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.recorded" resourcePath="DocumentReference.date">
-        <missingTypes _pattern="dateTime" reason="recorded elswhere"/>
-        <extraTypes _resource="instant" reason="recorded elsewhere"/>
         <shortUnmatched reason="More specific to this resource">
             <_pattern value="When document reference was first captured in the subject's record"/>
             <resource value="When this document reference was created"/>
