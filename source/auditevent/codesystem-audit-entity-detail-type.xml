@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="audit-entity-detail-type-sample"/>
+  <id value="audit-entity-detail-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>
@@ -11,17 +14,15 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  
-  <url value="http://hl7.org/fhir/audit-entity-detail-type-sample"/>
-
+  <url value="http://hl7.org/fhir/audit-entity-detail-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1795"/>
   </identifier>
-  <version value="6.0.0"/>
+  <version value="6.0.0-cibuild"/>
   <name value="AuditEntityDetailTypeSample"/>
   <title value="Sample Codes for AuditEvent.entity.detail.type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <date value="2024-06-12"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -49,5 +50,4 @@
     <display value="Spin"/>
     <definition value="The spin of the entity with respect to the event"/>
   </concept>
-
 </CodeSystem>

@@ -39,7 +39,7 @@
   <description value="The type of additional detail about an entity used in an event."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/audit-entity-detail-type-sample"/>
+      <system value="http://hl7.org/fhir/audit-entity-detail-type"/>
     </include>
   </compose>
 </ValueSet>
