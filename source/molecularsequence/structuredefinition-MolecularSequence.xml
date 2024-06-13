@@ -185,8 +185,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.formatted">
-      <path value="MolecularSequence.formatted"/>
+    <element id="MolecularSequence.file">
+      <path value="MolecularSequence.file"/>
       <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
       <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
       <min value="0"/>

@@ -5,9 +5,9 @@
     <subject>
         <reference value="Patient/example"/>
     </subject>
-    <formatted>
+    <file>
         <contentType value="application/json"/>
         <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
         <title value="GA4GH API"/>
-    </formatted>
+    </file>
 </MolecularSequence>
