@@ -524,6 +524,7 @@
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -543,7 +544,27 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.eventCodeList, DocumentEntry.referenceIdList"/>
+        <map value="DocumentEntry.eventCodeList"/>
+      </mapping>
+    </element>
+    <element id="DocumentReference.related">
+      <path value="DocumentReference.related"/>
+      <short value="Related identifiers or resources associated with the document reference"/>
+      <definition value="Any other resource this document reference was created or to which the creation of this record is tightly associated."/>
+      <comment value="Use only for references not covered by other elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="fhircomposition"/>
+        <map value="Composition.event.detail"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./outboundRelationship[typeCode=&quot;PERT&quot; and isNormalActRelationship()] / target[isNormalAct]"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -688,12 +709,12 @@
       <path value="DocumentReference.date"/>
       <short value="When this document reference was created"/>
       <definition value="When the document reference was created."/>
-      <comment value="Referencing/indexing time is used for tracking, organizing versions and searching."/>
+      <comment value="Referencing/indexing time is used for tracking, organizing versions and searching. Provide the most precise timestamp available."/>
       <alias value="indexed"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="instant"/>
+        <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1109,7 +1130,7 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.mimeType, DocumentEntry.languageCode, DocumentEntry.URI, DocumentEntry.size, DocumentEntry.hash, DocumentEntry.title, DocumentEntry.creationTime"/>
+        <map value="DocumentEntry.mimeType, DocumentEntry.languageCode, DocumentEntry.repositoryUniqueId, DocumentEntry.URI, DocumentEntry.size, DocumentEntry.hash, DocumentEntry.title, DocumentEntry.creationTime"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
