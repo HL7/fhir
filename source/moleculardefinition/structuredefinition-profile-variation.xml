@@ -114,7 +114,7 @@
                     <code value="context-state"/>
                 </coding>
             </patternCodeableConcept>
-            <min value="1"/>
+
         </element>
         <!--<element id="MolecularDefinition.representation:ContextState.focus">
             <path value="MolecularDefinition.representation.focus"/>
@@ -170,8 +170,6 @@
             <min value="1"/>
             <max value="1"/>
             <mustSupport value="true"/>
-            <short value="Reference State Representation"/>
-            <definition value="The representation of the reference state."/>
         </element>
         <element id="MolecularDefinition.representation:ReferenceState.focus">
             <path value="MolecularDefinition.representation.focus"/>
@@ -181,7 +179,7 @@
                     <code value="reference-state"/>
                 </coding>
             </patternCodeableConcept>
-            <min value="1"/>
+
         </element>
         <!--<element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus">
             <path value="MolecularDefinition.representation.focus.coding"/>
@@ -225,8 +223,8 @@
                     <code value="alternative-state"/>
                 </coding>
             </patternCodeableConcept>
-            <min value="1"/>
-            </element>
+
+        </element>
         <!--<element id="MolecularDefinition.representation:AlternativeState.focus.coding">
             <path value="MolecularDefinition.representation.focus.coding"/>
             <slicing>
