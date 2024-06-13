@@ -243,13 +243,14 @@
         <description value="Codes that identify nutrients that could be parts of nutrition products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-nutrient"/>
       </binding>
+      <isSummary value="true"/>
     </element>
     <element id="NutritionProduct.nutrient.amount[x]">
       <path value="NutritionProduct.nutrient.amount[x]"/>
       <short value="The amount of nutrient expressed in one or more units: X per pack / per serving / per dose"/>
       <definition value="The amount of nutrient expressed in one or more units: X per pack / per serving / per dose."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Ratio"/>
       </type>
@@ -298,7 +299,7 @@
       <short value="The amount of ingredient that is in the product"/>
       <definition value="The amount of ingredient that is in the product."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Ratio"/>
       </type>
