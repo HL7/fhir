@@ -249,7 +249,7 @@
       <path value="NutritionProduct.nutrient.amount[x]"/>
       <short value="The amount of nutrient present in the product"/>
       <definition value="The amount of nutrient expressed in one or more units, either X per pack / per serving / per dose or X amount."/>
-      <comment value="Quantity is allowed to specify a specific amount of a nutrient, eg. 100mg.  Ratio is to say 100mg / serving.  Quantity also allows for indicating trace amounts of nutrients."/>
+      <comment value="Quantity is allowed to specify a specific amount of a nutrient, eg. 100mg or 100 mg/serving.  Ratio is to say 100mg / 5mL and you don't want to normalize the ratio.  Quantity also allows for indicating trace amounts of nutrients."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -299,7 +299,7 @@
       <path value="NutritionProduct.ingredient.amount[x]"/>
       <short value="The amount of ingredient that is in the product"/>
       <definition value="The amount of ingredient that is in the product."/>
-      <comment value="Quantity is allowed to specify a specific amount of an ingredient, eg. 100mg.  Ratio is to specify the strength of ingredient.  Quantity also allows for indicating trace amounts of ingredients."/>
+      <comment value="Quantity is allowed to specify a specific amount of an ingredient, eg. 100mg or 100 mg/mL.  Ratio is to say 100mg / 5mL and you don't want to normalize the ratio.  Quantity also allows for indicating trace amounts of ingredients."/>
       <min value="0"/>
       <max value="1"/>
       <type>
