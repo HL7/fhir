@@ -114,7 +114,6 @@
                     <code value="context-state"/>
                 </coding>
             </patternCodeableConcept>
-
         </element>
         <!--<element id="MolecularDefinition.representation:ContextState.focus">
             <path value="MolecularDefinition.representation.focus"/>
@@ -179,7 +178,6 @@
                     <code value="reference-state"/>
                 </coding>
             </patternCodeableConcept>
-
         </element>
         <!--<element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus">
             <path value="MolecularDefinition.representation.focus.coding"/>
@@ -223,7 +221,6 @@
                     <code value="alternative-state"/>
                 </coding>
             </patternCodeableConcept>
-
         </element>
         <!--<element id="MolecularDefinition.representation:AlternativeState.focus.coding">
             <path value="MolecularDefinition.representation.focus.coding"/>
