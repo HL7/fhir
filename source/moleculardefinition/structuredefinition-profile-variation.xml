@@ -85,8 +85,8 @@
             <min value="2"/>
             <max value="*"/>
         </element>
-        <element id="MolecularDefinition.representation.focus.coding">
-            <path value="MolecularDefinition.representation.focus.coding"/>
+        <element id="MolecularDefinition.representation.focus">
+            <path value="MolecularDefinition.representation.focus"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
