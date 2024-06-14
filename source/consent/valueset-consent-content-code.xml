@@ -41,7 +41,7 @@
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="Doc"/>
+        <value value="LP32888-7"/>
       </filter>
     </exclude>
   </compose>
