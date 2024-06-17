@@ -433,22 +433,22 @@ This function is intended to be added to the core FHIRPath specification in a fu
 <pre class="fhirpath">
 %sct        // (string) url for snomed ct
 %loinc      // (string) url for loinc
-%"vs-[name]" // (string) full url for the provided HL7 value set with id [name]
-%"ext-[name]" // (string) full url for the provided HL7 extension with id [name]
+%`vs-[name]` // (string) full url for the provided HL7 value set with id [name]
+%`ext-[name]` // (string) full url for the provided HL7 extension with id [name]
 %resource	// The original resource current context is part of. When evaluating a datatype, this would be the resource the element is part of. Do not go past a root resource into a bundle, if it is contained in a bundle.
 
 // Note that the names of the `vs-` and `ext-` constants are quoted (just like paths) to allow "-" in the name.
 </pre>
 <p>For example:</p>
 <pre class="fhirpath">
-Observation.component.where(code.memberOf(%"vs-observation-vitalsignresult"))
+Observation.component.where(code.memberOf(%`vs-observation-vitalsignresult`))
 </pre>
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
 [%impl-note%]
 Implementation Guides are allowed to define their own externals, and implementers should provide some appropriate configuration framework to allow these constants to be provided to the evaluation engine at run-time. E.g.:
 </p>
 <pre class="fhirpath">
-%"us-zip" = '[0-9]{5}(-[0-9]{4}){0,1}'
+%`us-zip` = '[0-9]{5}(-[0-9]{4}){0,1}'
 </pre>
 [%end-note-np%]
 
@@ -667,7 +667,7 @@ Parameters:
 %factory.Coding(system, code, display, version) : Coding
 </pre>
 <p>
-  Creates a Coding: <code>%factory.Quantity('http://loinc.org', '1234-5, 'An example test', '1.02')</code>
+  Creates a Coding: <code>%factory.Coding('http://loinc.org', '1234-5, 'An example test', '1.02')</code>
 </p>
 <p>
 Parameters:
