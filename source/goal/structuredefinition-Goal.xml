@@ -328,7 +328,76 @@
         <map value="FiveWs.planned"/>
       </mapping>
     </element>
-    <element id="Goal.target">
+    <element id="Goal.acceptance">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#44978"/>
+      </extension>
+      <path value="Goal.acceptance"/>
+      <short value="Individual acceptance of goal"/>
+      <definition value="Information about the acceptance and relative priority assigned to the goal by the patient, practitioners and other stakeholders."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+	
+	<element id="Goal.acceptance.individual">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#44978"/>
+      </extension>
+      <path value="Goal.acceptance.individual"/>
+      <short value="Individual whose acceptance is reflected"/>
+      <definition value="The person whose acceptance/priority is being reflected."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+	
+	<element id="Goal.acceptance.status">
+      <path value="Goal.acceptance.status"/>
+      <short value="agree | disagree | pending"/>
+      <definition value="Indicates whether the specified individual has accepted the goal or not."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalAcceptStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes that identify whether the goal has been accepted or not."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-accept-status"/>
+      </binding>
+      </element>
+	
+	<element id="Goal.acceptance.priority">
+      <path value="Goal.acceptance.priority"/>
+      <short value="Priority of goal for individual"/>
+      <definition value="Indicates the relative priority assigned to the goal by the stakeholder."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalPriority"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify the level of importance associated with reaching or sustaining a goal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
+      </binding>
+    </element>
+	
+	<element id="Goal.target">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="GF#12090, GF#17572."/>
       </extension>
@@ -434,9 +503,12 @@
       </mapping>
     </element>
     <element id="Goal.statusDate">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#43544"/>
+      </extension>
       <path value="Goal.statusDate"/>
-      <short value="When goal status took effect"/>
-      <definition value="Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc."/>
+      <short value="When goal achievment status took effect"/>
+      <definition value="Identifies when the current achievement status took effect.  I.e. When achieved, when improving, etc."/>
       <comment value="To see the date for past statuses, query history."/>
       <min value="0"/>
       <max value="1"/>
@@ -451,11 +523,11 @@
     </element>
     <element id="Goal.statusReason">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#10615."/>
+        <valueString value="GF#10615, J#43544"/>
       </extension>
       <path value="Goal.statusReason"/>
-      <short value="Reason for current status"/>
-      <definition value="Captures the reason for the current status."/>
+      <short value="Reason for current lifecycle status"/>
+      <definition value="Captures the reason for the current lifecycle status."/>
       <comment value="This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others."/>
       <min value="0"/>
       <max value="1"/>

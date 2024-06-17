@@ -356,11 +356,11 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="CareTeam.participant.coverage[x]">
+    <element id="CareTeam.participant.effective[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#23030."/>
+        <valueString value="GF#23030, J#44834"/>
       </extension>
-      <path value="CareTeam.participant.coverage[x]"/>
+      <path value="CareTeam.participant.effective[x]"/>
       <short value="When the member is generally available within this care team"/>
       <definition value="When the member is generally available within this care team."/>
       <comment value="This is populated while creating / managing the CareTeam to ensure there is coverage when servicing CarePlan activities from the Schedule."/>

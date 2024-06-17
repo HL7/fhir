@@ -227,6 +227,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -505,7 +506,7 @@
     </element>
     <element id="NutritionOrder.performer">
       <path value="NutritionOrder.performer"/>
-      <short value="Who is desired to perform the administration of what is being ordered"/>
+      <short value="Who is intended to perform the administration of the nutrition order"/>
       <definition value="The specified desired performer of the nutrition order."/>
       <min value="0"/>
       <max value="*"/>
@@ -517,6 +518,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="NutritionOrder.allergyIntolerance">
@@ -544,7 +546,7 @@
       </extension>
       <path value="NutritionOrder.foodPreferenceModifier"/>
       <short value="Order-specific modifier about the type of food that should be given"/>
-      <definition value="This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
+      <definition value="This modifier is used to convey order-specific modifiers about the type of food (i.e. solid and/or liquid) that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
       <comment value="Information on a patient's food preferences that inform healthcare personnel about the food that the patient should receive or consume."/>
       <min value="0"/>
       <max value="*"/>
@@ -557,7 +559,7 @@
         </extension>
         <strength value="example"/>
         <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -573,8 +575,8 @@
         <valueString value="Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference."/>
       </extension>
       <path value="NutritionOrder.excludeFoodModifier"/>
-      <short value="Order-specific modifier about the type of food that should not be given"/>
-      <definition value="This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
+      <short value="Food that should not be given"/>
+      <definition value="This modifier is used to convey Order-specific modifier about the type of oral food  (i.e. solid and/or liquid) that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
       <comment value="Information on a patient's food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn't receive or consume."/>
       <min value="0"/>
       <max value="*"/>
@@ -587,7 +589,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes used to indicate the type of food that should NOT be given to the patient."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -596,8 +598,8 @@
     </element>
     <element id="NutritionOrder.outsideFoodAllowed">
       <path value="NutritionOrder.outsideFoodAllowed"/>
-      <short value="Capture when a food item is brought in by the patient and/or family"/>
-      <definition value="This modifier is used to convey whether a food item is allowed to be brought in by the patient and/or family.  If set to true, indicates that the receiving system does not need to supply the food item."/>
+      <short value="Capture if patient is permitted to consume food from outside of current setting brought by the patient, family, and/or caregiver"/>
+      <definition value="This modifier is used to convey whether a food item, brought in by the patient, family, and/or caregiver, can be consumed by the patient.  If set to true, indicates that the receiving system does not need to supply the food item."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -614,7 +616,7 @@
       </extension>
       <path value="NutritionOrder.oralDiet"/>
       <short value="Oral diet components"/>
-      <definition value="Diet given orally in contrast to enteral (tube) feeding."/>
+      <definition value="Diet given orally that may include texture modification, such as International Dysphagia Diet Standardisation Initiative Framework - Slightly Thick Level 1 drinks and Minced and International Dysphagia Diet Standardisation Initiative Framework - Minced and Moist Level 5 food as well as, for example, Decreased potassium diet (ie, nutrient modification), Halal diet (ie, cultural modification), and/or Low microbial diet (eg, other modification)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -710,7 +712,7 @@
     <element id="NutritionOrder.oralDiet.schedule.asNeeded">
       <path value="NutritionOrder.oralDiet.schedule.asNeeded"/>
       <short value="Take 'as needed'"/>
-      <definition value="Indicates whether the product is only taken when needed within a specific dosing schedule."/>
+      <definition value="Indicates whether the diet is only taken when needed within a specific administration schedule."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -720,7 +722,7 @@
     <element id="NutritionOrder.oralDiet.schedule.asNeededFor">
       <path value="NutritionOrder.oralDiet.schedule.asNeededFor"/>
       <short value="Take 'as needed' for x"/>
-      <definition value="Indicates whether the product is only taken based on a precondition for taking the product."/>
+      <definition value="Indicates whether the diet is only taken based on a precondition for taking the diet."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -742,8 +744,8 @@
         <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.oralDiet.nutrient"/>
-      <short value="Required  nutrient modifications"/>
-      <definition value="Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet."/>
+      <short value="The nutrient that is modified and the quantity in the diet"/>
+      <definition value="Defines the quantity and the nutrient modified (for example carbohydrate, fiber or sodium) in the oral diet."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -760,7 +762,7 @@
     </element>
     <element id="NutritionOrder.oralDiet.nutrient.modifier">
       <path value="NutritionOrder.oralDiet.nutrient.modifier"/>
-      <short value="Type of nutrient that is being modified"/>
+      <short value="Nutrient modified in the oral diet type"/>
       <definition value="The nutrient that is being modified such as carbohydrate or sodium."/>
       <min value="0"/>
       <max value="1"/>
@@ -819,8 +821,8 @@
         <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.oralDiet.texture"/>
-      <short value="Required  texture modifications"/>
-      <definition value="Class that describes any texture modifications required for the patient to safely consume various types of solid foods."/>
+      <short value="Texture modifications in addition to the oral diet type"/>
+      <definition value="Class that describes any texture modifications in addition to the oral diet type required for the patient to safely consume various types of foods (i.e. solid and/or liquid)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -837,8 +839,8 @@
     </element>
     <element id="NutritionOrder.oralDiet.texture.modifier">
       <path value="NutritionOrder.oralDiet.texture.modifier"/>
-      <short value="Code to indicate how to alter the texture of the foods, e.g. pureed"/>
-      <definition value="Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed."/>
+      <short value="Food (i.e. solid and/or liquid) texture modifications in addition to those in the oral diet type"/>
+      <definition value="Texture modifications in the addition to the oral diet type that should be made, e.g. easy to chew, chopped, ground, and pureed."/>
       <comment value="Coupled with the foodType (Meat)."/>
       <min value="0"/>
       <max value="1"/>
@@ -866,11 +868,10 @@
         <map value=".code"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.oralDiet.texture.foodType">
-      <path value="NutritionOrder.oralDiet.texture.foodType"/>
-      <short value="Concepts that are used to identify an entity that is ingested for nutritional purposes"/>
-      <definition value="The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types."/>
-      <comment value="Coupled with the `texture.modifier`; could be (All Foods)."/>
+    <element id="NutritionOrder.oralDiet.texture.type">
+      <path value="NutritionOrder.oralDiet.texture.type"/>
+      <short value="Food (i.e. solid and/or liquid) types that undergo texture alteration"/>
+      <definition value="The food (i.e. solid and/or liquid) type(s) (e.g. meats, all foods)  that the texture modification applies to."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -897,41 +898,11 @@
         <map value=".participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.oralDiet.fluidConsistencyType">
-      <path value="NutritionOrder.oralDiet.fluidConsistencyType"/>
-      <short value="The required consistency of fluids and liquids provided to the patient"/>
-      <definition value="The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FluidConsistencyType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes used to represent the consistency of fluids and liquids provided to the patient."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consistency-type"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.code"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ODS-4"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code  (Not differentiated from dietTextureModificationType in HL7 v3)"/>
-      </mapping>
-    </element>
     <element id="NutritionOrder.oralDiet.instruction">
       <path value="NutritionOrder.oralDiet.instruction"/>
       <short value="Instructions or additional information about the oral diet"/>
       <definition value="Free text or additional instructions or information pertaining to the oral diet."/>
-      <comment value="Free text dosage instructions can be used for cases where the instructions are too complex to code."/>
+      <comment value="Free text diet instructions can be used for cases where the instructions are too complex to code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -950,6 +921,16 @@
         <identity value="rim"/>
         <map value=".text"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.caloricDensity">
+      <path value="NutritionOrder.oralDiet.caloricDensity"/>
+      <short value="Amount of energy per specified volume of oral diet"/>
+      <definition value="The amount of energy (calories or kilojoules) that the oral diet should provide.  For example, an infant formula feeding of 30 ounces of 20 kcal/ounce (67 kcal/100 mL) formula per day."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="SimpleQuantity"/>
+      </type>
     </element>
     <element id="NutritionOrder.supplement">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -1048,7 +1029,7 @@
     </element>
     <element id="NutritionOrder.supplement.schedule.timing">
       <path value="NutritionOrder.supplement.schedule.timing"/>
-      <short value="Scheduled frequency of diet"/>
+      <short value="Scheduled frequency of supplement"/>
       <definition value="The time period and frequency at which the supplement should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present."/>
       <alias value="Frequency"/>
       <min value="0"/>
@@ -1145,12 +1126,22 @@
         <map value=".text"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.supplement.caloricDensity">
+      <path value="NutritionOrder.supplement.caloricDensity"/>
+      <short value="Amount of energy per specified volume of supplement that is required"/>
+      <definition value="The amount of energy (calories or kilojoules) that the supplement should provide per specified volume, typically per ml or fluid oz.  For example, a patient may required a supplement that provides 24 calories per fluid ounce."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="SimpleQuantity"/>
+      </type>
+    </element>
     <element id="NutritionOrder.enteralFormula">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
       <path value="NutritionOrder.enteralFormula"/>
-      <short value="Enteral formula components"/>
+      <short value="Enteral formula product"/>
       <definition value="Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity."/>
       <min value="0"/>
       <max value="1"/>
@@ -1167,10 +1158,10 @@
         <map value=".outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=FORMULA]"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.baseFormulaType">
-      <path value="NutritionOrder.enteralFormula.baseFormulaType"/>
-      <short value="Type of enteral or infant formula"/>
-      <definition value="The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula."/>
+    <element id="NutritionOrder.enteralFormula.type">
+      <path value="NutritionOrder.enteralFormula.type"/>
+      <short value="Type of patient enteral feeding"/>
+      <definition value="The type of adult or pediatric enteral feeding such as an adult standard formula with fiber or a soy-based infant feeding."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1182,7 +1173,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralFormulaType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes for type of enteral formula to be administered to patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/entformula-type"/>
       </binding>
@@ -1203,13 +1194,10 @@
         <map value=".participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalFormulaType)"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.baseFormulaProductName">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName."/>
-      </extension>
-      <path value="NutritionOrder.enteralFormula.baseFormulaProductName"/>
-      <short value="Product or brand name of the enteral or infant formula"/>
-      <definition value="The product or brand name of the enteral or infant formula product such as &quot;ACME Adult Standard Formula&quot;."/>
+    <element id="NutritionOrder.enteralFormula.productName">
+      <path value="NutritionOrder.enteralFormula.productName"/>
+      <short value="Product or brand name of the enteral feeding"/>
+      <definition value="The product or brand name of the enteral feeding product such as &quot;ACME Adult Standard Formula&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1226,7 +1214,7 @@
     </element>
     <element id="NutritionOrder.enteralFormula.deliveryDevice">
       <path value="NutritionOrder.enteralFormula.deliveryDevice"/>
-      <short value="Intended type of device for the administration"/>
+      <short value="Intended type of device for the enteral feeding administration"/>
       <definition value="The intended type of device that is to be used for the administration of the enteral formula."/>
       <min value="0"/>
       <max value="*"/>
@@ -1235,90 +1223,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
-    <element id="NutritionOrder.enteralFormula.additive">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="NutritionOrder.enteralFormula.additive"/>
-      <short value="Components to add to the feeding"/>
-      <definition value="Indicates modular components to be provided in addition or mixed with the base formula."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="NutritionOrder.enteralFormula.additive.type">
-      <path value="NutritionOrder.enteralFormula.additive.type"/>
-      <short value="Type of modular component to add to the feeding"/>
-      <definition value="Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EnteralFormulaAdditiveType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/entformula-additive"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.code"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ODS-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (not differentiated from NutritionalFormulaType in HL7 v3)"/>
-      </mapping>
-    </element>
-    <element id="NutritionOrder.enteralFormula.additive.productName">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName."/>
-      </extension>
-      <path value="NutritionOrder.enteralFormula.additive.productName"/>
-      <short value="Product or brand name of the modular additive"/>
-      <definition value="The product or brand name of the type of modular component to be added to the formula."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ODS-4"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="NutritionOrder.enteralFormula.additive.quantity">
-      <path value="NutritionOrder.enteralFormula.additive.quantity"/>
-      <short value="Amount of additive to be given or mixed in"/>
-      <definition value="The amount of additive to be given in addition or to be mixed in with the base formula."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-    </element>
     <element id="NutritionOrder.enteralFormula.caloricDensity">
       <path value="NutritionOrder.enteralFormula.caloricDensity"/>
-      <short value="Amount of energy per specified volume that is required"/>
-      <definition value="The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL."/>
+      <short value="Amount of energy per specified volume of feeding that is required"/>
+      <definition value="The amount of energy (calories or kilojoules) that the feeding should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1336,7 +1244,7 @@
     </element>
     <element id="NutritionOrder.enteralFormula.routeOfAdministration">
       <path value="NutritionOrder.enteralFormula.routeOfAdministration"/>
-      <short value="How the formula should enter the patient's gastrointestinal tract"/>
+      <short value="How the enteral feeding should enter the patient's gastrointestinal tract"/>
       <definition value="The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
       <min value="0"/>
       <max value="1"/>
@@ -1369,7 +1277,7 @@
       </extension>
       <path value="NutritionOrder.enteralFormula.administration"/>
       <short value="Formula feeding instruction as structured data"/>
-      <definition value="Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours."/>
+      <definition value="Formula feeding administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours."/>
       <comment value="See implementation notes below for further discussion on how to order continuous vs bolus enteral feeding using this resource."/>
       <min value="0"/>
       <max value="*"/>
@@ -1393,8 +1301,8 @@
         <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.enteralFormula.administration.schedule"/>
-      <short value="Scheduling information for enteral formula products"/>
-      <definition value="Schedule information for an enteral formula."/>
+      <short value="Scheduling information for enteral feeding products"/>
+      <definition value="Schedule information for an enteral feeding."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1403,8 +1311,8 @@
     </element>
     <element id="NutritionOrder.enteralFormula.administration.schedule.timing">
       <path value="NutritionOrder.enteralFormula.administration.schedule.timing"/>
-      <short value="Scheduled frequency of enteral formula"/>
-      <definition value="The time period and frequency at which the enteral formula should be given.  The enteral formula should be given for the combination of all schedules if more than one schedule is present."/>
+      <short value="Scheduled frequency of enteral feeding"/>
+      <definition value="The time period and frequency at which the enteral feeding should be given.  The enteral feeding should be given for the combination of all schedules if more than one schedule is present."/>
       <alias value="Frequency"/>
       <min value="0"/>
       <max value="*"/>
@@ -1427,7 +1335,7 @@
     <element id="NutritionOrder.enteralFormula.administration.schedule.asNeeded">
       <path value="NutritionOrder.enteralFormula.administration.schedule.asNeeded"/>
       <short value="Take 'as needed'"/>
-      <definition value="Indicates whether the enteral formula is only taken when needed within a specific dosing schedule."/>
+      <definition value="Indicates whether the enteral feeding is only taken when needed within a specific dosing schedule."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1437,7 +1345,7 @@
     <element id="NutritionOrder.enteralFormula.administration.schedule.asNeededFor">
       <path value="NutritionOrder.enteralFormula.administration.schedule.asNeededFor"/>
       <short value="Take 'as needed' for x"/>
-      <definition value="Indicates whether the enteral formula is only taken based on a precondition for taking the enteral formula."/>
+      <definition value="Indicates whether the enteral feeding is only taken based on a precondition for taking the enteral feeding."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1459,8 +1367,8 @@
         <valueString value="#6100, 6111."/>
       </extension>
       <path value="NutritionOrder.enteralFormula.administration.quantity"/>
-      <short value="The volume of formula to provide"/>
-      <definition value="The volume of formula to provide to the patient per the specified administration schedule."/>
+      <short value="The volume of formula feeding to provide"/>
+      <definition value="The volume of formula feeding to provide to the patient per the specified administration schedule."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1481,8 +1389,8 @@
         <valueString value="4/15/2015 EH:  #6100,# 6111."/>
       </extension>
       <path value="NutritionOrder.enteralFormula.administration.rate[x]"/>
-      <short value="Speed with which the formula is provided per period of time"/>
-      <definition value="The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule."/>
+      <short value="Speed with which the formula feeding is provided per period of time"/>
+      <definition value="The rate of administration of formula feeding via a feeding pump, e.g. 60 mL per hour, according to the specified schedule."/>
       <comment value="Ratio is used when the quantity value in the denominator is not &quot;1&quot;, otherwise use Quantity. For example, the Ratio datatype is used for &quot;200 mL/4 hrs&quot; versus the Quantity datatype for &quot;50 mL/hr&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -1502,10 +1410,10 @@
         <map value=".rateQuantity"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.maxVolumeToDeliver">
-      <path value="NutritionOrder.enteralFormula.maxVolumeToDeliver"/>
-      <short value="Upper limit on formula volume per unit of time"/>
-      <definition value="The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours."/>
+    <element id="NutritionOrder.enteralFormula.maxVolumeToAdminister">
+      <path value="NutritionOrder.enteralFormula.maxVolumeToAdminister"/>
+      <short value="Upper limit on formula feeding volume per unit of time"/>
+      <definition value="The maximum total quantity of formula feeding that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1548,13 +1456,90 @@
         <map value="N/A"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.additive">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="NutritionOrder.additive"/>
+      <short value="Modular additive to add to the oral diet, supplement, and/or enteral feeding"/>
+      <definition value="Indicates modular components to be provided in addition or mixed with the oral diet, supplement, and/or enteral feeding."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.additive.modularType">
+      <path value="NutritionOrder.additive.modularType"/>
+      <short value="Type of modular component to add to the oral diet, supplement, and/or enteral feeding"/>
+      <definition value="Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the oral diet, supplement, and/or enteral feeding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EnteralFormulaAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/entformula-additive"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (not differentiated from NutritionalFormulaType in HL7 v3)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.additive.productName">
+      <path value="NutritionOrder.additive.productName"/>
+      <short value="Product or brand name of the modular additive"/>
+      <definition value="The product or brand name of the type of modular additive to be added to the oral diet, supplement, and/or enteral feeding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.additive.quantity">
+      <path value="NutritionOrder.additive.quantity"/>
+      <short value="Amount of additive to be given or mixed in with the oral diet, supplement, and/or enteral feeding"/>
+      <definition value="The amount of additive to be given in addition or to be mixed in with the oral diet, supplement, and/or enteral feeding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
     <element id="NutritionOrder.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="13495."/>
       </extension>
       <path value="NutritionOrder.note"/>
       <short value="Comments"/>
-      <definition value="Comments made about the {{title}} by the requester, performer, subject or other participants."/>
+      <definition value="Comments made about the nutrition order by the requester, performer, subject or other participants."/>
       <comment value="This element SHALL NOT be used to supply free text instructions for the diet which are represented in the `.oralDiet.instruction`, `supplement.instruction`, or `enteralFormula.administrationInstruction` elements."/>
       <min value="0"/>
       <max value="*"/>
