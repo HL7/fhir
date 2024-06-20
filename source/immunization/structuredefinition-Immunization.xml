@@ -1147,7 +1147,7 @@
       <short value="Dose number within series"/>
       <definition value="Nominal position in a series as intended by the practitioner administering the dose."/>
       <comment value="The use of an integer is preferred if known. Text should only be used in cases where an integer is not available (such as when documenting a recurring booster dose)."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
