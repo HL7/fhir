@@ -15,7 +15,7 @@
   </p>
   <a name="statemachine"> </a>
   <h2>Task state machine</h2> 
-    <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
+    <p>Tasks start in a Draft state. Once they have been assigned to an owner they transition to
       the Ready state, indicating that they are ready to be performed. Once the owner initiates
       activity on the task, the task transitions to the In Progress state, indicating that work is
       being performed. Upon normal completion, the task enters the Completed state. If there is a
@@ -23,7 +23,7 @@
       enter a Failed state, indicating an abnormal termination of the task. A task in any
       non-terminal state may also be Cancelled, representing an abnormal termination of the task due
       to external forces, rather than an error condition.</p>
-    <p>Tasks in any non-terminal state (Created, Ready, In Progress) can be suspended and resumed.
+    <p>Tasks in any non-terminal state (Draft, Ready, In Progress) can be suspended and resumed.
       When a task is suspended, it is typically resumed in the state it was in when it was
       originally suspended. Suspending a task suspends all of its children as well. Resuming a task
       resumes all of its children.</p>
