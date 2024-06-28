@@ -157,6 +157,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Task-input"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Task.input"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-input"/>
+        <description value="Search by task input"/>
+        <code value="input"/>
+        <type value="reference"/>
+        <expression value="Task.input.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Task-intent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
