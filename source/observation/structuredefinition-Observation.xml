@@ -172,7 +172,7 @@
         <map value="id"/>
       </mapping>
     </element>
-    <element id="Observation.instantiates[x]">
+    <!-- <element id="Observation.instantiates[x]">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
@@ -199,7 +199,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Observation.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="1/31/2017 EH:#9664."/>
