@@ -92,7 +92,7 @@
         <description value="Return intakes for a specific consumed item"/>
         <code value="nutrition"/>
         <type value="token"/>
-        <expression value="NutritionIntake.consumedItem.nutritionProduct.concept"/>
+        <expression value="NutritionIntake.nutritionItem.nutritionProduct.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -43,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of food or fluid that is being consumed by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food or fluid in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake."/>
+  <description value="A record of intake by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food (i.e. solid and/or liquid), breastmilk, infant formula, supplements, enteral formula now or has consumed it in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -68,8 +68,8 @@
   <differential>
     <element id="NutritionIntake">
       <path value="NutritionIntake"/>
-      <short value="Record of food or fluid being taken by a patient"/>
-      <definition value="A record of food or fluid that is being consumed by a patient.   A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food or fluid in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake."/>
+      <short value="Record of intake by a patient"/>
+      <definition value="A record of intake by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food (i.e. solid and/or liquid), breastmilk, infant formula, supplements, enteral formula now or has consumed it in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -258,8 +258,8 @@
     </element>
     <element id="NutritionIntake.subject">
       <path value="NutritionIntake.subject"/>
-      <short value="Who is/was consuming the food or fluid"/>
-      <definition value="The person, animal or group who is/was consuming the food or fluid."/>
+      <short value="Who is/was consuming the food (i.e. solid and/or liquid)"/>
+      <definition value="The person, animal or group who is/was consuming the food (i.e. solid and/or liquid)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -295,9 +295,9 @@
     </element>
     <element id="NutritionIntake.occurrence[x]">
       <path value="NutritionIntake.occurrence[x]"/>
-      <short value="The date/time or interval when the food or fluid is/was consumed"/>
-      <definition value="The interval of time during which it is being asserted that the patient is/was consuming the food or fluid."/>
-      <comment value="This attribute reflects the period over which the patient consumed the food fluid and is expected to be populated on the majority of NutritionIntake. If the food or fluid is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
+      <short value="The date/time or interval when the food (i.e. solid and/or liquid) is/was consumed"/>
+      <definition value="The interval of time during which it is being asserted that the patient is/was consuming the food (i.e. solid and/or liquid)."/>
+      <comment value="This attribute reflects the period over which the patient consumed the food (i.e. solid and/or liquid) and is expected to be populated on the majority of NutritionIntake. If the food (i.e. solid and/or liquid) is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -333,8 +333,8 @@
     </element>
     <element id="NutritionIntake.reported[x]">
       <path value="NutritionIntake.reported[x]"/>
-      <short value="Person or organization that provided the information about the consumption of this food or fluid"/>
-      <definition value="The person or organization that provided the information about the consumption of this food or fluid. Note: Use derivedFrom when a NutritionIntake is derived from other resources."/>
+      <short value="Indicates if this is a reported rather than a primary record.  Can also indicate the person or organization that provided the information about the consumption"/>
+      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth.  It may also indicate the source of the intake record."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -347,27 +347,35 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.source"/>
       </mapping>
     </element>
-    <element id="NutritionIntake.consumedItem">
-      <path value="NutritionIntake.consumedItem"/>
-      <short value="What food or fluid product or item was consumed"/>
-      <definition value="What food or fluid product or item was consumed."/>
-      <min value="1"/>
+    <element id="NutritionIntake.nutritionItem">
+      <path value="NutritionIntake.nutritionItem"/>
+      <short value="The nutrition product intended for consumption and/or infusion"/>
+      <definition value="The nutrition product intended for consumption and/or infusion."/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="nin-1"/>
+        <severity value="error"/>
+        <human value="If nutritionItem is present then SHALL have at least one of nutritionItem.type or nutritionItem.nutritionProduct[x]"/>
+        <expression value="(type.exists() or nutritionProduct.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NutritionIntake"/>
+      </constraint>
     </element>
-    <element id="NutritionIntake.consumedItem.type">
-      <path value="NutritionIntake.consumedItem.type"/>
-      <short value="The type of food or fluid product"/>
-      <definition value="Indicates what a category of item that was consumed: e.g., food, fluid, enteral, etc."/>
-      <min value="1"/>
+    <element id="NutritionIntake.nutritionItem.type">
+      <path value="NutritionIntake.nutritionItem.type"/>
+      <short value="The type of food (i.e. solid or liquid) product"/>
+      <definition value="Indicates what a category of item that is intended to be consumed: e.g., food (i.e. solid and/or liquid), breastmilk, infant formula, supplements, enteral formula."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -379,18 +387,15 @@
         </extension>
         <strength value="example"/>
         <description value="Types of food."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
       </binding>
     </element>
-    <element id="NutritionIntake.consumedItem.nutritionProduct">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="In MedicationStatement, this element was a choice of a resource reference or a codeable concept; however choice of data type fields can only have a maximum cardinality of 1. MedicationStatement included Reference(Medication), however there is currently no Reference(nutritionProduct) equivalent so this should be investigated in the future to determine if nutritionProduct needs a separate resource so that nutrients/ingredients can be captured through that resource (or if there is another way to capture nutrients/ingredients associated with this element. For the present, SNOMED terms can be used to capture food or fluid products without getting the detailed nutrients/ingredients of those food or fluid products."/>
-      </extension>
-      <path value="NutritionIntake.consumedItem.nutritionProduct"/>
-      <short value="Code that identifies the food or fluid product that was consumed"/>
-      <definition value="Identifies the food or fluid product that was consumed. This is potentially a link to a resource representing the details of the food product (TBD) or a simple attribute carrying a code that identifies the food from a known list of foods."/>
+    <element id="NutritionIntake.nutritionItem.nutritionProduct">
+      <path value="NutritionIntake.nutritionItem.nutritionProduct"/>
+      <short value="A product used for nutitrional purposes (e.g. food or supplement)"/>
+      <definition value="Identifies the food (i.e. solid and/or liquid) product that is to be consumed. This is potentially a link to a resource representing the details of the food product or a simple attribute carrying a code that identifies the food from a known list of foods."/>
       <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of a new nutritionProduct resource is recommended."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
@@ -399,11 +404,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FoodProduct"/>
+          <valueString value="EdibleSubstance"/>
         </extension>
         <strength value="example"/>
         <description value="Specific food that can be consumed by a patient."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -414,8 +419,18 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="NutritionIntake.consumedItem.schedule">
-      <path value="NutritionIntake.consumedItem.schedule"/>
+    <element id="NutritionIntake.nutritionItem.consumedItem">
+      <path value="NutritionIntake.nutritionItem.consumedItem"/>
+      <short value="Schedule of consumption"/>
+      <definition value="Schedule of consumption."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.nutritionItem.consumedItem.schedule">
+      <path value="NutritionIntake.nutritionItem.consumedItem.schedule"/>
       <short value="Scheduled frequency of consumption"/>
       <definition value="Scheduled frequency of consumption."/>
       <min value="0"/>
@@ -424,10 +439,10 @@
         <code value="Timing"/>
       </type>
     </element>
-    <element id="NutritionIntake.consumedItem.amount">
-      <path value="NutritionIntake.consumedItem.amount"/>
-      <short value="Quantity of the specified food"/>
-      <definition value="Quantity of the specified food."/>
+    <element id="NutritionIntake.nutritionItem.consumedItem.amount">
+      <path value="NutritionIntake.nutritionItem.consumedItem.amount"/>
+      <short value="Quantity of the specified food (i.e. solid and/or liquid) "/>
+      <definition value="Quantity of the specified food (i.e. solid and/or liquid) ."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -436,11 +451,11 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="NutritionIntake.consumedItem.rate">
+    <element id="NutritionIntake.nutritionItem.consumedItem.rate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Used to document the enteral feeding rate, especially if different from the order."/>
       </extension>
-      <path value="NutritionIntake.consumedItem.rate"/>
+      <path value="NutritionIntake.nutritionItem.consumedItem.rate"/>
       <short value="Rate at which enteral feeding was administered"/>
       <definition value="Rate at which enteral feeding was administered."/>
       <min value="0"/>
@@ -451,18 +466,18 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="NutritionIntake.consumedItem.notConsumed">
-      <path value="NutritionIntake.consumedItem.notConsumed"/>
-      <short value="Flag to indicate if the food or fluid item was refused or otherwise not consumed"/>
-      <definition value="Indicator when a patient is in a setting where it is helpful to know if food was not consumed, such as it was refused, held (as in tube feedings), or otherwise not provided. If a consumption is being recorded from an app, such as MyFitnessPal, this indicator will likely not be used."/>
+    <element id="NutritionIntake.nutritionItem.consumedItem.notConsumed">
+      <path value="NutritionIntake.nutritionItem.consumedItem.notConsumed"/>
+      <short value="Flag to indicate if the food (i.e. solid and/or liquid) was refused or otherwise not consumed"/>
+      <definition value="Indicator that the nutrition item was not consumed, such as it was refused, held (e.g., tube feedings), or otherwise not provided. If a consumption is being recorded from an app, such as MyFitnessPal, this indicator will likely not be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-    <element id="NutritionIntake.consumedItem.notConsumedReason">
-      <path value="NutritionIntake.consumedItem.notConsumedReason"/>
+    <element id="NutritionIntake.nutritionItem.consumedItem.notConsumedReason">
+      <path value="NutritionIntake.nutritionItem.consumedItem.notConsumedReason"/>
       <short value="Reason food or fluid was not consumed"/>
       <definition value="Document the reason the food or fluid was not consumed, such as refused, held, etc."/>
       <min value="0"/>
@@ -481,9 +496,8 @@
     </element>
     <element id="NutritionIntake.ingredientLabel">
       <path value="NutritionIntake.ingredientLabel"/>
-      <short value="Total nutrient for the whole meal, product, serving"/>
-      <definition value="Total nutrient amounts for the whole meal, product, serving, etc."/>
-      <comment value="Individual item nutrients are not currently included in the resource and will likely end up as a reference in nutritionProduct to represent the individual items."/>
+      <short value="Nutrients and/or energy contained in product, serving"/>
+      <definition value="Nutrients and/or energey contained in product, serving, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -522,7 +536,7 @@
     </element>
     <element id="NutritionIntake.performer">
       <path value="NutritionIntake.performer"/>
-      <short value="Who was performed in the intake"/>
+      <short value="Who performed the intake and how they were involved"/>
       <definition value="Who performed the intake and how they were involved."/>
       <min value="0"/>
       <max value="*"/>
@@ -563,6 +577,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="NutritionIntake.location">
@@ -590,8 +605,8 @@
     </element>
     <element id="NutritionIntake.reason">
       <path value="NutritionIntake.reason"/>
-      <short value="Reason for why the food or fluid is /was consumed"/>
-      <definition value="A reason, Condition or observation for why the food or fluid is /was consumed."/>
+      <short value="Reason for why the food (i.e. solid and/or liquid) is /was consumed"/>
+      <definition value="A reason, Condition or observation for why the food (i.e. solid and/or liquid) is /was consumed."/>
       <min value="0"/>
       <max value="*"/>
       <type>

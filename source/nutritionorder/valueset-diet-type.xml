@@ -46,5 +46,20 @@
         <value value="182922004"/>
       </filter>
     </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+				<code value="229912004"/>
+			</concept>
+      <concept>
+				<code value="35011000087100"/>
+			</concept>
+      <concept>
+				<code value="1297276008"/>
+			</concept>
+      <concept>
+				<code value="40043006"/>
+			</concept>
+    </include>
   </compose>
 </ValueSet>
