@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+    <id value="moleculardefinition-allele"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="0"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+        <valueString value="moleculardefinition-geneticmols-profile-introduction.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
+        <valueString value="moleculardefinition-geneticmols-profile-notes.xml"/>
+    </extension>
+    <version value="0.01"/>
+    <name value="MolecularDefinitionallele"/>
+    <title value="Molecular Definitions Genetic Molecules Profile"/>
+    <status value="draft"/>
+    <date value="2023-12-22T12:11:11"/>
+    <publisher value="HL7 International / Clinical Genomics"/>
+    <description value="Defines constraints and extensions on the Molecular Definition resource for use in querying and retrieving  allele, variation, haplotype, and genotype."/>
+    <definition>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
+            <valueCode value="core"/>
+        </extension>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/allele"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/allelesliced"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/haplotype"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/genotype"/>
+            </reference>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/variation"/>
+            </reference>
+        </resource>
+    </definition>
+</ImplementationGuide>

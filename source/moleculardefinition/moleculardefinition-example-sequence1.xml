@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence1"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <representation>
+        <literal>
+            <value value="ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
+TTTTACTAAGTGTTCAAATACCAGTGAACTTAAAGAATTTGTCAATCCTAGCCTTCCAAGAGAAGAAAAA
+GAAGAGAAACTAGAAACAGTTAAAGTGTCTAATAATGCTGAAGACCCCAAAGATCTCATGTTAAGTGGAG
+AAAGGGTTTTGCAAACTGAAAGATCTGTAGAGAGTAGCAGTATTTCAYTGGTACCTGGTACTGATTATGG
+CACTCAGGAAAGTATCTCGTTACTGGAAGTTAGCACTCTAGGGAAGGCAAAAACAGAACCAAATAAATGT
+GTGAGTCAGTGTGCAGCATTTGAAAACCCCAAGGGACTAATTCATGGTTGTTCCAAAGATAATAGAAATG
+ACACAGAAGGCTTTAAGTATCCATTGGGACATGAAGTTAACCACAGTCGGGAAACAAGCATAGAAATGGA
+AGAAAGTGAACTTGATGCTCAGTATTTGCAGAATACATTCAAGGTTTCAAAGCGCCAGTCATTTGCTCYG
+TTTTCAAATCCAGGAAATGCAGAAGAGGAATGTGCAACATTCTCTGCCCACTCTGGGTCCTTAAAGAAAC
+AAAGTCCAAAAGTCACTTTTGAATGTGAACAAAAGGAAGAAAATCAAGGAAAGAATGAGTCTAATATCAA
+GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
+        </literal>
+        <resolvable>
+            <contentType value="text/html"/>
+            <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>
+        </resolvable>
+        <extracted>
+            <startingMolecule>
+                <reference value="MolecularDefinition/example-startingSequence2bExtracted"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource"/>
+            </startingMolecule>
+            <start value="0"/>
+            <end value="754"/>
+            <coordinateSystem>
+                <coding>
+                    <system value="http://loinc.org"/>
+                    <code value="LA30100-4"/>
+                    <display value="0-based interval counting"/>
+                </coding>
+                <text value="0-based interval counting"/>
+            </coordinateSystem>
+            <reverseComplement value="false"/>
+        </extracted>
+        <concatenated>
+            <sequenceElement>
+                <sequence>
+                    <reference value="MolecularDefinition/example-sequence02bConcatenated"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Sequence-of index 0-Resource for concatenated sequence example"/>
+                </sequence>
+                <ordinalIndex value="0"/>
+            </sequenceElement>
+            <sequenceElement>
+                <sequence>
+                    <reference value="MolecularDefinition/example-sequence12bConcatenated"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Sequence-of index 1-Resource for concatenated sequence example"/>
+                </sequence>
+                <ordinalIndex value="1"/>
+            </sequenceElement>
+            <sequenceElement>
+                <sequence>
+                    <reference value="MolecularDefinition/example-sequence22bConcatenated"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Sequence-of index 2-Resource for concatenated sequence example"/>
+                </sequence>
+                <ordinalIndex value="2"/>
+            </sequenceElement>
+        </concatenated>
+        <relative>
+            <startingMolecule>
+                <reference value="MolecularDefinition/example-startingSequence2bRelative"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource"/>
+            </startingMolecule>
+            <edit>
+                <coordinateSystem>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="LA30100-4"/>
+                        <display value="0-based interval counting"/>
+                    </coding>
+                    <text value="0-based interval counting"/>
+                </coordinateSystem>
+                <start value="0"/>
+                <end value="5"/>
+                <replacementMolecule>
+                    <reference value="MolecularDefinition/example-replacementSequence"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Replacement Sequence Resource"/>
+                </replacementMolecule>
+                <replacedMolecule>
+                    <reference value="MolecularDefinition/example-replacedSequence"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Replaced Sequence Resource"/>
+                </replacedMolecule>
+            </edit>
+        </relative>
+    </representation>
+</MolecularDefinition>

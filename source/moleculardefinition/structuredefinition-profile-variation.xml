@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="variation"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+    </text>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+        <valueMarkdown value="to do"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="0"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="cg"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
+        <valueString value="to do"/>
+    </extension>
+    <url value="http://hl7.org/fhir/StructureDefinition/variation"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="0000"/>
+    </identifier>
+    <version value="6.0.0"/>
+    <name value="MolecularDefinitionVariation"/>
+    <title value="Molecular Definition as Allele Profile"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-05-08"/>
+    <publisher value="Health Level Seven International (Clinical Genomics Workgroup)"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
+        </telecom>
+    </contact>
+    <description value="FHIR Variation Profile"/>
+    <fhirVersion value="6.0.0"/>
+
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="MolecularDefinition"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="MolecularDefinition">
+            <path value="MolecularDefinition"/>
+            <short value="FHIR Variation Profile"/>
+            <definition value="This profile defines  how to represent variation in FHIR."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="MolecularDefinition.type">
+            <path value="MolecularDefinition.type"/>
+            <short value="Sequence type, e.g., aa, dna, or rna"/>
+            <definition value="The type of the sequence, e.g., amino acid, DNA, or RNA sequence."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="MolecularDefinition.location">
+            <path value="MolecularDefinition.location"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="MolecularDefinition.memberState">
+            <path value="MolecularDefinition.memberState"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="MolecularDefinition.representation">
+            <path value="MolecularDefinition.representation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="focus"/>
+                </discriminator>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <min value="2"/>
+            <max value="*"/>
+        </element>
+        <element id="MolecularDefinition.representation.focus">
+            <path value="MolecularDefinition.representation.focus"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <description value="Slice by .representation.code when using this section library"/>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <!--        context state slice-->
+        <element id="MolecularDefinition.representation:ContextState">
+            <path value="MolecularDefinition.representation"/>
+            <sliceName value="ContextState"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="MolecularDefinition.representation:ContextState.focus">
+            <path value="MolecularDefinition.representation.focus"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                    <code value="context-state"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <!--<element id="MolecularDefinition.representation:ContextState.focus">
+            <path value="MolecularDefinition.representation.focus"/>
+        </element>-->
+        <!--<element id="MolecularDefinition.representation:ContextState.focus.coding">
+            <path value="MolecularDefinition.representation.focus.coding"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="system"/>
+                </discriminator>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <short value="Context State Representation"/>
+            <definition value="The representation of the context state."/>
+            <min value="1"/>
+        </element>
+        <element id="MolecularDefinition.representation:ContextState.focus.coding:ContextSateFocus">
+            <path value="MolecularDefinition.representation.focus.coding"/>
+            <sliceName value="ContextSateFocus"/>
+            <short value="Context State Representation"/>
+            <definition value="The representation of the context state."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="MolecularDefinition.representation:ContextState.focus.coding:ContextSateFocus.system">
+            <path value="MolecularDefinition.representation.focus.coding.system"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="uri"/>
+            </type>
+            <fixedUri value="http://hl7.org/fhir/moleculardefinition-focus"/>
+        </element>
+        <element id="MolecularDefinition.representation:ContextState.focus.coding:ContextSateFocus.code">
+            <path value="MolecularDefinition.representation.focus.coding.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedCode value="context-state"/>
+        </element>-->
+        <!--        Allele state slice-->
+        <element id="MolecularDefinition.representation:ReferenceState">
+            <path value="MolecularDefinition.representation"/>
+            <sliceName value="ReferenceState"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="MolecularDefinition.representation:ReferenceState.focus">
+            <path value="MolecularDefinition.representation.focus"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                    <code value="reference-state"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <!--<element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus">
+            <path value="MolecularDefinition.representation.focus.coding"/>
+            <sliceName value="ReferenceStateFocus"/>
+            <short value="Reference State Representation"/>
+            <definition value="The representation of the reference state."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus.system">
+            <path value="MolecularDefinition.representation.focus.coding.system"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="uri"/>
+            </type>
+            <fixedUri value="http://hl7.org/fhir/moleculardefinition-focus"/>
+        </element>
+        <element id="MolecularDefinition.representation:ReferenceState.focus.coding:ReferenceStateFocus.code">
+            <path value="MolecularDefinition.representation.focus.coding.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedCode value="reference-state"/>
+        </element>-->
+<!--        alternative state slice-->
+        <element id="MolecularDefinition.representation:AlternativeState">
+            <path value="MolecularDefinition.representation"/>
+            <sliceName value="AlternativeState"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="MolecularDefinition.representation:AlternativeState.focus">
+            <path value="MolecularDefinition.representation.focus"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                    <code value="alternative-state"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <!--<element id="MolecularDefinition.representation:AlternativeState.focus.coding">
+            <path value="MolecularDefinition.representation.focus.coding"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="system"/>
+                </discriminator>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <short value="Alternative State Representation"/>
+            <definition value="The representation of the alternative state."/>
+            <min value="1"/>
+        </element>
+        <element id="MolecularDefinition.representation:AlternativeState.focus.coding:AlternativeStateFocus">
+            <path value="MolecularDefinition.representation.focus.coding"/>
+            <sliceName value="AlternativeStateFocus"/>
+            <short value="Alternative State Representation"/>
+            <definition value="The representation of the alternative state."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="MolecularDefinition.representation:AlternativeState.focus.coding:AlternativeStateFocus.system">
+            <path value="MolecularDefinition.representation.focus.coding.system"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="uri"/>
+            </type>
+            <fixedUri value="http://hl7.org/fhir/moleculardefinition-focus"/>
+        </element>
+        <element id="MolecularDefinition.representation:AlternativeState.focus.coding:AlternativeStateFocus.code">
+            <path value="MolecularDefinition.representation.focus.coding.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedCode value="alternative-state"/>
+        </element>-->
+    </differential>
+</StructureDefinition>
