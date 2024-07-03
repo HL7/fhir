@@ -92,7 +92,7 @@
   </concept>
   <concept>
     <code value="failed"/>
-    <display value="Failed"/>
+    <display value="Failed"/> 
     <definition value="The task was attempted but was not successful.  No further activity will occur for this task."/>
   </concept>
   <concept>
