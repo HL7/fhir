@@ -31,7 +31,7 @@
     </p>
     <a name="core"></a>
     <h3>Core Profiles for Observation <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h3>
-    <p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. If implementations use this Resource when expressing the profile-specific concepts as structured data, they <strong>SHALL</strong> conform to the following profiles:</p>
+    <p>The following set of core <a href="profiling.html">profiles</a> for the Observation resource have been defined. Implementations using the Observation resource when expressing the profile-specific concepts as structured data, <strong>SHALL</strong> conform to the specified profiles:</p>
     <table class="grid">
       <thead>
         <tr>
