@@ -14,7 +14,7 @@
      Tasks often have titles (eg "My Tasks", "Outstanding Tasks for Patient X") which can be presented in a list.  The task title should go into the Task.code as a coded concept and/or text.
   </p>
   <a name="statemachine"> </a>
-  <h2>Task state machine</h2> 
+  <h2>Task state machine</h2>  
     <p>Tasks start in a Draft state. Once they have been assigned to an owner they transition to
       the Ready state, indicating that they are ready to be performed. Once the owner initiates
       activity on the task, the task transitions to the In Progress state, indicating that work is
