@@ -39030,7 +39030,7 @@
         <code value="source"/>
         <base value="QuestionnaireResponse"/>
         <type value="reference"/>
-        <description value="The individual providing the information reflected in the questionnaire respose"/>
+        <description value="The individual providing the information reflected in the questionnaire response"/>
         <expression value="QuestionnaireResponse.source"/>
         <xpath value="f:QuestionnaireResponse/f:source"/>
         <xpathUsage value="normal"/>
