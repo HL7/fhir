@@ -59,9 +59,7 @@
 		      <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
 		     </receiver>
 		  </destination>
-		  <sender>
-		    <reference value="Organization/1"/>
-		  </sender>
+
 		<!--   <timestamp value="2012-01-04T09:10:14Z"/> -->
 		  <enterer>
 		    <reference value="Practitioner/example"/>
@@ -78,6 +76,9 @@
 		      <value value="+1 (555) 123 4567"/>
 		    </contact>
 		    <endpointUrl value="llp:10.11.12.13:5432"/>
+		    <sender>
+		      <reference value="Organization/1"/>
+		    </sender>		    
 		  </source>
 		  <reason>
 		    <coding>
