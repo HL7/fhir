@@ -799,7 +799,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
+      <binding> 
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationInterpretation"/>
         </extension>
