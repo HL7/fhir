@@ -802,7 +802,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableReference"/> 
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <binding>
