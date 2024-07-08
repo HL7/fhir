@@ -85,6 +85,13 @@
         <map value="clinical.diagnostics"/>
       </mapping>
     </element>
+    <constraint>
+        <key value="spm-1"/>
+        <severity value="error"/>
+        <human value="Specimen.collection.collector SHALL only be present if Specimen.collection.procedure is not present"/>
+        <expression value="collection.collector.empty() or collection.procedure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+    </constraint>
     <element id="Specimen.identifier">
       <path value="Specimen.identifier"/>
       <short value="External Identifier"/>
@@ -436,6 +443,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
+      <condition value="spm-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -572,6 +580,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
+      <condition value="spm-1"/>
     </element>
     <element id="Specimen.collection.bodySite">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
