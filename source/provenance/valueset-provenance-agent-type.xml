@@ -4,6 +4,9 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/provenance-participant-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -11,17 +14,15 @@
   </identifier>
   <name value="ProvenanceParticipantType"/>
   <title value="Provenance Participant Type"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <date value="2023-05-12"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
     </telecom>
-  </contact>
-  <contact>
     <telecom>
       <system value="email"/>
       <value value="fhir@lists.hl7.org"/>

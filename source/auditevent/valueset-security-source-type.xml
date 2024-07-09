@@ -17,9 +17,19 @@
   <name value="AuditEventSourceType"/>
   <title value="Audit Event Source Type"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2010-08-26"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="HL7 International / Security"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
   <description value="The type of process where the audit event originated from. Use of these codes is not required but is encouraged to maintain translation with DICOM AuditMessage schema."/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>

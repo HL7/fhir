@@ -19,7 +19,6 @@
   <basedOn>
     <reference value="Appointment/2docs"/>
   </basedOn>
-  <studyUid value="1.2.840.113747.20080222.307765875869300489345024554221747"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
@@ -27,6 +26,7 @@
       <value value="urn:oid:1.2.840.113747.20080222.307765875889350980245024554221747"/>
     </identifier>
   </derivedFrom>
+  <studyUid value="1.2.840.113747.20080222.307765875869300489345024554221747"/>
   <seriesUid value="1.2.840.113747.20080222.307765875869300489245024554221747.1"/>
   <frameOfReferenceUid value="1.2.840.113747.20080222.307765875869350980245024554221747.0"/>
   <bodySite>

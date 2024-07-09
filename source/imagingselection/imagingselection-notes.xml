@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
 <a name="notes"></a>
@@ -26,7 +26,7 @@
   <p>
   For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as RadLex RID35862 - and the category could contain values of the DICOM Image Type <code>(0008,0008)</code> attribute - such as DERVIED and SECONDARY.
   </p>
-  <code>
+  <pre>
   {
     "resource": {
       "resourceType": "ImagingSelection",
@@ -53,7 +53,7 @@
       ]
     }
   }
-  </code>
+</pre>
+<p></p>
 
-</div>
 </div>
