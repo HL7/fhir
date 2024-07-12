@@ -830,7 +830,7 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Observation.component.value.Canonical"/>
+          <valueString value="Observation.component.valueCanonical"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
         <description value="URL contained in valueCanonical."/>
