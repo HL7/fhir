@@ -1215,8 +1215,8 @@
     </element>
     <element id="AuditEvent.entity.detail.type">
       <path value="AuditEvent.entity.detail.type"/>
-      <short value="Name of the property"/>
-      <definition value="The type of extra detail provided in the value."/>
+      <short value="The name of the extra detail property"/>
+      <definition value="The name of extra detail provided in the value. This element is the tag for the value. Where a simple string is used for the tag name, use the CodeableConcept.display element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1228,7 +1228,7 @@
         </extension>
         <strength value="example"/>
         <description value="Additional detail about an entity used in an event."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/audit-entity-detail-type"/> <!-- This is the right valueset, but blows up the build without a useful error as to why -->
       </binding>
       <mapping>
         <identity value="w5"/>

@@ -244,7 +244,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Comments made about the communication request by the requester, performer, subject or other participants."/>
-            <resource value="The communicated content (or for multi-part communications, one portion of the communication)."/>
+            <resource value="The content (or for multi-part communications, one portion of the communication) to be communicated."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
