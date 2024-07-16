@@ -22,9 +22,9 @@
   <version value="6.0.0"/>
   <name value="ImagingSelectionStatus"/>
   <title value="Imaging Selection Status"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2022-06-29T16:55:11+11:00"/>
+  <date value="2024-06-13"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

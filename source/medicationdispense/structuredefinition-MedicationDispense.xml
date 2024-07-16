@@ -569,7 +569,7 @@
     <element id="MedicationDispense.recorded">
       <path value="MedicationDispense.recorded"/>
       <short value="When the recording of the dispense started"/>
-      <definition value="The date (and maybe time) when the dispense activity started if whenPrepared or whenHandedOver is not populated."/>
+      <definition value="The date the occurrence of the MedicationDispense was first captured in the system."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
+  <id value="testscript-example-readcommon"/>
+  <url value="http://hl7.org/fhir/TestScript/testscript-example-readcommon"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.12.8"/>
+  </identifier>
+  <version value="1.0"/>
+  <name value="TestScript Example Read Common"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2024-04-24"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="Support"/>
+    <telecom>
+      <system value="email"/>
+      <value value="support@HL7.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="TestScript example resource showing the use of the common element to reuse actions within the test element. Each test will perform a Patient read operation utilizing user defined dynamic variables that will hold the Patient resource id values."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Patient Read Operation"/>
+  <copyright value="© HL7.org 2011+"/>
+  <scope>
+    <artifact value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <conformance>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-conformance-codes"/>
+        <code value="optional"/>
+      </coding>
+    </conformance>
+    <phase>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-phase-codes"/>
+        <code value="unit"/>
+      </coding>
+    </phase>
+  </scope>
+  <profile id="patient-profile" value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+  <variable>
+    <name value="PatientResourceId1"/>
+    <defaultValue value="f001"/>
+  </variable>
+  <variable>
+    <name value="PatientResourceId2"/>
+    <defaultValue value="f002"/>
+  </variable>
+  <test id="PatientRead1">
+    <name value="Patient Read Test 1"/>
+    <description value="Read a known Patient (default id 'f001') and validate response using common action asserts."/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="read"/>
+        </type>
+        <resource value="Patient"/>
+        <description value="Read the known Patient resource on the destination test system using the user defined dynamic variable ${PatientResourceId1}."/>
+        <accept value="xml"/>
+        <encodeRequestUrl value="true"/>
+        <params value="/${PatientResourceId1}"/>
+      </operation>
+    </action>
+    <action>
+      <common>
+        <keyRef value="CommonReadActionAsserts"/>
+      </common>
+    </action>
+  </test>
+  <test id="PatientRead2">
+    <name value="Patient Read Test 2"/>
+    <description value="Read a known Patient (default id 'f002') and validate response using common action asserts."/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="read"/>
+        </type>
+        <resource value="Patient"/>
+        <description value="Read the known Patient resource on the destination test system using the user defined dynamic variable ${PatientResourceId2}."/>
+        <accept value="xml"/>
+        <encodeRequestUrl value="true"/>
+        <params value="/${PatientResourceId2}"/>
+      </operation>
+    </action>
+    <action>
+      <common>
+        <keyRef value="CommonReadActionAsserts"/>
+      </common>
+    </action>
+  </test>
+  <common>
+    <key value="CommonReadActionAsserts"/>
+    <name value="Common Read Action Asserts"/>
+    <description value="The common action asserts to evaluate and validate conformance to the base FHIR read operation."/>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)."/>
+        <response value="okay"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is XML."/>
+        <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning."/>
+        <headerField value="Last-Modified"/>
+        <operator value="notEmpty"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned resource type is Patient."/>
+        <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
+        <validateProfileId value="patient-profile"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+  </common>
+</TestScript>

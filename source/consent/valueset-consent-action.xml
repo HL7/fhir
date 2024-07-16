@@ -23,11 +23,11 @@
   <title value="Consent Action Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="CBCC"/>
+  <publisher value="HL7 International / Community Based Collaborative Care"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/cbcc"/>
     </telecom>
   </contact>
   <description value="This value set includes sample Consent Action codes."/>
