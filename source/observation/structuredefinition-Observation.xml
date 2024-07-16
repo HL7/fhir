@@ -799,7 +799,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding> 
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationInterpretation"/>
         </extension>
@@ -807,7 +807,7 @@
         <description value="Codes identifying interpretations of observations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
       </binding>
-      <mapping>  
+      <mapping> 
         <identity value="sct-concept"/>
         <map value="&lt; 260245000 |Findings values|"/>
       </mapping>
