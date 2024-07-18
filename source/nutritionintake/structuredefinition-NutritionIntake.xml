@@ -480,8 +480,8 @@
     </element>
     <element id="NutritionIntake.nutritionItem.consumedItem.totalIntake.nutrient">
       <path value="NutritionIntake.nutritionItem.consumedItem.totalIntake.nutrient"/>
-      <short value="Total nutrient consumed"/>
-      <definition value="Total nutrient consumed. This could be a macronutrient (protein, fat, carbohydrate), or a vitamin and mineral."/>
+      <short value="Type of nutrient consumed in the intake"/>
+      <definition value="Type of nutrient consumed. This could be a macronutrient (protein, fat, carbohydrate), or a vitamin and mineral."/>
       <min value="1"/>
       <max value="1"/>
       <type>
