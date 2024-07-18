@@ -48,9 +48,14 @@
     </include>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept>
-				<code value="229912004"/>
-			</concept>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="229912004"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
       <concept>
 				<code value="35011000087100"/>
 			</concept>

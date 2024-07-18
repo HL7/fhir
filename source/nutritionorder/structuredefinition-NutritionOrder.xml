@@ -47,7 +47,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident."/>
+  <description value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to an individual or group."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -78,7 +78,7 @@
     <element id="NutritionOrder">
       <path value="NutritionOrder"/>
       <short value="Diet, formula or nutritional supplement request"/>
-      <definition value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident."/>
+      <definition value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to an individual or group."/>
       <comment value="Referenced by an Order Request (workflow)."/>
       <alias value="Nutrition Order"/>
       <alias value="Diet Order"/>
@@ -547,7 +547,7 @@
       <path value="NutritionOrder.foodPreferenceModifier"/>
       <short value="Order-specific modifier about the type of food that should be given"/>
       <definition value="This modifier is used to convey order-specific modifiers about the type of food (i.e. solid and/or liquid) that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
-      <comment value="Information on a patient's food preferences that inform healthcare personnel about the food that the patient should receive or consume."/>
+      <comment value="Information on a patient's preferences that informs the healthcare personnel about what the patient should receive or consume."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -555,9 +555,9 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PatientDiet"/>
+          <valueString value="Types of Edible Substances"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
@@ -585,9 +585,9 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FoodType"/>
+          <valueString value="Types of Edible Substances"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes used to indicate the type of food that should NOT be given to the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
@@ -637,8 +637,8 @@
         <valueString value="renamed from .code to .type for consistency."/>
       </extension>
       <path value="NutritionOrder.oralDiet.type"/>
-      <short value="Type of oral diet or diet restrictions that describe what can be consumed orally"/>
-      <definition value="The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet."/>
+      <short value="Type of oral diet or diet restrictions that can be consumed orally"/>
+      <definition value="The kind of diet or dietary restriction such as fiber restricted diet or diet for diabetes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -649,7 +649,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OralDiet"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes used to indicate the type of diet being ordered for a patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
       </binding>
@@ -773,7 +773,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutrientModifier"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes for types of nutrients that are being modified such as carbohydrate or sodium."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutrient-code"/>
       </binding>
@@ -849,11 +849,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TextureModifier"/>
+          <valueString value="NutritionProductCategory"/>
         </extension>
-        <strength value="example"/>
-        <description value="Codes for food consistency types or texture modifications to apply to foods."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/texture-code"/>
+        <strength value="preferred"/>
+        <description value="Codes identifying classes of nutrition products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-category"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -969,7 +969,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplementType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes for nutritional supplements to be provided to the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplement-type"/>
       </binding>
@@ -1245,9 +1245,9 @@
     <element id="NutritionOrder.enteralFormula.routeOfAdministration">
       <path value="NutritionOrder.enteralFormula.routeOfAdministration"/>
       <short value="How the enteral feeding should enter the patient's gastrointestinal tract"/>
-      <definition value="The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
+      <definition value="The administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube, oral."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -1483,7 +1483,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralFormulaAdditiveType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/entformula-additive"/>
       </binding>
