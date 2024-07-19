@@ -37,14 +37,18 @@ Examples include:
 		</p>
 	</div>
 	<div>
-		<a name="bnr"></a>
+		<a name="bnr"></a><a href="request.html">Request pattern</a>
 		<h2>Boundaries and Relationships</h2>
-    <p>
- ServiceRequest is a record of a proposal/plan or order for a service to be performed that would result in a <a href="procedure.html">Procedure</a>, <a href="observation.html">Observation</a>, <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="imagingstudy.html">ImagingStudy</a> or similar resource. In contrast to ServiceRequest, <a href="task.html">Task</a> which spans both intent and event and tracks the execution through to completion and is intended for "administrative" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps such to be performed as part of a fulfilment process. A ServiceRequest can be higher-level authorization that triggered the creation of Task, or it can be the "request" resource Task is seeking to fulfill.
-    </p>
-		<p>
-			ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist.  For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
-    </p>
+	    <p>
+	     ServiceRequest is a record of a proposal/plan or order for a service to be performed that would result in a <a href="procedure.html">Procedure</a>,
+		 <a href="observation.html">Observation</a>, 
+		 <a href="diagnosticreport.html">DiagnosticReport</a>, 
+		 <a href="imagingstudy.html">ImagingStudy</a>, or similar resource. In contrast to ServiceRequest, <a href="task.html">Task</a> spans both intent and event, tracks the execution through to completion, and is intended for "administrative" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps such to be performed as part of a fulfilment process. A ServiceRequest can be higher-level authorization that triggered the creation of Task, or it can be the "request" resource Task is seeking to fulfill. For further information about this separation of responsibilities between ServiceRequest and Task, 
+		 refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
+	    </p>
+	    <p>
+        ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
+        </p>
 		<blockquote class="stu-note">
 		<p><b>Note to Implementers:</b>
 		</p>
