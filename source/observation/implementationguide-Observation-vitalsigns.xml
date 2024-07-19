@@ -12,12 +12,12 @@
     <valueString value="observation-vitalsigns-profile-notes.xml"/>
   </extension>
   <version value="0.01"/>
-  <name value="Observationvitalsigns"/>
+  <name value="Observationvitalsignsbase"/>
   <title value="Observation Vital Signs Profiles"/>
   <status value="draft"/>
   <date value="2018-08-11T08:17:46.560"/>
   <publisher value="HL7 International / Orders and Observations"/>
-  <description value="Defines constraints and extensions on the Observation resource for use in querying and retrieving  the vital signs panel."/>
+  <description value="Defines constraints and extensions on the Observation resource for use in querying and retrieving the vital signs observations and panel."/>
   <definition>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
       <valueCode value="core"/>

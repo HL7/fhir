@@ -21,6 +21,27 @@
 			<display value="Vital Signs"/>
 		</coding>
 	</category>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="85354-9"/>
+			<display value="Blood pressure panel with all children optional"/>
+		</coding>
+	</category>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="8480-6"/>
+			<display value="Systolic blood pressure"/>
+		</coding>
+	</category>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="8462-4"/>
+			<display value="Diastolic blood pressure"/>
+		</coding>
+	</category>
 	<code><!-- replaced by 85354-9
 				<coding>
 					<system value="http://loinc.org"/>
