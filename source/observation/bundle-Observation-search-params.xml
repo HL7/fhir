@@ -835,7 +835,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
         <description value="URL contained in valueCanonical."/>
         <code value="component-value-canonical"/>
-        <type value="uri"/>
+        <type value="reference"/>
         <expression value="Observation.component.value.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
