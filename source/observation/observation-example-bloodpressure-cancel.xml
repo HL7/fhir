@@ -49,20 +49,6 @@
 			<display value="Blood pressure panel with all children optional"/>
 		</coding>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="8480-6"/>
-			<display value="Systolic blood pressure"/>
-		</coding>
-	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="8462-4"/>
-			<display value="Diastolic blood pressure"/>
-		</coding>
-	</category>
 	<code><!-- replaced by 85354-9
 		<coding>
 			<system value="http://loinc.org"/>
@@ -100,7 +86,17 @@
 			<display value="Right arm"/>
 		</coding>
 	</bodySite>
-	<component><!--
+	<component>
+		<extension url="http://hl7.org/fhir/StructureDefinition/observation-componentCategory">
+			<valueCodeableConcept> 
+			  <coding> 
+				<system value="http://loinc.org"/> 
+				<code value="8480-6"/>
+				<display value="Systolic blood pressure"/>
+			  </coding> 
+			</valueCodeableConcept> 
+		</extension> 
+		<!--
            Observations are often coded in multiple code systems.
            - LOINC provides a very specific code (though not usefully more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC
@@ -131,6 +127,15 @@
 		</dataAbsentReason>
 	</component>
 	<component>
+		<extension url="http://hl7.org/fhir/StructureDefinition/observation-componentCategory">
+			<valueCodeableConcept> 
+			  <coding> 
+				<system value="http://loinc.org"/> 
+				<code value="8462-4"/>
+				<display value="Diastolic blood pressure"/>
+				  </coding> 
+			</valueCodeableConcept> 
+		</extension> 
 		<code>
 			<coding>
 				<system value="http://loinc.org"/>

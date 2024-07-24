@@ -112,6 +112,14 @@
       <definition value="Blood Pressure."/>
       <alias value="Test"/>
       <alias value="Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignBPPanel"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing an arterial systolic and disatolic BP panel of vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
+      </binding>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
@@ -141,7 +149,6 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-
     <element id="Observation.component:SystolicBP.extension">
       <path value="Observation.component.extension"/>
       <slicing>
@@ -177,13 +184,20 @@
         </coding>
       </patternCodeableConcept>
     </element>
-
     <element id="Observation.component:SystolicBP.code">
       <path value="Observation.component.code"/>
       <short value="Systolic Blood Pressure"/>
       <definition value="Systolic Blood Pressure."/>
       <alias value="Component Test"/>
       <alias value="Component Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignSystolicBP"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing an arterial systolic BP vital sign measurement in Observation.component.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
+      </binding>
     </element>
     <element id="Observation.component:SystolicBP.valueQuantity">
       <path value="Observation.component.valueQuantity"/>
@@ -237,7 +251,6 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-
     <element id="Observation.component:DiastolicBP.extension">
       <path value="Observation.component.extension"/>
       <slicing>
@@ -273,13 +286,20 @@
         </coding>
       </patternCodeableConcept>
     </element>
-
     <element id="Observation.component:DiastolicBP.code">
       <path value="Observation.component.code"/>
       <short value="Diastolic Blood Pressure"/>
       <definition value="Diastolic Blood Pressure."/>
       <alias value="Component Test"/>
       <alias value="Component Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignDiastolicBP"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing an arterial diastolic BP vital sign measurement in Observation.component.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-diastolicbp"/>
+      </binding>
     </element>
     <element id="Observation.component:DiastolicBP.valueQuantity">
       <path value="Observation.component.valueQuantity"/>
