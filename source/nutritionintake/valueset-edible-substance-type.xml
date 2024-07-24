@@ -36,6 +36,7 @@
         <value value="762766007"/>
       </filter>
     </include>
+<!--
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -54,20 +55,21 @@
 		</include>
     <include>
       <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="890302005"/>
+      </filter>
+		</include>
+-->
+    <include>
+      <system value="http://snomed.info/sct"/>
       <concept>
 				<code value="11713004"/>
 			</concept>
       <concept>
 				<code value="444923006"/>
 			</concept>
-		</include>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="890302005"/>
-      </filter>
 		</include>
   </compose>
 </ValueSet>
