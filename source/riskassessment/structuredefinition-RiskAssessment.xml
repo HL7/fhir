@@ -166,7 +166,7 @@
     </element>
     <element id="RiskAssessment.status">
       <path value="RiskAssessment.status"/>
-      <short value="registered | preliminary | final | amended +"/>
+      <short value="registered | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown"/>
       <definition value="The status of the RiskAssessment, using the same statuses as an Observation."/>
       <min value="1"/>
       <max value="1"/>
