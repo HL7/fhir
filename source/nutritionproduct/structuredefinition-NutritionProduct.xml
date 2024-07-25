@@ -237,11 +237,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionProductNutrient"/>
+          <valueString value="NutrientCode"/>
         </extension>
         <strength value="example"/>
         <description value="Codes that identify nutrients that could be parts of nutrition products."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-nutrient"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutrient-code"/>
       </binding>
       <isSummary value="true"/>
     </element>
@@ -310,24 +310,25 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="NutritionProduct.knownAllergen">
-      <path value="NutritionProduct.knownAllergen"/>
-      <short value="Known or suspected allergens that are a part of this product"/>
-      <definition value="Allergens that are known or suspected to be a part of this nutrition product."/>
+    <element id="NutritionProduct.ingredient.allergen">
+      <path value="NutritionProduct.ingredient.allergen"/>
+      <short value="Known or suspected substances that are a part of this product"/>
+      <definition value="Substances associated with allergies and/or intolerances that a part of this product."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <code value="boolean"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AllergenClass"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes that identify substances that can be an allergen."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/allergen-class"/>
-      </binding>
+    </element>
+    <element id="NutritionProduct.energy">
+      <path value="NutritionProduct.energy"/>
+      <short value="The amount of energy present in the product expressed in kilocalories or kilojoules"/>
+      <definition value="The amount of energy present in the product expressed in kilocalories or kilojoules."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
     </element>
     <element id="NutritionProduct.characteristic">
       <path value="NutritionProduct.characteristic"/>
