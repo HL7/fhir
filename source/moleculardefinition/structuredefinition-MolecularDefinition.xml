@@ -463,6 +463,9 @@
       </type>
       <isSummary value="true"/>
     </element>
+
+<!--    A placeholder for MolDef-to-MolDef relation-->
+
     <element id="MolecularDefinition.memberState">
       <path value="MolecularDefinition.memberState"/>
       <short value="Member"/>
