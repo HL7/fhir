@@ -43,7 +43,7 @@
   <concept>
     <code value="registered-name"/>
     <display value="Registered name"/>
-    <definition value="The term assigned to a medical device by the entity who registers or submits information about it to a jurisdiction or its databases. This may be considered the manufacturer assigned name (e.g., brand name assigned by the labeler or manufacturer in US, or device name assigned by the manufacturer in EU) and may also be synonymous with proprietary name or trade name of the device."/>
+    <definition value="The term assigned to a device by the entity that may be registered or submitted to a jurisdiction, certification body, or its databases. This may be considered the manufacturer assigned name (e.g., brand name assigned by the labeler or manufacturer in US, or device name assigned by the manufacturer in EU) and may also be synonymous with proprietary name or trade name of the device."/>
   </concept>
   <concept>
     <code value="user-friendly-name"/>
