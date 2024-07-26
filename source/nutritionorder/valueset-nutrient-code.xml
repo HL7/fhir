@@ -24,8 +24,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.2.207"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="NutrientModifierCodes"/>
-  <title value="Nutrient Modifier Codes"/>
+  <name value="NutrientCodes"/>
+  <title value="Nutrient Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR NutritionOrder team"/>
@@ -41,16 +41,58 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="33463005"/>
-        <display value="Fluid"/>
+        <code value="31212001"/>
       </concept>
       <concept>
-        <code value="39972003"/>
-        <display value="Sodium"/>
+        <code value="68356001"/>
       </concept>
       <concept>
-        <code value="88480006"/>
-        <display value="Potassium"/>
+        <code value="71482002"/>
+      </concept>
+      <concept>
+        <code value="31539008"/>
+      </concept>
+      <concept>
+        <code value="19751002"/>
+      </concept>
+      <concept>
+        <code value="63793008"/>
+      </concept>
+      <concept>
+        <code value="60471000"/>
+      </concept>
+      <concept>
+        <code value="41503000"/>
+      </concept>
+      <concept>
+        <code value="111064005"/>
+      </concept>
+      <concept>
+        <code value="29183001"/>
+      </concept>
+      <concept>
+        <code value="43268001"/>
+      </concept>
+      <concept>
+        <code value="57272005"/>
+      </concept>
+      <concept>
+        <code value="70726008"/>
+      </concept>
+      <concept>
+        <code value="73196006"/>
+      </concept>
+      <concept>
+        <code value="34865002"/>
+      </concept>
+      <concept>
+        <code value="2832002"/>
+      </concept>
+      <concept>
+        <code value="11555005"/>
+      </concept>
+      <concept>
+        <code value="25958007"/>
       </concept>
     </include>
     <include>

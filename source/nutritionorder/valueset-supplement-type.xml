@@ -35,192 +35,24 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="SupplementType :  Codes for nutritional supplements to be provided to the patient. This value set is composed of SNOMED CT (US Extension) Concepts from SCTID 470581016 (Enteral+supplement feeds hierarchy (product)) and is provided as a suggestive example."/>
+  <description value="SupplementType :  Codes for nutritional supplements to be provided to the patient. This value set is composed of SNOMED CT Concepts from SCTID 346415002 (Enteral and supplement feeds (product))."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <version value="http://snomed.info/sct/731000124108"/>
       <concept>
-        <code value="442901000124106"/>
-        <display value="Adult clear liquid supplement"/>
-      </concept>
-      <concept>
-        <code value="443031000124106"/>
-        <display value="Adult critical care formula"/>
-      </concept>
-      <concept>
-        <code value="443051000124104"/>
-        <display value="Adult diabetic specialty formula"/>
-      </concept>
-      <concept>
-        <code value="442911000124109"/>
-        <display value="Adult elemental formula"/>
-      </concept>
-      <concept>
-        <code value="443021000124108"/>
-        <display value="Adult hepatic specialty formula"/>
-      </concept>
-      <concept>
-        <code value="442971000124100"/>
-        <display value="Adult high energy formula"/>
-      </concept>
-      <concept>
-        <code value="442981000124102"/>
-        <display value="Adult hydrolyzed protein formula"/>
-      </concept>
-      <concept>
-        <code value="442991000124104"/>
-        <display value="Adult high protein formula"/>
-      </concept>
-      <concept>
-        <code value="443011000124100"/>
-        <display value="Adult high protein high fiber formula"/>
-      </concept>
-      <concept>
-        <code value="442961000124107"/>
-        <display value="Adult low carbohydrate formula"/>
-      </concept>
-      <concept>
-        <code value="442951000124105"/>
-        <display value="Adult pulmonary specialty formula"/>
-      </concept>
-      <concept>
-        <code value="442941000124108"/>
-        <display value="Adult renal specialty formula"/>
-      </concept>
-      <concept>
-        <code value="442921000124101"/>
-        <display value="Adult standard formula"/>
-      </concept>
-      <concept>
-        <code value="442931000124103"/>
-        <display value="Adult soy protein isolate formula"/>
-      </concept>
-      <concept>
-        <code value="444331000124106"/>
-        <display value="Diabetic meal replacement bar"/>
-      </concept>
-      <concept>
-        <code value="443361000124100"/>
-        <display value="Pediatric Formula"/>
-      </concept>
-      <concept>
-        <code value="443391000124108"/>
-        <display value="Pediatric clear liquid supplement"/>
-      </concept>
-      <concept>
-        <code value="443401000124105"/>
-        <display value="Pediatric elemental formula"/>
-      </concept>
-      <concept>
-        <code value="443491000124103"/>
-        <display value="Pediatric high energy formula"/>
-      </concept>
-      <concept>
-        <code value="443501000124106"/>
-        <display value="Pediatric high energy formula with increased fiber"/>
-      </concept>
-      <concept>
-        <code value="443421000124100"/>
-        <display value="Pediatric hydrolyzed protein formula"/>
-      </concept>
-      <concept>
-        <code value="443471000124104"/>
-        <display value="Pediatric increased fiber formula"/>
-      </concept>
-      <concept>
-        <code value="444431000124104"/>
-        <display value="Pediatric reduced energy formula"/>
-      </concept>
-      <concept>
-        <code value="443451000124109"/>
-        <display value="Pediatric standard formula"/>
-      </concept>
-      <concept>
-        <code value="444321000124108"/>
-        <display value="Standard pudding oral supplement"/>
-      </concept>
-      <concept>
-        <code value="441561000124106"/>
-        <display value="Standard enteral formula with fiber"/>
-      </concept>
-      <concept>
-        <code value="443461000124106"/>
-        <display value="Standard Formula"/>
-      </concept>
-      <concept>
-        <code value="441531000124102"/>
-        <display value="Standard Enteral Formula"/>
-      </concept>
-      <concept>
-        <code value="443561000124107"/>
-        <display value="Soy based formula"/>
-      </concept>
-      <concept>
-        <code value="443481000124101"/>
-        <display value="Renal Formula"/>
-      </concept>
-      <concept>
-        <code value="441571000124104"/>
-        <display value="High energy enteral formula with fiber"/>
-      </concept>
-      <concept>
-        <code value="441591000124103"/>
-        <display value="Diabetic enteral formula with fiber"/>
-      </concept>
-      <concept>
-        <code value="441601000124106"/>
-        <display value="Diabetic high calorie high protein enteral formula with fiber"/>
-      </concept>
-      <concept>
-        <code value="443351000124102"/>
-        <display value="Increased fiber formula"/>
-      </concept>
-      <concept>
-        <code value="443771000124106"/>
-        <display value="Hydrolyzed protein formula"/>
-      </concept>
-      <concept>
-        <code value="441671000124100"/>
-        <display value="Hydrolyzed peptide-based high protein enteral formula"/>
-      </concept>
-      <concept>
-        <code value="443111000124101"/>
-        <display value="High protein formula"/>
-      </concept>
-      <concept>
-        <code value="443431000124102"/>
-        <display value="High Energy Formula"/>
-      </concept>
-      <concept>
-        <code value="443411000124108"/>
-        <display value="Elemental Formula"/>
-      </concept>
-      <concept>
-        <code value="444361000124102"/>
-        <display value="Electrolyte replacement supplement"/>
-      </concept>
-      <concept>
-        <code value="444401000124107"/>
-        <display value="Frozen electrolyte replacement supplement"/>
-      </concept>
-      <concept>
-        <code value="444381000124107"/>
-        <display value="Liquid electrolyte replacement supplement"/>
-      </concept>
-      <concept>
-        <code value="444371000124109"/>
-        <display value="Powdered electrolyte replacement supplement"/>
-      </concept>
-      <concept>
-        <code value="443441000124107"/>
-        <display value="Clear liquid supplement"/>
-      </concept>
-      <concept>
-        <code value="442651000124102"/>
-        <display value="Adult formula"/>
-      </concept>
+				<code value="346415002"/>
+			</concept>
+		</include>
+<!--
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="346415002"/>
+      </filter>
     </include>
+-->
   </compose>
 </ValueSet>
