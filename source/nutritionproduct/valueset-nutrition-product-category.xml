@@ -29,11 +29,31 @@
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
+      <valueset value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
+    </include>
+		<!--
+    <include>
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="255620007"/>
+        <value value="226789007"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="412413001"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="346415002"/>
       </filter>
     </include>
     <include>
@@ -43,6 +63,24 @@
         <op value="is-a"/>
         <value value="226465004"/>
       </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="890302005"/>
+      </filter>
+    </include>
+-->
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="11713004"/>
+      </concept>
+      <concept>
+        <code value="444923006"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
