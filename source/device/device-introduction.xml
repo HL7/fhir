@@ -54,6 +54,19 @@
 <h4 id="DeviceScopeBoundaryRelationships-Software">Software </h4>
 <p>A software item like a data transformer or converter, or a clinical support algorithm, may be an independently deployed, managed and configured entity that contributes to patient care and needs to be documented just a surely as, say, a physical cardiac monitor. The FHIR Device resource can contain instance data such as version information and operational attributes. It can also represent the relationship of the software item to other device and information system components through reference linkages.  This category includes software regardless of whether or not is regulated.  Device resource instances documenting software items are important to traceability of data and analyzing adverse events, and so have important patient safety roles.</p>
 
+<h4 id="DeviceScopeBoundaryRelationships-Device-DeviceDefinition">Device and DeviceDefinition</h4>
+<p>When referring to a specific instance, even without specific instance details, Device is to be used, not a DeviceDefinition. The context of a data exchange indicates whether the data is representing a physical instance or a &quot;kind&quot;, not the presence of instance data such as lot and serial numbers. </p>
+<p>Some examples:</p>
+<ol>
+<li>
+In a Procedure, reporting the use of a pump for which we have no instance data - the pump is a physical instance. Whether the lot number (for example) is known or not, depends on the circumstance - in another Procedure or in an update of the Procedure, the lot number could be added. Hence the use of Device.  
+</li>
+<li>
+When a device gets replaced by another device of the same type. In this case, a procedure indicates that one instance of the device is removed/explanted/discarded, and another instance is used. These are physical instances which may or may not have instance data.
+</li>
+</ol>
+</p>
+
 
 <a name="bnr"></a>
 <h3>Boundaries and Relationships</h3>
