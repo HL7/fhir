@@ -952,7 +952,7 @@
 			</extension>
 			<path value="ValueSet.compose.include.filter.value"/>
 			<short value="Code from the system, or regex criteria, or boolean value for exists"/>
-			<definition value="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'."/>
+			<definition value="ValueSet.compose.include.filter.value is represented as a string, and the string value must be one of the three types below: &#13;&#10;When the filter operation (ValueSet.compose.include.filter.op) is equal to &quot;regex&quot;, the value (ValueSet.compose.include.filter.value) is a regex expression. This is used to match string values (including integer and decimal, if necessary).&#13;&#10;When the filter operation (ValueSet.compose.include.filter.op) is equal to &quot;exists&quot;, the value (ValueSet.compose.include.filter.value) is a boolean and must be equal to &quot;true&quot; or &quot;false&quot;.&#13;&#10;For all other filter operations (ValueSet.compose.include.filter.op) the value (ValueSet.compose.include.filter.value) represents a code."/>
 			<comment value="Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example."/>
 			<min value="1"/>
 			<max value="1"/>

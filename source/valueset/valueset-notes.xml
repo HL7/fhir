@@ -40,6 +40,9 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
    not for use as a selectable concept in a particular context. These abstract codes are typically used as a grouping/searching mechanism,
    and can be included either by enumerating them, or by using a filter.</li>
  <li>Any compose.exclude SHALL be processed such that excluded codes are not found in the expansion</li>
+ <li>Any compose.include SHALL NOT reference a CodeSystem supplement.</li>
+ <li>Any compose.exclude SHALL NOT reference a CodeSystem supplement.</li>
+ <li>Required CodeSystem supplements SHALL be declared using either the valueset-supplement extension, or the useSupplement $expand input parameter.</li>
 </ul>
 
 <a name="compose"></a>
