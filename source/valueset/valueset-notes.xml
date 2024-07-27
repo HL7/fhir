@@ -98,11 +98,11 @@ VSD describes filters for the Content Logical Definition. FHIR uses filters in t
 <p>Either the Value or Expression must be provided</p>
 <p>Value:</p>
 <p><code>compose.include.filter.op</code> = "="</p>
-<p><code>compose.include.filter.value</code> =&nbsp;<em>the value</em></p>
+<p><code>compose.include.filter.value</code> =<em>the value</em></p>
 <p>Expression:</p>
 <ul>
 <li><code>compose.include.filter.op</code> = "regex"</li>
-<li><code>compose.include.filter.value</code> =&nbsp;<em>the Expression</em></li>
+<li><code>compose.include.filter.value</code> =<em>the Expression</em></li>
 </ul>
 </td>
 </tr>
@@ -554,11 +554,13 @@ produced must be clearly identified so that there is no confusion. The following
 The expansion contains a set of parameters in <code>ValueSet.expansion.parameter</code> that record what controlled the expansion process. 
 These parameters may be used by users of expanded value sets to check whether the expansion 
 is suitable for a particular purpose, or to pick the correct expansion. The server decides which 
-parameters to return in <code>ValueSet.expansion.parameter</code>, but at a minimum, the list SHOULD include all of the parameters (server default and provided) that 
-affect the <a href="valueset-operation-expand.html">$expand</a> operation. If the codeSystem on the server has a specified 
-version then this version SHALL be provided as a parameter in the expansion (note that not all 
-code systems have a version). 
+parameters to return in <code>ValueSet.expansion.parameter</code>, but at a minimum, the list SHOULD include:
 </p>
+<ul>
+ <li>All input parameters defined by the <a href="valueset-operation-expand.html">$expand</a> operation and provided by the client and used by the server to generate the expansion</li>
+ <li>All input parameters defined by the <a href="valueset-operation-expand.html">$expand</a> operation and their values for which the server provided default values </li>
+ <li>Canonical or URI references (including version) for all CodeSystems, CodeSystem Supplements and ValueSets  used in the expansion </li>
+</ul>
 <p>
 The following parameters are predefined by the <a href="valueset-operation-expand.html">$expand</a> operation, and are suitable for use in the
 expansion parameters:

@@ -697,7 +697,7 @@
 			<path value="ValueSet.compose.include.system"/>
 			<short value="The system the codes come from"/>
 			<definition value="An absolute URI which is the code system from which the selected codes come from."/>
-			<comment value="If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element."/>
+			<comment value="If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element.  If a contained code system is referenced, the entire canonical url must be provided. "/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -993,7 +993,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1466,7 +1466,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1480,7 +1480,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>

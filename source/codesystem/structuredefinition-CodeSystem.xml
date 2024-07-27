@@ -710,9 +710,6 @@
 			</binding>
 		</element>
 		<element id="CodeSystem.supplements">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="CodeSystem.supplements"/>
 			<short value="Canonical URL of Code System this adds designations and properties to"/>
 			<definition value="The canonical URL of the code system that this code system supplement is adding designations and properties to."/>
@@ -940,7 +937,7 @@
 			<path value="CodeSystem.concept.designation"/>
 			<short value="Additional representations for the concept"/>
 			<definition value="Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc."/>
-			<comment value="Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of &quot;primary code&quot; and a language equal to the [Resource Language](resource.html#language)."/>
+			<comment value="Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of &quot;primary designation&quot; and a language equal to the [Resource Language](resource.html#language)."/>
 			<requirements value="Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes."/>
 			<min value="0"/>
 			<max value="*"/>

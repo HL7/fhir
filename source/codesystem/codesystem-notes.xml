@@ -61,7 +61,7 @@ The following rules apply to code system fragments:
 </ul>
 
 <a name="supplements"></a>
-<h2>Code System Supplements <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h2>
+<h2>Code System Supplements</h2>
 <p>
 If the <code>CodeSystem.content</code> value is <code>supplement</code>, then the resource 
 describes a code system supplement. The following rules apply to code system supplements:
@@ -76,12 +76,7 @@ describes a code system supplement. The following rules apply to code system sup
 <p>
 If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
 Code System and use the <code>Coding</code> type for the property values.
-</p> 
-<div class="warning"><blockquote><p>
-The impact of Code System supplements on <a href="valueset-operation-expand.html">value set expansion</a> - and therefore <a href="valueset-operation-validate-code.html">value set validation</a> - is 
-subject to ongoing experimentation and implementation testing, and further clarification and additional
-rules might be proposed in future versions of this specification.
-</p></blockquote></div>
+</p>
 
 <a name="designations"></a>
 <h2>Display, Definition and Designations</h2>
