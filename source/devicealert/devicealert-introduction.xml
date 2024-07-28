@@ -126,8 +126,10 @@
 <div>	
     <h2>Background and Context</h2>
     <p>The DeviceAlert resource has two aspects: the condition aspect which represents a single alert or alarm condition detected and signaled by a patient-connected health / medical device, and the signal aspect which represents the signals, that is, the audible, visible, haptic or other means by which attention is drawn to the existence of the alert condition.</p>
-    <p>The design and configuration choices applied to the device determine the signal behavior. Signals may persist when the alert condition no longer exist and may be aftected by manual user controls of the device. This is the case with when the signal is designed to be subject to latching, which causes a brief alert to be extended to bring it to the attention of the user, or it may be subect to pausing, there a user causes the alert signal to be paused to stop the signal when the user has been made aware of the alert condition and wishes to stop the signal once it is no longer needed.</p>
-	<p>note to editor: add revised state diagram</p>
+    <p>The design and configuration choices applied to the device determine the signal behavior. Signals may persist when the alert condition no longer exist and may be affected by manual user controls of the device. This is the case with when the signal is designed to be subject to latching, which causes a brief alert to be extended to bring it to the attention of the user, or it may be subect to pausing, there a user causes the alert signal to be paused to stop the signal when the user has been made aware of the alert condition and wishes to stop the signal once it is no longer needed.</p>
+    <img src="devicealert-state-machine.png"  />
+	<p> The center row of the diagram shows the flow between the states of the DeviceAlert record taking into account both the alert condition and the signals being emitted by the device. The upper row shows the values of key attributes of the of the DeviceAlert resource isntance and of the associated DeviceMetric in the corresponding states. The bottom row shows values of key attributes of the DeviceAlert in the states.</p>
+
 </div>  
 
 
