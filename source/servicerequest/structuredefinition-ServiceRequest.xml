@@ -583,8 +583,8 @@
       </extension>
       <path value="ServiceRequest.orderDetail"/>
       <short value="Additional information about the request"/>
-      <definition value="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied."/>
-      <comment value="For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element."/>
+      <definition value="Additional details and instructions about how the services are to be delivered. For example, an order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied. Questions or additional information to be gathered from a patient may be included here."/>
+      <comment value="For existing information to support the delivery of the requested services, use the supportingInformnation.element - e.g. to share information with the lab about a patient's age, gender, or current medications."/>
       <alias value="detailed instructions"/>
       <min value="0"/>
       <max value="*"/>
@@ -676,8 +676,6 @@
       </type>
       <isSummary value="true"/>
     </element>    
-
-    
     <element id="ServiceRequest.quantity[x]">
       <path value="ServiceRequest.quantity[x]"/>
       <short value="Service amount"/>
@@ -1138,8 +1136,8 @@
       </extension>
       <path value="ServiceRequest.supportingInfo"/>
       <short value="Additional clinical information"/>
-      <definition value="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements."/>
-      <comment value="To represent information about how the services are to be delivered use the `instructions` element."/>
+      <definition value="Additional clinical information about the patient or specimen that may influence the services or their interpretations. This information includes diagnosis, clinical findings and other observations. In laboratory ordering these are typically referred to as 'ask at order entry questions (AOEs).' This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example, reporting the amount of inspired oxygen for blood gas measurements."/>
+      <comment value="To represent information about how the services are to be delivered, use the orderDetail element."/>
       <alias value="Ask at order entry question"/>
       <alias value="AOE"/>
       <min value="0"/>
