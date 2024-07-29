@@ -43,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of food (i.e., solid and/or liquid) that is being consumed by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food (i.e. solid and/or liquid) in the past.  The source of this information can be the patient, family member, caregiver, or a practitioner.  A common scenario where this information is captured is during the history-taking process during a patient encounter or stay or through an electronic health record or app that tracks food (i.e., solid and/or liquid) consumed.   The consumption information may come from sources such as the patient's memory, from a family member or caregiver memory, or from a practitioner documenting observed intake."/>
+  <description value="A record of intake by a patient.  A NutritionIntake may indicate that the patient may be consuming the food (i.e., solid and/or liquid), breastmilk, infant formula, supplements, enteral formula now or has consumed it in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food (i.e., solid and/or liquid), breastmilk, infant formula, supplements, enteral formula consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label, or from a clinician documenting observed intake."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -69,7 +69,7 @@
     <element id="NutritionIntake">
       <path value="NutritionIntake"/>
       <short value="Record of intake by a patient"/>
-      <definition value="A record of intake by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food (i.e. solid and/or liquid), breastmilk, infant formula, supplements, enteral formula now or has consumed it in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake."/>
+      <definition value="A record of intake by a patient.  A NutritionIntake may indicate that the patient may be consuming the food (i.e., solid and/or liquid), breastmilk, infant formula, supplements, enteral formula now or has consumed it in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food (i.e., solid and/or liquid), breastmilk, infant formula, supplements, enteral formula consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label, or from a clinician documenting observed intake."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -247,7 +247,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionIntakeCategory"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A coded concept identifying an overall type of diet or nutrition that is represented by this intake.  See consumedItem for more details."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
       </binding>
@@ -333,8 +333,8 @@
     </element>
     <element id="NutritionIntake.reported[x]">
       <path value="NutritionIntake.reported[x]"/>
-      <short value="Indicates if this is a reported rather than a primary record.  Can also indicate the person or organization that provided the information about the consumption"/>
-      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth.  It may also indicate the source of the intake record."/>
+      <short value="Indicates if this is a reported rather than a primary record.  Can also indicate the source that provided the information about the consumption"/>
+      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth.  It may also indicate the source that provided the information about the consumption."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -406,7 +406,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EdibleSubstance"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Specific food that can be consumed by a patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
