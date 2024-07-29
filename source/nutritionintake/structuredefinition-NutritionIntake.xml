@@ -392,7 +392,7 @@
     </element>
     <element id="NutritionIntake.nutritionItem.nutritionProduct">
       <path value="NutritionIntake.nutritionItem.nutritionProduct"/>
-      <short value="A product used for nutitrional purposes (e.g. food or supplement)"/>
+      <short value="A product used for nutritional purposes (e.g. food or supplement)"/>
       <definition value="Identifies the food (i.e. solid and/or liquid) product that is to be consumed. This is potentially a link to a resource representing the details of the food product or a simple attribute carrying a code that identifies the food from a known list of foods."/>
       <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of a new nutritionProduct resource is recommended."/>
       <min value="0"/>
