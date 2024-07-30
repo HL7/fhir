@@ -120,6 +120,30 @@
         <map value="id"/>
       </mapping>
     </element>
+
+     <element id="VisionPrescription.basedOn">
+      <path value="VisionPrescription.basedOn"/>
+      <short value="What prescription fulfills"/>
+      <definition value="Plan/proposal/order/request fulfilled by this prescription."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+    </element>
     <element id="VisionPrescription.status">
       <path value="VisionPrescription.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>

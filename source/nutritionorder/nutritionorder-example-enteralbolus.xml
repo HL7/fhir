@@ -33,7 +33,6 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 	<excludeFoodModifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
 			<code value="227493005"/>
 			<display value="Cashew Nut"/>
 		</coding>
