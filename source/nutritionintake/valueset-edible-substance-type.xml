@@ -25,7 +25,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set represents codes for types of edible substances and is provided as a suggestive example.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 762766007 Edible Substance (substance)."/>
+  <description value="This value set represents codes for types of edible substances.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept 762766007 Edible Substance (substance) and its sub-concepts, Infant Formula (412413001) and its sub-concepts, Enteral and Supplement Feeds (346415002) and its sub-concepts, Water (11713004), Potable Water (890302005) and its sub-concepts, and Tap Water (444923006)."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
@@ -36,17 +36,40 @@
         <value value="762766007"/>
       </filter>
     </include>
+<!--
     <include>
       <system value="http://snomed.info/sct"/>
-			<concept>
-				<code value="412413001"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="412413001"/>
+      </filter>
+		</include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="346415002"/>
+      </filter>
+		</include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="890302005"/>
+      </filter>
+		</include>
+-->
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+				<code value="11713004"/>
 			</concept>
-			<concept>
-				<code value="346415002"/>
+      <concept>
+				<code value="444923006"/>
 			</concept>
-			<concept>
-				<code value="890302005"/>
-			</concept>
-    </include>
+		</include>
   </compose>
 </ValueSet>

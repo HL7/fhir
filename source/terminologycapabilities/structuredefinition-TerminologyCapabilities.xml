@@ -678,9 +678,16 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="Language"/>
 				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
 				<strength value="required"/>
-				<description value="IETF language tag"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				<description value="IETF language tag for a human language"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="TerminologyCapabilities.codeSystem.version.filter">

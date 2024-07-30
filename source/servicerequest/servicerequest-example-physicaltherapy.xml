@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
+	<id value="physicaltherapy"/>
+	<!-- Example of ambulation service request-->
+	<identifier>
+		<value value="12345"/>
+	</identifier>
+	<status value="completed"/>
+	<intent value="order"/>
+	<code>
+	  <concept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="722138006"/>
+			<display value="Physical therapy"/>
+		</coding>
+		<text value="Physical therapy"/>
+	  </concept>
+	</code>
+	<quantityRatio>
+        <numerator>
+			<value value="20"/>
+			<unit value="treatment"/>
+		</numerator>
+		<denominator>
+		    <value value="1"/>
+			<unit value="month"/>
+		</denominator>
+	</quantityRatio>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<authoredOn value="2017-03-05"/>
+	<requester>
+			<reference value="Practitioner/3ad0687e-f477-468c-afd5-fcc2bf897809"/>
+			<display value="Dr. Beverly Crusher"/>
+	</requester>
+</ServiceRequest>
