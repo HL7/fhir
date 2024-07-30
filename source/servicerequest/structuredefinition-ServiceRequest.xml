@@ -679,8 +679,9 @@
     <element id="ServiceRequest.quantity[x]">
       <path value="ServiceRequest.quantity[x]"/>
       <short value="Service amount"/>
-      <definition value="An amount of service being requested which can be a quantity ( for example $1,500 home modification), a ratio ( for example, 20 half day visits per month), or a range (2.0 to 1.8 Gy per fraction)."/>
+      <definition value="An amount of service being requested."/>
       <requirements value="When ordering a service the number of service items may need to be specified separately from the the service item."/>
+      <comment value="The amount of service being requested can be a quantity (e.g., $1,500 for home modification request), a ratio (e.g., 20 for a request of home visits to occur each month), or a range (e.g., 8-10 for physiotherapy sessions)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
