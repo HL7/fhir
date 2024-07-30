@@ -256,11 +256,11 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Information that may be needed by/relevant to the performer in their execution of this service request."/>
-            <resource value="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements."/>
+            <resource value="Additional clinical information about the patient or specimen that may influence the services or their interpretations. This information includes diagnosis, clinical findings and other observations. In laboratory ordering these are typically referred to as 'ask at order entry questions (AOEs).' This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example, reporting the amount of inspired oxygen for blood gas measurements."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
-            <resource value="To represent information about how the services are to be delivered use the `instructions` element."/>
+            <resource value="To represent information about how the services are to be delivered, use the orderDetail element."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.note" resourcePath="ServiceRequest.note">
