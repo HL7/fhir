@@ -389,7 +389,7 @@
       <short value="DICOM Series Instance UID"/>
       <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Instance UID.&#xA;       Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
+      <requirements value="DICOM Series Instance UID.&#xA;Required unless `frameOfReferenceUid` and `imageRegion` are present and instance is not present. &#xA;Must correspond to a Series that is part of the DICOM study identified by the `studyUID` element."/>
       <alias value="SeriesInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -411,7 +411,7 @@
       <short value="DICOM Series Number"/>
       <definition value="The Series Number for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Number."/>
+      <requirements value="DICOM Series Number. &#xA;Must correspond to the series identified by the `seriesUID` element."/>
       <alias value="SeriesNumber"/>
       <min value="0"/>
       <max value="1"/>
@@ -522,7 +522,7 @@
       <short value="DICOM SOP Instance UID"/>
       <definition value="The SOP Instance UID for the selected DICOM instance."/>
       <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
-      <requirements value="DICOM SOP Instance UID."/>
+      <requirements value="DICOM SOP Instance UID.&#xA;Must correspond to a SOP Instance that is part of the DICOM series identified by the `seriesUID` element."/>
       <alias value="SOPInstanceUID"/>
       <min value="1"/>
       <max value="1"/>
@@ -544,7 +544,7 @@
       <short value="DICOM Instance Number"/>
       <definition value="The Instance Number for the selected DICOM instance."/>
       <comment value="See [DICOM PS3.3 C.7.6.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.html#sect_C.7.6.1).&#xA;       Note: A multiframe instance has a single instance number with each frame identified by a frame number."/>
-      <requirements value="DICOM Instance Number."/>
+      <requirements value="DICOM Instance Number.&#xA;Must correspond to the SOP Instance identified by the `uid` element."/>
       <alias value="InstanceNumber"/>
       <min value="0"/>
       <max value="1"/>
