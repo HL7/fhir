@@ -17,6 +17,7 @@
                                 <li>Technical (e.g., Infusion Pump #2 has a fluid line occlusion).</li>
                         </ul>
                 </p>
+
                 <p> Alerts / alarms can also have different priorities based on the hazard’s severity and urgency of clinicians’
             action, ranging from High (e.g., a life-threatening condition requiring immediate response) to Advisory
             (e.g., an information to create contextual awareness without requiring timely response).</p>
