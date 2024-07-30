@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="goal-status-reason"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -22,7 +26,7 @@
   <name value="GoalStatusReason"/>
   <title value="Goal Status Reason"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>
@@ -30,10 +34,29 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and might not even be appropriate for some uses."/>
+  <description value="Codes to identify the reason for current lifecycle status."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/goal-status-reason"/>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="410536001"/>
+      </concept>
+      <concept>
+        <code value="385432009"/>
+      </concept>
+      <concept>
+        <code value="713566001"/>
+      </concept>
+	  <concept>
+        <code value="300936002"/>
+      </concept>
+	  <concept>
+        <code value="704489009"/>
+      </concept>
+	  <concept>
+        <code value="11403006"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
