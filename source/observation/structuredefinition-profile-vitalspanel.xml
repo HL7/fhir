@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'85353-1'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
+    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'85353-1'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
@@ -19,7 +19,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
-    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'85353-1'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
+    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'85353-1'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/vitalspanel"/>
   <identifier>
@@ -84,46 +84,34 @@
       <min value="0"/>
       <max value="*"/>
     </element>
+    <element id="Observation.category">
+      <path value="Observation.category"/>
+      <slicing>
+        <discriminator>
+          <type value="pattern"/>
+          <path value="$this"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="Observation.category:VitalsPanelCode">
+      <path value="Observation.category"/>
+      <sliceName value="VitalsPanelCode"/>
+      <min value="1"/>
+      <max value="1"/>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="85353-1"/>
+        </coding>
+      </patternCodeableConcept>
+    </element>
     <element id="Observation.code">
       <path value="Observation.code"/>
       <short value="Vital Signs Panel"/>
       <definition value="Vital Signs Panel."/>
-      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
       <alias value="Panel Name"/>
       <alias value="Panel Code"/>
-    </element>
-    <element id="Observation.code.coding">
-      <path value="Observation.code.coding"/>
-      <slicing>
-        <discriminator>
-          <type value="value"/>
-          <path value="code"/>
-        </discriminator>
-        <discriminator>
-          <type value="value"/>
-          <path value="system"/>
-        </discriminator>
-        <ordered value="false"/>
-        <rules value="open"/>
-      </slicing>
-    </element>
-    <element id="Observation.code.coding:VitalsPanelCode">
-      <path value="Observation.code.coding"/>
-      <sliceName value="VitalsPanelCode"/>
-    </element>
-    <element id="Observation.code.coding:VitalsPanelCode.system">
-      <path value="Observation.code.coding.system"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://loinc.org"/>
-    </element>
-    <element id="Observation.code.coding:VitalsPanelCode.code">
-      <path value="Observation.code.coding.code"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <fixedCode value="85353-1"/>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
