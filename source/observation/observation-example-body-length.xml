@@ -13,13 +13,15 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<!--  This example demonstrates the use of a code translation to allow the observation to be interpreted as Body Length  ( typically used for infants)  -->
-	<code>
+	<category>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="8302-2"/>
 			<display value="Body height"/>
 		</coding>
+	</category>
+	<!--  This example demonstrates a measurement code for "Body Length" ( typically used for infants) which is more specific than the "interoperability category" code for "Body height". -->
+	<code>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="8306-3"/>
