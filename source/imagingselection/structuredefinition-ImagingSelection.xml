@@ -616,7 +616,7 @@
     </element>
     <element id="ImagingSelection.instance.imageRegion2D.regionType">
       <path value="ImagingSelection.instance.imageRegion2D.regionType"/>
-      <short value="point | multipoint | polyline | circle | ellipse"/>
+      <short value="point | polyline | multipoint | circle | ellipse"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.10.5.1.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.10.5.html#sect_C.10.5.1.2)."/>
       <alias value="GraphicType"/>
