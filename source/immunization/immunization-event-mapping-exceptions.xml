@@ -212,6 +212,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.location" resourcePath="Immunization.location">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where immunization occurred"/>
+            <resource value="The service delivery location"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The principal physical location where the immunization was performed."/>
             <resource value="The service delivery location where the vaccine administration occurred."/>

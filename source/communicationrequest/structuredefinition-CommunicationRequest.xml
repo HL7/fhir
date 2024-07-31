@@ -577,11 +577,12 @@
     </element>
     <element id="CommunicationRequest.informationProvider">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14064, GF#22626, GF#22631, GF#22630."/>
+        <valueString value="GF#14064, GF#22626, GF#22631, GF#22630, J#26951"/>
       </extension>
       <path value="CommunicationRequest.informationProvider"/>
       <short value="Who should share the information"/>
       <definition value="The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication."/>
+	  <comment value="Entities being requested to provide the information."/>
       <min value="0"/>
       <max value="*"/>
       <type>

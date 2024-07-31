@@ -32,14 +32,14 @@
   <version value="6.0.0"/>
   <name value="AuditEventAction"/>
   <title value="Audit Event Action"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
     </telecom>
     <telecom>
       <system value="email"/>

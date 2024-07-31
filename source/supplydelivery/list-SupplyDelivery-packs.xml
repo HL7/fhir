@@ -4,4 +4,9 @@
   <id value="SupplyDelivery-packs"/>
   <status value="current"/>
   <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/SupplyDelivery-core"/>
+    </item>
+  </entry>
 </List>

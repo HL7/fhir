@@ -83,7 +83,7 @@
   <concept>
     <code value="notSelectable"/>
     <display value="Not Selectable"/>
-    <definition value="The concept is not intended to be chosen by the user - only intended to be used as a selector for other concepts. Note, though, that the interpretation of this is highly contextual; all concepts are selectable in some context. Property type is boolean"/>
+    <definition value="The concept is not intended to be chosen by the user - only intended to be used as a selector for other concepts. Note, though, that the interpretation of this is highly contextual; all concepts are selectable in some context. Property type is boolean, default value is false"/>
   </concept>
   <concept>
     <code value="parent"/>

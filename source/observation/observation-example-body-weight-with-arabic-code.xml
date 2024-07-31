@@ -9,15 +9,17 @@
             <display value="Vital Signs"/>
         </coding>
     </category>
+    <category>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="29463-7"/> <!-- "interoperability category" LOINC code (methodless) -->
+            <display value="Body Weight"/>
+        </coding>
+    </category>
     <code>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="29463-7"/> <!-- more generic methodless LOINC -->
-            <display value="Body Weight"/>
-        </coding>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="3141-9"/> <!-- translation is more specific method = measured LOINC -->
+            <code value="3141-9"/> <!-- more specific method = measured LOINC -->
             <display value="Body weight Measured"/>
         </coding>
         <!-- SNOMED CT Codes - becoming more common -->
