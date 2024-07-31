@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="DeviceAlert" />
+    <meta>
+        <lastUpdated value="2021-01-02T08:58:31.578+11:00" />
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+        <valueString value="Base.Entities" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="draft" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="0" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+        <valueCode value="patient" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="devices" />
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+        <valueCode value=".status = entered-in-error" />
+    </extension>
+    <url value="http://hl7.org/fhir/StructureDefinition/DeviceAlert" />
+    <version value="6.0.0" />
+    <name value="DeviceAlert" />
+    <title value="Device Alert" />
+    <status value="draft" />
+    <date value="2023-10-02T09:00:31+11:00" />
+    <publisher value="Health Level Seven International (Devices)" />
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="http://hl7.org/fhir" />
+        </telecom>
+    </contact>
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm" />
+        </telecom>
+    </contact>
+    <description value="Describes a physiological or technical alert condition report originated by a device.  The DeviceAlert resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable. " />
+    <fhirVersion value="6.0.0" />
+    <mapping>
+        <identity value="w5" />
+        <uri value="http://hl7.org/fhir/fivews" />
+        <name value="FiveWs Pattern Mapping" />
+    </mapping>
+    <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+    </mapping>
+    <mapping>
+        <identity value="DIM" />
+        <uri value="urn:iso:std:iso:11073:10201" />
+        <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+    </mapping>
+    <mapping>
+        <identity value="IEEESDC" />
+        <uri value="urn:iso:std:iso:11073:20701" />
+        <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
+    </mapping>
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="DeviceAlert" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource" />
+    <derivation value="specialization" />
+    <differential>
+        <element id="DeviceAlert">
+            <path value="DeviceAlert" />
+            <short value="Describes a noteworthy condition or occurrence determined to exist by a medical device" />
+            <definition value="Describes a noteworthycondition or occurrence determined to exist by a device." />
+            <comment value="The DeviceAlert resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="administrative.device" />
+            </mapping>
+        </element>
+        <element id="DeviceAlert.identifier">
+            <path value="DeviceAlert.identifier" />
+            <short value="Instance identifier" />
+            <definition value="Instance identifiers assigned to a device, by the device or gateway software, manufacturers, other organizations or owners. For example, handle ID." />
+            <comment value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to any identifier of the device." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="true" />
+            <type>
+                <code value="Identifier" />
+            </type>
+            <isSummary value="true" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.identifier" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/alert-info-id" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertOccurenceIdentifier" />
+            </mapping>
+        </element>
+        <element id="DeviceAlert.status">
+            <path value="DeviceAlert.status" />
+            <short value="in-progress | completed | entered-in-error" />
+            <!--       <definition value="" /> -->
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.status" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertState" />
+            </mapping>
+
+            <type>
+                <code value="code" />
+            </type>
+            <isModifier value="true" />
+            <isModifierReason value="This element is labeled as a modifier because it has a potential code that indicates the Alert was entered in error." />
+            <binding>
+                <strength value="required" />
+                <description value="in-progress | completed | entered-in-error" />
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-status" />
+            </binding>
+        </element>
+        <!-- <element id="DeviceAlert.created">
+            <path value="DeviceAlert.created" />
+            <short value="When this DeviceAlert resource was created" />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.recorded" />
+            </mapping>
+            <type>
+                <code value="dateTime" />
+            </type>
+            <isModifier value="false" />
+        </element> -->
+        <element id="DeviceAlert.condition">
+            <path value="DeviceAlert.condition" />
+            <short value="The condition, event, or state being reported" />
+            <!-- <definition value="" /> -->
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <type>
+                <code value="BackboneElement" />
+            </type>
+        </element>
+        <element id="DeviceAlert.condition.code">
+            <path value="DeviceAlert.condition.code" />
+            <short value="The meaning of the alert" />
+            <definition value="The DeviceAlert.code indicates the specific condition that triggered the alert. It may correspond to a DeviceMetric.alert.code or Device.alert.code." />
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.what[x]" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/alert-code" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor/Type" />
+            </mapping>
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <binding>
+                <strength value="preferred" />
+                <!--         <description value="" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.condition.presence">
+            <path value="DeviceAlert.condition.presence" />
+            <short value="The alert condition is currently occuring" />
+            <!--       <definition value="" /> -->
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionState/Presence" />
+            </mapping>
+            <type>
+                <code value="boolean" />
+            </type>
+        </element>
+        <element id="DeviceAlert.condition.timing">
+            <path value="DeviceAlert.condition.timing" />
+            <short value="The period during which the condition was active" />
+            <definition value="An instantaneous condition is reported with the same start and end value. The end value is omitted if the condition is ongoing." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.init" />
+                <map value="FiveWs.done[x]" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionState/DeterminationTime" />
+            </mapping>
+            <type>
+                <code value="Period" />
+            </type>
+        </element>
+        <element id="DeviceAlert.condition.limit">
+            <path value="DeviceAlert.condition.limit" />
+            <short value="The boundaries outside of which a value was detected to cause the alert condition" />
+            <definition value="The limits beyond which a value was detected to cause the alert condition. The actual value is in DeviceAlert.derivedFrom." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="Limit-Specification" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="LimitAlertConditionState/Limits" />
+            </mapping>
+            <type>
+                <code value="Range" />
+            </type>
+        </element>
+
+        <element id="DeviceAlert.priority">
+            <path value="DeviceAlert.priority" />
+            <short value="high | medium | low | info" />
+            <!-- <short value="The severity of the potential or actual hazard associated with the
+      condition" /> -->
+            <definition value="The alert priority is usually reported by the source. A priority of `info` may indicate that the alert is &quot;for information only&quot; and not urgent action is required. The element may be omitted if the priority is unknown." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.grade" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/alert-type" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="If present, AlertConditionState/ActualPriority; otherwise AlertConditionDescriptor/Priority" />
+            </mapping>
+            <type>
+                <code value="code" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <!-- <description value="high | medium | low | info" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-priority" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.type">
+            <path value="DeviceAlert.type" />
+            <short value="physiological | technical" />
+            <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
+            <!--       <definition value="" /> -->
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.class" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/alert-type" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor/Kind" />
+            </mapping>
+            <type>
+                <code value="code" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <!-- <description value="physiological | technical" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.subject">
+            <path value="DeviceAlert.subject" />
+            <short value="The who or what the alert is about" />
+            <!--       <definition value="" /> -->
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.subject[x]" />
+            </mapping>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+            </type>
+        </element>
+        <element id="DeviceAlert.source">
+            <path value="DeviceAlert.source" />
+            <short value="The device (or DeviceMetric) that detected the alert condition" />
+            <definition value="A top-level or component Device (such as a MDS, VMD, or Channel) that detected the alert condition; or, within such a Device, the specific DeviceMetric (e.g. a heart rate reading) that was in an alert condition." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.source" />
+            </mapping>
+            <!-- <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.author" />
+            </mapping>
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.source" />
+            </mapping>
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.cause" />
+            </mapping> -->
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/alert-source" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor/Source" />
+            </mapping>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric" />
+            </type>
+        </element>
+        <element id="DeviceAlert.derivedFrom">
+            <path value="DeviceAlert.derivedFrom" />
+            <short value="The value causing the alert condition" />
+            <!--       <definition value="" /> -->
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.why[x]" />
+            </mapping>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+            </type>
+        </element>
+        <element id="DeviceAlert.label">
+            <path value="DeviceAlert.label" />
+            <short value="Text to be displayed for the alert condition" />
+            <definition value="The label may combine information from the alert  code, priority, the measurement type, measurement value, body sites and other sources, e.g., &quot;HR > 180&quot;." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/Label-String" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor/TypeConceptDescription" />
+            </mapping>
+            <type>
+                <code value="string" />
+            </type>
+        </element>
+        <element id="DeviceAlert.signal">
+            <path value="DeviceAlert.signal" />
+            <short value="Annunciation or notification of the alert condition" />
+            <!--       <definition value="" /> -->
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/AlertFlags; AlertCondition/AlertControls" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertSignalState" />
+            </mapping>
+            <type>
+                <code value="BackboneElement" />
+            </type>
+        </element>
+        <element id="DeviceAlert.signal.activationState">
+            <path value="DeviceAlert.signal.activationState" />
+            <short value="on | off | paused" />
+            <!-- <short value="Whether the signal is configured to announce the alert configuration" /> -->
+            <definition value="Paused indicates that annunciation has temporarily been disabled (&quot;snooze&quot;)." />
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/AlertState" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertSignalState/ActivationState" />
+            </mapping>
+            <type>
+                <code value="code" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <!-- <description value="on | off | paused" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.signal.presence">
+            <path value="DeviceAlert.signal.presence" />
+            <short value="on | latched | off | ack" />
+            <!-- <short value="Whether the signal is currently being annunciated" /> -->
+            <definition value="Indicates whether the signal is currently being annunciated. An on signal is currently being annunciated; a latched signal is currently being being annunciated although the alert condition has ended; an off signal is not currently being annunciated; and an acknowledged signal is not currently being annuciated because the user has acknowledged the signal." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertSignalState/Presence" />
+            </mapping>
+            <type>
+                <code value="code" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <!-- <description value="on | off | latched | acknowledged" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-presence" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.signal.annunciator">
+            <path value="DeviceAlert.signal.annunciator" />
+            <short value="Where the signal is being annunciated" />
+            <definition value="Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the &quot;top level&quot; signalling device may also be present." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/AlertFlags" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertSignalDescriptor/Manifestation" />
+            </mapping>
+            <type>
+                <code value="CodeableReference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <!-- <description value="local | remote" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-annunciation" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.signal.manifestation">
+            <path value="DeviceAlert.signal.manifestation" />
+            <short value="How the signal is being annunciated" />
+            <!--       <definition value="" /> -->
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/AlertFlags" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertSignalState/Location" />
+            </mapping>
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <binding>
+                <strength value="extensible" />
+                <!-- <description value="visual | haptic | audible" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-manifestation" />
+            </binding>
+        </element>
+        <element id="DeviceAlert.signal.type">
+            <path value="DeviceAlert.signal.type" />
+            <short value="Characteristics of the signal manifestation" />
+            <definition value="Details of the signal manifestation, such as a 1 meter visual indicator or a 4 meter visual indicator." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertSystemDescriptor/AlertSignal/Type" />
+            </mapping>
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <!-- <binding>
+        <strength value="" />
+        <description value="" />
+        <valueSet value="" />
+      </binding> -->
+        </element>
+        <element id="DeviceAlert.signal.indication">
+            <path value="DeviceAlert.signal.indication" />
+            <short value="When the signal was being annuciated" />
+            <definition value="The period during which the signal was being annunciated. If there is no indicated period end, the annunciation is on-going." />
+            <comment value="The indication period start when the signal precense is first on (or latched) and ends when the signal becomes off or acknowledged." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&lt;br&gt;End: Change of AlertConditionState/DeterminationTime" />
+            </mapping>
+            <type>
+                <code value="Period" />
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>
