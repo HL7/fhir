@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="not-classified"/>
@@ -73,6 +73,22 @@
       <mapping>
         <identity value="w5"/>
         <map value="infrastructure.information"/>
+      </mapping>
+    </element>
+    <element id="Permission.identifier">
+      <path value="Permission.identifier"/>
+      <short value="Business Identifier for permission"/>
+      <definition value="A unique identifier assigned to this permisssion."/>
+      <requirements value="Allows permission to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
       </mapping>
     </element>
     <element id="Permission.status">

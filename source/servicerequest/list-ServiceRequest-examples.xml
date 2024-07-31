@@ -78,6 +78,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an order for physical therapy with a ratio quantity"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-physicaltherapy"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/physicaltherapy"/>
+      <display value="Physical Therapy Ratio Quantity"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="An example of an order to not turn a patient"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
