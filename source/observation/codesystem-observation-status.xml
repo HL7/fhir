@@ -78,6 +78,11 @@
       <display value="Corrected"/>
       <definition value="Subsequent to being Final, the observation has been modified to correct an error in the original test result(s)."/>
     </concept>
+    <concept>
+      <code value="appended"/>
+      <display value="Appended"/>
+      <definition value="Subsequent to being Final, the observation has been modified to include additional information, with no changes to the original test result(s)."/>  
+    </concept>
   </concept>
   <concept>
     <code value="cancelled"/>

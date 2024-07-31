@@ -59,7 +59,9 @@
 		<dueDate value="2016-04-05" />
 	</target>
 	<statusDate value="2016-02-14" />
-	<statusReason value="Patient wants to defer weight loss until after honeymoon."/>
+	<statusReason>
+		<text value="Patient wants to defer weight loss until after honeymoon."/>
+	</statusReason> 
 	<source>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>

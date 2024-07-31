@@ -206,7 +206,7 @@
       <path value="ImmunizationRecommendation.recommendation"/>
       <short value="Vaccine administration recommendations"/>
       <definition value="Vaccine administration recommendations."/>
-      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration."/>
+      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration or the entire immunization series when there is no recommended administration"/>
       <min value="1"/>
       <max value="*"/>
       <type>
