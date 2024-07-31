@@ -72,11 +72,16 @@
   <concept>
     <code value="amended"/>
     <display value="Amended"/>
-    <definition value="Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections."/>
+    <definition value="Subsequent to being Final, the observation has been modified. This includes updates/new information and corrections."/>
     <concept>
       <code value="corrected"/>
       <display value="Corrected"/>
-      <definition value="Subsequent to being Final, the observation has been modified to correct an error in the test result."/>
+      <definition value="Subsequent to being Final, the observation has been modified to correct an error in the original test result(s)."/>
+    </concept>
+    <concept>
+      <code value="appended"/>
+      <display value="Appended"/>
+      <definition value="Subsequent to being Final, the observation has been modified to include additional information, with no changes to the original test result(s)."/>  
     </concept>
   </concept>
   <concept>
