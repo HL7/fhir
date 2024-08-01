@@ -9,7 +9,7 @@
   <p>The defined types of subsets are:</p>
   <ul>
     <li>Frames selected from a multiframe SOP Instance</li>
-    <li>Content Item Observation UIDs selected from a DICOM SR or other structured document SOP Instance</li>
+    <li>Referenced Content Item Identifiers selected from a DICOM SR or other structured document SOP Instance</li>
     <li>Segments selected from a segmentation SOP Instance</li>
     <li>Regions of interest selected from a radiotherapy structure set SOP Instance</li>
   </ul>

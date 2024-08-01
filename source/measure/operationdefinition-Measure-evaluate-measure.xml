@@ -77,9 +77,9 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The url of the plan measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
+    <documentation value="The url of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
     <type value="canonical"/>
-    <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+    <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
   </parameter>
   <parameter>
     <name value="version"/>
