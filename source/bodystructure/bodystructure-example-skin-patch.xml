@@ -26,9 +26,29 @@
 			<system value="http://snomed.info/sct"/>
 			<code value="419161000"/>
 			<display value="Unilateral left"/>
-		</coding>
-		<text value="Left"/>
+		  </coding>
+		  <text value="Left"/>
 		</laterality>
+		<bodyLandmarkOrientation>
+		      <landmarkDescription>
+			       <text value="heart tattoo" />
+			  </landmarkDescription>
+			  <distanceFromLandmark>
+			  	<value>
+				   <value value="2.0"/> 
+                   <unit value="cm"/> 
+                   <system value="http://unitsofmeasure.org"/> 
+                   <code value="cm"/>
+				</value>
+			  </distanceFromLandmark>
+			  <surfaceOrientation>
+			     <coding>
+				   <system value="http://snomed.info/sct"/>
+			       <code value="46053002"/>
+			       <display value="distal"/>
+				 </coding>
+			  </surfaceOrientation>
+		</bodyLandmarkOrientation>
 		<qualifier>
 		  <coding>
 			<system value="http://snomed.info/sct"/>

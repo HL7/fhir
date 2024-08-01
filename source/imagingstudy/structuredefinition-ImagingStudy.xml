@@ -106,7 +106,7 @@
       <path value="ImagingStudy.identifier"/>
       <short value="Identifiers for the whole study"/>
       <definition value="Identifiers for the ImagingStudy such as DICOM Study Instance UID."/>
-      <comment value="See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. "/>
+      <comment value="See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
       <requirements value="If one or more series elements are present in the ImagingStudy, then there shall be one DICOM Study UID identifier (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
@@ -395,8 +395,8 @@
       <path value="ImagingStudy.endpoint"/>
       <short value="Study access endpoint"/>
       <definition value="The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.connectionType."/>
-      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invocation of an imaging web viewer."/>
-      <requirements value="Access methods for viewing (e.g., IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type."/>
+      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invocation of an imaging web viewer. See [Imaging Study Implementation Notes on Endpoints](imagingstudy.html#endpoints)."/>
+      <requirements value="Access methods for viewing (e.g., IHE's IID profile) or retrieving (e.g., DICOM's WADO-URI and WADO-RS) the study or the study's series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -746,8 +746,8 @@
       <path value="ImagingStudy.series.endpoint"/>
       <short value="Series access endpoint"/>
       <definition value="The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.connectionType."/>
-      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances."/>
-      <requirements value="Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level."/>
+      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances. See [Imaging Study Implementation Notes on Endpoints](imagingstudy.html#endpoints)."/>
+      <requirements value="Access methods for retrieving (e.g., DICOM's WADO-URI and WADO-RS) the series or the series' instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -763,7 +763,7 @@
     <element id="ImagingStudy.series.bodySite">
       <path value="ImagingStudy.series.bodySite"/>
       <short value="Body part examined"/>
-      <definition value="The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of ImagingStudy.series.laterality."/>
+      <definition value="The anatomic structures examined. See [DICOM Part 16 Annex L](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of ImagingStudy.series.laterality."/>
       <alias value="BodyPartExamined"/>
       <min value="0"/>
       <max value="1"/>

@@ -23,9 +23,9 @@
   <version value="6.0.0"/>
   <name value="ImagingSelectionStatus"/>
   <title value="Imaging Selection Status"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2022-06-29T10:01:24+11:00"/>
+  <date value="2024-06-13"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -49,7 +49,12 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The imaging selection has been withdrawn following a release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="The imaging selection has been withdrawn following a release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;inactive&quot; rather than &quot;entered-in-error&quot;.)."/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The imaging selection is no longer valid."/>
   </concept>
   <concept>
     <code value="unknown"/>

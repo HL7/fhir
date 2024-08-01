@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="SupplyDelivery-core"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <version value="0.01"/>
+  <name value="SupplyDeliveryStages"/>
+  <title value="SupplyDelivery Profiles"/>
+  <status value="draft"/>
+  <date value="2018-08-11T08:17:46.560"/>
+  <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
+  <description value="Defines constraints and extensions on the SupplyDelivery resource."/>
+</ImplementationGuide>

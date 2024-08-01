@@ -17,11 +17,12 @@
 	</identifier>
 
 	<status value="in-progress"/>
-
 	<patient>
 		<display value="Mr. Belpit"/>
 	</patient>
-
+	<stage>
+  	  <code value="dispatch"/>
+	</stage>
 	<supplier>
 		<display value="ACME distribution"/>
 	</supplier>

@@ -455,6 +455,7 @@
 			<path value="Evidence.relatedArtifact"/>
 			<short value="Link or citation to artifact associated with the summary"/>
 			<definition value="Link or citation to artifact associated with the summary."/>
+			<comment value="Use type value 'derived-from' to denote the source for the Evidence content. To express exact phrasing in the source material, use a classifier instance with a coding value of 'Quotation' and a text value of the quoted content. The coding value of 'Quotation' can be expressed with a system value of 'http://hl7.org/fhir/provenance-entity-role', a code value of 'quotation' and a display value of 'Quotation'."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

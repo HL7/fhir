@@ -4,7 +4,7 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
-This resource covers the supply of biologically derived products to a patient. Examples include provision of highly matched cellular therapy products or crossmatched blood for a patient, supply of a cornea for ocular surgery, supply of a skin products for burn trauma therapy, provision of banked human milk for very low birthweight babies. The biologically derived product dispense can be the result of a transfusion laboratory or tissue bank system responding to a request or order.
+This resource covers the supply of biologically derived products to a patient. Examples include provision of highly matched cellular therapy products or crossmatched blood for a patient, supply of a cornea for ocular surgery, supply of a skin products for burn trauma therapy, provision of banked human milk for very low birthweight babies. The biologically derived product dispense can be the result of a transfusion laboratory or tissue bank system responding to a request or order. Typically the dispense is only considered completed (i.e., status=allocated or issued) after necessary medical release conditions have been met.
 
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>

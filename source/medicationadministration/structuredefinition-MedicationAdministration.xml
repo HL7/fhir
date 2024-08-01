@@ -362,11 +362,11 @@
         <map value=".outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]"/>
       </mapping>
     </element>
-    <element id="MedicationAdministration.occurence[x]">
+    <element id="MedicationAdministration.occurrence[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="2014-0917 HG: Changed name from whenGiven to effectiveTime and made datatype choice of period or dataTime."/>
       </extension>
-      <path value="MedicationAdministration.occurence[x]"/>
+      <path value="MedicationAdministration.occurrence[x]"/>
       <short value="Specific date/time or interval of time during which the administration took place (or did not take place)"/>
       <definition value="A specific date/time or interval of time during which the administration took place (or did not take place). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate."/>
       <min value="1"/>
