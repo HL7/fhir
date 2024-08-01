@@ -166,7 +166,7 @@
           <valueString value="QuestionnaireResponse.source"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-source"/>
-        <description value="The individual providing the information reflected in the questionnaire respose"/>
+        <description value="The individual providing the information reflected in the questionnaire response"/>
         <code value="source"/>
         <type value="reference"/>
         <expression value="QuestionnaireResponse.source"/>

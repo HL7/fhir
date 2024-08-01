@@ -396,6 +396,19 @@
 				<map value="N/A"/>
 			</mapping>
 		</element>
+		<element id="ChargeItemDefinition.account">
+			<path value="ChargeItemDefinition.account"/>
+			<short value="Candidate account(s) for charge items"/>
+			<definition value=" A set of candidate accounts to which charge items using this definition may be assigned."/>
+			<comment value="An Account resource may represent either a patient-oriented account or an organizational account (e.g., a cost center).  This property is intended for use with the cost center style accounts, and is not expected to refer to patient-oriented accounts.  For example, if a ChargeItemDefinition is created to bill for a research procedure, this property could indicate that all charges for that procedure could be directed to the specified account."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
 		<element id="ChargeItemDefinition.publisher">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
 				<valueBoolean value="true"/>

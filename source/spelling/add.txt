@@ -1,4 +1,4 @@
-﻿_language
+_language
 _query
 excluded_structure
 _in
@@ -17,3 +17,4 @@ _source
 _id
 _content
 _text
+hrf

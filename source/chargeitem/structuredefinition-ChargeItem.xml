@@ -660,7 +660,12 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="false"/>
       <binding>

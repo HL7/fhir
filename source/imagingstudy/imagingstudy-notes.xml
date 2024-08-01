@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
 <a name="notes"></a>
@@ -14,11 +14,13 @@ A referenced DICOM SOP instance could be:
 <li>Other DICOM content. </li>
 </ul>
 </p>
+<a name="dicom-uids"></a>
+<h3>DICOM UIDs</h3>
 <p>
 DICOM Series Instance UID and SOP Instance UID use the <code>id</code> datatype, and are encoded directly. For example, an image with SOP Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430045.1.1</code> is encoded in <code>ImagingStudy.series.instance.uid</code> as <code>“2.16.124.113543.1154777499.30246.19789.3503430045.1.1”</code>.
 </p>
 <p>
-The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStudy.identifier</code> element, which is of the <code>Identifier</code> datatype. When encoding a DICOM UID in an <code>Identifier</code> datatype, use the Identifier system of <code>“urn:dicom:uid”</code>, and prefix the UID value with <code>“urn:oid:”</code>. Therefore, an ImagingStudy with DICOM Study Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430046</code> is encoded as:
+The ImagingStudy's DICOM Study Instance UID is encoded in the <code>ImagingStudy.identifier</code> element, which is of the <code>Identifier</code> datatype. When encoding a DICOM UID in an <code>Identifier</code> datatype, use the Identifier system of <code>“urn:dicom:uid”</code>, and prefix the UID value with <code>“urn:oid:”</code>. Therefore, an ImagingStudy with DICOM Study Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430046</code> is encoded as:
 <pre class="json">
 
 	"identifier":{
@@ -28,8 +30,10 @@ The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStu
 
 </pre>
 </p>
+<a name="accession-number"></a>
+<h3>Accession Number</h3>
 <p>
-The study accession number can also be encoded as an <code>Reference.Identifier</code> using the ServiceRequest Reference type and the <code>“ACSN”</code> identifier type, as follows:
+The study accession number is encoded as an <code>Reference.Identifier</code> using the ServiceRequest Reference type and the <code>“ACSN”</code> identifier type, as follows:
 <pre class="json">
 
 "basedOn": [
@@ -52,6 +56,8 @@ The study accession number can also be encoded as an <code>Reference.Identifier<
 
 </pre>
 </p>
+<a name="endpoints"></a>
+<h3>ImagingStudy Endpoints</h3>
 <p>
 The ImagingStudy.endpoint elements and ImagingStudy.series.endpoint elements indicate network 
 services that can be used to access the studies, series, or instances; for example, a DICOM WADO-RS server. An 
@@ -383,4 +389,114 @@ When populating an ImagingStudy resource, storing an update for each DICOM insta
 </p><p>
 Although not reflected in the ImagingStudy resource, the size of an individual referenced instance may be anywhere from a few kilobytes (a compressed 256x256 pixel MR or 640x480 pixel ultrasound image) to a gigabyte or more (for digital breast tomography imaging). When retrieving the referenced content of an ImagingStudy, consider whether all DICOM instances are needed, whether DICOM instances are used concurrently or sequentially, and what rendering or Transfer Syntax is appropriate for the use case.
 </p>
+
+<a name="workflow"></a>
+<h3>ImagingStudy Create and Update Workflow</h3>
+<p>
+The ImagingStudy resource can be hosted by an image archive application - such as a PACS or Vendor-Neutral Archive - or a more general healthcare informatics application such as an EMR. In some cases it may be hosted in both locations.
+</p><p>
+However, the image archive is typically the source of truth for the content of the ImagingStudy.
+</p><p>
+Depending on where the ImagingStudy resource is hosted, there are several available mechanisms for keeping the two applications consistent.
+</p>
+<h4>Image Archive hosts ImagingStudy</h4>
+<p>
+In this scenario, the image archive:
+</p>
+<ul>
+  <li>Hosts FHIR ImagingStudy resources</li>
+  <li>Hosts DICOM / DICOMweb endpoints</li>
+  <li>Ensures consistency between the FHIR and DICOM metadata</li>
+  <li>Ensures consistency between ImagingStudy and key related resources</li>
+    <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+</ul>
+<p>
+The image archive could share ImagingStudy information by:
+</p>
+<ul>
+  <li>EMR performing on-demand FHIR ImagingStudy searches</li>
+    <li><ul><li>Typically using the Accession Number associated with a service request. e.g., <code>GET http://example.org/fhir/ImagingStudy?basedOn=ServiceRequest/123&amp;status=available</code></li></ul></li>
+  <li>Subscription to ImagingStudy resources</li>
+    <li><ul><li>e.g. Requesting notification when ImagingStudy.status=available</li></ul></li>
+  <li>Legacy mechanisms, such as:</li>
+    <li><ul><li>HL7 v2 messages</li>
+    <li>DICOM Instance Availability notification</li></ul></li>
+</ul>
+<h4>EMR hosts ImagingStudy</h4>
+<p>
+In this scenario, the image archive:
+</p>
+<ul>
+  <li>Hosts DICOM / DICOMweb endpoints</li>
+  <li>Ensures consistency between DICOM and key FHIR resources</li>
+  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+</ul>
+<p>
+while the EMR:
+</p>
+<ul>
+  <li>Hosts FHIR ImagingStudy resources</li>
+  <li>Ensures consistency between ImagingStudy and key related resources</li>
+  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+</ul>
+<p>
+The image archive could share ImagingStudy information by:
+</p>
+<ul>
+<li>EMR performing on-demand DICOM / DICOMweb searches</li>
+<li><ul><li>Typically using Accession Number</li>
+        <li>Response would be converted from DICOM to FHIR</li>
+        <li><ul><li>ImagingStudy is intended to support mapping to and from DICOM / DICOMweb search responses</li></ul></li>
+    </ul></li>
+<li>Image archive creating / updating ImagingStudy resources hosted in EMR</li>
+<li><ul><li>Either via PUT method or by posting a Bundle</li></ul></li>
+<li>Subscription to ImagingStudy resources</li>
+  <li><ul><li>As above example</li></ul></li>
+<li>Legacy mechanisms, such as:</li>
+<li><ul><li>HL7 v2 messages</li>
+        <li>DICOM Instance Availability notification</li></ul></li>
+</ul>
+<h4>Both image archive and EMR host ImagingStudy</h4>
+<p>
+In this scenario, the image archive:
+</p>
+<ul>
+  <li>Hosts FHIR ImagingStudy resources</li>
+  <li>Hosts DICOM / DICOMweb endpoints</li>
+  <li>Ensures consistency between the FHIR and DICOM metadata</li>
+  <li>Ensures consistency between ImagingStudy and key related resources</li>
+  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+</ul>
+<p>
+while the EMR:
+</p>
+<ul>
+  <li>Hosts FHIR ImagingStudy resources</li>
+  <li>Ensures consistency between ImagingStudy and key related resources</li>
+  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+</ul>
+<p>
+Mechanisms for ensuring consistency between two systems holding representations of the same data are still in development.
+</p><p>
+As the image archive is the "source of truth", the above methods may still be applicable. See Provenance resource.
+</p>
+
+<a name="status"></a>
+<h3>ImagingStudy.status</h3>
+<p>
+Typically, an ImagingStudy is a FHIR representation of imaging data that is stored in a DICOM device, such as an image archive (e.g. PACS). The value of the status element reflects the status of this representation and does not necessarily reflect the status of either the underlying imaging data or any ServiceRequest or Task resources that resulted in the ImagingStudy being created.
+</p><p>
+In some cases, the ImagingStudy may be created before any images have been acquired. In this case, the <code>.status</code> will have a value of <code>registered</code>. A <code>registered</code>  ImagingStudy should not be used to load images.
+</p><p>
+After images have been acquired, the ImagingStudy will have a status of <code>available</code>. At this stage the ImagingStudy may be presented to viewing applications.
+</p><p>
+If the ImagingStudy is cancelled before images are acquired its status should be set to <code>cancelled</code>.
+</p><p>
+If the ImagingStudy is incorrect it may be corrected with an update operation or set to <code>entered-in-error</code> and replaced with a new ImagingStudy.
+</p><p>
+Additional DICOM images, key object notes, etc. may be created at a later time so a status of <code>complete</code> is not meaningful for an ImagingStudy. For this reason, this status is not defined for an ImagingStudy.
+</p><p>
+Any applications waiting for the completion of an imaging-related ServiceRequest or Task should track the progress of those resources directly.
+</p>
+
 </div>

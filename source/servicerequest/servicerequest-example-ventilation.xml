@@ -9,7 +9,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="40617009"/>
-			<display value="Artificial respiration (procedure)"/>
+			<display value="Artificial ventilation (regime/therapy)"/>
 		</coding>
 		<text value="Mechanical Ventilation"/>
 	  </concept>

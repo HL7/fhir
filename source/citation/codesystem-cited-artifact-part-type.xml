@@ -41,6 +41,11 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-part-type"/>
   <content value="complete"/>
   <concept>
+    <code value="chapters"/>
+    <display value="chapters"/>
+    <definition value="Denotes specific chapter or chapters of an article or artifact."/>
+  </concept>
+  <concept>
     <code value="pages"/>
     <display value="pages"/>
     <definition value="Denotes specific page or pages of an article or artifact."/>

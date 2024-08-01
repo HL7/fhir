@@ -8,7 +8,7 @@
 				<coding>
 					<system value="http://snomed.info/sct"/>
 					<code value="446141000124107"/>
-					<display value="Identifies as female gender (finding)"/>
+					<display value="Female gender identity"/>
 				</coding>
 			</valueCodeableConcept>
 		</extension>
@@ -71,11 +71,9 @@
 		</extension>
 		<extension url="sourceDocument">
 			<!-- Reference to a scan of the birth certificate -->
-			<valueCodeableReference>
-			  <reference>
-  				<reference value="DocumentReference/1"/>
-			  </reference>
-			</valueCodeableReference>
+			<valueReference>
+  			  <reference value="DocumentReference/1"/>
+			</valueReference>
 		</extension>
 		<extension url="sourceField">
 			<valueString value="SEX"/>
@@ -123,11 +121,9 @@
 		</extension>
 		<extension url="sourceDocument">
 			<!-- Reference to a scan of the insurance card-->
-			<valueCodeableReference>
-			  <reference>
-  				<reference value="DocumentReference/2"/>
-			  </reference>
-			</valueCodeableReference>
+			<valueReference>
+  			  <reference value="DocumentReference/2"/>
+			</valueReference>
 		</extension>
 		<extension url="sourceField">
 			<valueString value="SEX"/>
@@ -175,11 +171,9 @@
 		</extension>
 		<extension url="sourceDocument">
 			<!-- Reference to a scan of the driver's license -->
-			<valueCodeableReference>
-			  <reference>
-  				<reference value="DocumentReference/1"/>
-			  </reference>
-			</valueCodeableReference>
+			<valueReference>
+  			  <reference value="DocumentReference/1"/>
+			</valueReference>
 		</extension>
 		<extension url="jurisdiction">
 			<valueCodeableConcept>

@@ -12,7 +12,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value="See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. "/>
+            <resource value="See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers."/>
@@ -174,14 +174,14 @@
             <resource value="Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element."/>
         </definitionUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.code" reason="Unknown"/>
-    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
-    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
-    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+    <unmappedElement patternPath="Event.reported" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.code" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.category" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.recorded" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.product" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Not relevant for this resource"/>
 </mappingExceptions>

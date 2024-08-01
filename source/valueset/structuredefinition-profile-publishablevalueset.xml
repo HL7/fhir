@@ -178,7 +178,7 @@
       <max value="1"/>
       <type>
         <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-creationDate"/>
       </type>
     </element>
     <element id="ValueSet.compose.include">

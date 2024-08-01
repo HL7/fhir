@@ -44,31 +44,26 @@
   <concept>
     <code value="base"/>
     <display value="base price"/>
-    <definition value="the amount is the base price used for calculating the total price before applying surcharges, discount or taxes."/>
+    <definition value="The amount is the base price used for calculating the total price before applying surcharges, discount or taxes."/>
   </concept>
   <concept>
     <code value="surcharge"/>
     <display value="Surcharge"/>
-    <definition value="the amount is a surcharge applied on the base price."/>
-  </concept>
-  <concept>
-    <code value="deduction"/>
-    <display value="Deduction"/>
-    <definition value="the amount is a deduction applied on the base price."/>
+    <definition value="The amount (either directly specified, or calculated using a factor) that increases the cost of the item."/>
   </concept>
   <concept>
     <code value="discount"/>
     <display value="Discount"/>
-    <definition value="the amount is a discount applied on the base price."/>
+    <definition value="The amount (either directly specified, or calculated using a factor) that reduces the cost of the item.  This is sometimes referred to as a deduction."/>
   </concept>
   <concept>
     <code value="tax"/>
     <display value="Tax"/>
-    <definition value="the amount is the tax component of the total price."/>
+    <definition value="The amount (either directly specified, or calculated using a factor) that is levied by a government on the item."/>
   </concept>
   <concept>
     <code value="informational"/>
     <display value="Informational"/>
-    <definition value="the amount is of informational character, it has not been applied in the calculation of the total price."/>
+    <definition value="The amount (either directly specified, or calculated using a factor) is of informational character, it has not been applied in the calculation of the total price."/>
   </concept>
 </CodeSystem>
