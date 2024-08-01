@@ -33,10 +33,25 @@ An ImagingStudy SHALL reference one DICOM Study, and MAY reference a subset of t
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-	<p>Use the ImagingStudy resource to store details of an entire DICOM Study and associated information.</p>
+<p>
+    The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and associated information.
+    </p>
+    <p>
+		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a specific set of specific set of images, frames, waveforms or image regions.
+		</p>
+		<p>
+		An <a href="observation.html">Observation</a> may be related to a set of images in several ways.
+		</p>
+		<ul>
+		  <li><a href="observation.html">Observation.partOf</a> may reference an <a href="imagingstudy.html">ImagingStudy</a></li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> may reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a specific set of images, frames, waveforms or image regions</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> may reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a specific set of images, frames, waveforms or image regions</li>
+		  <li><a href="observation.html">Observation.focus</a> may reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
+		</ul>
+	
+
 	<p>Use the <a href="documentreference.html">DocumentReference</a> resource to store non-DICOM images, video, or audio with relevant metadata.</p>
 	<p>Use the <a href="binary.html">Binary</a> resource to store arbitrary content.</p>
-	<p>Use the <a href="imagingselection.html">ImagingSelection</a> resource to store a reference to a specific set of DICOM images, frames or other DICOM instances.</p>
 
 
 </div>

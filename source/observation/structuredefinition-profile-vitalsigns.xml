@@ -27,8 +27,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1461"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="Observationvitalsigns"/>
-  <title value="Vital Signs Profile"/>
+  <name value="Observationvitalsignsbase"/>
+  <title value="Vital Signs Base Profile"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2016-03-25"/>
@@ -39,7 +39,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm Orders and Observations"/>
     </telecom>
   </contact>
-  <description value="FHIR Vital Signs Profile"/>
+  <description value="FHIR Vital Signs Base Profile"/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -79,8 +79,8 @@
   <differential>
     <element id="Observation">
       <path value="Observation"/>
-      <short value="FHIR Vital Signs Profile"/>
-      <definition value="The FHIR Vitals Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient."/>
+      <short value="FHIR Vital Signs Base Profile"/>
+      <definition value="The FHIR Vitals Signs base profile sets minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient."/>
       <alias value="Vital Signs"/>
       <alias value="Measurement"/>
       <alias value="Results"/>
@@ -115,21 +115,12 @@
       <path value="Observation.category"/>
       <slicing>
         <discriminator>
-          <type value="value"/>
-          <path value="coding.code"/>
+          <type value="pattern"/>
+          <path value="$this"/>
         </discriminator>
-        <discriminator>
-          <type value="value"/>
-          <path value="coding.system"/>
-        </discriminator>
-        <ordered value="false"/>
         <rules value="open"/>
       </slicing>
       <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.category:VSCat">
@@ -137,38 +128,12 @@
       <sliceName value="VSCat"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.category:VSCat.coding">
-      <path value="Observation.category.coding"/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.category:VSCat.coding.system">
-      <path value="Observation.category.coding.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://terminology.hl7.org/CodeSystem/observation-category"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.category:VSCat.coding.code">
-      <path value="Observation.category.coding.code"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <fixedCode value="vital-signs"/>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="vital-signs"/>
+        </coding>
+      </patternCodeableConcept>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.code">

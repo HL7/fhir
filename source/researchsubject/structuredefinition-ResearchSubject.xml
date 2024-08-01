@@ -276,6 +276,7 @@
       <path value="ResearchSubject.subjectState.reason"/>
       <short value="State change reason"/>
       <definition value="The reason for the state change. If coded it should follow the formal subject state model."/>
+      <comment value="Example, if the milestone is &quot;Randomized&quot; then the reason could be &quot;sponsor IVRS randomization code allocated&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -289,6 +290,53 @@
         <description value="Indicates why the state of the subject changed."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/state-change-reason"/>
       </binding>
+    </element>
+    <element id="ResearchSubject.subjectMilestone">
+      <path value="ResearchSubject.subjectMilestone"/>
+      <short value="A significant event in the progress of a ResearchSubject"/>
+      <definition value="A significant event in the progress of a ResearchSubject."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.subjectMilestone.milestone">
+      <path value="ResearchSubject.subjectMilestone.milestone"/>
+      <short value="SignedUp | Screened | Randomized"/>
+      <definition value="A specific event in the research subjects journey through a research study."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchSubjectMilestone"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Indicates the progression of a study subject through a study."/>
+	<valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
+      </binding>
+    </element>
+    <element id="ResearchSubject.subjectMilestone.date">
+      <path value="ResearchSubject.subjectMilestone.date"/>
+      <short value="The date/time when this milestone event was completed"/>
+      <definition value="The date/time when this milestone event was completed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.subjectMilestone.reason">
+      <path value="ResearchSubject.subjectMilestone.reason"/>
+      <definition value="A rationale that provides additional clarification for the milestone that was captured or documented."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
     </element>
     <element id="ResearchSubject.assignedComparisonGroup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">

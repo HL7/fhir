@@ -9,7 +9,7 @@ INFORMATION: Reference.reference: Name of child (reference) overlaps with name o
 INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
 WARNING: Attachment.contentType: Unable to resolve value set on 'code' Binding
 WARNING: Account.covers: Element names should be singular
-WARNING: AuditEvent: Resource elements are out of order. The correct order is '[category(=class), code(=what), action(=what), outcome(=what), entity(=what), patient(=who.focus), occurred[x](=when.done), recorded(=when.recorded), source(=who.witness), agent(=who), authorization(=why), encounter(=why)]' but the actual order is '[category(=class), code(=what), action(=what), occurred[x](=when.done), recorded(=when.recorded), outcome(=what), authorization(=why), patient(=who.focus), encounter(=why), agent(=who), source(=who.witness), entity(=what)]' (src = ResourceValidator)
+WARNING: AuditEvent: Resource elements are out of order. The correct order is '[type(=class), subtype(=what), action(=what), outcome(=what), entity(=what), patient(=who.focus), occurred[x](=when.done), recorded(=when.recorded), source(=who.witness), agent(=who), authorization(=why), encounter(=why)]' but the actual order is '[type(=class), subtype(=what), action(=what), occurred[x](=when.done), recorded(=when.recorded), outcome(=what), authorization(=why), patient(=who.focus), encounter(=why), agent(=who), source(=who.witness), entity(=what)]'
 WARNING: CapabilityStatement.format: Unable to resolve value set on 'code' Binding
 WARNING: CapabilityStatement.patchFormat: Unable to resolve value set on 'code' Binding
 WARNING: CapabilityStatement.rest.security.certificate.type: Unable to resolve value set on 'code' Binding
@@ -36,6 +36,8 @@ WARNING: OperationDefinition.comment: MnM must have confirmed this should not be
 WARNING: OperationDefinition.overload.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Parameters: All resources should have an identifier
 WARNING: Provenance: Resource elements are out of order. The correct order is '[target(=what), patient(=who.focus), encounter(=context), occurred[x](=when.done), recorded(=when.recorded), agent(=who), location(=where), authorization(=why), why(=why), activity(=why), basedOn(=why)]' but the actual order is '[target(=what), occurred[x](=when.done), recorded(=when.recorded), location(=where), authorization(=why), why(=why), activity(=why), basedOn(=why), patient(=who.focus), encounter(=context), agent(=who)]' (src = ResourceValidator)
+INFORMATION: sec:CodeSystem[w3c-provenance-activity-type].define: Value set sec:CodeSystem[w3c-provenance-activity-type].define (W3cProvenanceActivityType/http://hl7.org/fhir/w3c-provenance-activity-type): Display Names must be TitleCase: wasGeneratedBy
+INFORMATION: sec:CodeSystem[w3c-provenance-activity-type].define: Code System sec:CodeSystem[w3c-provenance-activity-type].define (W3cProvenanceActivityType/http://hl7.org/fhir/w3c-provenance-activity-type): Defined codes must be lowercase-dash: Generation
 WARNING: Signature.contentType: Unable to resolve value set on 'code' Binding
 WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))

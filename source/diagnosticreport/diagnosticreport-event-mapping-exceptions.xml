@@ -82,15 +82,15 @@
     <divergentElement patternPath="Event.encounter" resourcePath="DiagnosticReport.encounter">
         <shortUnmatched reason="Unknown">
             <_pattern value="Encounter the diagnostic report is part of"/>
-            <resource value="Health care event when test ordered"/>
+            <resource value="Encounter associated with the DiagnosticReport"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The Encounter during which this diagnostic report was created or to which the creation of this record is tightly associated."/>
-            <resource value="The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about."/>
+            <resource value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This will typically be the encounter the diagnostic report was created during, but some diagnostic reports may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-            <resource value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter  but still be tied to the context of the encounter  (e.g. pre-admission laboratory tests)."/>
+            <resource value="This will typically be the encounter during which the tests and studies were ordered and/or performed that are being reported by the DiagnosticReport.  Some tests or studies may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the diagnostic report to the Encounter context.  May also affect access control."/>

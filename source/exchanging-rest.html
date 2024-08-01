@@ -42,26 +42,26 @@
   <a name="async"> </a>
   <h3>async</h3>
   <p>
-    This pattern is used for a subset of the <a href="#push">push</a> scenarios.  The request goes from the <i>data source</i> to the <i>data consumer</i>, but the requested action does not complete immediately.  Instead, the <i>data consumer</i> delivers the response later.  The <i>data source</i> polls to see what the results are.  This will be most commonly used with the <a href="bundle.html">Bundle</a>-based actions which are processing multiple actions at once and may take longer than the HTTP time-out window allows.  (Note: In theory, it would be possible to use async for <a href="#pull">pull</a> transactions like <a href="#read">read</a> or <a href="#vread">vread</a>.  However no known use case exists for these simple operations to happen asynchronously.
+    This pattern is used for a subset of the <a href="#push">push</a> scenarios.  The request goes from the <i>data consumer</i> to the <i>data source</i>, but the requested action does not complete immediately.  Instead, the <i>data source</i> delivers the response later.  The <i>data consumer</i> polls to see what the results are.  This will be most commonly used with the <a href="bundle.html">Bundle</a>-based actions which are processing multiple actions at once and may take longer than the HTTP time-out window allows.  (Note: In theory, it would be possible to use async for <a href="#pull">pull</a> transactions like <a href="#read">read</a> or <a href="#vread">vread</a>.  However no known use case exists for these simple operations to happen asynchronously.
   </p>
   <p>
     [%file rest-async.svg %]
   </p>
   <a name="async-1"> </a>
   <p>
-    <b>Step 1:</b> The invocation of the RESTful action asynchronously is identical to synchronous invocation, with the exception that the <code>Prefer</code> header is set to "respond-async".  (Note that the server is not obligated to respect the client's stated preference - it could still respond synchronously.)  The response includes a location-header that identifies where to monitor for the progress of the asynchronous request.
+    <b>Step 1:</b> The invocation of the RESTful action asynchronously is identical to synchronous invocation, with the exception that the <code>Prefer</code> header is set to "respond-async".  (Note that the source is not obligated to respect the consumer's stated preference - it could still respond synchronously.)  The response includes a location-header that identifies where to monitor for the progress of the asynchronous request.
   </p>
   <a name="async-2"> </a>
   <p>
-    <b>Step 2:</b> The <i>data source</i> <a href="exchanging-polling.html">polls</a> the location specified in step 1 to see if the operation is complete.  So long as it is not, it gets back a 202 Accepted HTTP response, possibly with a message indicating the degree of progress.  (Note: At any point, the <i>data source</i> could also <a href="async.html#3.1.6.3">cancel</a> the action, though cancellation of a state-changing action is not guaranteed).
+    <b>Step 2:</b> The <i>data consumer</i> <a href="exchanging-polling.html">polls</a> the location specified in step 1 to see if the operation is complete.  So long as it is not, it gets back a 202 Accepted HTTP response, possibly with a message indicating the degree of progress.  (Note: At any point, the <i>data consumer</i> could also <a href="async.html#3.1.6.3">cancel</a> the action, though cancellation of a state-changing action is not guaranteed).
   </p>
   <a name="async-3"> </a>
   <p>
-    <b>Step 3:</b> Once the action is complete, the response to the <i>data source</i>'s polling request changes to a 200 and conveys other information, including URLs to the location of the file (or files) that contain the results of the action.
+    <b>Step 3:</b> Once the action is complete, the response to the <i>data consumer</i>'s polling request changes to a 200 and conveys other information, including URLs to the location of the file (or files) that contain the results of the action.
   </p>
   <a name="async-4"> </a>
   <p>
-    <b>Step 4:</b> The <i>data source</i> retrieves the identified file or files from the <i>data consumer</i>, giving it confirmation of whether the requested action was successful.
+    <b>Step 4:</b> The <i>data consumer</i> retrieves the identified file or files from the <i>data source</i>, giving it confirmation of whether the requested action was successful.
   </p>
 
   <a name="actions"> </a>
@@ -85,15 +85,15 @@
   <a name="create"> </a>
   <h4>RESTful create</h4>
   <p>
-    A <a href="http.html#create">create</a> follows the <a href="#push">push</a> pattern and uses the POST HTTP command to the <code>[base]/[resourceType]</code> endpoint to transmit a single resource from the <i>data source</i>, causing it to be stored on the <i>data consumer</i>.   If successful, the requested record will be persisted at the RESTful endpoint with a reliable id, potentially allowing it to be queried or referenced in subsequent exchanges.  The creation can be made conditional on the absence of specified data using the <a href="http.html#ccreate">If-none-exist</a> header.  The response might include a copy of what was actually stored (which could be different than what was transmitted), an <a href="operationoutcome.html">OperationOutcome</a> with any warning or information messages, or just the metadata indicating id and the version created.  While <a href="#async">asynchronous</a> use is theoretically possible, it would be uncommon for a create to take so long that synchronous operation was not possible.
+    A <a href="http.html#create">create</a> follows the <a href="#push">push</a> pattern and uses the POST HTTP command to the <code>[base]/[resourceType]</code> endpoint to transmit a single resource from the <i>data source</i>, causing it to be stored on the <i>data consumer</i>.   If successful, the requested record will be persisted at the RESTful endpoint of the <i>data consumer</i> with a reliable id, potentially allowing it to be queried or referenced in subsequent exchanges.  The creation can be made conditional on the absence of specified data using the <a href="http.html#ccreate">If-none-exist</a> header.  The response might include a copy of what was actually stored (which could be different than what was transmitted), an <a href="operationoutcome.html">OperationOutcome</a> with any warning or information messages, or just the metadata indicating id and the version created.  While <a href="#async">asynchronous</a> use is theoretically possible, it would be uncommon for a create to take so long that synchronous operation was not possible.
   </p>
 
   <a name="update"> </a>
   <h4>RESTful update</h4>
   <p>
-    A <a href="http.html#update">update</a> follows the <a href="#push">push</a> pattern and uses the PUT HTTP command to the <code>[base]/[resourceType]/[id]</code> endpoint to transmit a single resource from the <i>data source</i>, causing it to be stored on the <i>data consumer</i> with the specified resource id.  This is typically done to replace an existing version of the resource, but it can <a href="http.html#upsert">also be used</a> to create a brand new record if there was no prior resource at that location and the <i>data consumer</i> permits.  Some servers might also support <a href="http.html#cupdate">conditional update</a> using the <code>[base]/[resourceType]?[search parameters]</code> URL to create or update a resource where the id is unknown.
+    A <a href="http.html#update">update</a> follows the <a href="#push">push</a> pattern and uses the PUT HTTP command to the <code>[base]/[resourceType]/[id]</code>  endpoint to transmit a single resource from the <i>data source</i>, causing it to be stored on the <i>data consumer</i> with the specified resource id.  This is typically done to replace an existing version of the resource, but it can <a href="http.html#upsert">also be used</a> to create a brand new record if there was no prior resource at that location and the <i>data consumer</i> permits.  Some servers might also support <a href="http.html#cupdate">conditional update</a> using the <code>[base]/[resourceType]?[search parameters]</code> URL to create or update a resource where the id is unknown.
    </p>
-   <p>If successful, the requested record will be persisted at the RESTful endpoint with the specified id, potentially available to be queried or referenced in subsequent exchanges.  The response might include a copy of what was actually stored (which could be different than what was transmitted), an <a href="operationoutcome.html">OperationOutcome</a> with any warning or information messages, or just the metadata indicating id and the version created by the update. The update can be made conditional on the specified id being unchanged since last accessed, using the <a href="http.html#concurrency">If-match</a> header.  While <a href="#async">asynchronous</a> use is theoretically possible, it would be uncommon for an update to take so long that synchronous operation was not possible.
+   <p>If successful, the requested record will be persisted at the RESTful endpoint of the <i>data consumer</i> with the specified id, potentially available to be queried or referenced in subsequent exchanges.  The response might include a copy of what was actually stored (which could be different than what was transmitted), an <a href="operationoutcome.html">OperationOutcome</a> with any warning or information messages, or just the metadata indicating id and the version created by the update. The update can be made conditional on the specified id being unchanged since last accessed, using the <a href="http.html#concurrency">If-match</a> header.  While <a href="#async">asynchronous</a> use is theoretically possible, it would be uncommon for an update to take so long that synchronous operation was not possible.
   </p>
   <p>
     The workflow for update may be a bit more complex with a <a href="exchanging-search.html">search</a> happening prior to the update, particularly if conditional updates aren't supported.
@@ -114,7 +114,7 @@
   <a name="batch-search"> </a>
   <h4>Executing batch searches</h4>
   <p>
-    A 'search' batch is the same as any other type of <a href="#batch">batch</a>.  It is just that in a search batch, all the requested actions are different types of <a href="exchanging-search.html">search</a>.  Each entry in the batch-response will itself be a search-set Bundle.  It is possible to do paging on the search-set responses within the Bundle, but paging is on a per search-set basis, not on a Bundle basis.  (It is however possible to submit a new batch where each of the entries are a request for the 'next' set of results from some or all the previous queries.)
+    A 'search' batch is the same as any other type of <a href="#batch">batch</a>.  It is just that in a search batch, all the requested actions are different types of <a href="exchanging-search.html">search</a>.  The roles are also reversed, in that the batch is initiated by the <i>data consumer</i> on the server of the <i>data source</i>.  Each entry in the batch-response will itself be a search-set Bundle.  It is possible to do paging on the search-set responses within the Bundle, but paging is on a per search-set basis, not on a Bundle basis.  (It is however possible to submit a new batch where each of the entries are a request for the 'next' set of results from some or all the previous queries.)
   </p>
   <p>
     There is nothing to stop someone from submitting a transaction of searches, but there is little point because, by definition, a search cannot be interdependent on other resources and there is nothing to roll back in the event of a failure.  Thus, using transaction incurs needless cost.

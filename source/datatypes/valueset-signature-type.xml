@@ -5,17 +5,21 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="sec"/>
   </extension>
   <name value="SignatureTypeCodes"/>
   <title value="Signature Type Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
   <description value="The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness."/>

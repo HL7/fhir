@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A task to be performed."/>
+  <description value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -77,7 +77,7 @@
     <element id="Task">
       <path value="Task"/>
       <short value="A task to be performed"/>
-      <definition value="A task to be performed."/>
+      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with Request alone, most workflows would require a Task (explicit or contained) as a means to track the execution data (i.e. inputs, outputs, status). Please refer to the workflow page for more details."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -414,7 +414,6 @@
       <path value="Task.code"/>
       <short value="Task Type"/>
       <definition value="A name or code (or both) briefly describing what the task involves."/>
-      <comment value="The title (eg &quot;My Tasks&quot;, &quot;Outstanding Tasks for Patient X&quot;) should go into the code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -450,7 +449,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -802,7 +801,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableReference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -821,7 +821,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.7"/>
+        <map value="EVN-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

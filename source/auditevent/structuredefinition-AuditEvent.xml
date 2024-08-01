@@ -111,15 +111,15 @@
         <map value="infrastructure.information"/>
       </mapping>
     </element>
-    <element id="AuditEvent.category">
-      <path value="AuditEvent.category"/>
+    <element id="AuditEvent.type">
+      <path value="AuditEvent.type"/>
       <short value="High level categorization of audit event"/>
       <definition value="Partitions the audit event into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
       <comment value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#xa;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
-      <alias value="type"/>
+      <alias value="category"/>
       <alias value="EventTypeCode"/>
-      <min value="0"/>
-      <max value="*"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -156,14 +156,15 @@
         <map value="Activity"/>
       </mapping>
     </element>
-    <element id="AuditEvent.code">
-      <path value="AuditEvent.code"/>
+    <element id="AuditEvent.subtype">
+      <path value="AuditEvent.subtype"/>
       <short value="Specific type of event"/>
-      <definition value="Describes what happened. The most specific code for the event."/>
+      <definition value="Describes what happened. The most specific codes for the event."/>
       <requirements value="This field enables queries of messages by implementation-defined event categories."/>
-      <alias value="subtype"/>
-      <min value="1"/>
-      <max value="1"/>
+      <alias value="code"/>
+      <alias value="EventID"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -733,7 +734,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.author,  FiveWs.source,  FiveWs.actor,  FiveWs.cause,  FiveWs.witness,  FiveWs.who"/>
+        <map value="FiveWs.author, FiveWs.source, FiveWs.actor, FiveWs.cause, FiveWs.witness, FiveWs.who"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1214,8 +1215,8 @@
     </element>
     <element id="AuditEvent.entity.detail.type">
       <path value="AuditEvent.entity.detail.type"/>
-      <short value="Name of the property"/>
-      <definition value="The type of extra detail provided in the value."/>
+      <short value="The name of the extra detail property"/>
+      <definition value="The name of extra detail provided in the value. This element is the tag for the value. Where a simple string is used for the tag name, use the CodeableConcept.display element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1227,7 +1228,7 @@
         </extension>
         <strength value="example"/>
         <description value="Additional detail about an entity used in an event."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/audit-entity-detail-type"/> <!-- This is the right valueset, but blows up the build without a useful error as to why -->
       </binding>
       <mapping>
         <identity value="w5"/>
