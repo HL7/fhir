@@ -5,7 +5,7 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/allele"/>
     </meta>
     <type value="dna"/>
-    <name value="NG_008384.3:g.5124C>T"/>
+
     <location>
         <sequenceLocation>
             <sequenceContext>

@@ -5,7 +5,7 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/allele"/>
     </meta>
     <type value="dna"/>
-    <name value="HLA00001.1:c.126G>A"/>
+
     <location>
         <sequenceLocation>
             <sequenceContext>
