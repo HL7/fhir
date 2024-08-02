@@ -784,7 +784,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="Observation-value-canonical"/>
@@ -802,7 +802,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
@@ -830,12 +830,12 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="{{name}}.url"/>
+          <valueString value="Observation.component.value[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
         <description value="URL contained in valueCanonical."/>
         <code value="component-value-canonical"/>
-        <type value="uri"/>
+        <type value="reference"/>
         <expression value="Observation.component.value.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -911,7 +911,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="Observation-component-value-canonical"/>
@@ -926,5 +926,6 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
+
 </Bundle>
