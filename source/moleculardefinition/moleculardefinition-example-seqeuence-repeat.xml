@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-variation1"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/SequenceFmr1"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource"/>
+            </sequenceContext>
+                <coordinateInterval>
+                    <numberingSystem>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
+                        </coding>
+                        <text value="0-based interval counting"/>
+                    </numberingSystem>
+                        <startQuantity>
+                            <value value="101"/>
+                        </startQuantity>
+                        <endQuantity>
+                            <value value="129"/>
+                        </endQuantity>
+                </coordinateInterval>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <repeated>
+            <sequenceMotif>
+                <reference value="MolecularDefinition/SequenceGgc"/>
+            </sequenceMotif>
+            <copyCount value="9"/>
+        </repeated>
+    </representation>
+
+</MolecularDefinition>
