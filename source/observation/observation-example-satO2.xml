@@ -23,22 +23,24 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<code>
+	<category>
 		<coding>
 			<system value="http://loinc.org"/>
 			<!-- LOINC -->
 			<code value="2708-6"/>
 			<display value="Oxygen saturation in Arterial blood"/>
 		</coding>
-		<!-- Example of a translation to a more specific code than the vitals profile LOINC code -->
-    <coding>
+	</category>
+	<code>
+		<!-- Example of a measurement code that is more specific than the vitals profile LOINC code -->
+    	<coding>
 			<system value="http://loinc.org"/>
 			<!-- LOINC -->
 			<code value="59408-5"/>
 			<display value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
 		</coding>
-    <!-- Record of original machine code -->
-    <coding>
+    	<!-- Record of original machine code -->
+    	<coding>
 			<system value="urn:iso:std:iso:11073:10101"/>
 			<!--    mdc    -->
 			<code value="150456"/>

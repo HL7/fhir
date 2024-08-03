@@ -37,7 +37,8 @@ When an Observation instantiates an ObservationDefinition, the elements of the O
 <li>If the Observation has a specimen element, the referenced Specimen resource should conform to a SpecimenDefinition referenced by ObservationDefinition.specimen (if present).</li>
 </ul>
 <p>
-ObservationDefinition enables to express some Quantity results in two distinct units of measure: the primary or SI one, represented by element unit, and a converted one, provided for accommodation of some actors, represented by element customaryUnit. Observation may pick only the primary unit, or may express its result in both units, in two component results.</p>
+ObservationDefinition can specify units allowed for the valueQuantity element by setting ObservationDefinition.permittedUnit.
+</p>
 <p>
 ObservationDefinitions are only to be used when describing the contents of an observation (including observations in order catalogs or panels). When additional structure, sequence, or rules are needed, the Questionnaire resource should be used. 
 </p>

@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 
 <p>
-The NutritionProduct resource represents the identification of a food or fluid product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food and beverage products for human consumption.
+The NutritionProduct resource represents the identification of a food (i.e., solid and/or liquid) product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food (i.e., solid and/or liquid) products for human consumption.
 </p>
 </div>
 
@@ -13,8 +13,8 @@ The NutritionProduct resource represents the identification of a food or fluid p
 <div>
 <h2>Boundaries and Relationships</h2>
 <ul>
-	<li>Oral intake of food, fluids, oral nutritional supplements (i.e. Ensure), or enteral nutrition should be recorded using the NutritionIntake resource.</li>
-	<li>Supplements, such as vitamins, minerals, herbals, should be recorded using the medication resources</li>
+	<li>Oral intake of food (i.e., solid and/or liquid), oral nutritional supplements, enteral nutrition, and infant formula should be recorded using the NutritionIntake resource.</li>
+	<li>Supplements, such as vitamins, minerals, and herbals, should be recorded using the medication resources</li>
 	<li>Parenteral nutrition should be recorded using the medication resources</li>
 </ul>
 

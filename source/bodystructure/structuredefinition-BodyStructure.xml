@@ -257,7 +257,7 @@
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation"/>
       <short value="Landmark relative location"/>
-      <definition value="Body locations in relation to a specific body landmark (tatoo, scar, other body structure)."/>
+      <definition value="Body location in relation to a specific body landmark (e.g., a body structure such a navel, scar, or implanted device)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

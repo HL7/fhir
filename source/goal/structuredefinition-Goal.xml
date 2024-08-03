@@ -523,17 +523,25 @@
     </element>
     <element id="Goal.statusReason">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#10615, J#43544"/>
+        <valueString value="GF#10615, J#43544, J#44978"/>
       </extension>
       <path value="Goal.statusReason"/>
       <short value="Reason for current lifecycle status"/>
       <definition value="Captures the reason for the current lifecycle status."/>
       <comment value="This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify the reason for current lifecycle status."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
+      </binding>
     </element>
     <element id="Goal.source">
       <path value="Goal.source"/>
