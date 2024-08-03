@@ -287,7 +287,7 @@ do so.
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: W/"1"</code>
-<code>Location: http://example.com/base/Patient/347</code>
+<code>Location: http://example.com/base/Patient/f001</code>
 <code> </code>
 <code>{</code>
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
@@ -359,7 +359,7 @@ Here's an example.
 </p>
 <div class="example">
 <pre class="http linecounter">
-<code>GET /base/Patient/347?_format=xml HTTP/1.1</code>
+<code>GET /base/Patient/f001?_format=xml HTTP/1.1</code>
 <code>Host: example.com</code>
 <code>Accept: application/fhir+xml</code>
 <code>Cache-Control: no-cache</code>
@@ -513,7 +513,7 @@ Here is an example of updating a patient:
 
 <div class="example">
 <pre class="http linecounter">
-<code>PUT /base/Patient/347 HTTP/1.1</code>
+<code>PUT /base/Patient/f001 HTTP/1.1</code>
 <code>Host: example.com</code>
 <code>Content-Type: application/fhir+json</code>
 <code>Content-Length: 1435</code>
@@ -556,7 +556,7 @@ The response to an update request has metadata / status, and optionally an Opera
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: W/"2"</code>
-<code>Location: https://example.com/base/Patient/347/_history/2</code>
+<code>Location: https://example.com/base/Patient/f001/_history/2</code>
 <code> </code>
 <code>{</code>
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
