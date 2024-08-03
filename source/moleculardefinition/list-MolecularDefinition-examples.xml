@@ -305,4 +305,65 @@
     </item>
   </entry>
 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced1"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of GGC"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-ggc"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced1"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of MSH2 Gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-msh2"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-msh2"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of FMR1 Gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of MSH2 2503C"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+
 </List>
