@@ -966,9 +966,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell><Data ss:Type="String">Operation outcome (see translations.xml)</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">#operation-outcome</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-operation-outcome</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipationRoleType</Data></Cell>
