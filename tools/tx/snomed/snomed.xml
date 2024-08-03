@@ -128,6 +128,9 @@
     <display value="Carcinoma in situ"/>
     <display value="Cancer in situ"/>
   </concept>
+  <concept id="111064005" display="Sulfur compound">
+    <display value="Sulfur compound"/>
+  </concept>
   <concept id="11161001" display="DK pig 77">
     <display value="DK pig 77"/>
     <display value="Dekalb hybrid pig line 77 (organism)"/>
@@ -208,15 +211,24 @@
     <display value="Consultation"/>
     <display value="Consultation (procedure)"/>
   </concept>
+  <concept id="1148817001" display="Assessment of barriers in housing insecurity care plan">
+    <display value="Assessment of barriers in housing insecurity care plan"/>
+  </concept>
   <concept id="115341008" display="Total measurement">
     <display value="Total measurement"/>
     <display value="Total measurement (qualifier value)"/>
+  </concept>
+  <concept id="11555005" display="Boron compound">
+    <display value="Boron compound"/>
   </concept>
   <concept id="115665000" display="Atopic state">
     <display value="Atopic state"/>
     <display value="Atopic diathesis"/>
     <display value="Atopy"/>
     <display value="Atopy (disorder)"/>
+  </concept>
+  <concept id="1157152000" display="Not at risk of elopement from healthcare setting">
+    <display value="Not at risk of elopement from healthcare setting"/>
   </concept>
   <concept id="11585000" display="Bubo">
     <display value="Bubo"/>
@@ -234,9 +246,15 @@
     <display value="Nucleic acid sequencing"/>
     <display value="Nucleic acid sequencing (procedure)"/>
   </concept>
+  <concept id="11713004" display="Water">
+    <display value="Water"/>
+  </concept>
   <concept id="1179448000" display="Ondansetron 4 mg oral lyophilisate">
     <display value="Ondansetron 4 mg oral lyophilisate"/>
     <display value="Product containing precisely ondansetron 4 milligram/1 each conventional release oral lyophilisate (clinical drug)"/>
+  </concept>
+  <concept id="11816003" display="Diet education">
+    <display value="Diet education"/>
   </concept>
   <concept id="11830008" display="Delaware chicken">
     <display value="Delaware chicken"/>
@@ -531,6 +549,9 @@
     <display value="Specimen from lung obtained by biopsy (specimen)"/>
     <display value="Lung biopsy sample"/>
   </concept>
+  <concept id="122869004" display="Measurement">
+    <display value="Measurement"/>
+  </concept>
   <concept id="122877000" display="Upper respiratory fluid specimen obtained by tracheal aspiration">
     <display value="Upper respiratory fluid specimen obtained by tracheal aspiration"/>
     <display value="Upper respiratory fluid specimen obtained by tracheal aspiration (specimen)"/>
@@ -681,6 +702,9 @@
     <display value="Puncture - action"/>
     <display value="Puncture - action (qualifier value)"/>
   </concept>
+  <concept id="129303008" display="Removal - action">
+    <display value="Removal - action"/>
+  </concept>
   <concept id="129304002" display="Excision - action">
     <display value="Excision - action"/>
     <display value="Excision - action (qualifier value)"/>
@@ -697,6 +721,9 @@
   <concept id="129323009" display="Scraping - action">
     <display value="Scraping - action"/>
     <display value="Scraping - action (qualifier value)"/>
+  </concept>
+  <concept id="129336009" display="Implantation - action">
+    <display value="Implantation - action"/>
   </concept>
   <concept id="129472003" display="Alemtuzumab">
     <display value="Alemtuzumab"/>
@@ -10942,6 +10969,9 @@
     <display value="Weight decreasing (finding)"/>
     <display value="Progressive weight loss"/>
   </concept>
+  <concept id="161922009" display="No cough">
+    <display value="No cough"/>
+  </concept>
   <concept id="16208003" display="Low fat diet">
     <display value="Low fat diet"/>
     <display value="Low fat diet (finding)"/>
@@ -11161,6 +11191,9 @@
     <display value="Procedure rejected by recipient"/>
     <display value="Procedure refused (situation)"/>
   </concept>
+  <concept id="185468001" display="Home visit for chronic condition (procedure)">
+    <display value="Home visit for chronic condition (procedure)"/>
+  </concept>
   <concept id="1857005" display="Gestational rubella syndrome">
     <display value="Gestational rubella syndrome"/>
     <display value="Gregg's syndrome"/>
@@ -11215,6 +11248,9 @@
     <display value="Repeating dressing"/>
     <display value="Change of dressing (procedure)"/>
     <display value="Dressing change"/>
+  </concept>
+  <concept id="19063003" display="Arthroplasty of knee">
+    <display value="Arthroplasty of knee"/>
   </concept>
   <concept id="190753003" display="Sucrose intolerance">
     <display value="Sucrose intolerance"/>
@@ -11273,9 +11309,15 @@
     <display value="Fee-for-service private physicians' group clinic"/>
     <display value="Fee-for-service private physicians' group office (environment)"/>
   </concept>
+  <concept id="19751002" display="Potassium compound">
+    <display value="Potassium compound"/>
+  </concept>
   <concept id="19770007" display="Hereford pig">
     <display value="Hereford pig"/>
     <display value="Hereford pig (organism)"/>
+  </concept>
+  <concept id="2004005" display="Normal blood pressure">
+    <display value="Normal blood pressure"/>
   </concept>
   <concept id="20044005" display="Pietrain pig">
     <display value="Pietrain pig"/>
@@ -11333,6 +11375,9 @@
   <concept id="21021000" display="Large black pig">
     <display value="Large black pig"/>
     <display value="Large black pig (organism)"/>
+  </concept>
+  <concept id="21134002" display="Disability">
+    <display value="Disability"/>
   </concept>
   <concept id="21208000" display="Saanen goat">
     <display value="Saanen goat"/>
@@ -11496,6 +11541,9 @@
     <display value="Dairy foods (substance)"/>
     <display value="Dairy products"/>
   </concept>
+  <concept id="226789007" display="Breast milk">
+    <display value="Breast milk"/>
+  </concept>
   <concept id="226887002" display="Dietary fats and oils">
     <display value="Fats and oils (substance)"/>
     <display value="Dietary fats and oils"/>
@@ -11578,6 +11626,9 @@
     <display value="Vegetable"/>
     <display value="Vegetable (substance)"/>
   </concept>
+  <concept id="228367002" display="Does not misuse drugs">
+    <display value="Does not misuse drugs"/>
+  </concept>
   <concept id="229115003" display="Bench press">
     <display value="Bench press"/>
     <display value="Bench press (regime/therapy)"/>
@@ -11589,6 +11640,9 @@
   <concept id="229774002" display="Carer">
     <display value="Carer"/>
     <display value="Carer (occupation)"/>
+  </concept>
+  <concept id="229912004" display="Enteral feeding">
+    <display value="Enteral feeding"/>
   </concept>
   <concept id="230456007" display="Status epilepticus">
     <display value="Status epilepticus"/>
@@ -11654,6 +11708,9 @@
   <concept id="237840007" display="Disorder of electrolytes">
     <display value="Disorder of electrolytes"/>
     <display value="Disorder of electrolytes (disorder)"/>
+  </concept>
+  <concept id="238165008" display="Abdominal wall hernia procedure">
+    <display value="Abdominal wall hernia procedure"/>
   </concept>
   <concept id="23992007" display="Black-winged bronze turkey">
     <display value="Black-winged bronze turkey"/>
@@ -11743,6 +11800,9 @@
     <display value="Weal (disorder)"/>
     <display value="Wheal"/>
     <display value="Welt"/>
+  </concept>
+  <concept id="247758009" display="Will not try">
+    <display value="Will not try"/>
   </concept>
   <concept id="248152002" display="Female">
     <display value="Female"/>
@@ -12082,6 +12142,9 @@
     <display value="Micromole/liter (qualifier value)"/>
     <display value="Micromole/liter"/>
   </concept>
+  <concept id="25958007" display="Cobalt compound">
+    <display value="Cobalt compound"/>
+  </concept>
   <concept id="25990002" display="Renal pelvis">
     <display value="Renal pelvis"/>
     <display value="Renal pelvis structure"/>
@@ -12319,6 +12382,9 @@
     <display value="Systolic blood pressure (observable entity)"/>
     <display value="SAP - Systolic arterial pressure"/>
   </concept>
+  <concept id="271651005" display="Stable blood pressure">
+    <display value="Stable blood pressure"/>
+  </concept>
   <concept id="27171005" display="Urinalysis">
     <display value="Urinalysis"/>
     <display value="Urinalysis procedure"/>
@@ -12411,6 +12477,9 @@
     <display value="Radiographic imaging - action (qualifier value)"/>
     <display value="Radiographic imaging - action"/>
   </concept>
+  <concept id="278312000" display="Reattachment - action">
+    <display value="Reattachment - action"/>
+  </concept>
   <concept id="27836007" display="Pertussis">
     <display value="Pertussis"/>
     <display value="Infection due to Bordetella pertussis"/>
@@ -12464,6 +12533,15 @@
     <display value="Travel vaccinations"/>
     <display value="Travel vaccinations (procedure)"/>
   </concept>
+  <concept id="282089006" display="Replacement - action">
+    <display value="Replacement - action"/>
+  </concept>
+  <concept id="282192007" display="Able to walk up stairs">
+    <display value="Able to walk up stairs"/>
+  </concept>
+  <concept id="2832002" display="Molybdenum compound">
+    <display value="Molybdenum compound"/>
+  </concept>
   <concept id="28336001" display="Brangus cattle">
     <display value="Brangus cattle breed (organism)"/>
     <display value="Brangus cattle"/>
@@ -12485,6 +12563,9 @@
   <concept id="284546000" display="Hospice">
     <display value="Hospice"/>
     <display value="Hospice (environment)"/>
+  </concept>
+  <concept id="284778005" display="Difficulty performing personal care activity">
+    <display value="Difficulty performing personal care activity"/>
   </concept>
   <concept id="28483003" display="Simmental cattle">
     <display value="Simmental cattle breed (organism)"/>
@@ -12524,6 +12605,9 @@
     <display value="Treated by"/>
     <display value="Treated with (attribute)"/>
   </concept>
+  <concept id="29183001" display="Fluorine compound">
+    <display value="Fluorine compound"/>
+  </concept>
   <concept id="29223008" display="Boar power pig 565">
     <display value="Boar power pig 565"/>
     <display value="Boar power pig 565 (organism)"/>
@@ -12561,6 +12645,12 @@
     <display value="Bone structure of medial cuneiform"/>
     <display value="Bone structure of medial cuneiform (body structure)"/>
   </concept>
+  <concept id="298429006" display="Normal active range of cervical spine right side flexion">
+    <display value="Normal active range of cervical spine right side flexion"/>
+  </concept>
+  <concept id="298434005" display="Normal passive range of cervical spine right side flexion">
+    <display value="Normal passive range of cervical spine right side flexion"/>
+  </concept>
   <concept id="29850006" display="Iliac crest">
     <display value="Iliac crest"/>
     <display value="Iliac crest structure"/>
@@ -12573,6 +12663,9 @@
   <concept id="30089001" display="Toggenburg goat">
     <display value="Toggenburg goat"/>
     <display value="Toggenburg goat (organism)"/>
+  </concept>
+  <concept id="301475006" display="Negotiates obstacles">
+    <display value="Negotiates obstacles"/>
   </concept>
   <concept id="301887005" display="Needs assistance at home">
     <display value="Needs assistance at home"/>
@@ -12681,6 +12774,9 @@
   <concept id="306689006" display="Discharge to home">
     <display value="Discharge to home (procedure)"/>
     <display value="Discharge to home"/>
+  </concept>
+  <concept id="307085007" display="Difficulty processing information">
+    <display value="Difficulty processing information"/>
   </concept>
   <concept id="30720007" display="Boar power pig 84">
     <display value="Boar power pig 84"/>
@@ -12805,6 +12901,9 @@
     <display value="With or after food"/>
     <display value="With or after food (qualifier value)"/>
   </concept>
+  <concept id="31212001" display="Calcium compound">
+    <display value="Calcium compound"/>
+  </concept>
   <concept id="3127006" display="Fluorouracil">
     <display value="Fluorouracil"/>
     <display value="5-Fluorouracil"/>
@@ -12833,6 +12932,9 @@
   <concept id="314453003" display="Average diastolic blood pressure">
     <display value="Average diastolic blood pressure"/>
     <display value="Average diastolic blood pressure (observable entity)"/>
+  </concept>
+  <concept id="31539008" display="Magnesium compound">
+    <display value="Magnesium compound"/>
   </concept>
   <concept id="315619001" display="FH myocardial infarction male first degree age known">
     <display value="FH myocardial infarction male first degree age known"/>
@@ -12934,6 +13036,9 @@
   <concept id="32683006" display="FHC elite pig 7">
     <display value="FHC elite pig 7"/>
     <display value="FHC elite pig 7 (organism)"/>
+  </concept>
+  <concept id="328352000" display="Feed thickening preparations">
+    <display value="Feed thickening preparations"/>
   </concept>
   <concept id="32849002" display="Esophagus">
     <display value="Esophagus"/>
@@ -13077,6 +13182,15 @@
     <display value="Bos taurus"/>
     <display value="Aurochs"/>
     <display value="Bos taurus (organism)"/>
+  </concept>
+  <concept id="346415002" display="Enteral+supplement feeds">
+    <display value="Enteral+supplement feeds"/>
+  </concept>
+  <concept id="34865002" display="Chromium compound">
+    <display value="Chromium compound"/>
+  </concept>
+  <concept id="35011000087100" display="Mixed breast milk and bottle feeding (regime/therapy)">
+    <display value="Mixed breast milk and bottle feeding (regime/therapy)"/>
   </concept>
   <concept id="351726001" display="Beneath">
     <display value="Beneath"/>
@@ -13316,6 +13430,9 @@
   <concept id="370894009" display="Serious reportable event">
     <display value="Serious reportable event (event)"/>
     <display value="Serious reportable event"/>
+  </concept>
+  <concept id="370996005" display="Patient condition resolved (finding)">
+    <display value="Patient condition resolved (finding)"/>
   </concept>
   <concept id="371041009" display="Embolic stroke">
     <display value="Embolic stroke (disorder)"/>
@@ -14155,6 +14272,9 @@
     <display value="Pinzgauer cattle"/>
     <display value="Pinzgauer cattle breed"/>
   </concept>
+  <concept id="40043006" display="Bottle feeding of patient">
+    <display value="Bottle feeding of patient"/>
+  </concept>
   <concept id="400621001" display="Lorazepam 2mg/mL injection solution 1mL vial">
     <display value="Lorazepam 2mg/mL injection solution 1mL vial (product)"/>
     <display value="Lorazepam 2mg/mL injection solution 1mL vial"/>
@@ -14550,6 +14670,9 @@
     <display value="Drug or medicament"/>
     <display value="Drug"/>
   </concept>
+  <concept id="412413001" display="Infant formula (product)">
+    <display value="Infant formula (product)"/>
+  </concept>
   <concept id="412414007" display="Infant formula + iron">
     <display value="Infant formula + iron (product)"/>
     <display value="Infant formula + iron"/>
@@ -14615,6 +14738,9 @@
     <display value="Obesity"/>
     <display value="Adiposis"/>
     <display value="Adiposity"/>
+  </concept>
+  <concept id="41503000" display="Zinc compound">
+    <display value="Zinc compound"/>
   </concept>
   <concept id="41561001" display="DK pig 30">
     <display value="DK pig 30"/>
@@ -15109,6 +15235,9 @@
     <display value="Yokohama chicken"/>
     <display value="Yokohama chicken (organism)"/>
   </concept>
+  <concept id="43268001" display="Copper compound">
+    <display value="Copper compound"/>
+  </concept>
   <concept id="432825001" display="Body secretion specimen">
     <display value="Body secretion specimen (specimen)"/>
     <display value="Body secretion specimen"/>
@@ -15463,6 +15592,9 @@
     <display value="Soy-based formula (product)"/>
     <display value="Soy-based formula"/>
   </concept>
+  <concept id="443571000124100" display="Modular formula component (product)">
+    <display value="Modular formula component (product)"/>
+  </concept>
   <concept id="443771000124106" display="Hydrolyzed protein formula (product)">
     <display value="Hydrolyzed protein formula (product)"/>
     <display value="Hydrolyzed protein formula"/>
@@ -15509,6 +15641,9 @@
   <concept id="444883009" display="Distilled water">
     <display value="Distilled water (substance)"/>
     <display value="Distilled water"/>
+  </concept>
+  <concept id="444923006" display="Tap water (substance)">
+    <display value="Tap water (substance)"/>
   </concept>
   <concept id="445060000" display="Left against medical advice">
     <display value="Left against medical advice (finding)"/>
@@ -16106,6 +16241,9 @@
     <display value="Hospital-based outpatient pneumology clinic"/>
     <display value="Hospital-based outpatient respiratory disease clinic (environment)"/>
   </concept>
+  <concept id="57272005" display="Iodine compound">
+    <display value="Iodine compound"/>
+  </concept>
   <concept id="57364006" display="Brahma chicken">
     <display value="Brahma chicken"/>
     <display value="Brahma chicken (organism)"/>
@@ -16197,6 +16335,9 @@
   <concept id="59944000" display="Psychologist">
     <display value="Psychologist"/>
     <display value="Psychologist (occupation)"/>
+  </concept>
+  <concept id="60471000" display="Sodium compound">
+    <display value="Sodium compound"/>
   </concept>
   <concept id="6053007" display="DK pig 33">
     <display value="DK pig 33"/>
@@ -16301,6 +16442,9 @@
     <display value="Cholera"/>
     <display value="Cholera (disorder)"/>
     <display value="Vibrio cholerae infection"/>
+  </concept>
+  <concept id="63793008" display="Phosphorus compound">
+    <display value="Phosphorus compound"/>
   </concept>
   <concept id="6397004" display="Muscular strength development exercise">
     <display value="Muscular strength development exercise"/>
@@ -16520,6 +16664,9 @@
     <display value="Local community health centre"/>
     <display value="Local community health center (environment)"/>
   </concept>
+  <concept id="68356001" display="Chlorine compound">
+    <display value="Chlorine compound"/>
+  </concept>
   <concept id="684003" display="Pygmy goat">
     <display value="Pygmy goat"/>
     <display value="Pygmy goat (organism)"/>
@@ -16584,6 +16731,9 @@
     <display value="Stomach structure"/>
     <display value="Stomach structure (body structure)"/>
   </concept>
+  <concept id="700000006" display="Vaginal delivery of fetus">
+    <display value="Vaginal delivery of fetus"/>
+  </concept>
   <concept id="700146008" display="No history of malignant tumor of breast">
     <display value="No history of malignant tumor of breast"/>
     <display value="No history of malignant neoplasm of breast"/>
@@ -16644,6 +16794,9 @@
     <display value="Game chicken"/>
     <display value="Game chicken (organism)"/>
   </concept>
+  <concept id="704302001" display="Lack of symptom control">
+    <display value="Lack of symptom control"/>
+  </concept>
   <concept id="70431006" display="Alpine goat">
     <display value="Alpine goat"/>
     <display value="Alpine goat (organism)"/>
@@ -16679,6 +16832,9 @@
   <concept id="706687001" display="Software">
     <display value="Software"/>
     <display value="Software (physical object)"/>
+  </concept>
+  <concept id="70726008" display="Selenium compound">
+    <display value="Selenium compound"/>
   </concept>
   <concept id="70777001" display="Urine specimen collection, catheterized">
     <display value="Urine specimen collection, catheterized"/>
@@ -16743,6 +16899,9 @@
     <display value="Procedure"/>
     <display value="Procedure (procedure)"/>
   </concept>
+  <concept id="71482002" display="Iron compound">
+    <display value="Iron compound"/>
+  </concept>
   <concept id="715345007" display="Young onset Parkinson disease">
     <display value="Young onset Parkinson disease (disorder)"/>
     <display value="Young onset Parkinson disease"/>
@@ -16760,6 +16919,9 @@
     <display value="No known allergy (situation)"/>
     <display value="No known allergy"/>
     <display value="NKA - No known allergy"/>
+  </concept>
+  <concept id="716424007" display="Able to mobilize over uneven ground (finding)">
+    <display value="Able to mobilize over uneven ground (finding)"/>
   </concept>
   <concept id="71822005" display="Head of fifth metatarsal bone">
     <display value="Head of fifth metatarsal bone"/>
@@ -16841,6 +17003,9 @@
   <concept id="73191001" display="American merino sheep">
     <display value="American merino sheep"/>
     <display value="American merino sheep (organism)"/>
+  </concept>
+  <concept id="73196006" display="Manganese compound">
+    <display value="Manganese compound"/>
   </concept>
   <concept id="73211009" display="Diabetes mellitus">
     <display value="Diabetes mellitus"/>
@@ -17021,6 +17186,9 @@
     <display value="Gelbveih cattle breed (organism)"/>
     <display value="Gelbveih cattle"/>
     <display value="Gelbveih cattle breed"/>
+  </concept>
+  <concept id="765205004" display="Disorder in remission">
+    <display value="Disorder in remission"/>
   </concept>
   <concept id="76604009" display="Nellore cattle">
     <display value="Nellore cattle breed (organism)"/>
@@ -17507,6 +17675,9 @@
     <display value="Oral temperature taking"/>
     <display value="Oral temperature taking (procedure)"/>
   </concept>
+  <concept id="890302005" display="Potable water (substance)">
+    <display value="Potable water (substance)"/>
+  </concept>
   <concept id="89221001" display="Base of first metatarsal bone">
     <display value="Base of first metatarsal bone"/>
     <display value="Structure of base of first metatarsal bone"/>
@@ -17669,6 +17840,9 @@
     <display value="Nursing procedure"/>
     <display value="Nursing procedure (procedure)"/>
     <display value="Nursing care treatments and procedures"/>
+  </concept>
+  <concept id="967006" display="Medication education">
+    <display value="Medication education"/>
   </concept>
   <concept id="9677004" display="Head of second metatarsal bone">
     <display value="Head of second metatarsal bone"/>
