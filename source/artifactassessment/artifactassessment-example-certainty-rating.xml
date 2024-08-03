@@ -14,7 +14,7 @@
 	<date value="2021-11-02T14:48:59.890Z"/>
 	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 	<artifactReference>
-		<reference value="Evidence/18812"/>
+		<reference value="Evidence/example-stroke-alteplase-fatalICH"/>
 		<type value="Evidence"/>
 		<display value="Critically appraised summary of all-cause mortality in meta-analysis of RCTs of heparin for moderately ill patients with COVID-19"/>
 	</artifactReference>

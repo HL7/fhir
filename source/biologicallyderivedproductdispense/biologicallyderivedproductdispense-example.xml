@@ -7,7 +7,7 @@
   </text>
   <status value= "allocated"/>
   <product>
-    <reference value="BiologicallyDerivedProduct/prod1"/>
+    <reference value="BiologicallyDerivedProduct/example"/>
   </product>
   <patient>
     <reference value="Patient/pat1"/>
