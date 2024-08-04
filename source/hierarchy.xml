@@ -38,7 +38,7 @@ signatures.html
       -->
       </page>
       <page title="CI Build Search" filename="search-build.html"/>
-    <!--  <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
+      <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -291,6 +291,7 @@ signatures.html
       <page type="resource" resource="Flag"/>
 
       <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAlert"/>
       <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>

@@ -21,10 +21,10 @@
   </p>
   <h4>Sequence as a file or URL</h4>
   <p>
-    <code>formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
+    <code>file</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
   </p>
   <p>
-    This method can be used to refer to sequence data from in an external source. If the sequence is referring to a GA4GH repository, the <code>formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
+    This method can be used to refer to sequence data from in an external source. If the sequence is referring to a GA4GH repository, the <code>file.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
   </p>
   <h4>Sequence as a series of edits from a known sequence</h4>
   <p>

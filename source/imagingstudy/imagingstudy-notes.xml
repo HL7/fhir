@@ -14,11 +14,13 @@ A referenced DICOM SOP instance could be:
 <li>Other DICOM content. </li>
 </ul>
 </p>
+<a name="dicom-uids"></a>
+<h3>DICOM UIDs</h3>
 <p>
 DICOM Series Instance UID and SOP Instance UID use the <code>id</code> datatype, and are encoded directly. For example, an image with SOP Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430045.1.1</code> is encoded in <code>ImagingStudy.series.instance.uid</code> as <code>“2.16.124.113543.1154777499.30246.19789.3503430045.1.1”</code>.
 </p>
 <p>
-The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStudy.identifier</code> element, which is of the <code>Identifier</code> datatype. When encoding a DICOM UID in an <code>Identifier</code> datatype, use the Identifier system of <code>“urn:dicom:uid”</code>, and prefix the UID value with <code>“urn:oid:”</code>. Therefore, an ImagingStudy with DICOM Study Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430046</code> is encoded as:
+The ImagingStudy's DICOM Study Instance UID is encoded in the <code>ImagingStudy.identifier</code> element, which is of the <code>Identifier</code> datatype. When encoding a DICOM UID in an <code>Identifier</code> datatype, use the Identifier system of <code>“urn:dicom:uid”</code>, and prefix the UID value with <code>“urn:oid:”</code>. Therefore, an ImagingStudy with DICOM Study Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430046</code> is encoded as:
 <pre class="json">
 
 	"identifier":{
@@ -28,8 +30,10 @@ The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStu
 
 </pre>
 </p>
+<a name="accession-number"></a>
+<h3>Accession Number</h3>
 <p>
-The study accession number can also be encoded as an <code>Reference.Identifier</code> using the ServiceRequest Reference type and the <code>“ACSN”</code> identifier type, as follows:
+The study accession number is encoded as an <code>Reference.Identifier</code> using the ServiceRequest Reference type and the <code>“ACSN”</code> identifier type, as follows:
 <pre class="json">
 
 "basedOn": [
@@ -52,6 +56,8 @@ The study accession number can also be encoded as an <code>Reference.Identifier<
 
 </pre>
 </p>
+<a name="endpoints"></a>
+<h3>ImagingStudy Endpoints</h3>
 <p>
 The ImagingStudy.endpoint elements and ImagingStudy.series.endpoint elements indicate network 
 services that can be used to access the studies, series, or instances; for example, a DICOM WADO-RS server. An 
