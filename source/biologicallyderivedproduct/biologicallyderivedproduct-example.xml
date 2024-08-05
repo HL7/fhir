@@ -19,7 +19,7 @@
 	  <value value="A999921123456" />
   </biologicalSourceEvent>
   <processingFacility>
-    <reference value="Organization/A9999" />
+    <reference value="Organization/example" />
   </processingFacility>
   <division value="A00000" />
   <productStatus>

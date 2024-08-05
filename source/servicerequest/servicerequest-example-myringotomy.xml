@@ -35,7 +35,7 @@
 	   </concept>
 	</code>
 	<subject>
-		<reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
+		<reference value="https://fhir.example.org/blaze/fhir/Patient/77662"/>
 		<display value="Beverly Weaver"/>
 	</subject>
 	<encounter>
@@ -46,7 +46,7 @@
 	</occurrencePeriod>
 	<authoredOn value="2014-02-14"/>
 	<requester>
-			<reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
+			<reference value="https://fhir.example.org/blaze/fhir/Practitioner/77272"/>
 			<display value="Serena Shrink"/>
 	</requester>
 	<performerType>
@@ -57,7 +57,7 @@
 		</coding>
 	</performerType>
 	<performer>
-		<reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597"/>
+		<reference value="https://fhir.example.org/blaze/fhir/Practitioner/76597"/>
 		<display value="Dr Dave"/>
 	</performer>
 	<reason>

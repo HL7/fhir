@@ -1,4 +1,4 @@
-<ConceptMap>
+<ConceptMap xmlns="http://hl7.org/fhir">
    <id value="example-priority"/>
    <url value="http://hl7.org/fhir/ConceptMap/example-priority"/>
    <version value="20220809"/>
