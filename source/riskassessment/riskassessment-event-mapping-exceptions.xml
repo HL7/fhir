@@ -59,7 +59,7 @@
         <modifier _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="registered | preliminary | final | amended +"/>
+            <resource value="registered | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the risk assessment."/>

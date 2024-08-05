@@ -47,7 +47,7 @@
 	        </reference>
         </medication>
         <subject>
-          <reference value="Patient/347"/>
+          <reference value="Patient/f001"/>
         </subject>
         <!-- snip -->
       </MedicationRequest>

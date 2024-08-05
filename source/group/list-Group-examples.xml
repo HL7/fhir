@@ -30,6 +30,30 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Family"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-family"/>
+    </extension>
+    <item>
+      <reference value="Group/Family"/>
+      <display value="Family Group"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Household"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-household"/>
+    </extension>
+    <item>
+      <reference value="Group/Household"/>
+      <display value="Family Household"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Herd of 2500 breeding sows"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

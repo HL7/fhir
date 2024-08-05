@@ -45,7 +45,6 @@
       <display value="Peter James Chalmers"/>
     </member>
 	</participant>
-
 	<participant>
 		<role>
 			<text value="adviser"/>
@@ -57,7 +56,7 @@
 		<onBehalfOf>
 			<reference value="Organization/f001"/>
 		</onBehalfOf>
-		<coverageTiming>
+		<effectiveTiming>
 			<repeat>
 				<boundsPeriod>
 					<start value="2010-12-23" />
@@ -69,7 +68,7 @@
 				<dayOfWeek value="mon" />
 				<when value="MORN" />
 			</repeat>
-		</coverageTiming>
+		</effectiveTiming>
 	</participant> 
 	<managingOrganization>
         <reference value="Organization/f001"/>

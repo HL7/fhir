@@ -211,25 +211,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
-    <element id="MolecularSequence.literal.encoding">
-      <path value="MolecularSequence.literal.encoding"/>
-      <short value="The encoding used for the expression of the primary sequence"/>
-      <definition value="The encoding used for the expression of the primary sequence. This defines the characters that may be used in the primary sequence and it permits the explicit inclusion/exclusion of IUPAC ambiguity codes."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
-
-    <element id="MolecularSequence.formatted">
-      <path value="MolecularSequence.formatted"/>
-      <short value="A representation of a molecular sequence that optionally contains formatting in addition to the specification of the primary sequence itself"/>
-      <definition value="A representation of a molecular sequence that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
-      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
+    <element id="MolecularSequence.file">
+      <path value="MolecularSequence.file"/>
+      <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
+      <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
       <min value="0"/>
       <max value="*"/>
       <type>

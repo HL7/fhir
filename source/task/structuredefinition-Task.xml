@@ -414,7 +414,6 @@
       <path value="Task.code"/>
       <short value="Task Type"/>
       <definition value="A name or code (or both) briefly describing what the task involves."/>
-      <comment value="The title (eg &quot;My Tasks&quot;, &quot;Outstanding Tasks for Patient X&quot;) should go into the code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -802,7 +801,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableReference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -821,7 +821,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.7"/>
+        <map value="EVN-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

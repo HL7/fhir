@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization."/>
+  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but are not formally or legally recognized; i.e. a collection of entities that isn't an Organization. Some groups are allowed to take actions, to do things collectively (but not groups of practitioners providing care - see CareTeam)"/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -445,9 +445,9 @@
     </element>
     <element id="Group.code">
       <path value="Group.code"/>
-      <short value="Kind of Group members"/>
-      <definition value="Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc."/>
-      <comment value="This would generally be omitted for Person resources."/>
+      <short value="Use of the Group (and by implication, kind of members)"/>
+      <definition value="A code that describes the use of the group. The use of the group usually dictates what kind of entities can be members of the group."/>
+      <comment value="The types of entities that can be members needs to align with Group.type"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -456,10 +456,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GroupKind"/>
+          <valueString value="GroupCode"/>
         </extension>
-        <strength value="example"/>
-        <description value="Kind of particular resource; e.g. cow, syringe, lake, etc."/>
+        <strength value="extensible"/>
+        <description value="A code that describes the kind of group, which usually dictates what kind if entities can be in the group."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-code"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -795,6 +796,24 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
+    </element>
+    <element id="Group.member.involvement">
+      <path value="Group.member.involvement"/>
+      <short value="Code that describes how user is part of the group"/>
+      <definition value="A code that describes how a user is involved in the group. Some groups (e.g. exposure-group) typically don't have variance between members, or it is not tracked, while for other groups (e.g. family, household) this may be meaningful."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GroupInvolvement"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code that describes how a user is involved in the group"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-involvement-set"/>
+      </binding>
     </element>
     <element id="Group.member.period">
       <path value="Group.member.period"/>

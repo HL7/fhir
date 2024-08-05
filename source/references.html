@@ -578,23 +578,21 @@ The same example in JSON:
 <pre class="json" fragment="Condition">
 {
   "resourceType" : "Condition",
-  "contained": [
-    {
-      "resourceType" : "Practitioner",
-      "id" : "p1",
-      "name" : [{
-        "family" : "Person",
-        "given" : ["Patricia"]
-      }]
-	  }],
-    "participant" : [{
-      "function" : {
-        "text" : "Asserter"
-      },
-      "actor" : {
-        "reference" : "#p1"
-      }
+  "contained": [{
+    "resourceType" : "Practitioner",
+    "id" : "p1",
+    "name" : [{
+      "family" : "Person",
+      "given" : ["Patricia"]
     }]
+  }],
+  "participant" : [{
+    "function" : {
+      "text" : "Asserter"
+    },
+    "actor" : {
+      "reference" : "#p1"
+    }
   }]
 }
 </pre>

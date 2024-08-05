@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="sec"/>
   </extension>
   <url value="http://hl7.org/fhir/w3c-provenance-activity-type"/>
   <identifier>
@@ -16,20 +16,18 @@
   <version value="1.1.0"/>
   <name value="W3cProvenanceActivityType"/>
   <title value="W3c Provenance Activity Type"/>
-  <status value="draft"/>
-  <experimental value="true"/>
-  <date value="2017-02-19"/>
-  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-06-12"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
     </telecom>
-  </contact>
-  <contact>
     <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
   <description value="This value set includes W3C PROV Data Model Activity concepts, which are treated as codes in this valueset.  Some adaptations were made to make these concepts suitable values for the Provenance.activity element. Coded concepts are from PROV-DM and the display names are their counterparts in PROV-N (human readable notation syntax specification).[code system OID: http://www.w3.org/TR/2013/REC-prov-dm-20130430/ and http://www.w3.org/TR/2013/REC-prov-n-20130430/]"/>
