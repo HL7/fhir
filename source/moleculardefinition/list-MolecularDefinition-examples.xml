@@ -325,7 +325,7 @@
       <valueString value="moleculardefinition-example-sequence-ggc"/>
     </extension>
     <item>
-      <reference value="MolecularDefinition/example-allelesliced1"/>
+      <reference value="MolecularDefinition/example-example-sequence-ggc"/>
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
