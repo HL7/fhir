@@ -18,7 +18,7 @@
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
 						<h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>
-						<pre xml:space="preserve">
+						<pre>
 Test                  Units       Value       Reference Range
 Haemoglobin           g/L         176         135 - 180
 Red Cell Count        x10*12/L    5.9         4.2 - 6.0

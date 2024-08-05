@@ -6,12 +6,12 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->
   <request>
-    <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
+    <reference value="ServiceRequest/example" />
     <display value="Service Request for HCT Collection"/>    
   </request>
   <collection>
     <source>
-		  <reference value="Patient/example-b"/>
+		  <reference value="Patient/pat2"/>
 	  <display value="HCT Donor"/>
     </source>
   </collection>
