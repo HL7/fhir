@@ -534,8 +534,8 @@
     <element id="Patient.contact.name">
       <path value="Patient.contact.name"/>
       <short value="A name associated with the contact person"/>
-      <definition value="A name associated with the contact person. Alternate/additional names for this contact can be found in the `additionalNames` property."/>
-      <requirements value="Contact persons need to be identified by name. Where multiple names are required, such as legal name and usual (Name to Use) name, also refer to the `additionalNames` property."/>
+      <definition value="A name associated with the contact person. Alternate/additional names for this contact can be found in the `additionalName` property."/>
+      <requirements value="Contact persons need to be identified by name. Where multiple names are required, such as legal name and usual (Name to Use) name, also refer to the `additionalName` property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -555,14 +555,14 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Patient.contact.additionalNames">
+    <element id="Patient.contact.additionalName">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="trial-use"/>
 			</extension>
-      <path value="Patient.contact.additionalNames"/>
+      <path value="Patient.contact.additionalName"/>
       <short value="Additional names for the contact person"/>
       <definition value="Additional names for the contact person."/>
-      <comment value="**To maintain backward compatibility, additionalNames was added as a way to express names beyond the single name that can be represented in `Patient.contact.name`.**&#xD; &#xD;When looking for an name of a given type, implementers should inspect both `Patient.contact.name` and `Patient.contact.additionalNames`, and treat those two properties as a single combined logical list of names." />
+      <comment value="**To maintain backward compatibility, `additionalName` was added as a way to express names beyond the single name that can be represented in `Patient.contact.name`.**&#xD; &#xD;When looking for an name of a given type, implementers should inspect both `Patient.contact.name` and `Patient.contact.additionalName`, and treat those two properties as a single combined logical list of names." />
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -609,7 +609,7 @@
     <element id="Patient.contact.address">
       <path value="Patient.contact.address"/>
       <short value="Address for the contact person"/>
-      <definition value="Address for the contact person. Alternate/additional addresses for this contact can be found in the `additionalAddresses` property."/>
+      <definition value="Address for the contact person. Alternate/additional addresses for this contact can be found in the `additionalAddress` property."/>
       <requirements value="Need to keep track where the contact person can be contacted per postal mail or visited."/>
       <min value="0"/>
       <max value="1"/>
@@ -630,14 +630,14 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Patient.contact.additionalAddresses">
+    <element id="Patient.contact.additionalAddress">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="trial-use"/>
 			</extension>
-      <path value="Patient.contact.additionalAddresses"/>
+      <path value="Patient.contact.additionalAddress"/>
       <short value="Additional addresses for the contact person"/>
       <definition value="Additional addresses for the contact person."/>
-      <comment value="**To maintain backward compatibility, additionalAddresses was added as a way to express addresses beyond the single address that can be represented in Patient.contact.address.**&#xD; &#xD;When looking for an address of a given type, implementers should inspect both `Patient.contact.address` and `Patient.contact.additionalAddresses`, and treat those two properties as a single combined logical list of addresses." />
+      <comment value="**To maintain backward compatibility, `additionalAddress` was added as a way to express addresses beyond the single address that can be represented in Patient.contact.address.**&#xD; &#xD;When looking for an address of a given type, implementers should inspect both `Patient.contact.address` and `Patient.contact.additionalAddress`, and treat those two properties as a single combined logical list of addresses." />
       <requirements value="Need to keep track where the contact person can be contacted per postal mail or visited."/>
       <min value="0"/>
       <max value="*"/>
