@@ -11,7 +11,7 @@
             <sequenceContext>
                 <reference value="MolecularDefinition/example-sequence-hla000011"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource: HLA00011"/>
+                <display value="Starting Sequence Resource: HLA00001"/>
             </sequenceContext>
         </sequenceLocation>
     </location>
@@ -20,7 +20,7 @@
             <startingMolecule>
                 <reference value="MolecularDefinition/example-sequence-hla000011"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource: HLA00011"/>
+                <display value="Starting Sequence Resource: HLA00001"/>
             </startingMolecule>
             <edit>
                 <coordinateSystem>
