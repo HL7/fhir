@@ -971,5 +971,50 @@
 				<map value="N/A (to add?)"/>
 			</mapping>
 		</element>
+		<element id="SubscriptionTopic.trigger.notificationShape.relatedQuery">
+			<path value="SubscriptionTopic.trigger.notificationShape.relatedQuery"/>
+			<short value="Query describing data relevant to this notification"/>
+			<definition value="Queries and codes that could be included with notifications of this shape. Servers MAY include these queries if supported and desired in the workflow."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionTopic.trigger.notificationShape.relatedQuery.queryType">
+			<path value="SubscriptionTopic.trigger.notificationShape.relatedQuery.queryType"/>
+			<short value="Coded information describing the type of data this query provides"/>
+			<definition value="Coded value(s) used to describe the type of information that evaluating this query will provide. Subscribers can use the values to ensure the data they request are relevant and necessary for their use."/>
+			<min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionTopic.trigger.notificationShape.relatedQuery.query">
+			<path value="SubscriptionTopic.trigger.notificationShape.relatedQuery.query"/>
+			<short value="Query to perform"/>
+			<definition value="Query a subscriber can use to retrieve additional information. The exact contents of the query MAY depend on the value of the `queryType`, however this SHOULD be a query suitable for use as an HTTP GET request (either fully-qualified or partial)."/>
+			<min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
 	</differential>
 </StructureDefinition>

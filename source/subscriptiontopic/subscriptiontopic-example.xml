@@ -58,6 +58,24 @@
       <include value="Encounter:diagnosis"/>
       <include value="Encounter:observation"/>
       <include value="Encounter:location"/>
+      <relatedQuery>
+        <queryType>
+          <coding>
+            <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+            <code value="current-patient"/>
+          </coding>
+        </queryType>
+        <query value="Patient?_include:iterate=Patient:link"/>
+      </relatedQuery>
+      <relatedQuery>
+        <queryType>
+          <coding>
+            <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+            <code value="current-providers"/>
+          </coding>
+        </queryType>
+        <query value="$current-providers"/>
+      </relatedQuery>
     </notificationShape>
 	</trigger>
 </SubscriptionTopic>

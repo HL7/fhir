@@ -261,7 +261,7 @@
     Sometimes it is beneficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
   </p>
   <p>
-    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them.
+    In order to facilitate these workflows, a SubscriptionTopic can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them.
   </p>
   <p>
     Inclusion directives MAY contain additional logic as allowed by search (e.g., iterating over inclusions). Server implementations are under no obligation to support additional logic, just as they are not required to support shape directives.  Servers that do support inclusions but not support complex inclusion logic SHOULD ignore the additional directives in the <code>include</code> and <code>revinclude</code> elements.  Note that there is currently no discovery mechanism for advertising or finding the level of shaping support for a server.  Server implementers SHOULD document their support so that client implementers can discover this out-of-band.
@@ -274,6 +274,15 @@
   </p>
   <p>
     Note that the FHIR specification defines other mechanisms for defining graphs of resources - e.g., <a href="graphdefinition.html">GraphDefinition</a> and <a href="graphql.html">GraphQL</a>.  Currently, adoption of these mechanisms is significantly behind implementations of Search-based include.  In order to support this functionality without adding barriers to implementing subscriptions, support for <code>include</code> and <code>revinclude</code> was selected.  If another graph-defining mechanism gains widespread adoption, support could be added via an extension with changes to this resource in a future version of FHIR.
+  </p>
+
+  <a name="shape-related-query"/>
+  <h4>Including Related Queries</h4>
+  <p>
+    It can be beneficial to send queries to a subscriber either in addition to or instead of other contents in a notification (e.g., resource ids or resource contents).  For example, when referrals for services that may be scheduled far into the future or when notifying of complex or non-standardized sets of information (e.g., insurance coverage).
+  </p>
+  <p>
+    In order to facilitate these workflows, a SubscriptionTopic can define a set of queries that MAY be included when a notification is sent.  These queries are described as a list of <a href="search.html">Search Queries</a> and optional coded information about the query (i.e., what information it provides).  The queries included in a SubscriptionTopic are not required to be fully-resolvable, but rather a starting point or template for specific queries that are included in notifications.  When notifications are generated, a server that supports this feature SHOULD include queries listed via <code>notificationShape.relatedQuery</code> if they exist and the workflow is one that can reasonably expect subscribers to be able to execute the queries.  Note that support for including queries is optional and servers are not required to implement this functionality.  Clients SHOULD be prepared to receive these queries, but SHALL function properly without them.
   </p>
 
 	<a name="deriving" />
