@@ -49,11 +49,6 @@
   <description value="A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
@@ -93,10 +88,6 @@
         <source value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
       </constraint>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Request"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="Act[@moodCode &amp;lt;= 'PRMS']"/>
       </mapping>
@@ -119,10 +110,6 @@
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.identifier"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -147,10 +134,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.basedOn"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="scheduleRequest.ActAppointmentRequest[@moodCode &amp;lt;= 'ARQ']"/>
@@ -189,10 +172,6 @@
         <code value="instant"/>
       </type>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Request.occurrence[x]"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.init"/>
       </mapping>
@@ -213,10 +192,6 @@
       <type>
         <code value="instant"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.occurrence[x]"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.done[x]"/>
@@ -247,10 +222,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-participant-type"/>
       </binding>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Request.performerType"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="(performer | reusableDevice | subject | location).@typeCode"/>
       </mapping>
@@ -278,10 +249,6 @@
       </type>
       <condition value="apr-1"/>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.performer"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.who"/>
@@ -321,10 +288,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/appointmentresponse-status"/>
       </binding>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Request.status"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="(performer | reusableDevice | subject | location).statusCode"/>
       </mapping>
@@ -343,10 +306,6 @@
       <type>
         <code value="markdown"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.note"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value"/>
