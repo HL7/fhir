@@ -358,10 +358,10 @@
       <valueString value="Example of Variation profile of MSH2 2503C"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-fmr1"/>
+      <valueString value="moleculardefinition-example-variation1"/>
     </extension>
     <item>
-      <reference value="MolecularDefinition/example-sequence-fmr1"/>
+      <reference value="MolecularDefinition/example-variation1"/>
       <display value="Example of Variation profile"/>
     </item>
   </entry>
