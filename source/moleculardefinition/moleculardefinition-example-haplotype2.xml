@@ -10,9 +10,9 @@
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/example-sequenceHla000011"/>
+                <reference value="MolecularDefinition/example-sequence-hla000011"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource"/>
+                <display value="Starting Sequence Resource: HLA00001 (A*01:01:01:01)"/>
             </sequenceContext>
         </sequenceLocation>
     </location>

@@ -8,9 +8,9 @@
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/SequenceFmr1"/>
+                <reference value="MolecularDefinition/example-sequence-fmr1"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource"/>
+                <display value="Starting Sequence Resource: FMR1"/>
             </sequenceContext>
                 <coordinateInterval>
                     <numberingSystem>
@@ -33,7 +33,9 @@
     <representation>
         <repeated>
             <sequenceMotif>
-                <reference value="MolecularDefinition/SequenceGgc"/>
+                <reference value="MolecularDefinition/example-sequence-ggc"/>
+                <type value="MolecularDefinition"/>
+                <display value="GGC"/>
             </sequenceMotif>
             <copyCount value="9"/>
         </repeated>

@@ -25,9 +25,21 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         </resolvable>
         <extracted>
             <startingMolecule>
-                <reference value="MolecularDefinition/example-startingSequence2bExtracted"/>
+                <reference value="MolecularDefinition/example-starting-sequence-2b-extracted"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource"/>
+                <display value="Starting Sequence Resource:
+                ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
+                TTTTACTAAGTGTTCAAATACCAGTGAACTTAAAGAATTTGTCAATCCTAGCCTTCCAAGAGAAGAAAAA
+                GAAGAGAAACTAGAAACAGTTAAAGTGTCTAATAATGCTGAAGACCCCAAAGATCTCATGTTAAGTGGAG
+                AAAGGGTTTTGCAAACTGAAAGATCTGTAGAGAGTAGCAGTATTTCAYTGGTACCTGGTACTGATTATGG
+                CACTCAGGAAAGTATCTCGTTACTGGAAGTTAGCACTCTAGGGAAGGCAAAAACAGAACCAAATAAATGT
+                GTGAGTCAGTGTGCAGCATTTGAAAACCCCAAGGGACTAATTCATGGTTGTTCCAAAGATAATAGAAATG
+                ACACAGAAGGCTTTAAGTATCCATTGGGACATGAAGTTAACCACAGTCGGGAAACAAGCATAGAAATGGA
+                AGAAAGTGAACTTGATGCTCAGTATTTGCAGAATACATTCAAGGTTTCAAAGCGCCAGTCATTTGCTCYG
+                TTTTCAAATCCAGGAAATGCAGAAGAGGAATGTGCAACATTCTCTGCCCACTCTGGGTCCTTAAAGAAAC
+                AAAGTCCAAAAGTCACTTTTGAATGTGAACAAAAGGAAGAAAATCAAGGAAAGAATGAGTCTAATATCAA
+                GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGAGCCTGTACAGACAGTT
+                AATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             </startingMolecule>
             <start value="0"/>
             <end value="754"/>
@@ -44,32 +56,43 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
         <concatenated>
             <sequenceElement>
                 <sequence>
-                    <reference value="MolecularDefinition/example-sequence02bConcatenated"/>
+                    <reference value="MolecularDefinition/example-sequence0-2b-concatenated"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Sequence-of index 0-Resource for concatenated sequence example"/>
+                    <display value="Sequence-of index 0-Resource for concatenated sequence example:
+                    ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
+TTTTACTAAGTGTTCAAATACCAGTGAACTTAAAGAATTTGTCAATCCTAGCCTTCCAAGAGAAGAAAAA
+GAAGAGAAACTAGAAACAGTTAAAGTGTCTAATAATGCTGAAGACCCCAAAGATCTCATGTTAAGTGGAG"/>
                 </sequence>
                 <ordinalIndex value="0"/>
             </sequenceElement>
             <sequenceElement>
                 <sequence>
-                    <reference value="MolecularDefinition/example-sequence12bConcatenated"/>
+                    <reference value="MolecularDefinition/example-sequence1-2b-concatenated"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Sequence-of index 1-Resource for concatenated sequence example"/>
+                    <display value="Sequence-of index 1-Resource for concatenated sequence example:
+                    AAAGGGTTTTGCAAACTGAAAGATCTGTAGAGAGTAGCAGTATTTCAYTGGTACCTGGTACTGATTATGG
+CACTCAGGAAAGTATCTCGTTACTGGAAGTTAGCACTCTAGGGAAGGCAAAAACAGAACCAAATAAATGT
+GTGAGTCAGTGTGCAGCATTTGAAAACCCCAAGGGACTAATTCATGGTTGTTCCAAAGATAATAGAAATG
+ACACAGAAGGCTTTAAGTATCCATTGGGACATGAAGTTAACCACAGTCGGGAAACAAGCATAGAAATGGA
+AGAAAGTGAACTTGATGCTCAGTATTTGCAGAATACATTCAAGGTTTCAAAGCGCCAGTCATTTGCTCYG"/>
                 </sequence>
                 <ordinalIndex value="1"/>
             </sequenceElement>
             <sequenceElement>
                 <sequence>
-                    <reference value="MolecularDefinition/example-sequence22bConcatenated"/>
+                    <reference value="MolecularDefinition/example-sequence2-2b-concatenated"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Sequence-of index 2-Resource for concatenated sequence example"/>
+                    <display value="Sequence-of index 2-Resource for concatenated sequence example:
+                    TTTTCAAATCCAGGAAATGCAGAAGAGGAATGTGCAACATTCTCTGCCCACTCTGGGTCCTTAAAGAAAC
+AAAGTCCAAAAGTCACTTTTGAATGTGAACAAAAGGAAGAAAATCAAGGAAAGAATGAGTCTAATATCAA
+GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
                 </sequence>
                 <ordinalIndex value="2"/>
             </sequenceElement>
         </concatenated>
         <relative>
             <startingMolecule>
-                <reference value="MolecularDefinition/example-startingSequence2bRelative"/>
+                <reference value="MolecularDefinition/example-starting-sequence-2b-relative"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
             </startingMolecule>
@@ -85,14 +108,14 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
                 <start value="0"/>
                 <end value="5"/>
                 <replacementMolecule>
-                    <reference value="MolecularDefinition/example-replacementSequence"/>
+                    <reference value="MolecularDefinition/example-replacement-sequence"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Replacement Sequence Resource"/>
+                    <display value="Replacement Sequence Resource: ATGAA"/>
                 </replacementMolecule>
                 <replacedMolecule>
-                    <reference value="MolecularDefinition/example-replacedSequence"/>
+                    <reference value="MolecularDefinition/example-replaced-sequence"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Replaced Sequence Resource"/>
+                    <display value="Replaced Sequence Resource: CCCCC"/>
                 </replacedMolecule>
             </edit>
         </relative>
