@@ -94,9 +94,9 @@
         <rules value="open"/>
       </slicing>
     </element>
-    <element id="Observation.category:BPCode">
+    <element id="Observation.category:VSCat">
       <path value="Observation.category"/>
-      <sliceName value="BPCode"/>
+      <sliceName value="VSCat"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -162,6 +162,7 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="1"/>
     </element>
     <element id="Observation.component:SystolicBP.extension:SBPCode">
       <path value="Observation.component.extension"/>
@@ -264,6 +265,7 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="1"/>
     </element>
     <element id="Observation.component:DiastolicBP.extension:DBPCode">
       <path value="Observation.component.extension"/>
