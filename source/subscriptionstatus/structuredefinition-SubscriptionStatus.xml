@@ -177,6 +177,17 @@
         <code value="integer64"/>
       </type>
     </element>
+    <element id="SubscriptionStatus.notificationEvent.triggerEvent">
+      <path value="SubscriptionStatus.notificationEvent.triggerEvent"/>
+      <short value="Event that triggered this notification"/>
+      <definition value="If present, one or more event codes specifying the events which triggered this notification."/>
+      <comment value="If a SubscriptionTopic includes multiple possible triggering events, this element can be used to disambiguate a notification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
     <element id="SubscriptionStatus.notificationEvent.timestamp">
       <path value="SubscriptionStatus.notificationEvent.timestamp"/>
       <short value="The instant this event occurred"/>

@@ -29,26 +29,24 @@
   <p>
     Note that Subscription Topics are not limited to a single 'base' resource. As described on the <a href="subscriptions.html#multi-resource-topics">Subscriptions Framework</a> page, there are scenarios where multiple resources are in context for a single topic. When multiple resources are in scope, they may appear in:
     <ul>
-      <li>a single <code>resourceTrigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>),</li>
-      <li>multiple <code>resourceTrigger</code> repetitions, each with a different <code>resource</code> value,</li>
-      <li>a single <code>eventTrigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>), or</li>
-      <li>multiple <code>eventTrigger</code> repetitions, each with a different <code>resource</code> value.</li>
+      <li>a single <code>trigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>),</li>
+      <li>multiple <code>trigger</code> repetitions, each with a different <code>resource</code> value,</li>
     </ul>
   </p>
   <p>
-    When multiple resources are in scope, topic authors are responsible for ensuring that available filtering parameters are clear in their scope.  For example, if a topic is scoped to <code>Resource</code>, an allowed filter based on <code>_language</code> is clear and applicable to any possible resource.  However, a search parameter of <code>patient</code> does not make sense in the context of all resources, since many resources do not include that search parameter.  Note that the resource specified in <code>canFilterBy.resource</code> does not need to match the literals specified by triggers.  For example, an event that triggers on all resource can specify different filters for each resource type.
+    When multiple resources are in scope, topic authors are responsible for ensuring that available filtering parameters are clear in their scope.  For example, if a trigger is scoped to <code>Resource</code>, an allowed filter based on <code>_language</code> is clear and applicable to any possible resource.  However, a search parameter of <code>patient</code> does not make sense in the context of all resources, since many resources do not include that search parameter.  Note that the resource specified in <code>canFilterBy.resource</code> does not need to match the literals specified by triggers.  For example, an event that triggers on all resource can specify different filters for each resource type.
   </p>
 
   <a name="triggers-vs-filters" />
   <h3>Triggers vs. Filters</h3>
   <p>
-    Subscription Topics contain two sets of evaluation criteria - one set as part of triggers (i.e., <code>resourceTrigger</code>, <code>eventTrigger</code>) and the other as part of filters (i.e., <code>canFilterBy</code>).  Triggers are the tests used to generate any notification by any subscription linked to a topic, while filters are the tests used by each subscription to differentiate the notifications they are interested in.  For example, a topic could be defined to trigger for any new <a href="medicationrequest.html">MedicationRequest</a> - this allows server implementers to optimize tests at a single point.  However, a patient is only interested in medication requests for <i>them</i>, which would be represented by a filter (e.g., on <code>MedicationRequest.patient</code>).  The set of allowed filters are defined by the subscription topic, but actual values for filtering are listed in the <a href="subscription.html">Subscription</a>.
+    Subscription Topics contain two sets of evaluation criteria - one set as part of triggers (i.e., <code>trigger</code>) and the other as part of filters (i.e., <code>trigger.canFilterBy</code>).  Triggers are the tests used to generate any notification by any subscription linked to a topic, while filters are the tests used by each subscription to differentiate the notifications they are interested in.  For example, a topic could be defined to trigger for any new <a href="medicationrequest.html">MedicationRequest</a> - this allows server implementers to optimize tests at a single point.  However, a patient is only interested in medication requests for <i>them</i>, which would be represented by a filter (e.g., on <code>MedicationRequest.patient</code>).  The set of allowed filters are defined by the subscription topic, but actual values for filtering are listed in the <a href="subscription.html">Subscription</a>.
   </p>
   <p>
     This logical separation of triggers and filters exists to limit the complexity of topics. However, this specification does not place any architectural requirements on severs regarding the separation of triggers and filters.  An implementation is free to separate the two portions or combine the tests as desired.
   </p>
   <p>
-    Note that triggers can be defined in three ways: as part of the conceptual definition, a computable <code>resourceTrigger</code>, and/or a possibly-computable <code>eventTrigger</code>.  Topics without computable definitions are not expected to trigger unless a server has explicitly added support for them.  For example, a trigger could be based on a complex set of criteria that is difficult to express or depend on information not available in a FHIR context (e.g., user information).  Servers can implement these topics, but they require software changes and cannot be expected to trigger notifications generally.  Servers MAY reject <code>SubscriptionTopic</code> resources that do not include computable definitions or depend on mechanisms the implementation does not support.
+    Note that triggers can be defined in three ways: as part of the conceptual definition, a computable <code>trigger</code> (i.e., a FHIRPath or query-based definition), and/or a possibly-computable <code>event</code> code.  Topics without computable definitions are not expected to trigger unless a server has explicitly added support for them.  For example, a trigger could be based on a complex set of criteria that is difficult to express or depend on information not available in a FHIR context (e.g., user information).  Servers can implement these topics, but they require software changes and cannot be expected to trigger notifications generally.  Servers that support the <code>create</code> interaction on <code>SubscriptionTopic</code> MAY reject resources that do not include computable definitions or depend on mechanisms the implementation does not support.
   </p>
 
 	<a name="resource-operation-pairs" />
@@ -57,13 +55,13 @@
 		Subscription Topics based on Resource Interactions are simple to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the interaction of interest (e.g., <code>create</code>, <code>delete</code>).
 	</p>
 	<p>
-		Subscription Topics for resource interactions are defined using the <code>SubscriptionTopic.resourceTrigger.resource</code> and <code>SubscriptionTopic.resourceTrigger.supportedInteraction</code> elements.
+		Subscription Topics for resource interactions are defined using the <code>SubscriptionTopic.trigger.resource</code> and <code>SubscriptionTopic.trigger.supportedInteraction</code> elements.
 	</p>
   <p>
-    If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-fhir-types.html">FHIR Type</a> value set.
+    If a topic is designed to cover multiple resources, it can contain multiple <code>trigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-fhir-types.html">FHIR Type</a> value set.
   </p>
   <p>
-    Note that <code>supportedInteraction</code> filters can be used either alone, resulting in notifications for every time a resource has the interaction (e.g., every <code>create</code>), or with either <code>queryCriteria</code> or <code>fhirPathCriteria</code>.  When one or more supported interactions are defined, criteria SHOULD only be evaluated for interactions that are included.  For example, a FHIRPath expression designed for resource updates might not test for the previous state correctly during create processing.
+    Note that <code>supportedInteraction</code> filters can be used either alone, resulting in notifications for every time a resource has the interaction (e.g., every <code>create</code>), or with <code>queryCriteria</code> or <code>fhirPathCriteria</code>.  When one or more supported interactions are defined, criteria SHOULD only be evaluated for interactions that are included.  For example, a FHIRPath expression designed for resource updates might not test for the previous state correctly during create processing.
   </p>
 	
 		<a name="resource-trigger-create" />
@@ -114,7 +112,7 @@
 		<a name="query-criteria" />
 		<h4>Query (Search) Trigger Definitions</h4>
 		<p>
-			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>resourceTrigger.resource</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
+			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the resource specified in <code>trigger.resource</code> (e.g., if the resource is <a href="encounter.html">Encounter</a>, the list of available search parameters can be found on the <a href="encounter.html#search">Encounter Resource page</a>).
 		</p>
     <p>
       Because FHIR search expressions are evaluated against a single resource, <code>queryCriteria</code> provides two elements for including criteria - <code>previous</code> for an expression tested against the resource as it existed before the current interaction and <code>current</code> for an expression tested against the resource as it exists after the current interaction.
@@ -132,10 +130,10 @@
 			FHIRPath expression input variables:
       <ul>
         <li>
-          Variable <code>%previous</code> - resource instance prior to state change being applied
+          Variable <code>%previous</code> - resource instance prior to state change being applied, or <code>{}</code> if no previous state exists (e.g., during <code>create</code>)
         </li>
         <li>
-          Variable <code>%current</code> - resource instance post state change being applied
+          Variable <code>%current</code> - resource instance post state change being applied, or <code>{}</code> if no current state exists (e.g., during <code>delete</code>)
         </li>
       </ul>
 		</p>
@@ -152,16 +150,16 @@
 	<a name="definition-event" />
 	<h3>Event Trigger Definitions</h3>
   <p>
-    There are use-cases when a triggering event is not easily described in terms of FHIR resources (e.g., shift change at a facility) or that an existing workflow is already defined on an event-based system (e.g., patient admission in HL7v2).  To support these scenarios Subscription Topics MAY include an event trigger, either instead of or in addition to resource triggers.
+    There are use-cases when a triggering event is not easily described in terms of FHIR resources (e.g., shift change at a facility) or that an existing workflow is already defined on an event-based system (e.g., patient admission in HL7v2).  To support these scenarios Subscription Topics MAY include an event trigger, either instead of or in addition to resource triggers. As with other types of trigger definitions, implementers have discretion on whether to support event trigger or not - the inclusion of an event definition in a trigger does not imply support within a server.
   </p>
   <p>
-    Event triggers are straightforward to define, since most of the definition exists in the event.  The <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.event">event</a> element references the event which causes a Subscription to trigger.  For example, using the event <code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code> indicates that a Subscription activates under the same conditions that a HL7v2 system would send an <code>ADT^A01</code> message.  Similarly, an event trigger using <code>http://fhircast.org/events/patient-open</code> indicates that a Subscription activates under the same conditions that a FHIRcast Hub generates a <code>patient-open</code> message.
+    Event triggers are straightforward to define, since most of the definition exists in the event.  The <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger.event">event</a> element references the event which causes a Subscription to trigger.  For example, using the event <code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code> indicates that a Subscription activates under the same conditions that a HL7v2 system would send an <code>ADT^A01</code> message.  Similarly, an event trigger using <code>http://fhircast.org/events/patient-open</code> indicates that a Subscription activates under the same conditions that a FHIRcast Hub generates a <code>patient-open</code> message.
   </p>
   <p>
-    In order to allow Subscriptions to filter event-based topic definitions, event definitions require a "root" FHIR resource that can be referenced.  This is defined in the <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.resource">eventTrigger.resource</a> element.  For example, a HL7v2 patient admission event (<code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code>) would likely be rooted in an Encounter resource, while a FHIRcast patient open event (<code>http://fhircast.org/events/patient-open</code>) would likely be rooted in a Patient resource.  By establishing the appropriate root resource for an event, topics can expose filters that are appropriate for notifications.  If there is no logical resource available (e.g., events referencing non-FHIR events), resources such as <a href="parameters.html">Parameters</a> or <a href="basic.html">Basic</a> may be used.
+    In order to allow Subscriptions to easily filter event-based topic definitions, event definitions require a "root" FHIR resource that can be referenced.  This is defined in the <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger.resource">trigger.resource</a> element.  For example, a HL7v2 patient admission event (<code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code>) would likely be rooted in an Encounter resource, while a FHIRcast patient open event (<code>http://fhircast.org/events/patient-open</code>) would likely be rooted in a Patient resource.  By establishing the appropriate root resource for an event, topics can expose filters that are appropriate for notifications.  If there is no logical resource available (e.g., events referencing non-FHIR events), resources such as <a href="parameters.html">Parameters</a> or <a href="basic.html">Basic</a> are available.  Note that it is not required to use a FHIR resource in this context, but use of non-FHIR-core structures (e.g., Logical Models) or non-FHIR definitions (e.g., a CDS Hook definition) limit access to standard filters.  Topics can define filters in-line to enable filtering, but authors need to keep in mind additional implementation complexity.
   </p>
   <p>
-    Note that while having a conceptual description and linking to an event is sufficient for a definition, authors are encouraged to include resource triggers if possible.
+    Note that while having a conceptual description and linking to an event is sufficient for a definition, authors are encouraged to include computable triggers if possible.
   </p>
 
 	<a name="filters"/>
@@ -176,7 +174,7 @@
 		<a name="filters-param-name"/>
 		<h4>Filter Parameter</h4>
 		<p>
-			The element <code>canFilterBy.filterParameter</code> contains the name of a parameter used to filter events for the focus resource, as defined by <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code>.  The name used in this element is only valid in the context of the Subscription Topic.
+			The element <code>canFilterBy.filterParameter</code> contains the name of a parameter used to filter events for the focus resource.  The name used in this element is only valid in the context of the Subscription Topic.
     </p>
     <p>
       The filter parameter MAY be a Search Parameter, either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or Search Parameter defined for a specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).  When a Search Parameter is used, the topic SHALL contain a reference to a valid canonical definition in the <code>canFilterBy.filterDefinition</code> element.
@@ -209,6 +207,12 @@
       </ul>
 		</p>
 
+    <a name="filters-event"/>
+    <h4>Filters on Event Triggers</h4>
+    <p>
+      On implementations that support event-based filtering, Subscriptions are able to directly filter based on event triggers defined in the <code>SubscriptionTopic</code>.  See <a href="subscription-definitions.html#Subscription.filterBy.event">Subscription.filterBy.event</a> for more details on usage.
+    </p>
+
 		<a name="filters-timing"/>
 		<h4>Filter Timing and Interactions</h4>
 		<p>
@@ -239,7 +243,7 @@
   <a name="notification-shape"/>
   <h3>Notification Shape</h3>
   <p>
-    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  Each shape is defined according to a resource via the <code>notificationShape.resource</code> element. This is the 'focus' resource of the topic, or one of them if there are more than one, and the root resource for that shape definition.  It will be the same, a generality, or a specificity of <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code> when they are present.
+    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  Each shape is defined according to a resource via the <code>trigger.notificationShape.resource</code> element. This is the 'focus' resource of the topic, or one of them if there are more than one, and the root resource for that shape definition.  It will be the same, a generality, or a specificity of <code>trigger.resource</code> when it is present.
   </p>
   <p>
     Note that multiple <code>notificationShape</code> elements can exist for the same resource, so that a server can indicate that there are multiple groupings of resources that may be sent. For example, a business-to-business (B2B) topic may include notifications on all changes to Patient resources, but may want to define that sometimes a Patient will include Encounters and other times Conditions.
@@ -248,7 +252,7 @@
   <a name="shape-root-resource"/>
   <h4>Root Resource</h4>
   <p>
-    The element <code>notificationShape.resource</code> defines a 'root' resource for notifications.  Typically, this resource will be the same as the triggering resource (e.g., <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code>), however there may be situations where this is not the case.  For example, a topic may be defined across all resources (e.g., every time a resource is deleted), but the author may want additional information depending on which resource is involved.  In that scenario, the <code>resourceTrigger.resource</code> could be set to <code>Resource</code> to trigger on all resources.  However, shapes could be defined for each resource in the patient compartment to include patient information with those notifications (e.g., if an <code>Encounter</code> is deleted, include the <code>Patient</code> record as well).  Note that the opposite scenario is also supported - an author may define multiple triggers on different types of events and simply define a shape that is valid for all of those resources.
+    The element <code>notificationShape.resource</code> defines a 'root' resource for notifications.  Typically, this resource will be the same as the triggering resource (e.g., <code>trigger.resource</code>), however there may be situations where this is not the case.  For example, a topic may be defined across all resources (e.g., every time a resource is deleted), but the author may want additional information depending on which resource is involved.  In that scenario, the <code>trigger.resource</code> could be set to <code>Resource</code> to trigger on all resources, with shapes defined for each resource in the patient compartment to include patient information with those notifications (e.g., if an <code>Encounter</code> is deleted, include the <code>Patient</code> record as well).  Note that the opposite scenario is also supported - an author may define multiple triggers on different types of events and simply define a shape that is valid for all of those resources.
   </p>
  
   <a name="shape-additional-resources"/>
