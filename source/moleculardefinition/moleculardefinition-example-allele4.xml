@@ -9,18 +9,18 @@
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/SequenceHla000011"/>
+                <reference value="MolecularDefinition/example-sequence-hla000011"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource"/>
+                <display value="Starting Sequence Resource: HLA000011"/>
             </sequenceContext>
         </sequenceLocation>
     </location>
     <representation>
         <relative>
             <startingMolecule>
-                <reference value="MolecularDefinition/SequenceHla000011"/>
+                <reference value="MolecularDefinition/example-sequence-hla000011"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource"/>
+                <display value="Starting Sequence Resource: HLA000011"/>
             </startingMolecule>
             <edit>
                 <coordinateSystem>
@@ -34,14 +34,14 @@
                 <start value="120"/>
                 <end value="121"/>
                 <replacementMolecule>
-                    <reference value="MolecularDefinition/SequenceA"/>
+                    <reference value="MolecularDefinition/example-sequence-a"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Replacement Sequence Resource"/>
+                    <display value="Replacement Sequence Resource: A"/>
                 </replacementMolecule>
                 <replacedMolecule>
-                    <reference value="MolecularDefinition/SequenceC"/>
+                    <reference value="MolecularDefinition/example-sequence-c"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Replaced Sequence Resource"/>
+                    <display value="Replaced Sequence Resource: C"/>
                 </replacedMolecule>
             </edit>
         </relative>

@@ -9,7 +9,7 @@
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/SequenceLrg584"/>
+                <reference value="MolecularDefinition/example-sequence-lrg584"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
             </sequenceContext>
@@ -34,7 +34,7 @@
     <representation>
         <relative>
             <startingMolecule>
-                <reference value="MolecularDefinition/SequenceLrg584"/>
+                <reference value="MolecularDefinition/example-sequence-lrg584"/>
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource"/>
             </startingMolecule>
@@ -50,14 +50,14 @@
                 <start value="85185"/>
                 <end value="85186"/>
                 <replacementMolecule>
-                    <reference value="MolecularDefinition/SequenceA"/>
+                    <reference value="MolecularDefinition/example-sequence-a"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Replacement Sequence Resource"/>
+                    <display value="Replacement Sequence Resource: A"/>
                 </replacementMolecule>
                 <replacedMolecule>
-                    <reference value="MolecularDefinition/SequenceG"/>
+                    <reference value="MolecularDefinition/example-sequence-g"/>
                     <type value="MolecularDefinition"/>
-                    <display value="Replaced Sequence Resource"/>
+                    <display value="Replaced Sequence Resource: G"/>
                 </replacedMolecule>
             </edit>
         </relative>
