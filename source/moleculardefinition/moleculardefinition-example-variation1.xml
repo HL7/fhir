@@ -10,7 +10,7 @@
             <sequenceContext>
                 <reference value="MolecularDefinition/example-sequence-msh2"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource"/>
+                <display value="Starting Sequence Resource: MSH2"/>
             </sequenceContext>
                 <coordinateInterval>
                     <numberingSystem>
