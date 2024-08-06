@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="goal-status-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/goal-status-reason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -16,10 +23,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.412"/>
   </identifier>
+  <version value="6.0.0-ballot1"/>
   <name value="GoalStatusReason"/>
   <title value="Goal Status Reason"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
+  <publisher value="HL7 International"/>
   <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and might not even be appropriate for some uses."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
