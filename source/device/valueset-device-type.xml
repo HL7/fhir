@@ -154,5 +154,13 @@
         <value value="49062001"/>
       </filter>
     </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="706689003"/>
+      </filter>
+    </include>
   </compose>
 </ValueSet>
