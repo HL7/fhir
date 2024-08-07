@@ -332,6 +332,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SubscriptionTopicEventTrigger"/>
+				</extension>
+				<strength value="example"/>
+				<description value="FHIR Value set/code system definition for HL7 V2 table 0003 (EVENT TYPE CODE)."/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/v2-0003"/>
+			</binding>
     </element>
     <element id="Subscription.channelType">
       <path value="Subscription.channelType"/>

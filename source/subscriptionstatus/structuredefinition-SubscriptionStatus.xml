@@ -176,6 +176,7 @@
       <type>
         <code value="integer64"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="SubscriptionStatus.notificationEvent.triggerEvent">
       <path value="SubscriptionStatus.notificationEvent.triggerEvent"/>

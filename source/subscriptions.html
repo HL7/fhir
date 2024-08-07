@@ -116,21 +116,32 @@
 
 <a name="overview-workflow"/>
 <h2>Workflow Overview</h2>
-
 <p>
   This section gives an overview of the workflow for both Servers and Clients to work with Subscriptions.  Each <a href="subscription.html#channels">channel</a> MAY vary slightly from this general overview - specifically around interactions involving the <code>Endpoint</code> (e.g., when using a <code>rest-hook</code> the client must pre-configure an HTTP endpoint which the server validates, but when using a <code>websocket</code> the client simply connects to the server).
 </p>
 
+<a name="workflow-styles"/>
+<h3>Types of Workflows</h3>
+<p>
+  The Subscriptions Framework is intended to be a flexible and reusable layer of infrastructure.  In this section, two types of subscription workflows are described: <i>in-band</i> (or client) managed and <i>out-of-band</i> (or server) managed.  These styles are not mutually exclusive, and a server MAY support both styles.
+</p>
+<p>
+  <i>In-Band</i> managed subscriptions are those where the client is responsible for creating and managing the subscription.  In this style, the server needs to expose functionality relating to Subscription Topics and Subscriptions themselves so that they can be managed by the client. For details about the conformance requirements specific to in-band management, please see <a href="#conformance-in-band">Conformance: In-Band</a>.
+</p>
+<p>
+  <i>Out-of-Band</i> managed subscriptions are those where the client is <b>not</b> responsible for creating and managing the subscription.  In this style, many server requirements can be relaxed, depending on whether the intention is to manage subscriptions internally or via a third-party (e.g., a jurisdictional authority, management service, etc.). For details about the conformance requirements specific to out-of-band management, please see <a href="#conformance-out-of-band">Conformance: Out-of-Band</a>.  Note that when using a third-party responsible for managing subscriptions, the server MAY or MAY NOT expose various subscription-related operations via FHIR.
+</p>
+
 <a name="creating-a-subscription"/>
-<h3>Creating a Subscription</h3>
+<h3>Creating a Subscription - In-Band Managed</h3>
 
 <p>
-  A workflow for creating a subscription is below:
+  A workflow for creating a subscription using the in-band management style is below:
 </p>
 
 <figure>
-  <img src="subscription-workflow-general.svg" alt="Sequence diagram of creating a FHIR Subscription" />
-  <figcaption>Sequence diagram of creating a FHIR Subscription</figcaption>
+  <img src="subscription-workflow-general.svg" alt="Workflow sequence diagram of in-band FHIR Subscriptions" />
+  <figcaption>Workflow sequence diagram of in-band FHIR Subscriptions</figcaption>
 </figure>
 
 <ol>
@@ -169,6 +180,43 @@
 <p>
   Once the subscription is active, notifications will be sent according to the <a href="subscription.html#channels">channel</a>.  Note that error states may occur, see <a href="#errors">Managing Subscriptions and Errors</a> for more information.
 </p>
+
+<h3>Creating a Subscription - Out-of-Band Managed</h3>
+
+<p>
+  A workflow for creating a subscription using the out-of-band management style is below:
+</p>
+
+<figure>
+  <img src="subscription-workflow-oob-server.svg" alt="Workflow sequence diagram of out-of-band FHIR Subscriptions" />
+  <figcaption>Workflow sequence diagram of out-of-band FHIR Subscriptions</figcaption>
+</figure>
+
+<ol>
+  <li>
+    Server implements the core functionality required for topic-based subscriptions.
+  </li>
+  <li>
+    Server implements one or more topics, which could be defined via <a href="subscriptiontopic.html">SubscriptionTopic</a> resources.  Implementation is specific to each topic, and will vary between servers.
+  </li>
+  <li>
+    The Subscription Manager (may be the Server) negotiate interest and subscription details with the Client.
+  </li>
+  <li>
+    The Server and the Subscription Manager (may be itself) negotiate the details of the subscription with information about the Client.
+  </li>
+  <li>
+    If applicable, the server MAY send a <a href="subscriptionstatus.html#handshake-notification">handshake</a> to the endpoint.
+  </li>
+  <li>
+    If the Server sends a <a href="subscriptionstatus.html#handshake-notification">handshake</a>, the endpoint SHALL respond appropriately, or the Server MAY deactivate the subscription.
+  </li>
+</ol>
+
+<p>
+  After the subscription has been negotiated, processing occurs: the Server is responsible for sending notifications; the Client is responsible for receiving them and responding appropriately; and the Subscription Manager is responsible for keeping information up to date, managing errors, etc..
+</p>
+
 
 
 <a name="overview-topic"/>
@@ -273,23 +321,61 @@
 <a name="conformance"/>
 <h2>Conformance</h2>
 <p>
-  In order to claim conformance with this guide, a server:
+  The requirements to claim conformance with the Subscriptions Framework are detailed below. Note that there are two sets described - one for <i>in-band</i> subscription management and one for <i>out-of-band</i> subscription management.  Servers MAY support either or both styles.
+</p>
+
+<a name="conformance-in-band"/>
+<h3>In-Band Management</h3>
+<p>
+  In order to claim conformance with this framework, servers supporting <i>in-band</i> management have requirements for <code>SubscriptionTopic</code> and <code>Subscription</code> resources, as detailed below. Note that the requirements are based on FHIR interactions, as the Subscriptions Framework does not require REST support.
 </p>
 <ul>
+  <li>SHALL support the <code>SubscriptionTopic</code> resource
+    <ul>
+      <li>SHALL support the <code>read</code> interaction</li>
+      <li>SHALL support the <code>search</code> interaction</li>
+      <li>MAY support other interactions</li>
+    </ul>
+  </li>
   <li>SHALL support the <code>Subscription</code> resource
     <ul>
-      <li><code>read</code> support is required</li>
-      <li><code>write</code> support is required</li>
-      <li><code>search</code> support is recommended</li>
+      <li>SHALL support the <code>read</code> interaction</li>
+      <li>SHALL support the <code>create</code> interaction</li>
+      <li>SHALL support the <code>update</code> interaction</li>
+      <li>SHALL support the <code>delete</code> interaction</li>
+      <li>SHOULD support the <code>search</code> interaction</li>
+      <li>MAY support other interactions</li>
     </ul>
   </li>
   <li>SHALL support the <code>$status</code> operation on the <code>Subscription</code> resource.</li>
-  <li>SHALL support the <code>SubscriptionTopic</code>
+  <li>SHALL support at least one channel type, and SHOULD include one from the core-defined channel types</li>
+  <li>SHALL support at least one Payload Type</li>
+</ul>
+
+<a name="conformance-out-of-band"/>
+<h3>Out-of-Band Management</h3>
+<p>
+  In order to claim conformance with this framework, servers supporting <i>out-of-band</i> management have requirements for <code>SubscriptionTopic</code> and <code>Subscription</code> resources, as detailed below. Note that the requirements are based on FHIR interactions, as the Subscriptions Framework does not require REST support.
+</p>
+<ul>
+  <li>MAY support the <code>SubscriptionTopic</code> resource
     <ul>
-      <li><code>read</code> support is required</li>
-      <li><code>search</code> support is required</li>
+      <li>MAY support the <code>read</code> interaction</li>
+      <li>MAY support the <code>search</code> interaction</li>
+      <li>MAY support other interactions</li>
     </ul>
   </li>
+  <li>SHOULD support the <code>Subscription</code> resource
+    <ul>
+      <li>SHOULD support the <code>read</code> interaction</li>
+      <li>SHOULD support the <code>search</code> interaction</li>
+      <li>MAY support the <code>create</code> interaction</li>
+      <li>MAY support the <code>update</code> interaction</li>
+      <li>MAY support the <code>delete</code> interaction</li>
+      <li>MAY support other interactions</li>
+    </ul>
+  </li>
+  <li>SHOULD support the <code>$status</code> operation on the <code>Subscription</code> resource.</li>
   <li>SHALL support at least one channel type, and SHOULD include one from the core-defined channel types</li>
   <li>SHALL support at least one Payload Type</li>
 </ul>
@@ -364,25 +450,44 @@
 <a name="errors"/>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
-  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the <code>Location</code> header of the HTTP response and saves the new Subscription's logical id for use in subsequent operations.
+  Subscription management is concerned with a few stages: creating a subscription, managing notification errors, and removing a subscription. Given the differences in those stages when a subscription is managed <i>in-band</i> or <i>out-of-band</i>, the following sections are split into those two categories.
+</p>
+
+<a name="managing-in-band"/>
+<h3>In-Band Subscription Management</h3>
+<p>
+  A subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the <code>create</code> or <code>update</code> interaction. After a successful <code>create</code> interaction, the client parses the <code>Location</code> header of the HTTP response and saves the new Subscription's logical id for use in subsequent operations.
 </p>
 <p>
-  When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
+  When the server receives a request for a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 </p>
 <p>
-  The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
+  The filter criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
 </p>
 <p>
-  Once the server has activated the subscription, it sets the status to <code>active</code>.  Note that the server MAY choose to activate a subscription immediately on creation (without any additional processing).
+  Once the server is prepared to send notifications for a subscription, it sets the status to <code>active</code>.  Note that the server MAY choose to activate a subscription immediately on creation (without any additional processing), after testing communications with the client endpoint, or after some additional process (e.g., administrative review).
 </p>
 <p>
-  An appropriately authorized client can use search and/or history operations to see what subscriptions are currently active on the server. Once the subscription is no longer desired, the client deletes the subscription from the server.
+  An appropriately authorized client can use <code>search</code> and/or <code>history</code> interactions to see what subscriptions are currently active on the server. If a subscription is no longer desired, the subscription can be removed via a <code>delete</code> interaction.
 </p>
 <p>
   The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server SHOULD update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
 </p>
 <p>
   Errors a server wishes to make accessible to clients are communicated via <code>SubscriptionStatus.error</code>. Clients MAY receive these errors in notifications sent by the server or detect them by running the <code>$status</code> operation on a subscription. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error).
+</p>
+
+
+<a name="managing-out-of-band"/>
+<h3>Out-of-Band Subscription Management</h3>
+<p>
+  In the <i>out-of-band</i> management style, there MAY or MAY NOT be <code>Subscription</code> resources on a server.  The equivalent responsibilities fall to the server implementation.
+</p>
+<p>
+  The negotiation of <code>SubscriptionTopic</code> and <code>Subscription</code> content in this style are considered an implementation detail.  For example, a server could have an internal model for tracking client information and an administrative user interface for managing subscriptions.
+</p>
+<p>
+  It is important to note that the managing entity for the subscription or equivalent (whether the Server or a third-party) is responsible for ensuring that the subscription is valid and that the client is prepared to receive notifications.  Additionally, that same party is responsible for detecting, reporting, and resolving any errors.  For example, if a client endpoint has an expired certificate and a server cannot send notifications, the client could be unaware of any issues.  The managing entity is responsible for discovering this state and working with the involved parties to ensure no information is missed.
 </p>
 
 
