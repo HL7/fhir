@@ -365,5 +365,17 @@
       <display value="Example of Variation profile"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of repeated sequence from FMR1 gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-repeat"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-repeat"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
 
 </List>
