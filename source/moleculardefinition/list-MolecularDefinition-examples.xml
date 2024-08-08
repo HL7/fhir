@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MolecularDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple sequence example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example"/>
+      <display value="Example of MolecularDefinition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele1"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele2"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele2"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele3"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele3"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 4"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele4"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele4"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 5"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele5"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele5"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 6"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele6"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele6"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example 7"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allele7"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allele7"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Genotype example 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-genotype1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-genotype1"/>
+      <display value="Example of Genotype profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Haplotype example 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-haplotype1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-haplotype1"/>
+      <display value="Example of Genotype profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Haplotype example 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-haplotype2"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-haplotype2"/>
+      <display value="Example of Genotype profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Replaced Sequence example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-replaced-sequence"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-replaced-sequence"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple replacement Sequence example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-replacement-sequence"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-replacement-sequence"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example 0 to be concatenated"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence0-2b-concatenated"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence0-2b-concatenated"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example 1 to be concatenated"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence1-2b-concatenated"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence1-2b-concatenated"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example 2 to be concatenated"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence2-2b-concatenated"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence2-2b-concatenated"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence1"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example A"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-a"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-a"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example C"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-c"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-c"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example G"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-g"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-g"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example T"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-t"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-t"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example HLA00001-1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-hla000011"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-hla000011"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example LRG-584"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-lrg584"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-lrg584"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example to be extracted"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-starting-sequence-2b-extracted"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-starting-sequence-2b-extracted"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example to be relative"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-starting-sequence-2b-relative"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-starting-sequence-2b-relative"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced1"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of GGC"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-ggc"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-ggc"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of MSH2 Gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-msh2"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-msh2"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of FMR1 Gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of MSH2 2503C"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation1"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of repeated sequence from FMR1 gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-repeat"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-repeat"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+</List>
