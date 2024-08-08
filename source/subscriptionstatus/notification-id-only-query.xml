@@ -23,6 +23,24 @@
           <focus>
             <reference value="http://example.org/FHIR/R5/Encounter/2"/>
           </focus>
+          <relatedQuery>
+            <queryType>
+              <coding>
+                <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+                <code value="current-patient"/>
+              </coding>
+            </queryType>
+            <query value="Patient?_id=ABC&amp;_include:iterate=Patient:link"/>
+          </relatedQuery>
+          <relatedQuery>
+            <queryType>
+              <coding>
+                <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+                <code value="current-providers"/>
+              </coding>
+            </queryType>
+            <query value="Patient/ABC$current-providers"/>
+          </relatedQuery>
         </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
