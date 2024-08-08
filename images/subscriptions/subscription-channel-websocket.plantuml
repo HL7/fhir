@@ -1,0 +1,48 @@
+@startuml
+skin rose
+skinparam NoteTextAlignment left
+skinparam Padding 2
+skinparam ParticipantPadding 40
+skinparam LifelineStrategy solid
+autonumber
+
+participant "FHIR Server\nREST API"     as S
+participant "Client"                    as C
+participant "FHIR Server\nWebsocket Endpoint" as E
+
+group Subscription Negotiation
+  C -> S: Create Subscription\n""channelType: websocket""
+  return Success\n""Subscription.status: active""
+end
+
+group Websocket Subscription Processing
+else Client binds via initial token
+  C -> S: FHIR Operation:\n"".../Subscription/example/$get-ws-binding-token""
+  return FHIR Parameters:\n""        token: token-abc""\n""   expiration: some-future-date-time""\n""websocket-url: wss://example.org/fhirWss""
+
+  C -> E: Connect\n""wss://example.org/fhirWss""
+
+  C -> E: ""bind-with-token: token-abc""
+  return Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: handshake""
+
+else Sever sends heartbeat
+    E -> C: Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: heartbeat""
+    ...
+else Server sends event-notification
+    E -> C: Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: event-notification""
+    ...
+else Token is expiring soon
+    C -> S: FHIR Operation:\n"".../Subscription/example/$get-ws-binding-token""
+    return FHIR Parameters:\n""        token: token-def""\n""   expiration: another-future-date-time""\n""websocket-url: wss://example.org/fhirWss""
+
+    C o->o E: Client checks the url and establishes\na new connection if necessary
+
+    C -> E: ""bind-with-token: token-def""
+    return Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: handshake""
+    ...
+else Either system may end a session
+  C x-x E: Disconnect
+end
+
+deactivate E
+@enduml
