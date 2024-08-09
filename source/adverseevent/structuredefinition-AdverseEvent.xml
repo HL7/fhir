@@ -578,21 +578,17 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="AdverseEvent.suspectEntity.instance[x]">
+	<element id="AdverseEvent.suspectEntity.instance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#13698."/>
+        <valueString value="GF#13698, J#46599"/>
       </extension>
-      <path value="AdverseEvent.suspectEntity.instance[x]"/>
+      <path value="AdverseEvent.suspectEntity.instance"/>
       <short value="Refers to the specific entity that caused the adverse event"/>
       <definition value="Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device."/>
-      <alias value="Substance or Medication or Device"/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
@@ -603,8 +599,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
       </type>
-      <isSummary value="true"/>
+	  <isSummary value="true"/>
     </element>
+
     <element id="AdverseEvent.suspectEntity.causality">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="GF#22107."/>
@@ -681,9 +678,9 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="AdverseEvent.contributingFactor">
+	<element id="AdverseEvent.contributingFactor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17237."/>
+        <valueString value="GF#17237, J#46599"/>
       </extension>
       <path value="AdverseEvent.contributingFactor"/>
       <short value="Contributing factors suspected to have increased the probability or severity of the adverse event"/>
@@ -691,21 +688,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="AdverseEvent.contributingFactor.item[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17237."/>
-      </extension>
-      <path value="AdverseEvent.contributingFactor.item[x]"/>
-      <short value="Item suspected to have increased the probability or severity of the adverse event"/>
-      <definition value="The item that is suspected to have increased the probability or severity of the adverse event."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
@@ -718,10 +701,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
       </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventContributingFactor"/>
@@ -731,9 +711,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-contributing-factor"/>
       </binding>
     </element>
-    <element id="AdverseEvent.preventiveAction">
+	
+	<element id="AdverseEvent.preventiveAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17237."/>
+        <valueString value="GF#17237, J#46599"/>
       </extension>
       <path value="AdverseEvent.preventiveAction"/>
       <short value="Preventive actions that contributed to avoiding the adverse event"/>
@@ -741,31 +722,14 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="AdverseEvent.preventiveAction.item[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17237."/>
-      </extension>
-      <path value="AdverseEvent.preventiveAction.item[x]"/>
-      <short value="Action that contributed to avoiding the adverse event"/>
-      <definition value="The action that contributed to avoiding the adverse event."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
       </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventPreventiveAction"/>
@@ -775,9 +739,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-preventive-action"/>
       </binding>
     </element>
-    <element id="AdverseEvent.mitigatingAction">
+	
+	<element id="AdverseEvent.mitigatingAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17237."/>
+        <valueString value="GF#17237, J#46599"/>
       </extension>
       <path value="AdverseEvent.mitigatingAction"/>
       <short value="Ameliorating actions taken after the adverse event occurred in order to reduce the extent of harm"/>
@@ -785,30 +750,13 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="AdverseEvent.mitigatingAction.item[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17237."/>
-      </extension>
-      <path value="AdverseEvent.mitigatingAction.item[x]"/>
-      <short value="Ameliorating action taken after the adverse event occurred in order to reduce the extent of harm"/>
-      <definition value="The ameliorating action taken after the adverse event occurred in order to reduce the extent of harm."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
       </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventMitigatingAction"/>
@@ -818,31 +766,18 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-mitigating-action"/>
       </binding>
     </element>
-    <element id="AdverseEvent.supportingInfo">
+	
+	<element id="AdverseEvent.supportingInfo">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20593."/>
+        <valueString value="GF#20593, J#46599"/>
       </extension>
       <path value="AdverseEvent.supportingInfo"/>
-      <short value="Supporting information relevant to the event"/>
-      <definition value="Supporting information relevant to the event."/>
+      <short value="Subject medical history or document relevant to this adverse event"/>
+      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a penicillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="AdverseEvent.supportingInfo.item[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14151, GF#20593."/>
-      </extension>
-      <path value="AdverseEvent.supportingInfo.item[x]"/>
-      <short value="Subject medical history or document relevant to this adverse event"/>
-      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a penicillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
@@ -854,10 +789,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventSupportingInfo"/>
@@ -867,6 +799,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
       </binding>
     </element>
+	
+	
     <element id="AdverseEvent.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="need to add jira"/>
