@@ -35,10 +35,9 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Codes for modular components to be added to the diet.."/>
+  <description value="Codes for modular components to be added to the diet."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
-<!--
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -55,7 +54,6 @@
         <value value="890302005"/>
       </filter>
     </include>
--->
     <include>
       <system value="http://snomed.info/sct"/>
 			<concept>
