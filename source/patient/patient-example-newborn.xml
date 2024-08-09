@@ -14,4 +14,33 @@ simple newborn example
 		</extension>
 	</birthDate>
 	<multipleBirthInteger value="2"/>
+	<contact>
+		<relationship>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+				<code value="NMTH"/>
+				<display value="natural mother"/>
+			</coding>
+			<text value="Natural Mother"/>
+		</relationship>
+		<role>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+				<code value="ECON"/>
+				<display value="emergency contact"/>
+			</coding>
+			<text value="Emergency Contact"/>
+		</role>
+		<name>
+			<use value="official"/>
+			<family value="Everywoman"/>
+			<given value="Eve"/>
+		</name>
+		<telecom>
+			<system value="phone"/>
+			<value value="555-555-2003"/>
+			<use value="work"/>
+		</telecom>
+		<gender value="female"/>
+	</contact>
 </Patient>
