@@ -161,9 +161,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
-    <Cell><Data ss:Type="String">patient | recorder | asserter</Data></Cell>
+    <Cell><Data ss:Type="String">patient | asserter</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">asserter</Data></Cell>
-    <Cell><Data ss:Type="String">recorder | asserter</Data></Cell>
+    <Cell><Data ss:Type="String"> asserter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment</Data></Cell>
