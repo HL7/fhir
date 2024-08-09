@@ -94,9 +94,9 @@
         <rules value="open"/>
       </slicing>
     </element>
-    <element id="Observation.category:BodyTempCode">
+    <element id="Observation.category:VSCat">
       <path value="Observation.category"/>
-      <sliceName value="BodyTempCode"/>
+      <sliceName value="VSCat"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>

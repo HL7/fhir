@@ -420,6 +420,7 @@
         <description value="Coded values under which a specific service is made available."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/eligibility"/>
       </binding>
+      <condition value="hcs-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -447,6 +448,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <condition value="hcs-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT].text"/>

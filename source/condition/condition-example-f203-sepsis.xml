@@ -61,18 +61,9 @@
   </encounter>
   <onsetDateTime value="2013-03-08"/>
   <recordedDate value="2013-03-11"/>
-  <participant> 
-    <function> 
-      <coding> 
-        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
-        <code value="author"/> 
-        <display value="Author"/> 
-      </coding> 
-    </function> 
-    <actor> 
-      <reference value="Practitioner/f201"/> 
-    </actor> 
-  </participant> 
+  <asserter> 
+	<reference value="Practitioner/f201"/> 
+  </asserter> 
 
   <evidence>
     <reference>

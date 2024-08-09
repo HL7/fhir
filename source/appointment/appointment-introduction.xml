@@ -214,6 +214,12 @@
 			If you need multiple actors of a specific type, then multiple participants with that type value
 			are included on the appointment.
 		</p>
+		<p>
+			The Appointment resource represents an intention to perform a service.
+			An Appointment does NOT represent an authorization. Authorization is typically provided via
+			a ServiceRequest when required. Details about the fulfillment of the appointment are handled
+			by the Encounter resource.
+		</p>
 <a name="statuses"></a>
     <h3>Appointment Statuses and Encounters</h3>
     <p>

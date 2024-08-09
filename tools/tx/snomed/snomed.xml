@@ -12664,6 +12664,9 @@
     <display value="Toggenburg goat"/>
     <display value="Toggenburg goat (organism)"/>
   </concept>
+  <concept id="300936002" display="Terminal illness">
+    <display value="Terminal illness"/>
+  </concept>
   <concept id="301475006" display="Negotiates obstacles">
     <display value="Negotiates obstacles"/>
   </concept>
@@ -13609,6 +13612,9 @@
     <display value="Tumor stage finding (finding)"/>
     <display value="Tumour stage finding"/>
     <display value="Tumor stage finding"/>
+  </concept>
+  <concept id="385432009" display="Not applicable (qualifier value)">
+    <display value="Not applicable (qualifier value)"/>
   </concept>
   <concept id="385633008" display="Improving">
     <display value="Improving (qualifier value)"/>
@@ -16833,6 +16839,9 @@
     <display value="Software"/>
     <display value="Software (physical object)"/>
   </concept>
+  <concept id="706689003" display="Application programme software">
+    <display value="Application programme software"/>
+  </concept>
   <concept id="70726008" display="Selenium compound">
     <display value="Selenium compound"/>
   </concept>
@@ -16890,6 +16899,9 @@
   <concept id="713458007" display="Lack of access to transportation">
     <display value="Lack of access to transportation (finding)"/>
     <display value="Lack of access to transportation"/>
+  </concept>
+  <concept id="713566001" display="Lack of interest (finding)">
+    <display value="Lack of interest (finding)"/>
   </concept>
   <concept id="713835001" display="Declined consent for use of patient data in risk stratification for unplanned hospital admission">
     <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission"/>

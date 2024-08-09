@@ -31,7 +31,6 @@
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
     </include>
-		<!--
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -72,7 +71,6 @@
         <value value="890302005"/>
       </filter>
     </include>
--->
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>

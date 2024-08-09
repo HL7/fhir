@@ -5,6 +5,9 @@
 	<status value="active"/>
 	<topic value="http://example.org/R5/SubscriptionTopic/admission" />
 	<end value="2019-08-07T11:15:18Z" />
+  <managingEntity>
+    <reference value="Organization/1"/>
+  </managingEntity>
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
 		<filterParameter value="patient"/>
