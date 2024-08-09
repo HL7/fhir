@@ -561,14 +561,9 @@ An example of a contained resource:
     &lt;/Practitioner&gt;
   &lt;/contained&gt;
   &lt;!-- other attributes --&gt;
-  &lt;participant&gt;
-    &lt;function&gt;
-      &lt;text value="Asserter" /&gt;
-    &lt;/function&gt;
-    &lt;actor&gt;
-      &lt;reference value="#p1" /&gt;
-    &lt;/actor&gt;
-  &lt;/participant&gt;
+  &lt;asserter&gt;
+	&lt;reference value="#p1" /&gt;
+  &lt;/asserter&gt;
   &lt;!-- other attributes --&gt;
  &lt;/Condition&gt;
 </pre>
@@ -586,14 +581,9 @@ The same example in JSON:
       "given" : ["Patricia"]
     }]
   }],
-  "participant" : [{
-    "function" : {
-      "text" : "Asserter"
-    },
-    "actor" : {
-      "reference" : "#p1"
-    }
-  }]
+  "asserter" : {
+    "reference" : "#p1"
+  }
 }
 </pre>
 </div>
