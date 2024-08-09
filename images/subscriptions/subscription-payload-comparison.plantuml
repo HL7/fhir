@@ -1,0 +1,37 @@
+@startuml
+!pragma teoz true
+skin rose
+skinparam NoteTextAlignment left
+skinparam Padding 2
+skinparam ParticipantPadding 30
+skinparam LifelineStrategy solid
+
+participant "FHIR Server"   as S
+participant "Empty"  as E
+participant "ID Only"       as I
+participant "Full Resource" as F
+
+S -> : Send ""event-notification""
+
+  -> E : ""empty""
+& -> I : ""id-only""
+& -> F : ""full-resource""
+
+  E --> S: HTTP 200: OK
+& I --> S:
+& F --> S:
+
+  E -> S: FHIR Search 
+  S --> E: Query Results
+
+  E -> S: Fetch FHIR Resources
+& I -> S:
+
+  S --> E: Return FHIR Resources
+& S --> I:
+
+  note over S: Additional Requests:
+& note over E: **2**
+& note over I: **1**
+& note over F: **0**
+@enduml

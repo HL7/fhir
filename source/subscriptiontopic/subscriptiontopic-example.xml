@@ -10,7 +10,7 @@
 	<status value="draft"/>
   <date value="2019-01-01"/>
   <description value="Example topic for completed encounters"/>
-	<resourceTrigger>
+	<trigger>
 		<description value="An Encounter has been completed"/>
 		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
     <supportedInteraction value="update"/>
@@ -22,42 +22,60 @@
 			<requireBoth value="true"/>
 		</queryCriteria>
 		<fhirPathCriteria value="(%previous.empty() | (%previous.status != 'completed')) and (%current.status = 'completed')"/>
-	</resourceTrigger>
-  <canFilterBy>
-    <description value="Filter based on the subject of an encounter."/>
-    <resource value="Encounter"/>
-    <filterParameter value="subject"/>
-  </canFilterBy>
-  <canFilterBy>
-    <description value="Filter based on the group membership of the subject of an encounter."/>
-    <resource value="Encounter"/>
-    <filterParameter value="_in"/>
-  </canFilterBy>
-  <canFilterBy>
-    <description value="Filter based on the length of an encounter."/>
-    <resource value="Encounter"/>
-    <filterParameter value="length"/>
-    <comparator value="gt"/>
-    <comparator value="lt"/>
-    <comparator value="ge"/>
-    <comparator value="le"/>
-  </canFilterBy>
-  <canFilterBy>
-    <description value="Filter based on the account for billing an encounter."/>
-    <resource value="Encounter"/>
-    <filterParameter value="account"/>
-    <modifier value="missing"/>
-    <modifier value="not"/>
-    <modifier value="identifier"/>
-  </canFilterBy>
-  <notificationShape>
-    <resource value="Encounter"/>
-    <include value="Encounter:patient&amp;iterate=Patient.link"/>
-    <include value="Encounter:practitioner"/>
-    <include value="Encounter:service-provider"/>
-    <include value="Encounter:account"/>
-    <include value="Encounter:diagnosis"/>
-    <include value="Encounter:observation"/>
-    <include value="Encounter:location"/>
-  </notificationShape>
+    <canFilterBy>
+      <description value="Filter based on the subject of an encounter."/>
+      <resource value="Encounter"/>
+      <filterParameter value="subject"/>
+    </canFilterBy>
+    <canFilterBy>
+      <description value="Filter based on the group membership of the subject of an encounter."/>
+      <resource value="Encounter"/>
+      <filterParameter value="_in"/>
+    </canFilterBy>
+    <canFilterBy>
+      <description value="Filter based on the length of an encounter."/>
+      <resource value="Encounter"/>
+      <filterParameter value="length"/>
+      <comparator value="gt"/>
+      <comparator value="lt"/>
+      <comparator value="ge"/>
+      <comparator value="le"/>
+    </canFilterBy>
+    <canFilterBy>
+      <description value="Filter based on the account for billing an encounter."/>
+      <resource value="Encounter"/>
+      <filterParameter value="account"/>
+      <modifier value="missing"/>
+      <modifier value="not"/>
+      <modifier value="identifier"/>
+    </canFilterBy>
+    <notificationShape>
+      <resource value="Encounter"/>
+      <include value="Encounter:patient&amp;iterate=Patient.link"/>
+      <include value="Encounter:practitioner"/>
+      <include value="Encounter:service-provider"/>
+      <include value="Encounter:account"/>
+      <include value="Encounter:diagnosis"/>
+      <include value="Encounter:observation"/>
+      <include value="Encounter:location"/>
+      <relatedQuery>
+        <queryType>
+          <coding>
+            <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+            <code value="current-patient"/>
+          </coding>
+        </queryType>
+        <query value="Patient?_include:iterate=Patient:link"/>
+      </relatedQuery>
+      <relatedQuery>
+        <queryType>
+          <coding>
+            <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+            <code value="current-providers"/>
+          </coding>
+        </queryType>
+        <query value="$current-providers"/>
+      </relatedQuery>
+    </notificationShape>
+	</trigger>
 </SubscriptionTopic>
