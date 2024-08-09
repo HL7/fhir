@@ -23,6 +23,30 @@
 		</coding>
 		<text value="Natural Mother"/>
 	</relationship>
+	<role>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+			<code value="ECON"/>
+			<display value="emergency contact"/>
+		</coding>
+		<text value="Emergency Contact"/>
+	</role>
+	<role>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+			<code value="NOK"/>
+			<display value="next of kin"/>
+		</coding>
+		<text value="Next of kin"/>
+	</role>
+	<role>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+			<code value="BILL"/>
+			<display value="Billing Contact"/>
+		</coding>
+		<text value="Billing Contact"/>
+	</role>
 	<name>
 		<use value="official"/>
 		<family value="Everywoman"/>

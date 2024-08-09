@@ -36,7 +36,6 @@
         <value value="762766007"/>
       </filter>
     </include>
-<!--
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -61,7 +60,6 @@
         <value value="890302005"/>
       </filter>
 		</include>
--->
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>

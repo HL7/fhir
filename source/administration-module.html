@@ -47,6 +47,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     <ul>
                         <li><a href="organization.html">Organization</a></li>
+                        <li><a href="organizationaffiliation.html">OrganizationAffiliation</a></li>
                         <li><a href="location.html">Location</a></li>
                         <li><a href="healthcareservice.html">HealthcareService</a></li>
                         <li><a href="endpoint.html">Endpoint</a></li>
@@ -110,6 +111,18 @@ in order to support consistent definitions for schema and UML derived code.
                 However, the fields/values in Person are duplicated in the other resources, and in many cases the
                 Person resource will be hosted on external systems.
 [%end-note%]
+
+        <a name="agg-pop"></a>
+        <h4>Aggregate Populations</h4>
+        <p>
+            The Group resource should be used when representing an aggregate population, where the system is not
+            tracking the individual members.  Examples of aggregate populations include households, a tribe, workers
+            at a job site, or attendees at a sporting event. 
+        </p>
+        <table class="bare">
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item Group%]
+        </table>
 
         <a name="clinical-reg"></a>
         <h4>Clinical Categorization Resources</h4>
