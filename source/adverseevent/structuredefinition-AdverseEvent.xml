@@ -780,8 +780,8 @@
         <valueString value="GF#17237."/>
       </extension>
       <path value="AdverseEvent.mitigatingAction"/>
-      <short value="Ameliorating actions taken after the adverse event occured in order to reduce the extent of harm"/>
-      <definition value="The ameliorating action taken after the adverse event occured in order to reduce the extent of harm."/>
+      <short value="Ameliorating actions taken after the adverse event occurred in order to reduce the extent of harm"/>
+      <definition value="The ameliorating action taken after the adverse event occurred in order to reduce the extent of harm."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -794,8 +794,8 @@
         <valueString value="GF#17237."/>
       </extension>
       <path value="AdverseEvent.mitigatingAction.item[x]"/>
-      <short value="Ameliorating action taken after the adverse event occured in order to reduce the extent of harm"/>
-      <definition value="The ameliorating action taken after the adverse event occured in order to reduce the extent of harm."/>
+      <short value="Ameliorating action taken after the adverse event occurred in order to reduce the extent of harm"/>
+      <definition value="The ameliorating action taken after the adverse event occurred in order to reduce the extent of harm."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -838,7 +838,7 @@
       </extension>
       <path value="AdverseEvent.supportingInfo.item[x]"/>
       <short value="Subject medical history or document relevant to this adverse event"/>
-      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a pencillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
+      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a penicillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
       <min value="1"/>
       <max value="1"/>
       <type>
