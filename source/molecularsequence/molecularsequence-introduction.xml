@@ -1,5 +1,12 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
+
+    [%stu-note dstu%]
+
+      Molecular Sequence resource will be replaced by the <a href="moleculardefinition.html"> Molecular Definition</a> resource. Current page is temporarily available for referencing and review purposes.
+
+    [%end-note%]
+    
   <h2>Scope and Usage</h2>
   <p>
     The MolecularSequence resource is designed for representing molecular sequences. It can represent the sequence in different ways, allowing implementations to adopt the most effective one for their use case.

@@ -62,6 +62,27 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Condition-asserter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.asserter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-asserter"/>
+        <description value="Person or device that asserts this condition"/>
+        <code value="asserter"/>
+        <type value="reference"/>
+        <expression value="Condition.asserter"/>
+        <xpath value="f:Condition/f:asserter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+<!--
+  <entry>
+    <resource>
+      <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.participant.actor"/>
         </extension>
@@ -93,6 +114,7 @@
       </SearchParameter>
     </resource>
   </entry>
+-->
   <entry>
     <resource>
       <SearchParameter>
