@@ -14,6 +14,13 @@ In some cases, the solution after identifying duplicates is to deprecate one of 
 live on different servers or have different 'owners'.  The <b>Linkage</b> resource is intended to satisfy this use-case.
 </p>
 
+[%stu-note dstu%]
+While the Maturity Level did not change, the Standards Status did change to Draft for consistency with the current Maturity Level of 0.
+ 
+The Patient Care Work Group welcomes feedback <a href="http://hl7.org/fhir-issues">here</a> whether implementers believe the resource is substantially complete, tested across its scope, and implemented in production.
+ 
+[%end-note%]
+
 </div>
 
 
