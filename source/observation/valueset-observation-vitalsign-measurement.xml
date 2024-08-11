@@ -35,5 +35,21 @@
       <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
     </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bmi"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodytemp"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyweight"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-heartrate"/>
+    </include>
   </compose>
 </ValueSet>

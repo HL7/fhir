@@ -93,6 +93,7 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="2"/>
     </element>
     <element id="Observation.category:BodyTempCode">
       <path value="Observation.category"/>
@@ -112,6 +113,14 @@
       <definition value="Body Temperature."/>
       <alias value="Test"/>
       <alias value="Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsBodyTemp"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing body temperature vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodytemp"/>
+      </binding>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>

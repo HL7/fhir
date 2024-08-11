@@ -93,6 +93,7 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="2"/>
     </element>
     <element id="Observation.category:VitalsPanelCode">
       <path value="Observation.category"/>
