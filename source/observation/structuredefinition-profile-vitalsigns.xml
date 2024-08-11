@@ -201,6 +201,25 @@
       <condition value="vs-2"/>
       <mustSupport value="true"/>
     </element>
+    <element id="Observation.valueQuantity">
+      <path value="Observation.valueQuantity"/>
+      <short value="Vital Sign Value recorded with UCUM (preferred)"/>
+      <definition value="Vital Sign Value recorded with UCUM (preferred)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Common UCUM units for recording Vital Signs."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsUnits"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Commonly encountered UCUM units for recording Vital Signs."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+      </binding>
+    </element>
     <element id="Observation.dataAbsentReason">
       <path value="Observation.dataAbsentReason"/>
       <min value="0"/>
@@ -278,8 +297,8 @@
     </element>
     <element id="Observation.component.valueQuantity">
       <path value="Observation.component.valueQuantity"/>
-      <short value="Vital Sign Value recorded with UCUM"/>
-      <definition value="Vital Sign Value recorded with UCUM."/>
+      <short value="Vital Sign Component Value recorded with UCUM (preferred)"/>
+      <definition value="Vital Sign Component Value recorded with UCUM (preferred)."/>
       <min value="0"/>
       <max value="1"/>
       <mustSupport value="true"/>
@@ -288,10 +307,10 @@
           <valueString value="Common UCUM units for recording Vital Signs."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSignsUnits"/>
+          <valueString value="VitalSignsComponentUnits"/>
         </extension>
-        <strength value="required"/>
-        <description value="Commonly encountered UCUM units for recording Vital Signs."/>
+        <strength value="preferred"/>
+        <description value="Commonly encountered UCUM units for recording Vital Signs Components."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
       </binding>
     </element>
