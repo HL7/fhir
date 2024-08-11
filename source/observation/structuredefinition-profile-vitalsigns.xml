@@ -154,7 +154,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSigns"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult"/>
       </binding>
@@ -280,7 +280,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSigns"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult"/>
       </binding>
