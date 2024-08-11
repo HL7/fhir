@@ -112,6 +112,14 @@
       <definition value="Body Height."/>
       <alias value="Test"/>
       <alias value="Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsPanel"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing body height (including body length) vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyheight"/>
+      </binding>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>

@@ -112,6 +112,14 @@
       <definition value="Vital Signs Panel."/>
       <alias value="Panel Name"/>
       <alias value="Panel Code"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsPanel"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing a panel of vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-panel"/>
+      </binding>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
