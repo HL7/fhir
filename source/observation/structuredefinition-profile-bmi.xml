@@ -94,9 +94,9 @@
         <rules value="open"/>
       </slicing>
     </element>
-    <element id="Observation.category:VSCat">
+    <element id="Observation.category:BMICode">
       <path value="Observation.category"/>
-      <sliceName value="VSCat"/>
+      <sliceName value="BMICode"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
