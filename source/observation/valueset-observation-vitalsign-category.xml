@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="observation-vitalsignresult"/>
+  <id value="observation-vitalsign-category"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
-  </identifier>
-  <name value="VitalSigns"/>
-  <title value="Vital Signs"/>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-category"/>
+  <name value="VitalSignsCategory"/>
+  <title value="Vital Signs Category"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR project team"/>
@@ -24,7 +20,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set indicates the allowed vital sign result types.   The LOINC code for Vitals Signs panel (85353-1) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure panel (85354-9) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4)."/>
+  <description value="This value set includes the required vital sign interoperability categories."/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>
@@ -65,8 +61,11 @@
       <concept>
         <code value="8462-4"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
       <concept>
-        <code value="8478-0"/>
+        <code value="vital-signs"/>
       </concept>
     </include>
   </compose>
