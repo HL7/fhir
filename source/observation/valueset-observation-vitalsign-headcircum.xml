@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="observation-vitalsign-bodyweight"/>
+  <id value="observation-vitalsign-headcircum"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyweight"/>
-  <name value="VitalSignsBodyWeight"/>
-  <title value="Vital Signs - Body Weight"/>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-headcircum"/>
+  <name value="VitalSignsHeadCircum"/>
+  <title value="Vital Signs - Head Circumference"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR project team"/>
@@ -20,20 +20,25 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing body weight vital sign measurements in Observation.code."/>
+  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing head circumference vital sign measurements in Observation.code."/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>
       <filter>
+        <property value="CLASS"/>
+        <op value="="/>
+        <value value="BDYCRC.MOLEC"/>
+      </filter>
+      <filter>
         <property value="COMPONENT"/>
         <op value="="/>
-        <value value="LP65139-5"/> <!-- Body weight -->
+        <value value="LP72254-3"/> <!-- Circumference.occipital-frontal -->
       </filter>
       <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6826-4"/> <!-- Mass -->
+        <value value="LP6822-3"/> <!-- Len -->
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
@@ -43,7 +48,7 @@
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP310005-6"/> <!-- ^Patient -->
+        <value value="LP7281-1"/> <!-- Head -->
       </filter>
       <filter>
         <property value="SCALE_TYP"/>
@@ -54,14 +59,19 @@
     <include>
       <system value="http://loinc.org"/>
       <filter>
-        <property value="COMPONENT"/>
+        <property value="CLASS"/>
         <op value="="/>
-        <value value="LP304481-7"/> <!-- Body weight^with clothes -->
+        <value value="BDYCRC.MOLEC"/>
       </filter>
       <filter>
+        <property value="COMPONENT"/>
+        <op value="="/>
+        <value value="LP304462-7"/> <!-- Circumference.occipital-frontal^at birth -->
+        </filter>
+        <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6826-4"/> <!-- Mass -->
+        <value value="LP6822-3"/> <!-- Len -->
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
@@ -71,35 +81,7 @@
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP310005-6"/> <!-- ^Patient -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP304482-5"/> <!-- Body weight^without clothes -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6826-4"/> <!-- Mass -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SYSTEM"/>
-        <op value="="/>
-        <value value="LP310005-6"/> <!-- ^Patient -->
+        <value value="LP7281-1"/> <!-- Head -->
       </filter>
       <filter>
         <property value="SCALE_TYP"/>

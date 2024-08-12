@@ -51,5 +51,17 @@
       <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-heartrate"/>
     </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-resprate"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-oxygensat"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-headcircum"/>
+    </include>
   </compose>
 </ValueSet>
