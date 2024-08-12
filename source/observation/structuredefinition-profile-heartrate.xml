@@ -93,10 +93,11 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="2"/>
     </element>
-    <element id="Observation.category:VSCat">
+    <element id="Observation.category:HeartRateCode">
       <path value="Observation.category"/>
-      <sliceName value="VSCat"/>
+      <sliceName value="HeartRateCode"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -112,6 +113,14 @@
       <definition value="Heart Rate."/>
       <alias value="Test"/>
       <alias value="Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsHeartRate"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing heart rate vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-heartrate"/>
+      </binding>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
