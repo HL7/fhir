@@ -60,6 +60,11 @@
     <definition value="The existence of the observation is registered, but there is no result yet available."/>
   </concept>
   <concept>
+    <code value="specimen-in-process"/>
+    <display value="Specimen-in-Process"/>
+    <definition value="The specimen being processed in the laboratory but no results are available yet."/>
+  </concept>
+  <concept>
     <code value="preliminary"/>
     <display value="Preliminary"/>
     <definition value="This is an initial or interim observation: data may be incomplete or unverified."/>
