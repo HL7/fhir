@@ -104,11 +104,14 @@
       </mapping>
     </element>
     <element id="Flag.status">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#46538"/>
+      </extension>
       <path value="Flag.status"/>
       <short value="active | inactive | entered-in-error"/>
       <definition value="Supports basic workflow."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
