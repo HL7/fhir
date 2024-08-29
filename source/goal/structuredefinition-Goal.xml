@@ -444,7 +444,7 @@
     </element>
     <element id="Goal.target.detail[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#17573."/>
+        <valueString value="GF#17573, J#46293"/>
       </extension>
       <path value="Goal.target.detail[x]"/>
       <short value="The target value to be achieved"/>
@@ -475,13 +475,6 @@
       </type>
       <condition value="gol-1"/>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalTargetDetail"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes to identify the target value of the focus to be achieved to signify the fulfillment of the goal."/>
-      </binding>
     </element>
     <element id="Goal.target.due[x]">
       <path value="Goal.target.due[x]"/>
