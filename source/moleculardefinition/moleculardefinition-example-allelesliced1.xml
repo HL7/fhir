@@ -39,7 +39,8 @@
             </coding>
         </focus>
         <resolvable>
-            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NG_008384.3"/>
+<!--            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NG_008384.3"/>-->
+            <reference value="DocumentReference/genomicFile-ng0083843"/>
         </resolvable>
     </representation>
     <representation>

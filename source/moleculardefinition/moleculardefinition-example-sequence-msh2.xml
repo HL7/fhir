@@ -7,8 +7,9 @@
     <type value="dna"/>
     <representation>
         <resolvable>
-            <contentType value="text/html"/>
-            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NM_000251.3?report=fasta"/>
+<!--            <contentType value="text/html"/>-->
+<!--            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NM_000251.3?report=fasta"/>-->
+            <reference value="DocumentReference/genomicFile-nm0002513"/>
         </resolvable>
     </representation>
 </MolecularDefinition>

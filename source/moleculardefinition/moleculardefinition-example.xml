@@ -33,8 +33,9 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
     </encoding>-->
     </literal>
     <resolvable>
-        <contentType value="text/html"/>
-        <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>
+<!--        <contentType value="text/html"/>-->
+<!--        <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>-->
+        <reference value="DocumentReference/genomicFile-mw7162561"/>
     </resolvable>
     <extracted>
         <startingMolecule>
