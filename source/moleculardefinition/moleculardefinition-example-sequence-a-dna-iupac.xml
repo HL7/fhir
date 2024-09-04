@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-a-dna-iupac"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <representation>
+        <literal>
+            <encoding>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-encoding"/>
+                    <code value="iupac-dna"/>
+                    <display value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes"/>
+                </coding>
+            </encoding>
+            <value value="A"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

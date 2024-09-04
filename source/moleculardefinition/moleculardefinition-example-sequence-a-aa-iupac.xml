@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-a-aa-iupac"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="aa"/>
+    <representation>
+        <literal>
+            <encoding>
+                <coding>
+                    <system value="http://hl7.org/fhir/moleculardefinition-encoding"/>
+                    <code value="iupac-protein"/>
+                    <display value="International Union of Pure and Applied Chemistry-Amino Acid Codes"/>
+                </coding>
+            </encoding>
+            <value value="A"/>
+        </literal>
+    </representation>
+</MolecularDefinition>
