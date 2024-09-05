@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="moleculardefinition-encoding"/>
+  <meta>
+    <lastUpdated value="2022-08-17T15:47:24.148-05:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/moleculardefinition-encoding"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1977"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="MolecularDefinitionEncoding"/>
+  <title value="Molecular Definition Encoding"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2022-08-17T15:48:24-05:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The encoding of the molecular definition sequences, e.g., IUPAC-DNA, IUPAC-Protein"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-encoding"/>
+  <content value="example"/>
+  <concept>
+    <code value="iupac-dna"/>
+    <display value="IUPAC-DNA"/>
+    <definition value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes."/>
+  </concept>
+  <concept>
+    <code value="iupac-protein"/>
+    <display value="IUPAC-Protein"/>
+    <definition value="International Union of Pure and Applied Chemistry-Amino Acid Codes."/>
+  </concept>
+</CodeSystem>
