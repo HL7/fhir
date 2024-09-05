@@ -42,8 +42,8 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-encoding"/>
   <content value="example"/>
   <concept>
-    <code value="iupac-dna"/>
-    <display value="IUPAC-DNA"/>
+    <code value="iupac-nucleotide"/>
+    <display value="IUPAC-Nucleotide "/>
     <definition value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes."/>
   </concept>
   <concept>
