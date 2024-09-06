@@ -16,13 +16,13 @@
                     <numberingSystem>
                         <coding>
                             <system value="http://loinc.org"/>
-                            <code value="LA30102-0"/>
-                            <display value="1-based character counting"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
                         </coding>
-                        <text value="1-based character counting"/>
+                        <text value="0-based interval counting"/>
                     </numberingSystem>
                         <startQuantity>
-                            <value value="1016"/>
+                            <value value="1015"/>
                         </startQuantity>
                         <endQuantity>
                             <value value="1016"/>
