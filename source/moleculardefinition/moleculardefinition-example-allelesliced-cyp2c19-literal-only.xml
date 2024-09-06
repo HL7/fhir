@@ -24,6 +24,9 @@
                         <startQuantity>
                             <value value="1016"/>
                         </startQuantity>
+                        <endQuantity>
+                            <value value="1016"/>
+                        </endQuantity>
                 </coordinateInterval>
         </sequenceLocation>
     </location>
