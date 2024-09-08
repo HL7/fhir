@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-a"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <representation>
+        <literal>
+            <value value="A"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

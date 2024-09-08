@@ -93,10 +93,11 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="2"/>
     </element>
-    <element id="Observation.category:VSCat">
+    <element id="Observation.category:BPCode">
       <path value="Observation.category"/>
-      <sliceName value="VSCat"/>
+      <sliceName value="BPCode"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>

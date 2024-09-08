@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-hla000011"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
+    </meta>
+    <type value="dna"/>
+    <representation>
+        <resolvable>
+            <contentType value="text/html"/>
+            <url value="https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?db=imgthla;id=HLA00001;format=fasta;style=raw"/>
+        </resolvable>
+    </representation>
+</MolecularDefinition>
