@@ -33,12 +33,12 @@
 	</category>
 	<code>
 		<!-- Example of a measurement code that is more specific than the vitals profile LOINC code -->
-    	<coding>
+    	<!-- <coding>
 			<system value="http://loinc.org"/>
-			<!-- LOINC -->
+			<!- - LOINC - ->
 			<code value="59408-5"/>
 			<display value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
-		</coding>
+		</coding> -->
     	<!-- Record of original machine code -->
     	<coding>
 			<system value="urn:iso:std:iso:11073:10101"/>
@@ -46,6 +46,7 @@
 			<code value="150456"/>
 			<display value="MDC_PULS_OXIM_SAT_O2"/>
 		</coding>
+		<text value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

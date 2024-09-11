@@ -22,11 +22,11 @@
 		<text value="Head Circumference"/>
 	</category>
 	<code>
-		<coding>
+		<!-- <coding>
 			<system value="http://loinc.org"/>
 			<code value="9843-4"/>
 			<display value="Head Occipital-frontal circumference"/>
-		</coding>
+		</coding> -->
 		<text value="Head Circumference"/>
 	</code>
 	<subject>
