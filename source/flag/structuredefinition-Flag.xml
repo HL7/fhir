@@ -116,6 +116,7 @@
       <type>
         <code value="code"/>
       </type>
+	  <meaningWhenMissing value="When status is not valued, it means the status is unknown."/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
