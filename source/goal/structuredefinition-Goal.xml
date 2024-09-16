@@ -448,7 +448,7 @@
       </extension>
       <path value="Goal.target.detail[x]"/>
       <short value="The target value to be achieved"/>
-      <definition value="The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value."/>
+      <definition value="The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value. A CodeableConcept target value could be Positive, Negative, Abnormal, Normal, Present, Absent, Yes, No."/>
       <comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Goal.target.measure defines a coded value."/>
       <min value="0"/>
       <max value="1"/>
