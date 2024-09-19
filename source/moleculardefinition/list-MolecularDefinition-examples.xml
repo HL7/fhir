@@ -102,6 +102,72 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced1"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices for CYP2C19 position 661"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced-cyp2c19-661"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced-cyp2c19-661"/>
+      <display value="Example of Allele-Sliced profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices for CYP2C19 position 1016"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced-cyp2c19-1016"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced-cyp2c19-1016"/>
+      <display value="Example of Allele-Sliced profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices for CYP2C19 As Literal"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced-cyp2c19-literal-only"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced-cyp2c19-literal-only"/>
+      <display value="Example of Allele-Sliced profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele profile including slices for HLA00381"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced-hla00381"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced-hla00381"/>
+      <display value="Example of Allele-Sliced profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Simple Genotype example 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -220,6 +286,46 @@
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example Amino Acid A, IUPAC"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-a-aa-iupac"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-a-aa-iupac"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example DNA A, IUPAC"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-a-dna-iupac"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-a-dna-iupac"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Sequence example for Homo sapiens MHC class I antigen (HLA-B) gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-af1961831-url"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-af1961831-url"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Simple Sequence example C"/>
@@ -232,6 +338,58 @@
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Sequence example of CYP2C19 By Accession Number"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-accession"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-accession"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Sequence example of CYP2C19 as Attachment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-attached"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-attached"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Sequence example of CYP2C19 as URL"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-url"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-url"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of FMR1 Gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Simple Sequence example G"/>
@@ -244,18 +402,20 @@
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Simple Sequence example T"/>
+      <valueString value="Simple Sequence example GGC"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-t"/>
+      <valueString value="moleculardefinition-example-sequence-ggc"/>
     </extension>
     <item>
-      <reference value="MolecularDefinition/example-sequence-t"/>
+      <reference value="MolecularDefinition/example-sequence-ggc"/>
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Simple Sequence example HLA00001-1"/>
@@ -268,6 +428,7 @@
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Simple Sequence example LRG-584"/>
@@ -280,6 +441,60 @@
       <display value="Example of Sequence profile"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of MSH2 Gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-msh2"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-msh2"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of NM_0007694 as URL"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-nm0007694-url"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-nm0007694-url"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of repeated sequence from FMR1 gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-repeat"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-repeat"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Sequence example T"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-t"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-t"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Simple Sequence example to be extracted"/>
@@ -307,54 +522,6 @@
 
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of Allele profile including slices"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-allelesliced1"/>
-    </extension>
-    <item>
-      <reference value="MolecularDefinition/example-allelesliced1"/>
-      <display value="Example of Allele profile"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of Sequence profile of GGC"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-ggc"/>
-    </extension>
-    <item>
-      <reference value="MolecularDefinition/example-sequence-ggc"/>
-      <display value="Example of Sequence profile"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of Sequence profile of MSH2 Gene"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-msh2"/>
-    </extension>
-    <item>
-      <reference value="MolecularDefinition/example-sequence-msh2"/>
-      <display value="Example of Sequence profile"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of Sequence profile of FMR1 Gene"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-fmr1"/>
-    </extension>
-    <item>
-      <reference value="MolecularDefinition/example-sequence-fmr1"/>
-      <display value="Example of Sequence profile"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of Variation profile of MSH2 2503C"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -365,17 +532,70 @@
       <display value="Example of Variation profile"/>
     </item>
   </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of repeated sequence from FMR1 gene"/>
+      <valueString value="Example of Variation profile of CYP2C19 at Position 661"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="moleculardefinition-example-sequence-repeat"/>
+      <valueString value="moleculardefinition-example-variation-cyp2c19-661"/>
     </extension>
     <item>
-      <reference value="MolecularDefinition/example-sequence-repeat"/>
-      <display value="Example of Sequence profile"/>
+      <reference value="MolecularDefinition/example-variation-cyp2c19-661"/>
+      <display value="Example of Variation profile"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of CYP2C19 at Position 991 as HGVS"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-cyp2c19-991-hgvs"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-cyp2c19-991-hgvs"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of CYP2C19 at Position 1015 as SPDI"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-cyp2c19-1015-spdi"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-cyp2c19-1015-spdi"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of CYP2C19 at Position 1015 as VRS"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-cyp2c19-1015-vrs"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-cyp2c19-1015-vrs"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of CYP2C19 at Position 1016 as VCF"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-cyp2c19-1016-vcf"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-cyp2c19-1016-vcf"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+
 
 </List>
