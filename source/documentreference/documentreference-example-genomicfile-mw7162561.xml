@@ -21,9 +21,9 @@
   </securityLabel>
   <content>
     <attachment>
-      <title value="Homo sapiens isolate 7 BRCA1 (BRCA1) gene, exon 10 and partial cds"/>
       <contentType value="text/html"/>
       <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>
+      <title value="Homo sapiens isolate 7 BRCA1 (BRCA1) gene, exon 10 and partial cds"/>
     </attachment>
   </content>
 </DocumentReference>

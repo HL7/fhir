@@ -21,9 +21,9 @@
   </securityLabel>
   <content>
     <attachment>
-      <title value="Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
       <contentType value="text/html"/>
       <url value="https://www.ncbi.nlm.nih.gov/nuccore/NG_008384.3?report=fasta"/>
+      <title value="Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
     </attachment>
   </content>
 </DocumentReference>
