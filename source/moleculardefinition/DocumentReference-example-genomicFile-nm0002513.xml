@@ -11,7 +11,7 @@
   </identifier>
   <status value="current"/>
   <docStatus value="preliminary"/>
-  <description value="A sample Document Reference instance representing a generic genomic file that may ber used as input or output of a genomic analysis pipeline."/>
+  <description value="A sample Document Reference instance representing Homo sapiens mutS homolog 2 (MSH2), transcript variant 1, mRNA."/>
   <securityLabel>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
@@ -21,6 +21,7 @@
   </securityLabel>
   <content>
     <attachment>
+      <title value="Homo sapiens mutS homolog 2 (MSH2), transcript variant 1, mRNA"/>
       <contentType value="text/html"/>
       <url value="https://www.ncbi.nlm.nih.gov/nuccore/NM_000251.3?report=fasta"/>
     </attachment>
