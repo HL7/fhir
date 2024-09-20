@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="example-sequence-msh2"/>
+    <id value="example-sequence-cyp2c19-accession"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
@@ -8,8 +8,8 @@
     <representation>
         <resolvable>
 <!--            <contentType value="text/html"/>-->
-<!--            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NM_000251.3?report=fasta"/>-->
-            <reference value="DocumentReference/example-genomicFile-nm0002513"/>
+<!--            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NG_008384.3?report=fasta"/>-->
+            <reference value="DocumentReference/example-genomicFile-cyp2c19-accession"/>
         </resolvable>
     </representation>
 </MolecularDefinition>

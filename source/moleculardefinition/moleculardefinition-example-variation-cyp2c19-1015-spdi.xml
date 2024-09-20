@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-variation-cyp2c19-1015-spdi"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
+    </meta>
+    <type value="dna"/>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-nm0007694-url"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: (CYP2C19), mRNA, NM_000769.4"/>
+            </sequenceContext>
+            <coordinateInterval>
+                <numberingSystem>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="LA30100-4"/>
+                        <display value="0-based interval counting"/>
+                    </coding>
+                    <text value="0-based interval counting"/>
+                </numberingSystem>
+                <startQuantity>
+                    <value value="1015"/>
+                </startQuantity>
+            </coordinateInterval>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <focus>
+            <coding>
+                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                <code value="reference-state"/>
+                <display value="Reference State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="A"/>
+        </literal>
+    </representation>
+    <representation>
+        <focus>
+            <coding>
+                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
+                <code value="alternative-state"/>
+                <display value="Alternative State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="G"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

@@ -554,11 +554,12 @@
       <path value="MolecularDefinition.representation.resolvable"/>
       <short value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
       <definition value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
-      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
+<!--      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>-->
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Attachment"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
     </element>
