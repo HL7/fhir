@@ -398,14 +398,14 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="Consent.policyBasis.url">
-      <path value="Consent.policyBasis.url"/>
-      <short value="URL to a computable backing policy"/>
-      <definition value="A URL that links to a computable version of the policy the organization will enforce for this Consent."/>
+    <element id="Consent.policyBasis.uri">
+      <path value="Consent.policyBasis.uri"/>
+      <short value="URI to a computable backing policy"/>
+      <definition value="A URI that links to a computable version of the policy the organization will enforce for this Consent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="url"/>
+        <code value="uri"/>
       </type>
       <isSummary value="false"/>
     </element>
