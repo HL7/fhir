@@ -1,0 +1,92 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<a name="scope"></a>
+		<h2>Scope and Usage</h2>
+		<p>
+			This is not the right relationship for short-term, highly transient relationships. Marriage, for example, is
+			usually a longer term relationship, so this resource is appropriate.<br/>
+			Such as:
+		</p>
+		<ul>
+			<li>Represent relationship between two members</li>
+			<li>Represent the certainty of the relationship</li>
+			<li>Represent the temporal nature of the relationship<br/>
+				(e.g., father/daughter is mostly persistent, but resident
+				in household is very transient).</li>
+		</ul>
+		<p>
+			A short term relationship such as "sat next to in a meeting" is not appropriate for this resource.<br />
+			This is not the right resource for living arrangements. That may be group instead?<br />
+			This is not for tracking relationship between care team and the patient. For example, the social worker
+			would be a Practitioner on your Care Team.<br />
+			This is not for tracking caregivers that are performing actions. For example, the lady taking you to church
+			would be a RelatedPerson. But if that lady is your neighbor, then the neighbor relationship may be
+			represented in this resource, though not used in tracking care.<br />
+			PersonalRelationship is not to be used to represent the relationship of "provides care for". That should be
+			in CareTeam.<br/>
+			This is not the right resource to represent the role of the person within a group (e.g., the head of the household is the decision maker),
+			that would be recorded in the Group.member.involvement element.
+		</p>
+		<h3>Potential use cases:</h3>
+		<ul>
+			<li>Public Health</li>
+			<ul>
+				<li>Isolation</li>
+				<li>Contact tracing</li>
+				<li>WIC programs</li>
+				<li>Congregate housing</li>
+				<li>2/15/2024 - Public Health WG has indicated they are interested, and wants to be kept up to date.</li>
+			</ul>
+			<li>Social Care</li>
+			<ul>
+				<li>Gravity </li>
+				<li>Administration for Children and Families (ACF)</li>
+			</ul>
+			<li>Occupational Health</li>
+			<li>Shared exposures or environments</li>
+			<ul>
+				<li>Military Health (for representing units)</li>
+				<li>First responders</li>
+			</ul>
+			<li>Research</li>
+		</ul>
+
+		<h3>
+			Should this resource be used for/Open questions:
+		</h3>
+		<ul>
+			<li>Is this really something we think could/should be used for contact tracing / infectious disease? Or is
+				this
+				really more about "hand wavey" social stuff?</li>
+			<li>documenting sexual relationships?</li>
+			<li>Genomic pedigree?</li>
+			<li>Should other resources be allowed to reference PersonalRelationship?</li>
+			<li>FamilyMemberHistory.relationship could be changed to a codeableReference that point to
+				PersonalRelationship</li>
+		</ul>
+	
+	</div>
+
+	<div>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			<b>Boundaries between this and RelatedPerson</b><br/>
+			The RelatedPerson resource specifically represents a person, along with their relationship to the patient.<br/>
+			It contains the details of both the individual, and the relationship.
+			In contrast to this PersonalRelationship resource which purely represents the relationship between two individuals.
+		</p>
+		<p>
+			<b>Boundaries between this and <a href="familymemberhistory.html">FamilyMemberHistory</a></b><br/>
+			Although there is a relationship within the family member history, it is not the same as the relationship.
+			It intends to provide the details of the family member's health history that could be relevant to the patient, not the relationship itself.
+		</p>
+		<p>
+			<b>Boundaries between this and <a href="careteam.html">CareTeam</a></b><br/>
+			PersonalRelationship is not to be used to represent the relationship of "provides care for".  That should be in CareTeam.
+		</p>
+		<p>
+			<b>Boundaries between this and Group</b><br/>
+			A group contains all the members and the involvement property indicates the member's relationship to the group, not to the other individuals withing the group.
+		</p>
+	</div>
+</div>
