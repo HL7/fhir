@@ -49,22 +49,7 @@
 				<li>First responders</li>
 			</ul>
 			<li>Research</li>
-		</ul>
-
-		<h3>
-			Should this resource be used for/Open questions:
-		</h3>
-		<ul>
-			<li>Is this really something we think could/should be used for contact tracing / infectious disease? Or is
-				this
-				really more about "hand wavey" social stuff?</li>
-			<li>documenting sexual relationships?</li>
-			<li>Genomic pedigree?</li>
-			<li>Should other resources be allowed to reference PersonalRelationship?</li>
-			<li>FamilyMemberHistory.relationship could be changed to a codeableReference that point to
-				PersonalRelationship</li>
-		</ul>
-	
+		</ul>	
 	</div>
 
 	<div>

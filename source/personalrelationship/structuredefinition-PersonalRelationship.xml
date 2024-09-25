@@ -56,7 +56,7 @@
     <element id="PersonalRelationship">
       <path value="PersonalRelationship"/>
       <short value="A relationship between two indiduals"/>
-      <definition value="The details of a direct relationship between twon individuals. It does not contain information about the individuals themselves, just the relationship itself."/>
+      <definition value="The details of a direct relationship between two individuals. It does not contain information about the individuals themselves, just the relationship itself."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -157,7 +157,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
     </element>
