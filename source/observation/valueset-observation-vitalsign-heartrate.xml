@@ -139,6 +139,7 @@
       </filter>
     </include>
     <exclude>
+      <system value="http://loinc.org"/>
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
