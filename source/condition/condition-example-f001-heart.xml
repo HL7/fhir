@@ -25,7 +25,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="6736007"/>
-      <display value="Moderate"/>
+      <display value="Moderate (severity modifier)"/>
     </coding>
   </severity>
   <code>

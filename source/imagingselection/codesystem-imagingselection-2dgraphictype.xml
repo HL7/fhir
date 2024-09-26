@@ -15,9 +15,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="ii"/>
-  </extension>
   <url value="http://hl7.org/fhir/imagingselection-2dgraphictype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
