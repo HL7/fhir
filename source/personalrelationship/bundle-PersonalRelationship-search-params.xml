@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="PersonalRelationship-patient"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PersonalRelationship.source.where(resolve() is Patient) | PersonalRelationship.target.where(resolve() is Patient)"/>
+          <valueString value="PersonalRelationship.source,PersonalRelationship.target"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PersonalRelationship-patient"/>
         <description value="The patient this related person is related to"/>
