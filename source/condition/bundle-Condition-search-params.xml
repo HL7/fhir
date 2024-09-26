@@ -75,7 +75,7 @@
         <type value="reference"/>
         <expression value="Condition.asserter"/>
         <xpath value="f:Condition/f:asserter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
