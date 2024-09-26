@@ -186,13 +186,14 @@
     <element id="Consent.subject">
       <path value="Consent.subject"/>
       <short value="Who the consent applies to"/>
-      <definition value="The patient/healthcare practitioner or group of persons to whom this consent applies."/>
+      <definition value="The patient, healthcare practitioner, research subject, or a group of persons to whom this consent applies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
