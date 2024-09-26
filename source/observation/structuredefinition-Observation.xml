@@ -1052,7 +1052,7 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Quantity"/>
       </type>
       <condition value="obs-3"/>
       <mapping>
@@ -1072,7 +1072,7 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Quantity"/>
       </type>
       <condition value="obs-3"/>
       <mapping>
