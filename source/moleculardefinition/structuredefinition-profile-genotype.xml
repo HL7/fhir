@@ -24,7 +24,7 @@
     <url value="http://hl7.org/fhir/StructureDefinition/genotype"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="0000"/>
+        <value value="urn:oid:2.16.840.1.113883.4.642.5.1782"/>
     </identifier>
     <version value="6.0.0"/>
     <name value="MolecularDefinitionGenotype"/>
@@ -74,9 +74,6 @@
             <type>
                 <code value="Reference"/>
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/allele"/>
-            </type>
-            <type>
-                <code value="Reference"/>
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/haplotype"/>
             </type>
         </element>

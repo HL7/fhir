@@ -1600,10 +1600,17 @@
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">58</Data></Cell>
-    <Cell><Data ss:Type="String">6.0.0-ballot1</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-ballo1</Data></Cell>
     <Cell><Data ss:Type="String">6.0.0</Data></Cell>
     <Cell><Data ss:Type="String">6.0.0-ballot1</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 Rolling ci-build</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 1st Draft Ballot</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">59</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-ballot2</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-ballot2</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 2nd Draft Ballot</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
