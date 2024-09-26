@@ -99,4 +99,9 @@
     <display value="Unknown"/>
     <definition value="The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
   </concept>
+  <concept>
+    <code value="cannot-be-obtained"/>
+    <display value="Cannot be Obtained"/>
+    <definition value="The observation cannot be obtained."/>
+  </concept>
 </CodeSystem>
