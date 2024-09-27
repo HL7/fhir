@@ -6,7 +6,9 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->    
   <productCategory>
-   <code value="cells" />
+    <coding>
+      <code value="cells" />
+    </coding>
   </productCategory>
   <productCode>
     <coding>

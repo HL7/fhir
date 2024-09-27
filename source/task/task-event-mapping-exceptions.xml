@@ -148,7 +148,7 @@
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Type of performance"/>
-            <resource value="Who should perform the Task"/>
+            <resource value="Who should perform Task"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Distinguishes the type of involvement of the performer in the task.."/>
