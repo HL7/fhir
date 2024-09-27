@@ -21,7 +21,11 @@
 		<display value="Mr. Belpit"/>
 	</patient>
 	<stage>
-  	  <code value="dispatch"/>
+		<coding>
+			<system value="http://hl7.org/fhir/supplydelivery-stage"/>
+  	  		<code value="dispatch"/>
+			<display value="Dispatch"/>
+		</coding>
 	</stage>
 	<supplier>
 		<display value="ACME distribution"/>

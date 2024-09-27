@@ -14,18 +14,88 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the FHIR Release 6 (R6) ballot. 
+Welcome to the FHIR Release 6 (R6) 2nd ballot. 
 </p>
 <p>
-This ballot is the first ballot of R6. This is only a draft ballot seeking review on the following items:
+This ballot is the second ballot of R6. This is only a draft ballot seeking review on the following items:
 </p>
 <ul>
-<li><a href="actordefinition.html">ActorDefinition</a></li>
-<li><a href="examplescenario.html">ExampleScenario</a></li>
-<li><a href="graphdefinition.html">GraphDefinition</a></li>
-<li><a href="implementationguide.html">ImplementationGuide</a></li>
-<li><a href="messageheader.html">MessageHeader</a></li>
-<li><a href="requirements.html">Requirements</a></li>
+  <li><b>FHIR Infrastructure</b>
+    <ul>
+      <li><a href="group.html">Group</a></li>
+      <li><a href="subscription.html">Subscription</a></li>
+      <li><a href="subscriptionstatus.html">SubscriptionStatus</a></li>
+      <li><a href="subscriptiontopic.html">SubscriptionTopic</a></li>
+      <li><a href="testplan.html">TestPlan</a></li>
+      <li><a href="testreport.html">TestReport</a></li>
+      <li><a href="testscript.html">TestScript</a></li>
+      <br/>   
+      <li><a href="formats.html">Resource Definitions</a></li>
+      <li><a href="types.html">FHIR Type Framework</a></li>
+      <li><a href="datatypes.html">Datatypes</a></li>
+      <li><a href="extensibility.html">Extensibility</a></li>
+      <li><a href="references.html">Resource References</a></li>
+      <li><a href="narrative.html">Narrative</a></li>
+      <li><a href="lifecycle.html">Lifecycle ($current stuff only)</a></li>
+      <li><a href="conformance-rules.html">Conformance</a></li>
+      <li><a href="subscriptions.html">Topic-based subscriptions framework</a></li>
+      <li><a href="testing.html">Testing FHIR</a></li>
+      <li><a href="logical.html">Logical models</a></li>
+      <li><a href="operations-for-large-resources.html">Operations for Large Resources</a></li>
+      <li><a href="async-bulk.html">Asynchronous Bulk Data</a></li>
+      <li><a href="async-bundle.html">Asynchronous Interaction Request</a></li>
+      <li><a href="obligations.html">Implementation Obligations</a></li>
+      <li><a href="versions.html">Version Management Policy</a></li>
+    </ul>
+  </li>   
+  <li><b>Orders and Observations</b>
+    <ul>
+      <li><a href="nutritionproduct.html">NutritionProduct</a></li>
+      <li><a href="nutritionintake.html">NutritionIntake</a></li>
+      <li><a href="nutritionorder.html">NutritionOrder</a></li>
+      <li><a href="device.html">Device</a></li>
+      <li><a href="devicedefinition.html">DeviceDefinition</a></li>
+      <li><a href="deviceassociation.html">DeviceAssociation</a></li>
+      <li><a href="servicerequest.html">ServiceRequest</a></li>
+      <li><a href="task.html">Task</a></li>
+      <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a></li>
+      <li><a href="supplydelivery.html">SupplyDelivery</a></li>
+    </ul>
+  </li>   
+  <li><b>Pharmacy</b>
+    <ul>
+        <li><a href="medication.html">Medication</a></li>
+        <li><a href="medicationrequest.html">MedicationRequest</a></li>
+        <li><a href="medicationdispense.html">MedicationDispense</a></li>
+        <li><a href="medicationstatement.html">MedicationStatement</a></li>
+        <li><a href="medicationadministration.html">MedicationAdministration</a></li>
+    </ul>
+  </li>   
+  <li><b>Public Health</b>
+    <ul>
+        <li><a href="immunization.html">Immunization</a></li>
+        <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></li>
+        <li><a href="immunizationevaluation.html">ImmunizationEvaluation</a></li>
+    </ul>
+  </li>   
+  <li><b>Security</b>
+    <ul>
+        <li><a href="auditevent.html">AuditEvent</a></li>
+        <li><a href="provenance.html">Provenance</a></li>
+        <li><a href="datatypes.html#Signature">Signature</a></li>
+    </ul>
+  </li>   
+  <li><b>CBCP</b>
+    <ul>
+      <li><a href="consent.html">Consent</a></li>
+    </ul>
+  </li>   
+  <li><b>Imaging</b>
+    <ul>
+        <li><a href="imagingstudy.html">ImagingStudy</a></li>
+        <li><a href="imagingselection.html">ImagingSelection</a></li>
+    </ul>
+  </li>   
 </ul>
 <p>
 The intention is that there will be minimal changes to artifacts within the scope of the ballot between now 
@@ -41,7 +111,7 @@ but they'll be considered out of scope, and the underlying Jira issues handled j
 <h3>The FHIR R6 Ballot Process</h3>
 
 <p>
-This is the first of a series of draft ballots on R6, where different candidate resources for normative 
+This is the second of a series of draft ballots on R6, where different candidate resources for normative 
 status in the final R6 version undergo focused review in order to try and reduce the overall ballot load
 of the final R6 ballot. 
 </p>
@@ -84,8 +154,8 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 
 <a name="maps"></a>
 <p>
-The difference analysis in this ballot for resources is still between Release 3 and Release 4. This will be updated
-when Release 5 is prior to publication of the final specification. In the meantime, balloters are welcome to comment on suggested 
+The difference analysis in this ballot for resources is still between Release 5 and Release 4. This will be updated
+when Release 6 is prior to publication of the final specification. In the meantime, balloters are welcome to comment on suggested 
 improvements to the mappings and difference statements, but these cannot be the 
 basis for negative votes. Contributions may also be made directly 
 (join the <a href="https://chat.fhir.org/#narrow/stream/133-R3.2FR4-Conversion.20work">conversation at chat.fhir.org</a>).

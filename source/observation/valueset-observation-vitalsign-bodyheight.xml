@@ -28,7 +28,7 @@
       <filter>
         <property value="CLASS"/>
         <op value="="/>
-        <value value="BDYHGT.ATOM"/> <!-- LP7768-7 -->
+        <value value="LP7768-7"/> <!-- BDYHGT.ATOM -->
       </filter>
       <filter>
         <property value="PROPERTY"/>
@@ -56,7 +56,7 @@
         <filter>
           <property value="CLASS"/>
           <op value="="/>
-          <value value="BDYHGT.MOLEC"/> <!-- LP7769-5 -->
+          <value value="LP7769-5"/> <!-- BDYHGT.MOLEC -->
         </filter>
         <filter>
             <property value="PROPERTY"/>

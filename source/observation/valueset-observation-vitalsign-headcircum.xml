@@ -28,7 +28,7 @@
       <filter>
         <property value="CLASS"/>
         <op value="="/>
-        <value value="BDYCRC.MOLEC"/>
+        <value value="LP7769-5"/>
       </filter>
       <filter>
         <property value="COMPONENT"/>
@@ -61,7 +61,7 @@
       <filter>
         <property value="CLASS"/>
         <op value="="/>
-        <value value="BDYCRC.MOLEC"/>
+        <value value="LP7769-5"/>
       </filter>
       <filter>
         <property value="COMPONENT"/>
