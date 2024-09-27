@@ -34,8 +34,13 @@
   <serialNumber value="92300365108"/>
   <name>
     <value value="meter+00365108"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="923"/>
   <type>
     <coding>

@@ -15,8 +15,13 @@
   <lotNumber value="12345"/>
   <name>
     <value value="Acme Patient Monitor" />
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
 	<modelNumber value="A.1.1"/>
   <type>
     <text value="Vital Signs Monitor"/>
