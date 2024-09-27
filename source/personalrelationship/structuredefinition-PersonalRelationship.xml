@@ -149,7 +149,7 @@
     <element id="PersonalRelationship.asserter">
       <path value="PersonalRelationship.asserter"/>
       <short value="Who has asserted the details of the relationship"/>
-      <definition value="The asserter of the relationship. Typically is the source of the relationship information. (The relationship was reported by ...)"/>
+      <definition value="The asserter of the relationship. Typically is the source of the relationship information. (The relationship was reported by ...)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
