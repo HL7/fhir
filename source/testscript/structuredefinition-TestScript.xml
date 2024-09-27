@@ -978,6 +978,9 @@
 			</constraint>
 		</element>
 		<element id="TestScript.setup.action.common">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="SetupActionCommon"/>
+			</extension>
 			<path value="TestScript.setup.action.common"/>
 			<short value="Links or references to common collection(s) of actions"/>
 			<definition value="Links or references to common collection(s) of actions in this or an external TestScript instance."/>
@@ -1011,6 +1014,9 @@
 			</type>
 		</element>
 		<element id="TestScript.setup.action.common.parameter">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="SetupActionCommonParameter"/>
+			</extension>
 			<path value="TestScript.setup.action.common.parameter"/>
 			<short value="Parameter(s) to convey input values to the identified common collection of actions"/>
 			<definition value="Optional named parameter(s) to provide input values to the identified common collection of actions from this or an external TestScript."/>
@@ -1963,6 +1969,9 @@
 			</type>
 		</element>
 		<element id="TestScript.common.parameter">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="CommonParameter"/>
+			</extension>
 			<path value="TestScript.common.parameter"/>
 			<short value="Parameter(s) to convey input values to this common collection of actions in this script"/>
 			<definition value="Optional named parameter(s) to provide input values to this common collection of actions from this or an external TestScript."/>
