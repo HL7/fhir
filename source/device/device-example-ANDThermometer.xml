@@ -34,8 +34,13 @@
   <serialNumber value="5160800011" />
   <name>
     <value value="A&amp;D_UT201BLEA_321226"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="UT-201BLE-A" />
   <type>
     <coding>

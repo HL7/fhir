@@ -24,7 +24,13 @@
 	</device>
 	<operationalStatus value="on"/>
 	<color value="blue"/>
-	<category value="measurement"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/metric-category"/>
+			<code value="measurement"/>
+			<display value="Measurement"/>
+		</coding>
+	</category>
  	<measurementFrequency>
 		<value value="1"/> 
 		<unit value="Hertz"/> 
