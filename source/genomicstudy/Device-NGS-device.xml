@@ -13,7 +13,12 @@
   <manufacturer value="Illumina"/>
   <name>
     <value value="NextSeq 550 Instrument"/>
-    <type value="user-friendly-name"/>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+          <code value="user-friendly-name"/>
+      </coding>
+    </type>	
   </name>
   <type>
     <coding>
