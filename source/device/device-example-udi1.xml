@@ -34,7 +34,12 @@
 	<lotNumber value="7654321D"/>
 	<name>
       <value value="PM/Octane 2014" />
-      <type value="user-friendly-name"/>
+	  <type>
+		<coding>
+			<system value="http://hl7.org/fhir/device-nametype"/>
+      		<code value="user-friendly-name"/>
+	  	</coding>
+	  </type>	
     </name>
 	<type>
 		<coding>
