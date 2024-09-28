@@ -130,7 +130,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="225444004"/>
-        <display value="At risk for suicide (finding)"/>
+        <display value="At increased risk for suicide (finding)"/>
       </coding>
     </valueCodeableConcept>
   </useContext>

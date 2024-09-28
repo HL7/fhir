@@ -159,8 +159,8 @@
         <answer>
           <valueCoding>
             <system value="http://loinc.org"/>
-            <code value="LA10602-3"/>
-            <display value="-- Mexican"/>
+            <code value="LA4611-5"/>
+            <display value="Mexican"/>
           </valueCoding>
         </answer>
         <answer>
@@ -355,8 +355,8 @@
           <answer>
             <valueCoding>
               <system value="http://loinc.org"/>
-              <code value="LA10550-4"/>
-              <display value="-- Other Cancer"/>
+              <code value="LA14284-6"/>
+              <display value="Other Cancer"/>
             </valueCoding>
           </answer>
         </item>
@@ -466,7 +466,7 @@
           <answer>
             <valueCoding>
               <system value="http://loinc.org"/>
-              <code value="LA10536-3"/>
+              <code value="LA14283-8"/>
               <display value="-- Breast Cancer"/>
             </valueCoding>
           </answer>
@@ -1214,7 +1214,7 @@
                 <answer>
                   <valueCoding>
                     <system value="http://loinc.org"/>
-                    <code value="LA10539-7"/>
+                    <code value="LA15682-0"/>
                     <display value="-- Ovarian Cancer"/>
                   </valueCoding>
                 </answer>
@@ -1268,7 +1268,7 @@
           <answer>
             <valueCoding>
               <system value="http://loinc.org"/>
-              <code value="LA10539-7"/>
+              <code value="LA15682-0"/>
               <display value="-- Ovarian Cancer"/>
             </valueCoding>
           </answer>
@@ -1511,7 +1511,7 @@
                 <answer>
                   <valueCoding>
                     <system value="http://loinc.org"/>
-                    <code value="LA10558-7"/>
+                    <code value="LA16286-9"/>
                     <display value="-- Heart Attack"/>
                   </valueCoding>
                 </answer>
@@ -1612,7 +1612,7 @@
                 <answer>
                   <valueCoding>
                     <system value="http://loinc.org"/>
-                    <code value="LA10571-0"/>
+                    <code value="LA19526-5"/>
                     <display value="-- Other/Unknown"/>
                   </valueCoding>
                 </answer>
@@ -1666,7 +1666,7 @@
           <answer>
             <valueCoding>
               <system value="http://loinc.org"/>
-              <code value="LA10536-3"/>
+              <code value="LA14283-8"/>
               <display value="-- Breast Cancer"/>
             </valueCoding>
           </answer>
@@ -1692,7 +1692,7 @@
           <answer>
             <valueCoding>
               <system value="http://loinc.org"/>
-              <code value="LA10564-5"/>
+              <code value="LA16982-3"/>
               <display value="-- Asthma"/>
             </valueCoding>
           </answer>
@@ -1803,7 +1803,7 @@
           <answer>
             <valueCoding>
               <system value="http://loinc.org"/>
-              <code value="LA10536-3"/>
+              <code value="LA14283-8"/>
               <display value="-- Breast Cancer"/>
             </valueCoding>
           </answer>

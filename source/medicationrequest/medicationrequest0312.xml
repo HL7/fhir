@@ -36,7 +36,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="230456007"/>
-            <display value="Status epilepticus (disorder)"/>
+            <display value="Status epilepticus (finding)"/>
         </coding>
       </concept>
     </reason>
