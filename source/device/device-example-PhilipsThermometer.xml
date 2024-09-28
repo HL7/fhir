@@ -34,7 +34,12 @@
   <serialNumber value="162502000528"/>
   <name>
     <value value="Philips ear thermometer"/>
-    <type value="user-friendly-name"/>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+          <code value="user-friendly-name"/>
+      </coding>
+    </type>	
   </name>
   <modelNumber value="DL8740"/>
   <type>

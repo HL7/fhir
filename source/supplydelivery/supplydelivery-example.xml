@@ -25,7 +25,11 @@ business identifier - in this case the same as the request id
 		<text value="Blood collect tubes blue cap"/>
 	</type>
 	<stage>
-  	  <code value="dispatch"/>
+		<coding>
+			<system value="http://hl7.org/fhir/supplydelivery-stage"/>
+  	  		<code value="dispatch"/>
+			<display value="Dispatch"/>
+		</coding>
 	</stage>
 	<suppliedItem>
 		<quantity>

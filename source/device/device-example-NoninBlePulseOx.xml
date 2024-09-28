@@ -34,8 +34,13 @@
   <serialNumber value="501900083"/>
   <name>
     <value value="Nonin3230_501900083"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="Model 3230"/>
   <type>
     <coding>

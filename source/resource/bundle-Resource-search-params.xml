@@ -240,7 +240,7 @@
         <description value="Filter search parameter which supports a more sophisticated grammar for searching. See [documentation](search_filter.html) for further details"/>
         <code value="_filter"/>
         <type value="special"/>
-        <xpathUsage value="other"/>
+        <processingMode value="other"/>
       </SearchParameter>
     </resource>
   </entry>  
