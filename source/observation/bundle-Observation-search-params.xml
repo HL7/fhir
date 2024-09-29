@@ -911,6 +911,63 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-interpretation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.interpretation"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-interpretation"/>
+        <description value="The component interpretation of the observation type"/>
+        <code value="component-interpretation"/>
+        <type value="token"/>
+        <expression value="Observation.component.interpretation"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-interpretation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.interpretation"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-interpretation"/>
+        <description value="The interpretation of the observation type"/>
+        <code value="interpretation"/>
+        <type value="token"/>
+        <expression value="Observation.interpretation"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-interpretation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.interpretation,Observation.component.interpretation"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-interpretation"/>
+        <description value="The interpretation of the observation type or component type"/>
+        <code value="combo-interpretation"/>
+        <type value="token"/>
+        <expression value="Observation.interpretation | Observation.component.interpretation"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
   <!-- <entry>
     <resource>
       <SearchParameter>

@@ -34,8 +34,13 @@
   <serialNumber value="0400007825"/>
   <name>
     <value value="Nonin_Medical_Inc._323552"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="Model 3150"/>
   <type>
     <coding>
