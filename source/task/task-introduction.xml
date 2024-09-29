@@ -3,7 +3,7 @@
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
     <p>
-      A task resource describes an activity that can be performed and tracks the state of
+      A Task resource describes an activity that can be performed and tracks the state of
       completion of that activity. It is a representation that an activity should be or has been
       initiated, and eventually, represents the successful or unsuccessful completion of that
       activity.
@@ -33,8 +33,8 @@
       completion. These agents can be coordinated, following well choreographed business logic to
       ensure that tasks are completed. Task management may also be centrally controlled using some
       form of a workflow engine, in which case, the workflow engine itself may update and maintain the
-      task resources in the server, and through its orchestration activities ensure that tasks are
-      completed. The task resource enables either model of task management yet provides a
+      Task resources in the server, and through its orchestration activities ensure that tasks are
+      completed. The Task resource enables either model of task management yet provides a
       consistent view of the status of tasks being executed in support of healthcare workflows. </p>
     <p>The assignment of tasks into categories by type of task, type of performer and task status
       enable the server to function as a queue of work items.  This queue can be polled or subscribed
@@ -70,7 +70,7 @@
     href="communicationrequest.html">CommunicationRequest</a> to be performed
     between various actors.</p>
 
-    <p>As stated above, the task resource tracks the state of a task, enabling
+    <p>As stated above, the Task resource tracks the state of a task, enabling
     systems to ensure that tasks are completed. This information is kept
     separate from the operational details necessary to complete the task, as
     those details vary across and even within workflows. That detail is expected
@@ -89,7 +89,7 @@
     to inputs to a subsequent task. </p>
 
     <p>To facilitate the integration of off the shelf workflow applications
-    with FHIR, the task resource may reference a definition.  This
+    with FHIR, the Task resource may reference a definition.  This
     definition can represent a description of the workflow activity to be
     performed, using a standard workflow description language such as BPEL,
     BPMN, or XPDL, a workflow definition such as those defined in IHE
