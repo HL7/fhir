@@ -132,7 +132,7 @@
       <path value="PersonalRelationship.confidence"/>
       <short value="The confidence level of this relationship"/>
       <definition value="A coded representation of the confidence in the validity of the relationship."/>
-      <requirements value="Sometimes relationship data is externally observed/reported and may not be of high quality. The confidence provides the level of certainty that the `asserter` had of the relationship."/>
+      <requirements value="Sometimes relationship data is externally observed/reported and might not be of high quality. The confidence provides the level of certainty that the `asserter` had of the relationship."/>
       <min value="0"/>
       <max value="1"/>
       <type>
