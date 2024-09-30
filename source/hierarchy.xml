@@ -313,6 +313,7 @@ signatures.html
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
 	    <page type="resource" resource="InsuranceProduct"/>
+      <page type="resource" resource="PersonalRelationship"/>
 	    <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationAffiliation"/>
 	    <page type="resource" resource="VerificationResult"/>
