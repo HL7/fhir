@@ -34,8 +34,13 @@
   <serialNumber value="1i9JfKh"/>
   <name>
     <value value="KS_1i9JfKh"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="KS_1i9JfKh"/>
   <type>
     <coding>
