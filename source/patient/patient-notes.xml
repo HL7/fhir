@@ -94,6 +94,14 @@ Not detecting/checking for a potential linkage could mean that related clinical 
 (which is why using the Linkage resource is not appropriate, as its use in this manner would force the use of either another
 query to potentially locate other patient resources to consider, or use _revinclude)
 </p>
+<p>
+Therefore, the Linkage Resource should not be used in these cases:
+<ul>
+	<li>Linking patients - that should use Patient.link</li>
+	<li>Linking individuals - that should use Person as the linking resource</li>
+	<li>Linking encounters - that should use the new Encounter.link Extension</li>
+</ul>
+</p>
 
 <a name="contact"></a>
 <h2>Patient.contact vs. RelatedPerson</h2>
