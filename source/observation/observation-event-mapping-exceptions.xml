@@ -48,7 +48,7 @@
     <divergentElement patternPath="Event.status" resourcePath="Observation.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="registered | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown"/>
+            <resource value="registered | specimen-in-process | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown | cannot-be-obtained"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the observation."/>

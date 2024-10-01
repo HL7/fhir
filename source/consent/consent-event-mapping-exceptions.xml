@@ -46,14 +46,14 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="Consent.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <extraTypes _resource="Reference(Practitioner)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Practitioner,ResearchSubject)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
             <resource value="Who the consent applies to"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The patient/healthcare practitioner or group of persons to whom this consent applies."/>
+            <resource value="The patient, healthcare practitioner, research subject, or a group of persons to whom this consent applies."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the consent to the Patient context.  May also affect access control."/>
