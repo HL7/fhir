@@ -681,35 +681,35 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10599-1"/>
-							<display value="-- Central American"/>
+							<display value="Central American"/>
 						</concept>
 						<concept>
-							<code value="LA10600-7"/>
-							<display value="-- Cuban"/>
+							<code value="LA4190-0"/>
+							<display value="Cuban"/>
 						</concept>
 						<concept>
 							<code value="LA10601-5"/>
-							<display value="-- Dominican(Republic)"/>
+							<display value="Dominican(Republic)"/>
 						</concept>
 						<concept>
-							<code value="LA10602-3"/>
-							<display value="-- Mexican"/>
+							<code value="LA4611-5"/>
+							<display value="Mexican"/>
 						</concept>
 						<concept>
-							<code value="LA10605-6"/>
-							<display value="-- Puerto Rican"/>
+							<code value="LA4364-1"/>
+							<display value="Puerto Rican"/>
 						</concept>
 						<concept>
 							<code value="LA10606-4"/>
-							<display value="-- South American"/>
+							<display value="South American"/>
 						</concept>
 						<concept>
-							<code value="LA10604-9"/>
-							<display value="-- Other Latin American"/>
+							<code value="LA14055-0"/>
+							<display value="Other Latin American"/>
 						</concept>
 						<concept>
 							<code value="LA10603-1"/>
-							<display value="-- Other Hispanic/Latino/Spanish"/>
+							<display value="Other Hispanic/Latino/Spanish"/>
 						</concept>
 						<concept>
 							<code value="LA10597-5"/>
@@ -757,11 +757,11 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10572-8"/>
-							<display value="-- Blood Clot in Leg"/>
+							<display value="Blood Clot in Leg"/>
 						</concept>
 						<concept>
 							<code value="LA10573-6"/>
-							<display value="-- Blood Clot in Lungs"/>
+							<display value="Blood Clot in Lungs"/>
 						</concept>
 						<concept>
 							<code value="LA10524-9"/>
@@ -769,63 +769,63 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10549-6"/>
-							<display value="-- Bone"/>
+							<display value="Bone"/>
 						</concept>
 						<concept>
-							<code value="LA10536-3"/>
-							<display value="-- Breast Cancer"/>
+							<code value="LA14283-8"/>
+							<display value="Breast Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10537-1"/>
-							<display value="-- Colon Cancer"/>
+							<display value="Colon Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10548-8"/>
-							<display value="-- Esophageal Cancer"/>
+							<display value="Esophageal Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10547-0"/>
-							<display value="-- Gastric Cancer"/>
+							<display value="Gastric Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10541-3"/>
-							<display value="-- Kidney Cancer"/>
+							<display value="Kidney Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10545-4"/>
-							<display value="-- Leukemia"/>
+							<display value="Leukemia"/>
 						</concept>
 						<concept>
 							<code value="LA10542-1"/>
-							<display value="-- Lung Cancer"/>
+							<display value="Lung Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10546-2"/>
-							<display value="-- Muscle Cancer"/>
+							<display value="Muscle Cancer"/>
 						</concept>
 						<concept>
-							<code value="LA10539-7"/>
-							<display value="-- Ovarian Cancer"/>
+							<code value="LA15682-0"/>
+							<display value="Ovarian Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10538-9"/>
-							<display value="-- Prostate Cancer"/>
+							<display value="Prostate Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10543-9"/>
-							<display value="-- Skin Cancer"/>
+							<display value="Skin Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10540-5"/>
-							<display value="-- Thyroid Cancer"/>
+							<display value="Thyroid Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10544-7"/>
-							<display value="-- Uterine Cancer"/>
+							<display value="Uterine Cancer"/>
 						</concept>
 						<concept>
-							<code value="LA10550-4"/>
-							<display value="-- Other Cancer"/>
+							<code value="LA14284-6"/>
+							<display value="Other Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10529-8"/>
@@ -833,15 +833,15 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10551-2"/>
-							<display value="-- Diabetes Type 1"/>
+							<display value="Diabetes Type 1"/>
 						</concept>
 						<concept>
 							<code value="LA10552-0"/>
-							<display value="-- Diabetes Type 2"/>
+							<display value="Diabetes Type 2"/>
 						</concept>
 						<concept>
 							<code value="LA10553-8"/>
-							<display value="-- Gestational Diabetes"/>
+							<display value="Gestational Diabetes"/>
 						</concept>
 						<concept>
 							<code value="LA10532-2"/>
@@ -849,27 +849,27 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10554-6"/>
-							<display value="-- Crohn's Disease"/>
+							<display value="Crohn's Disease"/>
 						</concept>
 						<concept>
 							<code value="LA10555-3"/>
-							<display value="-- Irritable Bowel Syndrome"/>
+							<display value="Irritable Bowel Syndrome"/>
 						</concept>
 						<concept>
 							<code value="LA10556-1"/>
-							<display value="-- Ulceritive Colitis"/>
+							<display value="Ulceritive Colitis"/>
 						</concept>
 						<concept>
 							<code value="LA10557-9"/>
-							<display value="-- Colon Polyps"/>
+							<display value="Colon Polyps"/>
 						</concept>
 						<concept>
 							<code value="LA10523-1"/>
 							<display value="Heart Disease"/>
 						</concept>
 						<concept>
-							<code value="LA10558-7"/>
-							<display value="-- Heart Attack"/>
+							<code value="LA16286-9"/>
+							<display value="Heart Attack"/>
 						</concept>
 						<concept>
 							<code value="LA10526-4"/>
@@ -885,31 +885,31 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10565-2"/>
-							<display value="-- Cystic Kidney Disease"/>
+							<display value="Cystic Kidney Disease"/>
 						</concept>
 						<concept>
 							<code value="LA10566-0"/>
-							<display value="-- Kidney Disease Present From Birth"/>
+							<display value="Kidney Disease Present From Birth"/>
 						</concept>
 						<concept>
 							<code value="LA10567-8"/>
-							<display value="-- Nephrosis"/>
+							<display value="Nephrosis"/>
 						</concept>
 						<concept>
 							<code value="LA10568-6"/>
-							<display value="-- Nephritis"/>
+							<display value="Nephritis"/>
 						</concept>
 						<concept>
 							<code value="LA10569-4"/>
-							<display value="-- Nephrotic Syndrome"/>
+							<display value="Nephrotic Syndrome"/>
 						</concept>
 						<concept>
 							<code value="LA10570-2"/>
-							<display value="-- Diabetic Kidney Disease"/>
+							<display value="Diabetic Kidney Disease"/>
 						</concept>
 						<concept>
-							<code value="LA10571-0"/>
-							<display value="-- Other/Unknown"/>
+							<code value="LA19526-5"/>
+							<display value="Other/Unknown"/>
 						</concept>
 						<concept>
 							<code value="LA10531-4"/>
@@ -917,27 +917,27 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10559-5"/>
-							<display value="-- COPD"/>
+							<display value="COPD"/>
 						</concept>
 						<concept>
 							<code value="LA10560-3"/>
-							<display value="-- Chronic Bronchitis"/>
+							<display value="Chronic Bronchitis"/>
 						</concept>
 						<concept>
 							<code value="LA10561-1"/>
-							<display value="-- Emphysema"/>
+							<display value="Emphysema"/>
 						</concept>
 						<concept>
 							<code value="LA10562-9"/>
-							<display value="-- Chronic Lower Respiratory Disease"/>
+							<display value="Chronic Lower Respiratory Disease"/>
 						</concept>
 						<concept>
 							<code value="LA10563-7"/>
-							<display value="-- Influenza/Pneumonia"/>
+							<display value="Influenza/Pneumonia"/>
 						</concept>
 						<concept>
-							<code value="LA10564-5"/>
-							<display value="-- Asthma"/>
+							<code value="LA16982-3"/>
+							<display value="Asthma"/>
 						</concept>
 						<concept>
 							<code value="LA10590-0"/>
@@ -953,55 +953,55 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						</concept>
 						<concept>
 							<code value="LA10574-4"/>
-							<display value="-- Anxiety"/>
+							<display value="Anxiety"/>
 						</concept>
 						<concept>
 							<code value="LA10575-1"/>
-							<display value="-- Bipolar/Manic Depressive Disorder"/>
+							<display value="Bipolar/Manic Depressive Disorder"/>
 						</concept>
 						<concept>
 							<code value="LA10576-9"/>
-							<display value="-- Depression"/>
+							<display value="Depression"/>
 						</concept>
 						<concept>
 							<code value="LA10577-7"/>
-							<display value="-- Attention Deficit Hyper Activity"/>
+							<display value="Attention Deficit Hyper Activity"/>
 						</concept>
 						<concept>
 							<code value="LA10578-5"/>
-							<display value="-- Autism"/>
+							<display value="Autism"/>
 						</concept>
 						<concept>
 							<code value="LA10579-3"/>
-							<display value="-- Personality Disorder"/>
+							<display value="Personality Disorder"/>
 						</concept>
 						<concept>
 							<code value="LA10580-1"/>
-							<display value="-- Eating Disorder"/>
+							<display value="Eating Disorder"/>
 						</concept>
 						<concept>
 							<code value="LA10581-9"/>
-							<display value="-- Obsessive Compulsive Disorder"/>
+							<display value="Obsessive Compulsive Disorder"/>
 						</concept>
 						<concept>
 							<code value="LA10582-7"/>
-							<display value="-- Panic Disorder"/>
+							<display value="Panic Disorder"/>
 						</concept>
 						<concept>
 							<code value="LA10583-5"/>
-							<display value="-- Post Traumatic Stress Disorder"/>
+							<display value="Post Traumatic Stress Disorder"/>
 						</concept>
 						<concept>
 							<code value="LA10584-3"/>
-							<display value="-- Schizophrenia"/>
+							<display value="Schizophrenia"/>
 						</concept>
 						<concept>
 							<code value="LA10585-0"/>
-							<display value="-- Social Phobia"/>
+							<display value="Social Phobia"/>
 						</concept>
 						<concept>
 							<code value="LA10586-8"/>
-							<display value="-- Dementia"/>
+							<display value="Dementia"/>
 						</concept>
 						<concept>
 							<code value="LA10591-8"/>
@@ -1292,7 +1292,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<display value="-- Bone"/>
 						</concept>
 						<concept>
-							<code value="LA10536-3"/>
+							<code value="LA14283-8"/>
 							<display value="-- Breast Cancer"/>
 						</concept>
 						<concept>
@@ -1324,7 +1324,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<display value="-- Muscle Cancer"/>
 						</concept>
 						<concept>
-							<code value="LA10539-7"/>
+							<code value="LA15682-0"/>
 							<display value="-- Ovarian Cancer"/>
 						</concept>
 						<concept>
@@ -1344,8 +1344,8 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<display value="-- Uterine Cancer"/>
 						</concept>
 						<concept>
-							<code value="LA10550-4"/>
-							<display value="-- Other Cancer"/>
+							<code value="LA14284-6"/>
+							<display value="Other Cancer"/>
 						</concept>
 						<concept>
 							<code value="LA10529-8"/>
@@ -1388,7 +1388,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<display value="Heart Disease"/>
 						</concept>
 						<concept>
-							<code value="LA10558-7"/>
+							<code value="LA16286-9"/>
 							<display value="-- Heart Attack"/>
 						</concept>
 						<concept>
@@ -1428,7 +1428,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<display value="-- Diabetic Kidney Disease"/>
 						</concept>
 						<concept>
-							<code value="LA10571-0"/>
+							<code value="LA19526-5"/>
 							<display value="-- Other/Unknown"/>
 						</concept>
 						<concept>
@@ -1456,7 +1456,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<display value="-- Influenza/Pneumonia"/>
 						</concept>
 						<concept>
-							<code value="LA10564-5"/>
+							<code value="LA16982-3"/>
 							<display value="-- Asthma"/>
 						</concept>
 						<concept>

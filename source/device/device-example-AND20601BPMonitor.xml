@@ -34,8 +34,13 @@
   <serialNumber value="5091100966" />
   <name>
     <value value="AND BP UA-767PBT-C" />
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="UA-767PBT-C"/>
   <type>
     <coding>
