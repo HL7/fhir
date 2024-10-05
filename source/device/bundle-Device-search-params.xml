@@ -35,7 +35,7 @@
         <description value="The definition / type of the device"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="Device.definition"/>
+        <expression value="Device.definition.resolve()"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
