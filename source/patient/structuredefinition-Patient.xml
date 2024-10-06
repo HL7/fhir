@@ -321,8 +321,8 @@
     </element>
     <element id="Patient.deceased[x]">
       <path value="Patient.deceased[x]"/>
-      <short value="Indicates if the individual is deceased or not"/>
-      <definition value="Indicates if the individual is deceased or not."/>
+      <short value="Indicates if/when the individual is deceased"/>
+      <definition value="Indicates the date when the individual died, or, if the date is not known or cannot be estimated, a flag indicating the patient is known to be deceased."/>
       <comment value="If there's no value in the instance, it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive."/>
       <requirements value="The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive."/>
       <min value="0"/>
