@@ -71,7 +71,7 @@
 				<valueCode value="0,0"/>
 			</extension>
 			<path value="ActorDefinition"/>
-			<short value="An application that exchanges data"/>
+			<short value="A human or system that exchanges data"/>
 			<definition value="Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
 			<min value="0"/>
 			<max value="*"/>
