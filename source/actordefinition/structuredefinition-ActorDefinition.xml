@@ -422,9 +422,9 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="ActorDefinition.documentation"/>
-			<short value="Functionality associated with the actor"/>
-			<definition value="Documentation about the functionality of the actor."/>
-			<comment value="In general terms, the description desribes what the actor is, and this element describes what the actor does (or is expected to do)."/>
+			<short value="Explanation and details about the actor"/>
+			<definition value="Details describing the nature of the actor as well as boundaries that distinguish this type of actor from other actors."/>
+			<comment value="In general terms, the description describes what the actor is, and this element describes what the actor does (or is expected to do)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
