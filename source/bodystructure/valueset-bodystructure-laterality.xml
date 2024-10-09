@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-laterality"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/bodystructure-laterality"/>
+  
+  <version value="6.0.0"/>
+  <name value="BodystructureLaterality"/>
+  <title value="Bodystructure Laterality"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="Order and Observation Workgroup"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="SNOMED-CT concepts modifying the laterality of the anatomic location"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="7771000"/>
+        <display value="Left (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="24028007"/>
+        <display value="Right (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="51440002"/>
+        <display value="Bilateral"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
