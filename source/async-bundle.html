@@ -89,10 +89,15 @@
   <h3 id="delete-request">Delete Request</h3>
 
   <p>After an asynchronous request has been started, a client MAY send a http DELETE request to the URL provided in the
-    <code>Content-Location</code> header to cancel the request. Following the delete request, when subsequent requests
-    are made to the polling location, the server SHALL
-    return a <code>404 Not Found</code> error and an associated <a href="operationoutcome.html">OperationOutcome
-      Resource</a>.
+    <code>Content-Location</code> header to cancel the request. Following the delete request,  the server SHOULD delete 
+    all data associated with the request and when subsequent requests are made to the polling location, the server SHALL
+    return a <code>404 Not Found</code> error and an associated <a href="operationoutcome.html">OperationOutcome Resource</a>.
+  </p>
+  <p>Servers MAY delete the data associated with a request after some period of time has passed, either since the data 
+    became available or after a status request that returned the data.  (Immediate deletion after returning the data is 
+    not recommended as it is possible client may not receive the response.)  Implementer feedback on recommended time frames 
+    for data retention are welcome.  For now, policies will vary by server.  Clients which wish to ensure the data is 
+    deleted after retrieval can use the Delete process. <span class="stu">TU</span>
   </p>
 
   <h5 id="delete-response---success">Response - Success</h5>
