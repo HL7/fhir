@@ -139,25 +139,20 @@ E.g. <a href="bundle-definitions.html#Bundle.signature">Bundle.signature</a>.
 Where a Normative resource contains elements marked as trial-use, these elements are clearly marked
 in the resource definitions. Implementers should be aware that future versions of the FHIR specification
 may change these parts of the resources (in addition to the other changes allowed under the
-<a href="versions.html#change">inter-version compatibility rules</a>. While HL7 will carefully
+<a href="versions.html#change">inter-version compatibility rules</a>). While HL7 will carefully
 consider the consequences of breaking change to these elements, implementers should be aware that
 reading/using these elements has the potential to cause breaking change to their applications later.
 </p>
-<p>
-Note that this same status will arise as a matter of process when new elements are introduced into
-normative resources in future versions - they will undergo a period of trial use as appropriate.
-</p>
-<p>
-Note: it is also possible that some resources in the future will be labeled as 'trial use', but
-contain some elements labeled as 'normative'. There is no resource like this in this specification,
-though all Trial Use resources contain normative content from <a href="resource.html">Resource</a>
-and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Datatypes</a>.
-</p>
 
-<p>
-Notes:
-</p>
+<p>Notes:</p>
 <ul>
+  <li>When new elements are introduced into
+    normative resources in future versions - they will (as a matter of process) undergo a period of trial use as appropriate.</li>
+ <li>It is also possible that some resources in the future will be labeled as 'trial use', but
+    contain some elements labeled as 'normative'. There is no resource like this in this specification,
+    though all Trial Use resources contain normative content from <a href="resource.html">Resource</a>
+    and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Datatypes</a>.
+ </li>
  <li>The above statuses can apply to both the standard overall as well as to individual components of the FHIR specification</li>
  <li>All pages in the specification identify their status explicitly. A few pages are Table of contents or other kinds of navigational pages, and are <i>Informative</i></li>
  <li>Some content is labeled with the status "External", which means that the content is maintained in another standard, and the status must be found by consulting that other standard. In this case, the Maturity Model does not apply</li>
