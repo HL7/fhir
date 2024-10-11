@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n191"
+   version="1.1"
+   width="753.2"
+   height="200.0"
+   sodipodi:docname="relatedperson.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata109">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview107"
+     showgrid="false"
+     inkscape:zoom="1.5082315"
+     inkscape:cx="376.60001"
+     inkscape:cy="100"
+     inkscape:window-x="-8"
+     inkscape:window-y="358"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="n191" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n192">
+    <rect
+       id="RelatedPerson"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="190.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n193"
+       x1="0.0"
+       y1="28.0"
+       x2="286.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n194"
+       x="143.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">RelatedPerson<tspan
+   class="diagram-class-title-link"
+   id="tspan16"> (<a
+   xlink:href="domainresource.html"
+   class="diagram-class-reference"
+   id="n195">DomainResource</a>
+)</tspan>
+</text>
+    <text
+       id="n196"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.identifier"
+   id="n197"><title
+   id="title19">Identifier for a person within a particular scope</title>
+identifier</a>
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n198">Identifier</a>
+ [0..*]</text>
+    <text
+       id="n202"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.active"
+   id="n203"><title
+   id="title24">Whether this related person record is in active use (this element modifies the meaning of other elements)</title>
+active</a>
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n204">boolean</a>
+ [0..1]</text>
+    <text
+       id="n208"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.patient"
+   id="n209"><title
+   id="title29">The patient this person is related to</title>
+patient</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n210">Reference</a>
+ [1..1] « <a
+   xlink:href="patient.html#Patient"
+   id="n211">Patient</a>
+ »</text>
+    <text
+       id="n216"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.relationship"
+   id="n217"><title
+   id="title35">The nature of the relationship between a patient and the related person</title>
+relationship</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n218">CodeableConcept</a>
+ [0..*] « <a
+   xlink:href="valueset-relatedperson-relationshiptype.html"
+   id="n219"><title
+   id="title39">The nature of the relationship between a patient and the related person. (Strength=Preferred)</title>
+PatientRelationshipType</a>
+? »</text>
+    <text
+       id="n224"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.name"
+   id="n225"><title
+   id="title43">A name associated with the person</title>
+name</a>
+ : <a
+   xlink:href="datatypes.html#HumanName"
+   id="n226">HumanName</a>
+ [0..*]</text>
+    <text
+       id="n230"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.telecom"
+   id="n231"><title
+   id="title48">A contact detail for the person, e.g. a telephone number or an email address</title>
+telecom</a>
+ : <a
+   xlink:href="datatypes.html#ContactPoint"
+   id="n232">ContactPoint</a>
+ [0..*]</text>
+    <text
+       id="n236"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.gender"
+   id="n237"><title
+   id="title53">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes</title>
+gender</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n238">code</a>
+ [0..1] « <a
+   xlink:href="valueset-administrative-gender.html"
+   id="n239"><title
+   id="n240">The gender of a person used for administrative purposes. (Strength=Required)</title>
+AdministrativeGender</a>
+! »</text>
+    <text
+       id="n246"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.birthDate"
+   id="n247"><title
+   id="title60">The date on which the related person was born</title>
+birthDate</a>
+ : <a
+   xlink:href="datatypes.html#date"
+   id="n248">date</a>
+ [0..1]</text>
+    <text
+       id="n252"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.address"
+   id="n253"><title
+   id="title65">Address where the related person can be contacted or visited</title>
+address</a>
+ : <a
+   xlink:href="datatypes.html#Address"
+   id="n254">Address</a>
+ [0..*]</text>
+    <text
+       id="n258"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.photo"
+   id="n259"><title
+   id="title70">Image of the person</title>
+photo</a>
+ : <a
+   xlink:href="datatypes.html#Attachment"
+   id="n260">Attachment</a>
+ [0..*]</text>
+    <text
+       id="n264"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.period"
+   id="n265"><title
+   id="title75">The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown</title>
+period</a>
+ : <a
+   xlink:href="datatypes.html#Period"
+   id="n266">Period</a>
+ [0..1]</text>
+  </g>
+  <g
+     id="n270"
+     transform="translate(100.78028,39.781691)">
+    <rect
+       id="RelatedPerson.communication"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="233.2"
+       height="64"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n271"
+       x1="320"
+       y1="28"
+       x2="553.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n272"
+       x="436.60001"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Communication</text>
+    <text
+       id="n273"
+       x="326"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.communication.language"
+   id="n274"><title
+   id="title84">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English</title>
+language</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n275">CodeableConcept</a>
+ [1..1] « <a
+   xlink:href="valueset-languages.html"
+   id="n276"><title
+   id="title88">A human language. (Strength=Preferred)</title>
+CommonLanguages</a>
+? »</text>
+    <text
+       id="n281"
+       x="326"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="relatedperson-definitions.html#RelatedPerson.communication.preferred"
+   id="n282"><title
+   id="title92">Indicates whether or not the patient prefers this language (over other languages he masters up a certain level)</title>
+preferred</a>
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n283">boolean</a>
+ [0..1]</text>
+  </g>
+  <line
+     id="n287"
+     x1="286.0"
+     y1="64.31539509536785"
+     x2="320.0"
+     y2="57.01975476839236"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n288"
+     points="286.0,64.31539509536785 292.0,68.31539509536785 298.0,64.31539509536785 292.0,60.31539509536785 286.0,64.31539509536785"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-12.110748827868127 286.0 64.31539509536785)" />
+  <rect
+     id="n289"
+     x="274.5"
+     y="53.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n290"
+     x="303.0"
+     y="63.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="relatedperson-definitions.html#RelatedPerson.communication"
+       id="n291"><title
+   id="title101">A language which may be used to communicate with about the patient's health</title>
+communication</a>
+  </text>
+  <text
+     id="n292"
+     x="300.0"
+     y="53.01975476839236"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

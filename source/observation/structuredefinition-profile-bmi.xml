@@ -124,7 +124,7 @@
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
     </element>
     <element id="Observation.valueQuantity.value">
