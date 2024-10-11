@@ -9,7 +9,12 @@
 	<lotNumber value="1234-5678"/>
 	<name>
       <value value="PM/Octane 2014"/>
-	  <type value="user-friendly-name" />
+	  <type>
+		<coding>
+			<system value="http://hl7.org/fhir/device-nametype"/>
+      		<code value="user-friendly-name"/>
+	  	</coding>
+	  </type>	
 	</name>
 	<type>
 		<coding>

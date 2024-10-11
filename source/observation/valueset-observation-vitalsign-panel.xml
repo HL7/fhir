@@ -28,7 +28,7 @@
       <filter>
         <property value="CLASS"/>
         <op value="="/>
-        <value value="PANEL.VITALS"/> <!-- LP31904-3 -->
+        <value value="LP31904-3"/> <!-- PANEL.VITALS -->
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>

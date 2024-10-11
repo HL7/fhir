@@ -34,8 +34,13 @@
   <serialNumber value="1607124656"/>
   <name>
     <value value="BM-88   4656"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="6611"/>
   <type>
     <coding>

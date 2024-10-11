@@ -436,6 +436,7 @@
       <path value="EpisodeOfCare.careTeam"/>
       <short value="Other practitioners facilitating this episode of care"/>
       <definition value="The list of practitioners that may be facilitating this episode of care for specific purposes."/>
+      <comment value="Multiple care teams may represent different teams that provide care at different times, where those time periods would be distinguished in CareTeam.period.  Also, a single episode may have different types of care teams, which would be distinguished in CareTeam.category." />
       <alias value="CareTeam"/>
       <min value="0"/>
       <max value="*"/>

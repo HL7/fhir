@@ -60,6 +60,11 @@
     <definition value="The existence of the observation is registered, but there is no result yet available."/>
   </concept>
   <concept>
+    <code value="specimen-in-process"/>
+    <display value="Specimen-in-Process"/>
+    <definition value="The specimen being processed in the laboratory but no results are available yet."/>
+  </concept>
+  <concept>
     <code value="preliminary"/>
     <display value="Preliminary"/>
     <definition value="This is an initial or interim observation: data may be incomplete or unverified."/>
@@ -67,7 +72,7 @@
   <concept>
     <code value="final"/>
     <display value="Final"/>
-    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc. would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
+    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc. would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied. Also, this status applies for situations where there is a &quot;not-asked&quot; code for dataAbsentReason."/>
   </concept>
   <concept>
     <code value="amended"/>
