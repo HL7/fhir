@@ -78,8 +78,12 @@
       <path value="BiologicallyDerivedProduct.productCategory"/>
       <slicing>
         <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
+          <type value="value"/>
+          <path value="code"/>
+        </discriminator>
+        <discriminator>
+          <type value="value"/>
+          <path value="system"/>
         </discriminator>
         <rules value="open"/>
       </slicing>
@@ -120,7 +124,6 @@
       <path value="BiologicallyDerivedProduct.identifier"/>
 	  <short value="Under most circumstances an MPHO will be uniquely identified using a single identifier from production to point of use. In some cases, a second identifier may be required (for example, import from another country that uses a different identification coding system).  In these cases, both the original and new identifier must be included."/>
       <min value="1"/>
-      <max value="1"/>
     </element>
     <element id="BiologicallyDerivedProduct.identifier.system">
       <path value="BiologicallyDerivedProduct.identifier.system"/>
