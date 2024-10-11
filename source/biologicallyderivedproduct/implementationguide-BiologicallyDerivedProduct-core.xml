@@ -4,7 +4,7 @@
   <id value="BiologicallyDerivedProduct-core"/>
   <version value="0.1"/>
   <name value="BiologicallyDerivedProductHL7Extensions"/>
-  <title value="Biologically Derived Product  HL7  Extensions"/>
+  <title value="Biologically Derived Product HL7 Extensions"/>
   <status value="draft"/>
   <date value="2024-10-11T00:00:00.000"/>
   <publisher value="HL7 International / Orders and Observations"/>
@@ -12,7 +12,7 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/MedicalProductOfHumanOrigin"/>
+        <reference value="StructureDefinition/medicalproductofhumanorigin"/>
       </reference>
     </resource>
   </definition>
