@@ -29,7 +29,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm Orders and Observations"/>
     </telecom>
   </contact>
-  <description value="This profile is designed for biologically derived products that are derived from a human donor and intended for clinical application in a human recipient. Donor and recipient may, or may not, be the same individual. Products of this nature are referred to as medical products of human origin (MPHO) and have specific traceability requirements to ensure that the bi-directional link between donor and recipient is maintained. The profile specifies the essential identifiers for traceability as required elements."/>
+  <description value="This profile is designed for biologically derived products that are derived from a human donor and intended for clinical application in a human recipient. Donor and recipient might, or might not, be the same individual. Products of this nature are referred to as medical products of human origin (MPHO) and have specific traceability requirements to ensure that the bi-directional link between donor and recipient is maintained. The profile specifies the essential identifiers for traceability as required elements."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -70,7 +70,7 @@
     <element id="BiologicallyDerivedProduct">
       <path value="BiologicallyDerivedProduct"/>
       <short value="Medical Product of Human Origin Profile "/>
-      <definition value="This profile is designed for biologically derived products that are derived from a human donor and intended for clinical application in a human recipient. Donor and recipient may, or may not, be the same individual. Products of this nature are referred to as medical products of human origin (MPHO) and have specific traceability requirements to ensure that the bi-directional link between donor and recipient is maintained. The profile specifies the essential identifiers for traceability as required elements."/>
+      <definition value="This profile is designed for biologically derived products that are derived from a human donor and intended for clinical application in a human recipient. Donor and recipient might, or might not, be the same individual. Products of this nature are referred to as medical products of human origin (MPHO) and have specific traceability requirements to ensure that the bi-directional link between donor and recipient is maintained. The profile specifies the essential identifiers for traceability as required elements."/>
       <min value="0"/>
       <max value="*"/>
     </element>
