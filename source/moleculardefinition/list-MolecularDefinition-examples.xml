@@ -597,5 +597,95 @@
     </item>
   </entry>
 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of CYP2C19 gene region"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-gene-region"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-gene-region"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of CYP2C19 upstream region"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-upstream-region"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-upstream-region"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of CYP2C19 downstream region"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-downstream-region"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-downstream-region"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of CYP2C19 of concatenated upstream, gene, and downstream regions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-cyp2c19-Concatenated-regions"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-cyp2c19-Concatenated-regions"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of FMR1 CGG motif repeated 20 times"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1-cgg-20x-repeat"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1-cgg-20x-repeat"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of FMR1 using CGG motifs edited by external referenced sequence resources"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1-cgg-20x-edited-referenced"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1-cgg-20x-edited-referenced"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of FMR1 using CGG motifs edited by contained referenced sequence resources"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-fmr1-cgg-20x-edited-contained"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-fmr1-cgg-20x-edited-contained"/>
+      <display value="Example of Sequence profile"/>
+    </item>
+  </entry>
 
 </List>
