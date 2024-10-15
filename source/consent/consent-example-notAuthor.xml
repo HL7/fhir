@@ -9,7 +9,7 @@
       <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
 	    The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
 	    This example is to withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).</p>
-      <p>Patient "P. van de Heuvel" wishes to have all of the PHI collected at the Burgers University Medical Center restricted from disclosure to every provider.</p>
+      <p>Patient "P. van de Heuvel" wishes to have all of the PHI (Personal health information) collected at the Burgers University Medical Center restricted from disclosure to every provider.</p>
     </div>
   </text>
   <status value="active"/>
