@@ -41,7 +41,8 @@
   <p>The request will support the HTTP methods, URLs, headers and other parameters that normally apply, but servers
     SHALL also support the <code>Prefer</code> header described below, and SHOULD support the <code>Accept</code> header
     and <code>_outputFormat</code> parameter described below.</p>
-
+  <p>For servers that support both the Bulk Data and Asynchronous Interaction patterns, the <code>_outputFormat</code> parameter is 
+    used to disambiguate the two: when present, the Bulk Data pattern is used. Servers MAY only support the Bulk Data pattern, in which case the <code>_outputFormat</code> parameter is optional.</p>
   <h5 id="headers">Headers</h5>
   <ul>
     <li>
