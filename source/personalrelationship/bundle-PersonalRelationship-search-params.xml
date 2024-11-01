@@ -44,6 +44,7 @@
         <code value="target"/>
         <type value="reference"/>
         <expression value="PersonalRelationship.target"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,6 +58,7 @@
         <code value="relationship"/>
         <type value="token"/>
         <expression value="PersonalRelationship.relationshipType"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
