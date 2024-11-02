@@ -144,6 +144,7 @@
           <valueString value="Confidence"/>
         </extension>
         <strength value="example"/>
+        <description value="Value to be provided"/>
       </binding>
     </element>
     <element id="PersonalRelationship.asserter">
