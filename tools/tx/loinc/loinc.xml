@@ -24,6 +24,7 @@
   <concept id="18262-6" short="" long="Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"/>
   <concept id="18776-5" short="" long="Plan of care note"/>
   <concept id="18841-7" short="" long="Hospital consultations Document"/>
+  <concept id="18842-5" short="" long="Discharge summary"/>
   <concept id="1963-8" short="" long="Bicarbonate [Moles/volume] in Serum or Plasma"/>
   <concept id="2093-3" short="" long="Cholesterol [Mass/volume] in Serum or Plasma"/>
   <concept id="2708-6" short="" long="Oxygen saturation in Arterial blood"/>
@@ -37,6 +38,7 @@
   <concept id="30954-2" short="" long="Relevant diagnostic tests/laboratory data Narrative"/>
   <concept id="30980-7" short="" long="Date vaccine due"/>
   <concept id="30981-5" short="" long="Earliest date to give"/>
+  <concept id="34133-9" short="" long="Summary of episode note"/>
   <concept id="35094-2" short="" long="Blood pressure panel"/>
   <concept id="35200-5" short="" long="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
   <concept id="39156-5" short="" long="Body mass index (BMI) [Ratio]"/>
