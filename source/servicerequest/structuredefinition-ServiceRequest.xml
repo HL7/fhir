@@ -225,7 +225,11 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Request"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </type>
       <isSummary value="true"/>
       <mapping>
