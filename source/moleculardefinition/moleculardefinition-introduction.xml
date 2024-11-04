@@ -9,20 +9,20 @@
     
   <h2>Scope and Usage</h2>
   <p>
-    The MoleculerDefinition resource is designed for representing genetic molecules (e.g., sequence). It can represent the genetic molecules in different ways, allowing implementations to adopt the most effective ones for their use cases.
+    The MolecularDefinition resource is designed for representing genetic molecules (e.g., sequence). It can represent the genetic molecules in different ways, allowing implementations to adopt the most effective ones for their use cases.
   </p>
   <p>
-    The MoleculerDefinition resource is designed to represent a single sequence or a composite of genetic sequences (e.g., haplotype). Each genetic molecule might have multiple representations, but implementers SHALL ensure all representations are for the same molecule. This means that if a single MoleculerDefinition instance contains a <code>literal</code>, two <code>formatted</code> files, and a <code>relative</code>, all four of those representations must represent the same genetic molecule (e.g.,sequence). This can be a challenge across systems, as semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
+    The MolecularDefinition resource is designed to represent a single sequence or a composite of genetic sequences (e.g., haplotype). Each genetic molecule might have multiple representations, but implementers SHALL ensure all representations are for the same molecule. This means that if a single MolecularDefinition instance contains a <code>literal</code>, two <code>formatted</code> files, and a <code>relative</code>, all four of those representations must represent the same genetic molecule (e.g.,sequence). This can be a challenge across systems, as semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
   </p>
   </div>
 
   <div>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The MoleculerDefinition resource should only be used to capture molecular representations of genetic concepts such as sequence, allele, haplotype, and genotypes. It will not be used for observational data related to specific patient. Those concepts will be captured in <a href="observation.html">Observation</a> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The molecule that was observed and that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
+    The MolecularDefinition resource should only be used to capture molecular representations of genetic concepts such as sequence, allele, haplotype, and genotypes. It will not be used for observational data related to specific patient. Those concepts will be captured in <a href="observation.html">Observation</a> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The molecule that was observed and that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
   </p>
   <p>
-    MoleculerDefinition will not be used to capture data such as precise read of DNA sequences and sequence alignment are not included; such data may be accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API, and may be referenced to by the <code>literal</code> element.
+    MolecularDefinition will not be used to capture data such as precise read of DNA sequences and sequence alignment are not included; such data may be accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API, and may be referenced to by the <code>literal</code> element.
   </p>
 
   </div>
