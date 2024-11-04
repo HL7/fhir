@@ -688,4 +688,163 @@
     </item>
   </entry>
 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Sequence profile of Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-sequence-nc00001010-url"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-sequence-nc00001010-url"/>
+      <display value="Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Allele example Pgx-var-1011"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced-pgx-var-1011"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced-pgx-var-1011"/>
+      <display value="Example of Allele profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1011"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1011"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1011"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1012"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1012"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1012"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1013"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1013"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1013"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1014"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1014"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1014"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1015"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1015"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1015"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1016"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1016"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1016"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1017"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1017"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1017"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1018"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1018"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1018"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1019"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1019"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1019"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1020"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1020"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1020"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Variation profile of Pgx-var-1021"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-variation-pgx-var-1021"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-variation-pgx-var-1021"/>
+      <display value="Example of Variation profile"/>
+    </item>
+  </entry>
+
 </List>
