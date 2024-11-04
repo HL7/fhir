@@ -855,7 +855,7 @@
     <element id="Task.note">
       <path value="Task.note"/>
       <short value="Comments made about the task"/>
-      <definition value="Free-text information captured about the task as it progresses."/>
+      <definition value="Free-text information about the task during its lifecycle."/>
       <min value="0"/>
       <max value="*"/>
       <type>
