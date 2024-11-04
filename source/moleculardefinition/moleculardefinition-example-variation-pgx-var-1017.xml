@@ -17,9 +17,9 @@
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="LA30102-0"/>
-                            <display value="1-based interval counting"/>
+                            <display value="1-based character counting"/>
                         </coding>
-                        <text value="1-based interval counting"/>
+                        <text value="1-based character counting"/>
                     </numberingSystem>
                         <startQuantity>
                             <value value="96541756"/>
