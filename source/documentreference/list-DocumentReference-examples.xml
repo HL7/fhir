@@ -235,4 +235,16 @@
       <display value="A Genomic Data File representing Homo sapiens FMRP translational regulator 1 (FMR1)"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-nc00001010-url"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-nc00001010-url"/>
+      <display value="A Genomic Data File representing Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </item>
+  </entry>
 </List>
