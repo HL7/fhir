@@ -64,7 +64,11 @@ href="#turtle-template">Turtle
             <li><a href="#nestedNodes">Nested Anonymous Nodes</a></li>
             <li><a href="#propertyNames">Property Names</a></li>
             <li><a href="#rdflist">Representing Repeating Elements -- RDF Lists</a></li>
-            <li><a href="#primitive">Representing Primitive Elements</a></li>
+            <li><a href="#primitive">Representing Primitive Elements</a>
+             <ul>
+              <li><a href="#poly-primitives">Polmorphic Primitive Properties</a>
+             </ul>
+            </li>
             <li><a href="#reference">Representing References</a></li>
             <li><a href="#contained">Representing Inline (Contained) Resources</a></li>
             <li><a href="#representing-concepts">Representing Concepts</a></li>
@@ -343,6 +347,26 @@ href="fhir.shex">fhir.shex</a>
             character of content. XHTML is represented as an escaped
             xsd:string.&nbsp; <br/>
           </p>
+
+        <a name="poly-primitives"></a>
+          <h5>Polymorphic Primitive Properties</h5>
+          <p> A <i>polymorphic</i> primitive property is a primitive property
+              that has more than one possible type of object value.
+              For example, in the Observation resource the value of the
+              <code class="rdf">fhir:instantiates</code> property may be
+              either a <code class="rdf">fhir:canonical</code>
+              or a <code class="rdf">fhir:Reference</code>.  In such cases,
+              the type of the object is also specified, as in this example
+              of instantiating a <code class="rdf">fhir:Reference</code>:
+
+          <pre class="rdf">
+&lt;Observation/123&gt; fhir:instantiates [
+      a fhir:canonical ;
+       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
+       fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
+    ] ;
+          </pre>
+
         <a name="reference"></a>
           <h4>Representing References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
