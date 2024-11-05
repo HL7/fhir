@@ -193,7 +193,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Comments made about the task by the performer, subject or other participants."/>
-            <resource value="Free-text information captured about the task as it progresses."/>
+            <resource value="Free-text information about the task during its lifecycle."/>
         </definitionUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
