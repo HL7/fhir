@@ -747,12 +747,14 @@
     </element>
     <element id="DiagnosticReport.conclusionCode">
       <path value="DiagnosticReport.conclusionCode"/>
-      <short value="Codes for the clinical conclusion of test results"/>
-      <definition value="One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report."/>
+      <short value="Codes and/or references for the clinical conclusion of test results"/>
+      <definition value="One or more codes and/or references that represent the summary conclusion (interpretation/impression) of the diagnostic report."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/> 
+        <code value="CodeableReference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
