@@ -247,7 +247,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Comments made about the task by the requester, performer, subject or other participants."/>
-            <resource value="Free-text information captured about the task as it progresses."/>
+            <resource value="Free-text information about the task during its lifecycle."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
