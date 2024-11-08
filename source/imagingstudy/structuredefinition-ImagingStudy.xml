@@ -409,46 +409,6 @@
         <map value="Not supported"/>
       </mapping>
     </element>
-    <element id="ImagingStudy.numberOfSeries">
-      <path value="ImagingStudy.numberOfSeries"/>
-      <short value="Number of Study Related Series"/>
-      <definition value="Number of Series in the Study. This value given MAY be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element SHOULD be present if any series elements are present."/>
-      <alias value="NumberOfStudyRelatedSeries"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=OBSSER, moodCode=EVN].repeatNumber"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="(0020,1206)"/>
-      </mapping>
-    </element>
-    <element id="ImagingStudy.numberOfInstances">
-      <path value="ImagingStudy.numberOfInstances"/>
-      <short value="Number of Study Related Instances"/>
-      <definition value="Number of SOP Instances in Study. This value given MAY be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element SHOULD be present if any instance elements are present."/>
-      <alias value="NumberOfStudyRelatedInstances"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="(0020,1208)"/>
-      </mapping>
-    </element>
     <element id="ImagingStudy.procedure">
       <path value="ImagingStudy.procedure"/>
       <short value="The performed procedure or code"/>
@@ -597,6 +557,46 @@
       <mapping>
         <identity value="dicom"/>
         <map value="(0008,1030)"/>
+      </mapping>
+    </element>
+    <element id="ImagingStudy.numberOfSeries">
+      <path value="ImagingStudy.numberOfSeries"/>
+      <short value="Number of Study Related Series"/>
+      <definition value="Number of Series in the Study. This value given MAY be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element SHOULD be present if any series elements are present."/>
+      <alias value="NumberOfStudyRelatedSeries"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=OBSSER, moodCode=EVN].repeatNumber"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="(0020,1206)"/>
+      </mapping>
+    </element>
+    <element id="ImagingStudy.numberOfInstances">
+      <path value="ImagingStudy.numberOfInstances"/>
+      <short value="Number of Study Related Instances"/>
+      <definition value="Number of SOP Instances in Study. This value given MAY be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element SHOULD be present if any instance elements are present."/>
+      <alias value="NumberOfStudyRelatedInstances"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="(0020,1208)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series">
