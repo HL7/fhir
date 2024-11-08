@@ -354,7 +354,7 @@
       <short value="The imaging study from which the imaging selection is derived"/>
       <definition value="The imaging study from which the imaging selection is made."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
@@ -367,7 +367,7 @@
       <short value="DICOM Study Instance UID"/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
-      <requirements value="DICOM Study Instance UID.&#xA;       Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
+      <requirements value="DICOM Study Instance UID.&#xA;Required unless frameOfReferenceUid and imageRegion are present and instance is not present.&#xA;If imagingselection.derivedFrom is present and references an ImagingStudy, the studyUid attribute - if present - must match an identifier of that ImagingStudy."/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
