@@ -33,26 +33,27 @@
   <div>
     <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>
-
     <p>
-    The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and associated information.
-    </p>
-    <p>
-    The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a specific set of specific set of images, frames, waveforms or image regions.
-    </p>
-    <p>
-    An <a href="observation.html">Observation</a> MAY be related to a set of images in several ways.
-    </p>
-    <ul>
-      <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
-      <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a specific set of images, frames, waveforms or image regions</li>
-      <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a specific set of images, frames, waveforms or image regions</li>
-      <li><a href="observation.html">Observation.focus</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
-    </ul>
-    <p>While an ImagingSelection is restricted to a single DICOM Series, a single <a href="observation.html">Observation</a> references multiple ImagingSelection resources if it relates to multiple Studies and / or Series – for example, to reference multiple images over different cardiac phases or a PET and a CT image.</p>
-    <p>A <a href="diagnosticreport.html">DiagnosticReport</a> might directly reference an ImagingSelection that includes one or more Observations derived from ImagingSelection resources.</p>
-    <p>In contrast with a <a href="documentreference.html">DocumentReference</a>, an ImagingSelection includes the ability to specify a region within an image, an observation node within a DICOM Structured Reporting (SR) and the ability to specify one or more Endpoint resources for retrieval of the referenced images, frames, waveforms or documents. Additionally, <a href="documentreference.html">DocumentReference</a> has limited ability to reference multiple images or frames and can only specify the Study, Series and SOP Instance UIDs implicitly via the URL.</p>
-    <p><a href="documentreference.html">DocumentReference</a> might be appropriate for including a rendered DICOM image in cases where the full image context is not important.</p>
-  </div>
-
+        The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and associated information, including its relationship to other resources, such as <a href="servicerequest.html">ServiceRequest</a> and <a href="encounter.html">Encounter</a>.
+        </p>
+        <p>
+        The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a specific set of specific set of images, frames, waveforms or image regions. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
+        </p>
+        <p>
+        An <a href="observation.html">Observation</a> MAY be related to a set of images in the following ways.
+        </p>
+        <ul>
+          <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
+          <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a specific set of images, frames, waveforms or image regions</li>
+          <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a specific set of images, frames, waveforms or image regions</li>
+          <li><a href="observation.html">Observation.focus</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
+        </ul>
+      
+    
+      <p>The <a href="documentreference.html">DocumentReference</a> resource is used to to store non-DICOM images, video, or audio with relevant metadata.</p>
+      <p>The <a href="binary.html">Binary</a> resource to store arbitrary content.</p>
+    
+    
+    </div>
+    
 </div>
