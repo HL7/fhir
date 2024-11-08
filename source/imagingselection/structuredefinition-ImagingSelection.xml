@@ -427,7 +427,7 @@
     <element id="ImagingSelection.frameOfReferenceUid">
       <path value="ImagingSelection.frameOfReferenceUid"/>
       <short value="The Frame of Reference UID for the selected images"/>
-      <definition value="The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames."/>
+      <definition value="Uniquely identifies groups of composite instances that have the same coordinate system that conveys spatial and/or temporal information."/>
       <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
       <requirements value="DICOM Frame of Reference UID.&#xA;                            Required if studyInstanceUid and seriesInstanceUid are not present."/>
       <alias value="FrameOfReferenceUID"/>
