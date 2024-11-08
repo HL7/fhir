@@ -132,7 +132,7 @@ https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/thu
 </pre>
 <p>
 For further details on DICOM WADO-RS capabilities including additional rendering parameters,
-see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
+see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.4.html.">DICOM PS 3.18 Section 10.4</a>.
 </p>
 <a name="wado-uri"></a>
 <h3>WADO-URI</h3>
@@ -181,7 +181,7 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
 </pre>
 <p>
 For further details on DICOM WADO-URI capabilities including additional rendering parameters,
-see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
+see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS 3.18 Chapter 9</a>.
 </p>
 <a name="iid"></a>
 <h3>IID</h3>
