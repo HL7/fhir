@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities."/>
+  <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of instances (images or other data) acquired or produced in a common context.  A series shall have only one modality (e.g. X-ray, CT, MR, ultrasound). A study may have multiple series which may have different modality values."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
