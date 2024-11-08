@@ -115,14 +115,14 @@
       <path value="ImagingSelection.status"/>
       <short value="available | entered-in-error | inactive | unknown"/>
       <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource SHOULD not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -479,7 +479,7 @@
       <path value="ImagingSelection.focus"/>
       <short value="Related resources that are the focus for the imaging selection"/>
       <definition value="The actual focus of an imaging selection when it is another imaging selection resource and not the patient of record."/>
-      <comment value="An imaging selection may reference a DICOM resource that itself references other DICOM resources.&#xA;       e.g. a presentation state references a set of source images or frames."/>
+      <comment value="An imaging selection MAY reference a DICOM resource that itself references other DICOM resources.&#xA;       e.g. a presentation state references a set of source images or frames."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -641,9 +641,9 @@
     <element id="ImagingSelection.instance.imageRegion2D.coordinate">
       <path value="ImagingSelection.instance.imageRegion2D.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
-      <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames."/>
+      <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values SHALL be within the range 0\0 to the number of columns\rows in the image / frames."/>
       <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS 3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
-      <requirements value="The number of values must be a multiple of two."/>
+      <requirements value="The number of values SHALL be a multiple of two."/>
       <alias value="GraphicData"/>
       <min value="1"/>
       <max value="*"/>
@@ -700,9 +700,9 @@
     <element id="ImagingSelection.imageRegion3D.coordinate">
       <path value="ImagingSelection.imageRegion3D.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
-      <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
+      <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and MAY be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
       <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
-      <requirements value="The number of values must be a multiple of three."/>
+      <requirements value="The number of values SHALL be a multiple of three."/>
       <alias value="GraphicData"/>
       <min value="1"/>
       <max value="*"/>
