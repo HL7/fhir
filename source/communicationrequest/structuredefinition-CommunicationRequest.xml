@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition."/>
+  <description value="A request to convey information from a sender to a recipient."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -74,8 +74,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="CommunicationRequest"/>
-      <short value="A request for information to be sent to a receiver"/>
-      <definition value="A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition."/>
+      <short value="A request to convey information from a sender to a recipient"/>
+      <definition value="A request to convey information from a sender to a recipient."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

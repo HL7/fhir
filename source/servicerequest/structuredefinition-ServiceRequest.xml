@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ServiceRequest"/>
   <meta>
@@ -230,6 +229,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -357,7 +357,7 @@
       <path value="ServiceRequest.intent"/>
       <short value="proposal | plan | directive | order +"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance."/>
+      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
       <min value="1"/>
       <max value="1"/>
       <type>
