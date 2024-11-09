@@ -735,8 +735,8 @@ Reflex | Repeat | Re-run</title>type</a> : <a
    id="title87562">The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3)</title>low</a> : <a
    id="n1510"
    xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#Quantity"
-   id="a87566">Quantity</a>) [0..1] « <a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a87566">SimpleQuantity</a>) [0..1] « <a
    id="n1511"
    style="color:#301212;font-weight:bold"
    xlink:href="conformance-rules.html#constraints"><title
@@ -752,8 +752,8 @@ Reflex | Repeat | Re-run</title>type</a> : <a
    id="title87571">The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3)</title>high</a> : <a
    id="n1520"
    xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#Quantity"
-   id="a87575">Quantity</a>) [0..1] « <a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a87575">SimpleQuantity</a>) [0..1] « <a
    id="n1521"
    style="color:#301212;font-weight:bold"
    xlink:href="conformance-rules.html#constraints"><title
