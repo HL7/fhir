@@ -432,10 +432,13 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Cardinality</td>
       <td>
+      <a name="f-compat-cardianality"></a>
       Minimum element cardinalities will not be changed.  Upper cardinality may change from 1 to * only in circumstances
-      where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some syntaxes (e.g. JSON). This may mean that an order is
-      assigned to the repeating items or that there is no preference as to which element is retained.  Systems should
-      follow the <a href="#f-compat">rules above</a> for unexpected elements.
+      where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some 
+      syntaxes (e.g. JSON). This may mean that an order is assigned to the repeating items or that there is no preference as to which 
+      element is retained.  Systems should follow the <a href="#f-compat">rules above</a> for unexpected elements.
+      Because of the JSON issue, changes to cardinality for normative elements will be minimized whenever possible, e.g. by defining new 
+      sibling elements.
       </td>
     </tr>
     <tr>
@@ -576,7 +579,9 @@ has a process allowing violation of these rules in <a href="https://confluence.h
       Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
       the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the 
       content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
-      We will add the sentence: Additional resources or profiles can also be added to the list of available targets for a reference.
+      Additional resources or profiles can also be added to the list of available targets for a reference.
+      Where a reference is to a non-normative resource, the name of the referenced resource may still change between versions until such time 
+      as the referenced resource becomes normative.  In some cases, non-normative resources may be removed in future versions of the FHIR spec.
       </td>
     </tr>
 	<tr>
