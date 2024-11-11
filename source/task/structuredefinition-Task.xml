@@ -776,7 +776,7 @@
       <short value="Where task occurs"/>
       <definition value="Principal physical location where this task is performed."/>
       <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <requirements value="Provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -984,8 +984,8 @@
     <element id="Task.input.type">
       <path value="Task.input.type"/>
       <short value="Label for the input"/>
-      <definition value="A code or description indicating how the input is intended to be used as part of the task execution."/>
-      <comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
+      <definition value="A code or description to distinguish between inputs."/>
+      <comment value="The type of the input may affect how it is used in the task. If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
       <requirements value="Inputs are named to enable task automation to bind data and pass it from one task to the next."/>
       <alias value="Name"/>
       <min value="1"/>
@@ -1190,7 +1190,7 @@
     <element id="Task.output.type">
       <path value="Task.output.type"/>
       <short value="Label for output"/>
-      <definition value="The name of the Output parameter."/>
+      <definition value="A code or description to distinguish between outputs."/>
       <requirements value="Outputs are named to enable task automation to bind data and pass it from one task to the next."/>
       <alias value="Name"/>
       <min value="1"/>

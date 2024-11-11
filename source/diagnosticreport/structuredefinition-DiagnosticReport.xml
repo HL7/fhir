@@ -809,5 +809,19 @@
         <map value="text (type=ED)"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.communication">
+      <path value="DiagnosticReport.communication"/>
+      <short value="Communication initiated during the reporting process"/>
+      <definition value="Communications initiated during the generation of the DiagnosticReport by members of the organization fulfilling that order. e.g. direct communication of time critical results by the radiologist to the referring physician."/>
+      <comment value="Note: This can document attempted communications as well as completed communications. Communications that follow publication of the report (e.g. between the referring physician and the patient or a subsequent specialist) are not referenced here. DiagnosticReport.recommendation might also contain references to ServiceRequest or CommunicationRequest instances for proposed subsequent communications."/>
+      <requirements value="Need to record details of such communications for medico-legal purposes, to support review or the improvement of conformance to best practices for patient safety and quality of care."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
+      </type>
+       <isSummary value="false"/>
+    </element>
   </differential>
 </StructureDefinition>
