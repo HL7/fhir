@@ -133,7 +133,7 @@ is labeled 'Normative'</i>:
 While HL7 prefers to avoid this outcome, there are several resources where the overall functionality
 of the artifact is clearly ready to be labeled as 'normative' while some very specific parts are known
 not to have the requisite level of implementation experience as the rest of the resource.
-E.g. <a href="bundle-definitions.html#Bundle.signature">Bundle.signature</a>.
+E.g. <a href="bundle-definitions.html#Bundle.issues">Bundle.issues</a>.
 </p>
 <p>
 Where a Normative resource contains elements marked as trial-use, these elements are clearly marked
@@ -143,21 +143,16 @@ may change these parts of the resources (in addition to the other changes allowe
 consider the consequences of breaking change to these elements, implementers should be aware that
 reading/using these elements has the potential to cause breaking change to their applications later.
 </p>
-<p>
-Note that this same status will arise as a matter of process when new elements are introduced into
-normative resources in future versions - they will undergo a period of trial use as appropriate.
-</p>
-<p>
-Note: it is also possible that some resources in the future will be labeled as 'trial use', but
-contain some elements labeled as 'normative'. There is no resource like this in this specification,
-though all Trial Use resources contain normative content from <a href="resource.html">Resource</a>
-and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Datatypes</a>.
-</p>
 
-<p>
-Notes:
-</p>
+<p>Notes:</p>
 <ul>
+  <li>When new elements are introduced into
+    normative resources in future versions - they will (as a matter of process) undergo a period of trial use as appropriate.</li>
+ <li>It is also possible that some resources in the future will be labeled as 'trial use', but
+    contain some elements labeled as 'normative'. There is no resource like this in this specification,
+    though all Trial Use resources contain normative content from <a href="resource.html">Resource</a>
+    and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Datatypes</a>.
+ </li>
  <li>The above statuses can apply to both the standard overall as well as to individual components of the FHIR specification</li>
  <li>All pages in the specification identify their status explicitly. A few pages are Table of contents or other kinds of navigational pages, and are <i>Informative</i></li>
  <li>Some content is labeled with the status "External", which means that the content is maintained in another standard, and the status must be found by consulting that other standard. In this case, the Maturity Model does not apply</li>
@@ -210,18 +205,6 @@ The maturity model is significantly influenced by the degree and type of impleme
 we encourage implementers to <a href="http://fhir.org/implementations/usage">register their implementations</a>.
 A detailed analysis of the basis for the maturity metrics for FHIR artifacts can be found <a href="http://hl7.org/fhir/maturity-metrics">here</a>.
 </p>
-[%impl-note%]
-For this release (R5), please note:
-</p>
-<ul>
-<li>The rules for FMM levels will be reviewed prior to the next release to reflect the size of the FHIR implementation community and to place more value on the rate of external adoption</li>
-<li>The FMM levels for some resource types in R5 have been increased at the discretion of the FHIR management group in accordance with the community adoption without meeting all the internal process requirements</li>
-<li>Timelines for the publication for R5 did not allow formal review of FMM levels for all resources. Some resources may meet higher requirements than those listed</li>
-</ul>
-<p>
-Once review is complete, FMM levels will be reflected in the CI-build
-[%end-note%]
-
 
 <a name="versions"></a>
 <h3>FHIR Releases and Versioning</h3>
