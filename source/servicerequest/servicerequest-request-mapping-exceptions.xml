@@ -140,7 +140,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
-            <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
+            <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="ServiceRequest.subject">
