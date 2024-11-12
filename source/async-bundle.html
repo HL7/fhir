@@ -68,7 +68,7 @@
     <li>
       <p><code>Prefer</code> (string, required)</p>
       <p>Specifies whether the response is immediate or asynchronous. Setting this to <code>respond-async</code>
-        triggers this async pattern.</p>
+        triggers the async pattern.</p>
     </li>
   </ul>
 
@@ -163,13 +163,21 @@
     <li>HTTP status of <code>200 OK</code></li>
     <li>
       A body containing a <a href="bundle.html">Bundle Resource</a> with a type of <code>batch-response</code>.
+      The outcome of the requested FHIR operation SHALL be present as the first entry in the bundle. This entry contains the final result of processing the operation that was initiated by the kick-off request, including:
+      <ul>
+        <li>The operation's success/failure status in Bundle.entry[0].response.status</li>
+        <li>Any error details in Bundle.entry[0].response.outcome (as an OperationOutcome resource)</li>
+        <li>The created/modified resource location in Bundle.entry[0].response.location when applicable</li>
+        <li>The actual resource in Bundle.entry[0].resource when the server includes a resource body in the response (determined by server policy and/or client-supplied prefer header)</li>
+      </ul>
+      <p>
+        Note that this is different from the initial kick-off request's response (which only returns 202 Accepted). This entry represents the final outcome of the requested operation after its asynchronous processing has completed.
+      </p>
     </li>
   </ul>
   <p>
-    The outcome of the kick-off request SHALL be present as the first entry in the bundle. A successful completion
-    of the status request SHOULD be used whenever processing has completed, regardless of whether the underlying
-    interaction has succeeded or failed. A server SHOULD use the <code>status</code> and <code>outcome</code>
-    elements of <code>Bundle.entry[0].response</code> to communicate any processing errors.
+    A successful completion of the status request SHOULD be used whenever processing has completed, regardless of 
+    whether the underlying interaction has succeeded or failed. A server SHOULD use the <code>status</code> and <code>outcome</code> elements of <code>Bundle.entry[0].response</code> to communicate any processing errors.
   </p><p>
     For example, if a client asynchronously invokes a hypothetical <code>$example</code> operation but omits a
     required parameter, the server would respond with a

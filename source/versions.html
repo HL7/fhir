@@ -195,7 +195,7 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
   <li>For each example context, the artifact has either been: reviewed and approved by a domain expert for that scope area, mapped to an existing implemented scope-area-specific standard or tested in an implementation</li>
 </ul>
 <p>
-The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource
+The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
 </p>
 <p>
 The table above represents a frozen snapshot of the maturity levels maintained by the FHIR Management Group on the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.  Further information and discussion about these levels can be found there.
@@ -399,7 +399,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Artifacts (resources, profiles, code systems, etc.)</td>
       <td>
-      New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
+      New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>.
       </td>
     </tr>
     <tr>
@@ -415,10 +415,13 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Cardinality</td>
       <td>
+      <a name="f-compat-cardianality"></a>
       Minimum element cardinalities will not be changed.  Upper cardinality may change from 1 to * only in circumstances
-      where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some syntaxes (e.g. JSON). This may mean that an order is
-      assigned to the repeating items or that there is no preference as to which element is retained.  Systems should
-      follow the <a href="#f-compat">rules above</a> for unexpected elements.
+      where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some 
+      syntaxes (e.g. JSON). This may mean that an order is assigned to the repeating items or that there is no preference as to which 
+      element is retained.  Systems should follow the <a href="#f-compat">rules above</a> for unexpected elements.
+      Because of the JSON issue, changes to cardinality for normative elements will be minimized whenever possible, e.g. by defining new 
+      sibling elements.
       </td>
     </tr>
     <tr>
@@ -550,7 +553,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Implementation Guides</td>
       <td>
-      Additional artifacts can be added, and artifacts can be changed.  The list of global profiles will not change
+      Additional artifacts can be added, and artifacts can be changed.  The list of global profiles will not change.
       </td>
     </tr>
     <tr>
@@ -559,7 +562,9 @@ has a process allowing violation of these rules in <a href="https://confluence.h
       Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
       the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the 
       content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
-      We will add the sentence: Additional resources or profiles can also be added to the list of available targets for a reference.
+      Additional resources or profiles can also be added to the list of available targets for a reference.
+      Where a reference is to a non-normative resource, the name of the referenced resource may still change between versions until such time 
+      as the referenced resource becomes normative.  In some cases, non-normative resources may be removed in future versions of the FHIR spec.
       </td>
     </tr>
 	<tr>
@@ -717,12 +722,12 @@ Implementers should be aware of the following issues when using these extensions
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
   are extensions that also follow this pattern (see example below).</li>
  <li>This same pattern applies for any new elements not found in datatypes in earlier versions,
-  and for additional children where there is a cardinality increase in the referenced (subsequent) version</li>
+  and for additional children where there is a cardinality increase in the referenced (subsequent) version.</li>
  <li>If the change between versions is that the subsequent version allows a type that is not allowed in the 
   previous version, then whenever the type is allowed, it should be found in the element, but if it is not,
   then it should be in an extension with the URL of the subsequent version e.g. 
   <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.value</code> for types
-  allowed in Observation.value in R5 that were not allowed in an earlier version
+  allowed in Observation.value in R5 that were not allowed in an earlier version.
  </li>
  <li>It is always an error to use a cross version extension in the same version e.g.
   the extension <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-...</code> could
@@ -753,10 +758,10 @@ should be a JSON array or not).
  <li>
   The vocabulary bindings can be to a specific value set version, but the expansions of those value sets 
   will be based on the context of the version of FHIR being used, NOT the version of core the extension 
-  definition is taken from
+  definition is taken from.
  </li>
- <li>If the referenced type includes target resources that are not supported in the adopting version, those resources will be removed.  If the result is that NO target resources are allowed, then the inter-version extension is not permitted</li>
- <li>Where mapping simple types, the type conversions are shown in the table below. The mapping table SHALL be used</li>
+ <li>If the referenced type includes target resources that are not supported in the adopting version, those resources will be removed.  If the result is that NO target resources are allowed, then the inter-version extension is not permitted.</li>
+ <li>Where mapping simple types, the type conversions are shown in the table below. The mapping table SHALL be used.</li>
 </ul>
 <p>
 This table shows the mapping between primitive datatypes across versions:
@@ -1174,7 +1179,7 @@ information.
 Irrespective of the choice around publication speed and whether to publish partial new branch versions,
 HL7's general intent for the Release 6 is to move most of the resources in the Foundation, Base and Clinical layers (see the 
 'Category' tab in the <a href="resourcelist.html">Resources pages</a>) to full Normative status, along with
-a fwe other resources including e.g. Questionnaire. 
+a few other resources including e.g. Questionnaire. 
 </p>
 <p>
 Whatever HL7 decides to do with regard to the formal status of the resources, the next release will
@@ -1193,7 +1198,7 @@ including those provided by HL7 will not support interim versions other than the
 </p>
 <p>
  More information on plans for Release 5 can be found on the <a href="https://onfhir.hl7.org/">HL7 product director's blog</a>.
- (Subscribing to this blog is a good way to keep current on significant events in FHIR development, including ballot and publication timelines.)
+ (Subscribing to this blog is a good way to keep current on significant events in FHIR development, including ballot and publication timelines).
 </p>
 
 [%file newfooter%]
