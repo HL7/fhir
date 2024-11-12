@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress."/>
+  <description value="A task to be performed as a part of a workflow and the related information like inputs, outputs and execution progress."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -77,7 +77,7 @@
     <element id="Task">
       <path value="Task"/>
       <short value="A task to be performed"/>
-      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/>
+      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a [[[Task]]] (explicit or contained) as a means to track the execution data (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -320,7 +320,7 @@
     <element id="Task.intent">
       <path value="Task.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. this a proposed task, a planned task, an actionable task, etc."/>
       <comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
       <min value="1"/>
       <max value="1"/>
@@ -652,7 +652,7 @@
     </element>
     <element id="Task.requestedPerformer">
       <path value="Task.requestedPerformer"/>
-      <short value="Who should perform Task"/>
+      <short value="Who should perform the Task"/>
       <definition value="The kind of participant or specific participant that should perform the task."/>
       <requirements value="Use to distinguish tasks on different activity queues."/>
       <min value="0"/>
@@ -776,7 +776,7 @@
       <short value="Where task occurs"/>
       <definition value="Principal physical location where this task is performed."/>
       <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <requirements value="Provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -984,8 +984,8 @@
     <element id="Task.input.type">
       <path value="Task.input.type"/>
       <short value="Label for the input"/>
-      <definition value="A code or description indicating how the input is intended to be used as part of the task execution."/>
-      <comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
+      <definition value="A code or description to distinguish between inputs."/>
+      <comment value="The type of the input may affect how it is used in the task. If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
       <requirements value="Inputs are named to enable task automation to bind data and pass it from one task to the next."/>
       <alias value="Name"/>
       <min value="1"/>
@@ -1190,7 +1190,7 @@
     <element id="Task.output.type">
       <path value="Task.output.type"/>
       <short value="Label for output"/>
-      <definition value="The name of the Output parameter."/>
+      <definition value="A code or description to distinguish between outputs."/>
       <requirements value="Outputs are named to enable task automation to bind data and pass it from one task to the next."/>
       <alias value="Name"/>
       <min value="1"/>
