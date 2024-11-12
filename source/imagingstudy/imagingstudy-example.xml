@@ -15,13 +15,13 @@
 		<reference value="Patient/dicom"/>
 	</subject>
 	<started value="2011-01-01T11:01:20+03:00"/>
-	<numberOfSeries value="1"/>
-	<numberOfInstances value="1"/>
 	<reason>
 		<reference>
 			<reference value="Observation/656"/>
 		</reference>
 	</reason>
+	<numberOfSeries value="1"/>
+	<numberOfInstances value="1"/>
 	<series>
 		<uid value="2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
 		<number value="3"/>
