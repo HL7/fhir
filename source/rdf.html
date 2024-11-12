@@ -62,11 +62,10 @@ href="#turtle-template">Turtle
             <li><a href="#resources">Representing Resources</a></li>
             <li><a href="#caseSensitivity">Case Sensitivity</a></li>
             <li><a href="#nestedNodes">Nested Anonymous Nodes</a></li>
-            <li><a href="#propertyNames">Property Names</a></li>
+            <li><a href="#propertyNames">Property Names and Polymorphism</a></li>
             <li><a href="#rdflist">Representing Repeating Elements -- RDF Lists</a></li>
             <li><a href="#primitive">Representing Primitive Elements</a>
              <ul>
-              <li><a href="#poly-primitives">Polmorphic Primitive Properties</a>
              </ul>
             </li>
             <li><a href="#reference">Representing References</a></li>
@@ -145,7 +144,7 @@ href="extensibility.html">extensions</a>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
-<span class="xmlcomment">                                  # Obs123 (subject) hasType (predicate) fhir:Observation</span>
+<span class="xmlcomment">                                  # Obs123 (subject) hasType (property) fhir:Observation</span>
 &lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;    <span class="xmlcomment"># (subject) is the serialization root of this document</span>
   fhir:id [ fhir:v "Obs123" ];    <span class="xmlcomment"># (subject) has an id of "Obs123"</span>
@@ -187,7 +186,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
         <ul>
           <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
           <li>the type (<code class="rdf">fhir:Observation</code>) and
-            following predicates (e.g. <code class="rdf">fhir:status</code>)
+            following properties (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
           <li>assertions following a ';' re-use the same subject,</li>
           <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s,</li>
@@ -236,11 +235,11 @@ href="fhir.shex">fhir.shex</a>
 
         <a name="caseSensitivity"></a>
           <h4>Case Sensitivity</h4>
-          <p> While RDF predicate names are case-sensitive, FHIR avoids
-            confusion by assuring that there are no predicates that
+          <p> While RDF property names are case-sensitive, FHIR avoids
+            confusion by assuring that there are no properties that
             differ only in case. For example, there will be no <span
-              class="rdf">fhir:Code</span> predicate because there is
-            already a fhir:code predicate. <br/>
+              class="rdf">fhir:Code</span> property because there is
+            already a fhir:code property. <br/>
           </p>
 
         <a name="nestedNodes"></a>
@@ -262,22 +261,61 @@ href="fhir.shex">fhir.shex</a>
           </ul>
 
         <a name="propertyNames"></a>
-          <h4>Property Names</h4>
+          <h4>Property Names and Polymorphism</h4>
           <p> A great deal of effort has gone into unifying FHIR
             property names across resources and datatypes. These defined
             properties effectively declare the FHIR RDF namespace with a
-            set of polymorphic, reuseable predicates. For example, <span
+            set of reuseable properties.  These properties may be polymorphic
+            in two ways.  For one thing, the same property name may be used
+            in multiple FHIR resources.  For example, <span
               class="rdf">fhir:status</span> is spelled the same way
             regardless of whether it appears in an Observation,
             Diagnosis, or any other FHIR Resource. </p>
-          <p> In other formats (XML, JSON), FHIR properties with choice
-            datatypes, like <span class="spec">value[x]</span>, are
-            appended with the datatype, e.g. <span class="json">valueQuantity</span>.
-            In RDF, this is written <span class="rdf">fhir:value</span>
+          <p> Properties may also be polymorphic in another sense: within
+            a single resource, a property may have a choice of more than one
+            permissible object type.  This is indicated in the structure
+            definition of the resource by the <code class="rdf">type</code>
+            property having a list of two or more types, such as in
+            the <a href="https://build.fhir.org/observation.profile.json.html">
+            structure definition of Observation</a>.
+            The corresponding Structure tab in the resource's 
+            HTML page displays them with "[x]", as in 
+            <span class="spec">value[x]</span> or
+<a href="https://build.fhir.org/observation.html#resource">instantiates[x]</a>.
+            In other formats (XML, JSON), FHIR properties with choice
+            datatypes have the datatype appended to the property name, 
+            e.g. <span class="json">valueQuantity</span>.
+            But in RDF, this is written as a polymorphic <span class="rdf">fhir:value</span> property,
             and the object asserts its type explicitly, as in the <a href="#value">above
-              example</a>:<br/>
+            Observation example</a>:<br/>
           </p>
           <pre class="rdf">  fhir:value [ a fhir:Quantity; ... ]</pre>
+
+          <p> The <code class="rdf">fhir:instantiates</code> property in the
+            Observation resource is unusual in that its value may either
+            be the complex type <code class="rdf">fhir:Reference</code> or
+            the primitve type <code class="rdf">fhir:canonical</code>.  But
+            in either case, the type is specified, such as:
+          </p>
+          <pre class="rdf">
+  &lt;Observation/123&gt;
+    fhir:instantiates [
+       a fhir:Reference ;
+       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5&gt; ;
+       fhir:reference [
+         fhir:v "http://example.org/fhir/PlanDefinition/KDN5"^^xsd:anyURI
+      ]
+    ] ;
+          </pre>
+          <p>or:</p>
+          <pre class="rdf">
+  &lt;Observation/123&gt;
+    fhir:instantiates [
+       a fhir:canonical ;
+       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
+       fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
+    ] ;
+          </pre>
 
         <a name="rdflist"></a>
           <h4>Representing Repeating Elements -- RDF Lists</h4>
@@ -302,7 +340,7 @@ href="fhir.shex">fhir.shex</a>
             extensions can be attached and so that they can consistently
 	    be treated as OWL object properties (versus sometimes being datatype properties).&nbsp; The actual value of the
             primitive type is represented as an RDF Literal using the <span
-              class="rdf">fhir:v</span> predicate.&nbsp; fhir:v is the
+              class="rdf">fhir:v</span> property.&nbsp; fhir:v is the
             only FHIR property that directly holds an RDF literal -- i.e., it
 	    is the only OWL datatype property in FHIR RDF -- and
             it always holds an RDF Literal: </p>
@@ -347,17 +385,6 @@ href="fhir.shex">fhir.shex</a>
             character of content. XHTML is represented as an escaped
             xsd:string.&nbsp; <br/>
           </p>
-
-        <a name="poly-primitives"></a>
-          <h5>Polymorphic Primitive Properties</h5>
-          <p> A <i>polymorphic</i> primitive property is a primitive property
-              that has more than one possible type of object value.
-              For example, in the Observation resource the value of the
-              <code class="rdf">fhir:instantiates</code> property may be
-              either a <code class="rdf">fhir:canonical</code>
-              or a <code class="rdf">fhir:Reference</code>.  In such cases,
-              the type of the object is also specified, as in this example
-              of instantiating a <code class="rdf">fhir:Reference</code>:
 
           <pre class="rdf">
 &lt;Observation/123&gt; fhir:instantiates [
@@ -608,7 +635,7 @@ fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationReques
 </pre>
 
           <p> BackboneElements and BackboneTypes are object types. Any
-            RDF predicate that references a modified BackboneElement or
+            RDF property that references a modified BackboneElement or
             BackboneType is prefixed with a '_'.  Note the underscore
 	    at the beginning of "_value" in the following example:</p>
           <pre class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
