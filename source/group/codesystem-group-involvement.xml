@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="group-involvement"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/group-involvement"/>
+  <version value="6.0.0"/>
+  <name value="GroupInvolvement"/>
+  <title value="Group Involvement"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <valueCode value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <valueCode value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="A code that describes how a member of the group participates in the group."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/group-involvement"/>
+  <content value="complete"/>
+  <property>
+    <code value="group-type"/>
+    <uri value="http://hl7.org/fhir/group-involvement#group-type"/>
+    <description value="Which group code this relationship is considered appropriate to use with"/>
+    <type value="code"/>
+  </property>
+
+  <concept>
+    <code value="index-case"/>
+    <display value="Index Case"/>
+    <definition value="The first case that is the reason for creating the group. Usually the first known infection, but other kinds of first are known."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="patient-list"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="primary-exposure"/>
+    <display value="Primary Exposure"/>
+    <definition value="Patient is included in the list on the grounds of being a primary exposure case (sometimes, but not neceessarily, direct exposure to the index case, or a known infected person)."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="patient-list"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="secondary-exposure"/>
+    <display value="Secondary Exposure"/>
+    <definition value="Patient is included in the list on the grounds of being a secondary exposure case - that is, exposed to a potentially infected patient or person of interest."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="patient-list"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="owner"/>
+    <display value="Owner"/>
+    <definition value="Household member is a legally / officially registered owner of the dwelling that contains the household. Or at least, considers themselves the rightful owner."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="resident"/>
+    <display value="Resident"/>
+    <definition value="Household member is a resident - that is, they consistently reside in the dwelling."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="visitor"/>
+    <display value="Visitor"/>
+    <definition value="Household member is transiently visiting the dwelling during (part of) the period of interest, or, for a workplace, a person who was/is in the workplace but not an employee"/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="workplace"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="staff"/>
+    <display value="Staff"/>
+    <definition value="Household member is a member of the staff working in the dwelling (and by implication, not a resident)."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pet"/>
+    <display value="Pet"/>
+    <definition value="Group member is animal kept as a pet by the family/household."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="famkily"/>
+    </property>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="full-time"/>
+    <display value="Full-Time Employee"/>
+    <definition value="This is the group member's primary workplace on a consistent basis."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="workplace"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="part-time"/>
+    <display value="Part Time"/>
+    <definition value="The group member works in the workplace, but on an occasional basis."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="workplace"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="casual"/>
+    <display value="Casual"/>
+    <definition value="The group member was working in the workplace, but is not consistently present."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="workplace"/>
+    </property>
+  </concept>
+
+</CodeSystem>

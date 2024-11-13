@@ -176,6 +176,18 @@
       <type>
         <code value="integer64"/>
       </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubscriptionStatus.notificationEvent.triggerEvent">
+      <path value="SubscriptionStatus.notificationEvent.triggerEvent"/>
+      <short value="Event that triggered this notification"/>
+      <definition value="If present, one or more event codes specifying the events which triggered this notification."/>
+      <comment value="If a SubscriptionTopic includes multiple possible triggering events, this element can be used to disambiguate a notification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
     </element>
     <element id="SubscriptionStatus.notificationEvent.timestamp">
       <path value="SubscriptionStatus.notificationEvent.timestamp"/>
@@ -209,6 +221,51 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
     </element>
+		<element id="SubscriptionStatus.notificationEvent.relatedQuery">
+			<path value="SubscriptionStatus.notificationEvent.relatedQuery"/>
+			<short value="Query describing data relevant to this notification"/>
+			<definition value="Queries and codes that could be included with notifications of this shape. Servers MAY include these queries if supported and desired in the workflow."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.relatedQuery.queryType">
+			<path value="SubscriptionStatus.notificationEvent.relatedQuery.queryType"/>
+			<short value="Coded information describing the type of data this query provides"/>
+			<definition value="Coded value(s) used to describe the type of information that evaluating this query will provide. Subscribers can use the values to ensure the data they request are relevant and necessary for their use."/>
+			<min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.relatedQuery.query">
+			<path value="SubscriptionStatus.notificationEvent.relatedQuery.query"/>
+			<short value="Query to perform"/>
+			<definition value="Query a subscriber can use to retrieve additional information. The exact contents of the query MAY depend on the value of the `queryType`, however this SHOULD be a query suitable for use as an HTTP GET request (either fully-qualified or partial)."/>
+			<min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
     <element id="SubscriptionStatus.subscription">
       <path value="SubscriptionStatus.subscription"/>
       <short value="Reference to the Subscription responsible for this notification"/>

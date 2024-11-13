@@ -79,7 +79,7 @@
         <extraTypes _resource="CodeableReference(NutritionProduct)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="What service was done"/>
-            <resource value="A product used for nutitrional purposes (e.g. food or supplement)"/>
+            <resource value="A product used for nutritional purposes (e.g. food or supplement)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>

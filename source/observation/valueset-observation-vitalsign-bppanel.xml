@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-vitalsign-bppanel"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
+  <name value="VitalSignsBPPanel"/>
+  <title value="Vital Signs - BP Panel"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing an arterial szstolic and diastolic BP panel of vital signs measurements in Observation.component.code."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="35094-2"/>
+        <display value="Blood pressure panel"/>
+      </concept>
+      <concept>
+        <code value="55417-0"/>
+        <display value="Short blood pressure panel"/>
+      </concept>
+      <concept>
+        <code value="85354-9"/>
+        <display value="Blood pressure panel with all children optional"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -561,14 +561,9 @@ An example of a contained resource:
     &lt;/Practitioner&gt;
   &lt;/contained&gt;
   &lt;!-- other attributes --&gt;
-  &lt;participant&gt;
-    &lt;function&gt;
-      &lt;text value="Asserter" /&gt;
-    &lt;/function&gt;
-    &lt;actor&gt;
-      &lt;reference value="#p1" /&gt;
-    &lt;/actor&gt;
-  &lt;/participant&gt;
+  &lt;asserter&gt;
+	&lt;reference value="#p1" /&gt;
+  &lt;/asserter&gt;
   &lt;!-- other attributes --&gt;
  &lt;/Condition&gt;
 </pre>
@@ -578,24 +573,17 @@ The same example in JSON:
 <pre class="json" fragment="Condition">
 {
   "resourceType" : "Condition",
-  "contained": [
-    {
-      "resourceType" : "Practitioner",
-      "id" : "p1",
-      "name" : [{
-        "family" : "Person",
-        "given" : ["Patricia"]
-      }]
-	  }],
-    "participant" : [{
-      "function" : {
-        "text" : "Asserter"
-      },
-      "actor" : {
-        "reference" : "#p1"
-      }
+  "contained": [{
+    "resourceType" : "Practitioner",
+    "id" : "p1",
+    "name" : [{
+      "family" : "Person",
+      "given" : ["Patricia"]
     }]
-  }]
+  }],
+  "asserter" : {
+    "reference" : "#p1"
+  }
 }
 </pre>
 </div>

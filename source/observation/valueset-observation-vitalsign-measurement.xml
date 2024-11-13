@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-vitalsign-measurement"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-measurement"/>
+  <name value="VitalSignsMeasurement"/>
+  <title value="Vital Signs Measurement"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes the set of expected vital sign measurement codes."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyheight"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-panel"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bmi"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodytemp"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyweight"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-heartrate"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-resprate"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-oxygensat"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-headcircum"/>
+    </include>
+  </compose>
+</ValueSet>

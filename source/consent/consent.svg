@@ -812,7 +812,7 @@
      class="diagram-class-linkage"><a
        id="n1175"
        xlink:href="consent-definitions.html#Consent.policyBasis"><title
-   id="title28030">A Reference or URL used to uniquely identify the policy the organization will enforce for this Consent. This Reference or URL should be specific to the version of the policy and should be dereferencable to a computable policy of some form</title>policyBasis</a></text>
+   id="title28030">A Reference or URI used to uniquely identify the policy the organization will enforce for this Consent. This Reference or URI should be specific to the version of the policy and should be dereferencable to a computable policy of some form</title>policyBasis</a></text>
   <text
      id="n1176"
      x="403.6"

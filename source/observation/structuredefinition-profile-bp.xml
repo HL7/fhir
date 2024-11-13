@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **85354-9'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;2.  One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;3.  One  `Observation.component.code` which must have &#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'mm[Hg]'**"/>
+    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **85354-9'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;2.  One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;3.  One  `Observation.component.code` which must have &#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'mm[Hg]'**"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
@@ -19,7 +19,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
-    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **85354-9'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;2.  One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;3.  One  `Observation.component.code` which must have &#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'mm[Hg]'**"/>
+    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **85354-9'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;2.  One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;3.  One  `Observation.component.code` which must have &#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'mm[Hg]'**"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/bp"/>
   <identifier>
@@ -84,53 +84,43 @@
       <min value="0"/>
       <max value="*"/>
     </element>
+    <element id="Observation.category">
+      <path value="Observation.category"/>
+      <slicing>
+        <discriminator>
+          <type value="pattern"/>
+          <path value="$this"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+      <min value="2"/>
+    </element>
+    <element id="Observation.category:BPCode">
+      <path value="Observation.category"/>
+      <sliceName value="BPCode"/>
+      <min value="1"/>
+      <max value="1"/>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="85354-9"/>
+        </coding>
+      </patternCodeableConcept>
+    </element>
     <element id="Observation.code">
       <path value="Observation.code"/>
       <short value="Blood Pressure"/>
       <definition value="Blood Pressure."/>
-      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
       <alias value="Test"/>
       <alias value="Name"/>
-    </element>
-    <element id="Observation.code.coding">
-      <path value="Observation.code.coding"/>
-      <slicing>
-        <discriminator>
-          <type value="value"/>
-          <path value="code"/>
-        </discriminator>
-        <discriminator>
-          <type value="value"/>
-          <path value="system"/>
-        </discriminator>
-        <ordered value="false"/>
-        <rules value="open"/>
-      </slicing>
-      <min value="1"/>
-    </element>
-    <element id="Observation.code.coding:BPCode">
-      <path value="Observation.code.coding"/>
-      <sliceName value="BPCode"/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="Observation.code.coding:BPCode.system">
-      <path value="Observation.code.coding.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://loinc.org"/>
-    </element>
-    <element id="Observation.code.coding:BPCode.code">
-      <path value="Observation.code.coding.code"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <fixedCode value="85354-9"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignBPPanel"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing an arterial systolic and diastolic BP panel of vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
+      </binding>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
@@ -160,55 +150,56 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Observation.component:SystolicBP.code">
-      <path value="Observation.component.code"/>
-      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-      <alias value="Component Test"/>
-      <alias value="Component Name"/>
-    </element>
-    <element id="Observation.component:SystolicBP.code.coding">
-      <path value="Observation.component.code.coding"/>
+    <element id="Observation.component:SystolicBP.extension">
+      <path value="Observation.component.extension"/>
       <slicing>
         <discriminator>
           <type value="value"/>
-          <path value="code"/>
+          <path value="url"/>
         </discriminator>
         <discriminator>
-          <type value="value"/>
-          <path value="system"/>
+          <type value="pattern"/>
+          <path value="valueCodeableConcept"/>
         </discriminator>
-        <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <short value="Systolic Blood Pressure"/>
-      <definition value="Systolic Blood Pressure."/>
       <min value="1"/>
     </element>
-    <element id="Observation.component:SystolicBP.code.coding:SBPCode">
-      <path value="Observation.component.code.coding"/>
+    <element id="Observation.component:SystolicBP.extension:SBPCode">
+      <path value="Observation.component.extension"/>
       <sliceName value="SBPCode"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-componentCategory"/>
+      </type>
+    </element>
+    <element id="Observation.component:SystolicBP.extension:SBPCode.valueCodeableConcept">
+      <path value="Observation.component.extension.valueCodeableConcept"/>
+      <min value="1"/>
+      <max value="1"/>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="8480-6"/>
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:SystolicBP.code">
+      <path value="Observation.component.code"/>
       <short value="Systolic Blood Pressure"/>
       <definition value="Systolic Blood Pressure."/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="Observation.component:SystolicBP.code.coding:SBPCode.system">
-      <path value="Observation.component.code.coding.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://loinc.org"/>
-    </element>
-    <element id="Observation.component:SystolicBP.code.coding:SBPCode.code">
-      <path value="Observation.component.code.coding.code"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <fixedCode value="8480-6"/>
+      <alias value="Component Test"/>
+      <alias value="Component Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignSystolicBP"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing an arterial systolic BP vital sign measurement in Observation.component.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
+      </binding>
     </element>
     <element id="Observation.component:SystolicBP.valueQuantity">
       <path value="Observation.component.valueQuantity"/>
@@ -262,53 +253,56 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="Observation.component:DiastolicBP.code">
-      <path value="Observation.component.code"/>
-      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-    </element>
-    <element id="Observation.component:DiastolicBP.code.coding">
-      <path value="Observation.component.code.coding"/>
+    <element id="Observation.component:DiastolicBP.extension">
+      <path value="Observation.component.extension"/>
       <slicing>
         <discriminator>
           <type value="value"/>
-          <path value="code"/>
+          <path value="url"/>
         </discriminator>
         <discriminator>
-          <type value="value"/>
-          <path value="system"/>
+          <type value="pattern"/>
+          <path value="valueCodeableConcept"/>
         </discriminator>
-        <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <short value="Diastolic Blood Pressure"/>
-      <definition value="Diastolic Blood Pressure."/>
       <min value="1"/>
     </element>
-    <element id="Observation.component:DiastolicBP.code.coding:DBPCode">
-      <path value="Observation.component.code.coding"/>
+    <element id="Observation.component:DiastolicBP.extension:DBPCode">
+      <path value="Observation.component.extension"/>
       <sliceName value="DBPCode"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-componentCategory"/>
+      </type>
+    </element>
+    <element id="Observation.component:DiastolicBP.extension:DBPCode.valueCodeableConcept">
+      <path value="Observation.component.extension.valueCodeableConcept"/>
+      <min value="1"/>
+      <max value="1"/>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="8462-4"/>
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:DiastolicBP.code">
+      <path value="Observation.component.code"/>
       <short value="Diastolic Blood Pressure"/>
       <definition value="Diastolic Blood Pressure."/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="Observation.component:DiastolicBP.code.coding:DBPCode.system">
-      <path value="Observation.component.code.coding.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://loinc.org"/>
-    </element>
-    <element id="Observation.component:DiastolicBP.code.coding:DBPCode.code">
-      <path value="Observation.component.code.coding.code"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <fixedCode value="8462-4"/>
+      <alias value="Component Test"/>
+      <alias value="Component Name"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignDiastolicBP"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing an arterial diastolic BP vital sign measurement in Observation.component.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-diastolicbp"/>
+      </binding>
     </element>
     <element id="Observation.component:DiastolicBP.valueQuantity">
       <path value="Observation.component.valueQuantity"/>

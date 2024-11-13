@@ -24,6 +24,6 @@
 		</coding>
 	</subjectStatus>
 	<careTeam>
-		<reference value="Encounter/example"/>
+		<reference value="CareTeam/example"/>
 	</careTeam>
 </Encounter>

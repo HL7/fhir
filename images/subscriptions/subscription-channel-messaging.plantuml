@@ -1,0 +1,37 @@
+@startuml
+skin rose
+skinparam NoteTextAlignment left
+skinparam Padding 2
+skinparam ParticipantPadding 40
+skinparam LifelineStrategy solid
+autonumber
+
+participant "FHIR Server\nREST API"     as S
+participant "Client"                    as C
+participant "Client FHIR Server\nREST Endpoint" as E
+
+group Subscription Negotiation
+  C -> S: Create Subscription\n""channelType: message""
+  return Success\n""Subscription.status: requested""
+
+  S ->> E: POST ""$process-message"" (handshake)\n""Bundle:""\n""  Bundle.type: message""\n""  entry[1]: Bundle: subscription-notification""\n""    SubscriptionStatus.type: handshake""
+  return Success, e.g.:\n""200: OK""
+
+  note right of S
+    Server updates Subscription:
+    ""Subscription.status: active""
+  end note
+
+end
+
+group FHIR Messaging Subscription Processing
+else Server sends heartbeat
+  S ->> E: POST ""$process-message"" (heartbeat)\n""Bundle:""\n""  Bundle.type: message""\n""  entry[1]: Bundle: subscription-notification""\n""    SubscriptionStatus.type: heartbeat""
+  return Success, e.g.:\n""200: OK""
+  ...
+else Server sends event-notification
+  S ->> E: POST ""$process-message"" (event-notification)\n""Bundle:""\n""  Bundle.type: message""\n""  entry[1]: Bundle: subscription-notification""\n""    SubscriptionStatus.type: event-notification""
+  return Success, e.g.:\n""200: OK""
+  ...
+end
+@enduml

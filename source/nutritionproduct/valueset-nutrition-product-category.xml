@@ -25,13 +25,12 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set represents codes for types of edible substances and is provided as a suggestive example.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept has a parent of 255620007 Foods (substance) or has a parent of 226465004 Drinks (substance)."/>
+  <description value="This value set represents codes for categories of nutrition products.  It includes all of the codes from the Food Type Modifiers valueset.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept is Breast Milk (226789007) and its sub-concepts, Infant Formula (412413001) and its sub-concepts, Enteral and Supplement Feeds (346415002) and its sub-concepts, Drinks (226465004) and its sub-concepts, Water (11713004), Potable Water (890302005) and its sub-concepts, and 444923006 (Tap Water)."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-      <valueset value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
     </include>
-		<!--
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -72,7 +71,6 @@
         <value value="890302005"/>
       </filter>
     </include>
--->
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-vitalsign-bodyheight"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyheight"/>
+  <name value="VitalSignsBodyHeight"/>
+  <title value="Vital Signs - Body Height"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing body height (including body length) vital sign measurements in Observation.code."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="CLASS"/>
+        <op value="="/>
+        <value value="LP7768-7"/> <!-- BDYHGT.ATOM -->
+      </filter>
+      <filter>
+        <property value="PROPERTY"/>
+        <op value="="/>
+        <value value="LP6822-3"/> <!-- Len -->
+      </filter>
+      <filter>
+        <property value="TIME_ASPCT"/>
+        <op value="="/>
+        <value value="LP6960-1"/> <!-- Pt -->
+      </filter>
+      <filter>
+        <property value="SYSTEM"/>
+        <op value="="/>
+        <value value="LP310005-6"/> <!-- ^Patient -->
+      </filter>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="LP7753-9"/> <!-- Qn -->
+      </filter>
+    </include>
+    <include>
+        <system value="http://loinc.org"/>
+        <filter>
+          <property value="CLASS"/>
+          <op value="="/>
+          <value value="LP7769-5"/> <!-- BDYHGT.MOLEC -->
+        </filter>
+        <filter>
+            <property value="PROPERTY"/>
+            <op value="="/>
+            <value value="LP6822-3"/> <!-- Len -->
+        </filter>
+        <filter>
+          <property value="TIME_ASPCT"/>
+          <op value="="/>
+          <value value="LP6960-1"/> <!-- Pt -->
+        </filter>
+        <filter>
+          <property value="SYSTEM"/>
+          <op value="="/>
+          <value value="LP310005-6"/> <!-- ^Patient -->
+        </filter>
+        <filter>
+            <property value="SCALE_TYP"/>
+            <op value="="/>
+            <value value="LP7753-9"/> <!-- Qn -->
+          </filter>
+    </include>
+    <exclude>
+        <system value="http://loinc.org"/>
+        <filter>
+            <property value="COMPONENT"/>
+            <op value="="/>
+            <value value="LP343922-3"/> <!-- Upper segment -->
+        </filter>
+    </exclude>
+    <exclude>
+        <system value="http://loinc.org"/>
+        <filter>
+            <property value="COMPONENT"/>
+            <op value="="/>
+            <value value="LP343921-5"/> <!-- Lower segment -->
+        </filter>
+    </exclude>
+  </compose>
+</ValueSet>

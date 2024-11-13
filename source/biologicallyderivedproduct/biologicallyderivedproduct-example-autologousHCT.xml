@@ -6,7 +6,9 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->    
   <productCategory>
-   <code value="cells" />
+    <coding>
+      <code value="cells" />
+    </coding>
   </productCategory>
   <productCode>
     <coding>
@@ -14,7 +16,7 @@
     </coding>
   </productCode>
   <request>
-    <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
+    <reference value="ServiceRequest/example" />
     <display value="Service Request for HCT Collection"/>    
   </request>
   <identifier>
@@ -26,7 +28,7 @@
 	  <value value="W000022000687" />
   </biologicalSourceEvent>
   <processingFacility>
-    <reference value="Organization/Example" />
+    <reference value="Organization/example" />
   </processingFacility>
   <division value="A00000" />
   <productStatus>
@@ -35,7 +37,7 @@
   <expirationDate value="2028-08-02T23:59:00-05:00"/>
   <collection>
     <source>
-		  <reference value="Patient/example-a"/>
+		  <reference value="Patient/pat1"/>
 	  <display value="HCT Collection"/>
     </source>
   </collection>
