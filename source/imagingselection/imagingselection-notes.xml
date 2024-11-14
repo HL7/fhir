@@ -5,7 +5,7 @@
 <h2>Notes</h2>
   <h3>Imaging Selection Subsets</h3>
   <p>Some DICOM SOP Instances contain multiple sub-resources, such as frames, segments, etc.</p>
-  <p>An Imaging Selection resource may specify the subset of these that are included in the selection using the <code>instance.subset</code> element.</p>
+  <p>An Imaging Selection resource MAY specify the subset of these that are included in the selection using the <code>instance.subset</code> element.</p>
   <p>The defined types of subsets are:</p>
   <ul>
     <li>Frames selected from a multiframe SOP Instance</li>
