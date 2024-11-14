@@ -176,8 +176,7 @@
     </li>
   </ul>
   <p>
-    A successful completion of the status request SHOULD be used whenever processing has completed, regardless of 
-    whether the underlying interaction has succeeded or failed. A server SHOULD use the <code>status</code> and <code>outcome</code> elements of <code>Bundle.entry[0].response</code> to communicate any processing errors.
+    The outcome of the kick-off request SHALL be present as the first entry in the bundle. A successful completion of the status request SHALL be used whenever processing has completed, regardless of whether the underlying interaction has succeeded or failed. A server SHALL use the status and outcome elements of Bundle.entry[0].response to communicate any processing errors.
   </p><p>
     For example, if a client asynchronously invokes a hypothetical <code>$example</code> operation but omits a
     required parameter, the server would respond with a
