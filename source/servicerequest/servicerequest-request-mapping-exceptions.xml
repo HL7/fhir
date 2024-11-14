@@ -22,7 +22,7 @@
     <divergentElement patternPath="Request.basedOn" resourcePath="ServiceRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
         <extraTypes
-            _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration)" reason="Unknown"/>
+            _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="What request fulfills"/>
@@ -140,7 +140,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
-            <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
+            <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="ServiceRequest.subject">
