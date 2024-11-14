@@ -176,41 +176,86 @@
     </li>
   </ul>
   <p>
-    A successful completion of the status request SHOULD be used whenever processing has completed, regardless of 
-    whether the underlying interaction has succeeded or failed. A server SHOULD use the <code>status</code> and <code>outcome</code> elements of <code>Bundle.entry[0].response</code> to communicate any processing errors.
-  </p><p>
-    For example, if a client asynchronously invokes a hypothetical <code>$example</code> operation but omits a
-    required parameter, the server would respond with a
-    <code>200 OK</code> on the status request once processing is complete, and would include a
-    <code>Bundle.entry[0].response.code</code> element with a value of <code>400 Bad Request</code>
-    and a <code>Bundle.entry[0].response.outcome</code> with a <a href="operationoutcome.html">OperationOutcome Resource</a>
-    containing details about the error.
+    The outcome of the kick-off request SHALL be present as the first entry in the bundle. A successful completion 
+    of the status request SHALL be used whenever processing has completed, regardless of whether the underlying 
+    interaction has succeeded or failed. A server SHALL use the status and outcome elements of Bundle.entry[0].response 
+    to communicate any processing errors.
   </p>
-
-  <p>Example output bundle:</p>
-  <pre><code class="json language-json">{
-  "resourceType": "Bundle",
-  "type": "batch-response",
-  "entry": [{
-    "response": {
-        "status": "200 OK", 
-        "location": "Observation/123"
-        // additional fields if needed
-        //  * etag
-        //  * lastModified
-        //  * outcome
-    },
-    "resource": {
-      // populated whenever a non-asynchronous
-      // interaction would have included a resource in the
-      // response body -- e.g. if client initially specified
-      // `Prefer: return=representation`
-      "resourceType": "Observation",
-      "id": "123", 
-      // ... snipped for brevity
+  <p>
+    When the asynchronous operation fails due to an error in the request parameters or processing, the status request returns a <code>200 OK</code> with a <code>Bundle</code> containing the error details. For example, if a client asynchronously invokes a hypothetical $example operation but omits a required parameter:
+  </p>
+  <pre><code class="json language-json">
+    {
+      "resourceType": "Bundle",
+      "type": "batch-response",
+      "entry": [{
+        "response": {
+          "status": "400 Bad Request",
+          "outcome": {
+            "resourceType": "OperationOutcome",
+            "issue": [{
+              "severity": "error",
+              "code": "required",
+              "details":{ "text": "Required parameter 'subject' missing" }
+            }]
+          }
+        }
+      }]
     }
-  }]
-}</code></pre>
+  </code></pre>
+
+  <p>When the asynchronous operation succeeds and creates or modifies a single resource, the status request returns a <code>200 OK</code> with a Bundle containing the operation result including the resource location and optionally the resource itself:    
+  </p>
+  <pre><code class="json language-json">
+    {
+      "resourceType": "Bundle",
+      "type": "batch-response",
+      "entry": [{
+      "response": { 
+        "status": "200 OK", 
+        "location": "Observation/123" 
+      },
+      "resource": { 
+        "resourceType": "Observation", 
+        "id": "123" 
+        // ... additional fields snipped for brevity 
+      }
+      }]
+    }
+  </code></pre>
+
+  <p>When the asynchronous operation returns multiple resources (such as a search operation), the status request returns a 200 OK with a Bundle containing the operation result as a nested Bundle:
+  </p>
+  <pre><code class="json language-json">
+    {
+      "resourceType": "Bundle",
+      "type": "batch-response",
+      "entry": [
+      {
+        "response": { "status": "200 OK" },
+        "resource": {
+          "resourceType": "Bundle",
+          "type": "searchset",
+          "entry": [
+            {
+              "resource": { 
+                "resourceType": "Observation", 
+                "id": "123" 
+                // ... additional fields snipped for brevity 
+              }
+            },{
+              "resource": { 
+                "resourceType": "Observation", 
+                "id": "124" 
+                // ... additional fields snipped for brevity 
+              }
+            }
+          ]
+        }
+      }]
+    }
+  </code></pre>
+    
 
   [%file newfooter%]
 </body>
