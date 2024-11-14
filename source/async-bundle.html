@@ -176,11 +176,11 @@
     </li>
   </ul>
   <p>
-  <p>
     The outcome of the kick-off request SHALL be present as the first entry in the bundle. A successful completion 
     of the status request SHALL be used whenever processing has completed, regardless of whether the underlying 
     interaction has succeeded or failed. A server SHALL use the status and outcome elements of Bundle.entry[0].response 
     to communicate any processing errors.
+  </p>
   <p>
     When the asynchronous operation fails due to an error in the request parameters or processing, the status request returns a <code>200 OK</code> with a <code>Bundle</code> containing the error details. For example, if a client asynchronously invokes a hypothetical $example operation but omits a required parameter:
   </p>
