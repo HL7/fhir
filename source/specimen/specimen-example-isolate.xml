@@ -9,6 +9,10 @@
 	<contained>
 		<Specimen>
 			<id value="stool"/>
+			<identifier>
+				<system value="http://lab.acme.org/specimens/2015"/>
+				<value value="X352356"/>
+			</identifier>
 			<accessionIdentifier>
 				<!-- accession identifier - e.g. assigned by the labaratory when it is received.
      This is common, unlike specimen identifier -->
@@ -56,6 +60,10 @@
 			</collection>
 		</Specimen>
 	</contained>
+	<identifier>
+		<system value="http://lab.acme.org/specimens/2011"/>
+		<value value="X352356-ISO1"/>
+	</identifier>
 	<accessionIdentifier>
 		<system value="http://lab.acme.org/specimens/2011"/>
 		<value value="X352356-ISO1"/>
