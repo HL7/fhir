@@ -499,7 +499,7 @@
       </extension>
       <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
-      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
+      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
       <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code. The PlanDefinition may be used when you want to group multiple activities together (e.g., order set that are part of a plan)."/>
       <alias value="service requested"/>
       <min value="0"/>
