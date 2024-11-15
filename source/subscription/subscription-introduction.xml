@@ -16,7 +16,7 @@
     the server.
   </p>
   <p>
-    Via the <code>Subscription.content</code>, subscriptions can be configured to send notifications that include full resource content, just the ID of the triggering resource, or an empty notification body.
+    Using the <code>Subscription.content</code>, subscriptions can be configured to send notifications that include full resource content, just the ID of the triggering resource, or an empty notification body.
   </p>
   <p>
     Several channels are defined in the core specification:
