@@ -587,15 +587,53 @@
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableClassifier"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
+			</binding>
 		</element>
-		<element id="EvidenceVariable.datatype">
-			<path value="EvidenceVariable.datatype"/>
-			<short value="Type of data used to express value of the variable"/>
-			<definition value="The type of data used to express values of the variable."/>
+		<element id="EvidenceVariable.dataStorage">
+			<path value="EvidenceVariable.dataStorage"/>
+			<short value="How and where the data element (value of the variable) is found"/>
+			<definition value="How the data element is organized and where the data element (expressing the value of the variable) is found in the dataset."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.dataStorage.datatype">
+			<path value="EvidenceVariable.dataStorage.datatype"/>
+			<short value="Type of data used to express value of the variable"/>
+			<definition value="The type of data used to express values of the variable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
 				<code value="CodeableConcept"/>
+			</type>			
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+		</element>
+		<element id="Citation.dataStorage.path">
+			<path value="Citation.dataStorage.path"/>
+			<short value="How to find the data element in the dataset"/>
+			<definition value="The mapping (order of elements) to reach the element containing the  data element in the dataset."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
 			</type>
 		</element>
 		<element id="EvidenceVariable.timing">
@@ -637,6 +675,13 @@
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="AdministrativeGender"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+			</binding>
 		</element>
 		<element id="EvidenceVariable.constraint.minimumQuantity">
 			<path value="EvidenceVariable.constraint.minimumQuantity"/>
@@ -685,7 +730,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="unsignedInt"/>
 			</type>
 		</element>
 		<element id="EvidenceVariable.constraint.maximumStringLength">
@@ -707,6 +752,13 @@
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableConstraint"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-constraint"/>
+			</binding>
 		</element>
 		<element id="EvidenceVariable.constraint.expression">
 			<path value="EvidenceVariable.constraint.expression"/>
@@ -759,6 +811,13 @@
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationValueAbsentReason"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
+			</binding>
 		</element>
 		<element id="EvidenceVariable.unacceptableDataHandling">
 			<path value="EvidenceVariable.unacceptableDataHandling"/>
@@ -769,6 +828,13 @@
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableUnacceptableDataHandling"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+			</binding>
 		</element>
 	</differential>
 </StructureDefinition>

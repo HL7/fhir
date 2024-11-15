@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="evidence-variable-unacceptable-data-handling"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+  <version value="6.0.0"/>
+  <name value="EvidenceVariableUnacceptableDataHandling"/>
+  <title value="Evidence Variable Unacceptable Data Handling"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2024-11-16T12:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="A method or transformation applied for data that does not match required patterns."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/evidence-variable-unacceptable-data-handling"/>
+    </include>
+  </compose>
+</ValueSet>
