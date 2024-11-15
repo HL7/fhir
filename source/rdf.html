@@ -262,30 +262,32 @@ href="fhir.shex">fhir.shex</a>
 
         <a name="propertyNames"></a>
           <h4>Property Names and Polymorphism</h4>
-          <p> A great deal of effort has gone into unifying FHIR
-            property names across resources and datatypes. These defined
-            properties effectively declare the FHIR RDF namespace with a
-            set of reuseable properties.  These properties may be polymorphic
-            in two ways.  For one thing, the same property name may be used
-            in multiple FHIR resources.  For example, <span
-              class="rdf">fhir:status</span> is spelled the same way
+          <p> Property names in FHIR RDF are shared across resources:
+            the same property may be used in several different resources.
+            For example, <span class="rdf">fhir:status</span> is spelled
+            the same way
             regardless of whether it appears in an Observation,
             Diagnosis, or any other FHIR Resource. </p>
-          <p> Properties may also be polymorphic in another sense: within
-            a single resource, a property may have a choice of more than one
-            permissible object type.  This is indicated in the structure
-            definition of the resource by the <code class="rdf">type</code>
-            property having a list of two or more types, such as in
-            the <a href="https://build.fhir.org/observation.profile.json.html">
-            structure definition of Observation</a>.
-            The corresponding Structure tab in the resource's 
-            HTML page displays them with "[x]", as in 
+          <p> Some properties are polymorphic within a resource:
+            the property may offer a choice of more than one
+            permissible object type.
+
+            If the Structure tab in a resource's
+            HTML page shows "[x]" next to a property, such as
             <span class="spec">value[x]</span> or
-<a href="https://build.fhir.org/observation.html#resource">instantiates[x]</a>.
-            In other formats (XML, JSON), FHIR properties with choice
-            datatypes have the datatype appended to the property name, 
+            <a href="observation.html#resource">instantiates[x]</a>,
+            then that property is polymorphic in FHIR RDF.
+            (Alternatively, if the <code class="rdf">type</code>
+            property in the resource's structure definition shows
+            a list of two or more types for a given property's value,
+            then the property is polymorphic in FHIR RDF.  For example, see the
+            <i>instantiates</i> property in
+            <a href="observation.profile.json.html">
+            Observation's structure definition</a>.)
+            In other formats (XML, JSON), a FHIR property with a choice
+            of value types has the value type appended to the property name,
             e.g. <span class="json">valueQuantity</span>.
-            But in RDF, this is written as a polymorphic <span class="rdf">fhir:value</span> property,
+            But in FHIR RDF, it is written as a polymorphic <span class="rdf">fhir:value</span> property,
             and the object asserts its type explicitly, as in the <a href="#value">above
             Observation example</a>:<br/>
           </p>
