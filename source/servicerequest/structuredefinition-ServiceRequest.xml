@@ -866,7 +866,7 @@
       </extension>
       <path value="ServiceRequest.asNeededFor"/>
       <short value="Specified criteria for the service"/>
-      <definition value="Indicates specific criteria that need to be met to perform the service (e.g., lab results or symptoms)"/>
+      <definition value="Indicates specific criteria that need to be met to perform the service (e.g., lab results or symptoms)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
