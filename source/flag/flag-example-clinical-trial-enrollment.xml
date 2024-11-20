@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Flag xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/flag.xsd">
+  <id value="clinical-trial-enrollment"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Patients in Group 102 are enrolled in the XYZ123 Clinical Trial.</div>
+  </text>
+  <identifier>
+       <value value="clinical-trial-2024-group-a"/>
+  </identifier>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/flag-category"/>
+      <code value="research"/>
+      <display value="Research"/>
+    </coding>
+    <text value="Research"/>  
+  </category>
+  <code>
+    <coding>
+      <system value="http://example.org/local"/>
+      <code value="clinical-trial"/>
+      <display value="Clinical Trial Enrollment"/>
+    </coding>
+    <text value="Patients are enrolled in the XYZ123 Clinical Trial."/>
+  </code>
+  <subject>
+    <reference value="Group/102"/>
+    <display value="Group 102"/>
+  </subject>
+  <period>
+      <start value="2024-01-01"/>
+   </period>
+  <author>
+    <display value="ABC Research Institute"/>
+  </author> 
+</Flag>
