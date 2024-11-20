@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Flag xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/flag.xsd">
+  <id value="provider-unavailable"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Dr. Adam Careful is unavailable for referrals from 10/1/2023 to 11/30/2023</div>
+  </text>
+  <identifier>
+       <value value="provider-unavailable-2024"/>
+  </identifier>
+  <status value="inactive"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/flag-category"/>
+      <code value="admin"/>
+      <display value="Administrative"/>
+    </coding>
+    <text value="Administrative"/>  
+  </category>
+  <code>
+    <coding>
+      <system value="http://example.org/local"/>
+      <code value="unavailable"/>
+      <display value="Unavailable for Referrals"/>
+    </coding>
+    <text value="Dr. Adam Careful is unavailable for referrals from 10/1/2023 to 11/30/2023"/>
+  </code>
+  <subject>
+    <reference value="Practitioner/example"/>
+    <display value="Dr. Adam Careful"/>
+  </subject>
+  <period>
+      <start value="2023-09-12"/>
+      <end value="2023-11-30"/>
+    </period>
+  <author>
+    <reference value="Organization/example"/>
+    <display value="ACME Health"/>
+  </author>
+</Flag>

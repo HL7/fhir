@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care."/>
+  <description value="The Care Team includes all the people, organizations, and care teams who participate or plan to participate in the coordination and delivery of care."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -83,7 +83,7 @@
       </extension>
       <path value="CareTeam"/>
       <short value="Planned participants in the coordination and delivery of care"/>
-      <definition value="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care."/>
+      <definition value="The Care Team includes all the people, organizations, and care teams who participate or plan to participate in the coordination and delivery of care."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
