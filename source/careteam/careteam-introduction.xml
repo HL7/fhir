@@ -3,7 +3,7 @@
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
-<p>The CareTeam includes all the people and organizations who plan to participate in the coordination and delivery of care and is assigned to:</p>
+<p>The CareTeam includes all the people, organizations, and care teams who participate or plan to participate in the coordination and delivery of care and is assigned to:</p>
 
 <ul>
 <li>a single patient, or</li>
@@ -13,7 +13,7 @@
 
 <p> Care Team is not limited to practitioners, but may include other caregivers such as family members, guardians, the patient themself, or others. 
 
-The Care Team, depending on where used, may include care team members specific to a particular care plan, an episode, an encounter, or may reflect all known team members across these perspectives. An individual's CareTeam can be dynamic over time, such that there can be transience of team members, such as a rehabilitation team.
+The Care Team, depending on where used, may include care team members specific to a particular care plan, an episode of care, an encounter, or may reflect all known team members across these perspectives. A CareTeam can be dynamic over time, such that there can be transience of team members, such as a rehabilitation team.
 
 </p>
 </div>
