@@ -18,7 +18,7 @@
 		There are three options available when specifying the contents of a Notification: <code>empty</code>, <code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the notification <code>Bundle</code>.
 	</p>
 	<p>
-		When deciding which payload type to request, systems SHOULD consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance between security and performance for many real-world scenarios.
+		When deciding which payload type to request, systems SHOULD consider both ease of processing and security of PHI (Personal health information). To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance between security and performance for many real-world scenarios.
 	</p>
 	<p>
 		If a server cannot or will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), it SHOULD reject the Subscription request.  A server MAY instead accept the subscription with modifications and return the accepted version to the client.
