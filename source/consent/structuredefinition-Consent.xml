@@ -93,7 +93,15 @@
         <identity value="w5"/>
         <map value="infrastructure.information"/>
       </mapping>
+      <constraint> 
+        <key value="ppc-1"/> 
+        <severity value="error"/> 
+        <human value="Either a Permission (.provisionReference) or a .provision tree may exist but not both"/> 
+        <expression value="provisionReference.exists() or provision.exists()"/> 
+        <xpath value="exists(f:provisionReference) or exists(f:provision)"/> 
+      </constraint> 
     </element>
+    
     <element id="Consent.identifier">
       <path value="Consent.identifier"/>
       <short value="Identifier for this record (external references)"/>
@@ -525,6 +533,19 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
       </binding>
     </element>
+
+    <element id="Consent.provisionReference">
+      <path value="Consent.provisionReference"/>
+      <short value="Permission Resource for provisions"/>
+      <definition value="Alternate for the provision structure using the Permission resource.  Only one of Permission and .provision may be used in a resource"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Permission"/>
+      </type>
+    </element>
+
     <element id="Consent.provision">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="provision"/>
