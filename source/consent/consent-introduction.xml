@@ -5,7 +5,7 @@
         <p>
 The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are four 
 anticipated uses for the Consent Resource, all of which are written or verbal agreements by a 
-healthcare consumer [grantor] or a personal representative, made to an authorized entity [grantee] 
+healthcare consumer <code>grantor</code> or a personal representative, made to an authorized entity <code>grantee</code> 
 concerning authorized or restricted actions with any limitations on purpose of use, and 
 handling instructions to which the authorized entity must comply: 
         </p>
