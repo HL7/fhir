@@ -150,7 +150,7 @@
     </element>
     <element id="BiologicallyDerivedProduct.biologicalSourceEvent.value">
       <path value="BiologicallyDerivedProduct.biologicalSourceEvent.value"/>
-	  <short value="Unique identifier of the MPHO item"/>
+	  <short value="Unique identifier of the donation, collection or pooling event from which the MPHO item was derived"/>
       <min value="1"/>
       <max value="1"/>
     </element>

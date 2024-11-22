@@ -484,7 +484,7 @@
     </element>
     <element id="CarePlan.custodian">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14064, GF#14446."/>
+        <valueString value="GF#14064, GF#14446, J#48444"/>
       </extension>
       <path value="CarePlan.custodian"/>
       <short value="Who is the designated responsible party"/>
@@ -507,14 +507,10 @@
         <identity value="workflow"/>
         <map value="Request.requester"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
     </element>
     <element id="CarePlan.contributor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14446."/>
+        <valueString value="GF#14446, J#48444"/>
       </extension>
       <path value="CarePlan.contributor"/>
       <short value="Who provided the content of the care plan"/>
@@ -532,6 +528,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
+	  <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
     </element>
     <element id="CarePlan.careTeam">
       <path value="CarePlan.careTeam"/>
