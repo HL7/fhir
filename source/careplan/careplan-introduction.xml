@@ -62,6 +62,9 @@ without needing a CarePlan at all.  CarePlans are used when there's a need to gr
 goals and/or participants together to provide some degree of context.
 </p>
 <p>
+The CarePlan resource represents an authorization as well as fulfillment on the service provided, while not necessarily providing all the details of such fulfillment. Further details about the fulfillment are handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
+</p>
+<p>
 CarePlans can be tied to specific <a href="condition.html">Conditions</a>, however they can also be 
 condition-independent and instead focused on a particular type of care (e.g. psychological, nutritional)
 or the care delivered by a particular practitioner or group of practitioners.
