@@ -819,11 +819,16 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="Language"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="A human language."/>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
 				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				<strength value="required"/>
+				<description value="IETF language tag for a human language"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="Citation.citedArtifact.title.text">
@@ -1216,11 +1221,16 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="Language"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="A human language."/>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
 				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				<strength value="required"/>
+				<description value="IETF language tag for a human language"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="Citation.citedArtifact.publicationForm.accessionNumber">
