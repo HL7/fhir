@@ -28,4 +28,65 @@
       <display value="Encounter"/>
     </item>
   </entry>
+  
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Overdue Account"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="flag-example-overdue-account"/>
+    </extension>
+    <item>
+      <reference value="Flag/overdue-account"/>
+      <display value="Overdue Account"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Clinical Trial Enrollment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="flag-example-clinical-trial-enrollment"/>
+    </extension>
+    <item>
+      <reference value="Flag/clinical-trial-enrollment"/>
+      <display value="Clinical Trial Enrollment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medication"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="flag-example-medication"/>
+    </extension>
+    <item>
+      <reference value="Flag/medication"/>
+      <display value="Medication"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Protocol"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="flag-example-protocol"/>
+    </extension>
+    <item>
+      <reference value="Flag/protocol"/>
+      <display value="Protocol"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provider Unavailable"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="flag-example-provider-unavailable"/>
+    </extension>
+    <item>
+      <reference value="Flag/provider-unavailable"/>
+      <display value="Provider Unavailable"/>
+    </item>
+  </entry>
 </List>

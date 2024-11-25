@@ -7,7 +7,7 @@
   </p>
 
   <a name="content-phi"/>
-  <h2>Content and PHI</h2>
+  <h2>Content and PHI (Personal health information)</h2>
   <p>
     Subscription notifications MAY contain PHI. Applications are responsible for following <a href="security.html">FHIR security guidance</a> and compliance with relevant security requirements (e.g., corporate policy, government regulation, etc.). Hinting for the allowed amount of PHI is available in the relevant <code>Subscription</code> resource, via the channel and payload information.
   </p>

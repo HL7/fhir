@@ -123,8 +123,15 @@ XML for comparison:
   &lt;/code&gt;
  </pre>
  
-
-
+[%dragons-start%]
+<p>
+NOTE: Elements may change whether they are allowed to repeat or not between versions, even once normative 
+(see <a href="versions.html#f-compat-cardianality">cadinality rules for backward compatibility)</a>).
+</p>
+<p>  Processers should be prepared to manage such changes.
+</p>
+[%dragons-end%]
+:
 <a name="primitive"></a>
 <h3>JSON representation of primitive elements</h3>
 <p>
@@ -164,7 +171,6 @@ is widely regarded as critical for correct presentation of clinical measurements
 (e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
 See also <a href="[%extensions-location%]StructureDefinition-quantity-precision.html">the precision extension</a>.
 </p>
-
 [%dragons-end%]
 
 <p>

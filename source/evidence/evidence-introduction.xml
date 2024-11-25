@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <!-- content goes here -->
 <div>
 <a name="scope"></a>
@@ -19,5 +19,4 @@
 <p>The Evidence Resource is the central atomic component for the Evidence-related Resources. The Evidence Resource may reference multiple <a href="group.html">Group</a> and <a href="evidencevariable.html">EvidenceVariable</a> Resources; in these cases, the <a href="group.html">Group</a> and <a href="evidencevariable.html">EvidenceVariable</a> Resources to which an Evidence Resource points does <i>not</i> refer back to the Evidence. In the context of evidence synthesis, an <a href="evidencevariable.html">EvidenceVariable</a> Resource may reference Evidence Resources where the <a href="evidencevariable.html">EvidenceVariable</a> Resource is used to define the set of evidence being synthesized.</p>
 </div>
 
-</div>
 </div>

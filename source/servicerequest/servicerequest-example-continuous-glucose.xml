@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ServiceRequest xmlns="http://hl7.org/fhir">
+	<id value="continuous-glucose"/>
+	<status value="active"/>
+	<intent value="original-order"/>
+	<subject>
+		<reference value="Patient/dicom"/>
+	</subject>
+	<occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
+	<asNeeded value="true"/>
+	<requester>
+			<reference value="Practitioner/example"/>
+			<display value="Dr. Adam Careful"/>
+	</requester>
+	<reason>
+      <concept>
+  	   	<text value="Continuous glucose monitoring"/>
+      </concept>
+	</reason>
+</ServiceRequest>
