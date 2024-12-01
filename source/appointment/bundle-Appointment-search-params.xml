@@ -518,7 +518,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Appointment.recurrenceTemplate,Appointment.originatingAppointment"/>
+          <valueString value="Appointment.recurrenceTemplate"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Appointment-is-recurring"/>
         <description value="This Appointment is a part of a recurring series of appointments (has a template or an originating appointment)"/>
