@@ -568,5 +568,273 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 			</type>
 		</element>
+		<element id="EvidenceVariable.conditional">
+			<path value="EvidenceVariable.conditional"/>
+			<short value="Context in which the variable is observed"/>
+			<definition value="The context, situation, or parameters within which the variable is observed."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.classifier">
+			<path value="EvidenceVariable.classifier"/>
+			<short value="Classification"/>
+			<definition value="Classification of the variable."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableClassifier"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.dataStorage">
+			<path value="EvidenceVariable.dataStorage"/>
+			<short value="How and where the data element (value of the variable) is found"/>
+			<definition value="How the data element is organized and where the data element (expressing the value of the variable) is found in the dataset."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.dataStorage.datatype">
+			<path value="EvidenceVariable.dataStorage.datatype"/>
+			<short value="Type of data used to express value of the variable"/>
+			<definition value="The type of data used to express values of the variable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>			
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.dataStorage.path">
+			<path value="EvidenceVariable.dataStorage.path"/>
+			<short value="How to find the data element in the dataset"/>
+			<definition value="The mapping (order of elements) to reach the element containing the  data element in the dataset."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.timing">
+			<path value="EvidenceVariable.timing"/>
+			<short value="When the variable is observed"/>
+			<definition value="When the variable is observed in relation to a reference point in time defined by context or event."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="RelativeTime"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.period">
+			<path value="EvidenceVariable.period"/>
+			<short value="Date(s) and time(s) when the variable is observed"/>
+			<definition value="When the variable is observed in relation to calendar dates and times."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint">
+			<path value="EvidenceVariable.constraint"/>
+			<short value="Limit on acceptability of data value"/>
+			<definition value="Limit on acceptability of data used to express values of the variable."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.conditional">
+			<path value="EvidenceVariable.constraint.conditional"/>
+			<short value="When this constraint applies"/>
+			<definition value="When this constraint applies."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="AdministrativeGender"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.constraint.minimumQuantity">
+			<path value="EvidenceVariable.constraint.minimumQuantity"/>
+			<short value="The lowest permissible value of the variable"/>
+			<definition value="The lowest permissible value of the variable, used with variables that have a number-based datatype (with or without units)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.maximumQuantity">
+			<path value="EvidenceVariable.constraint.maximumQuantity"/>
+			<short value="The highest permissible value of the variable"/>
+			<definition value="The highest permissible value of the variable, used with variables that have a number-based datatype (with or without units)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.earliestDateTime">
+			<path value="EvidenceVariable.constraint.earliestDateTime"/>
+			<short value="The earliest permissible value of the variable"/>
+			<definition value="The earliest permissible value of the variable, used with variables that have a date/time-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.latestDateTime">
+			<path value="EvidenceVariable.constraint.latestDateTime"/>
+			<short value="The latest permissible value of the variable"/>
+			<definition value="The latest permissible value of the variable, used with variables that have a date/time-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.minimumStringLength">
+			<path value="EvidenceVariable.constraint.minimumStringLength"/>
+			<short value="The lowest number of characters allowed for a value of the variable"/>
+			<definition value="The lowest number of characters allowed for a value of the variable, used with variables that have a string-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.maximumStringLength">
+			<path value="EvidenceVariable.constraint.maximumStringLength"/>
+			<short value="The highest number of characters allowed for a value of the variable"/>
+			<definition value="The highest number of characters allowed for a value of the variable, used with variables that have a string-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="positiveInt"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.code">
+			<path value="EvidenceVariable.constraint.code"/>
+			<short value="Rule for acceptable data values"/>
+			<definition value="A rule, such as a format or other expectation, for the data values."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableConstraint"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-constraint"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.constraint.expression">
+			<path value="EvidenceVariable.constraint.expression"/>
+			<short value="Rule for acceptable data values, as an Expression"/>
+			<definition value="A rule, such as a format or other expectation, for the data values, expressed as an Expression."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.expectedValueSet">
+			<path value="EvidenceVariable.constraint.expectedValueSet"/>
+			<short value="List of anticipated values used to express value of the variable"/>
+			<definition value="List of anticipated values used to express value of the variable, used with variables that have a codeable concept-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.expectedUnitsValueSet">
+			<path value="EvidenceVariable.constraint.expectedUnitsValueSet"/>
+			<short value="List of anticipated values used to express units for the value of the variable"/>
+			<definition value="List of anticipated values used to express units for the value of the variable, used with variables that have a Quantity-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.anyValueAllowed">
+			<path value="EvidenceVariable.constraint.anyValueAllowed"/>
+			<short value="Permissibility of unanticipated value used to express value of the variable"/>
+			<definition value="Whether the value expressed for a variable is allowed to not be restricted to the expected value set."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.missingDataMeaning">
+			<path value="EvidenceVariable.missingDataMeaning"/>
+			<short value="How missing data can be interpreted"/>
+			<definition value="A method or transformation applied for missing data."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationValueAbsentReason"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.unacceptableDataHandling">
+			<path value="EvidenceVariable.unacceptableDataHandling"/>
+			<short value="How erroneous data is processed"/>
+			<definition value="A method or transformation applied for data that does not match required patterns."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableUnacceptableDataHandling"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+			</binding>
+		</element>
 	</differential>
 </StructureDefinition>
