@@ -241,6 +241,19 @@
         <map value=".scoper"/>
       </mapping>
     </element>
+    <element id="PractitionerRole.network">
+      <path value="PractitionerRole.network"/>
+      <short value="The network in which the PractitionerRole provides the role's services (if defined) at the indicated locations (if defined)"/>
+      <definition value="The network in which the PractitionerRole provides the role's services (if defined) at the indicated locations (if defined)."/>
+      <comment value="e.g. Commonly used for Health Insurance provider networks."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="PractitionerRole.code">
       <path value="PractitionerRole.code"/>
       <short value="Roles which this practitioner may perform"/>
