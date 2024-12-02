@@ -34,19 +34,33 @@
       As appointments fill up the schedule, these slots would individually be marked as busy
       as the appointments are filled into the slots.<br/>
       The slots in a schedule do not need to be the same size, and can be different for different
-      days of the week.<br/>
-	  <p>
+      days of the week.
+	</p>
+	<p>
       Slot instances do not have any recurrence information included. If recurring information is
       desired, this will be managed outside these resources, or included as extensions.
-	  </p>
-	  <p>
+	</p>
+	<p>
       Note that booking an appointment does not necessarily require that slot resources be identified.
 	  When attempting to book an appointment, if the requestor knows ahead of time which schedulable  
 	  resources are required, then identifying individual slots from the resources' schedules prior to creating
 	  the appointment is appropriate.
 	  However, in some medical scheduling scenarios, determining which resources are required for an appointment
 	  is very complex, and options other than using schedule+slot may be a better solution.  	  
-	  </p>
-    </p>
+	</p>
   </div>
+
+  <div>
+		<a name="bnr"></a>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			Slot: Provides the granular, bookable units within the Schedule.
+		</p>
+		<p>
+			<a href="schedule.html">Schedule</a>: Defines the broader availability and context for an individual or service.
+		</p>
+		<p>
+			<a href="appointment.html">Appointment</a>: Is the outcome of a scheduling process.  That scheduling process may involve consulting Slot and Schedule resources, or it may be the result of other processes.
+		</p>
+	</div>
 </div>
