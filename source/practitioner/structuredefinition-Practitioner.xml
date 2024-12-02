@@ -504,7 +504,7 @@
       <path value="Practitioner.communication"/>
       <short value="A language which may be used to communicate with the practitioner"/>
       <definition value="A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.&#xD;&#xD;The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis)."/>
-      <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.&#xD;&#xD;For animals, language is not a relevant field, and should be absent from the instance."/>
+      <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations, using the `patient-proficiency` extension.&#xD;&#xD;For animals, language is not a relevant field, and should be absent from the instance." />
       <min value="0"/>
       <max value="*"/>
       <type>
