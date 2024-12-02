@@ -84,4 +84,18 @@
 			the overbooked slot.
 		</p>
 	</div>
+
+	<div>
+		<a name="bnr"></a>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			<a href="slot.html">Slot</a>: Provides the granular, bookable units within the Schedule.
+		</p>
+		<p>
+			<a href="schedule.html">Schedule</a>: Defines the broader availability and context for an individual or service.
+		</p>
+		<p>
+			<a href="appointment.html">Appointment</a>: Is the outcome of a scheduling process.  That scheduling process may involve consulting Slot and Schedule resources, or it may be the result of other processes.
+		</p>
+	</div>
 </div>
