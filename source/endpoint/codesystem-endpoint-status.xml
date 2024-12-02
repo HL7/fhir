@@ -52,6 +52,11 @@
     <definition value="This endpoint is expected to be active and can be used."/>
   </concept>
   <concept>
+    <code value="limited"/>
+    <display value="Limited"/>
+    <definition value="This endpoint is available for limited use (for example, it is undergoing internal testing).  I.e. the endpoint is not fully available, may not always be available, or may not be available for all users."/>
+  </concept>
+  <concept>
     <code value="suspended"/>
     <display value="Suspended"/>
     <definition value="This endpoint is temporarily unavailable."/>
