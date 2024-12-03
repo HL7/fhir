@@ -159,10 +159,43 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem">
-      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem"/>
-      <short value="Coordinate System"/>
-      <definition value="The coordinate system of this interval."/>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem"/>
+      <short value="Coordinate system for this location"/>
+      <definition value="The coordinate system for this location."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system"/>
+      <short value="System"/>
+      <definition value="The system of the specified coordinate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin"/>
+      <short value="Origin"/>
+      <definition value="The origin of the specified coordinate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod"/>
+      <short value="Normalization Method"/>
+      <definition value="The normalization method of the specified coordinate."/>
       <min value="0"/>
       <max value="1"/>
       <type>
