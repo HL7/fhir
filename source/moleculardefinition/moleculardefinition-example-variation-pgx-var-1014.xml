@@ -12,22 +12,24 @@
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource: Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
             </sequenceContext>
-                <coordinateInterval>
-                    <numberingSystem>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="LA30102-0"/>
                             <display value="1-based character counting"/>
                         </coding>
                         <text value="1-based character counting"/>
-                    </numberingSystem>
-                        <startQuantity>
-                            <value value="96535210"/>
-                        </startQuantity>
-                        <endQuantity>
-                            <value value="96535210"/>
-                        </endQuantity>
-                </coordinateInterval>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="96535210"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="96535210"/>
+                </endQuantity>
+            </coordinateInterval>
         </sequenceLocation>
     </location>
     <representation>
