@@ -12,22 +12,24 @@
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource: LRG_584"/>
             </sequenceContext>
-                <coordinateInterval>
-                    <numberingSystem>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="LA30100-4"/>
                             <display value="0-based interval counting"/>
                         </coding>
                         <text value="0-based interval counting"/>
-                    </numberingSystem>
-                        <startQuantity>
-                            <value value="5001"/>
-                        </startQuantity>
-                        <endQuantity>
-                            <value value="97867"/>
-                        </endQuantity>
-                </coordinateInterval>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="5001"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="97867"/>
+                </endQuantity>
+            </coordinateInterval>
         </sequenceLocation>
     </location>
     <representation>
