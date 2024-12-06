@@ -230,11 +230,11 @@
     <divergentElement patternPath="Request.reason" resourcePath="ServiceRequest.reason">
         <shortUnmatched reason="Unknown">
             <_pattern value="Why is service (not) needed?"/>
-            <resource value="Explanation/Justification for procedure or service"/>
+            <resource value="Reason or indication for requesting the service"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the request is being made in coded or textual form, or Indicates another resource whose existence justifies this request."/>
-            <resource value="An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`."/>
+            <resource value="The reason or the indication for requesting the service (e.g., procedure, lab test)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>

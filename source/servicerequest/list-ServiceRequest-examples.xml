@@ -30,6 +30,30 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Glucose Monitoring"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-glucose"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/glucose"/>
+      <display value="Glucose Monitoring"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Continuous Glucose Monitoring"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-continuous-glucose"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/continuous-glucose"/>
+      <display value="Continuous Glucose Monitoring"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Free T4 Add on Order"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

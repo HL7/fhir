@@ -415,8 +415,8 @@
     <element id="Patient.multipleBirth[x]">
       <path value="Patient.multipleBirth[x]"/>
       <short value="Whether patient is part of a multiple birth"/>
-      <definition value="Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).  This count is relative to the total of live births and fetal losses."/>
-      <comment value="Where the valueInteger is provided, the number is the birth number in the sequence. E.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3 If a boolean value was provided for this triplets example, then all 3 patient records would have valueBoolean=true (the ordering is not indicated)."/>
+      <definition value="Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).  This count is relative to the total of live births and fetal losses, which MAY be tracked in the `patient-multipleBirthTotal` extension.&#xD;&#xD;The boolean option for this property can also be used to track that there are known to be multiple fetuses prior to birth." />
+      <comment value="Where the valueInteger is provided, the number is the birth number in the sequence.&#xD;&#xD;E.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3.&#xD;If a boolean value was provided for this triplets example, then all 3 patient records would have valueBoolean=true (the ordering is not indicated).&#xD;&#xD;`valueBoolean` can be used to track fetuses.  `valueInteger` should only be used after live birth." />
       <requirements value="For disambiguation of multiple-birth children, especially relevant where the care provider doesn't meet the patient, such as labs."/>
       <min value="0"/>
       <max value="1"/>
