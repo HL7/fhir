@@ -1071,11 +1071,11 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.intervention">
+    <element id="ResearchStudy.objective.outcomeMeasure.intervention">
       <path value="ResearchStudy.objective.outcomeMeasure.intervention"/>
       <short value="Comparison group of interest"/>
       <definition value="Comparison group of interest."/>
-	  <comment value="To do: How to refernece internally to the comparisonGroup.id"/>
+      <comment value="To do: How to refernece internally to the comparisonGroup.id"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1083,11 +1083,11 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.comparator">
+    <element id="ResearchStudy.objective.outcomeMeasure.comparator">
       <path value="ResearchStudy.objective.outcomeMeasure.comparator"/>
       <short value="Comparison group for comparison"/>
       <definition value="Comparison group for comparison."/>
-	  <comment value="To do: How to refernece internally to the comparisonGroup.id"/>
+      <comment value="To do: How to refernece internally to the comparisonGroup.id"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1095,7 +1095,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.summaryMeasure">
+    <element id="ResearchStudy.objective.outcomeMeasure.summaryMeasure">
       <path value="ResearchStudy.objective.outcomeMeasure.summaryMeasure"/>
       <short value="Statistical measure for treatment effect estimate"/>
       <definition value="Statistical measure for treatment effect estimate."/>
@@ -1113,7 +1113,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
       </binding>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.eventHandling">
+    <element id="ResearchStudy.objective.outcomeMeasure.eventHandling">
       <path value="ResearchStudy.objective.outcomeMeasure.eventHandling"/>
       <short value="Handling of intercurrent event"/>
       <definition value="Handling of intercurrent event."/>
@@ -1123,7 +1123,7 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.eventHandling.event">
+    <element id="ResearchStudy.objective.outcomeMeasure.eventHandling.event">
       <path value="ResearchStudy.objective.outcomeMeasure.eventHandling.event"/>
       <short value="The event"/>
       <definition value="The event."/>
@@ -1133,7 +1133,7 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.eventHandling.group">
+    <element id="ResearchStudy.objective.outcomeMeasure.eventHandling.group">
       <path value="ResearchStudy.objective.outcomeMeasure.eventHandling.group"/>
       <short value="The group that is affected by this event handling"/>
       <definition value="The group that is affected by this event handling."/>
@@ -1143,7 +1143,7 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-	<element id="ResearchStudy.objective.outcomeMeasure.eventHandling.handling">
+    <element id="ResearchStudy.objective.outcomeMeasure.eventHandling.handling">
       <path value="ResearchStudy.objective.outcomeMeasure.eventHandling.handling"/>
       <short value="How the data is handled"/>
       <min value="0"/>
@@ -1170,7 +1170,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
       </type>
       <isSummary value="true"/>
