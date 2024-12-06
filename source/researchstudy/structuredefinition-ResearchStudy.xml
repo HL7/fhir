@@ -878,7 +878,7 @@
         <map value=".participation[typeCode=SBJ].role"/>
       </mapping>
     </element>
-	<element id="ResearchStudy.comparisonGroup">
+    <element id="ResearchStudy.comparisonGroup">
       <path value="ResearchStudy.comparisonGroup"/>
       <short value="Defined path through the study for a subject"/>
       <definition value="Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}."/>
