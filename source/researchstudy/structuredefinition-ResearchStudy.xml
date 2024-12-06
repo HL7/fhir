@@ -939,23 +939,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Enrollment; Number of Groups/Cohorts (= number of &quot;enrollment&quot; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="InterventionalStudyProtocol.interventionGroupQuantity"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=SBJ].role"/>
-      </mapping>
     </element>
     <element id="ResearchStudy.objective">
       <path value="ResearchStudy.objective"/>
