@@ -93,7 +93,7 @@
       <path value="ArtifactAssessment.identifier"/>
       <short value="Additional identifier for the artifact assessment"/>
       <definition value="A formal identifier that is used to identify this artifact assessment when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this activity definition outside of FHIR, where it is not possible to use the logical URI."/>
+      <comment value="This may be used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this artifact assessment outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the artifact assessment."/>
       <min value="0"/>
       <max value="*"/>
@@ -119,7 +119,7 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="ArtifactAssessment.title"/>
-      <short value="A short title for the assessment for use in displaying and selecting"/>
+      <short value="A label for use in displaying and selecting the artifact assessment"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -243,6 +243,10 @@
         <code value="uri"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
     </element>
     <element id="ArtifactAssessment.content">
       <path value="ArtifactAssessment.content"/>
@@ -253,23 +257,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-    </element>
-    <element id="ArtifactAssessment.content.informationType">
-      <path value="ArtifactAssessment.content.informationType"/>
-      <short value="comment | classifier | rating | container | response | change-request"/>
-      <definition value="The type of information this component of the content represents."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="InformationType"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type"/>
-      </binding>
     </element>
     <element id="ArtifactAssessment.content.summary">
       <path value="ArtifactAssessment.content.summary"/>
@@ -330,7 +317,7 @@
       <short value="Who authored the content"/>
       <definition value="Indicates who or what authored the content."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
@@ -363,8 +350,9 @@
     </element>
     <element id="ArtifactAssessment.content.freeToShare">
       <path value="ArtifactAssessment.content.freeToShare"/>
-      <short value="Acceptable to publicly share the resource content"/>
+      <short value="Acceptable to publicly share the content"/>
       <definition value="Acceptable to publicly share the comment, classifier or rating."/>
+      <comment value="Absence of a value should be interpreted as inheriting any freeToShare value present in a containing structure, else inheriting data from the ArtifactAssessment.copyright element, else value unknown."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -373,8 +361,8 @@
     </element>
     <element id="ArtifactAssessment.content.component">
       <path value="ArtifactAssessment.content.component"/>
-      <short value="Contained content"/>
-      <definition value="If the informationType is container, the components of the content."/>
+      <short value="Comment, classifier, or rating content"/>
+      <definition value="A component comment, classifier, or rating of the artifact."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ArtifactAssessment.content"/>
