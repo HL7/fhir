@@ -8,7 +8,7 @@
   </identifier>
   <name value="PerformerRoleCodes"/>
   <title value="Performer Role Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="This value set includes example Consenting Party role codes."/>
   <copyright value="This is an example set."/>

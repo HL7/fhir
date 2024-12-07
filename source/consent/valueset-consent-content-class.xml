@@ -6,8 +6,8 @@
   </meta>
   <name value="ConsentContentClass"/>
   <title value="Consent Content Class"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="CBCC"/>
   <contact>
     <telecom>

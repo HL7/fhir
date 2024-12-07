@@ -16,8 +16,8 @@
   <version value="6.0.0"/>
   <name value="ConsentScopeCodes"/>
   <title value="Consent Scope Codes"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="CBCC"/>
   <contact>
     <telecom>
