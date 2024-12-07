@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="example-variation1"/>
+    <id value="example-variation-pgx-var-1016"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
     </meta>
@@ -8,26 +8,26 @@
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/example-sequence-msh2"/>
+                <reference value="MolecularDefinition/example-sequence-nc00001010-url"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource: MSH2"/>
+                <display value="Starting Sequence Resource: Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
             </sequenceContext>
             <coordinateInterval>
                 <coordinateSystem>
                     <system>
                         <coding>
                             <system value="http://loinc.org"/>
-                            <code value="LA30100-4"/>
-                            <display value="0-based interval counting"/>
+                            <code value="LA30102-0"/>
+                            <display value="1-based character counting"/>
                         </coding>
-                        <text value="0-based interval counting"/>
+                        <text value="1-based character counting"/>
                     </system>
                 </coordinateSystem>
                 <startQuantity>
-                    <value value="2502"/>
+                    <value value="96541616"/>
                 </startQuantity>
                 <endQuantity>
-                    <value value="2503"/>
+                    <value value="96541616"/>
                 </endQuantity>
             </coordinateInterval>
         </sequenceLocation>
@@ -41,7 +41,7 @@
             </coding>
         </focus>
         <literal>
-            <value value="A"/>
+            <value value="G"/>
         </literal>
     </representation>
     <representation>
@@ -53,7 +53,7 @@
             </coding>
         </focus>
         <literal>
-            <value value="C"/>
+            <value value="G"/>
         </literal>
     </representation>
 </MolecularDefinition>
