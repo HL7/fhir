@@ -127,19 +127,27 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ArtifactAssessment.citeAs[x]">
-      <path value="ArtifactAssessment.citeAs[x]"/>
-      <short value="How to cite the comment or rating"/>
-      <definition value="Display of or reference to the bibliographic citation of the comment, classifier, or rating."/>
-      <min value="0"/>
+    <element id="ArtifactAssessment.artifact[x]">
+      <path value="ArtifactAssessment.artifact[x]"/>
+      <short value="The artifact assessed, commented upon or rated"/>
+      <definition value="A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Any"/>
       </type>
       <type>
-        <code value="markdown"/>
+        <code value="canonical"/>
       </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
     </element>
     <element id="ArtifactAssessment.date">
       <path value="ArtifactAssessment.date"/>
@@ -226,27 +234,19 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="ArtifactAssessment.artifact[x]">
-      <path value="ArtifactAssessment.artifact[x]"/>
-      <short value="The artifact assessed, commented upon or rated"/>
-      <definition value="A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about."/>
-      <min value="1"/>
+    <element id="ArtifactAssessment.citeAs[x]">
+      <path value="ArtifactAssessment.citeAs[x]"/>
+      <short value="How to cite the comment or rating"/>
+      <definition value="Display of or reference to the bibliographic citation of the comment, classifier, or rating."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Any"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </type>
       <type>
-        <code value="canonical"/>
+        <code value="markdown"/>
       </type>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
     </element>
     <element id="ArtifactAssessment.content">
       <path value="ArtifactAssessment.content"/>
