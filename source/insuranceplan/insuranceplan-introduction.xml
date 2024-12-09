@@ -4,16 +4,13 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-A product is a discrete package of health insurance coverage benefits that are offered under
-a particular network type. A given payer’s products typically differ by network type and/or 
-coverage benefits. A plan pairs the health insurance coverage benefits under a product with
-the particular cost sharing structure offered to a consumer. A given product may comprise multiple plans.
+    Insurance offerings will be fully described by the combination of both InsurancePlan (the costs) and InsuranceProduct (the benefits).
+    However, some systems may only need to represent the InsurancePlan, so that Coverage resources can describe which plan is associated
+    with a given beneficiary.  In that case, there will be some other system that is responsible for tracking the benefits associated with the plan.
 </p>
 <p>
-InsurancePlan describes a health insurance offering comprised of a list of covered benefits 
-(i.e. the product), costs associated with those benefits (i.e. the plan), and additional 
-information about the offering, such as who it is owned and administered by, a coverage area,
-contact information, etc.
+    An InsurancePlan pairs the health insurance coverage benefits under an InsuranceProduct with the particular cost sharing structure
+    offered to a consumer. A given InsuranceProduct may comprise multiple InsurancePlans.
 </p>
 </div>
 
@@ -21,7 +18,16 @@ contact information, etc.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-TBD.
+    <a href="insuranceproduct.html">InsuranceProduct</a> describes a list of covered benefits and networks as well as details about who
+    administers the product and applicable coverage areas.
+</p>
+<p>
+    InsurancePlan describes the costs to the subscriber or beneficiary associated with benefits, as well as additional information about
+    the offering, such as who administers the plan, a coverage area, contact information, etc.  The specific benefits covered by the plan
+    are described in the InsuranceProduct referenced in InsurancePlan.product.
+</p>
+<p>
+    A <a href="coverage.html">Coverage</a> resource establishes the link between an InsurancePlan and a beneficiary and optionally a subscriber. 
 </p>
 </div>
 
