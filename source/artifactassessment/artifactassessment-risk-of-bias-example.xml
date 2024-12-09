@@ -11,10 +11,10 @@
             <display value="Computable Publishing LLC"/>
         </assigner>
     </identifier>
+    <artifactCanonical value="http://fevir.net/resources/Evidence/7637"/>
     <date value="2021-11-02T14:31:30.239Z"/>
     <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
     <lastReviewDate value="2021-08-11"/>
-    <artifactCanonical value="http://fevir.net/resources/Evidence/7637"/>
     <content>
         <type>
             <coding>
