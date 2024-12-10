@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="example-variation1"/>
+    <id value="example-allelesliced-cyp2c19-literal-only"/>
     <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/allelesliced"/>
     </meta>
     <type value="dna"/>
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/example-sequence-msh2"/>
+                <reference value="MolecularDefinition/example-sequence-nm0007694-url"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource: MSH2"/>
+                <display value="Starting Sequence Resource: (CYP2C19), mRNA, NM_000769.4"/>
             </sequenceContext>
             <coordinateInterval>
                 <coordinateSystem>
@@ -24,10 +24,10 @@
                     </system>
                 </coordinateSystem>
                 <startQuantity>
-                    <value value="2502"/>
+                    <value value="1015"/>
                 </startQuantity>
                 <endQuantity>
-                    <value value="2503"/>
+                    <value value="1016"/>
                 </endQuantity>
             </coordinateInterval>
         </sequenceLocation>
@@ -36,24 +36,19 @@
         <focus>
             <coding>
                 <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
-                <code value="reference-state"/>
-                <display value="Reference State"/>
+                <code value="allele-state"/>
+                <display value="Allele State"/>
             </coding>
         </focus>
-        <literal>
-            <value value="A"/>
-        </literal>
-    </representation>
-    <representation>
-        <focus>
+        <code>
             <coding>
-                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
-                <code value="alternative-state"/>
-                <display value="Alternative State"/>
+                <system value="https://www.pharmvar.org"/>
+                <code value="*1"/>
+                <display value="*1"/>
             </coding>
-        </focus>
+        </code>
         <literal>
-            <value value="C"/>
+            <value value="G"/>
         </literal>
     </representation>
 </MolecularDefinition>

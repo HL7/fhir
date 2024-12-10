@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
-    <id value="example-variation1"/>
+    <id value="example-allelesliced-pgx-var-1011"/>
     <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/allelesliced"/>
     </meta>
     <type value="dna"/>
     <location>
         <sequenceLocation>
             <sequenceContext>
-                <reference value="MolecularDefinition/example-sequence-msh2"/>
+                <reference value="MolecularDefinition/example-sequence-nc00001010-url"/>
                 <type value="MolecularDefinition"/>
-                <display value="Starting Sequence Resource: MSH2"/>
+                <display value="Starting Sequence Resource: Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
             </sequenceContext>
             <coordinateInterval>
                 <coordinateSystem>
                     <system>
                         <coding>
                             <system value="http://loinc.org"/>
-                            <code value="LA30100-4"/>
-                            <display value="0-based interval counting"/>
+                            <code value="LA30102-0"/>
+                            <display value="1-based character counting"/>
                         </coding>
-                        <text value="0-based interval counting"/>
+                        <text value="1-based character counting"/>
                     </system>
                 </coordinateSystem>
                 <startQuantity>
-                    <value value="2502"/>
+                    <value value="96521657"/>
                 </startQuantity>
                 <endQuantity>
-                    <value value="2503"/>
+                    <value value="96521657"/>
                 </endQuantity>
             </coordinateInterval>
         </sequenceLocation>
@@ -36,20 +36,20 @@
         <focus>
             <coding>
                 <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
-                <code value="reference-state"/>
-                <display value="Reference State"/>
+                <code value="allele-state"/>
+                <display value="Allele State"/>
             </coding>
         </focus>
         <literal>
-            <value value="A"/>
+            <value value="C"/>
         </literal>
     </representation>
     <representation>
         <focus>
             <coding>
                 <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
-                <code value="alternative-state"/>
-                <display value="Alternative State"/>
+                <code value="context-state"/>
+                <display value="Context State"/>
             </coding>
         </focus>
         <literal>
