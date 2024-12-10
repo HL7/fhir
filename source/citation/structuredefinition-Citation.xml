@@ -142,8 +142,7 @@
 			<path value="Citation.version"/>
 			<short value="Business version of the citation record"/>
 			<definition value="The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="This is a business version label used for display in understanding the formal version of the citation record, not a resource version id or technical version number for an archival system."/>
-			<comment value="There may be different citation record instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<comment value="This is a business version label used for display in understanding the formal version of the citation record, not a resource version id or technical version number for an archival system. There may be different citation record instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -692,7 +691,7 @@
 			<path value="Citation.citedArtifact.relatedIdentifier"/>
 			<short value="Identifier not unique to the cited artifact. May include trial registry identifiers"/>
 			<definition value="A formal identifier that is used to identify things closely related to the cited artifact."/>
-			<comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This related identifier would not be used as unique a identifier for the cited artifact itself. Multiple published articles (each with their own unique identifier) may relate to the same study record in a research registry. Commonly used related identifiers for study registries include ClinicalTrials.gov identifier (NCTId) and PROSPERO identifier (used for registration of systematic reviews). To maintain interoperability, the suggested identifier.system values to use for these 2 identifiers are: ClinicalTrials.gov = &quot;https://clinicaltrials.gov&quot; PROSPERO = &quot;https://www.crd.york.ac.uk/prospero/&quot;"/>
+			<comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This related identifier would not be used as a unique identifier for the cited artifact itself. Multiple published articles (each with their own unique identifier) may relate to the same study record in a research registry. Commonly used related identifiers for study registries include ClinicalTrials.gov identifier (NCTId) and PROSPERO identifier (used for registration of systematic reviews). To maintain interoperability, the suggested identifier.system values to use for these 2 identifiers are: ClinicalTrials.gov = &quot;https://clinicaltrials.gov&quot; PROSPERO = &quot;https://www.crd.york.ac.uk/prospero/&quot;"/>
 			<requirements value="Allows externally provided and/or usable identifiers to be associated with this the cited artifact."/>
 			<min value="0"/>
 			<max value="*"/>
