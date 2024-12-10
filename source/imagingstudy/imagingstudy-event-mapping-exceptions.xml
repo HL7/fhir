@@ -8,7 +8,7 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers."/>
-            <resource value="ImagingStudy.identifier SHALL contain exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
+            <resource value="ImagingStudy.identifier SHALL contain exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingStudy.basedOn">
