@@ -2,7 +2,13 @@
 
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="coord-1-base"/>
-    <moleculeType value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
     <representation>
         <relative>
 
