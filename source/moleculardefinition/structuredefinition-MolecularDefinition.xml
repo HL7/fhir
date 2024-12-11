@@ -94,6 +94,18 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
+    <element id="MolecularDefinition.description">
+      <path value="MolecularDefinition.description"/>
+      <short value="Description of the Molecular Definition instance"/>
+      <definition value="A description of the molecular definition instance in a human friendly format."/>
+      <requirements value="Allows MolecularDefinition to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="False"/>
+    </element>
     <element id="MolecularDefinition.type">
       <path value="MolecularDefinition.type"/>
       <short value="aa | dna | rna"/>
