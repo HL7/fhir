@@ -10,7 +10,13 @@
             <meta>
                 <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
             </meta>
-            <type value="dna"/>
+            <moleculeType>
+                <coding>
+                    <system value="http://hl7.org/fhir/sequence-type"/>
+                    <code value="dna"/>
+                    <display value="DNA Sequence"/>
+                </coding>
+            </moleculeType>
             <representation>
                 <literal>
                     <value value="A"/>
@@ -24,7 +30,13 @@
             <meta>
                 <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
             </meta>
-            <type value="dna"/>
+            <moleculeType>
+                <coding>
+                    <system value="http://hl7.org/fhir/sequence-type"/>
+                    <code value="dna"/>
+                    <display value="DNA Sequence"/>
+                </coding>
+            </moleculeType>
             <representation>
                 <literal>
                     <value value="C"/>
@@ -33,7 +45,13 @@
         </MolecularDefinition>
     </contained>
 
-    <type value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
     <representation>
         <relative>
             <startingMolecule>
