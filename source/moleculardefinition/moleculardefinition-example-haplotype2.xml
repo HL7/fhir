@@ -4,7 +4,7 @@
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/haplotype"/>
     </meta>
-    <type value="dna"/>
+    <moleculeType value="dna"/>
     <name value="HLA-A*01:02:01:01"/>
     <name value="HLA00002"/>
     <location>

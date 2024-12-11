@@ -4,7 +4,7 @@
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/genotype"/>
     </meta>
-    <type value="dna"/>
+    <moleculeType value="dna"/>
     <name value="CYP2C19*1B and HLA00002"/>
     <memberState>
         <reference value="MolecularDefinition/example-haplotype1"/>
