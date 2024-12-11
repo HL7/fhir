@@ -4,7 +4,13 @@
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
     </meta>
-    <type value="aa"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="aa"/>
+            <display value="AA Sequence"/>
+        </coding>
+    </moleculeType>
     <representation>
         <literal>
             <encoding>
