@@ -4,7 +4,13 @@
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
     </meta>
-    <moleculeType value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
     <location>
         <sequenceLocation>
             <sequenceContext>
