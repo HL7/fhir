@@ -104,7 +104,7 @@
       <type>
         <code value="markdown"/>
       </type>
-      <isSummary value="False"/>
+      <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.moleculeType">
       <path value="MolecularDefinition.moleculeType"/>
