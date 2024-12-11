@@ -2,7 +2,7 @@
 
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="coord-1-base"/>
-    <type value="dna"/>
+    <moleculeType value="dna"/>
     <representation>
         <relative>
 
