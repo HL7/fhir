@@ -55,10 +55,10 @@
             <min value="0"/>
             <max value="*"/>
         </element>
-        <element id="MolecularDefinition.type">
-            <path value="MolecularDefinition.type"/>
+        <element id="MolecularDefinition.moleculeType">
+            <path value="MolecularDefinition.moleculeType"/>
             <short value="Sequence type, e.g., aa, dna, or rna"/>
-            <definition value="The type of the sequence, e.g., amino acid, DNA, or RNA sequence."/>
+            <definition value="The molecule type of the sequence, e.g., amino acid, DNA, or RNA sequence."/>
             <min value="1"/>
             <max value="1"/>
         </element>
