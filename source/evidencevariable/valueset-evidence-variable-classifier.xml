@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="publishing-model-type"/>
+  <id value="evidence-variable-classifier"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -11,17 +14,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/publishing-model-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.2967"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
   <version value="6.0.0"/>
-  <name value="PublishingModelType"/>
-  <title value="Publishing Model Type"/>
+  <name value="EvidenceVariableClassifier"/>
+  <title value="Evidence Variable Classifier"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2024-11-16T12:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -33,11 +32,10 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="To identify the medium/media in which the cited article is published, eg print, electronic or print-electronic."/>
-  <immutable value="true"/>
+  <description value="Disease, diagnosis, or condition."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/publishing-model-type"/>
+      <system value="http://hl7.org/fhir/evidence-variable-classifier"/>
     </include>
   </compose>
 </ValueSet>
