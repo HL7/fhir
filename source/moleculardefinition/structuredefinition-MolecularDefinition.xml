@@ -94,14 +94,26 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-    <element id="MolecularDefinition.type">
-      <path value="MolecularDefinition.type"/>
-      <short value="aa | dna | rna"/>
-      <definition value="The type of the Molecular Definition (Amino Acid, DNA, RNA)."/>
+    <element id="MolecularDefinition.description">
+      <path value="MolecularDefinition.description"/>
+      <short value="Description of the Molecular Definition instance"/>
+      <definition value="A description of the molecular definition instance in a human friendly format."/>
+      <requirements value="Allows MolecularDefinition to be distinguished and referenced."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.moleculeType">
+      <path value="MolecularDefinition.moleculeType"/>
+      <short value="aa | dna | rna"/>
+      <definition value="The type of the genomic molecule (Amino Acid, DNA, RNA)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -113,7 +125,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
-
+    <element id="MolecularDefinition.type">
+      <path value="MolecularDefinition.type"/>
+      <short value="Type of the Molecular Definition entity"/>
+      <definition value="Description of various types of the genomic molecule other this described by the moleculeType element above."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="MolecularDefinition.location">
       <path value="MolecularDefinition.location"/>
       <short value="Location of this molecule"/>
@@ -159,10 +181,43 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem">
-      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem"/>
-      <short value="Coordinate System"/>
-      <definition value="The coordinate system of this interval."/>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem"/>
+      <short value="Coordinate system for this location"/>
+      <definition value="The coordinate system for this location."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system"/>
+      <short value="System"/>
+      <definition value="The system of the specified coordinate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin"/>
+      <short value="Origin"/>
+      <definition value="The origin of the specified coordinate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod"/>
+      <short value="Normalization Method"/>
+      <definition value="The normalization method of the specified coordinate."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -465,6 +520,17 @@
     </element>
 
 <!--    A placeholder for MolDef-to-MolDef relation-->
+    <element id="MolecularDefinition.topology">
+      <path value="MolecularDefinition.topology"/>
+      <short value="Topology of the genomic molecule"/>
+      <definition value="The topology of the genomic molecule, e.g., dendrimer, array, or polyhedron."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
 
     <element id="MolecularDefinition.memberState">
       <path value="MolecularDefinition.memberState"/>
@@ -554,11 +620,12 @@
       <path value="MolecularDefinition.representation.resolvable"/>
       <short value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
       <definition value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
-      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
+<!--      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>-->
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Attachment"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
     </element>
