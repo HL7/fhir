@@ -1,0 +1,35 @@
+name: Trivy Security Scans
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run static analysis
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          vuln-type: 'library'
+          scanners: 'vuln,secret,config'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'MEDIUM,HIGH,CRITICAL'
+
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+          category: 'code'
