@@ -474,11 +474,11 @@
         <processingMode value="normal"/>
         <component>
           <definition value="relatesto"/>
-          <expression value="code"/>
+          <expression value="target"/>
         </component>
         <component>
           <definition value="relation"/>
-          <expression value="target"/>
+          <expression value="code"/>
         </component>
       </SearchParameter>
     </resource>
