@@ -262,6 +262,20 @@
       <orderMeaning value="The order of the rules processing is defined in rule combining selected in .combining element."/>
       <isSummary value="true"/>
     </element>
+    <element id="Permission.rule.import">
+      <path value="Permission.rule.import"/>
+      <short value="import"/>
+      <definition value="this rule is expressed in another Permission resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Permission"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="References to the content of the rule as forumlated in another Permission resource."/>
+      <isSummary value="true"/>
+    </element>
     <element id="Permission.rule.type">
       <path value="Permission.rule.type"/>
       <short value="deny | permit"/>
