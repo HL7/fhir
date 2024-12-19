@@ -66,16 +66,32 @@
                 <display value="Starting Sequence Resource: LRG_584"/>
             </startingMolecule>
             <edit>
-                <coordinateSystem>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="LA30100-4"/>
-                        <display value="0-based interval counting"/>
-                    </coding>
-                    <text value="0-based interval counting"/>
-                </coordinateSystem>
-                <start value="5123"/>
-                <end value="5124"/>
+<!--                <coordinateSystem>-->
+<!--                    <coding>-->
+<!--                        <system value="http://loinc.org"/>-->
+<!--                        <code value="LA30100-4"/>-->
+<!--                        <display value="0-based interval counting"/>-->
+<!--                    </coding>-->
+<!--                    <text value="0-based interval counting"/>-->
+<!--                </coordinateSystem>-->
+<!--                <start value="5123"/>-->
+<!--                <end value="5124"/>-->
+
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="5123"/>
+                    <end value="5124"/>
+                </coordinateInterval>
+
                 <replacementMolecule>
                     <reference value="MolecularDefinition/example-sequence-t"/>
                     <type value="MolecularDefinition"/>
