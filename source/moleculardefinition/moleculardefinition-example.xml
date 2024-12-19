@@ -49,16 +49,32 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             <type value="MolecularDefinition"/>
             <display value="Starting Sequence Resource"/>
         </startingMolecule>
-        <start value="0"/>
-        <end value="745"/>
-        <coordinateSystem>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="LA30100-4"/>
-                <display value="0-based interval counting"/>
-            </coding>
-            <text value="0-based interval counting"/>
-        </coordinateSystem>
+<!--        <start value="0"/>-->
+<!--        <end value="745"/>-->
+<!--        <coordinateSystem>-->
+<!--            <coding>-->
+<!--                <system value="http://loinc.org"/>-->
+<!--                <code value="LA30100-4"/>-->
+<!--                <display value="0-based interval counting"/>-->
+<!--            </coding>-->
+<!--            <text value="0-based interval counting"/>-->
+<!--        </coordinateSystem>-->
+
+        <coordinateInterval>
+            <coordinateSystem>
+                <system>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="LA30100-4"/>
+                        <display value="0-based interval counting"/>
+                    </coding>
+                    <text value="0-based interval counting"/>
+                </system>
+            </coordinateSystem>
+            <start value="0"/>
+            <end value="745"/>
+        </coordinateInterval>
+
         <reverseComplement value="false"/>
     </extracted>
     <concatenated>
@@ -94,16 +110,30 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             <display value="Starting Sequence Resource"/>
         </startingMolecule>
         <edit>
-            <coordinateSystem>
-                <coding>
-                    <system value="http://loinc.org"/>
-                    <code value="LA30100-4"/>
-                    <display value="0-based interval counting"/>
-                </coding>
-                <text value="0-based interval counting"/>
-            </coordinateSystem>
-            <start value="0"/>
-            <end value="725"/>
+<!--            <coordinateSystem>-->
+<!--                <coding>-->
+<!--                    <system value="http://loinc.org"/>-->
+<!--                    <code value="LA30100-4"/>-->
+<!--                    <display value="0-based interval counting"/>-->
+<!--                </coding>-->
+<!--                <text value="0-based interval counting"/>-->
+<!--            </coordinateSystem>-->
+<!--            <start value="0"/>-->
+<!--            <end value="725"/>-->
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
+                        </coding>
+                        <text value="0-based interval counting"/>
+                    </system>
+                </coordinateSystem>
+                <start value="0"/>
+                <end value="745"/>
+            </coordinateInterval>
             <replacementMolecule>
                 <reference value="MolecularDefinition/example-replacement-sequence"/>
                 <type value="MolecularDefinition"/>
