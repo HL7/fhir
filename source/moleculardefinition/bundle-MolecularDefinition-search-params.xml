@@ -87,13 +87,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularDefinition.type"/>
+          <valueString value="MolecularDefinition.moleculeType"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-type"/>
         <description value="Amino Acid Sequence/ DNA Sequence / RNA Sequence"/>
         <code value="type"/>
         <type value="token"/>
-        <expression value="MolecularDefinition.type"/>
+        <expression value="MolecularDefinition.moleculeType"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
