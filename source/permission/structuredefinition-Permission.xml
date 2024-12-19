@@ -70,6 +70,13 @@
       <definition value="Permission resource holds access rules for a given data and context."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="pe-1"/>
+        <severity value="error"/>
+        <human value="rules with import should not have any other attributes"/>
+        <expression value="rule.all($this.import.exists() xor ($this.type.exists() or $this.data.exists() or $this.activity.exists() or $this.limit.exists()))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Permission"/>
+      </constraint>
       <mapping>
         <identity value="w5"/>
         <map value="infrastructure.information"/>
@@ -256,13 +263,6 @@
       <comment value="Each `.rule` is evaulated within the combining rule identified in the `.combining` element."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="pe-1"/>
-        <severity value="error"/>
-        <human value="rules with import should not have any other attributes"/>
-        <expression value="Permission.rule.all($this.import.exists() xor ($this.type.exists() or $this.data.exists() or $this.activity.exists() or $this.limit.exists()))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Permission"/>
-      </constraint>
       <type>
         <code value="BackboneElement"/>
       </type>
