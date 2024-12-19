@@ -271,7 +271,7 @@
     </element>
     <element id="Permission.rule.import">
       <path value="Permission.rule.import"/>
-      <short value="Import a Permission rules"/>
+      <short value="Reference to a Permission"/>
       <definition value="This rule is expressed in another Permission resource."/>
       <min value="0"/>
       <max value="1"/>
