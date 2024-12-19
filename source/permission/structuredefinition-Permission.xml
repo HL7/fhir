@@ -256,6 +256,13 @@
       <comment value="Each `.rule` is evaulated within the combining rule identified in the `.combining` element."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="pe-1"/>
+        <severity value="error"/>
+        <human value="rules with import should not have any other attributes"/>
+        <expression value="rule.all($this.import.exists() xor ($this.type.exists() or $this.data.exists() or $this.activity.exists() or $this.limit.exists()))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Permission"/>
+      </constraint>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -272,8 +279,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Permission"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="References to the content of the rule as forumlated in another Permission resource."/>
+      <isModifier value="false"/>
       <isSummary value="true"/>
     </element>
     <element id="Permission.rule.type">
