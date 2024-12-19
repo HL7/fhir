@@ -743,8 +743,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.coordinateInterval.start[x]">
-      <path value="MolecularDefinition.representation.extracted.coordinateInterval.start[x]"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.start">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.start"/>
       <short value="Start"/>
       <definition value="The start of this interval."/>
       <min value="1"/>
@@ -754,8 +754,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.coordinateInterval.end[x]">
-      <path value="MolecularDefinition.representation.extracted.coordinateInterval.end[x]"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.end">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.end"/>
       <short value="End"/>
       <definition value="The end of this interval."/>
       <min value="1"/>
@@ -1006,8 +1006,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.start[x]">
-      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.start[x]"/>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.start">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.start"/>
       <short value="Start"/>
       <definition value="The start of this interval."/>
       <min value="1"/>
@@ -1017,8 +1017,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.end[x]">
-      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.end[x]"/>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.end">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.end"/>
       <short value="End"/>
       <definition value="The end of this interval."/>
       <min value="1"/>
