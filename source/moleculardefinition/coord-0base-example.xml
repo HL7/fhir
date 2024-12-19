@@ -18,41 +18,89 @@
                 <strand value="watson"/>
             </startingSequence>
             <edit>
-                <coordinateSystem>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="LA30101-2"/>
-                        <display value="0-based character counting"/>
-                    </coding>
-                </coordinateSystem>
-                <start value="2"/>
-                <end value="2"/>
+<!--                <coordinateSystem>-->
+<!--                    <coding>-->
+<!--                        <system value="http://loinc.org"/>-->
+<!--                        <code value="LA30101-2"/>-->
+<!--                        <display value="0-based character counting"/>-->
+<!--                    </coding>-->
+<!--                </coordinateSystem>-->
+<!--                <start value="2"/>-->
+<!--                <end value="2"/>-->
+
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="2"/>
+                    <end value="2"/>
+                </coordinateInterval>
+
                 <replacementSequence value="ATG"/>
                 <replacedSequence value="-"/>
             </edit>
             <edit>
-                <coordinateSystem>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="LA30101-2"/>
-                        <display value="0-based character counting"/>
-                    </coding>
-                </coordinateSystem>
-                <start value="4"/>
-                <end value="5"/>
+<!--                <coordinateSystem>-->
+<!--                    <coding>-->
+<!--                        <system value="http://loinc.org"/>-->
+<!--                        <code value="LA30101-2"/>-->
+<!--                        <display value="0-based character counting"/>-->
+<!--                    </coding>-->
+<!--                </coordinateSystem>-->
+<!--                <start value="4"/>-->
+<!--                <end value="5"/>-->
+
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="4"/>
+                    <end value="5"/>
+                </coordinateInterval>
+
                 <replacementSequence value="T"/>
                 <replacedSequence value="A"/>
             </edit>
             <edit>
-                <coordinateSystem>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="LA30101-2"/>
-                        <display value="0-based character counting"/>
-                    </coding>
-                </coordinateSystem>
-                <start value="6"/>
-                <end value="7"/>
+<!--                <coordinateSystem>-->
+<!--                    <coding>-->
+<!--                        <system value="http://loinc.org"/>-->
+<!--                        <code value="LA30101-2"/>-->
+<!--                        <display value="0-based character counting"/>-->
+<!--                    </coding>-->
+<!--                </coordinateSystem>-->
+<!--                <start value="6"/>-->
+<!--                <end value="7"/>-->
+
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="6"/>
+                    <end value="7"/>
+                </coordinateInterval>
+
                 <replacementSequence value="-"/>
                 <replacedSequence value="T"/>
             </edit>
