@@ -71,7 +71,7 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="pe-1"/>
+        <key value="per-1"/>
         <severity value="error"/>
         <human value="rules with import should not have any other attributes"/>
         <expression value="rule.all($this.import.exists() xor ($this.type.exists() or $this.data.exists() or $this.activity.exists() or $this.limit.exists()))"/>
