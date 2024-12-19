@@ -653,6 +653,8 @@
       </type>
       <isSummary value="true"/>
     </element>
+
+<!--    TODO: to be deleted later-->
 <!--    <element id="MolecularDefinition.representation.extracted.start">-->
 <!--      <path value="MolecularDefinition.representation.extracted.start"/>-->
 <!--      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>-->
