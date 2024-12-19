@@ -653,39 +653,125 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.start">
-      <path value="MolecularDefinition.representation.extracted.start"/>
-      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
-      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
-      <min value="1"/>
+<!--    <element id="MolecularDefinition.representation.extracted.start">-->
+<!--      <path value="MolecularDefinition.representation.extracted.start"/>-->
+<!--      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>-->
+<!--      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>-->
+<!--      <min value="1"/>-->
+<!--      <max value="1"/>-->
+<!--      <type>-->
+<!--        <code value="integer"/>-->
+<!--      </type>-->
+<!--      <isSummary value="true"/>-->
+<!--    </element>-->
+<!--    <element id="MolecularDefinition.representation.extracted.end">-->
+<!--      <path value="MolecularDefinition.representation.extracted.end"/>-->
+<!--      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>-->
+<!--      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>-->
+<!--      <min value="1"/>-->
+<!--      <max value="1"/>-->
+<!--      <type>-->
+<!--        <code value="integer"/>-->
+<!--      </type>-->
+<!--      <isSummary value="true"/>-->
+<!--    </element>-->
+<!--    <element id="MolecularDefinition.representation.extracted.coordinateSystem">-->
+<!--      <path value="MolecularDefinition.representation.extracted.coordinateSystem"/>-->
+<!--      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>-->
+<!--      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>-->
+<!--      <min value="1"/>-->
+<!--      <max value="1"/>-->
+<!--      <type>-->
+<!--        <code value="CodeableConcept"/>-->
+<!--      </type>-->
+<!--      <isSummary value="true"/>-->
+<!--    </element>-->
+
+
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval"/>
+      <short value="Coordinate Interval for this location"/>
+      <definition value="The coordinate interval for this location."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.end">
-      <path value="MolecularDefinition.representation.extracted.end"/>
-      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
-      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem"/>
+      <short value="Coordinate system for this location"/>
+      <definition value="The coordinate system for this location."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.coordinateSystem">
-      <path value="MolecularDefinition.representation.extracted.coordinateSystem"/>
-      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>
-      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.system">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.system"/>
+      <short value="System"/>
+      <definition value="The system of the specified coordinate."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin"/>
+      <short value="Origin"/>
+      <definition value="The origin of the specified coordinate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.normalizationMethod">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.normalizationMethod"/>
+      <short value="Normalization Method"/>
+      <definition value="The normalization method of the specified coordinate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.start[x]">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.start[x]"/>
+      <short value="Start"/>
+      <definition value="The start of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.end[x]">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.end[x]"/>
+      <short value="End"/>
+      <definition value="The end of this interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
     <element id="MolecularDefinition.representation.extracted.reverseComplement">
       <path value="MolecularDefinition.representation.extracted.reverseComplement"/>
       <short value="A flag that indicates whether the extracted sequence should be reverse complemented"/>
