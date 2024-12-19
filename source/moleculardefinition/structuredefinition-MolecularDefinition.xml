@@ -747,13 +747,10 @@
       <path value="MolecularDefinition.representation.extracted.coordinateInterval.start[x]"/>
       <short value="Start"/>
       <definition value="The start of this interval."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
+        <code value="integer"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -761,13 +758,10 @@
       <path value="MolecularDefinition.representation.extracted.coordinateInterval.end[x]"/>
       <short value="End"/>
       <definition value="The end of this interval."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
+        <code value="integer"/>
       </type>
       <isSummary value="true"/>
     </element>
