@@ -626,8 +626,8 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
 			</binding>
 		</element>
-		<element id="Citation.dataStorage.path">
-			<path value="Citation.dataStorage.path"/>
+		<element id="EvidenceVariable.dataStorage.path">
+			<path value="EvidenceVariable.dataStorage.path"/>
 			<short value="How to find the data element in the dataset"/>
 			<definition value="The mapping (order of elements) to reach the element containing the  data element in the dataset."/>
 			<min value="0"/>
