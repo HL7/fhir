@@ -112,4 +112,139 @@
       <display value="Metadata pointing at a FHIR Document Bundle example"/>
     </item>
   </entry>
+
+<!--  Below are entries from Clinical Genomics Workgroup to Support Molecular Definition instances-->
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens MHC class I antigen (HLA-B) gene"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-af1961831-url"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-af1961831-url"/>
+      <display value="A Genomic Data File representing Homo sapiens MHC class I antigen (HLA-B) gene"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing CYP2C19 gene sequence"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-cyp2c19-accession"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-cyp2c19-accession"/>
+      <display value="A Genomic Data File representing CYP2C19 gene sequence"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-cyp2c19-attached"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-cyp2c19-attached"/>
+      <display value="A Genomic Data File representing Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing CYP2C19 gene sequence through URL"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-cyp2c19-url"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-cyp2c19-url"/>
+      <display value="A Genomic Data File representing CYP2C19 gene sequence through URL"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing HLA00001 through URL"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-hla00001"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-hla00001"/>
+      <display value="A Genomic Data File representing HLA00001 through URL"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens isolate 7 BRCA1 (BRCA1) gene, exon 10 and partial cds"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-mw7162561"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-mw7162561"/>
+      <display value="A Genomic Data File representing Homo sapiens isolate 7 BRCA1 (BRCA1) gene, exon 10 and partial cds"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-ng0083843"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-ng0083843"/>
+      <display value="A Genomic Data File representing Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens mutS homolog 2 (MSH2), transcript variant 1, mRNA"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-nm0002513"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-nm0002513"/>
+      <display value="A Genomic Data File representing Homo sapiens mutS homolog 2 (MSH2)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), mRNA"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-nm0007694"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-nm0007694"/>
+      <display value="A Genomic Data File representing Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), mRNA"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens FMRP translational regulator 1 (FMR1), transcript variant ISO1, mRNA"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-nm0020245"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-nm0020245"/>
+      <display value="A Genomic Data File representing Homo sapiens FMRP translational regulator 1 (FMR1)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A Genomic Data File representing Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-genomicfile-nc00001010-url"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-genomicfile-nc00001010-url"/>
+      <display value="A Genomic Data File representing Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </item>
+  </entry>
 </List>
