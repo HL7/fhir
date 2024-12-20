@@ -40,4 +40,29 @@
       <display value="VhDir permision example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Base Permisison Imported in another Permission"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-base"/>
+    </extension>
+    <item>
+      <reference value="Permission/example-base"/>
+      <display value="A base permision example."/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Composite Permisison that Imports Another Permission"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-composite"/>
+    </extension>
+    <item>
+      <reference value="Permission/example-composite"/>
+      <display value="A composite permision example that imports another permission as one of the rules."/>
+    </item>
+  </entry>
+
 </List>
