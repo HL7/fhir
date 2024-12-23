@@ -105,6 +105,13 @@
         <expression value="bodySite.exists() implies bodyStructure.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
+      <constraint>
+        <key value="asn-1"/>
+        <severity value="error"/>
+        <human value="asNeededFor SHALL only be present if asNeeded is empty or true"/>
+        <expression value="asNeededFor.empty() or (asNeeded = true or asNeeded.empty())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
@@ -229,6 +236,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -498,8 +506,8 @@
       </extension>
       <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
-      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
-      <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."/>
+      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
+      <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code. The PlanDefinition may be used when you want to group multiple activities together (e.g., order set that are part of a plan)."/>
       <alias value="service requested"/>
       <min value="0"/>
       <max value="1"/>
@@ -837,21 +845,34 @@
         <map value="Procedure.procedureSchedule"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.asNeeded[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#13196]."/>
-      </extension>
-      <path value="ServiceRequest.asNeeded[x]"/>
-      <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+    <element id="ServiceRequest.asNeeded">
+      <path value="ServiceRequest.asNeeded"/>
+      <short value="Perform the service &quot;as needed&quot;"/>
+      <definition value="Indicates that the service (e.g., procedure, lab test) should be performed when needed (Boolean option)." />
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.asNeededFor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13196]."/>
+      </extension>
+      <path value="ServiceRequest.asNeededFor"/>
+      <short value="Specified criteria for the service"/>
+      <definition value="Indicates specific criteria that need to be met to perform the service (e.g., lab results or symptoms)."/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="asn-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -861,10 +882,6 @@
         <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
-      </mapping>
       <mapping>
         <identity value="quick"/>
         <map value="Proposal.prnReason.reason"/>
@@ -1064,9 +1081,9 @@
         <valueString value="7134. [#10296]  need to add reference as another inline element[#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.reason"/>
-      <short value="Explanation/Justification for procedure or service"/>
-      <definition value="An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`."/>
-      <comment value="This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise, use `concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
+      <short value="Reason or indication for requesting the service"/>
+      <definition value="The reason or the indication for requesting the service (e.g., procedure, lab test)."/>
+      <comment value="This element represents why the request is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Use `reason.concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1076,6 +1093,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
       <binding>

@@ -24,6 +24,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Consent-provision-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-action"/>
+        <description value="LOINC or SNOMED CT code, etc. in the content"/>
+        <code value="action"/>
+        <type value="token"/>
+        <expression value="Consent.provision.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Consent-actor"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

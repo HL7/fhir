@@ -21,8 +21,8 @@
   <version value="6.0.0"/>
   <name value="ConsentCategoryCodes"/>
   <title value="Consent Category Codes"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project (CBCC)"/>
   <contact>
     <telecom>
@@ -46,19 +46,15 @@
       <system value="http://loinc.org"/>
       <concept>
         <code value="59284-0"/>
-        <display value="Patient Consent "/>
       </concept>
       <concept>
         <code value="57016-8"/>
-        <display value="Privacy policy acknowledgement Document"/>
       </concept>
       <concept>
         <code value="57017-6"/>
-        <display value="Privacy policy Organization Document "/>
       </concept>
       <concept>
         <code value="64292-6"/>
-        <display value="Release of information consent "/>
       </concept>
     </include>
   </compose>

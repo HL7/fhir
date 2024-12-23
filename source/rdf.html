@@ -246,14 +246,16 @@ href="fhir.shex">fhir.shex</a>
             Resource nodes can be <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
-	  &nbsp;&nbsp;&nbsp;&nbsp;<span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]</span> 
+          <pre class="rdf">
+	  &lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]
+          </pre>
 
 	  <p>asserts that: </p>
           <ul>
-            <li><span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</span> has a <span
-                class="rdf">status</span> of some anonymous node.</li>
-            <li>That anonymous node has a <span class="rdf">fhir:v</span>
-              of <span class="rdf">"final"</span> (the literal
+            <li><code class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</code>
+                has a <code class="rdf">status</code> of some anonymous node.</li>
+            <li>That anonymous node has a <code class="rdf">fhir:v</code>
+              of <code class="rdf">"final"</code> (the literal
               "final").</li>
           </ul>
 
@@ -459,6 +461,24 @@ href="fhir.shex">fhir.shex</a>
           the IRI stem <code class="rdf">http://loinc.org/rdf/</code> with the code
           <code class="rdf">29463-7</code>. This particular IRI stem is defined in the
           <a href="https://loinc.org/kb/users-guide/recommendations-for-best-practices-in-using-and-mapping-to-loinc/#using-a-uri-to-identify-loinc-concepts-as-resources-in-rdf">LOINC User Guide S12.7.2</a>.
+          </p>
+
+          <p>
+          <a href="https://www.w3.org/TR/curie/">Compact URIs ("CURIEs")</a>
+          provide a mechanism for abbreviating IRIs using
+          a prefix and a reference, separated by a colon, such as
+          <code class="rdf">loinc:29463-7</code>.
+          Although some RDF systems have treated CURIEs
+          directly as FHIR Codes -- i.e. including the "loinc:" prefix as part of the code --
+          non-prefixed FHIR codes like <code class="rdf">29463-7</code> are strongly
+          preferred because they align better with the use of IRI stems
+          described herein.
+          If the "loinc:" prefix were treated as part of the FHIR code,
+          like <code class="rdf">loinc:29463-7</code>, then when the
+          IRI stem is prepended the resulting absolute IRI would become
+          <code class="rdf">http://loinc.org/rdf/loinc:29463-7</code>,
+          which in this example would be incorrect for
+          the intended LOINC concept.
           </p>
 
           <p>

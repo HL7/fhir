@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Flag xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/flag.xsd">
+  <id value="protocol"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Special guidance: Ensure patients meet all inclusion criteria before starting Zika Virus Infection Management Process</div>
+  </text>
+  <identifier>
+       <value value="guidance-2024-abc"/>
+  </identifier>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/flag-category"/>
+      <code value="safety"/>
+      <display value="Safety"/>
+    </coding>
+    <text value="Safety"/>  
+  </category>
+  <code>
+    <coding>
+      <system value="http://example.org/local"/>
+      <code value="special-guidance"/>
+      <display value="Special Guidance"/>
+    </coding>
+    <text value="Ensure patients meet all inclusion criteria before starting Zika Virus Infection Management Process"/>
+  </code>
+  <subject>
+    <reference value="PlanDefinition/zika-virus-intervention"/>
+    <display value="Zika Virus Infection Management Process"/>
+  </subject>
+  <period>
+      <start value="2024-09-01"/>
+    </period>
+   <author>
+    <reference value="Organization/example"/>
+    <display value="ACME Health"/>
+   </author>
+</Flag>
