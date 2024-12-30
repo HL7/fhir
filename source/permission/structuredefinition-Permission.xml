@@ -459,7 +459,7 @@
       <short value="Authorized actor(s)"/>
       <definition value="The actor(s) authorized for the defined activity."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
