@@ -172,8 +172,8 @@
     </element>
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
-      <short value="All of the distinct values for series' modalities"/>
-      <definition value="A list of all the distinct values of series.modality. This MAY include both acquisition and non-acquisition modalities."/>
+      <short value="The distinct values for series' modalities"/>
+      <definition value="All the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>
