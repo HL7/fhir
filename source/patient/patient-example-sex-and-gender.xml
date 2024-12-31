@@ -209,15 +209,19 @@
 		</extension>
 		<extension url="supportingInfo">
 			<!-- Observation about an organ inventory (prostate) -->
-			<valueReference>
+			<valueCodeableReference>
+			  <reference>
   				<reference value="Observation/1"/>
-			</valueReference>
+			  </reference>
+			</valueCodeableReference>
 		</extension>
 		<extension url="supportingInfo">
 			<!-- MedicationStatement indicating patient underwent hormone therapy -->
-			<valueReference>
+			<valueCodeableReference>
+			  <reference>
 				  <reference value="MedicationStatement/2"/>
-			</valueReference>
+			  </reference>
+			</valueCodeableReference>
 		</extension>
 	</extension>
 		
