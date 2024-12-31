@@ -35,7 +35,9 @@
     </data>
     <activity>
       <actor>
+      <reference>
         <reference value="Organization/f203" />
+        </reference>
       </actor>
       <action>
         <coding>
