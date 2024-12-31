@@ -477,7 +477,7 @@
     <element id="AuditEvent.basedOn">
       <path value="AuditEvent.basedOn"/>
       <short value="Workflow authorization within which this event occurred"/>
-      <definition value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+      <definition value="Allows tracing of authorization for the events and tracking whether proposals/recommendations were acted upon."/>
       <requirements value="Allows tracing of authorization for the audit event and tracking whether proposals/recommendations were acted upon."/>
       <min value="0"/>
       <max value="*"/>
