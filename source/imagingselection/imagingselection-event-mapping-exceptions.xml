@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
         <shortUnmatched reason="Unknown">
             <_pattern value="Business identifier for imaging selection"/>
-            <resource value="Business Identifier for Imaging Selection"/>
+            <resource value="Business Identifiers for Imaging Selection"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>

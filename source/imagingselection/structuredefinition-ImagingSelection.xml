@@ -92,7 +92,7 @@
     </element>
     <element id="ImagingSelection.identifier">
       <path value="ImagingSelection.identifier"/>
-      <short value="Business Identifier for Imaging Selection"/>
+      <short value="Business Identifiers for Imaging Selection"/>
       <definition value="Unique identifiers assigned to this imaging selection."/>
       <comment value="This is a business identifiers, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers). "/>
       <requirements value="Allows imaging selections to be distinguished and referenced."/>

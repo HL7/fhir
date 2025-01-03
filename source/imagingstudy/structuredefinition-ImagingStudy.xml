@@ -134,7 +134,7 @@
     </element>
     <element id="ImagingStudy.status">
       <path value="ImagingStudy.status"/>
-      <short value="registered | available | cancelled | entered-in-error | unknown"/>
+      <short value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
       <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
@@ -172,8 +172,8 @@
     </element>
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
-      <short value="All of the distinct values for series' modalities"/>
-      <definition value="A list of all the distinct values of series.modality. This MAY include both acquisition and non-acquisition modalities."/>
+      <short value="The distinct values for series' modalities"/>
+      <definition value="All the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>
