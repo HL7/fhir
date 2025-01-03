@@ -23,9 +23,13 @@ resource has been updated? To avoid any such integrity problems, the target reso
 as a pair using a <a href="http.html#transaction">transaction</a>. 
 The <a href="provenance.html#header">Provenance http header</a> may be used if supported. 
 </p>
+
+<a name="element"> </a>
+<h4>Element Level Provenance</h4>
 <p>
-The <i>Provenance.target</i> may point at a specific element within the targetted resource using the <a href="[%extensions-location%]StructureDefinition-targetElement.html">target element extension</a> or <a href="[%extensions-location%]StructureDefinition-targetPath.html">target path extension</a>. For example when updating a Patient resource with a new official name, such as shown in <a href="provenance-example1.html">example 1</a>, where the Provenance is indicating that the official name was provided by the Patient themselves.
+The <i>Provenance.target</i> may point at a specific element within the targeted resource using the <a href="[%extensions-location%]StructureDefinition-targetElement.html">target element extension</a> or <a href="[%extensions-location%]StructureDefinition-targetPath.html">target path extension</a>. For example when updating a Patient resource with a new official name, such as shown in <a href="provenance-example1.html">example 1</a>, where the Provenance is indicating that the official name was provided by the Patient themselves.
 </p>
+
 <a name="header"> </a>
 <h4>HTTP Header</h4>
 
@@ -104,7 +108,7 @@ Examples of this activity with Provenance profile can be found in the <a href="h
 </ul>
 </p>
 <a name="patients"></a>
-<h3>Muiltiple Patients Affected</h3>
+<h3>Multiple Patients Affected</h3>
 <p>
 Where a provenance activity impacts more than one Patient/Subject; multiple Provenance resources should be recorded, one for each Patient/Subject. This best enables segmentation of the Provenance details so as to limit the Privacy impact. The use of multiple Provenance is a best-practice and should be driven by a Policy. There will be cases where the use of multiple Provenance resources is not necessary, such as public health reporting.
 </p>
