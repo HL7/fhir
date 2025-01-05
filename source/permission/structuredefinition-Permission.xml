@@ -418,10 +418,48 @@
     </element>
     <element id="Permission.rule.activity.actor">
       <path value="Permission.rule.activity.actor"/>
+      <short value="Who|what is controlled by this rule"/>
+      <definition value="Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')."/>
+      <comment value="When both reference and role are given the actor is only selected when that reference actor is functionally carrying out that role."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <meaningWhenMissing value="There is no specific actor associated with the rule"/>
+      <mapping>
+        <identity value="fhirconsent"/>
+        <map value="Consent.provision.actor"/>
+      </mapping>
+    </element>
+    <element id="Permission.rule.activity.actor.role">
+      <path value="Permission.rule.activity.actor.role"/>
+      <short value="How the actor is involved"/>
+      <definition value="How the individual is involved in the activity that is described in the rule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActorRole"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="How an actor is involved in the rule."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+      </binding>
+      <mapping>
+        <identity value="fhirconsent"/>
+        <map value="Consent.provision.actor.role"/>
+      </mapping>
+    </element>
+    <element id="Permission.rule.activity.actor.reference">
+      <path value="Permission.rule.activity.actor.reference"/>
       <short value="Authorized actor(s)"/>
       <definition value="The actor(s) authorized for the defined activity."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
@@ -436,7 +474,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="fhirconsent"/>
-        <map value="Consent.provision.actor"/>
+        <map value="Consent.provision.actor.reference"/>
       </mapping>
     </element>
     <element id="Permission.rule.activity.action">

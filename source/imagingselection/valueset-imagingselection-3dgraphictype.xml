@@ -22,9 +22,9 @@
   <version value="6.0.0"/>
   <name value="ImagingSelection3DGraphicType"/>
   <title value="Imaging Selection3 D Graphic Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2024-12-30"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
