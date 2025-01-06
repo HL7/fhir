@@ -194,13 +194,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceDefinition.owner"/>
+          <valueString value="DeviceDefinition.contact"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-organization"/>
-        <description value="The organization responsible for the device"/>
+        <description value="The contact organization for the device definition"/>
         <code value="organization"/>
-        <type value="reference"/>
-        <expression value="DeviceDefinition.owner"/>
+        <type value="string"/>
+        <expression value="DeviceDefinition.contact.name | DeviceDefinition.publisher"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
