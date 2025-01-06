@@ -366,22 +366,26 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
-		<element id="DeviceDefinition.contact">
-			<path value="DeviceDefinition.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/>
+    <element id="DeviceDefinition.contact">
+      <path value="DeviceDefinition.contact"/>
+      <short value="Details for human/organization for support"/>
+      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
+      <comment value="used for troubleshooting etc."/>
+      <min value="0"/>
+      <max value="*"/>
 			<type>
 				<code value="ContactDetail"/>
 			</type>
 			<isSummary value="true"/>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.source"/>
-			</mapping>
-		</element>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopedRole[typeCode=CON].player"/>
+      </mapping>
+    </element>
 		<element id="DeviceDefinition.publisher">
 			<path value="DeviceDefinition.publisher"/>
 			<short value="The the organization responsible for publishing the definition"/>
@@ -796,25 +800,6 @@
       <type>
         <code value="Attachment"/>
       </type>
-    </element>
-    <element id="DeviceDefinition.contact">
-      <path value="DeviceDefinition.contact"/>
-      <short value="Details for human/organization for support"/>
-      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
-      <comment value="used for troubleshooting etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".scopedRole[typeCode=CON].player"/>
-      </mapping>
     </element>
     <element id="DeviceDefinition.link">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
