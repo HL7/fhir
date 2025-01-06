@@ -107,33 +107,6 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-		<element id="DeviceDefinition.publisher">
-			<path value="DeviceDefinition.publisher"/>
-			<short value="The the organization responsible for publishing the definition"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the device definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-		</element>
-		<element id="DeviceDefinition.contact">
-			<path value="DeviceDefinition.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
     <element id="DeviceDefinition.udiDeviceIdentifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
@@ -393,6 +366,33 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
+		<element id="DeviceDefinition.contact">
+			<path value="DeviceDefinition.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="DeviceDefinition.publisher">
+			<path value="DeviceDefinition.publisher"/>
+			<short value="The the organization responsible for publishing the definition"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the device definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
     <element id="DeviceDefinition.classification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,225"/>
