@@ -85,20 +85,6 @@
             <min value="2"/>
             <max value="*"/>
         </element>
-        <!-- don't know what this is doing, but it doesn't make sense
-        <element id="MolecularDefinition.representation.focus">
-            <path value="MolecularDefinition.representation.focus"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <description value="Slice by .representation.code when using this section library"/>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>-->
         <!--        context state slice-->
         <element id="MolecularDefinition.representation:ContextState">
             <path value="MolecularDefinition.representation"/>
