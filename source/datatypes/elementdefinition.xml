@@ -984,7 +984,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Name for element to display with or prompt for element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">String to display with or prompt for element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">See also the extension [[[http://hl7.org/fhir/StructureDefinition/elementdefinition-question]]]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
