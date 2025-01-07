@@ -81,7 +81,7 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="inv-1"/>
+        <key value="tsk-0"/>
         <severity value="error"/>
         <human value="Last modified date must be greater than or equal to authored-on date."/>
         <expression value="lastModified.exists().not() or authoredOn.exists().not() or lastModified &gt;= authoredOn"/>

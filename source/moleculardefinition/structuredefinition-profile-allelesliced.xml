@@ -85,6 +85,7 @@
             <min value="1"/>
             <max value="*"/>
         </element>
+        <!-- this makes no sense at all 
         <element id="MolecularDefinition.representation.focus">
             <path value="MolecularDefinition.representation.focus"/>
             <slicing>
@@ -97,7 +98,7 @@
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
-        </element>
+        </element>-->
         <!--        context state slice-->
         <element id="MolecularDefinition.representation:ContextState">
             <path value="MolecularDefinition.representation"/>
