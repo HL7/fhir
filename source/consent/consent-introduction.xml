@@ -1,6 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-    <a name="scope"></a>
-    <h2>Scope and Usage</h2>
+    <h2>Scope and Usage</h2>    <a name="scope"></a>
     <p>
         The purpose of this Resource is to be used to express a Consent
         regarding Healthcare. There are three anticipated uses for the Consent Resource, all of which are written or
@@ -77,8 +76,7 @@
             <a href="https://www.w3.org/community/odrl/">ODRL</a>, etc.).
         </li>
     </ul>
-    <a name="bnr"></a>
-    <h2>Boundaries and Relationships</h2>
+    <h2>Boundaries and Relationships</h2>    <a name="bnr"></a>
     <p>
         Consent management - particularly privacy consent - is complicated by
         the fact that consent to share
@@ -127,8 +125,7 @@
         make rules about what signatures are required, and how they are to be
         shared and used.
     </p>
-    <a name="bnc"></a>
-    <h2>Background and Context</h2>
+    <h2>Background and Context</h2>    <a name="bnc"></a>
     <p>
         The Consent resource is structured with a base policy (represented as
         Consent.decision) which is either permit or deny, followed by a listing
