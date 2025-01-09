@@ -159,7 +159,7 @@
         </discriminator>
         <discriminator>
           <type value="pattern"/>
-          <path value="valueCodeableConcept"/>
+          <path value="value"/>
         </discriminator>
         <rules value="open"/>
       </slicing>
@@ -262,7 +262,7 @@
         </discriminator>
         <discriminator>
           <type value="pattern"/>
-          <path value="valueCodeableConcept"/>
+          <path value="value"/>
         </discriminator>
         <rules value="open"/>
       </slicing>
