@@ -62,44 +62,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="FamilyMemberHistory-instantiates-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="FamilyMemberHistory.instantiatesCanonical"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-instantiates-canonical"/>
-        <description value="Instantiates FHIR protocol or definition"/>
-        <code value="instantiates-canonical"/>
-        <type value="reference"/>
-        <expression value="FamilyMemberHistory.instantiatesCanonical"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="FamilyMemberHistory-instantiates-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="FamilyMemberHistory.instantiatesUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-instantiates-uri"/>
-        <description value="Instantiates external protocol or definition"/>
-        <code value="instantiates-uri"/>
-        <type value="uri"/>
-        <expression value="FamilyMemberHistory.instantiatesUri"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="FamilyMemberHistory-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
