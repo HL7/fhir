@@ -256,7 +256,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">requestor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
+    <Cell><Data ss:Type="String">ClinicalAssessment</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
