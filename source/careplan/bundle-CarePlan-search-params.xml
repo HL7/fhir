@@ -256,44 +256,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="CarePlan-instantiates-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="CarePlan.instantiatesCanonical"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-instantiates-canonical"/>
-        <description value="Instantiates FHIR protocol or definition"/>
-        <code value="instantiates-canonical"/>
-        <type value="reference"/>
-        <expression value="CarePlan.instantiatesCanonical"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="CarePlan-instantiates-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="CarePlan.instantiatesUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-instantiates-uri"/>
-        <description value="Instantiates external protocol or definition"/>
-        <code value="instantiates-uri"/>
-        <type value="uri"/>
-        <expression value="CarePlan.instantiatesUri"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="CarePlan-intent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
