@@ -194,7 +194,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceDefinition.contact"/>
+          <valueString value="DeviceDefinition.contact.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-organization"/>
         <description value="The contact organization for the device definition"/>
