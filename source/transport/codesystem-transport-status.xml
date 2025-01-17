@@ -76,6 +76,11 @@
     <definition value="Transport has been completed."/>
   </concept>
   <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="Transport has been entered in error."/>
+  </concept>
+  <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
     <definition value="The transport status is unknown."/>
