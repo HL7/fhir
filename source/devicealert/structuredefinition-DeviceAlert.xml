@@ -497,7 +497,7 @@
             <short value="How the signal is being annunciated" />
             <!--       <definition value="" /> -->
             <min value="0" />
-            <max value="*" />
+            <max value="1" />
             <isSummary value="false" />
             <mapping>
                 <identity value="DIM" />
