@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="evidence-variable-constraint"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/evidence-variable-constraint"/>
+
+  <version value="6.0.0"/>
+  <name value="EvidenceVariableConstraint"/>
+  <title value="Evidence Variable Constraint"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2024-11-14T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="A rule, such as a format or other expectation, for the data values."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-constraint"/>
+  <content value="complete"/>
+  <concept>
+    <code value="alphanumeric-only"/>
+    <display value="Alphanumeric Characters Only"/>
+    <definition value="String values that are restricted to only numbers and letters [A-Za-z0-9]."/>
+  </concept>
+  <concept>
+    <code value="alphanumeric-space-only"/>
+    <display value="Alphanumeric and Space Characters Only"/>
+    <definition value="String values that are restricted to only numbers, letters, and spaces [A-Za-z0-9\s]."/>
+  </concept>
+  <concept>
+    <code value="range-zero-to-one"/>
+    <display value="Range Zero to One"/>
+    <definition value="Numeric value between 0 and 1, inclusive."/>
+  </concept>
+</CodeSystem>

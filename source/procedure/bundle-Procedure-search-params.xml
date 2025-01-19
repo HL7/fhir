@@ -119,44 +119,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Procedure-instantiates-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Procedure.instantiatesCanonical"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-instantiates-canonical"/>
-        <description value="Instantiates FHIR protocol or definition"/>
-        <code value="instantiates-canonical"/>
-        <type value="reference"/>
-        <expression value="Procedure.instantiatesCanonical"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Procedure-instantiates-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Procedure.instantiatesUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-instantiates-uri"/>
-        <description value="Instantiates external protocol or definition"/>
-        <code value="instantiates-uri"/>
-        <type value="uri"/>
-        <expression value="Procedure.instantiatesUri"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Procedure-location"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

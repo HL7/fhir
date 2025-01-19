@@ -16,8 +16,8 @@
   <version value="6.0.0"/>
   <name value="ConsentVerificationCodes"/>
   <title value="Consent Vefication Codes"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="CBCC"/>
   <contact>
     <telecom>
