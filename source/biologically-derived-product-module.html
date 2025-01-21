@@ -19,7 +19,16 @@ in order to support consistent definitions for schema and UML derived code.
     <a name="intro"></a>
     <h3>Introduction</h3>
     <p>
-        This module outlines the resources and functionality used to model biologically derived products (BDP) that have specific requirements for traceability and allocation. The Biologically Derived Product is used to track biological products of human or non-human origin intended to be transplanted or infused into a human. Examples of products of human origin (referred to as Medical Products of Human Origin, or MPHO) include: blood for transfusion; blood and marrow for cellular therapy; organs, cornea, vascular tissue, bone, tendons, and other tissues for transplantation; banked human milk; and, serum eye drops. Examples of non-human derived products include porcine dermis and porcine heart valves. In most countries BDP are regulated separately from medicines and medical devices and have specific traceability requirements including the need to be able to trace back to the donor, and the need to retain traceability records for very long periods (e.g., 30 years from time of use for tissues and cells clinically applied in the EU).
+        This module outlines the resources and functionality used to model biologically derived products (BDP) that have specific requirements for traceability and allocation. The Biologically Derived Product is used to track biological products of human or non-human origin intended to be transplanted or infused into a human.
+    </p>
+    <p>
+        Examples of products of human origin (referred to as Medical Products of Human Origin, or MPHO) include: blood for transfusion; blood and marrow for cellular therapy; organs, cornea, vascular tissue, bone, tendons, and other tissues for transplantation; banked human milk; and, serum eye drops.
+    </p>
+    <p>
+        Examples of non-human derived products include: porcine dermis and porcine heart valves.
+    </p>
+    <p>
+        In most countries BDP are regulated separately from medicines and medical devices and have specific traceability requirements including the need to be able to trace back to the donor, and the need to retain traceability records for very long periods (e.g. 30 years from time of use for tissues and cells clinically applied in the EU).
     </p>
     <p>
         Some BDP are regulated as medical devices in some jurisdictions and these may need to be managed through the Medical Devices module in FHIR. Traceability and lookback functionality will need to take into account that material from a single donation event may result in products that are managed as both biologics and medical devices. Care will need to be taken when products cross international boundaries as the regulatory framework may change, thus a product regulated as a medical device in the US may be regulated as Tissues and Cells in the EU.
@@ -28,7 +37,7 @@ in order to support consistent definitions for schema and UML derived code.
         For BDP derived from a human donor (an MPHO) bi-directional traceability is essential. A profile for MPHO has been developed that specifies that essential traceability identifiers are required.
     </p>
     <p>
-        For further information on the boundary between BDP and Specimen see <a href="biologicallyderivedproduct.html#8.26.2">Biologically Derived Product Boundaries and Relationships</a>.
+        For further information on the boundary between BDP and Specimen see <a href="biologicallyderivedproduct.html#8.27.2">Biologically Derived Product Boundaries and Relationships</a>.
     </p>
 
     <a name="index"></a>
@@ -47,7 +56,7 @@ in order to support consistent definitions for schema and UML derived code.
     <strong style="color:red">Important Notes:</strong>
     <ul>
         <li>
-            For BDP derived from a human donor traceability between donor and recipient has to be maintained. Models described in this module support traceability. If alternative models are used care must be taken to ensure the traceability pathway is maintained.
+            For BDP derived from a human donor, traceability between donor and recipient has to be maintained. Models described in this module support traceability. If alternative models are used then care must be taken to ensure the traceability pathway is maintained.
         </li>
     </ul>
 
@@ -73,7 +82,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td><a href="supplydelivery.html">Supply Delivery</a></td>
             <td>
                 <p>
-                    The SupplyDelivery resource (SD) carries information on a consignment of BDP shipped from a supplier (blood center; tissue bank; eye bank; registry; manufacturer) to a hospital BDP custodian entity (transfusion laboratory; sterile supplies). The stage element of SupplyDelivery allows the dispatch and receipt events to be captured. The SD references the BDP of each of the products in the consignment.
+                    The SupplyDelivery resource (SD) carries information on a consignment of BDP shipped from a supplier (e.g. blood center; tissue bank; eye bank; registry; manufacturer) to a hospital BDP custodian entity (e.g. transfusion laboratory; sterile supplies). The stage element of SupplyDelivery allows the dispatch and receipt events to be captured. The SD references the BDP of each of the products in the consignment.
                 </p>
             </td>
         </tr>
@@ -97,7 +106,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td valign="top"><a href="procedure.html">Procedure</a></td>
             <td>
                 <p>
-                    The clinical team receiving the BDP and associated BDPD performs the clinical application (transfusion; transplant; etc.) and the event is recorded using the Procedure resource. This resource references the BDP and the recipient identifier, together with relevant information regarding the clinical application activity.
+                    The clinical team receiving the BDP and associated BDPD performs the clinical application (e.g. transfusion; transplant; etc.) and the event is recorded using the Procedure resource. This resource references the BDP and the recipient identifier, together with relevant information regarding the clinical application activity.
                 </p>
             </td>
         </tr>
@@ -112,7 +121,7 @@ in order to support consistent definitions for schema and UML derived code.
 
     <a name="example-celltherapy"></a>
     <h4>Cellular Therapy</h4>
-    <p>It is possible for a ServiceRequest to specify a collection event (procedure) and then a subsequent ServiceRequest for the BDPDispense and infusion (procedure). The procedure would collect from the donor patient and result in a BDP that could later be dispensed to the recipient patient. This is a common occurrence for standard of care blood and marrow transplant (BMT) centers that find a matching donor for an intended recipient, collect healthy blood-forming stem cells, and infuse those cells into a recipient patient. For some indications it is also common for stem cells to be collected from a patient prior to them receiving other treatments (i.e. chemotherapy, radiation), with the cryopreserved cells later being thawed and infused back into the patient.</p>
+    <p>It is possible for a ServiceRequest to specify a collection event (procedure) and then a subsequent ServiceRequest for the BDPDispense and infusion (procedure). The procedure would collect from the donor patient and result in a BDP that could later be dispensed to the recipient patient. This is a common occurrence for standard of care blood and marrow transplant (BMT) centers that find a matching donor for an intended recipient, collect healthy blood-forming stem cells, and infuse those cells into a recipient patient. For some indications it is also common for stem cells to be collected from a patient prior to them receiving other treatments (e.g. chemotherapy, radiation), with the cryopreserved cells later being thawed and infused back into the patient.</p>
     <img src="biologicallyderivedproduct-module-celltherapyexample.png" alt="Image showing the usage of the Biologically Derived Product and related resources for cell therapy" />
     <br />
 
@@ -122,7 +131,7 @@ in order to support consistent definitions for schema and UML derived code.
             BMT clinical team orders the Hospital Transfusion/Cell Therapy Laboratory to collect stem cells from the patient (ServiceRequest). This will include specifying any regimens required such as stem cell mobilization drugs or scheduling requirements.
         </li>
         <li>
-            The stem cells are collected from the patient (as many as possible) and cryopreserved for future use (Procedure). This may involve a surgical suite (bone marrow) or apheresis unit (peripheral blood) but ultimate chain of custody of the product resides with the laboratory. There will commonly be multiple biologically derived product instances as a result of collection.
+            The stem cells are collected from the patient (as many as possible) and cryopreserved for future use (Procedure). This may involve a surgical suite (bone marrow) or apheresis unit (peripheral blood) but the ultimate chain of custody of the product resides with the laboratory. There will commonly be multiple biologically derived product instances as a result of collection.
         </li>
         <li>
             The Hospital Transfusion/Cell Therapy Laboratory processes the stem cells based on the unique needs of the intended recipient. In standard of care applications this could mean plasma reduction while in advanced applications this could include ex vivo expansion or further specialized processing.
@@ -141,13 +150,13 @@ in order to support consistent definitions for schema and UML derived code.
     <b>Example: Allogeneic stem cell transplant that uses healthy stem cells from a healthy donor to replace bone marrow that is not producing healthy blood cells</b>
     <ol>
         <li>
-            BMT clinical team orders human leukocyte antigen (HLA) testing for intended recipient and potential donors to identify if a suitable healthy donor exists. The donor matching may occur through the hospital network or an international registry soliciting stem cell donors on a global basis. This step is relevent for context purposes but is out of scope for the BDP FHIR resources and is not included in the related diagrams.
+            BMT clinical team orders human leukocyte antigen (HLA) testing for intended recipient and potential donors to identify if a suitable healthy donor exists. The donor matching may occur through the hospital network or an international registry soliciting stem cell donors on a global basis. This step is relevant for context purposes but is out of scope for the BDP FHIR resources and is not included in the related diagrams.
         </li>
         <li>
             BMT clinical team orders the Hospital Transfusion/Cell Therapy Laboratory to collect stem cells from the selected donor (ServiceRequest). This will include specifying any regimens required such as stem cell mobilization drugs or scheduling requirements.
         </li>
         <li>
-            The stem cells are collected from the donor (as many as possible) (Procedure). This may involve a surgical suite (bone marrow) or apheresis unit (peripheral blood) but ultimate chain of custody of the product resides with the laboratory. There will commonly be multiple biologically derived product instances as a result of collection.
+            The stem cells are collected from the donor (as many as possible) (Procedure). This may involve a surgical suite (bone marrow) or apheresis unit (peripheral blood) but the ultimate chain of custody of the product resides with the laboratory. There will commonly be multiple biologically derived product instances as a result of collection.
         </li>
         <li>
             The Hospital Transfusion/Cell Therapy Laboratory processes the stem cells based on the unique needs of the intended recipient. In standard of care applications this could mean plasma reduction or RBC depletion while in advanced applications this could include ex vivo expansion or further specialized processing. (not shown in the diagram)
@@ -177,7 +186,7 @@ in order to support consistent definitions for schema and UML derived code.
             Eye bank sources cornea and dispatches to BDP custodian (BiologicallyDerivedProductDispense).
         </li>
         <li>
-            The tissue is delivered to the eye clinic BDP custodian (usually an appointed nurse, or the chief nurse of operating theatre, or transfusion laboratory staff).
+            The tissue is delivered to the eye clinic BDP custodian (usually an appointed nurse, or the chief nurse of the operating theatre, or transfusion laboratory staff).
         </li>
         <li>
             Surgeon implants cornea (Procedure)
@@ -194,7 +203,7 @@ in order to support consistent definitions for schema and UML derived code.
             Patient's clinician identifies the need for a platelet transfusion and places a request with the transfusion laboratory (ServiceRequest).
         </li>
         <li>
-            Transfusion laboratory selects suitable platelet units from stock and allocates for the patient (BiologicallyDerivedProductDispense).
+            Transfusion laboratory selects suitable platelet units from stock and allocates them for the patient (BiologicallyDerivedProductDispense).
         </li>
         <li>
             Platelet units are transferred from the transfusion laboratory to the ward.
@@ -213,7 +222,7 @@ in order to support consistent definitions for schema and UML derived code.
     <b>Example: Blood transfusion for patient with antibodies.</b>
     <ol>
         <li>
-            Patients clinician identifies the need for a blood transfusion and requests 3 units of red cells (ServiceRequest).
+            The patient's clinician identifies the need for a blood transfusion and requests 3 units of red cells (ServiceRequest).
         </li>
         <li>
             Transfusion laboratory orders blood specimens to be collected from the patient.
@@ -377,11 +386,11 @@ in order to support consistent definitions for schema and UML derived code.
     </ul>
     <p>In the context of blood transfusion, observations based on tests performed on specimens collected from the patient fulfil a number of important roles:</p>
     <ol>
-        <li>to help determine the need for the clinical application of a BDP (e.g. platelet count on patient specimen gives indication if platelet transfusion is required)</li>
-        <li>to determine important serological information about the patient prior to transfusion (blood group of patient, presence of atypical antibodies)</li>
-        <li>to ensure the selection of safe product for the patient (e.g. blood crossmatch using a patient specimen ensures compatibility between red blood cell units and patient)</li>
-        <li>follow-up specimen collection can provide information on efficacy of treatment and the need for additional clinical support (e.g. post-transfusion platelet count can indicate effectiveness of platelet therapy)</li>
-        <li>investigation of suspected transfusion reaction will involve the analysis of pre- and post- transfusion specimens</li>
+        <li>To help determine the need for the clinical application of a BDP (e.g. platelet count on patient specimen gives indication if platelet transfusion is required)</li>
+        <li>To determine important serological information about the patient prior to transfusion (blood group of patient, presence of atypical antibodies)</li>
+        <li>To ensure the selection of safe product for the patient (e.g. blood crossmatch using a patient specimen ensures compatibility between red blood cell units and patient)</li>
+        <li>Follow-up specimen collection can provide information on efficacy of treatment and the need for additional clinical support (e.g. post-transfusion platelet count can indicate effectiveness of platelet therapy)</li>
+        <li>Investigation of suspected transfusion reaction will involve the analysis of pre- and post- transfusion specimens</li>
     </ol>
 
     <b>Clinical</b>
