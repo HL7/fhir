@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"></a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 This resource covers the supply of biologically derived products to a patient. Examples include provision of highly matched cellular therapy products or crossmatched blood for a patient, supply of a cornea for ocular surgery, supply of a skin products for burn trauma therapy, provision of banked human milk for very low birthweight babies. The biologically derived product dispense can be the result of a transfusion laboratory or tissue bank system responding to a request or order. Typically the dispense is only considered completed (i.e., status=allocated or issued) after necessary medical release conditions have been met.
@@ -10,8 +10,8 @@ This resource covers the supply of biologically derived products to a patient. E
 </p>
 </div>
 
-
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource has boundaries with MedicationDispense and DeviceDispense. BiologicallyDerivedProductDispense should be used when the product is a biologic derived from a human donor or another biological entity.
