@@ -37,7 +37,7 @@
       <filter>
         <property value="partition"/>
         <op value="="/>
-        <value value="1"/>
+        <value value="3"/>
       </filter>
     </include>
   </compose>

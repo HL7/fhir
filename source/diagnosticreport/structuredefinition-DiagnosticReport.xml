@@ -266,6 +266,7 @@
       <path value="DiagnosticReport.code"/>
       <short value="Name/Code for this diagnostic report"/>
       <definition value="A code or name that describes this diagnostic report."/>
+      <comment value="DiagnosticReport.code is primarily meant to characterize the nature of the entire report, not to summarize the content in detail. In the case where multiple orderables are included in a single report, then the single DiagnosticReport.code would represent the entire 'panel' that the report is covering."/>
       <alias value="Type"/>
       <min value="1"/>
       <max value="1"/>

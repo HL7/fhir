@@ -7,6 +7,13 @@
 		<value value="345675" />
 	</identifier>
 	<status value="completed"/>
+	<type value="physiological" />
+	<subject>
+		<reference value="Patient/pat1"/>
+	</subject>
+	<source>
+		<reference value="Device/example" />
+	</source>
 	<condition>
 		<code>
 			<coding>
@@ -16,11 +23,4 @@
 		</code>
 		<presence value="true"/>
 	</condition>
-	<type value="physiological" />
-	<subject>
-		<reference value="Patient/pat1"/>
-	</subject>
-	<source>
-		<reference value="Device/example" />
-	</source>
 </DeviceAlert>
