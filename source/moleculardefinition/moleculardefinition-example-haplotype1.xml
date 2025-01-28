@@ -13,6 +13,16 @@
     </moleculeType>
     <name value="CYP2C19*1B"/>
     <name value="CYP2C19*1.002"/>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele1"/>
+        <type value="MolecularDefinition"/>
+        <display value="First Allele, NG_008384.3:g.5124C>T"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele2"/>
+        <type value="MolecularDefinition"/>
+        <display value="Second Allele, NG_008384.3:g.85186A>G"/>
+    </memberState>
     <location>
         <sequenceLocation>
             <sequenceContext>
@@ -40,14 +50,4 @@
             </coordinateInterval>
         </sequenceLocation>
     </location>
-    <memberState>
-        <reference value="MolecularDefinition/example-allele1"/>
-        <type value="MolecularDefinition"/>
-        <display value="First Allele, NG_008384.3:g.5124C>T"/>
-    </memberState>
-    <memberState>
-        <reference value="MolecularDefinition/example-allele2"/>
-        <type value="MolecularDefinition"/>
-        <display value="Second Allele, NG_008384.3:g.85186A>G"/>
-    </memberState>
 </MolecularDefinition>

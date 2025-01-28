@@ -3,116 +3,712 @@
   <!-- insert xhtml content here -->
 
   <h2>Notes</h2>
-  <h3>Representing the Sequence</h3>
-  <p>
-    This resource supports three patterns for representing a sequence of interest:
-    <ul>
-      <li>By providing a literal string of IUPAC codes representing nucleotides or amino acids.</li>
-      <li>By linking to a formatted file or link containing the sequence information (e.g. FASTA file or GA4GH sequence repository).</li>
-      <li>By providing a list of edits from a starting sequence.</li>
-    </ul>
-  </p>
-  <p>
-    The MolecularSequence resource is designed to represent a single sequence in an instance. Each sequence might have multiple representations, but implementers SHALL ensure all representations are for the same sequence.
-  </p>
-  <h4>Sequence as a literal string</h4>
-  <p>
-    <code>literal</code>: This string element can be used to hold the sequence as a string of characters.
-  </p>
-  <h4>Sequence as a file or URL</h4>
-  <p>
-    <code>formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
-  </p>
-  <p>
-    This method can be used to refer to sequence data from in an external source. If the sequence is referring to a GA4GH repository, the <code>formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
-  </p>
-  <h4>Sequence as a series of edits from a known sequence</h4>
-  <p>
-    <code>relative</code>: This complex element is used for encoding sequence. When the information of starting sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
-  </p>
-  <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px" />
 
-  <h5>Composing multiple relative sequences into one new sequence</h5>
-  <p>
-    <code>relative.ordinalPosition</code>: Indicates the order in which the sequence should be considered when putting multiple <code>relative</code> instances together.
-  </p>
-  <p>
-    <code>relative.sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> instances are used together.
-  </p>
-  <p>
-    These attributes help to clarify what sequence is being represented with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range).
-  </p>
-  <!--  <p>
-      In a FGFR2:MET Fusion use case, where the fusion was uncovered through RNA sequencing, a partial representation can be found <a href="sequence-example-ordinal.html">here</a>.
-    </p>-->
-  <h5>Representing the Starting Sequence</h5>
-  <p>
-    <code>relative.startingSequence</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:
-    <ol>
-      <li><code>relative.startingSequence.sequenceCodeableConcept</code>: Starting sequence id in public database;</li>
-      <li><code>relative.startingSequence.sequenceString</code>: Starting sequence string; </li>
-      <li><code>relative.startingSequence.sequenceReference</code>: Reference to starting sequence stored in another sequence entity; </li>
-      <li><code>relative.startingSequence.genomeAssembly</code>, <code>relative.startingSequence.chromosome</code>: The combination of genome assembly and chromosome. </li>
-    </ol>
-  </p>
-  <p>
-    The <code>relative.startingSequence.windowStart</code> and <code>relative.startingSequence.windowEnd</code>defines a range from the starting sequence that is used to define a subsequence used as the starting sequence.
-  </p>
-  <h5>Coordinate System</h5>
-  <p>
-    When saving the sequence information, the nucleic acid will be numbered with order. Some representations use a 0-based system (e.g. GA4GH API, BAM files) while some use a 1-based system (e.g. VCF file format). The element coordinateSystem contains this information.
-  </p>
-  <p>
-    <code>relative.coordinateSystem</code> binds to a LOINC answer list, please review those answers <a href="https://loinc.org/LL5323-2/">here</a> as well as the detailed description found <a href="https://loinc.org/92822-6/">here</a>.
-  </p>
-  <!--  <p>
-      Here are two examples:
-      <ul>
-        <li>0-based example: <a href="coord-0base-example.html">here</a></li>
-        <li>1-based example: <a href="coord-1base-example.html">here</a></li>
-      </ul>
-    </p>-->
-  <h5>Choice of Strand</h5>
-  <p>
-    There are many considerations concerning the directionality of DNA or RNA. Here we are using <code>relative.startingSequence.orientation</code> and <code>relative.startingSequence.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
-  </p>
-  <p>
-    Only two possible values can be made by strand, <code>watson</code> and <code>crick</code>. Since the directionality of the sequence string might be represented in different ways in different omics scenario, below are examples of how to map other expressions into its correlated value:
-  </p>
-  <table style="width:100%">
-    <tr>
-      <th>Watson</th>
-      <th>Crick</th>
-    </tr>
-    <tr>
-      <td>5′-to-3′ direction</td>
-      <td>3′-to-5′ direction</td>
-    </tr>
-    <tr>
-      <td>+1</td>
-      <td>-1</td>
-    </tr>
-    <tr>
-      <td>Sense</td>
-      <td>Antisense</td>
-    </tr>
-    <tr>
-      <td>Positive</td>
-      <td>Negative</td>
-    </tr>
+  <h3>Encodings</h3>
+  <p>Molecular sequences are represented using numerous encodings, which are not always explicitly specified. The <code>representation.literal.encoding</code> attribute captures this information directly, so that implementors can validate the content of messages and computationally determine how a particular sequence should be interpreted.</p>
+  
+  <p>The examples below illustrate different encodings, which could be used to create terms for this attribute. They are based on the IUPAC symbols for nucleotide and amino acid sequences.</p>
+  <ul>
+      <li><a href="https://www.bioinformatics.org/sms/iupac.html">IUPAC symbols for nucleotide sequences</a></li>
+      <li><a href="https://iupac.qmul.ac.uk/AminoAcid/AA1n2.html#AA1">IUPAC symbols for amino acid sequences (1-letter code)</a></li>
+      <li><a href="https://iubmb.qmul.ac.uk/misc/naseq.html#tab1">IUPAC symbols for nucleotide sequences (IUBMB)</a></li>
+      <li><a href="https://iupac.qmul.ac.uk/AminoAcid/A2021.html">IUPAC symbols for amino acid sequences (3-letter code)</a></li>
+  </ul>
+  <h4>Nucleotide Symbols (1-letter, no ambiguity, DNA residues)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Meaning</th>
+              <th>Origin of designation</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>G</td>
+              <td>Guanine</td>
+              <td>G</td>
+          </tr>
+          <tr>
+              <td>A</td>
+              <td>Adenine</td>
+              <td>A</td>
+          </tr>
+          <tr>
+              <td>T</td>
+              <td>Thymine</td>
+              <td>T</td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td>Cytosine</td>
+              <td>C</td>
+          </tr>
+      </tbody>
   </table>
-  <h3>Character usage for sequence as strings</h3>
-  <p>
-    There are attributes where the sequence is represented as a string of characters.
+
+  <h4>Nucleotide, 1-letter, no ambiguity, RNA residues</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Meaning</th>
+              <th>Origin of designation</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>G</td>
+              <td>Guanine</td>
+              <td>G</td>
+          </tr>
+          <tr>
+              <td>A</td>
+              <td>Adenine</td>
+              <td>A</td>
+          </tr>
+          <tr>
+              <td>U</td>
+              <td>Uracil</td>
+              <td>U</td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td>Cytosine</td>
+              <td>C</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h4>Nucleotide Symbols (1-letter, no ambiguity except N, DNA residues)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Meaning</th>
+              <th>Origin of designation</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>G</td>
+              <td>Guanine</td>
+              <td>G</td>
+          </tr>
+          <tr>
+              <td>A</td>
+              <td>Adenine</td>
+              <td>A</td>
+          </tr>
+          <tr>
+              <td>T</td>
+              <td>Thymine</td>
+              <td>T</td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td>Cytosine</td>
+              <td>C</td>
+          </tr>
+          <tr>
+              <td>N</td>
+              <td>G or A or T or C</td>
+              <td>aNy</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h4>Nucleotide Symbols (1-letter, with ambiguity, DNA residues)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Meaning</th>
+              <th>Origin of designation</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>G</td>
+              <td>Guanine</td>
+              <td>G</td>
+          </tr>
+          <tr>
+              <td>A</td>
+              <td>Adenine</td>
+              <td>A</td>
+          </tr>
+          <tr>
+              <td>T</td>
+              <td>Thymine</td>
+              <td>T</td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td>Cytosine</td>
+              <td>C</td>
+          </tr>
+          <tr>
+              <td>R</td>
+              <td>G or A</td>
+              <td>puRine</td>
+          </tr>
+          <tr>
+              <td>Y</td>
+              <td>T or C</td>
+              <td>pYrimidine</td>
+          </tr>
+          <tr>
+              <td>M</td>
+              <td>A or C</td>
+              <td>aMino</td>
+          </tr>
+          <tr>
+              <td>K</td>
+              <td>G or T</td>
+              <td>Keto</td>
+          </tr>
+          <tr>
+              <td>S</td>
+              <td>G or C</td>
+              <td>Strong interaction (3 H bonds)</td>
+          </tr>
+          <tr>
+              <td>W</td>
+              <td>A or T</td>
+              <td>Weak interaction (2 H bonds)</td>
+          </tr>
+          <tr>
+              <td>H</td>
+              <td>A or C or T</td>
+              <td>not-G, H follows G in the alphabet</td>
+          </tr>
+          <tr>
+              <td>B</td>
+              <td>G or T or C</td>
+              <td>not-A, B follows A</td>
+          </tr>
+          <tr>
+              <td>V</td>
+              <td>G or C or A</td>
+              <td>not-T (not-U), V follows U</td>
+          </tr>
+          <tr>
+              <td>D</td>
+              <td>G or A or T</td>
+              <td>not-C, D follows C</td>
+          </tr>
+          <tr>
+              <td>N</td>
+              <td>G or A or T or C</td>
+              <td>aNy</td>
+          </tr>
+      </tbody>
+  </table>
+  <h4>Amino Acid Symbols (1-letter, no ambiguity, 20 common)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Amino acid</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>A</td>
+              <td>alanine</td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td>cysteine</td>
+          </tr>
+          <tr>
+              <td>D</td>
+              <td>aspartic acid</td>
+          </tr>
+          <tr>
+              <td>E</td>
+              <td>glutamic acid</td>
+          </tr>
+          <tr>
+              <td>F</td>
+              <td>phenylalanine</td>
+          </tr>
+          <tr>
+              <td>G</td>
+              <td>glycine</td>
+          </tr>
+          <tr>
+              <td>H</td>
+              <td>histidine</td>
+          </tr>
+          <tr>
+              <td>I</td>
+              <td>isoleucine</td>
+          </tr>
+          <tr>
+              <td>K</td>
+              <td>lysine</td>
+          </tr>
+          <tr>
+              <td>L</td>
+              <td>leucine</td>
+          </tr>
+          <tr>
+              <td>M</td>
+              <td>methionine</td>
+          </tr>
+          <tr>
+              <td>N</td>
+              <td>asparagine</td>
+          </tr>
+          <tr>
+              <td>P</td>
+              <td>proline</td>
+          </tr>
+          <tr>
+              <td>Q</td>
+              <td>glutamine</td>
+          </tr>
+          <tr>
+              <td>R</td>
+              <td>arginine</td>
+          </tr>
+          <tr>
+              <td>S</td>
+              <td>serine</td>
+          </tr>
+          <tr>
+              <td>T</td>
+              <td>threonine</td>
+          </tr>
+          <tr>
+              <td>V</td>
+              <td>valine</td>
+          </tr>
+          <tr>
+              <td>W</td>
+              <td>tryptophan</td>
+          </tr>
+          <tr>
+              <td>Y</td>
+              <td>tyrosine</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h4>Amino Acid Symbols (3-letter, no ambiguity, 20 common)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Amino acid</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Ala</td>
+              <td>alanine</td>
+          </tr>
+          <tr>
+              <td>Cys</td>
+              <td>cysteine</td>
+          </tr>
+          <tr>
+              <td>Asp</td>
+              <td>aspartic acid</td>
+          </tr>
+          <tr>
+              <td>Glu</td>
+              <td>glutamic acid</td>
+          </tr>
+          <tr>
+              <td>Phe</td>
+              <td>phenylalanine</td>
+          </tr>
+          <tr>
+              <td>Gly</td>
+              <td>glycine</td>
+          </tr>
+          <tr>
+              <td>His</td>
+              <td>histidine</td>
+          </tr>
+          <tr>
+              <td>Ile</td>
+              <td>isoleucine</td>
+          </tr>
+          <tr>
+              <td>Lys</td>
+              <td>lysine</td>
+          </tr>
+          <tr>
+              <td>Leu</td>
+              <td>leucine</td>
+          </tr>
+          <tr>
+              <td>Met</td>
+              <td>methionine</td>
+          </tr>
+          <tr>
+              <td>Asn</td>
+              <td>asparagine</td>
+          </tr>
+          <tr>
+              <td>Pro</td>
+              <td>proline</td>
+          </tr>
+          <tr>
+              <td>Gln</td>
+              <td>glutamine</td>
+          </tr>
+          <tr>
+              <td>Arg</td>
+              <td>arginine</td>
+          </tr>
+          <tr>
+              <td>Ser</td>
+              <td>serine</td>
+          </tr>
+          <tr>
+              <td>Thr</td>
+              <td>threonine</td>
+          </tr>
+          <tr>
+              <td>Val</td>
+              <td>valine</td>
+          </tr>
+          <tr>
+              <td>Trp</td>
+              <td>tryptophan</td>
+          </tr>
+          <tr>
+              <td>Tyr</td>
+              <td>tyrosine</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h4>Amino Acid Symbols (1-letter, with ambiguity)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Amino acid</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>A</td>
+              <td>alanine</td>
+          </tr>
+          <tr>
+              <td>B</td>
+              <td>aspartic acid or asparagine</td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td>cysteine</td>
+          </tr>
+          <tr>
+              <td>D</td>
+              <td>aspartic acid</td>
+          </tr>
+          <tr>
+              <td>E</td>
+              <td>glutamic acid</td>
+          </tr>
+          <tr>
+              <td>F</td>
+              <td>phenylalanine</td>
+          </tr>
+          <tr>
+              <td>G</td>
+              <td>glycine</td>
+          </tr>
+          <tr>
+              <td>H</td>
+              <td>histidine</td>
+          </tr>
+          <tr>
+              <td>I</td>
+              <td>isoleucine</td>
+          </tr>
+          <tr>
+              <td>K</td>
+              <td>lysine</td>
+          </tr>
+          <tr>
+              <td>L</td>
+              <td>leucine</td>
+          </tr>
+          <tr>
+              <td>M</td>
+              <td>methionine</td>
+          </tr>
+          <tr>
+              <td>N</td>
+              <td>asparagine</td>
+          </tr>
+          <tr>
+              <td>P</td>
+              <td>proline</td>
+          </tr>
+          <tr>
+              <td>Q</td>
+              <td>glutamine</td>
+          </tr>
+          <tr>
+              <td>R</td>
+              <td>arginine</td>
+          </tr>
+          <tr>
+              <td>S</td>
+              <td>serine</td>
+          </tr>
+          <tr>
+              <td>T</td>
+              <td>threonine</td>
+          </tr>
+          <tr>
+              <td>U</td>
+              <td>selenocysteine</td>
+          </tr>
+          <tr>
+              <td>V</td>
+              <td>valine</td>
+          </tr>
+          <tr>
+              <td>W</td>
+              <td>tryptophan</td>
+          </tr>
+          <tr>
+              <td>X</td>
+              <td>unknown or 'other' amino acid</td>
+          </tr>
+          <tr>
+              <td>Y</td>
+              <td>tyrosine</td>
+          </tr>
+          <tr>
+              <td>Z</td>
+              <td>glutamic acid or glutamine</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h4>Amino Acid Symbols (3-letter, with ambiguity)</h4>
+  <table>
+      <thead>
+          <tr>
+              <th>Symbol</th>
+              <th>Amino acid</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Ala</td>
+              <td>alanine</td>
+          </tr>
+          <tr>
+              <td>Asx</td>
+              <td>aspartic acid or asparagine</td>
+          </tr>
+          <tr>
+              <td>Cys</td>
+              <td>cysteine</td>
+          </tr>
+          <tr>
+              <td>Asp</td>
+              <td>aspartic acid</td>
+          </tr>
+          <tr>
+              <td>Glu</td>
+              <td>glutamic acid</td>
+          </tr>
+          <tr>
+              <td>Phe</td>
+              <td>phenylalanine</td>
+          </tr>
+          <tr>
+              <td>Gly</td>
+              <td>glycine</td>
+          </tr>
+          <tr>
+              <td>His</td>
+              <td>histidine</td>
+          </tr>
+          <tr>
+              <td>Ile</td>
+              <td>isoleucine</td>
+          </tr>
+          <tr>
+              <td>Lys</td>
+              <td>lysine</td>
+          </tr>
+          <tr>
+              <td>Leu</td>
+              <td>leucine</td>
+          </tr>
+          <tr>
+              <td>Met</td>
+              <td>methionine</td>
+          </tr>
+          <tr>
+              <td>Asn</td>
+              <td>asparagine</td>
+          </tr>
+          <tr>
+              <td>Pro</td>
+              <td>proline</td>
+          </tr>
+          <tr>
+              <td>Gln</td>
+              <td>glutamine</td>
+          </tr>
+          <tr>
+              <td>Arg</td>
+              <td>arginine</td>
+          </tr>
+          <tr>
+              <td>Ser</td>
+              <td>serine</td>
+          </tr>
+          <tr>
+              <td>Thr</td>
+              <td>threonine</td>
+          </tr>
+          <tr>
+              <td>Sec</td>
+              <td>selenocysteine</td>
+          </tr>
+          <tr>
+              <td>Val</td>
+              <td>valine</td>
+          </tr>
+          <tr>
+              <td>Trp</td>
+              <td>tryptophan</td>
+          </tr>
+          <tr>
+              <td>Xaa</td>
+              <td>unknown or 'other' amino acid</td>
+          </tr>
+          <tr>
+              <td>Tyr</td>
+              <td>tyrosine</td>
+          </tr>
+          <tr>
+              <td>Glx</td>
+              <td>glutamic acid or glutamine</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <h3>Molecular Representations</h3>
+  <p>The Molecular Definition resource supports several different methods for representing a molecule. Some of the elements described below may apply only to sequences, and different elements may be added to support other types of molecular concepts.</p>
+  <p>Native representations: The literal, code, and resolvable are native representations, meaning they represent a sequence “as-is” without any additional computation.</p>
+  <p>Derived representations: The extracted, concatenated, repeated, and relative representations are derived representations, meaning they require one or more computational operations to be performed to create the sequence that is being represented.</p>
+
+    <h4>Literal</h4>
+    <p>The literal element can be used to represent a sequence as a string of characters. By convention, nucleotide sequences are expressed 5’ to 3’ and protein sequences are expressed N to C terminus. The encoding element can optionally be used to specify the encoding used for the sequence literal. The encoding can be important in disambiguating sequences that share alphabets (for example, ATG might represent a translation start codon in DNA, but it could also represent a peptide containing 3 amino acids).</p>
+    
+    <h4>Code</h4>
+    <p>The code element can be used to represent a sequence by reference, using an accession number that identifies a specific sequence within a repository. The code, system, and version elements of the Coding data type can be used to fully disambiguate one code from another. Note that the code element does not guarantee that the repository is publicly accessible or that the sequence referenced by the code can be retrieved, it only specifies the sequence using a code that could be exchanged. Thus, this element could be used for both a public sequence repository (e.g., GenBank) and a private database (e.g., biobank).</p>
+    
+    <h4>Resolvable</h4>
+    <p>The resolvable element can be used to represent a sequence by reference, but it also implies that the sequence is accessible and SHOULD be resolvable (although a security layer may be present). This element makes use of the Document Reference resource, which contains the content.attachment element. The Attachment datatype can be used to represent sequences that are captured as a formatted file (using .contentType and .data) or as a URL (using .contentType and .url).</p>
+    
+    <h4>Extracted</h4>
+    <p>The extracted element can be used to represent a sequence that is derived from another, longer sequence. The startingMolecule element refers to the “parent” sequence, and is itself an instance of Molecular Definition (with its own representation). The coordinateInterval element specifies a precise interval on the “parent” sequence, which is to be extracted (conceptually or literally) and optionally reverse-complemented. This element provides a way to conveniently reference regions of very long molecules (e.g., chromosomes) without requiring either the “parent” or the extracted sequence to be serialized. Conceptually, this representation is the inverse operation of the concatenated representation.</p>
+    
+    <h4>Concatenated</h4>
+    <p>The concatenated element can be used to represent a sequence that is comprised of other sequences that are concatenated together to form the intended sequence. Each sequenceElement is specified as an instance of Molecular Definition (and each has its own representation). The order of concatenation is explicitly defined using the ordinalIndex element. Conceptually, this representation is the inverse operation of the extracted representation.</p>
+    
+    <h4>Repeated</h4>
+    <p>The repeated element can be used to represent a sequence that is comprised of a sequence motif that is repeated a specified number of times. The sequenceMotif is an instance of Molecular Definition (and has its own representation), and copyCount specifies the number of times the motif is copied in tandem. Conceptually, this representation is a special case of the concatenated representation, where each element is an identical copy of a given motif.</p>
+    
+    <h4>Relative</h4>
+    <p>The relative element can be used to represent a sequence in relation to another sequence, where the difference between the two sequences can be expressed as an ordered series of edit operations. This representation can be used to conveniently represent minor but meaningful differences between long or complex sequences (e.g., HLA alleles). Algorithmically, the relative representation defines a sequence by beginning with a startingMolecule (an instance of Molecular Definition) and performing at least one edit operation on it. Each edit operation is performed in order and includes replacing the sequence (the replacedMolecule) at a defined coordinateInterval with the sequence specified by the replacementMolecule. The resulting sequence after all edits have been performed is the sequence referenced by this representation element.</p>
+    
+    <p>Note that the edits specified in this representation are operations and NOT variations. Variations are defined as a specific comparison between two states (a reference and an alternative), and while they are sometimes called “changes” and therefore they might be confused for edit operations, they are semantically distinct concepts.</p>
+  
+  <h3>Combining Representations</h3>
+  <p>Since the derived representations (extracted, concatenated, repeated, and relative) each reference Molecular Definition, representations can be combined to support complex use cases. For example:</p>
     <ul>
-      <li><code>relative.startingSequence.sequenceString</code></li>
-      <li><code>relative.edit.replacementSequence</code></li>
-      <li><code>relative.edit.replacedSequence</code></li>
-      <li><code>literal</code></li>
+        <li>An extracted representation can use as its startingMolecule a chromosome sequence that is specified using an accession number (represented as a code).</li>
+        <li>A repeated representation can define the sequenceMotif using a literal.</li>
+        <li>A concatenated representation for an assembled contig can include each sequenceElement as an attached, formatted file via resolvable.</li>
+        <li>A relative representation can specify the startingMolecule using a code, and the replacementMolecule for each edit could be defined using a literal.</li>
     </ul>
-  </p>
-  <p>
-    The characters used in these string representations of a sequence should be constrained to the IUPAC codes found here <a href="https://www.bioinformatics.org/sms2/iupac.html">https://www.bioinformatics.org/sms2/iupac.html</a>.
-  </p>
+    <p>It is possible to create arbitrarily deep structures using derived representations, and while there might be rationale for doing so implementations should avoid overly-complex representation structures.</p>
+    
+  <h3>Equivalence and Identity</h3>
+    <p>Every representation, regardless of its complexity, can be resolved to a literal. Two instances of MolecularDefinition are considered equivalent if they define the same entity. For molecular sequences, this means that for two instances of MolecularDefinition to be equivalent they must resolve to the same literal sequence. Two instances are identical if their serializations are identical: they must contain the same elements, and each corresponding element must have the same value.</p>
+    
+  <h3>Profiling MolecularDefinition</h3>
+    <h5>Support for Molecular Concepts</h5>
+    <p>The Molecular Definition resource supports several profiles that represent molecular concepts:</p>
+    <ul>
+        <li>Sequence: a primary sequence</li>
+        <li>Allele: a Sequence at a Location on a larger, contextual Sequence</li>
+        <li>Variation: a defined comparison between a specified reference Allele and an alternative Allele, both at a given Location on a larger, contextual Sequence</li>
+    </ul>
+    <p>In addition, profiles have been drafted to represent the concepts of Haplotype and Genotype, although they have not been exercised as deeply as the profiles listed above. Finally, preliminary work has demonstrated that the Molecular Definition resource could be used to represent concepts related to structural variation, including Adjacency and Fusion. It is anticipated that profiles to support these concepts will be developed over time.</p>
+    
+    <h5>Modular Semantics and Schemas</h5>
+    <p>The MolecularDefinition resource is an abstract resource that provides building blocks for creating semantically robust, computable structures that define molecular entities. The two most complex backbone elements, location and representation, support the concept of molecular sequences but they may not be relevant to other types of entities. Conversely, other entities may require different backbone elements. As such, it is expected that these high-level backbone elements will serve as modular schemas that can be profiled as needed for a given molecular entity. Profiling could include constraints on cardinality (e.g., the Sequence profile has 0..0 location, while Allele has 1..1 location) and slicing.</p>
+    
+    <h5>Slicing the Representation Element</h5>
+    <p>The representation backbone element provides a series of methods for specifying the value of a sequence. As a result, the entire structure can be used any time a sequence is referenced, and this is accomplished by slicing. For example, the current sequence-based profiles of MolecularDefinition slice the representation element as follows:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Profile</th>
+                <th>Cardinality</th>
+                <th>Focus (slice)</th>
+                <th>Semantic meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sequence</td>
+                <td>1..1</td>
+                <td>Primary Sequence</td>
+                <td>The primary sequence of the molecule</td>
+            </tr>
+            <tr>
+                <td>Allele</td>
+                <td>1..1</td>
+                <td>Allele</td>
+                <td>The sequence of the Allele at the specified Location</td>
+            </tr>
+            <tr>
+                <td>Allele</td>
+                <td>0..1</td>
+                <td>Context</td>
+                <td>The sequence of the contextual sequence at the specified Location</td>
+            </tr>
+            <tr>
+                <td>Variation</td>
+                <td>1..1</td>
+                <td>Reference</td>
+                <td>The sequence defined as the reference allele (at the specified Location)</td>
+            </tr>
+            <tr>
+                <td>Variation</td>
+                <td>1..1</td>
+                <td>Alternate</td>
+                <td>The sequence defined as the alternate allele (at the specified Location)</td>
+            </tr>
+            <tr>
+                <td>Variation</td>
+                <td>0..1</td>
+                <td>Context</td>
+                <td>The sequence of the contextual sequence at the specified Location</td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
