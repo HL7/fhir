@@ -479,13 +479,20 @@
       <path value="ImmunizationRecommendation.recommendation.doseNumber"/>
       <short value="Recommended dose number within series"/>
       <definition value="Nominal position of the recommended dose in a series as determined by the evaluation and forecasting process (e.g. dose 2 is the next recommended dose)."/>
-      <comment value="The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose)."/>
+      <comment value="The dose number may be communicated as either a coded concept (for example Dose 1, Dose 2 or Booster) or as free text as needed by the use case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DoseNumber"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code expressing the vaccine dose number - several coding schemes exist or will be defined for each jurisdiction."/>
+      </binding>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-5 : OBX-3 = 30973-2"/>
@@ -502,12 +509,19 @@
       <path value="ImmunizationRecommendation.recommendation.seriesDoses"/>
       <short value="Recommended number of doses for immunity"/>
       <definition value="The recommended number of doses to achieve immunity as determined by the evaluation and forecasting process."/>
-      <comment value="The use of an integer is preferred if known."/>
+      <comment value="The number of doses in a series may be communicated as either a coded concept or as free text as needed by the use case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SeriesDoses"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code expressing the doses recommended or expected - several coding schemes exist or will be defined for each jurisdiction."/>
+      </binding>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-5 : OBX-3 = 59782-3"/>
