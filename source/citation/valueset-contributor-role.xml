@@ -22,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="ContributorRole"/>
   <title value="Contributor Role"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-11T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
