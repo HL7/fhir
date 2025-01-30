@@ -837,8 +837,8 @@
     </element>
     <element id="Composition.section.author">
       <path value="Composition.section.author"/>
-      <short value="Who and/or what authored the section"/>
-      <definition value="Identifies who is responsible for the information in this section, not necessarily who typed it in."/>
+      <short value="Who and/or what authored the section, when the section is authored by someone other than the composition.author"/>
+      <definition value="Identifies who is responsible for the information in this section, not necessarily who typed it in.   &#xA;&#xA;The actual author of the section when it is not the author of the composition. If author is not specified, the author is assumed to be the author of the parent section or the author of the composition."/>
       <requirements value="Identifies who is responsible for the content."/>
       <min value="0"/>
       <max value="*"/>
