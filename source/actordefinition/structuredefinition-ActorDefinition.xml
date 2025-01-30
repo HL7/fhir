@@ -72,7 +72,7 @@
 			</extension>
 			<path value="ActorDefinition"/>
 			<short value="A human or system that exchanges data"/>
-			<definition value="Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
+			<definition value="Provides a definition of an actor - human or system - that plays a role in a process, such as data exchange, along with associated obligations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>
