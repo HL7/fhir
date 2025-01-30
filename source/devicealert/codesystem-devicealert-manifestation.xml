@@ -37,13 +37,13 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-manifestation" />
   <content value="complete" />
   <concept>
-    <code value="audible" />
-    <display value="Audible" />
+    <code value="auditory" />
+    <display value="Auditory" />
     <definition value="The signal is annunciated using sound (e.g. a chime)" />
   </concept>
   <concept>
-    <code value="haptic" />
-    <display value="Haptic" />
+    <code value="vibratory" />
+    <display value="Vibratory" />
     <definition value="The signal is annunciated using a haptic or tactile method (e.g. vibration)" />
   </concept>
   <concept>

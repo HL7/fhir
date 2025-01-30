@@ -35,7 +35,6 @@
 	<identifier>
 		<value value="12345" />
 	</identifier>
-	<instantiatesUri value="http://example.org/protocol-for-obesity"/> 
 	<basedOn>
 		<display value="Management of Type 2 Diabetes" />
 	</basedOn>

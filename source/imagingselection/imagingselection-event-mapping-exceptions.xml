@@ -4,7 +4,7 @@
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
         <shortUnmatched reason="Unknown">
             <_pattern value="Business identifier for imaging selection"/>
-            <resource value="Business Identifier for Imaging Selection"/>
+            <resource value="Business Identifiers for Imaging Selection"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
@@ -47,7 +47,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.category" resourcePath="ImagingSelection.category">

@@ -522,13 +522,7 @@
       <type>
         <text value="primary-human-use"/>
       </type>
-      <language>
-        <coding>
-          <system value="urn:ietf:bcp:47"/>
-          <code value="en"/>
-          <display value="English"/>
-        </coding>
-      </language>
+      <language value="en"/>
       <text value="Association Between Administration of Systemic Corticosteroids and Mortality Among Critically Ill Patients With COVID-19: A Meta-analysis."/>
     </title>
     <abstract>
@@ -1170,13 +1164,7 @@
         <title value="JAMA"/>
         <publisherLocation value="United States"/>
       </publishedIn>
-      <language>
-        <coding>
-          <system value="urn:ietf:bcp:47"/>
-          <code value="en"/>
-          <display value="English"/>
-        </coding>
-      </language>
+      <language value="en"/>
       <pageString value="1330-1341"/>
     </publicationForm>
     <webLocation>

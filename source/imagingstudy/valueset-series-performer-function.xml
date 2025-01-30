@@ -16,8 +16,9 @@
   <version value="6.0.0"/>
   <name value="ImagingStudySeriesPerformerFunction"/>
   <title value="ImagingStudy series performer function"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-12-30"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

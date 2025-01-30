@@ -103,7 +103,7 @@
     </element>
     <element id="Endpoint.status">
       <path value="Endpoint.status"/>
-      <short value="active | suspended | error | off | entered-in-error"/>
+      <short value="active | limited | suspended | error | off | entered-in-error"/>
       <definition value="The endpoint status represents whether the endpoint can currently be used for connections or why it can't be used."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid. Temporary downtimes or other unexpected short-term changes in availability would not be represented in this property."/>
       <min value="1"/>

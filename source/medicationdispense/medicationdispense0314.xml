@@ -75,7 +75,7 @@
     <quantity>
         <value value="1"/>
         <system value="http://snomed.info/sct"/>
-        <code value="415818005"/>
+        <code value="415818006"/>
     </quantity>
     <daysSupply>
         <value value="1"/>
