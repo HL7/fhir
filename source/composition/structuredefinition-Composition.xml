@@ -771,7 +771,7 @@
       <constraint>
         <key value="cmp-2"/>
         <severity value="error"/>
-        <human value="A section can only have an emptyReason if it is empty"/>
+        <human value="A section can only have an emptyReason if no entries are included"/>
         <expression value="emptyReason.empty() or entry.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
