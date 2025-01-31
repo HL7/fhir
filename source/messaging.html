@@ -30,13 +30,10 @@ Messages are <a href="bundle.html">Bundle</a> resources, with the following rule
   <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> or
      <a href="messageheader-definitions.html#MessageHeader.response.details">MessageHeader.response.details</a> refer to
      any resources, they SHALL be included in the Bundle entries</li>
-  <li>The bundle MAY also contain additional resources that these other resources refer to. It SHOULD include all resources needed
-     for the receiver to be able to process the message as expected by the MessageHeader.event.
+  <li>The bundle MAY also contain additional resources that these other resources refer to. It SHOULD include all resources needed for the receiver to be able to process the message as expected by the MessageHeader.event.
      This can be computably defined by a <a href="messagedefinition.html">MessageDefinition</a> resource 
      or a <a href="operationdefinition.html">OperationDefinition</a> resource 
-     <a href="graphdefinition.html">GraphDefinition</a> appears inside 
-     <a href="messagedefinition.html">MessageDefinition</a> so wouldn't be referenced here. 
-     <a href="eventdefinition.html">EventDefinition</a> doesn't provide a (computable) description of the resources to be transmitted.</li>
+     </li>
   <li>The bundle SHALL NOT include resources that do have references 
     (by <a href="references.html#Reference">Reference</a> or <a href="references.html#canonical">canonical</a> links) 
     to the <code>MessageHeader</code>
