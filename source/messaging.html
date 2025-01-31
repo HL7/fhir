@@ -31,8 +31,12 @@ Messages are <a href="bundle.html">Bundle</a> resources, with the following rule
      <a href="messageheader-definitions.html#MessageHeader.response.details">MessageHeader.response.details</a> refer to
      any resources, they SHALL be included in the Bundle entries</li>
   <li>The bundle MAY also contain additional resources that these other resources refer to. It SHOULD include all resources needed
-     for the receiver to be able to process the message as expected by the MessageHeader.event 
-     (this can be defined by a <a href="messagedefinition.html">MessageDefinition</a> resource)</li>
+     for the receiver to be able to process the message as expected by the MessageHeader.event.
+     This can be computably defined by a <a href="messagedefinition.html">MessageDefinition</a> resource 
+     or a <a href="operationdefinition.html">OperationDefinition</a> resource 
+     <a href="graphdefinition.html">GraphDefinition</a> appears inside 
+     <a href="messagedefinition.html">MessageDefinition</a> so wouldn't be referenced here. 
+     <a href="eventdefinition.html">EventDefinition</a> doesn't provide a (computable) description of the resources to be transmitted.</li>
   <li>The bundle SHALL NOT include resources that do have references 
     (by <a href="references.html#Reference">Reference</a> or <a href="references.html#canonical">canonical</a> links) 
     to the <code>MessageHeader</code>
@@ -426,7 +430,13 @@ ensure that multiple parties do not interfere with each other
 by re-using the same system identifier (and against malicious
 attack).
 </p>
-
+<h4>MessageHeader and REST</h4>
+<p>
+The <a href="messageheader.html">MessageHeader</a> is important and necessary when interpreting the contents of a message - they cannot be understood without it. However once resources are removed from the message <a href="bundle.html">Bundle</a>, and processed into some other context (e.g. PUT/POST to a RESTful API, or deconstructed into a database, or transferred into any other context), the content of the <a href="messageheader.html">MessageHeader</a> SHALL NOT be relevant for interpreting the contents of the resource. To be explicit, applications using a RESTful API are not required to look for past <a href="messageheader.html">MessageHeader</a> resources that relate to a resource in order to understand the resource correctly.
+</p>
+[%impl-note%]
+Information that will need to be available to understand the resources that remain after processing a message should be conveyed using other resources - e.g. Task, Composition, etc.
+[%end-note%]
 <a name="Events"></a>
 <a name="events"></a>
 <h2>Defining Events</h2>
@@ -516,7 +526,7 @@ at the System or Resource level for a particular resource.
 To perform a search with messaging that mirrors REST functionality, the message 
 should leverage a Parameters instance with a standard parameter name of "url" and 
 a valueString that corresponds to the search string that would typically be to 
-the right of the base URL.  E.g. if in REST you would say <code>http://someserver.org/fhir/Patient?name=joe</code>code>, 
+the right of the base URL.  E.g. if in REST you would say <code>http://someserver.org/fhir/Patient?name=joe</code>, 
 then the parameter would have a value of <code>Patient?name=joe</code>.
 </p>
 <p>
