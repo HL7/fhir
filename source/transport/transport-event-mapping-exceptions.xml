@@ -53,7 +53,7 @@
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="in-progress | completed | abandoned | cancelled | planned | entered-in-error"/>
+            <resource value="preparation | in-progress | not-done | suspended | stopped | on-hold | completed | entered-in-error | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the transport."/>
