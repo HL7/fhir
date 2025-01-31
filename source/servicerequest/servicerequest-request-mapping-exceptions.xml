@@ -197,6 +197,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="ServiceRequest.requester">
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
             <resource value="The individual who initiated the request and has responsibility for its activation."/>
@@ -218,6 +219,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="ServiceRequest.performer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Requested performer"/>
