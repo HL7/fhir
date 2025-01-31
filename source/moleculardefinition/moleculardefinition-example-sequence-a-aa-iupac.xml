@@ -17,7 +17,7 @@
                 <coding>
                     <system value="http://hl7.org/fhir/moleculardefinition-encoding"/>
                     <code value="iupac-protein"/>
-                    <display value="International Union of Pure and Applied Chemistry-Amino Acid Codes"/>
+                    <display value="IUPAC-Protein"/>
                 </coding>
             </encoding>
             <value value="A"/>

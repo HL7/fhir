@@ -2,9 +2,6 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MolecularDefinition"/>
-  <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
-  </meta>
   <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
       <valueString value="Clinical.Diagnostics"/>
     </extension>-->
@@ -31,22 +28,20 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1301"/>
   </identifier>
-  <version value="6.0.0"/>
+  <version value="1.0.0"/>
   <name value="MolecularDefinition"/>
   <title value="Molecular Definition"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <date value="2025-01-30"/>
+  <publisher value="Clinical Genomics Working Group (HL7)"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="https://confluence.hl7.org/display/CGW/WorkGroup+Home"/>
     </telecom>
-  </contact>
-  <contact>
     <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
+      <system value="email"/>
+      <value value="clingenomics@lists.hl7.org"/>
     </telecom>
   </contact>
   <description value="Definitional content for a molecular entity, such as a nucleotide or protein sequence."/>
@@ -114,14 +109,13 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+<!--
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="sequenceType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Type of a molecule -- DNA, RNA, or amino acid sequence."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
+        <strength value="extensible"/>
+        <description value="Type of a molecule - DNA, RNA, or amino acid sequence."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-molecule-type"/>
       </binding>
+-->
     </element>
     <element id="MolecularDefinition.type">
       <path value="MolecularDefinition.type"/>
@@ -561,6 +555,10 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-focus"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.code">
@@ -594,6 +592,10 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-encoding"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.literal.value">

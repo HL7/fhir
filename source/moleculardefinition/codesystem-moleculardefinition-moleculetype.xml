@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="moleculardefinition-encoding"/>
+  <id value="moleculardefinition-molecule-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,12 +13,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/moleculardefinition-encoding"/>
+  <url value="http://hl7.org/fhir/moleculardefinition-molecule-type"/>
   <version value="6.0.0-ballot2"/>
-  <name value="MolecularDefinitionEncoding"/>
-  <title value="Molecular Definition Encoding"/>
-  <status value="active"/>
-  <experimental value="false"/>
+  <name value="MolecularDefinitionMoleculeType"/>
+  <title value="Molecular Definition Molecule Type"/>
+  <status value="draft"/>
   <date value="2025-01-30"/>
   <publisher value="Clinical Genomics Working Group (HL7)"/>
   <contact>
@@ -32,17 +30,22 @@
       <value value="clingenomics@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The encoding of the molecular definition sequences, e.g., IUPAC-DNA, IUPAC-Protein"/>
+  <description value="The molecule types of the molecular definitions, i.e., dna, rna, aa."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="iupac-nucleotide"/>
-    <display value="IUPAC-Nucleotide"/>
-    <definition value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes"/>
+    <code value="dna"/>
+    <display value="DNA sequence"/>
+    <definition value="DNA sequence (assumed double stranded, written as single stranded by convention)"/>
   </concept>
   <concept>
-    <code value="iupac-protein"/>
-    <display value="IUPAC-Protein"/>
-    <definition value="International Union of Pure and Applied Chemistry-Amino Acid Codes"/>
+    <code value="rna"/>
+    <display value="RNA sequence"/>
+    <definition value="RNA sequence (assumed single stranded, written as single stranded by convention, may use cDNA or RNA encoding for T/U)"/>
+  </concept>
+  <concept>
+    <code value="aa"/>
+    <display value="AA sequence"/>
+    <definition value="AA sequence"/>
   </concept>
 </CodeSystem>

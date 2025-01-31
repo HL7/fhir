@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="moleculardefinition-focus"/>
+  <id value="moleculardefinition-molecule-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -13,10 +13,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/moleculardefinition-focus"/>
+  <url value="http://hl7.org/fhir/ValueSet/moleculardefinition-molecule-type"/>
   <version value="1.0.0"/>
-  <name value="MolecularDefinitionFocus"/>
-  <title value="Molecular Definition Focus"/>
+  <name value="MolecularDefinitionMoleculeType"/>
+  <title value="Molecular Definition Molecule Type"/>
   <status value="draft"/>
   <date value="2025-01-30"/>
   <publisher value="Clinical Genomics Working Group (HL7)"/>
@@ -30,7 +30,7 @@
       <value value="clingenomics@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The focus of the molecular definition representation, i.e., reference, alternative, or context sequence."/>
+  <description value="The molecule types of the molecular definitions, i.e., dna, rna, aa."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/moleculardefinition-focus"/>

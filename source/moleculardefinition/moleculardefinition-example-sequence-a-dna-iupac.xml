@@ -17,7 +17,7 @@
                 <coding>
                     <system value="http://hl7.org/fhir/moleculardefinition-encoding"/>
                     <code value="iupac-nucleotide"/>
-                    <display value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes"/>
+                    <display value="IUPAC-Nucleotide"/>
                 </coding>
             </encoding>
             <value value="A"/>
