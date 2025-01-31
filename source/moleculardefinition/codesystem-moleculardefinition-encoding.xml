@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="moleculardefinition-encoding"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/moleculardefinition-encoding"/>
+  <version value="6.0.0-ballot2"/>
+  <name value="MolecularDefinitionEncoding"/>
+  <title value="Molecular Definition Encoding"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-01-30"/>
+  <publisher value="Clinical Genomics Working Group (HL7)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://confluence.hl7.org/display/CGW/WorkGroup+Home"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="clingenomics@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The encoding of the molecular definition sequences, e.g., IUPAC-DNA, IUPAC-Protein"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="iupac-nucleotide"/>
+    <display value="IUPAC-Nucleotide"/>
+    <definition value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes"/>
+  </concept>
+  <concept>
+    <code value="iupac-protein"/>
+    <display value="IUPAC-Protein"/>
+    <definition value="International Union of Pure and Applied Chemistry-Amino Acid Codes"/>
+  </concept>
+</CodeSystem>
