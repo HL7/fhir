@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="moleculardefinition-molecule-type"/>
+  <id value="moleculardefinition-moleculetype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -13,11 +14,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/moleculardefinition-molecule-type"/>
+  <url value="http://hl7.org/fhir/moleculardefinition-moleculetype"/>
   <version value="6.0.0-ballot2"/>
   <name value="MolecularDefinitionMoleculeType"/>
   <title value="Molecular Definition Molecule Type"/>
-  <status value="draft"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <date value="2025-01-30"/>
   <publisher value="Clinical Genomics Working Group (HL7)"/>
   <contact>

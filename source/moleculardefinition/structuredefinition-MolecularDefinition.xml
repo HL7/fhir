@@ -109,13 +109,11 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-<!--
       <binding>
         <strength value="extensible"/>
         <description value="Type of a molecule - DNA, RNA, or amino acid sequence."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-molecule-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-moleculetype"/>
       </binding>
--->
     </element>
     <element id="MolecularDefinition.type">
       <path value="MolecularDefinition.type"/>
