@@ -107,7 +107,7 @@
       <short value="Business identifier for imaging study"/>
       <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID and Accession Number."/>
       <comment value="It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID and Accession Number."/>
-      <requirements value="ImagingStudy.identifier SHALL contain exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
+      <requirements value="ImagingStudy.identifier SHALL contain exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
       <alias value="StudyInstanceUID, AccessionNumber"/>
       <min value="0"/>
       <max value="*"/>
@@ -134,7 +134,7 @@
     </element>
     <element id="ImagingStudy.status">
       <path value="ImagingStudy.status"/>
-      <short value="registered | available | cancelled | entered-in-error | unknown"/>
+      <short value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
       <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
@@ -172,8 +172,8 @@
     </element>
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
-      <short value="All of the distinct values for series' modalities"/>
-      <definition value="A list of all the distinct values of series.modality. This MAY include both acquisition and non-acquisition modalities."/>
+      <short value="The distinct values for series' modalities"/>
+      <definition value="All the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>

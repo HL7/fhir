@@ -246,14 +246,16 @@ href="fhir.shex">fhir.shex</a>
             Resource nodes can be <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
-	  &nbsp;&nbsp;&nbsp;&nbsp;<span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]</span> 
+          <pre class="rdf">
+	  &lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]
+          </pre>
 
 	  <p>asserts that: </p>
           <ul>
-            <li><span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</span> has a <span
-                class="rdf">status</span> of some anonymous node.</li>
-            <li>That anonymous node has a <span class="rdf">fhir:v</span>
-              of <span class="rdf">"final"</span> (the literal
+            <li><code class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</code>
+                has a <code class="rdf">status</code> of some anonymous node.</li>
+            <li>That anonymous node has a <code class="rdf">fhir:v</code>
+              of <code class="rdf">"final"</code> (the literal
               "final").</li>
           </ul>
 

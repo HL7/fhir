@@ -16,6 +16,10 @@
     </p>
     </div>
   </text>
+  <identifier>
+    <system value="http://example.org/identifiers"/>
+    <value value="saner-report" />
+  </identifier>
   <status value="active" />
 
   <asserter>
@@ -35,7 +39,9 @@
     </data>
     <activity>
       <actor>
+      <reference>
         <reference value="Organization/f203" />
+        </reference>
       </actor>
       <action>
         <coding>
