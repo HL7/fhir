@@ -32,17 +32,42 @@
       <value value="clingenomics@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The encoding of the molecular definition sequences, e.g., IUPAC-DNA, IUPAC-Protein"/>
+  <description value="The encoding of the molecular definition sequences"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="iupac-nucleotide"/>
-    <display value="IUPAC-Nucleotide"/>
-    <definition value="International Union of Pure and Applied Chemistry-DNA Nucleotide Codes"/>
+    <code value="nuc-dna-1-noamb"/>
+    <display value="Nucleotide, DNA, 1 letter, no ambiguity"/>
+    <definition value="G,A,T,C"/>
   </concept>
   <concept>
-    <code value="iupac-protein"/>
-    <display value="IUPAC-Protein"/>
-    <definition value="International Union of Pure and Applied Chemistry-Amino Acid Codes"/>
+    <code value="nuc-rna-1-noamb"/>
+    <display value="Nucleotide, RNA, 1 letter, no ambiguity"/>
+    <definition value="G,A,U,C"/>
+  </concept>
+  <concept>
+    <code value="nuc-dna-1-noambN"/>
+    <display value="Nucleotide, DNA, 1 letter, no ambiguity except N"/>
+    <definition value="G,A,T,C,N"/>
+  </concept>
+  <concept>
+    <code value="nuc-dna-1-amb"/>
+    <display value="Nucleotide, DNA, 1 letter, with ambiguity"/>
+    <definition value="G,A,T,C,R,Y,M,K,S,W,H,B,V,D,N"/>
+  </concept>
+  <concept>
+    <code value="aa-1-noamb-20common"/>
+    <display value="Amino acid, 1 letter, no ambiguity, 20 common"/>
+    <definition value="A,C,D,E,F,G,H,I,K,L,M,N,P,Q,R,S,T,V,W,Y"/>
+  </concept>
+  <concept>
+    <code value="aa-3-noamb-20common"/>
+    <display value="Amino acid, 3 letter, no ambiguity, 20 common"/>
+    <definition value="Ala,Cys,Asp,Glu,Phe,Gly,His,Ile,Lys,Leu,Met,Asn,Pro,Gln,Arg,Ser,Thr,Val,Trp,Tyr"/>
+  </concept>
+  <concept>
+    <code value="aa-1-amb"/>
+    <display value="Amino acid, 1 letter, with ambiguity"/>
+    <definition value="A,B,C,D,E,F,G,H,I,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z"/>
   </concept>
 </CodeSystem>

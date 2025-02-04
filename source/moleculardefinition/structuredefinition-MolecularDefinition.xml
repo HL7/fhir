@@ -214,6 +214,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL5323-2"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Coordinate system."/>
+        <valueSet value="http://loinc.org/vs/LL5323-2"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin">
@@ -275,6 +283,11 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <strength value="required"/>
+        <description value="The strand orientation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-orientation"/>
+      </binding>
       <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.location.cytobandLocation">
@@ -555,6 +568,7 @@
       </type>
       <binding>
         <strength value="required"/>
+        <description value="Domain concept that is the focus of the representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-focus"/>
       </binding>
       <isSummary value="true"/>
@@ -592,6 +606,7 @@
       </type>
       <binding>
         <strength value="extensible"/>
+        <description value="The encoding used for the expression of the entity."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-encoding"/>
       </binding>
       <isSummary value="true"/>
@@ -675,6 +690,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL5323-2"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Coordinate system."/>
+        <valueSet value="http://loinc.org/vs/LL5323-2"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin">
@@ -697,6 +720,11 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <strength value="required"/>
+        <description value="The normalization method used for determining a location within a coordinate system."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-normalization"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.extracted.coordinateInterval.start[x]">
@@ -898,6 +926,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL5323-2"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Coordinate system."/>
+        <valueSet value="http://loinc.org/vs/LL5323-2"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.origin">

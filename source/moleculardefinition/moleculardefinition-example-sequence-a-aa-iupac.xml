@@ -16,8 +16,8 @@
             <encoding>
                 <coding>
                     <system value="http://hl7.org/fhir/moleculardefinition-encoding"/>
-                    <code value="iupac-protein"/>
-                    <display value="IUPAC-Protein"/>
+                    <code value="aa-1-noamb-20common"/>
+                    <display value="Amino acid, 1 letter, no ambiguity, 20 common"/>
                 </coding>
             </encoding>
             <value value="A"/>
