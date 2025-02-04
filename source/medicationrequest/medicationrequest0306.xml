@@ -45,7 +45,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="92818009"/>
-            <display value="Chronic myeloid Leukemia (disorder)"/>
+            <display value="Chronic myeloid leukemia (disorder)"/>
         </coding>
       </concept>
     </reason>

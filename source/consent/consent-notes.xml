@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">'
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
   <a name="policies"></a>
   <h2>Policies</h2>
@@ -201,7 +201,7 @@ derivative of the legally binding Consent Directive, which has specific usage in
     </tr>
     <tr>
       <td>Consent Registration</td>
-      <td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of timeA Consent Directive derivative that conveys the minimal set of information needed to register an active and revoked Consent Directive, or to update Consent status as it changes during its lifecycle.</td>
+      <td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time. A Consent Directive derivative that conveys the minimal set of information needed to register an active and revoked Consent Directive, or to update Consent status as it changes during its lifecycle.</td>
     </tr>
     <tr>
       <td>Policy context</td>

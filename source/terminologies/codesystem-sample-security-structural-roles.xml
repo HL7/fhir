@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="sample-security-structural-roles"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
   <url value="http://hl7.org/fhir/sample-security-structural-roles"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -74,18 +77,22 @@
 	  <concept>
 		<code value="receptionist"/>
 		<display value="Receptionist"/>
+		<definition value="Medical receptionists are professionals who are responsible for coordinating the daily administration of doctors, staff, visitors, and patinets at a healthcare facility."/>
 	  </concept>
 	  <concept>
 		<code value="business-manager"/>
 		<display value="Business Manager"/>
+		<definition value="Medical and health services managers plan, direct, and coordinate the business activities of healthcare providers."/>
 	  </concept>
 	  <concept>
 		<code value="transcriptionist"/>
 		<display value="Transcriptionist"/>
+		<definition value="A medical transcriptionist listens to medical notes from health care professionals and accurately transcribes those audio recordings into written medical documents used for a variety of purposes."/>
 	  </concept>
 	  <concept>
 		<code value="claims-adjudicator"/>
 		<display value="Claims Adjudicator"/>
+		<definition value="A medical Claims Adjudicator executes the process by which insurance companies review healthcare claims and decide whether they will pay the claim in full, pay a partial amount, or deny the claim altogether."/>
 	  </concept>
   </concept>
 

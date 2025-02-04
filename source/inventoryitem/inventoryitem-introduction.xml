@@ -11,8 +11,17 @@
 <li>is NOT intended be used in clinical workflows, where the specific product resources shall be used: Medication, Device, etc.</li>
 </ul>
 
+
 <p>
-The InventoryItem resource does not intend to provide a substitute for the other resources, nor overlap those in the clinical workflows, as those resources have their specific core characteristics. If a clinical resource wishes to add characteristics that are common for logistics, the InventoryItem can be a placeholder for these (e.g. adding Storage and Handling to a NutritionProduct). This resource is meant to contain the characteristics that are relevant for the logistics.
+The InventoryItem resource does not intend to provide a substitute for the other resources, nor overlap those in the clinical workflows, 
+as those resources have their specific core characteristics. 
+This resource is meant to contain the characteristics that are relevant for the logistics.
+If a clinical resource wishes to add such characteristics for logistics, the InventoryItem can be a placeholder for 
+these. For example, adding Storage and Handling to a NutritionProduct.
+The InventoryItem can also reference the relevant specialized product resource, if one such resource exists. 
+In the example above, the InventoryItem resource adds add inventory capabilities to the system that already uses NutritionProduct.
+The InventoryItem can also be used on its own for inventory specific purposes - one example is if the system tracks packages, specialized utensils and there is no clinical need, only inventory tracking, the InventoryItem may be used.
+
 </p>
 
 
@@ -25,10 +34,10 @@ The InventoryItem resource does not intend to provide a substitute for the other
 The InventoryItem resource can be referenced from the following resources:
 <ul>
 <li><strong><a href="inventoryreport.html">InventoryReport</a></strong> - when counting items in an inventory</li>
-<li><strong><a href="transport.html">Transport</a></strong> - for tracking the transport of inventory items</li>
+<!-- <li><strong><a href="transport.html">Transport</a></strong> - for tracking the transport of inventory items</li> -->
 <li><strong><a href="supplyrequest.html">SupplyRequest</a></strong>- for requesting the supply of inventory items</li>
 <li><strong><a href="supplydelivery.html">SupplyDelivery</a></strong> - for reporting the delivery of inventory items</li>
-<li><strong><a href="servicerequest.html">ServiceRequest</a></strong> - for example for requesting transport of items</li>
+<!-- <li><strong><a href="servicerequest.html">ServiceRequest</a></strong> - for example for requesting transport of items</li> -->
 </ul>
 
 <p>Because the InventoryItem resource does not contain all the clinical characteristics of the products like Medication, Device, etc. the InventoryItem can refer to any of those product items.</p>

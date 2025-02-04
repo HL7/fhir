@@ -45,7 +45,7 @@
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="428763004"/>
-						<display value="Bacteremia due to staphylococcus"/>
+						<display value="Bacteremia caused by Staphylococcus aureus"/>
 					</coding>
 				</conclusionCode>
 			</DiagnosticReport>

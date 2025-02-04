@@ -115,7 +115,7 @@
     <element id="Location.status">
       <path value="Location.status"/>
       <short value="active | suspended | inactive"/>
-      <definition value="The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location."/>
+      <definition value="The status property covers the general availability of the resource, not the current value which may be covered by the operationalStatus, or by a schedule/slots if they are configured for the location."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -270,9 +270,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LocationType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Indicates the type of function performed at the location."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/service-type"/>
       </binding>
       <mapping>
         <identity value="w5"/>

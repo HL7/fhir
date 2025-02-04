@@ -2,10 +2,6 @@
     <!-- from Resource: id, meta, implicitRules, and language -->
     <id value="example"/>
     <!-- from DomainResource: text, contained, extension, and modifierExtension -->
-    <text>
-        <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">This is a genomic study that involves a de novo mutation analysis of a proband, mother, and father. The analysis involves the use use of NGS device and a specilized analysis platform.</div>
-    </text>
     <identifier>
         <use value="temp"/>
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>

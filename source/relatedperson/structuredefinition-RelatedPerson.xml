@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+  <description value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the primary target of healthcare."/>
   <purpose value="Need to track persons related to the patient or the healthcare process."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
@@ -81,7 +81,7 @@
       </extension>
       <path value="RelatedPerson"/>
       <short value="A person that is related to a patient, but who is not a direct target of care"/>
-      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the primary target of healthcare."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -183,10 +183,10 @@
     </element>
     <element id="RelatedPerson.relationship">
       <path value="RelatedPerson.relationship"/>
-      <short value="The relationship of the related person to the patient"/>
-      <definition value="The nature of the relationship between the related person and the patient."/>
-      <comment value="The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)."/>
-      <requirements value="We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person."/>
+      <short value="The personal relationship of the related person to the patient"/>
+      <definition value="The nature of the personal relationship between the related person and the patient."/>
+      <comment value="This property is for personal relationships. Functional relationships are represented in `RelatedPerson.role`.&#xD;&#xD;The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)." />
+      <requirements value="We need to know the personal relationship with the patient since it influences the interpretation of the information attributed to this person."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -198,8 +198,8 @@
           <valueString value="PatientRelationshipType"/>
         </extension>
         <strength value="preferred"/>
-        <description value="The nature of the relationship between a patient and the related person."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"/>
+        <description value="The nature of the personal relationship between a patient and the related person."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -213,6 +213,27 @@
         <identity value="rim"/>
         <map value="code"/>
       </mapping>
+    </element>
+    <element id="RelatedPerson.role">
+      <path value="RelatedPerson.role"/>
+      <short value="The functional role of the related person to the patient"/>
+      <definition value="The nature of the functional relationship between the patient and the related person."/>
+      <comment value="This property is for functional relationships. Personal relationships are represented in `RelatedPerson.relationship`."/>
+      <requirements value="Used to determine which related person is the most relevant to approach, depending on circumstances."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContactRelationship"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The nature of the functional relationship between the patient and the related person. "/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"/>
+      </binding>
     </element>
     <element id="RelatedPerson.name">
       <path value="RelatedPerson.name"/>
@@ -412,8 +433,8 @@
     <element id="RelatedPerson.communication.language">
       <path value="RelatedPerson.communication.language"/>
       <short value="The language which can be used to communicate with the related person about the patient's health"/>
-      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
-      <comment value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type."/>
+      <definition value="The language which may be used to communicate with the individual." />
+      <comment value="The language is commonly represented using the ISO-639-1 alpha code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha code for the region in upper case.  For example, &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English, sgn-US for American Sign Language, sgn-NL for Dutch Sign Language, etc.&#xD;&#xD;Not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type." />
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
       <min value="1"/>
       <max value="1"/>

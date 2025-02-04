@@ -126,7 +126,7 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.occurrence[x]" resourcePath="MedicationAdministration.occurence[x]">
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="MedicationAdministration.occurrence[x]">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="When medication administration occurred/is occurring"/>
@@ -200,7 +200,6 @@
     </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
     <unmappedElement patternPath="Event.product" reason="Unknown"/>

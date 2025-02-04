@@ -3,11 +3,22 @@
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
     <p>
-      A task resource describes an activity that can be performed and tracks the state of
+      A Task resource describes an activity that can be performed and tracks the state of
       completion of that activity. It is a representation that an activity should be or has been
       initiated, and eventually, represents the successful or unsuccessful completion of that
       activity.
     </p>
+    <p> Concretely the Task resource could be used in FHIR to serve different purposes like: </p>
+<ul>
+<li>operationalize a Request (but could exists without a Request),</li>
+<li>communicate between Filler and Placer,</li>
+<li>track business status (i.e. collection of specimen, dispense of medication, procedure scheduled),</li>
+<li>communicate the results of the execution of the Task via .output,</li>
+<li>launch an application (<a href="https://www.hl7.org/fhir/smart-app-launch/task-launch.html">https://www.hl7.org/fhir/smart-app-launch/task-launch.html</a>),</li>
+<li>fill in a Questionnaire,</li>
+<li>provide CDS advice that recommends performing a certain action (<a href="https://www.hl7.org/fhir/uv/cpg/StructureDefinition-cpg-administermedicationtask.html">https://www.hl7.org/fhir/uv/cpg/StructureDefinition-cpg-administermedicationtask.html</a>).</li>
+</ul>
+
     <p> Note that there are a variety of processes associated with making and processing orders.
       Some orders may be handled immediately by automated systems but most require real-world
       actions by one or more humans. Some orders can only be processed when other real-world actions
@@ -25,56 +36,21 @@
       completion. These agents can be coordinated, following well choreographed business logic to
       ensure that tasks are completed. Task management may also be centrally controlled using some
       form of a workflow engine, in which case, the workflow engine itself may update and maintain the
-      task resources in the server, and through its orchestration activities ensure that tasks are
-      completed. The task resource enables either model of task management yet provides a
+      Task resources in the server, and through its orchestration activities ensure that tasks are
+      completed. The Task resource enables either model of task management yet provides a
       consistent view of the status of tasks being executed in support of healthcare workflows. </p>
     <p>The assignment of tasks into categories by type of task, type of performer and task status
       enable the server to function as a queue of work items.  This queue can be polled or subscribed
       to by various agents, enabling automation of workflows in FHIR using existing search and subscription
       mechanisms.  Owners, requesters, other agents (e.g. workflow managers) can thus be ready to
       initiate the next steps in a complex workflow.</p>
-    <h3>Tasks State Machine</h3>
-    <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
-      the Ready state, indicating that they are ready to be performed. Once the owner initiates
-      activity on the task, the task transitions to the In Progress state, indicating that work is
-      being performed. Upon normal completion, the task enters the Completed state. If there is a
-      failure during the task execution that prevents the task from being completed, it can also
-      enter a Failed state, indicating an abnormal termination of the task. A task in any
-      non-terminal state may also be Cancelled, representing an abnormal termination of the task due
-      to external forces, rather than an error condition.</p>
-    <p>Tasks in any non-terminal state (Created, Ready, In Progress) can be suspended and resumed.
-      When a task is suspended, it is typically resumed in the state it was in when it was
-      originally suspended. Suspending a task suspends all of its children as well. Resuming a task
-      resumes all of its children.</p>
-    <p>An In-progress task can also be stopped, returning it to a Ready state. This may be in
-      preparation for delegation or reassignment (e.g., because it cannot be completed by the
-      current owner), to restart a task due to a temporary failure (e.g., to reattempt completion of
-      the activity), or in preparation to allow others to claim the task.</p>
-<!--    <h3>Using Tasks with operations</h3>
-    <p>The Task resource defines several operations to enable rich control over the task execution
-      environment. A server managing task resources may allow unfettered read access to all tasks
-      that it maintains, but restrict write access to the task resources to itself in order to exert
-      control over the task state machine. Instead, it might offer operations on tasks that enable
-      strictly controlled write operations following commonly accepted business rules for task
-      management. For example, only tasks that are in the "In Process" state might be allowed to be
-      "Completed" or "Failed". Use or support of these operations is not essential in simple
-      workflow environments where task activity needs little management. </p>
-    <p>There is no distinct operation for creating a new task because the FHIR RESTful API already
-      distinguishes between the create and update operations.</p>-->
-    <p>The task history allows applications monitoring the state of a workflow to identify tasks
-      that are long running, perhaps stuck in some queue, to enable management activities that could
-      ensure completion. It also enables tracking of task statistics such as wait time, or time in
-      progress, or time to completion, enabling capture of important task metrics in support of
-      optimization and quality improvement. </p>
-
+    
       [%stu-note dstu%]
       Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.
       </p>
       <p>
       Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
       [%end-note%]
-
-
 
   </div>
   <div>
@@ -97,7 +73,7 @@
     href="communicationrequest.html">CommunicationRequest</a> to be performed
     between various actors.</p>
 
-    <p>As stated above, the task resource tracks the state of a task, enabling
+    <p>As stated above, the Task resource tracks the state of a task, enabling
     systems to ensure that tasks are completed. This information is kept
     separate from the operational details necessary to complete the task, as
     those details vary across and even within workflows. That detail is expected
@@ -116,7 +92,7 @@
     to inputs to a subsequent task. </p>
 
     <p>To facilitate the integration of off the shelf workflow applications
-    with FHIR, the task resource may reference a definition.  This
+    with FHIR, the Task resource may reference a definition.  This
     definition can represent a description of the workflow activity to be
     performed, using a standard workflow description language such as BPEL,
     BPMN, or XPDL, a workflow definition such as those defined in IHE

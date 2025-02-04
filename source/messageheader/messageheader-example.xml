@@ -16,17 +16,12 @@
 		<name value="Acme Message Gateway"/>
 		<!-- this is to indicate to the Acme Message Gateway that this particular message 
        is intended for Practitioner "xcda" -->
-		<target>
-			<reference value="Device/example"/>
-		</target>
 		
 		<receiver>
 			<reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
 		</receiver>
 	</destination>
-	<sender>
-		<reference value="Organization/1"/>
-	</sender>
+
 	<!--   <timestamp value="2012-01-04T09:10:14Z"/> -->
 	<author>
 		<reference value="Practitioner/example"/>
@@ -40,7 +35,9 @@
 			<system value="phone"/>
 			<value value="+1 (555) 123 4567"/>
 		</contact>
-		
+    	<sender>
+    		<reference value="Organization/1"/>
+    	</sender>		
 	</source>
 	<reason>
 		<coding>

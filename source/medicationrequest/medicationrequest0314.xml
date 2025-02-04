@@ -16,7 +16,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="376988009"/>
-            <display value="Levothyroxine Sodium 75micrograms tablet (product)"/>
+            <display value="Product containing precisely levothyroxine sodium 75 microgram/1 each conventional release oral tablet (clinical drug)"/>
         </coding>
     </concept>
     </medication>

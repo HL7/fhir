@@ -5,6 +5,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ChargeItemDefinition-account"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItemDefinition.account"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-account"/>
+        <description value="Candidate account for charge items"/>
+        <code value="account"/>
+        <type value="reference"/>
+        <expression value="ChargeItemDefinition.account"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ChargeItemDefinition-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

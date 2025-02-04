@@ -70,7 +70,7 @@ Note that many diagnostic processes are procedures that generate observations an
 </p>
 
 <p>
-In contrast to the <a href="observation.html">Observation</a> resource, the DiagnosticReport resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.
+In contrast to the <a href="observation.html">Observation</a> resource, the DiagnosticReport resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource should be used to record patient-generated information (e.g., self-test results). The <a href="observation.html">Observation</a> resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.
 </p>
 
 <p>
@@ -98,7 +98,7 @@ Image and media representations of the report and supporting images and data are
 </p>
 
 <p>
-A DiagnosticReport has overlapping characteristics with DocumentReference. The DiagnosticReport is appropriate to reflect a set of discrete results (Observations) and associated contextual details for a specific report, and within those results any further structure within the Observation instances, while a DocumentReference typically reflects a non-FHIR object that is not a FHIR Document (e.g., an existing C-CDA document, a scan of a drivers license, or narrative note). There is some overlap potential such as a scan of a CBC report that can either be referenced by way of a DocumentReference, or included in a DiagnosticReport as a representedForm together with the structured, discrete data. Specific implementation guides would further clarify when one approach is more appropriate than another.
+A DiagnosticReport has overlapping characteristics with DocumentReference. The DiagnosticReport is appropriate to reflect a set of discrete results (Observations) and associated contextual details for a specific report, and within those results any further structure within the Observation instances, while a DocumentReference typically reflects a non-FHIR object (e.g., an existing C-CDA document, a scan of a drivers license, or narrative note). There is some overlap potential, such as a scan of a CBC report that can either be referenced via a DocumentReference, or included in a DiagnosticReport as a representedForm together with the structured, discrete data. In some cases, a single in-system entity may be represented as both resources if they provide relevant metadata or workflow-specific attributes. Specific implementation guides would further clarify which approach is more appropriate.
 </p>
 
 </div>

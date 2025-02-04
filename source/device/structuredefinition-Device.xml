@@ -47,7 +47,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
+  <description value="This resource describes the properties (regulated, has real time clock, etc.), administrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serial number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
@@ -140,7 +140,7 @@
         <map value="The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty."/>
       </mapping>
     </element>
-    <element id="Device.displayName">
+    <!-- <element id="Device.displayName">
       <path value="Device.displayName"/>
       <short value="The name used to display by default when the device is referenced"/>
       <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.name, or may be another simple name."/>
@@ -149,7 +149,7 @@
       <type>
         <code value="string"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.definition">
       <path value="Device.definition"/>
       <short value="The reference to the definition for the device"/>
@@ -157,7 +157,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
@@ -207,6 +207,16 @@
         <identity value="udi"/>
         <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       </mapping>
+    </element>
+    <element id="Device.udiCarrier.deviceIdentifierSystem">
+      <path value="Device.udiCarrier.deviceIdentifierSystem"/>
+      <short value="The namespace for the device identifier value"/>
+      <definition value="Establishes the namespace for the device identifier value that is an URL, OID, urn or uuid."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
     </element>
     <element id="Device.udiCarrier.issuer">
       <path value="Device.udiCarrier.issuer"/>
@@ -538,17 +548,18 @@
       <path value="Device.name.type"/>
       <short value="registered-name | user-friendly-name | patient-reported-name"/>
       <definition value="Indicates the kind of name. RegisteredName | UserFriendlyName | PatientReportedName."/>
+      <comment value="The implementation or jurisdiction must clarify which name is to be used as the registered-name. As a result a device definition may have multiple names that are the same, but then used for different purposes per the name type and jurisdictional guidance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of name the device is referred by."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
       </binding>
@@ -651,7 +662,8 @@
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
       <definition value="The kind or type of device. A device instance may have more than one type - in which case those are the types that apply to the specific instance of the device."/>
-      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor."/>
+      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor.
+      Device.type relates DeviceDefinition.classification.type using the same binding enabling referencing."/> 
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -669,11 +681,11 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
-    <element id="Device.version">
+    <element id="Device.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="800,100"/>
       </extension>
-      <path value="Device.version"/>
+      <path value="Device.deviceVersion"/>
       <short value="The actual design of the device or software version running on the device"/>
       <definition value="The actual design of the device or software version running on the device."/>
       <min value="0"/>
@@ -682,8 +694,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.version.type">
-      <path value="Device.version.type"/>
+    <element id="Device.deviceVersion.type">
+      <path value="Device.deviceVersion.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
       <alias value="Σ"/>
@@ -701,8 +713,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
     </element>
-    <element id="Device.version.component">
-      <path value="Device.version.component"/>
+    <element id="Device.deviceVersion.component">
+      <path value="Device.deviceVersion.component"/>
       <short value="The hardware or software module of the device to which the version applies"/>
       <definition value="The hardware or software module of the device to which the version applies."/>
       <comment value="Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version."/>
@@ -716,8 +728,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="Device.version.installDate">
-      <path value="Device.version.installDate"/>
+    <element id="Device.deviceVersion.installDate">
+      <path value="Device.deviceVersion.installDate"/>
       <short value="The date the version was installed on the device"/>
       <definition value="The date the version was installed on the device."/>
       <min value="0"/>
@@ -730,8 +742,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="Device.version.value">
-      <path value="Device.version.value"/>
+    <element id="Device.deviceVersion.value">
+      <path value="Device.deviceVersion.value"/>
       <short value="The version text"/>
       <definition value="The version text."/>
       <min value="1"/>

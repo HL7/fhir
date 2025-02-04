@@ -6,7 +6,7 @@
 <ul>
 <li>The <i>class</i> element describes the setting (in/outpatient etc.) in which the Encounter took place. Since this is important for 
 interpreting the context of the encounter, choosing the appropriate business rules to enforce and for the management of the process, this element
-is required.</li>
+should be provided.</li>
 </ul>
 </p>
 <a name="examples"></a>

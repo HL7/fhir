@@ -40,7 +40,9 @@
     </data>
     <activity>
       <actor>
+        <reference>
         <reference value="CareTeam/example" />
+        </reference>
       </actor>
       <action>
         <coding>

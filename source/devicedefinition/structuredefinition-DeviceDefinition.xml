@@ -23,6 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".operationalStatus = entered-in-error"/>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="CanonicalResource"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -61,7 +64,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="DeviceDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="DeviceDefinition">
@@ -70,7 +73,7 @@
       </extension>
       <path value="DeviceDefinition"/>
       <short value="An instance of a medical-related component of a medical device"/>
-      <definition value="The characteristics, operational status and capabilities of a medical-related component of a medical device."/>
+      <definition value="The definition of a kind of device or device component. Typically, this definition corresponds to a device model although it may be a broader category of device. Defined devices may be regulated medical devices."/>
       <comment value="For the initial scope, this DeviceDefinition resource is only applicable to describe a single node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard and that does not represent a metric. Examples for such a node are MDS, VMD, or Channel."/>
       <min value="0"/>
       <max value="*"/>
@@ -317,17 +320,18 @@
       <path value="DeviceDefinition.deviceName.type"/>
       <short value="registered-name | user-friendly-name | patient-reported-name"/>
       <definition value="The type of deviceName.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
+      <comment value="The implementation or jurisdiction must clarify which name is to be used as the registered-name. As a result a device definition may have multiple names that are the same, but then used for different purposes per the name type and jurisdictional guidance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of name the device is referred by."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
       </binding>
@@ -362,6 +366,41 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.contact">
+      <path value="DeviceDefinition.contact"/>
+      <short value="Details for human/organization for support"/>
+      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
+      <comment value="used for troubleshooting etc."/>
+      <min value="0"/>
+      <max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopedRole[typeCode=CON].player"/>
+      </mapping>
+    </element>
+		<element id="DeviceDefinition.publisher">
+			<path value="DeviceDefinition.publisher"/>
+			<short value="The the organization responsible for publishing the definition"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the device definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
     <element id="DeviceDefinition.classification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,225"/>
@@ -614,11 +653,11 @@
       <max value="*"/>
       <contentReference value="#DeviceDefinition.packaging"/>
     </element>
-    <element id="DeviceDefinition.version">
+    <element id="DeviceDefinition.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,100"/>
       </extension>
-      <path value="DeviceDefinition.version"/>
+      <path value="DeviceDefinition.deviceVersion"/>
       <short value="The version of the device or software"/>
       <definition value="The version of the device or software."/>
       <min value="0"/>
@@ -627,8 +666,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="DeviceDefinition.version.type">
-      <path value="DeviceDefinition.version.type"/>
+    <element id="DeviceDefinition.deviceVersion.type">
+      <path value="DeviceDefinition.deviceVersion.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
       <alias value="Σ"/>
@@ -638,8 +677,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="DeviceDefinition.version.component">
-      <path value="DeviceDefinition.version.component"/>
+    <element id="DeviceDefinition.deviceVersion.component">
+      <path value="DeviceDefinition.deviceVersion.component"/>
       <short value="The hardware or software module of the device to which the version applies"/>
       <definition value="The hardware or software module of the device to which the version applies."/>
       <comment value="Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version."/>
@@ -653,8 +692,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.version.value">
-      <path value="DeviceDefinition.version.value"/>
+    <element id="DeviceDefinition.deviceVersion.value">
+      <path value="DeviceDefinition.deviceVersion.value"/>
       <short value="The version text"/>
       <definition value="The version text."/>
       <min value="1"/>
@@ -762,44 +801,6 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="DeviceDefinition.owner">
-      <path value="DeviceDefinition.owner"/>
-      <short value="Organization responsible for device"/>
-      <definition value="An organization that is responsible for the provision and ongoing maintenance of the device."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".playedRole[typeCode=OWN].scoper"/>
-      </mapping>
-    </element>
-    <element id="DeviceDefinition.contact">
-      <path value="DeviceDefinition.contact"/>
-      <short value="Details for human/organization for support"/>
-      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
-      <comment value="used for troubleshooting etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".scopedRole[typeCode=CON].player"/>
-      </mapping>
-    </element>
     <element id="DeviceDefinition.link">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,450"/>
@@ -890,6 +891,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMaterialSubstance"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The values for the substance that are contained in the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.material.alternate">
       <path value="DeviceDefinition.material.alternate"/>
@@ -915,16 +924,17 @@
       <path value="DeviceDefinition.productionIdentifierInUDI"/>
       <short value="lot-number | manufactured-date | serial-number | expiration-date | biological-source | software-version"/>
       <definition value="Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label."/>
+      <comment value = "Jurisdictions may define other production identifier types and by way of regulation and/or implementation guidance indicate which identifier(s) are to be used for that jurisdiction."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceProductionIdentifierInUDI"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
       </binding>

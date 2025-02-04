@@ -37,14 +37,14 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="36225005"/>
-      <display value="Acute renal insufficiency specified as due to procedure"/>
+      <display value="Acute renal failure due to procedure"/>
     </coding>
   </code>
   <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="181414000"/>
-      <display value="Kidney"/>
+      <display value="Entire kidney"/>
     </coding>
   </bodySite>
   <subject>
@@ -59,18 +59,9 @@
   <onsetDateTime value="2013-03-11"/>
   <abatementDateTime value="2013-03-20"/>
   <recordedDate value="2013-03-11"/>
-  <participant> 
-    <function> 
-      <coding> 
-        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
-        <code value="author"/> 
-        <display value="Author"/> 
-      </coding> 
-    </function> 
-    <actor> 
-      <reference value="Practitioner/f201"/> 
-    </actor> 
-  </participant> 
+  <asserter> 
+	<reference value="Practitioner/f201"/> 
+  </asserter> 
 
   <stage>
     <!--The problem is temporary and will not become permanent renal insufficiency-->

@@ -9,7 +9,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="322254008"/>
-      <display value="Paracetamol 240mg suppository (product)"/>
+      <display value="Acetaminophen 240 mg rectal suppository"/>
     </coding>
     </concept>
   </medication>
@@ -17,10 +17,10 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </subject>
-  <occurencePeriod>
+  <occurrencePeriod>
   <start value="2015-01-15T22:03:00+01:00"/>
    <end value="2015-01-16T02:03:00+01:00"/>
-</occurencePeriod>
+</occurrencePeriod>
   <performer>
     <actor>
       <reference>

@@ -26,7 +26,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient's condition."/>
+            <resource value="This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient's condition. The adverse event status may be determined by the timing of the clinical trial assessments and is not necessarily the same as the condition status."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="AdverseEvent.code">

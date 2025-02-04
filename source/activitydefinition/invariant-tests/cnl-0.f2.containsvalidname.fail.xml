@@ -65,7 +65,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="40379007"/>
-        <display value="Major depression, recurrent, mild"/>
+        <display value="Mild recurrent major depression"/>
       </coding>
     </valueCodeableConcept>
   </useContext>
@@ -78,7 +78,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="225444004"/>
-        <display value="At risk for suicide (finding)"/>
+        <display value="At increased risk for suicide (finding)"/>
       </coding>
     </valueCodeableConcept>
   </useContext>

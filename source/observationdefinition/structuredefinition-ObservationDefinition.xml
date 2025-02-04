@@ -96,7 +96,7 @@
 				<key value="obd-0"/>
 				<severity value="error"/>
 				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
-				<expression value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<expression value="permittedUnit.exists() implies permittedDataType.exists(value = 'Quantity')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<mapping>
@@ -923,6 +923,26 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
 			</type>
 		</element>
+        <element id="ObservationDefinition.qualifiedValue.interpretation">
+			<path value="ObservationDefinition.qualifiedValue.interpretation"/>
+			<short value="Expected coded interpretation values"/>
+			<definition value="The expected coded interpretation values of an observation that matches this qualified interval. For example, high, low, normal."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+               <code value="CodeableConcept"/>
+            </type>
+            <binding>
+              <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                 <valueString value="ObservationInterpretation"/>
+              </extension>
+              <strength value="extensible"/>
+              <description value="Codes identifying interpretations of observations."/>
+              <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+            </binding>
+		</element>
+
+
 		<element id="ObservationDefinition.hasMember">
 			<path value="ObservationDefinition.hasMember"/>
 			<short value="Definitions of related resources belonging to this kind of observation group"/>
@@ -948,8 +968,7 @@
 				<key value="obd-1"/>
 				<severity value="error"/>
 				<human value="If permittedUnit exists, then permittedDataType=Quantity must exist."/>
-				<expression
-					value="permittedUnit.exists() implies (permittedDataType = 'Quantity').exists()"/>
+				<expression value="permittedUnit.exists() implies permittedDataType.exists(value = 'Quantity')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<type>

@@ -35,10 +35,36 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
+  <description value="Codes for modular components to be added to the diet."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="443571000124100"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="890302005"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="11713004"/>
+			</concept>
+			<concept>
+				<code value="444923006"/>
+			</concept>
+			<concept>
+				<code value="328352000"/>
+			</concept>
     </include>
   </compose>
 </ValueSet>

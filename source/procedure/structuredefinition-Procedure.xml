@@ -86,6 +86,13 @@
       <definition value="An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing."/>
       <min value="0"/>
       <max value="*"/>
+	    <constraint>
+        <key value="con-4"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Procedure.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -126,50 +133,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
-      </mapping>
-    </element>
-    <element id="Procedure.instantiatesCanonical">
-      <path value="Procedure.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="The URL pointing to a FHIR-defined protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Procedure.instantiatesUri">
-      <path value="Procedure.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
     <element id="Procedure.basedOn">
@@ -832,39 +795,36 @@
     </element>
 	<element id="Procedure.bodyStructure">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#39288"/>
+        <valueString value="J#39288, J#41690"/>
       </extension>
       <path value="Procedure.bodyStructure"/>
       <short value="Target body structure"/>
       <definition value="Indicates the body structure on the subject's body where the procedure was performed."/>
       <comment value="Should be consistent with Procedure.code.  Cannot be used if Procedure.bodySite is used."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-	  <constraint>
-        <key value="con-4"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if Procedure.bodySite is not present"/>
-        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="targetSiteCode"/>
       </mapping>
     </element>
     <element id="Procedure.outcome">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#40516"/>
+      </extension>
       <path value="Procedure.outcome"/>
       <short value="The result of procedure"/>
-      <definition value="The outcome of the procedure - did it resolve the reasons for the procedure being performed?"/>
-      <comment value="If outcome contains narrative text only, it can be captured using the CodeableConcept.text."/>
+      <definition value="The short term outcome of the procedure assessed during the procedure, at the conclusion of the procedure, during the immediate post-performance period, or at discharge. The outcome is usually expected to be within the encounter during which the procedure was performed."/>
+      <comment value="If outcome contains narrative text only, it can be captured using the CodeableConcept.text. Procedure.outcome are short term outcomes because long term outcomes are typically documented as Observations.  For example, a cardiac stent procedure may have two Procedure.outcomes of successful placement of stent and successful reestablishment of blood flow, but the long term outcome of no further cardiac events would not be documented as a Procedure.outcome and instead documented as an Observation."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isSummary value="true"/>
       <binding>

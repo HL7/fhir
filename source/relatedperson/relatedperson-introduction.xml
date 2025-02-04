@@ -40,5 +40,14 @@ Example RelatedPersons are:
 <p>
 	A standard extension <a href="[%extensions-location%]StructureDefinition-practitioner-animalSpecies.html">animalSpecies</a> can be used to indicate the species of a service animal.
 </p>
+<p>
+	When individual represented by a RelatedPerson is also a patient, that same individual may be represented by
+	both a RelatedPerson and Patient resource, Patient.link provides the indication that they are the same individual.<br/>
+	The RelatedPerson resource is used when that person is involved in the care of some other patient, while the
+	Patient resource is used when the person is themselves the target of care.<br/>
+	For example, a mother could be a Patient when receiving care for herself, but the mother could also be a RelatedPerson
+	when involved in the care of her child.  See the <a href="patient.html#maternity">Mother and newborn relationships</a>
+	section for more details on that example.
+</p>
 </div>
 </div>

@@ -355,6 +355,7 @@
       <path value="Organization.endpoint"/>
       <short value="Technical endpoints providing access to services operated for the organization"/>
       <definition value="Technical endpoints providing access to services operated for the organization."/>
+      <comment value="Note that an organization might have endpoints listed in any of the referenced directory resources, not just at the top Organization level (i.e. sub Organizations, Locations, HealthcareServices, PractitionerRoles)&#xD;&#xD;The Endpoint.managingOrganization property indicates the organization that is supporting/managing the technical endpoint." />
       <requirements value="Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
       <min value="0"/>
       <max value="*"/>
@@ -422,6 +423,28 @@
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.status">
+      <path value="Organization.qualification.status"/>
+      <short value="Status/progress of the qualification"/>
+      <definition value="Qualifications often take time to attain and might be tracked during this time, and completed qualifications might not always be valid. This status concept has some overlap with period and both should be considered together. Refer to the descriptions of the codes for how the period should be interpreted.&#xD;&#xD;If a qualification is revoked or otherwise cancelled, then the period is likely to be ignored, and might be related to when it was active." />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QualificationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Status of the Qualification"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/qualification-status"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Organization.qualification.period">

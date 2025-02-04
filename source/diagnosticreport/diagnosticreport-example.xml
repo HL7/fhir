@@ -18,7 +18,7 @@
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
 						<h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>
-						<pre xml:space="preserve">
+						<pre>
 Test                  Units       Value       Reference Range
 Haemoglobin           g/L         176         135 - 180
 Red Cell Count        x10*12/L    5.9         4.2 - 6.0
@@ -282,7 +282,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="787-2"/>
-						<display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
+						<display value="MCV [Entitic volume] by Automated count"/>
 					</coding>
 					<text value="Mean Cell Volume"/>
 				</code>
@@ -332,7 +332,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="785-6"/>
-						<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+						<display value="MCH [Entitic mass] by Automated count"/>
 					</coding>
 					<text value="Mean Cell Haemoglobin"/>
 				</code>

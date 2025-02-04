@@ -22,7 +22,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385219001"/>
-        <display value="Injection solution (qualifier vallue)"/>
+        <display value="Solution for injection"/>
       </coding>
     </doseForm>
     <ingredient>
@@ -31,7 +31,7 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="129472003"/>
-          <display value="Alemtuzamab (substance)"/>
+          <display value="Alemtuzumab (substance)"/>
         </coding>
       </concept>
       </item>

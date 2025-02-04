@@ -73,8 +73,7 @@ other patient records. It is not a requirement that such links are bilateral.
 The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
 to using the Patient.Link capability.<br/>
 The intention of the Person resource is to be able to link instances of resources together that are believed to be the same
-individual. This includes across resource types, such as RelatedPerson, Practitioner, Patient and even other Person resources.<br/>
-The Patient Link however is only intended to be used for Patient resources.
+individual. This includes across resource types, such as RelatedPerson, Practitioner, Patient and even other Person resources.
 </p>
 <p>
 The primary use case for the Person resource is to be able to support person registries that do not necessarily have a
@@ -94,6 +93,14 @@ patient resource that should be considered when referencing other records, which
 Not detecting/checking for a potential linkage could mean that related clinical records are not discovered, potentially impacting patient safety.
 (which is why using the Linkage resource is not appropriate, as its use in this manner would force the use of either another
 query to potentially locate other patient resources to consider, or use _revinclude)
+</p>
+<p>
+Therefore, the Linkage Resource should not be used in these cases:
+<ul>
+	<li>Linking patients - that should use Patient.link</li>
+	<li>Linking individuals - that should use Person as the linking resource</li>
+	<li>Linking encounters - that should use the new Encounter.link Extension</li>
+</ul>
 </p>
 
 <a name="contact"></a>
@@ -143,7 +150,7 @@ For veterinary use, the animal extension also includes the genderStatus which in
 <h2>Mother and newborn relationships</h2>
 <p>
 There are several ways to represent the relationship between a mother and a child.
-This is due to the when it is recorded and the purpose for which it is recorded:
+This variability is due to the timing when it is recorded and the purpose for which it is recorded:
 </p>
 	<ul>
 		<li>To express the family relationship and legal responsibility thereof for 

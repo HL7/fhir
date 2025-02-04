@@ -16,6 +16,27 @@
             <resource value="Allows vision prescriptions to be distinguished and referenced."/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.basedOn" resourcePath="VisionPrescription.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes
+            _resource="Reference(CarePlan,RequestOrchestration,NutritionOrder,ServiceRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="What prescription fulfills"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this vision prescription.  Authorization from the 'basedOn' request flows through to the referencing vision prescription."/>
+            <resource value="Plan/proposal/order/request fulfilled by this prescription."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="VisionPrescription.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
@@ -97,7 +118,6 @@
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
     <unmappedElement patternPath="Request.note" reason="Unknown"/>
-    <unmappedElement patternPath="Request.basedOn" reason="Unknown"/>
     <unmappedElement patternPath="Request.performer" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reason" reason="Unknown"/>

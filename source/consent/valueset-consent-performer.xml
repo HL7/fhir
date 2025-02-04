@@ -6,8 +6,8 @@
   </meta>
   <name value="PerformerRoleCodes"/>
   <title value="Performer Role Codes"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="CBCC"/>
   <contact>
     <telecom>

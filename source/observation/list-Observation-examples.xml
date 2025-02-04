@@ -265,7 +265,7 @@
     </extension>
     <item>
       <reference value="Observation/date-lastmp"/>
-      <display value="Date last menstrual period"/>
+      <display value="Last menstrual period start date"/>
     </item>
   </entry>
   <entry>

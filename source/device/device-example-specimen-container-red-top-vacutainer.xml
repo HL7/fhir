@@ -9,7 +9,18 @@
     <system value="http://acme.com/containers/id"/>
     <value value="345676"/>
   </identifier>
-  <displayName value="Red Top Tube" />
+  <!-- <displayName value="Red Top Tube" /> -->
+  <name>
+    <value value="Red Top Tube"/>
+    <type> 
+      <coding> 
+        <system value="http://hl7.org/fhir/device-nametype"/> 
+    	<code value="registered-name"/>
+		<display value="Registered Name"/>
+      </coding> 
+    </type> 
+  </name>  
+
   <property>
   <type>
 		   <coding>

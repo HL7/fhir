@@ -103,7 +103,7 @@
     </element>
     <element id="Endpoint.status">
       <path value="Endpoint.status"/>
-      <short value="active | suspended | error | off | entered-in-error"/>
+      <short value="active | limited | suspended | error | off | entered-in-error"/>
       <definition value="The endpoint status represents whether the endpoint can currently be used for connections or why it can't be used."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid. Temporary downtimes or other unexpected short-term changes in availability would not be represented in this property."/>
       <min value="1"/>
@@ -220,8 +220,8 @@
       </extension>
       <path value="Endpoint.managingOrganization"/>
       <short value="Organization that manages this endpoint (might not be the organization that exposes the endpoint)"/>
-      <definition value="The organization that manages this endpoint (even if technically another organization is hosting this in the cloud, it is the organization associated with the data)."/>
-      <comment value="This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an applicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don't have to be within the same organization resource, but most likely within the same organizational hierarchy."/>
+      <definition value="The organization that provides technical management services for this endpoint.  This would be the organization that acts as the public help desk for when the endpoint is not functioning.  It does NOT necessarily represent the organization who is the steward of data being provided/accepted by the endpoint."/>
+      <comment value="This property would NOT be used if the organization is only providing technical infrastructure.  For example, it would NOT refer to the cloud hosting provider if that provider were not providing helpdesk support for the endpoint.&#xD;&#xD;This property would NOT be used to represent the entity that is the steward of the data exposed by the endpoint.  This should be represented via Organization.endpoint. PractitionerRole.endpoint, Location.endpoint, or the other directory resources that may refer to endpoints.&#xD;&#xD;This property is not typically used when searching for Endpoint resources for the purpose of retrieving or sending clinical or administrative data.  However you may use this property to find endpoints for other technical administrative reasons such as if an organization that is managing endpoints is going out of business, you may need to update to the new managing organization." />
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -341,6 +341,34 @@
         <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Endpoint.payload.profileCanonical">
+      <path value="Endpoint.payload.profileCanonical"/>
+      <short value="The profile that is expected at this endpoint"/>
+      <definition value="The FHIR profile that is expected at this endpoint. It describes the resources that are handled, or even simply which resource types -e.g. Vital Sign Observations or QuestionnaireResponse.&#xD;The `profileUri` may be used when a FHIR Structure Definition is not available/appropriate." />
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Endpoint.payload.profileUri">
+      <path value="Endpoint.payload.profileUri"/>
+      <short value="The non-fhir based profile that is expected at this endpoint"/>
+      <definition value="The profile (as a uri) that is expected at this endpoint when not represented using a FHIR profile.&#xD;&#xD;e.g. CDA Template ID expressed as an OID (in the Uri)." />
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>

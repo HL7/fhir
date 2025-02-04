@@ -87,13 +87,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchSubject.progress.subjectProgress"/>
+          <valueString value="ResearchSubject.subjectState.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-state"/>
-        <description value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
+        <description value="candidate | in-prescreening | in-screening | eligible | ineligible | on-study | on-study-intervention | in-follow-up | off-study"/>
         <code value="subject_state"/>
         <type value="token"/>
-        <expression value="ResearchSubject.progress.subjectState"/>
+        <expression value="ResearchSubject.subjectState.code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -7,11 +7,11 @@
 <h3>Use Cases</h3>
 <p>The Group resource is used in one of two ways:</p>
 <ol>
-  <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined or otherwise referenced as part of healthcare-related activities</li>
+  <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined, acting collectively or otherwise referenced as part of healthcare-related activities</li>
   <li>To define a set of <i>possible</i> people, animals, devices, etc. that are of interest for some intended future healthcare-related activities</li>
 </ol>
 
-<p>Examples of the former could include group therapy or treatment sessions, exposed entities tracked as part of public health, etc.  The latter might be used to define expected subjects for a clinical study.</p>
+<p>Examples of the former could include a family, a household, or group therapy or treatment sessions, exposed entities tracked as part of public health, etc.  The latter might be used to define expected subjects for a clinical study.</p>
 
 <p>Both use cases are handled by a single resource because the data elements captured tend to be similar.</p>
 <p>NOTE: While <a href="specimen.html">Specimen</a> does not quite fit with this definition, it is being retained as part of
@@ -47,7 +47,8 @@ clinical trial participants, set of individuals impacted by or at risk of a publ
 The CareTeam resource establishes a set of relationships and roles and is specific to a particular Patient. 
 The actors are the individual members or organized group of individuals. CareTeam can be referenced by EpisodeOfCare, 
 Encounter, or CarePlan to identify the set of individuals (and their respective roles) who are intended to be involved 
-in providing the care defined by those resources.
+in providing the care defined by those resources. Groups containing practitioners are not allowed to perform actions
+for patient care.
 </li>
 <li>
 The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have narrative 
@@ -68,8 +69,6 @@ no longer have their own identifiers, can't easily be queried independently, etc
 mechanism for managing the independence of resources and has no impact on meaning.  
 </li>
 </ul>
-Contained, bundled and remotely referenced
-resources convey the same meaning.
 
 </div>
 

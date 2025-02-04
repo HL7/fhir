@@ -19,10 +19,10 @@
  <li><a href="device.html">Device:</a>  The physical, virtual, or software device that this DeviceMetric is for. Note that the Device.property element is used to record static characteristics or properties of the Device.</li>
 </ul>
  <ul>
-  <li><a href="device.html">DeviceDefinition:</a>  Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device the DeviceDefinition.property element may be used to record static characteristics or properties of the DeviceDefinition.</li>
+  <li><a href="devicedefinition.html">DeviceDefinition:</a>  Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device the DeviceDefinition.property element may be used to record static characteristics or properties of the DeviceDefinition.</li>
  </ul> 
  <ul>
-  <li><a href="device.html">Observation:</a>  Used to record the particular value of the DeviceMetric at a point in time.</li>
+  <li><a href="observation.html">Observation:</a>  Used to record the particular value of the DeviceMetric at a point in time.</li>
  </ul> 
 
 </div>

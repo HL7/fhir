@@ -15,9 +15,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="ii"/>
-  </extension>
   <url value="http://hl7.org/fhir/imagingselection-2dgraphictype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -25,10 +22,10 @@
   </identifier>
   <version value="6.0.0"/>
   <name value="ImagingSelection2DGraphicType"/>
-  <title value="Imaging Selection2 D Graphic Type"/>
-  <status value="draft"/>
+  <title value="Imaging Selection 2D Graphic Type"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2024-12-30"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -52,12 +49,12 @@
   <concept>
     <code value="polyline"/>
     <display value="POLYLINE"/>
-    <definition value="A series of connected line segments with ordered vertices denoted by (x,y) triplets; the points need not be coplanar."/>
+    <definition value="A series of connected line segments with ordered vertices denoted by (x,y) triplets; if the first and last vertices are the same it is a closed polygon."/>
   </concept>
   <concept>
-    <code value="interpolated"/>
-    <display value="INTERPOLATED"/>
-    <definition value="An n-tuple list of (x,y) pair end points between which some form of implementation dependent curved lines are to be drawn. The rendered line shall pass through all the specified points."/>
+    <code value="multipoint"/>
+    <display value="MULTIPOINT"/>
+    <definition value="Multiple pixels each denoted by a (x,y) pair."/>
   </concept>
   <concept>
     <code value="circle"/>
