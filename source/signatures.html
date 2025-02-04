@@ -8,7 +8,7 @@ Outstanding issues:
 
 -->
      
-[%settitle FHIR Documents%]
+[%settitle Signatures%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -23,28 +23,49 @@ Outstanding issues:
 
 
 <p>
-This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> 
-or <a href="https://tools.ietf.org/html/rfc7515">JSON Digital Signatures</a> for digital signatures. 
+<em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
+</p><p>
+<em>Approach:</em> FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
+As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
+This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
+Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
+</p><p>
+Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
+When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
+the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
+These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
+One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
+created/updated Resource is as expected, then the Digital Signature is formed.
+Another solution is to use a canonicalization that excuses these dynamic elements.
+</p><p>
+A variation of this happens in Messaging, Documents, and other interaction models. 
+For details, see 
+<a href="updates.html">Ramifications of storage/retrieval variations</a>
+</p>
+
+
+<p>
+This specification recommends the use of <a href="datatypes.html#XML">W3C Digital Signatures</a> 
+or <a href="datatypes.html#JSON">JSON Digital Signatures</a> for digital signatures. 
 Resources can be signed using the <a href="provenance.html">Provenance</a> resource to carry a 
-<a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached digital signature</a>. 
+signature. 
 The <a href="datatypes.html#signature">Signature datatype</a> is available to support various signature types including non-repudiation purposes. 
-Further details on creation and validation of <a href="datatypes.html#signature">Signatures are defined.</a>
 </p>
 <ul>
  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation.</li>
- <li>The JSON Digital-Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES</a> for support of Long Term signatures.</li>
+ <li>The JSON Digital-Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-LT</a> for support of Long Term signatures.</li>
 </ul>
 <p>
-In addition, <a href="documents.html#signatures">documents may be signed</a> using an 
-<a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
-signature. A specification for enveloped signature is profiled in 
-the <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-37.html">IHE DSG profile</a>.
+<a href="documents.html#signatures">Documents may be signed</a> using an 
+enveloped or enveloping 
+signature. A specification for enveloped and enveloping signatures on documents are profiled in 
+the <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-37.html">IHE Document Digital Signature (DSG) Profile</a>.
 </p>
 <p>
-Neither of these definitions prohibits policies that accept the use of other ways of using digital signatures or scanned wet signatures.
+SMART Health Cards defines a <a href="https://spec.smarthealth.cards/#health-cards-are-encoded-as-compact-serialization-json-web-signatures-jws">signature protocol for FHIR Bundles</a> based on the W3C Verifiable Credentials Data Model, and it has been internationally adopted for secure, granulart verification of health information such as COVID-19 immunizations and test results.
 </p>
 [%stu-note dstu%]
-The use of signatures with RESTful interfaces is a poorly understood area, and we would welcome reports of implementation experience. 
+We would welcome reports of implementation experience. 
 See <a href="https://confluence.hl7.org/display/FHIR/Digital+Signatures">discussion on use of Digital Signature in FHIR</a>
 </p>
 <p>

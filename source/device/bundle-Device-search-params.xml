@@ -16,12 +16,11 @@
         <description value="The definition / type of the device (code)"/>
         <code value="code"/>
         <type value="token"/>
-        <expression value="Device.definition.concept"/>
+        <expression value="Device.type |  Device.definition.resolve().classification.type "/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
-
   <entry>
     <resource>
       <SearchParameter>
@@ -30,13 +29,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.definition.reference"/>
+          <valueString value="Device.definition"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
         <description value="The definition / type of the device"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="Device.definition.reference"/>
+        <expression value="Device.definition"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -365,7 +364,7 @@
         <description value="The type of the device"/>
         <code value="type"/>
         <type value="token"/>
-        <expression value="Device.type"/>
+        <expression value="Device.type |  Device.definition.resolve().classification.type "/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -373,16 +372,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Device-udi-carrier"/>
+        <id value="Device-udi-carrier-hrf"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.udiCarrier"/>
+          <valueString value="Device.udiCarrier.carrierHRF"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Device-udi-carrier"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-udi-carrier-hrf"/>
         <description value="UDI Barcode (RFID or other technology) string in *HRF* format."/>
-        <code value="udi-carrier"/>
+        <code value="udi-carrier-hrf"/>
         <type value="string"/>
         <expression value="Device.udiCarrier.carrierHRF"/>
         <processingMode value="normal"/>
@@ -435,13 +434,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.version.value"/>
+          <valueString value="Device.deviceVersion.value"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-version"/>
         <description value="The specific version of the device"/> 
         <code value="version"/>
         <type value="string"/>
-        <expression value="Device.version.value"/>
+        <expression value="Device.deviceVersion.value"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -489,5 +488,28 @@
       </SearchParameter>
     </resource>
   </entry>  
-
+   <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-version-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-type-version"/>
+        <description value="Value and type of version"/>
+        <code value="version-type"/>
+        <type value="composite"/>
+        <expression value="Device.deviceVersion"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="type"/>
+          <expression value="type"/>
+        </component>
+        <component>
+          <definition value="value"/>
+          <expression value="value"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

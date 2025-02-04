@@ -17,7 +17,7 @@
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="385219001"/>
-                        <display value="Injection solution (qualifier value)"/>
+                        <display value="Solution for injection"/>
                     </coding>
                 </doseForm>
                 <ingredient>
@@ -75,7 +75,7 @@
     <quantity>
         <value value="1"/>
         <system value="http://snomed.info/sct"/>
-        <code value="415818005"/>
+        <code value="415818006"/>
     </quantity>
     <daysSupply>
         <value value="1"/>

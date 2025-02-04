@@ -6,10 +6,22 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="HL7 itself"/>
+      <valueString value="General Example Organization"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="organization-example"/>
+    </extension>
+    <item>
+      <reference value="Organization/example"/>
+      <display value="Example Org"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HL7 itself"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-hl7"/>
     </extension>
     <item>
       <reference value="Organization/hl7"/>

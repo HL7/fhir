@@ -1,18 +1,59 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
 <a name="notes"></a>
 <h2>Notes</h2>
   <h3>Imaging Selection Subsets</h3>
   <p>Some DICOM SOP Instances contain multiple sub-resources, such as frames, segments, etc.</p>
-  <p>An Imaging Selection resource may specify the subset of these that are included in the selection using the <code>instance.subset</code> element.</p>
+  <p>An Imaging Selection resource MAY specify the subset of these that are included in the selection using the <code>instance.subset</code> element.</p>
   <p>The defined types of subsets are:</p>
   <ul>
     <li>Frames selected from a multiframe SOP Instance</li>
-    <li>Content Item Observation UIDs selected from a DICOM SR or other structured document SOP Instance</li>
+    <li>Referenced Content Item Identifiers selected from a DICOM SR or other structured document SOP Instance</li>
     <li>Segments selected from a segmentation SOP Instance</li>
     <li>Regions of interest selected from a radiotherapy structure set SOP Instance</li>
   </ul>
   <p>The type of subset is determined by the SOP Class of the parent instance.</p>
   <p>Subsets can only reference sub-resources that are already defined within the selected DICOM SOP Instance.</p>
+
+  <h3>Use of ImagingSelection.code and ImagingSelection.category</h3>
+  <p>
+  The code and category element can be used to information relevant for applications that want to identify specific types of ImagingSelection resources.
+  </p>
+  <p>
+  As code is required and limited to a single value, it holds the primary purpose of the ImagingSelection. Additional applicable values populate the category element.
+  </p>
+  <p>
+  For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as RadLex RID35862 - and the category could contain values of the DICOM Image Type <code>(0008,0008)</code> attribute - such as DERVIED and SECONDARY.
+  </p>
+  <pre>
+  {
+    "resource": {
+      "resourceType": "ImagingSelection",
+      "id": "fa8e0948175f3117a3b8c4be2ff972ec",
+      "subject": {
+        "reference": "Patient/acb045960122378999c97cd7ca532f8b"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://radlex.org/",
+            "code": "RID12769",
+            "display": "volume rendering"
+          }
+        ]
+      },
+      "category": [
+        {
+          "text": "DERIVED"
+        },
+        {
+          "text": "SECONDARY"
+        }
+      ]
+    }
+  }
+</pre>
+<p></p>
+
 </div>

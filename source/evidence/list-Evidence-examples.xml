@@ -64,4 +64,16 @@
       <display value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of using the relatedArtifact element to quote a line of text from the evidence source."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-quoted-source"/>
+    </extension>
+    <item>
+      <reference value="Evidence/example-quoted-source"/>
+      <display value="Quoted Source: Prevalence of PASC at 30 days"/>
+    </item>
+  </entry>
 </List>

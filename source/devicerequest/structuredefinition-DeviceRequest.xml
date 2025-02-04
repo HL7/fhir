@@ -322,6 +322,7 @@
       <path value="DeviceRequest.intent"/>
       <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
+      <comment value="This element is immutable. It cannot be changed for the same resource instance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -395,7 +396,7 @@
       <path value="DeviceRequest.doNotPerform"/>
       <short value="True if the request is to stop or not to start using the device"/>
       <definition value="If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses."/>
-      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reasonCode includes the reason for marking the DeviceRequest as 'do not perform'."/>
+      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reason includes the reason for marking the DeviceRequest as 'do not perform'."/>
       <min value="0"/>
       <max value="1"/>
       <type>

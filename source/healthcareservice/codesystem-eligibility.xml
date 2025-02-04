@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="eligibility"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/eligibility"/>
+  <version value="6.0.0-ballot2"/>
+  <name value="Eligibility"/>
+  <title value="Eligibility Characteristics"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International"/>
+  <description value="Example set of HealthcareService eligibility codes"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="veterans"/>
+    <display value="Veterans"/>
+    <definition value="Only Veterans are eligible to receive services associated with this code"/>
+  </concept>
+  <concept>
+    <code value="pediatric-patients"/>
+    <display value="Pediatric patients"/>
+    <definition value="Pediatric Patients"/>
+  </concept>
+  <concept>
+    <code value="existing-patients"/>
+    <display value="Existing Patients"/>
+    <definition value="Existing Patients"/>
+  </concept>
+  <concept>
+    <code value="new-patients"/>
+    <display value="New patients"/>
+    <definition value="New patients"/>
+  </concept>
+  <concept>
+    <code value="low-income-patients"/>
+    <display value="Low-income patients"/>
+    <definition value="Low-income patients"/>
+  </concept>
+  <concept>
+    <code value="uninsured-patients"/>
+    <display value="Uninsured patients"/>
+    <definition value="Uninsured patients"/>
+  </concept>
+  <concept>
+    <code value="renal-patients"/>
+    <display value="Renal patients"/>
+    <definition value="Renal patients (e.g., for dialysis services)"/>
+  </concept>
+  <concept>
+    <code value="specialist-referral-required"/>
+    <display value="Specialist referral required"/>
+    <definition value="A specific specialist referral is required to receive services associated with this code"/>
+  </concept>
+  <concept>
+    <code value="assessment-required"/>
+    <display value="Assessment required"/>
+    <definition value="An assessment is required to receive services associated with this code"/>
+  </concept>
+</CodeSystem>

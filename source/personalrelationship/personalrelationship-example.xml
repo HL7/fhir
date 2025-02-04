@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PersonalRelationship xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/relatedperson.xsd">
+ <id value="example"/>
+
+  <source>
+    <reference value="Patient/example" />
+  </source>
+  
+  <relationshipType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode" />
+      <code value="WIFE" />
+    </coding>    
+  </relationshipType>
+
+  <target>
+    <reference value="Patient/example" />
+  </target>
+
+  <period>
+    <start value="2022-05-19" />
+  </period>
+</PersonalRelationship>

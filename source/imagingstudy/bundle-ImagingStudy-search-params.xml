@@ -13,7 +13,7 @@
           <valueString value="ImagingStudy.basedOn"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-based-on"/>
-        <description value="The order for the image, such as Accession Number associated with a ServiceRequest"/>
+        <description value="The order for the image"/>
         <code value="based-on"/>
         <type value="reference"/>
         <expression value="ImagingStudy.basedOn"/>
@@ -37,6 +37,7 @@
         <type value="token"/>
         <expression value="ImagingStudy.series.bodySite.concept"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -56,9 +57,11 @@
         <type value="reference"/>
         <expression value="ImagingStudy.series.bodySite.reference"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
+  <!-- this will cause a build error -->
   <entry>
     <resource>
       <SearchParameter>
@@ -72,12 +75,14 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-dicom-class"/>
         <description value="The type of the instance"/>
         <code value="dicom-class"/>
-        <type value="token"/>
+        <type value="uri"/>
         <expression value="ImagingStudy.series.instance.sopClass"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
+  <!-- -->
   <entry>
     <resource>
       <SearchParameter>
@@ -94,6 +99,7 @@
         <type value="reference"/>
         <expression value="ImagingStudy.encounter"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -127,7 +133,7 @@
           <valueString value="ImagingStudy.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-identifier"/>
-        <description value="Identifiers for the Study, such as DICOM Study Instance UID"/>
+        <description value="Identifiers for the Study, such as DICOM Study Instance UID or Accession Number"/>
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ImagingStudy.identifier"/>
@@ -151,6 +157,7 @@
         <type value="token"/>
         <expression value="ImagingStudy.series.instance.uid"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -170,6 +177,7 @@
         <type value="token"/>
         <expression value="ImagingStudy.series.modality"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -190,6 +198,7 @@
         <expression value="ImagingStudy.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
         <target value="Patient"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -264,6 +273,7 @@
         <type value="reference"/>
         <expression value="ImagingStudy.referrer"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -283,6 +293,7 @@
         <type value="token"/>
         <expression value="ImagingStudy.series.uid"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -321,6 +332,7 @@
         <type value="token"/>
         <expression value="ImagingStudy.status"/>
         <processingMode value="normal"/>
+        <multipleAnd value="false"/>
       </SearchParameter>
     </resource>
   </entry>

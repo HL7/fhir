@@ -34,8 +34,13 @@
   <serialNumber value="0400007825"/>
   <name>
     <value value="Nonin_Medical_Inc._323552"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="Model 3150"/>
   <type>
     <coding>
@@ -45,7 +50,7 @@
     </coding>
     <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
   </type>
-  <version>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -54,8 +59,8 @@
       <text value="MDC_ID_PROD_SPEC_FW: Firmware revision"/>
     </type>
     <value value="0.9C"/>
-  </version>
-  <version>
+  </deviceVersion>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -64,7 +69,7 @@
       <text value="MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version"/>
     </type>
     <value value="1.0"/>
-  </version>
+  </deviceVersion>
   <conformsTo>
     <specification>
       <coding>

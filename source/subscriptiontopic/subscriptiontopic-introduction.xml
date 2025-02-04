@@ -24,13 +24,13 @@
     <code>SubscriptionTopic</code> elements belong to a few general categories:
     <ul>
       <li>Canonical information, such as: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.url">url</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.title">title</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.publisher">publisher</a>, etc.</li>
-      <li>What triggers a notification: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger">resourceTrigger</a> and <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger">eventTrigger</a>.  More information can be found in the <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> section.</li>
-      <li>How clients can filter notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy">canFilterBy</a>.  More information can be found in the <a href="subscriptiontopic.html#filters">Defining Allowed Filters</a> section.</li>
-      <li>Related resources that MAY be included in notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape">notificationShape</a>.  More information can be found in the <a href="subscriptiontopic.html#notification-shape">Notification Shape</a> section.</li>
+      <li>What triggers a notification: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger">trigger</a>.  More information can be found in the <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> section.</li>
+      <li>How clients can filter notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger.canFilterBy">canFilterBy</a>.  More information can be found in the <a href="subscriptiontopic.html#filters">Defining Allowed Filters</a> section.</li>
+      <li>Related resources that MAY be included in notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger.notificationShape">notificationShape</a>.  More information can be found in the <a href="subscriptiontopic.html#notification-shape">Notification Shape</a> section.</li>
     </ul>
   </p>
   <p>
-    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be defined in a computable way whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressible in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
+    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be defined in a computable way whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based, FHIRPath-based, and event-based definition may differ slightly because of what is expressible in each.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
   </p>
 </div>
 

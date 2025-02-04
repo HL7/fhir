@@ -103,6 +103,10 @@ PeasantVille, Rainbow, Vic  3999"/>
 			</family>
 			<given value="Bénédicte"/>
 		</name>
+		<additionalName>
+			<use value="nickname"/>
+			<given value="Béné"/>
+		</additionalName>
 		<telecom>
 			<system value="phone"/>
 			<value value="+33 (237) 998327"/>
@@ -119,6 +123,13 @@ PeasantVille, Rainbow, Vic  3999"/>
 				<start value="1974-12-25"/>
 			</period>
 		</address>
+		<additionalAddress>
+			<use value="work"/>
+			<line value="123 Smart St"/>
+			<city value="PleasantVille"/>
+			<state value="Vic"/>
+			<postalCode value="3999"/>
+		</additionalAddress>
 		<gender value="female"/>
 		<period>
 			<!--  The contact relationship started in 2012  -->

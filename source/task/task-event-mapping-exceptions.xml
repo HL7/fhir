@@ -148,7 +148,7 @@
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Type of performance"/>
-            <resource value="Who should perform Task"/>
+            <resource value="Who should perform the Task"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Distinguishes the type of involvement of the performer in the task.."/>
@@ -171,6 +171,7 @@
             <resource value="Party responsible for managing task execution."/>
         </definitionUnmatched>
     </divergentElement>
+    <doubleMappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <divergentElement patternPath="Event.reason" resourcePath="Task.reason">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -193,7 +194,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Comments made about the task by the performer, subject or other participants."/>
-            <resource value="Free-text information captured about the task as it progresses."/>
+            <resource value="Free-text information about the task during its lifecycle."/>
         </definitionUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>

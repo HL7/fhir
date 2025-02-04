@@ -21,7 +21,7 @@
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="421637006"/>
-                        <display value="Lyophilized powder for injectable solution (qualifier value) "/>
+                        <display value="Lyophilised powder for conventional release solution for injection"/>
                     </coding>
                 </doseForm>            
         </Medication>
@@ -56,7 +56,7 @@
     <quantity>
         <value value="3"/>
         <system value="http://snomed.info/sct"/>
-        <code value="415818005"/>
+        <code value="415818006"/>
     </quantity>
     <daysSupply>
         <value value="1"/>

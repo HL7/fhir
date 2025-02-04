@@ -20,7 +20,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="373147003"/>
-      <display value="Administration of medication not done due to a contraindication (situation)"/>
+      <display value="Administration of medication not done due to contraindication (situation)"/>
     </coding>
   </statusReason>
   <medication>
@@ -38,10 +38,10 @@
 <supportingInformation>
   <reference value ="Condition/f204"></reference>
 </supportingInformation>
-  <occurencePeriod>
+  <occurrencePeriod>
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
-</occurencePeriod>
+</occurrencePeriod>
 
   <request>
     <reference value="MedicationRequest/medrx0317"/>

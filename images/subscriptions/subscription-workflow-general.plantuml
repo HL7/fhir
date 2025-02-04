@@ -1,0 +1,60 @@
+@startuml
+skin rose
+skinparam NoteTextAlignment left
+skinparam Padding 2
+skinparam ParticipantPadding 50
+skinparam LifelineStrategy solid
+autonumber
+
+participant "FHIR Server" as S
+participant Client      as C
+
+group Server Implementation
+  S -\\ S: Implement core Subscription functionality
+  |||
+  S -\\ S: Implement topics and advertise via\n""SubscriptionTopic"" resources
+end
+
+group Client Implementation
+else Client Topic Discovery
+  C ->> S: Search for a supported ""SubscriptionTopic"", e.g.:\n""GET .../SubscriptionTopic?[params]""
+  return ""Bundle"" with matching\n""SubscriptionTopic"" resources
+
+else Client Subscription Request
+  create Endpoint as E
+  C -> E: Create, configure, or initialize\nthe necessary Endpoint
+  C ->> S: Create a Subscription, e.g.:\n""POST .../Subscription""
+  |||
+end
+
+group Server Accepting or Rejecting a Subscription
+else Valid Subscription, without Handshake
+  S -->> C: Success: status = ""active""
+  note right of S: Send notifications...
+  ...
+else Valid Subscription, with Handshake Success
+  S -->> C: Success: status = ""requested""
+  S ->> E: Handshake
+  E -->> S: Success, e.g.:\n""200: OK""
+  note right of S
+    Update Subscription:
+    ""Subscription.status: active""
+  end note
+  note right of S: Send notifications...
+  ...
+else Valid Subscription, with Handshake Failure
+  S -->> C: Success: status = ""requested""
+  S ->> E: Handshake
+  E -->> S: Failure, e.g.:\n""404: Not Found""
+  note right of S
+    Update Subscription:
+    ""Subscription.status: error""
+  end note
+  ...
+else Invalid Subscription
+  S -->> C: Failure, e.g.:\n""400: Bad Request""
+  note right of S
+    No subscription was created
+  end note
+end
+@enduml

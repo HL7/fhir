@@ -64,9 +64,10 @@
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="429951000124103"/>
-			<display value="Bacterial isolate specimen"/>
+			<code value="119303007"/>
+			<display value="Microbial isolate specimen"/>
 		</coding>
+		<text value="Bacterial isolate specimen"/>
 	</type>
 	<subject>
 		<reference value="Patient/example"/>

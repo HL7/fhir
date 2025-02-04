@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="qualification-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/qualification-status"/>
+  <version value="6.0.0-ballot2"/>
+  <name value="QualificationStatus"/>
+  <title value="Qualification Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International"/>
+  <description value="Set of statuses that apply to qualifications of practitioners and organizations"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The qualification is available to use - The qualification period may be included to indicate a time interval if required."/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="This qualification is not available to use. This can be used without a period, and the expectation will not resume use."/>
+  </concept>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In-progress"/>
+    <definition value="The practitioner is in the process of aquiring for this qualification/certification "/>
+  </concept>
+  <concept>
+    <code value="pending"/>
+    <display value="Pending"/>
+    <definition value="The qualification is complete, however final issue/award is pending "/>
+  </concept>
+  <concept>
+    <code value="temporary"/>
+    <display value="Temporary"/>
+    <definition value="This qualification has been allocated to the practitioner on a temporary basis, the period may indicate a time interval. This could cover cases such as the recognition of an external qualificiaiton that is still being verified, but can be used during the process."/>
+  </concept>
+  <concept>
+    <code value="conditional"/>
+    <display value="Conditional"/>
+    <definition value="This qualification may be used, however there are conditions that may apply"/>
+  </concept>
+  <concept>
+    <code value="suspended"/>
+    <display value="Suspended"/>
+    <definition value="This qualification should not be used, but may resume use in the future - the period, if included, may indicate when this started (via the end date, start date indicates when the qualification was available from)."/>
+  </concept>
+  <concept>
+    <code value="revoked"/>
+    <display value="Revoked"/>
+    <definition value="This qualification should not be used, and is not expected to resume in the future"/>
+  </concept>
+</CodeSystem>

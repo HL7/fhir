@@ -34,8 +34,13 @@
   <serialNumber value="92300365108"/>
   <name>
     <value value="meter+00365108"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="923"/>
   <type>
     <coding>
@@ -45,7 +50,7 @@
     </coding>
     <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
   </type>
-  <version>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -54,7 +59,7 @@
       <text value="MDC_ID_PROD_SPEC_FW: Firmware revision"/>
     </type>
     <value value="v1.8.3"/>
-  </version>
+  </deviceVersion>
   <conformsTo>
     <specification>
       <coding>

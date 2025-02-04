@@ -61,7 +61,7 @@ The following rules apply to code system fragments:
 </ul>
 
 <a name="supplements"></a>
-<h2>Code System Supplements <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h2>
+<h2>Code System Supplements</h2>
 <p>
 If the <code>CodeSystem.content</code> value is <code>supplement</code>, then the resource 
 describes a code system supplement. The following rules apply to code system supplements:
@@ -76,12 +76,7 @@ describes a code system supplement. The following rules apply to code system sup
 <p>
 If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
 Code System and use the <code>Coding</code> type for the property values.
-</p> 
-<div class="warning"><blockquote><p>
-The impact of Code System supplements on <a href="valueset-operation-expand.html">value set expansion</a> - and therefore <a href="valueset-operation-validate-code.html">value set validation</a> - is 
-subject to ongoing experimentation and implementation testing, and further clarification and additional
-rules might be proposed in future versions of this specification.
-</p></blockquote></div>
+</p>
 
 <a name="designations"></a>
 <h2>Display, Definition and Designations</h2>
@@ -154,8 +149,8 @@ Properties are defined using the following elements:
  </tr>
  <tr>
   <td>type</td>
-  <td>code | Coding | string | integer | boolean | dateTime</td>
-  <td>The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept)</td>
+  <td>code | Coding | string | integer | boolean | dateTime | decimal</td>
+  <td>The type of the property value. The values for properties of type "code" (CodeSystem.concept.property.valueCode) are drawn from the codes defined in the CodeSystem instance.</td>
  </tr>
 </table>
 <p>
@@ -190,7 +185,7 @@ by the FHIR specification.
  <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#comment : code</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#comment : string</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
 </table>
 <p>

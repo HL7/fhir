@@ -3,10 +3,6 @@
  <!-- from DomainResource: text, contained, extension, and modifierExtension -->
     <id value="example-lungMass"/>
     <!-- from DomainResource: text, contained, extension, and modifierExtension -->
-    <text>
-        <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Whole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable.</div>
-    </text>
     <identifier>
         <use value="temp"/>
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
@@ -17,7 +13,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="443968007"/>
-            <display value="Whole Exome Sequencing - Sequencing of entire coding region of gene (procedure)"/>
+            <display value="Sequencing of entire coding region of gene (procedure)"/>
         </coding>
     </type>
     <subject>
@@ -41,7 +37,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="309529002"/>
-                <display value="Lung mass (finding) "/>
+                <display value="Lung mass (finding)"/>
             </coding>
         </concept>
     </reason>

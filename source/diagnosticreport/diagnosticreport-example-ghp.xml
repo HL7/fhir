@@ -376,7 +376,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="787-2"/>
-						<display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
+						<display value="MCV [Entitic volume] by Automated count"/>
 					</coding>
 					<text value="Mean Cell Volume"/>
 				</code>
@@ -426,7 +426,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="785-6"/>
-						<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+						<display value="MCH [Entitic mass] by Automated count"/>
 					</coding>
 					<text value="Mean Cell Haemoglobin"/>
 				</code>
@@ -1161,7 +1161,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="1963-8"/>
-						<display value="Bicarbonate [Moles/volume] in Serum"/>
+						<display value="Bicarbonate [Moles/volume] in Serum or Plasma"/>
 					</coding>
 					<coding>
 						<system value="http://snomed.info/sct"/>
@@ -2247,7 +2247,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="30391-7"/>
-						<display value="Erythocytes [#/volume] in Urine"/>
+						<display value="Erythrocytes [#/volume] in Urine"/>
 					</coding>
 				</code>
 				<subject>

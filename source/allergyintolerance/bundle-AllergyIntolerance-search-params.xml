@@ -5,16 +5,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AllergyIntolerance.participant.actor"/>
-        </extension>
+        <id value="AllergyIntolerance-asserter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <description value="Who or what participated in the activities related to the allergy or intolerance"/>
-        <code value="participant"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.asserter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-asserter"/>
+        <description value="Source of the information about the allergy"/>
+        <code value="asserter"/>
         <type value="reference"/>
-        <expression value="AllergyIntolerance.participant.actor"/>
+        <expression value="AllergyIntolerance.asserter"/>
+        <xpath value="f:AllergyIntolerance/f:asserter"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -136,18 +139,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AllergyIntolerance-last-date"/>
+        <id value="AllergyIntolerance-last-reaction-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AllergyIntolerance.lastOccurrence"/>
+          <valueString value="AllergyIntolerance.lastReactionOccurrence"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-last-date"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-last-reaction-date"/>
         <description value="Date(/time) of last known occurrence of a reaction"/>
-        <code value="last-date"/>
+        <code value="last-reaction-date"/>
         <type value="date"/>
-        <expression value="AllergyIntolerance.lastOccurrence"/>
+        <expression value="AllergyIntolerance.lastReactionOccurrence"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

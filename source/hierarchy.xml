@@ -38,7 +38,7 @@ signatures.html
       -->
       </page>
       <page title="CI Build Search" filename="search-build.html"/>
-    <!--  <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
+      <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -291,6 +291,7 @@ signatures.html
       <page type="resource" resource="Flag"/>
 
       <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAlert"/>
       <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>
@@ -312,6 +313,7 @@ signatures.html
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
 	    <page type="resource" resource="InsuranceProduct"/>
+      <page type="resource" resource="PersonalRelationship"/>
 	    <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationAffiliation"/>
 	    <page type="resource" resource="VerificationResult"/>
@@ -341,6 +343,7 @@ signatures.html
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingSelection"/>
       <page type="resource" resource="MolecularSequence"/>
+      <page type="resource" resource="MolecularDefinition"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Flag xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/flag.xsd">
+  <id value="medication"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Warning: Usage of Oxycodone in the formulary requires special approval before prescription</div>
+  </text>
+  <identifier>
+       <value value="warning-2024-drug-Oxycodone"/>
+  </identifier>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/flag-category"/>
+      <code value="admin"/>
+      <display value="Administrative"/>
+    </coding>
+    <text value="Administrative"/>  
+  </category>
+  <code>
+    <coding>
+      <system value="http://example.org/local"/>
+      <code value="special-approval-required"/>
+      <display value="Special Approval Required"/>
+    </coding>
+    <text value="Usage of Oxycodone requires special approval before prescription."/>
+  </code>
+  <subject>
+    <reference value="Medication/med0310"/>
+    <display value="Oxycodone"/>
+  </subject>
+  <period>
+      <start value="2024-09-01"/>
+  </period>
+  <author>
+    <display value="Pharmacy and Therapeutics Co"/>
+  </author>
+</Flag>
