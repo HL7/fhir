@@ -178,7 +178,7 @@
       <min value="0"/>
       <max value="0"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
       </type>
     </element>
   </differential>

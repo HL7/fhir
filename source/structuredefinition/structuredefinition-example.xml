@@ -67,7 +67,7 @@
     <element id="DiagnosticReport">
       <path value="DiagnosticReport"/>
       <short value="Lipid Lab Report"/>
-      <definition value="The findings and interpretation of a general lipd lab profile."/>
+      <definition value="The findings and interpretation of a general lipid lab profile."/>
       <comment value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
       <min value="1"/>
       <max value="1"/>

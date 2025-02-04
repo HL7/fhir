@@ -11,7 +11,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="More specific description">
             <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this audit event."/>
-            <resource value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+            <resource value="Allows tracing of authorization for the events and tracking whether proposals/recommendations were acted upon."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.category" resourcePath="AuditEvent.type">

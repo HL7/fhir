@@ -151,9 +151,9 @@
 	</p>
 	<p>
 		Accepting a recurring appointment can be done either as accepting the entire series 
-		(using <code>AppointmentRequest.recurring=true</code>) or can accept each occurrence individually
-		(using <code>AppointmentRequest.recurring=false</code> along with <code>AppointmentRequest.occurrenceDate</code>
-		or <code>AppointmentRequest.recurrenceId</code> to indicate which repitition specifically)
+		(using <code>AppointmentResponse.recurring=true</code>) or can accept each occurrence individually
+		(using <code>AppointmentResponse.recurring=false</code> along with <code>AppointmentResponse.occurrenceDate</code>
+		or <code>AppointmentResponse.recurrenceId</code> to indicate which repetition specifically)
 	</p>
 	<p>
 		Note that in the template the <code>timezone</code> property defines which timezone the start/end times

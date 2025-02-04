@@ -3,9 +3,7 @@
 	<div>
 		<h2>Scope and Usage</h2>
 		<p>
-The VisionPrescription resource is intended to support the information requirements for a prescription for glasses and contact lenses for a patient.
-Corrective optical lenses are considered a controlled substance and therefore a prescription is typically required for the provision of 
-patient-specific lenses.  
+The VisionPrescription resource represents an authorization for corrective optical lenses to be provided to a patient. Eye glasses and contact lenses usually require a prescription for patient-specific lenses. Details about the fulfillment of the authorization are handled by the Task [add link] resource. For further information about this separation of responsibilities, refer to the link <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
 		</p>
 		<p>
 Vision prescriptions may only be issued by providers who have optical diagnosis within their scope of practice, typically ophthalmologists  

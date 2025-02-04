@@ -33,8 +33,8 @@
       the activity), or in preparation to allow others to claim the task.</p>
 <!--    <h3>Using Tasks with operations</h3>
     <p>The Task resource defines several operations to enable rich control over the task execution
-      environment. A server managing task resources may allow unfettered read access to all tasks
-      that it maintains, but restrict write access to the task resources to itself in order to exert
+      environment. A server managing Task resources may allow unfettered read access to all tasks
+      that it maintains, but restrict write access to the Task resources to itself in order to exert
       control over the task state machine. Instead, it might offer operations on tasks that enable
       strictly controlled write operations following commonly accepted business rules for task
       management. For example, only tasks that are in the "In Process" state might be allowed to be

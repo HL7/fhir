@@ -4,10 +4,12 @@
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.class" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.identifier" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.who" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.grade" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.status" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
 </mappingExceptions>

@@ -30,18 +30,6 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept>
-        <code value="7771000"/>
-        <display value="Left (qualifier value)"/>
-      </concept>
-      <concept>
-        <code value="24028007"/>
-        <display value="Right (qualifier value)"/>
-      </concept>
-      <concept>
-        <code value="51440002"/>
-        <display value="Bilateral"/>
-      </concept>
       <concept>	
 				<code value ="46053002"/>
 				<display value ="Distal"/>

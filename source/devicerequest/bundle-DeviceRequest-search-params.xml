@@ -284,7 +284,7 @@
         <code value="performer-code"/>
         <type value="token"/>
         <expression value="DeviceRequest.performer.concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

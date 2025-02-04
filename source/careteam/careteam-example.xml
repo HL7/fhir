@@ -4,7 +4,7 @@
 
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Care Team</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Peter James Charlmers Care Team for Inpatient Encounter with one member.</div>
   </text>
 
   <contained>
@@ -70,6 +70,11 @@
 			</repeat>
 		</effectiveTiming>
 	</participant> 
+	<reason>
+		<concept>
+			<text value="obesity"/>
+		</concept>
+	</reason>
 	<managingOrganization>
         <reference value="Organization/f001"/>
     </managingOrganization>

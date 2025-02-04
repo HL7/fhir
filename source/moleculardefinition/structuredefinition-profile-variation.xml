@@ -24,7 +24,7 @@
     <url value="http://hl7.org/fhir/StructureDefinition/variation"/>
     <identifier>
         <system value="urn:ietf:rfc:3986"/>
-        <value value="0000"/>
+        <value value="urn:oid:2.16.840.1.113883.4.642.5.1783"/>
     </identifier>
     <version value="6.0.0"/>
     <name value="MolecularDefinitionVariation"/>
@@ -85,6 +85,7 @@
             <min value="2"/>
             <max value="*"/>
         </element>
+        <!-- don't know what this is doing, but it doesn't make sense
         <element id="MolecularDefinition.representation.focus">
             <path value="MolecularDefinition.representation.focus"/>
             <slicing>
@@ -97,7 +98,7 @@
                 <rules value="open"/>
             </slicing>
             <min value="1"/>
-        </element>
+        </element>-->
         <!--        context state slice-->
         <element id="MolecularDefinition.representation:ContextState">
             <path value="MolecularDefinition.representation"/>

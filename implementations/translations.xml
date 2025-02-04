@@ -808,6 +808,9 @@
 		<translation lang="es">Persona</translation>
 		<translation lang="zh">人员</translation>
 	</item>
+	<item id="PersonalRelationship">
+		<translation lang="en">PersonalRelationship</translation>
+	</item>
 	<item id="PharmacyClaim">
 		<translation lang="en">PharmacyClaim</translation>
 		<translation lang="fr">DemandePharmaceutique</translation>
