@@ -9,10 +9,10 @@
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/product-category"/>
   <identifier>
@@ -39,7 +39,7 @@
   <description value="Biologically Derived Product Category."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
-  <content value="complete"/>
+  <content value="example"/>
   <concept>
     <code value="organ"/>
     <display value="Organ"/>

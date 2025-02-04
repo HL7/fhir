@@ -11,10 +11,16 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
+ <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
   <url value="http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-match-status"/>
   <version value="0.1.0"/>
   <name value="BiologicallyDerivedProductDispenseMatchStatus"/>
-  <title value="Biologically derived product dispense - match status"/>
+  <title value="Biologically Derived Product Dispense Match Status"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2023-01-29T21:19:50+01:00"/>
@@ -24,8 +30,12 @@
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
   </contact>
-  <description value="Biologically derived product dispense - match status"/>
+  <description value="Biologically Derived Product Dispense Match Status"/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -35,7 +45,7 @@
   </jurisdiction>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status"/>
-  <content value="complete"/>
+  <content value="example"/>
   <count value="4"/>
   <concept>
     <code value="crossmatched"/>
