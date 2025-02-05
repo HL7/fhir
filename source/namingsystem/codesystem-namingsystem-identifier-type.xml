@@ -68,7 +68,7 @@
   <concept>
     <code value="iri-stem"/>
     <display value="IRI stem"/>
-    <definition value="An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See http://hl7.org/fhir/rdf.html#iri-stem for details on how this value may be used."/>
+    <definition value="An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See [the RDF spec](rdf.html#iri-stem) for details on how this value may be used."/>
   </concept>
   <concept>
     <code value="v2csmnemonic"/>
