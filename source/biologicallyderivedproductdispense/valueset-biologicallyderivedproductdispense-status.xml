@@ -16,8 +16,8 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
   <version value="6.0.0"/>
-  <name value="BiologicallyDerivedProductDispenseCodes"/>
-  <title value="Biologically Derived Product Dispense Status Codes"/>
+  <name value="BiologicallyDerivedProductDispenseStatus"/>
+  <title value="Biologically Derived Product Dispense Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
