@@ -3,17 +3,16 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-product-status"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"/>
   <identifier>
@@ -37,8 +36,15 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <description value="Biologically Derived Product Status."/>
-  <immutable value="true"/>
+  <immutable value="false"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/biologicallyderived-product-status"/>
