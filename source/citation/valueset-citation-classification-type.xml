@@ -22,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="CitationClassificationType"/>
   <title value="Citation Classification Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-11T10:55:11.085+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
