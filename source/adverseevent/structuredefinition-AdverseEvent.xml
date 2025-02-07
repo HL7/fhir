@@ -369,18 +369,26 @@
     </element>
     <element id="AdverseEvent.resultingEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#26435, J#34316"/>
+        <valueString value="J#26435, J#34316, J#48833"/>
       </extension>
       <path value="AdverseEvent.resultingEffect"/>
       <short value="Effect on the subject due to this event"/>
       <definition value="Information about the condition that occurred as a result of the adverse event, such as hives due to the exposure to a substance (for example, a drug or a chemical) or a broken leg as a result of the fall."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="Reference"/>
+	  <type>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventResultingEffect"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the effect on subject due to this adverse event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+      </binding>
       <isSummary value="true"/>
     </element>
     <element id="AdverseEvent.location">
@@ -803,7 +811,7 @@
 	
     <element id="AdverseEvent.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="need to add jira"/>
+        <valueString value="J#46601"/>
       </extension>
       <path value="AdverseEvent.note"/>
       <short value="Comment on adverse event"/>
@@ -813,7 +821,7 @@
       <type>
         <code value="Annotation"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="false"/>
     </element>
   </differential>
 </StructureDefinition>
