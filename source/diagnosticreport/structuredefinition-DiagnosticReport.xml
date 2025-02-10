@@ -347,7 +347,7 @@
       <path value="DiagnosticReport.encounter"/>
       <short value="Encounter associated with the DiagnosticReport"/>
       <definition value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
-      <comment value="This will typically be the encounter during which the tests and studies were ordered and/or performed that are being reported by the DiagnosticReport.  Some tests or studies may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests)."/>
+      <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
       <requirements value="Links the request to the Encounter context."/>
       <alias value="Context"/>
       <min value="0"/>
