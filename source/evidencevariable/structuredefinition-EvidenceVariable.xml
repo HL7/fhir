@@ -636,6 +636,13 @@
 				<code value="string"/>
 			</type>
 		</element>
+		<element id="EvidenceVariable.dataStorage.component">
+		  <path value="EvidenceVariable.dataStorage.component"/>
+		  <definition value="A part of the value for a variable that is stored in 2 or more parts."/>
+		  <min value="0"/>
+		  <max value="*"/>
+		  <contentReference value="#EvidenceVariable.dataStorage"/>
+		</element>
 		<element id="EvidenceVariable.timing">
 			<path value="EvidenceVariable.timing"/>
 			<short value="When the variable is observed"/>
