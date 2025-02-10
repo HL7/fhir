@@ -276,9 +276,7 @@ operation did not proceed, and the client will need to re-issue the
 operation if it can perform the redirection (e.g. may get redirected
 to an authentication step). User agents should note that servers
 may issue redirects, etc. to authenticate the client in response to
-an operation request. An HTTP status code of 4xx or 5xx indicates
-an error, and an <a href="operationoutcome.html">OperationOutcome</a>
-SHOULD be returned with details.
+an operation request. An HTTP status code of 4xx or 5xx indicates an error, and an OperationOutcome SHOULD be returned with details. Note that an <a href="operationoutcome.html">OperationOutcome</a> indicating a failure returned by one of these HTTP codes is not wrapped in a Parameters resource. 
 </p>
 <p>
 In general, an operation response uses the same
@@ -287,7 +285,7 @@ there are multiple named <i>out</i> parameters.
 </p>
 <p>
 If there is only one <i>out</i> parameter, which is a single Resource with the parameter name
-"return" then the parameter format is not used, and the response is simply the resource itself.
+"return" then the parameter format is not used, and the response is simply the resource itself. Note that this is true when the expected response is an OperationOutcome.
 </p>
 <p>
 The result of an operation is subject to <a href="http.html#mime-type">content negotiation like any other interaction</a>. 
