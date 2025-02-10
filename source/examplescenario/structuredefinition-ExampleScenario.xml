@@ -850,7 +850,7 @@
       </extension>
       <path value="ExampleScenario.process.title"/>
       <short value="Label for procss"/>
-      <definition value="A short descriptive label the process to be used in tables or diagrams."/>
+      <definition value="A short descriptive label of the process to be used in tables or diagrams."/>
       <min value="1"/>
       <max value="1"/>
       <type>
