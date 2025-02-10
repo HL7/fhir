@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-variation-cyp2c19-1015-vrs"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
-    </meta>
     <moleculeType>
         <coding>
             <system value="http://hl7.org/fhir/sequence-type"/>
