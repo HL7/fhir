@@ -94,7 +94,7 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from
-        the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
+        the <a href="https://www.health.nsw.gov.au/kidsfamilies/MCFhealth/Pages/child-blue-book.aspx">Australian New South Wales blue book</a></li>
     </ul>
   </li>
 </ul>
