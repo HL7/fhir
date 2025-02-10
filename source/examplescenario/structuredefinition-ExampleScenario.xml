@@ -849,7 +849,7 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="ExampleScenario.process.title"/>
-      <short value="Label for procss"/>
+      <short value="Label for process"/>
       <definition value="A short descriptive label of the process to be used in tables or diagrams."/>
       <min value="1"/>
       <max value="1"/>
