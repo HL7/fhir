@@ -567,7 +567,7 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Domain concept that is the focus of the representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-focus"/>
       </binding>
@@ -721,7 +721,7 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The normalization method used for determining a location within a coordinate system."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-normalization"/>
       </binding>
