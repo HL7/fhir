@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-sequence-msh2"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/sequence"/>
-    </meta>
     <moleculeType>
         <coding>
             <system value="http://hl7.org/fhir/sequence-type"/>
