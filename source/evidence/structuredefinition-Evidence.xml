@@ -224,14 +224,14 @@
 			<path value="Evidence.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of summarys s that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<comment value="Allows filtering of summaries that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="code"/>
 			</type>
 			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{Evidence}} without due consideration"/>
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -351,6 +351,21 @@
 				<code value="ContactDetail"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.author"/>
+			</mapping>
+		</element>
+		<element id="Evidence.recorder">
+			<path value="Evidence.recorder"/>
+			<short value="Who entered the data for the evidence"/>
+			<definition value="Who entered the data for the evidence."/>
+			<comment value="The Evidence.recorder element is structured to support a name (with a string datatype) and contact point information for the recorder, and is not structured to support unique identifiers for the recorder. If detailed contributorship data is needed, then one can create a Citation Resource for the Evidence Resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
 		</element>
 		<element id="Evidence.editor">
 			<path value="Evidence.editor"/>
@@ -384,7 +399,6 @@
 			<type>
 				<code value="ContactDetail"/>
 			</type>
-			<isSummary value="true"/>
 		</element>
 		<element id="Evidence.useContext">
 			<path value="Evidence.useContext"/>
@@ -420,8 +434,8 @@
 		</element>
 		<element id="Evidence.copyright">
 			<path value="Evidence.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the Evidence and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Evidence."/>
+			<short value="Intellectual property ownership, may include restrictions on use"/>
+			<definition value="A copyright statement relating to the Evidence and/or its contents. Copyright statements are legal notices of intellectual property ownership and may include restrictions on the use and publishing of the Evidence."/>
 			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the Evidence and/or its content."/>
 			<alias value="License"/>
@@ -442,7 +456,7 @@
 			</extension>
 			<path value="Evidence.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
@@ -468,13 +482,14 @@
 			</extension>
 			<path value="Evidence.description"/>
 			<short value="Description of the particular summary"/>
-			<definition value="A free text natural language description of the evidence from a consumer's perspective."/>
+			<definition value="A natural language summary of the evidence."/>
 			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the evidence as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the evidence is presumed to be the predominant language in the place the evidence was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="markdown"/>
 			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="Evidence.assertion">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -482,7 +497,7 @@
 			</extension>
 			<path value="Evidence.assertion"/>
 			<short value="Declarative description of the Evidence"/>
-			<definition value="Declarative description of the Evidence."/>
+			<definition value="Declarative description of the Evidence, such as conclusion or bottom line statement."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -504,9 +519,10 @@
 				<valueCode value="490,150"/>
 			</extension>
 			<path value="Evidence.variableDefinition"/>
-			<short value="Evidence variable such as population, exposure, or outcome"/>
-			<definition value="Evidence variable such as population, exposure, or outcome."/>
-			<min value="1"/>
+			<short value="Description, classification, and definition of a single variable"/>
+			<definition value="Description, classification, and definition of a single variable. The collection of variables defines what the evidence is about."/>
+			<comment value="Comparative evidence is often defined with a population variable, an exposure variable and an outcome variable, while non comparative evidence is often defined with a population variable and an outcome variable."/>
+			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="BackboneElement"/>
@@ -553,14 +569,13 @@
 		</element>
 		<element id="Evidence.variableDefinition.roleSubtype">
 			<path value="Evidence.variableDefinition.roleSubtype"/>
-			<short value="subgroup | variable-A | variable-B | variable-AB | confounder | collider | mediator | effect-modifier"/>
+			<short value="Sub-classification of the role of the variable"/>
 			<definition value="Sub-classification of the role of the variable."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
-			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceVariableRoleSubtype"/>
@@ -584,7 +599,7 @@
 		<element id="Evidence.variableDefinition.observed">
 			<path value="Evidence.variableDefinition.observed"/>
 			<short value="Definition of the actual variable related to the statistic(s)"/>
-			<definition value="Definition of the actual variable related to the statistic(s)."/>
+			<definition value="Definition of the actual variable related to the statistic(s), i.e., the population being the actual study sample or the measured variable (exposure, outcome, or covariate) being the actual observation that occurred or will occur in the study."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -597,7 +612,7 @@
 		<element id="Evidence.variableDefinition.intended">
 			<path value="Evidence.variableDefinition.intended"/>
 			<short value="Definition of the intended variable related to the Evidence"/>
-			<definition value="Definition of the intended variable related to the Evidence."/>
+			<definition value="Definition of the intended variable related to the Evidence, i.e., the population, exposure, or outcome for which the statistical finding is being interpreted."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -626,10 +641,10 @@
 		</element>
 		<element id="Evidence.synthesisType">
 			<path value="Evidence.synthesisType"/>
-			<short value="The method to combine studies"/>
-			<definition value="The method to combine studies."/>
+			<short value="The design of the synthesis (combination of studies) that produced this evidence"/>
+			<definition value="The design of the synthesis (combination of studies) that produced this evidence. The design is described with any number of synthesis characteristics, such as type of meta-analysis."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
@@ -672,8 +687,7 @@
 		</element>
 		<element id="Evidence.statistic.description">
 			<path value="Evidence.statistic.description"/>
-			<short value="Description of content"/>
-			<definition value="A description of the content value of the statistic."/>
+			<short value="A natural language summary of the statistic"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -692,11 +706,13 @@
 		<element id="Evidence.statistic.statisticType">
 			<path value="Evidence.statistic.statisticType"/>
 			<short value="Type of statistic, e.g., relative risk"/>
+			<definition value="Type of statistic, e.g., relative risk. The statistic type is a classification that formally defines the relationship between the variables (noted in Evidence.variableDefinition) and the value specification (noted in Evidence.statistic.quantity)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="StatisticType"/>
@@ -708,8 +724,8 @@
 		<element id="Evidence.statistic.category">
 			<path value="Evidence.statistic.category"/>
 			<short value="Associated category for categorical variable"/>
-			<definition value="When the measured variable is handled categorically, the category element is used to define which category the statistic is reporting."/>
-			<comment value="Simple strings can be used for descriptive purposes. Exact matching to EvidenceVariable.category.name for the Evidence.variableDefinition[variableRole=measuredVariable].observed=Reference(EvidenceVariable) could facilitate validation within datasets."/>
+			<definition value="When the measured variable (outcome) is handled categorically, the category element is used to define which category the statistic is reporting."/>
+			<comment value="Simple strings can be used for descriptive purposes. Exact matching to EvidenceVariable.category.name for the Evidence.variableDefinition[variableRole=outcome].observed=Reference(EvidenceVariable) could facilitate validation within datasets."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -724,6 +740,7 @@
 			<type>
 				<code value="Quantity"/>
 			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="Evidence.statistic.numberOfEvents">
 			<path value="Evidence.statistic.numberOfEvents"/>
@@ -752,7 +769,7 @@
 				<valueCode value="100;100"/>
 			</extension>
 			<path value="Evidence.statistic.sampleSize"/>
-			<short value="Number of samples in the statistic"/>
+			<short value="Count of participants in the study sample"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -762,7 +779,7 @@
 		<element id="Evidence.statistic.sampleSize.description">
 			<path value="Evidence.statistic.sampleSize.description"/>
 			<short value="Textual description of sample size for statistic"/>
-			<definition value="Human-readable summary of population sample size."/>
+			<definition value="Human-readable summary of study sample size. A human-readable string to clarify or explain concepts about the sample size."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -781,7 +798,7 @@
 		<element id="Evidence.statistic.sampleSize.numberOfStudies">
 			<path value="Evidence.statistic.sampleSize.numberOfStudies"/>
 			<short value="Number of contributing studies"/>
-			<definition value="Number of participants in the population."/>
+			<definition value="Count of studies or samples combined to become the total sample for the statistic."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -790,8 +807,8 @@
 		</element>
 		<element id="Evidence.statistic.sampleSize.numberOfParticipants">
 			<path value="Evidence.statistic.sampleSize.numberOfParticipants"/>
-			<short value="Cumulative number of participants"/>
-			<definition value="A human-readable string to clarify or explain concepts about the sample size."/>
+			<short value="Total number of participants"/>
+			<definition value="Count of members in the total sample for the statistic."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -857,7 +874,7 @@
 		</element>
 		<element id="Evidence.statistic.attributeEstimate.quantity">
 			<path value="Evidence.statistic.attributeEstimate.quantity"/>
-			<short value="The singular quantity of the attribute estimate, for attribute estimates represented as single values; also used to report unit of measure"/>
+			<short value="The singular quantity of the attribute estimate, for attribute estimates represented as single values, which may include a unit of measure"/>
 			<comment value="Often the p value"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -868,7 +885,7 @@
 		<element id="Evidence.statistic.attributeEstimate.level">
 			<path value="Evidence.statistic.attributeEstimate.level"/>
 			<short value="Level of confidence interval, e.g., 0.95 for 95% confidence interval"/>
-			<definition value="Use 95 for a 95% confidence interval."/>
+			<definition value="Use 0.95 for a 95% confidence interval."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -878,7 +895,6 @@
 		<element id="Evidence.statistic.attributeEstimate.range">
 			<path value="Evidence.statistic.attributeEstimate.range"/>
 			<short value="Lower and upper bound values of the attribute estimate"/>
-			<definition value="Lower bound of confidence interval."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -952,12 +968,13 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.applied">
 			<path value="Evidence.statistic.modelCharacteristic.applied"/>
-			<short value="The analysis that was applied"/>
+			<short value="This model characteristic is part of the analysis that was applied, whether or not the analysis followed the plan"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="True, unless modelCharacteristic.intended = true; if modelCharacteristic.intended = true and .applied is missing, then meaning Unknown."/>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable">
 			<path value="Evidence.statistic.modelCharacteristic.variable"/>
@@ -970,7 +987,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.variableDefinition">
 			<path value="Evidence.statistic.modelCharacteristic.variable.variableDefinition"/>
-			<short value="Description of the variable"/>
+			<short value="Description and definition of the variable"/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -998,7 +1015,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">
 			<path value="Evidence.statistic.modelCharacteristic.variable.valueCategory"/>
-			<short value="Description for grouping of ordinal or polychotomous variables"/>
+			<short value="Qualitative label used for grouping values of a dichotomous, ordinal, or polychotomous variable"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1007,7 +1024,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueQuantity">
 			<path value="Evidence.statistic.modelCharacteristic.variable.valueQuantity"/>
-			<short value="Discrete value for grouping of ordinal or polychotomous variables"/>
+			<short value="Quantitative label used for grouping values of a dichotomous, ordinal, or polychotomous variable"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1016,7 +1033,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueRange">
 			<path value="Evidence.statistic.modelCharacteristic.variable.valueRange"/>
-			<short value="Range of values for grouping of ordinal or polychotomous variables"/>
+			<short value="Range of quantitative labels used for grouping values of a dichotomous, ordinal, or polychotomous variable"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1025,7 +1042,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.attribute">
 			<path value="Evidence.statistic.modelCharacteristic.attribute"/>
-			<short value="An attribute of the statistic used as a model characteristic"/>
+			<short value="An attribute of the model characteristic"/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#Evidence.statistic.attributeEstimate"/>
@@ -1086,7 +1103,7 @@
 			<short value="Assessment or judgement of the aspect"/>
 			<definition value="Assessment or judgement of the aspect."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
