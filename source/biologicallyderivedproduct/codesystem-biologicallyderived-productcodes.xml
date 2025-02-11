@@ -9,10 +9,10 @@
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/biologicallyderived-productcodes"/>
   <identifier>
@@ -39,7 +39,7 @@
   <description value="This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes"/>
-  <content value="complete"/>
+  <content value="example"/>
   <concept>
     <code value="e0398"/>
     <display value="RED BLOOD CELLS|CPD&gt;AS5/450mL/refg|Irr|ResLeu"/>
