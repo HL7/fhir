@@ -308,6 +308,22 @@
 				<map value="no-gen-base"/>
 			</mapping>
 		</element>
+		<element id="Evidence.author">
+			<path value="Evidence.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.author"/>
+			</mapping>
+		</element>
 		<element id="Evidence.publisher">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
 				<valueBoolean value="true"/>
@@ -339,22 +355,6 @@
 				<code value="ContactDetail"/>
 			</type>
 			<isSummary value="true"/>
-		</element>
-		<element id="Evidence.author">
-			<path value="Evidence.author"/>
-			<short value="Who authored the content"/>
-			<definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.author"/>
-			</mapping>
 		</element>
 		<element id="Evidence.recorder">
 			<path value="Evidence.recorder"/>
