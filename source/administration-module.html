@@ -38,6 +38,7 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="patient.html">Patient</a></li>
                         <li><a href="relatedperson.html">RelatedPerson</a></li>
                         <li><a href="person.html">Person</a></li>
+                        <li><a href="personalrelationship.html">PersonalRelationship</a></li>
                         <li><a href="group.html">Group</a></li>
                         <li><a href="practitioner.html">Practitioner</a></li>
                         <li><a href="practitionerrole.html">PractitionerRole</a></li>
@@ -47,6 +48,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     <ul>
                         <li><a href="organization.html">Organization</a></li>
+                        <li><a href="organizationaffiliation.html">OrganizationAffiliation</a></li>
                         <li><a href="location.html">Location</a></li>
                         <li><a href="healthcareservice.html">HealthcareService</a></li>
                         <li><a href="endpoint.html">Endpoint</a></li>
@@ -94,6 +96,7 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item RelatedPerson%]
             [%res-item Person%]
             [%res-item Group%]
+            [%res-item PersonalRelationship%]
         </table>
         <div>
             <img src="administration-module-person.png" alt="Image showing the relationship between resources representing people" width="584px" />
@@ -111,8 +114,20 @@ in order to support consistent definitions for schema and UML derived code.
                 Person resource will be hosted on external systems.
 [%end-note%]
 
+        <a name="agg-pop"></a>
+        <h4>Aggregate Populations</h4>
+        <p>
+            The Group resource should be used when representing an aggregate population, where the system is not
+            tracking the individual members.  Examples of aggregate populations include households, a tribe, workers
+            at a job site, or attendees at a sporting event. 
+        </p>
+        <table class="bare">
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item Group%]
+        </table>
+
         <a name="clinical-reg"></a>
-        <h4>Clinical Categorization Resources</h4>
+        <h4>Clinical / Financial Categorization Resources</h4>
         <p>
             Most clinical activities occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, whereas short term care is covered by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)
         </p>

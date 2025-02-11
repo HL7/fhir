@@ -9,7 +9,7 @@
     <valueCode value="pa"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/eligibility"/>
-  <version value="6.0.0-cibuild"/>
+  <version value="6.0.0-ballot2"/>
   <name value="Eligibility"/>
   <title value="Eligibility Characteristics"/>
   <status value="active"/>

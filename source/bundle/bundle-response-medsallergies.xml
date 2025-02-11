@@ -3,6 +3,7 @@
     <id value="bundle-response-medsallergies"/>
     <type value="batch-response"/>
     <entry>
+        <fullUrl value="http://example.org/fhir/Patient/example"/>
         <resource>
             <Patient>
                 <id value="example"/>

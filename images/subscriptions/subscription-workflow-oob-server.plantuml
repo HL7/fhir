@@ -1,0 +1,34 @@
+@startuml
+skin rose
+skinparam NoteTextAlignment left
+skinparam Padding 2
+skinparam ParticipantPadding 50
+skinparam LifelineStrategy solid
+autonumber
+
+participant "FHIR Server" as S
+participant "Subscription Manager" as SM
+
+group Preconditions
+  S -\\ S: Implement core Subscription functionality
+  |||
+  S -\\ S: Implement topics
+  |||
+  create "Client Endpoint" as E
+  SM <-> E: Coordinate details\nout-of-band
+  |||
+  S <-> SM: Create Subscriptions
+  |||
+  S ->> E: (Optional) Handshake
+  E -->> S: Success
+  |||
+end
+
+group Processing
+  note over S: Send notifications...
+  / note over SM: Manage subscription...
+  / note over E: Receive notifications...
+  ...
+end
+
+@enduml

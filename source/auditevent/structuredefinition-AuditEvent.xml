@@ -477,7 +477,7 @@
     <element id="AuditEvent.basedOn">
       <path value="AuditEvent.basedOn"/>
       <short value="Workflow authorization within which this event occurred"/>
-      <definition value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+      <definition value="Allows tracing of authorization for the events and tracking whether proposals/recommendations were acted upon."/>
       <requirements value="Allows tracing of authorization for the audit event and tracking whether proposals/recommendations were acted upon."/>
       <min value="0"/>
       <max value="*"/>
@@ -1160,6 +1160,28 @@
       <mapping>
         <identity value="dicom"/>
         <map value="ParticipantObjectSensitivity"/>
+      </mapping>
+    </element>
+    <element id="AuditEvent.entity.description">
+      <path value="AuditEvent.entity.description"/>
+      <short value="Descriptive text"/>
+      <definition value="Text that describes the entity in more detail."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="ParticipantObjectDescription"/>
       </mapping>
     </element>
     <element id="AuditEvent.entity.query">

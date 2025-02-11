@@ -41,7 +41,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="TODO."/>
+  <description value="Codes for the method of evaluating the relatedness of the suspected entity to the adverse event"/>
   <immutable value="true"/>
   <compose>
     <include>

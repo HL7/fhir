@@ -287,4 +287,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-network"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.network"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-network"/>
+        <description value="Health insurance provider network in which the PractitionerRole provides the role's services (if defined) at the indicated locations (if defined)"/>
+        <code value="network"/>
+        <type value="reference"/>
+        <expression value="PractitionerRole.network"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

@@ -56,8 +56,6 @@
 	<endpoint>
 		<reference value="Endpoint/example-wadors"/>
 	</endpoint>
-	<numberOfSeries value="1"/>
-	<numberOfInstances value="2"/>
 	<procedure>
 		<reference>
 			<reference value="Procedure/example"/>
@@ -85,6 +83,8 @@
 	<note>
 		<text value="XR Wrist 3+ Views"/>
 	</note>
+	<numberOfSeries value="1"/>
+	<numberOfInstances value="2"/>
 	<series>
 		<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
 		<number value="3"/>

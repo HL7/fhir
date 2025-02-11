@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-vitalsign-oxygensat"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-oxygensat"/>
+  <name value="VitalSignsOxygenSat"/>
+  <title value="Vital Signs - Oxygen Sat"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing oxygen saturation vital sign measurements in Observation.code."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="COMPONENT"/>
+        <op value="="/>
+        <value value="LP21258-6"/> <!-- Oxygen saturation -->
+      </filter>
+      <filter>
+        <property value="PROPERTY"/>
+        <op value="="/>
+        <value value="LP6831-4"/> <!-- MFr -->
+      </filter>
+      <filter>
+        <property value="TIME_ASPCT"/>
+        <op value="="/>
+        <value value="LP6960-1"/> <!-- Pt -->
+      </filter>
+      <filter>
+        <property value="SYSTEM"/>
+        <op value="="/>
+        <value value="LP7067-4"/> <!-- BldA -->
+      </filter>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="LP7753-9"/> <!-- Qn -->
+      </filter>
+    </include>
+    <include>
+        <system value="http://loinc.org"/>
+        <filter>
+          <property value="COMPONENT"/>
+          <op value="="/>
+          <value value="LP308210-6"/> <!-- Oxygen saturation^resting -->
+        </filter>
+        <filter>
+          <property value="PROPERTY"/>
+          <op value="="/>
+          <value value="LP6831-4"/> <!-- MFr -->
+        </filter>
+        <filter>
+          <property value="TIME_ASPCT"/>
+          <op value="="/>
+          <value value="LP6960-1"/> <!-- Pt -->
+        </filter>
+        <filter>
+          <property value="SYSTEM"/>
+          <op value="="/>
+          <value value="LP7067-4"/> <!-- BldA -->
+        </filter>
+        <filter>
+          <property value="SCALE_TYP"/>
+          <op value="="/>
+          <value value="LP7753-9"/> <!-- Qn -->
+        </filter>
+      </include>
+    </compose>
+</ValueSet>

@@ -14,8 +14,8 @@
      Tasks often have titles (eg "My Tasks", "Outstanding Tasks for Patient X") which can be presented in a list.  The task title should go into the Task.code as a coded concept and/or text.
   </p>
   <a name="statemachine"> </a>
-  <h2>Task state machine</h2> 
-    <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
+  <h2>Task state machine</h2>
+    <p>Tasks start in a Draft state. Once they have been assigned to an owner they transition to
       the Ready state, indicating that they are ready to be performed. Once the owner initiates
       activity on the task, the task transitions to the In Progress state, indicating that work is
       being performed. Upon normal completion, the task enters the Completed state. If there is a
@@ -23,7 +23,7 @@
       enter a Failed state, indicating an abnormal termination of the task. A task in any
       non-terminal state may also be Cancelled, representing an abnormal termination of the task due
       to external forces, rather than an error condition.</p>
-    <p>Tasks in any non-terminal state (Created, Ready, In Progress) can be suspended and resumed.
+    <p>Tasks in any non-terminal state (Draft, Ready, In Progress) can be suspended and resumed.
       When a task is suspended, it is typically resumed in the state it was in when it was
       originally suspended. Suspending a task suspends all of its children as well. Resuming a task
       resumes all of its children.</p>
@@ -33,8 +33,8 @@
       the activity), or in preparation to allow others to claim the task.</p>
 <!--    <h3>Using Tasks with operations</h3>
     <p>The Task resource defines several operations to enable rich control over the task execution
-      environment. A server managing task resources may allow unfettered read access to all tasks
-      that it maintains, but restrict write access to the task resources to itself in order to exert
+      environment. A server managing Task resources may allow unfettered read access to all tasks
+      that it maintains, but restrict write access to the Task resources to itself in order to exert
       control over the task state machine. Instead, it might offer operations on tasks that enable
       strictly controlled write operations following commonly accepted business rules for task
       management. For example, only tasks that are in the "In Process" state might be allowed to be

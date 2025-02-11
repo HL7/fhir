@@ -16,6 +16,8 @@
 
 	<p>For systems that do have a system URI for device types (indicating the model number or part number), they can and should appear as codings in <code>Device.type</code>.</p>
 
+	<p><code>Device.type</code> relates <code>DeviceDefinition.classification.type</code> using the same binding enabling referencing. Please see the <a href="device.html#search">Search Parameters</a> for details on how to search for devices by type.</p>
+
 <a name="udi"></a>
 <h4>Unique Device Identifier (UDI)</h4>
 	<p>
@@ -39,6 +41,6 @@ The DI of the UDI may be stored in a jurisdictional repository and used as the p
 <a name="status"></a>
 <h4>Status Elements</h4>
 <p>
-Devices.status is about the record, while operationalStatus and associationStatus are about other aspects of the device.
+Device.status is about the record, while .availabilityStatus is about the device itself.
 </p>
 </div>

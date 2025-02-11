@@ -563,6 +563,65 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
+	<element id="Condition.recorder">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14007, J#34394, J#39602"/>
+      </extension>
+      <path value="Condition.recorder"/>
+      <short value="Who recorded the condition"/>
+      <definition value="Individual who recorded the record and takes responsibility for its content."/>
+      <comment value="Because the recorder takes responsibility for accurately recording information in the record, the recorder is the most recent author.  The recorder might or might not be the asserter.  By contrast, the recordedDate is when the condition was first recorded."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
+    <element id="Condition.asserter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11089, GF#22270, J#39602"/>
+      </extension>
+      <path value="Condition.asserter"/>
+      <short value="Person or device that asserts this condition"/>
+      <definition value="Individual or device that is making the condition statement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="REL-7.1 identifier + REL-7.12 type code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role"/>
+      </mapping>
+    </element>
+<!--
     <element id="Condition.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#34395"/>
@@ -634,7 +693,8 @@
         <identity value="rim"/>
         <map value=".player"/>
       </mapping>
-    </element>
+    </element>	
+-->
     <element id="Condition.stage">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>

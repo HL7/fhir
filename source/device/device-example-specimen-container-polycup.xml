@@ -9,7 +9,17 @@
     <system value="http://acme.com/containers/id"/>
     <value value="345675"/>
   </identifier>
-  <displayName value="100mL Sterile Polycup" />
+  <!-- <displayName value="100mL Sterile Polycup" /> -->
+  <name>
+    <value value="100mL Sterile Polycup"/>
+    <type> 
+      <coding> 
+        <system value="http://hl7.org/fhir/device-nametype"/> 
+    	<code value="registered-name"/>
+		<display value="Registered Name"/>
+      </coding> 
+    </type> 
+  </name>  
   <property>
     <type>
     <coding>

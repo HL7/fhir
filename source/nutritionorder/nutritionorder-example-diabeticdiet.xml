@@ -33,7 +33,6 @@ edited by Eric Haas Health eData Inc-->
 	<excludeFoodModifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
 			<code value="227493005"/>
 			<display value="Cashew Nut"/>
 		</coding>

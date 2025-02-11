@@ -115,8 +115,8 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Transport.instantiatesCanonical">
-      <path value="Transport.instantiatesCanonical"/>
+    <element id="Transport.instantiates">
+      <path value="Transport.instantiates"/>
       <short value="Formal definition of transport"/>
       <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Transport."/>
       <requirements value="Enables a formal definition of how the transport is to be performed, enabling automation."/>
@@ -136,26 +136,6 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
-    <element id="Transport.instantiatesUri">
-      <path value="Transport.instantiatesUri"/>
-      <short value="Formal definition of transport"/>
-      <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Transport."/>
-      <requirements value="Enables a formal definition of how the transport is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a transport), enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUrl"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="Transport.basedOn">
       <path value="Transport.basedOn"/>
       <short value="Request fulfilled by this transport"/>
@@ -164,7 +144,13 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -227,7 +213,7 @@
     </element>
     <element id="Transport.status">
       <path value="Transport.status"/>
-      <short value="in-progress | completed | abandoned | cancelled | planned | entered-in-error"/>
+      <short value="preparation | in-progress | not-done | suspended | stopped | on-hold | completed | entered-in-error | unknown"/>
       <definition value="A code specifying the state of the transport event."/>
       <min value="0"/>
       <max value="1"/>
@@ -276,73 +262,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
-      </mapping>
-    </element>
-    <element id="Transport.intent">
-      <path value="Transport.intent"/>
-      <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
-      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &quot;order&quot;."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TransportIntent"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Distinguishes whether the transport is a proposal, plan or full order."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/transport-intent"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.intent"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".moodCode"/>
-      </mapping>
-    </element>
-    <element id="Transport.priority">
-      <path value="Transport.priority"/>
-      <short value="routine | urgent | asap | stat"/>
-      <definition value="Indicates how quickly the Transport should be addressed with respect to other requests."/>
-      <requirements value="Used to identify the service level expected while performing a transport."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <meaningWhenMissing value="If missing, this transport should be performed with normal priority"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TransportPriority"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="The transport's priority."/>
-        </extension>
-        <strength value="required"/>
-        <description value="The priority of a transport (may affect service level applied to the transport)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.priority"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.grade"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".priorityCode"/>
       </mapping>
     </element>
     <element id="Transport.code">

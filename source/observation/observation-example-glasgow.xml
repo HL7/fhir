@@ -11,7 +11,8 @@
       - LOINC
 		- or SNOMED
       -and/or the source system may provides its own "local" code, which may be less or more granular than LOINC.
-	In this example there is only LOINC
+	In this example there is only LOINC.
+	The LOINC definitions already have "built" into their definitions, and the codes can be combined with ordinalValue extensions to achieve a score.
    -->
   <code>
     <!--  LOINC - always recommended to have a LOINC code  -->
@@ -87,7 +88,7 @@
     </code>
     <valueCodeableConcept>
       <coding>
-        <system value="http://acme.ec/codes"/>
+        <system value="http://example.org/codes"/>
         <code value="5"/>
         <display value="Localizes painful stimuli"/>
       </coding>
@@ -117,7 +118,7 @@
     </code>
     <valueCodeableConcept>
       <coding>
-        <system value="http://acme.ec/codes"/>
+        <system value="http://example.org/codes"/>
         <code value="4"/>
         <display value="Confused, disoriented"/>
       </coding>
@@ -148,7 +149,7 @@
     </code>
     <valueCodeableConcept>
       <coding>
-        <system value="http://acme.ec/codes"/>
+        <system value="http://example.org/codes"/>
         <code value="4"/>
         <display value="Opens eyes spontaneously"/>
       </coding>

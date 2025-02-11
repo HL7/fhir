@@ -2,10 +2,6 @@
     <!-- from Resource: id, meta, implicitRules, and language -->
     <id value="example-trio2"/>
     <!-- from DomainResource: text, contained, extension, and modifierExtension -->
-    <text>
-        <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Prenatal Trio Whole Exome Sequencing testing to identify causal mutations of inherited diseases. Test order was for trio testing with three specimens i.e., proband, mother, father included. A comparator analysis-based trio report was to be generated for the proband; both parents had consented to receive reports on secondary findings.</div>
-    </text>
     <identifier>
         <use value="temp"/>
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>

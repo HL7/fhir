@@ -95,11 +95,11 @@
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Service requested/ordered"/>
-            <resource value="Type of oral diet or diet restrictions that describe what can be consumed orally"/>
+            <resource value="Type of oral diet or diet restrictions that can be consumed orally"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
-            <resource value="The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet."/>
+            <resource value="The kind of diet or dietary restriction such as fiber restricted diet or diet for diabetes."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.code" resourcePath="NutritionOrder.oralDiet.nutrient.modifier">
