@@ -172,8 +172,8 @@
     <element id="Provenance.recorded">
       <path value="Provenance.recorded"/>
       <short value="When the activity was recorded / updated"/>
-      <definition value="The instant of time at which the activity was recorded."/>
-      <comment value="This can be a little different from the time stamp on the resource if there is a delay between recording the event and updating the provenance and target resource."/>
+      <definition value="The date and time at which the provenance information was recorded / updated, whether in the FHIR Provenance resource or in some other form that is later communicated in the FHIR Provenance."/>
+      <comment value="This can be a little different from the lastUpdated on the Provenance resource if there is a delay between recording the event and updating the provenance and target resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
