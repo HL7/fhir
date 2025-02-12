@@ -192,10 +192,6 @@
         <identity value="fhirauditevent"/>
         <map value="AuditEvent.recorded"/>
       </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Activity.when"/>
-      </mapping>
     </element>
     <element id="Provenance.policy">
       <path value="Provenance.policy"/>
