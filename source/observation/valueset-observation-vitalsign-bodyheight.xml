@@ -27,8 +27,10 @@
       <system value="http://loinc.org"/>
       <filter>
         <property value="CLASS"/>
-        <op value="="/>
-        <value value="LP7768-7"/> <!-- BDYHGT.ATOM -->
+        <op value="in"/>
+        <!-- LP7768-7 BDYHGT.ATOM -->
+        <!-- LP7769-5 BDYHGT.MOLEC -->
+        <value value="LP7768-7,LP7769-5"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>
@@ -50,34 +52,6 @@
         <op value="="/>
         <value value="LP7753-9"/> <!-- Qn -->
       </filter>
-    </include>
-    <include>
-        <system value="http://loinc.org"/>
-        <filter>
-          <property value="CLASS"/>
-          <op value="="/>
-          <value value="LP7769-5"/> <!-- BDYHGT.MOLEC -->
-        </filter>
-        <filter>
-            <property value="PROPERTY"/>
-            <op value="="/>
-            <value value="LP6822-3"/> <!-- Len -->
-        </filter>
-        <filter>
-          <property value="TIME_ASPCT"/>
-          <op value="="/>
-          <value value="LP6960-1"/> <!-- Pt -->
-        </filter>
-        <filter>
-          <property value="SYSTEM"/>
-          <op value="="/>
-          <value value="LP310005-6"/> <!-- ^Patient -->
-        </filter>
-        <filter>
-            <property value="SCALE_TYP"/>
-            <op value="="/>
-            <value value="LP7753-9"/> <!-- Qn -->
-          </filter>
     </include>
     <exclude>
         <system value="http://loinc.org"/>

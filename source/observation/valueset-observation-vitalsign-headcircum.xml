@@ -26,49 +26,13 @@
     <include>
       <system value="http://loinc.org"/>
       <filter>
-        <property value="CLASS"/>
-        <op value="="/>
-        <value value="LP7767-9"/> <!-- BDYCRC.MOLEC -->
-      </filter>
-      <filter>
         <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP72254-3"/> <!-- Circumference.occipital-frontal -->
+        <op value="in"/>
+        <!-- LP72254-3 Circumference.occipital-frontal -->
+        <!-- LP304462-7 Circumference.occipital-frontal^at birth -->
+        <value value="LP72254-3,LP304462-7"/>
       </filter>
       <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6822-3"/> <!-- Len -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SYSTEM"/>
-        <op value="="/>
-        <value value="LP7281-1"/> <!-- Head -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="CLASS"/>
-        <op value="="/>
-        <value value="LP7767-9"/> <!-- BDYCRC.MOLEC -->
-      </filter>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP304462-7"/> <!-- Circumference.occipital-frontal^at birth -->
-        </filter>
-        <filter>
         <property value="PROPERTY"/>
         <op value="="/>
         <value value="LP6822-3"/> <!-- Len -->
