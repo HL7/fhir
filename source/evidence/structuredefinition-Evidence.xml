@@ -231,7 +231,7 @@
 				<code value="code"/>
 			</type>
 			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{Evidence}} without due consideration"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired Evidence without due consideration"/>
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1103,7 +1103,7 @@
 			<short value="Assessment or judgement of the aspect"/>
 			<definition value="Assessment or judgement of the aspect."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
@@ -1121,7 +1121,7 @@
 			<short value="Individual or group who did the rating"/>
 			<definition value="Individual or group who did the rating."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="string"/>
 			</type>
