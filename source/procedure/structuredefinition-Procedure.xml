@@ -860,7 +860,7 @@
     </element>
     <element id="Procedure.complication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J32511"/>
+        <valueString value="J32511, J#47824"/>
       </extension>
       <path value="Procedure.complication"/>
       <short value="Complication following the procedure"/>
@@ -872,6 +872,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureComplication"/>
