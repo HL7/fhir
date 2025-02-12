@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-cyp2c19-Concatenated-regions"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <concatenated>
+            <sequenceElement>
+                <sequence>
+                    <reference value="MolecularDefinition/example-sequence-cyp2c19-upstream-region"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Sequence CYP2C19 Upstream Region"/>
+                </sequence>
+                <ordinalIndex value="0"/>
+            </sequenceElement>
+            <sequenceElement>
+                <sequence>
+                    <reference value="MolecularDefinition/example-sequence-cyp2c19-gene-region"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Sequence CYP2C19 Gene Region"/>
+                </sequence>
+                <ordinalIndex value="1"/>
+            </sequenceElement>
+            <sequenceElement>
+                <sequence>
+                    <reference value="MolecularDefinition/example-sequence-cyp2c19-downstream-region"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Sequence CYP2C19 Downstream Region"/>
+                </sequence>
+                <ordinalIndex value="2"/>
+            </sequenceElement>
+        </concatenated>
+    </representation>
+</MolecularDefinition>

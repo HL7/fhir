@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-fmr1-cgg-20x-repeat"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <repeated>
+            <sequenceMotif>
+                <reference value="MolecularDefinition/example-sequence-cgg"/>
+                <type value="MolecularDefinition"/>
+                <display value="CGG"/>
+            </sequenceMotif>
+            <copyCount value="20"/>
+        </repeated>
+    </representation>
+
+</MolecularDefinition>
