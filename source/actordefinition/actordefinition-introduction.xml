@@ -4,9 +4,9 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<p>The ActorDefinition Resource an actor that can plays the role of a participant in some kind 
-of described process. Generally, in the scope of FHIR, the process is some kind of data 
-exchange, and ActorDefinition is defined for this purpose.</p>
+<p>The ActorDefinition Resource represents an actor that can play the role of a participant 
+in some kind of described process. Generally, in the scope of FHIR, the process is some kind 
+of data exchange, and ActorDefinition is defined for this purpose.</p>
 
 <p>
 However it's also possible to use actors in descriptions and definitions of clinical business 
@@ -24,7 +24,7 @@ Once defined, Actors may be asociated with <a href="obligations.html">obligation
 expected application behavior.
 </p>
 <p>
-Actors may also be referenced from <a href="examplescenario.html">ExampleXcenario</a>.
+Actors may also be referenced from <a href="examplescenario.html">ExampleScenario</a>.
 </p>
 
 </div>
