@@ -495,9 +495,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessingActivityAction"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Detailed codes for the action."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-action"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/type-restful-interaction"/>
       </binding>
       <mapping>
         <identity value="fhirconsent"/>
