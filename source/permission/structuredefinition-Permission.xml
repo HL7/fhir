@@ -580,7 +580,7 @@
     <element id="Permission.rule.limit.element">
       <path value="Permission.rule.limit.element"/>
       <short value="What data elements that must be removed from the data"/>
-      <definition value="When this rule authorized data use, the data at the path indicated here, must be redacted from the authorized data provided for that authorized use"/>
+      <definition value="When this rule authorized data use, the data at the path indicated here, must be redacted from the authorized data provided for that authorized use."/>
       <comment value="The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource or extension."/>
       <min value="0"/>
       <max value="*"/>

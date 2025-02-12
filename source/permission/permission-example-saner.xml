@@ -57,10 +57,12 @@
       </purpose>
     </activity>
     <limit>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
-        <code value="AUDIT" />
-      </coding>
+      <control>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+          <code value="AUDIT" />
+        </coding>
+      </control>
     </limit>
   </rule>
 </Permission>
