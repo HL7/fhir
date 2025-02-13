@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 
 <p>The ActorDefinition Resource represents an actor that can play the role of a participant 
-in some kind of described process.<p>
+in some kind of described process.</p>
 
 <p>
 ActorDefinitions can be referenced in several places:
