@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://hl7.org/fhir ../../../schema/provenance.xsd">
+	<id value="example" />
+	<contained>
+		<HealthcareService>
+			<id value="hs1" />
+			<active value="true" />
+			<providedBy>
+				<reference value="#org" />
+			</providedBy>
+			<category>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/service-category" />
+					<code value="8" />
+					<display value="Counselling" />
+				</coding>
+				<text value="Counselling" />
+			</category>
+			<type>
+				<coding>
+					<system value="http://snomed.info/sct" />
+					<code value="394913002" />
+					<display value="Psychotherapy (specialty)" />
+				</coding>
+			</type>
+			<type>
+				<coding>
+					<system value="http://snomed.info/sct" />
+					<code value="394587001" />
+					<display value="Psychiatry" />
+				</coding>
+			</type>
+			<specialty>
+				<coding>
+					<system value="http://snomed.info/sct" />
+					<code value="47505003" />
+					<display value="Posttraumatic stress disorder" />
+				</coding>
+			</specialty>
+		</HealthcareService>
+	</contained>
+
+	<contained>
+		<Organization>
+			<id value="org" />
+			<name value="ACME Healthcare" />
+		</Organization>
+	</contained>
+
+	<target>
+		<reference value="Procedure/example/_history/1" />
+	</target>
+	<occurredPeriod>
+		<start value="2015-06-27" />
+		<end value="2015-06-28" />
+	</occurredPeriod>
+	<recorded value="2015-06-27T08:39:24+10:00" />
+	<location>
+		<reference value="Location/1" />
+	</location>
+	<activity>
+		<coding>
+			<system value="http://snomed.info/sct" />
+			<code value="3457005" />
+			<display value="Referral" />
+		</coding>
+	</activity>
+
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType" />
+				<code value="AUT" />
+			</coding>
+		</type>
+		<who>
+			<reference value="#org" />
+		</who>
+		<onBehalfOf>
+			<reference value="#hs1" />  <!-- hs1 is within org, so this is inverted  from expectation -->
+		</onBehalfOf>
+	</agent>
+	<entity>
+		<role value="source" />
+		<what>
+			<reference value="DocumentReference/example" />
+			<display value="CDA Document in XDS repository" />
+		</what>
+	</entity>
+</Provenance>
