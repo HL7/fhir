@@ -71,8 +71,8 @@
 				<valueCode value="0,0"/>
 			</extension>
 			<path value="ActorDefinition"/>
-			<short value="A human or system that exchanges data"/>
-			<definition value="Provides a definition of an actor - human or system - that plays a role in a process, such as data exchange, along with associated obligations."/>
+			<short value="A system or non-system participant involved in an information exchange process"/>
+			<definition value="Provides a definition of an actor - a system, individual, non-system device, or collective - that plays a role in a process, such as data exchange, along with associated obligations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>
