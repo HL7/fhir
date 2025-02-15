@@ -400,7 +400,7 @@
 		</element>
 		<element id="ActorDefinition.type">
 			<path value="ActorDefinition.type"/>
-			<short value="system | patient | practitioner | related-person | ..."/>
+			<short value="system | non-system | individual | patient | practitioner | related-person | device | collective | care-team | group | healthcare-service | organization"/>
 			<definition value="Whether the actor represents a human or an appliction."/>
 			<min value="1"/>
 			<max value="1"/>
