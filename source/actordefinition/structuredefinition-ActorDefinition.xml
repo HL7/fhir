@@ -400,7 +400,7 @@
 		</element>
 		<element id="ActorDefinition.type">
 			<path value="ActorDefinition.type"/>
-			<short value="person | system"/>
+			<short value="system | patient | practitioner | related-person | ..."/>
 			<definition value="Whether the actor represents a human or an appliction."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -459,7 +459,7 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-			
+
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
           <valueBoolean value="true"/>
         </extension>

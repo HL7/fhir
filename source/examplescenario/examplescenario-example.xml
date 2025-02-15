@@ -5,20 +5,20 @@
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p> 
-        <b> ExampleScenario - Medication administration (IHE MMA)</b> 
-        <a name="example"> </a> 
-      </p> 
+      <p>
+        <b> ExampleScenario - Medication administration (IHE MMA)</b>
+        <a name="example"> </a>
+      </p>
       <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%">
-        <p style="margin-bottom: 0px">Resource ExampleScenario &quot;example&quot; </p> 
-      </div> 
-      <p> 
+        <p style="margin-bottom: 0px">Resource ExampleScenario &quot;example&quot; </p>
+      </div>
+      <p>
         <b> status</b> : draft
-      </p> 
-      <p> 
+      </p>
+      <p>
         <b> purpose</b> : Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.
-      </p> 
-     
+      </p>
+
       <img src="./examplescenario-example.png" alt="ExampleScenario diagram - IHE MMA example"/>
     </div>
   </text>
@@ -26,13 +26,13 @@
   <purpose value="Purpose: this serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
   <actor>
     <key value="Nurse"/>
-    <type value="person"/>
+    <type value="practitioner"/>
     <title value="Nurse"/>
     <description value="The Nurse"/>
   </actor>
   <actor>
     <key value="MAP"/>
-    <type value="system"/>
+    <type value="device"/>
     <title value="Nurse's Tablet"/>
     <description value="The entity that receives the Administration Requests to show the nurse to perform them"/>
   </actor>

@@ -507,7 +507,7 @@
     </element>
     <element id="ExampleScenario.actor.type">
       <path value="ExampleScenario.actor.type"/>
-      <short value="person | system"/>
+      <short value="system | patient | practitioenr | related-persion | ..."/>
       <definition value="The category of actor - person or system."/>
       <min value="0"/>
       <max value="1"/>
@@ -519,7 +519,7 @@
           <valueString value="ExampleScenarioActorType"/>
         </extension>
         <strength value="required"/>
-        <description value="The type of actor - system or human."/>
+        <description value="The type of actor - system or non-system."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
       </binding>
       <condition value="exs-24"/>
