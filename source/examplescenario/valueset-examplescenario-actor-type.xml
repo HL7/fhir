@@ -40,7 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/examplescenario-actor-type"/>
+      <system value="http://hl7.org/fhir/actordefinition-type"/>
     </include>
   </compose>
 </ValueSet>
