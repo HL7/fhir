@@ -555,6 +555,7 @@
       <path value="ExampleScenario.actor.definition"/>
       <short value="Formal definition of actor"/>
       <definition value="The formal definition of the actor in the scenario."/>
+      <comment value="The title and description appearing in this resource may differ from that in the formal definition.  The type SHALL be the same."/>
       <min value="0"/>
       <max value="1"/>
       <type>
