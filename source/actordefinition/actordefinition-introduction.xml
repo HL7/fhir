@@ -4,15 +4,16 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<p>The ActorDefinition Resource an actor that can plays the role of a participant in some kind 
-of described process. Generally, in the scope of FHIR, the process is some kind of data 
-exchange, and ActorDefinition is defined for this purpose.</p>
+<p>The ActorDefinition Resource represents an actor that can play the role of a participant 
+in some kind of described process.</p>
 
 <p>
-However it's also possible to use actors in descriptions and definitions of clinical business 
-flows, though FHIR itself does not provide a business process description language, nor will it. 
-The intention of the ActorDefinition is that other business process languages will refer the
-actors and in doing so, bring into scope the technical artifacts associated with the actor.
+ActorDefinitions can be referenced in several places:
+<li>[<a href="examplescenario.html">ExampleScenarios</a>] which show how data might flow in different situations.</li>
+<li>[<a href="plandefinition.html">PlanDefinition</a>] which defines how a workflow should/is allowed to occur amongst a set of actors.</li>
+<li>[<a href="requirements.html">Requirements</a>] which defines higher level expectations about system capabilities.</li>
+<li>The [<a href="obligations.html">obligation</a>] extension, which allows system behaviors to be defined on a per-element basis.</li>
+<li>[<a href="capabilitystatement.html">CapabilityStatement</a>] which allows pointing to ActorDefinitions to describe the specific sets of functionality supported by (or that should be supported by) systems (via obligations)</li>
 </p>
 </div>
 
@@ -24,7 +25,7 @@ Once defined, Actors may be asociated with <a href="obligations.html">obligation
 expected application behavior.
 </p>
 <p>
-Actors may also be referenced from <a href="examplescenario.html">ExampleXcenario</a>.
+Actors may also be referenced from <a href="examplescenario.html">ExampleScenario</a>.
 </p>
 
 </div>
