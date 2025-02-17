@@ -188,27 +188,17 @@
       <type value="uri"/>
     </part>
     <part>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="code"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="Coding"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="string"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="boolean"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="Quantity"/>
-      </extension>
       <name value="value"/>
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
       <documentation value="The data value for this dependency"/>
       <type value="Element"/>
+      <allowedType value="code"/>
+      <allowedType value="Coding"/>
+      <allowedType value="string"/>
+      <allowedType value="boolean"/>
+      <allowedType value="Quantity"/>
     </part>
   </parameter>
   <parameter>
@@ -264,33 +254,19 @@
         <type value="uri"/>
       </part>
       <part>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="Coding"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="string"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="integer"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="boolean"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="dateTime"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="decimal"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="code"/>
-        </extension>
         <name value="value"/>
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value of the property"/>
         <type value="Element"/>
+        <allowedType value="Coding"/>
+        <allowedType value="string"/>
+        <allowedType value="integer"/>
+        <allowedType value="boolean"/>
+        <allowedType value="dateTime"/>
+        <allowedType value="decimal"/>
+        <allowedType value="code"/>
       </part>
     </part>    
     <part>
@@ -308,27 +284,17 @@
         <type value="uri"/>
       </part>
       <part>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="code"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="Coding"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="string"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="boolean"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="Quantity"/>
-        </extension>
         <name value="value"/>
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value for this product"/>
         <type value="Element"/>
+        <allowedType value="code"/>
+        <allowedType value="Coding"/>
+        <allowedType value="string"/>
+        <allowedType value="boolean"/>
+        <allowedType value="Quantity"/>
       </part>
     </part>
     <part>
@@ -346,39 +312,21 @@
         <type value="uri"/>
       </part>
       <part>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="code"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="Coding"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="string"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="integer"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="boolean"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="dateTime"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="decimal"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="uri"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="id"/>
-        </extension>
         <name value="value"/>
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value for this product"/>
         <type value="Element"/>
+        <allowedType value="code"/>
+        <allowedType value="Coding"/>
+        <allowedType value="string"/>
+        <allowedType value="integer"/>
+        <allowedType value="boolean"/>
+        <allowedType value="dateTime"/>
+        <allowedType value="decimal"/>
+        <allowedType value="uri"/>
+        <allowedType value="id"/>
       </part>
     </part>
     <part>
