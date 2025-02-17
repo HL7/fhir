@@ -8,6 +8,9 @@
   <concept id="102263004" display="Eggs (edible)">
     <display value="Eggs (edible)"/>
   </concept>
+  <concept id="103693007" display="Diagnostic procedure">
+    <display value="Diagnostic procedure"/>
+  </concept>
   <concept id="10531005" display="Free-standing ambulatory surgery facility">
     <display value="Free-standing ambulatory surgery facility"/>
   </concept>
@@ -25,6 +28,9 @@
   </concept>
   <concept id="108252007" display="Laboratory procedure">
     <display value="Laboratory procedure"/>
+  </concept>
+  <concept id="10828004" display="Positive">
+    <display value="Positive"/>
   </concept>
   <concept id="111064005" display="Sulfur compound">
     <display value="Sulfur compound"/>
@@ -515,6 +521,9 @@
   <concept id="30549001" display="Removal of suture">
     <display value="Removal of suture"/>
   </concept>
+  <concept id="306206005" display="Referral to service">
+    <display value="Referral to service"/>
+  </concept>
   <concept id="307085007" display="Difficulty processing information">
     <display value="Difficulty processing information"/>
   </concept>
@@ -631,6 +640,9 @@
   </concept>
   <concept id="367336001" display="Chemotherapy">
     <display value="Chemotherapy"/>
+  </concept>
+  <concept id="368209003" display="Right upper arm">
+    <display value="Right upper arm"/>
   </concept>
   <concept id="36989005" display="Mumps">
     <display value="Mumps"/>
