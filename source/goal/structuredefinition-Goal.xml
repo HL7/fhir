@@ -540,6 +540,9 @@
       </binding>
     </element>
     <element id="Goal.source">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#41409"/>
+      </extension>
       <path value="Goal.source"/>
       <short value="Who's responsible for creating Goal?"/>
       <definition value="Indicates whose goal this is - patient goal, practitioner goal, etc."/>
@@ -553,6 +556,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
