@@ -308,7 +308,7 @@
       <path value="CareTeam.participant.member"/>
       <short value="Who is involved"/>
       <definition value="The specific person or organization who is participating/expected to participate in the care team."/>
-      <comment value="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans."/>
+      <comment value="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans. Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -343,6 +343,7 @@
       <path value="CareTeam.participant.onBehalfOf"/>
       <short value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of"/>
       <definition value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of."/>
+	  <comment value="Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <requirements value="Allows specifying which organization a practitioner is acting on behalf of in context of this care team when practitioners are associated with multiple organizations."/>
       <min value="0"/>
       <max value="1"/>
