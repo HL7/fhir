@@ -738,7 +738,7 @@
       <path value="DocumentReference.author"/>
       <short value="Who and/or what authored the document"/>
       <definition value="Identifies who is responsible for adding the information to the document."/>
-      <comment value="Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)."/>
+      <comment value="Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant). Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -750,6 +750,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -871,6 +872,7 @@
       <short value="Who attested the document"/>
       <definition value="Who attested the document in the specified way."/>
       <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
+      <comment value="Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -880,6 +882,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="w5"/>
