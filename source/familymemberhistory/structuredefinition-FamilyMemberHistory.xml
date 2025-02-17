@@ -297,6 +297,7 @@
       <path value="FamilyMemberHistory.participant.actor"/>
       <short value="Who or what participated in the activities related to the family member history"/>
       <definition value="Indicates who or what participated in the activities related to the family member history."/>
+	  <comment value="Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="1"/>
       <max value="1"/>
       <type>
