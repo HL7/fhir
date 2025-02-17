@@ -209,11 +209,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DetectedIssueCategory"/>
+          <valueString value="DetectedIssueCode"/>
         </extension>
         <strength value="preferred"/>
         <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-code"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
