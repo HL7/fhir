@@ -526,6 +526,58 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-definition"/>
 			</binding>
 		</element>
+		<element id="EvidenceVariable.definitionModifier">
+			<path value="EvidenceVariable.definitionModifier"/>
+			<short value="Further specification of the definition"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.definitionModifier.code">
+			<path value="EvidenceVariable.definitionModifier.code"/>
+			<short value="Attribute of the definition"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.definitionModifier.value[x]">
+			<path value="EvidenceVariable.definitionModifier.value[x]"/>
+			<short value="Specification of the definition attribute"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="Quantity"/>
+			</type> 
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Period"/>
+			</type>
+			<type>
+				<code value="RelativeTime"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
 		<element id="EvidenceVariable.handling">
 			<path value="EvidenceVariable.handling"/>
 			<short value="continuous | dichotomous | boolean | ordinal | polychotomous"/>
