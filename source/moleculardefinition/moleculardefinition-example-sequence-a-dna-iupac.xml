@@ -12,7 +12,6 @@
         <literal>
             <encoding>
                 <coding>
-                    <system value="http://hl7.org/fhir/moleculardefinition-encoding"/>
                     <code value="nuc-dna-1-noamb"/>
                     <display value="Nucleotide, DNA, 1 letter, no ambiguity"/>
                 </coding>

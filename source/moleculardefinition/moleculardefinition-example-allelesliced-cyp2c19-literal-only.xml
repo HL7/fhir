@@ -38,7 +38,6 @@
     <representation>
         <focus>
             <coding>
-                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
                 <code value="allele-state"/>
                 <display value="Allele State"/>
             </coding>

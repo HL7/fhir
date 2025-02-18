@@ -50,7 +50,6 @@
     <representation>
         <focus>
             <coding>
-                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
                 <code value="reference-state"/>
                 <display value="Reference State"/>
             </coding>
@@ -69,7 +68,6 @@
     <representation>
         <focus>
             <coding>
-                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
                 <code value="alternative-state"/>
                 <display value="Alternative State"/>
             </coding>
