@@ -117,6 +117,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.author">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known"/>
         <upperCardinality _pattern="1" _resource="*" reason="Need more than one to enable broad use."/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Not always a who, sometimes a what.">
             <_pattern value="Who performed document reference"/>
             <resource value="Who and/or what authored the document"/>
