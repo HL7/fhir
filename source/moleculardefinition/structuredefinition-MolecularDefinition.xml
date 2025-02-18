@@ -109,11 +109,6 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <binding>
-        <strength value="extensible"/>
-        <description value="Type of a molecule - DNA, RNA, or amino acid sequence."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-moleculetype"/>
-      </binding>
     </element>
     <element id="MolecularDefinition.type">
       <path value="MolecularDefinition.type"/>
@@ -283,11 +278,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <strength value="required"/>
-        <description value="The strand orientation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-orientation"/>
-      </binding>
       <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.location.cytobandLocation">
@@ -566,11 +556,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <strength value="extensible"/>
-        <description value="Domain concept that is the focus of the representation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-focus"/>
-      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.code">
@@ -604,11 +589,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <strength value="extensible"/>
-        <description value="The encoding used for the expression of the entity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-encoding"/>
-      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.literal.value">
@@ -720,11 +700,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <strength value="extensible"/>
-        <description value="The normalization method used for determining a location within a coordinate system."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/moleculardefinition-normalization"/>
-      </binding>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.extracted.coordinateInterval.start[x]">
