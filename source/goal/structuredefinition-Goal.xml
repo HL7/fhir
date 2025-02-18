@@ -546,7 +546,7 @@
       <path value="Goal.source"/>
       <short value="Who's responsible for creating Goal?"/>
       <definition value="Indicates whose goal this is - patient goal, practitioner goal, etc."/>
-      <comment value="This is the individual or team responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)."/>
+      <comment value="This is the individual or team responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.). Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="0"/>
       <max value="1"/>
       <type>
