@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-allelesliced-hla00381"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-af1961831-url"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: Homo sapiens MHC class I antigen (HLA-B) gene"/>
+            </sequenceContext>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30102-0"/>
+                            <display value="1-based character counting"/>
+                        </coding>
+                        <text value="1-based character counting"/>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="1"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="920"/>
+                </endQuantity>
+            </coordinateInterval>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <focus>
+            <coding>
+                <code value="allele-state"/>
+                <display value="Allele State"/>
+            </coding>
+        </focus>
+        <code>
+            <coding>
+                <system value="https://www.ebi.ac.uk/ipd/imgt/hla/alleles/allele/"/>
+                <code value="HLA00381"/>
+                <display value="B*57:01:01:01"/>
+            </coding>
+        </code>
+    </representation>
+</MolecularDefinition>

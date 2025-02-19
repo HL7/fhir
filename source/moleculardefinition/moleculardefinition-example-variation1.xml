@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-variation1"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/variation"/>
-    </meta>
-    <type value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
     <location>
         <sequenceLocation>
             <sequenceContext>
@@ -12,28 +15,29 @@
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource: MSH2"/>
             </sequenceContext>
-                <coordinateInterval>
-                    <numberingSystem>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="LA30100-4"/>
                             <display value="0-based interval counting"/>
                         </coding>
                         <text value="0-based interval counting"/>
-                    </numberingSystem>
-                        <startQuantity>
-                            <value value="2502"/>
-                        </startQuantity>
-                        <endQuantity>
-                            <value value="2503"/>
-                        </endQuantity>
-                </coordinateInterval>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="2502"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="2503"/>
+                </endQuantity>
+            </coordinateInterval>
         </sequenceLocation>
     </location>
     <representation>
         <focus>
             <coding>
-                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
                 <code value="reference-state"/>
                 <display value="Reference State"/>
             </coding>
@@ -45,7 +49,6 @@
     <representation>
         <focus>
             <coding>
-                <system value="http://hl7.org/fhir/moleculardefinition-focus"/>
                 <code value="alternative-state"/>
                 <display value="Alternative State"/>
             </coding>

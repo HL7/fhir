@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-a-dna-iupac"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <literal>
+            <encoding>
+                <coding>
+                    <code value="nuc-dna-1-noamb"/>
+                    <display value="Nucleotide, DNA, 1 letter, no ambiguity"/>
+                </coding>
+            </encoding>
+            <value value="A"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

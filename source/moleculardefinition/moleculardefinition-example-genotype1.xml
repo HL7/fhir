@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-genotype1"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/genotype"/>
-    </meta>
-    <type value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
     <name value="CYP2C19*1B and HLA00002"/>
     <memberState>
         <reference value="MolecularDefinition/example-haplotype1"/>

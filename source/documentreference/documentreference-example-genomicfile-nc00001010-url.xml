@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="example-genomicfile-nc00001010-url"/>
+  <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/files"/>
+    <value value="11111"/>
+  </identifier>
+  <status value="current"/>
+  <docStatus value="preliminary"/>
+  <description value="Chr10, GRCh37.p13 sequence"/>
+  <securityLabel>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="R"/>
+      <display value="Restricted"/>
+    </coding>
+  </securityLabel>
+  <content>
+    <attachment>
+      <contentType value="text/html"/>
+      <url value="https://www.ncbi.nlm.nih.gov/nuccore/NC_000010.10?report=fasta"/>
+      <title value="Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+    </attachment>
+  </content>
+</DocumentReference>
