@@ -12,13 +12,13 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/evidence-variable-definition-modifier-code"/>
   <version value="6.0.0"/>
   <name value="EvidenceVariableDefinitionModifierCode"/>
   <title value="Evidence Variable Definition Modifier Code"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2025-02-19T12:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
