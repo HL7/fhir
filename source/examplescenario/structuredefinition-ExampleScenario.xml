@@ -559,7 +559,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
       </type>
       <condition value="exs-24"/>
