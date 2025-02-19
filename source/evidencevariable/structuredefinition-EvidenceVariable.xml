@@ -274,6 +274,25 @@
 				<map value="FiveWs.recorded"/>
 			</mapping>
 		</element>
+		<element id="EvidenceVariable.author">
+			<path value="EvidenceVariable.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.author"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT]"/>
+			</mapping>
+		</element>
 		<element id="EvidenceVariable.publisher">
 			<path value="EvidenceVariable.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
@@ -413,25 +432,6 @@
 			<type>
 				<code value="Period"/>
 			</type>
-		</element>
-		<element id="EvidenceVariable.author">
-			<path value="EvidenceVariable.author"/>
-			<short value="Who authored the content"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.author"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=AUT]"/>
-			</mapping>
 		</element>
 		<element id="EvidenceVariable.recorder">
 			<path value="EvidenceVariable.recorder"/>
