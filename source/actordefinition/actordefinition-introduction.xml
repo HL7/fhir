@@ -4,7 +4,7 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<p>The ActorDefinition Resource represents an actor that can play the role of a participant 
+<p>The ActorDefinition Resource represents an actor that can play the role of a participant
 in some kind of described process.</p>
 
 <p>
@@ -14,6 +14,11 @@ ActorDefinitions can be referenced in several places:
 <li>[<a href="requirements.html">Requirements</a>] which defines higher level expectations about system capabilities.</li>
 <li>The [<a href="obligations.html">obligation</a>] extension, which allows system behaviors to be defined on a per-element basis.</li>
 <li>[<a href="capabilitystatement.html">CapabilityStatement</a>] which allows pointing to ActorDefinitions to describe the specific sets of functionality supported by (or that should be supported by) systems (via obligations)</li>
+</p>
+
+<p>
+Like all canonical resources, ActorDefinitions can be defined, published and managed in ImplementationGuides and used to describe
+expected capabilities and roles within the IG, but can also be leveraged (via dependencies) by other implementation guides.
 </p>
 </div>
 

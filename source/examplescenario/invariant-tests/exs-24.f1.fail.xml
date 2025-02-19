@@ -13,9 +13,7 @@
     <key value="Nurse"/>
 <!-- ======= Fail exs-24 invariant ======== -->
     <type value="person"/>
-    <definition>
-      <reference value="ActorDefinition/1"/>
-    </definition>
+    <definition value="ActorDefinition/1"/>
 <!-- ======================================== -->
     <title value="Nurse"/>
     <description value="The Nurse"/>
