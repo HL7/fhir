@@ -534,6 +534,13 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableDefinitionModifierCode"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-definition-modifier-code"/>
+			</binding>
 		</element>
 		<element id="EvidenceVariable.definitionModifier.code">
 			<path value="EvidenceVariable.definitionModifier.code"/>
