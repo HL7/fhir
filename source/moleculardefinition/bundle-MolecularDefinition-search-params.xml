@@ -33,7 +33,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-moleculeType"/>
         <description value="Amino Acid Sequence/ DNA Sequence / RNA Sequence"/>
-        <code value="type"/>
+        <code value="molecule_type"/>
         <type value="token"/>
         <expression value="MolecularDefinition.moleculeType"/>
         <processingMode value="normal"/>
@@ -71,7 +71,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-memberState"/>
         <description value="Reference to the state of the molecular member"/>
-        <code value="memberState"/>
+        <code value="member_state"/>
         <type value="reference"/>
         <expression value="MolecularDefinition.memberState"/>
         <processingMode value="normal"/>
