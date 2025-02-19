@@ -22,7 +22,7 @@
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>The Resource describing evidence findings (<a href="evidence.html">Evidence</a>) will reference EvidenceVariable to describe what the evidence findings are about.</p>
-<p>The Resource describing a research study protocol (ResearchStudy) will reference EvidenceVariable to describe the endpoint for an outcome measure.</p>
+<p>The Resource describing a research study protocol (<a href="researchstudy.html">ResearchStudy</a>) will reference EvidenceVariable to describe the endpoint for an outcome measure.</p>
 </div>
 
 <!-- (optional):
