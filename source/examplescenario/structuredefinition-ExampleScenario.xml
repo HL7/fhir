@@ -479,6 +479,12 @@
         <human value="actor.key canot be 'OTHER'"/>
         <expression value="key != 'OTHER'"/>
       </constraint>
+      <constraint>
+        <key value="exs-24"/>
+        <severity value="error"/>
+        <human value="actor SHALL have either a type or a definition but not both"/>
+        <expression value="type.exists() xor definition.exists()"/>
+      </constraint>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.who"/>
@@ -501,9 +507,9 @@
     </element>
     <element id="ExampleScenario.actor.type">
       <path value="ExampleScenario.actor.type"/>
-      <short value="person | system"/>
+      <short value="system | non-system | individual | patient | practitioner | related-person | device | collective | care-team | group | healthcare-service | organization"/>
       <definition value="The category of actor - person or system."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -513,9 +519,10 @@
           <valueString value="ExampleScenarioActorType"/>
         </extension>
         <strength value="required"/>
-        <description value="The type of actor - system or human."/>
+        <description value="The type of actor - system or non-system."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
       </binding>
+      <condition value="exs-24"/>
     </element>
     <element id="ExampleScenario.actor.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -543,6 +550,19 @@
       <type>
         <code value="markdown"/>
       </type>
+    </element>
+    <element id="ExampleScenario.actor.definition">
+      <path value="ExampleScenario.actor.definition"/>
+      <short value="Formal definition of actor"/>
+      <definition value="The formal definition of the actor in the scenario."/>
+      <comment value="The title and description appearing in this resource may differ from that in the formal definition.  The type SHALL be the same."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+      </type>
+      <condition value="exs-24"/>
     </element>
     <element id="ExampleScenario.instance">
       <path value="ExampleScenario.instance"/>
