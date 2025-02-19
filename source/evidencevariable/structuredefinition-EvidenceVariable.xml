@@ -322,6 +322,58 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
+		<element id="EvidenceVariable.recorder">
+			<path value="EvidenceVariable.recorder"/>
+			<short value="Who entered the data for the evidence variable"/>
+			<definition value="The person or entity that entered the data into the EvidenceVariable Resource instance, if different than the author or creator of the intellectual property contained within the EvidenceVariable Resource instance."/>
+			<comment value="The EvidenceVariable.recorder element is structured to support a name (with a string datatype) and contact point information for the recorder, and is not structured to support unique identifiers for the recorder. If detailed contributorship data is needed, then one can create a Citation Resource for the EvidenceVariable Resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.editor">
+			<path value="EvidenceVariable.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.reviewer">
+			<path value="EvidenceVariable.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="EvidenceVariable.endorser">
+			<path value="EvidenceVariable.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
 		<element id="EvidenceVariable.description">
 			<path value="EvidenceVariable.description"/>
 			<short value="Natural language description of the evidence variable"/>
@@ -432,58 +484,6 @@
 			<type>
 				<code value="Period"/>
 			</type>
-		</element>
-		<element id="EvidenceVariable.recorder">
-			<path value="EvidenceVariable.recorder"/>
-			<short value="Who entered the data for the evidence variable"/>
-			<definition value="The person or entity that entered the data into the EvidenceVariable Resource instance, if different than the author or creator of the intellectual property contained within the EvidenceVariable Resource instance."/>
-			<comment value="The EvidenceVariable.recorder element is structured to support a name (with a string datatype) and contact point information for the recorder, and is not structured to support unique identifiers for the recorder. If detailed contributorship data is needed, then one can create a Citation Resource for the EvidenceVariable Resource."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-		</element>
-		<element id="EvidenceVariable.editor">
-			<path value="EvidenceVariable.editor"/>
-			<short value="Who edited the content"/>
-			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-		</element>
-		<element id="EvidenceVariable.reviewer">
-			<path value="EvidenceVariable.reviewer"/>
-			<short value="Who reviewed the content"/>
-			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-			</mapping>
-		</element>
-		<element id="EvidenceVariable.endorser">
-			<path value="EvidenceVariable.endorser"/>
-			<short value="Who endorsed the content"/>
-			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-			</mapping>
 		</element>
 		<element id="EvidenceVariable.relatedArtifact">
 			<path value="EvidenceVariable.relatedArtifact"/>
