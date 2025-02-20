@@ -4,7 +4,7 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<p>The ActorDefinition Resource an actor that can play the role of a participant in some kind 
+<p>The ActorDefinition Resource is an actor that can play the role of a participant in some kind 
 of described process. Generally, in the scope of FHIR, the process is some kind of data 
 exchange, and ActorDefinition is defined for this purpose.</p>
 
