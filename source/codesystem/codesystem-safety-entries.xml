@@ -40,11 +40,15 @@
  </concept>
  <concept>
   <code value="modifiers"/>
-  <definition value="For each resource that my system handles, I've reviewed the [Modifier elements](conformance-rules.html#isModifier)"/>
+  <definition value="For each resource that my system handles, I've reviewed the [Modifier elements](conformance-rules.html#isModifier) defined for that resource and ensured that my system does not incorrectly process resources that use them."/>
+ </concept>
+<concept>
+  <code value="implicit-rules"/>
+  <definition value="My system checks for [Resource.implicitRules](resource-definitions.html#Resource.implicitRules) values for each resource it processes and behaves properly when encountering unknown values in them."/>
  </concept>
  <concept>
   <code value="modifier-extensions"/>
-  <definition value="My system checks for [modifierExtension](extensibility.html#modifierExtension) elements"/>
+  <definition value="My system checks for [modifierExtension](extensibility.html#modifierExtension) elements for each resource it processes and behaves properly when encountering known or unknown extensions in them."/>
  </concept>
  <concept>
   <code value="must-support"/>
