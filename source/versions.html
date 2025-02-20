@@ -666,12 +666,10 @@ or incompatible ways, and it may be necessary to carry data elements from past v
 in order to allow seamless round-tripping.
 </p>
 <p>
-In order to help implementers with this problem, any element defined in any version of FHIR
-is automatically assigned an extension URL that uniquely identifies the element and can be used
-in the relevant FHIR version. The extension URL for an element can automatically be derived:
+  In order to help implementers with this problem, any element defined in any version of FHIR is automatically assigned an extension URL that uniquely identifies the element and can be used in instances of any other version of FHIR. The extension URL for an element can automatically be derived:
 </p>
 <pre>
-http://hl7.org/fhir/[version]/StructureDefinition/extension-[Path]
+  http://hl7.org/fhir/[defining_|http://hl7.org/fhir/[defining]version]/StructureDefinition/extension-[Path]
 </pre>
 <p>
 where [version] is taken from this list:
