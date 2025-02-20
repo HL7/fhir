@@ -293,13 +293,25 @@ FHIRPath when the next version is released.
 
 <p><b>slice(structure : string, name : string) : collection</b><a name="fn-slice"> </a></p>
 <p>
-  Returns the given slice as defined in the given structure definition. The 
-  structure argument is a uri that resolves to the structure definition, and 
-  the name must be the name of a slice within that structure definition. 
-  If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, or those parameters are empty, 
-  and empty value is returned.
-</p>
-<p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the result is an empty collection (<code>{ }</code>).</p>
+  Apply the profile specified as the first argument to the resource containing the context element(s).  The 'slice()' operation will filter the current collection of elements to only those that would have been matched against a slice with the name specified in the second argument when applying the profile.
+
+  The profile can be a canonical URI, or can be the special variable '%profile' which refers to the profile in which the ElementDefinition.constraint containing the FHIRPath is defined.  (This variable can only be used for FHIRPath appearing in constraints.)
+  
+  If the StructureDefinition referenced by the canonical URI cannot be resolved, or the name of the slice within the resolved structure is not present, or those parameters are empty, the operation returns an empty value.
+  
+  If the StructureDefinition and name exist, but there are no matches, an empty collection will be returned.
+  
+  For example, this is a FHIRPath that could appear in a profile on Patient:
+  
+  `Patient.telecom.slice(%profile, 'homephone').count()+Patient.telecom.slice(%profile, 'homeemail').count()>1`
+  
+   
+  
+  This would say that, after validating the instance against the current profile, there must be more than one Patient.telecom element matching either the 'homephone' slice or the 'homeemail' slice rules, as defined in that profile.
+  
+   
+  
+  NOTE: not all FHIRPath engines are in a position to implement slice() as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.</p>
 
 <hr/>
 
