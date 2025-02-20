@@ -20,6 +20,13 @@ actors and in doing so, bring into scope the technical artifacts associated with
 <h2>Boundaries and Relationships</h2>
 
 <p>
+Both ActorDefinition and <a href="capabilitystatement.html">CapabilityStatement</a> describe 'systems'.  However, ActorDefinition does not presume those systems will have FHIR interfaces and does not directly speak to what the systems do, while CapabilityStatement is focused on describing the FHIR interface of a system in terms of exactly what interactions, operations, messages, etc. it can consume and produce.  A CapabilityStatement may point to one or more ActorDefinitions to allow expression of the detailed data behaviors associated with a FHIR system.
+
+Device can also be used to represent a 'system', but the concern there is about the metadata such as manufacturer, software version, etc., not the interoperability capabilities or how it integrates with other systems.
+
+Patient, Practitioner, PractitionerRole, RelatedPerson can all represent individual people or animals, which ActorDefinition also does.  However ActorDefinition refers to a 'type' of individual, while the others all refer to specific individuals.  ActorDefinition is interested in capability, while the other resources are focused on characteristics</p>
+
+<p>
 Once defined, Actors may be associated with <a href="obligations.html">obligations</a> defined in profiles to describe
 expected application behavior.
 </p>
