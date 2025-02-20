@@ -11,8 +11,7 @@ implementation guides are published on the web after they are generated using th
 </p>
 <p>
 The <code>ImplementationGuide</code> resource is a single resource that defines the logical content
-of the IG, along with the important entry pages into the publication, so that the 
-logical package that the IG represents, so that the contents are computable. 
+of the IG, along with the important entry pages into the publication as a single logical package, so that the contents of the IG are computable for purposes of publication, validation, registry look-up, and other uses.
 </p>
 <p>
 In particular, validators are able to use the ImplementationGuide resource to validate content
