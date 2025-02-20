@@ -847,4 +847,30 @@
     </item>
   </entry>
 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Allele including slices for CYP2C19 position 1016 with contained resources"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-allelesliced-cyp2c19-1016-cont"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-allelesliced-cyp2c19-1016-cont"/>
+      <display value="Example of Allele-Sliced with contained resources"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Genomic Sequence example of CYP2C19 By Accession Number"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="moleculardefinition-example-genomic-cyp2c19-accession"/>
+    </extension>
+    <item>
+      <reference value="MolecularDefinition/example-genomic-cyp2c19-accession"/>
+      <display value="Example of a Genomic Sequence by accession"/>
+    </item>
+  </entry>
+
 </List>
