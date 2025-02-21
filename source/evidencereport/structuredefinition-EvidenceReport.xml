@@ -2,13 +2,13 @@
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="EvidenceReport"/>
 	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+		<lastUpdated value="2025-02-21T10:01:24.148+11:00"/>
 	</meta>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
 		<valueString value="Specialized.Evidence-Based Medicine"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
+		<valueCode value="deprecated"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="0"/>
@@ -33,7 +33,7 @@
 	<version value="6.0.0"/>
 	<name value="EvidenceReport"/>
 	<title value="Evidence Report"/>
-	<status value="draft"/>
+	<status value="retired"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
 	<publisher value="HL7 International / Clinical Decision Support"/>
 	<contact>
