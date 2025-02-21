@@ -79,11 +79,11 @@
       <slicing>
         <discriminator>
           <type value="value"/>
-          <path value="code"/>
+          <path value="coding.code"/>
         </discriminator>
         <discriminator>
           <type value="value"/>
-          <path value="system"/>
+          <path value="coding.system"/>
         </discriminator>
         <rules value="open"/>
       </slicing>

@@ -523,7 +523,7 @@
           <valueString value="ServiceRequestCode"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  [preferred](terminologies.html#preferred)."/>
+        <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is [preferred](terminologies.html#preferred)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
       <mapping>
@@ -929,7 +929,7 @@
       <path value="ServiceRequest.requester"/>
       <short value="Who/what is requesting service"/>
       <definition value="The individual who initiated the request and has responsibility for its activation."/>
-      <comment value="This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource."/>
+      <comment value="This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource. The requestor is expected to receive the provided results (if any) of the ServiceRequest.  If other additional recipients of results are required, use the additionalRecipient element. Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. In those instances it is preferable to use more specific resources such as Organization."/>
       <alias value="author"/>
       <alias value="orderer"/>
       <min value="0"/>
@@ -942,6 +942,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -964,6 +965,24 @@
         <identity value="quick"/>
         <map value="ClinicalStatement.statementAuthor"/>
       </mapping>
+    </element>
+    <element id="ServiceRequest.additionalRecipient">
+      <path value="ServiceRequest.additionalRecipient"/>
+      <short value="Who else should receive the results of the ServiceRequest"/>
+      <definition value="Entities in addition to the requestor that should receive the results of the ServiceRequest."/>
+      <alias value="CopyTo"/>
+      <alias value="cc"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
     </element>
     <element id="ServiceRequest.performerType">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -1012,7 +1031,7 @@
       <path value="ServiceRequest.performer"/>
       <short value="Requested performer"/>
       <definition value="The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc."/>
-      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
+      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B). Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. In those instances it is preferable to use more specific resources such as Organization, CareTeam, or HealthcareService instead."/>
       <alias value="request recipient"/>
       <min value="0"/>
       <max value="*"/>
@@ -1026,6 +1045,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>

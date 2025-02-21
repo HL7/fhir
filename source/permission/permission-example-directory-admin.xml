@@ -1,0 +1,99 @@
+
+<Permission xmlns="http://hl7.org/fhir">
+  <id value="ex-permission-directory-admin"/>
+  <meta>
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HTEST"/>
+    </security>
+  </meta>
+
+  <status value="active"/>
+  <asserter>
+    <reference value="Organization/example"/>
+  </asserter>
+  <date value="2023-11-22"/>
+  <combining value="deny-unless-permit"/>
+  <rule>
+    <type value="permit"/>
+    <activity>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="C"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="R"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="U"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="D"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="E"/>
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HDIRECT"/>
+        </coding>
+      </purpose>
+    </activity>
+  </rule>
+  <rule>
+    <type value="permit"/>
+    <activity>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="C"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="R"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="U"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="D"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="E"/>
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HSYSADMIN"/>
+        </coding>
+      </purpose>
+    </activity>
+  </rule>
+</Permission>

@@ -32,9 +32,9 @@
   <version value="6.0.0"/>
   <name value="DocumentRelationshipType"/>
   <title value="Document Relationship Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-11-19T10:01:24+11:00"/>
+  <date value="2024-12-30T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

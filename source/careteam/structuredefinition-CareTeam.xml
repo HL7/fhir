@@ -303,12 +303,12 @@
     </element>
     <element id="CareTeam.participant.member">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14334."/>
+        <valueString value="GF#14334, J#48432"/>
       </extension>
       <path value="CareTeam.participant.member"/>
       <short value="Who is involved"/>
       <definition value="The specific person or organization who is participating/expected to participate in the care team."/>
-      <comment value="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans."/>
+      <comment value="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans. Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -319,6 +319,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <condition value="ctm-2"/>
       <isSummary value="true"/>
@@ -337,11 +338,12 @@
     </element>
     <element id="CareTeam.participant.onBehalfOf">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#42928"/>
+        <valueString value="J#42928, J#48432"/>
       </extension>
       <path value="CareTeam.participant.onBehalfOf"/>
       <short value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of"/>
       <definition value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of."/>
+	  <comment value="Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <requirements value="Allows specifying which organization a practitioner is acting on behalf of in context of this care team when practitioners are associated with multiple organizations."/>
       <min value="0"/>
       <max value="1"/>
@@ -353,6 +355,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
     </element>

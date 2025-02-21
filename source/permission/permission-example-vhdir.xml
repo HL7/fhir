@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Permission xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+<Permission xmlns="http://hl7.org/fhir">
   <id value="example-vhdir" />
   <text>
     <status value="generated" />
@@ -40,7 +40,9 @@
     </data>
     <activity>
       <actor>
+        <reference>
         <reference value="CareTeam/example" />
+        </reference>
       </actor>
       <action>
         <coding>

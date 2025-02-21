@@ -57,7 +57,7 @@
     <divergentElement patternPath="Event.status" resourcePath="ImagingStudy.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="registered | available | cancelled | entered-in-error | unknown"/>
+            <resource value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the imaging study."/>

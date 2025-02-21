@@ -167,7 +167,6 @@
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
     <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
