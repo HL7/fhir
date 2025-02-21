@@ -235,7 +235,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchSubjectState"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Indicates the progression of a study subject through a study."/>
 		<valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
       </binding>
@@ -314,9 +314,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchSubjectMilestone"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Indicates the progression of a study subject through a study."/>
-	<valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
       </binding>
     </element>
     <element id="ResearchSubject.subjectMilestone.date">
