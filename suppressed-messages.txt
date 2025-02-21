@@ -17,6 +17,7 @@ WARNING: CompartmentDefinition: All resources should have an identifier
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: DataElement.mapping.comment: MnM must have confirmed this should not be an Annotation
+WARNING: DetectedIssue: Resource elements are out of order. The correct order is '[identifier(=id), status(=status), category(=class), severity(=grade), code(=what), subject(=who.focus), encounter(=context), identified[x](=when.done), author(=who.author), evidence(=why)]' but the actual order is '[identifier(=id), status(=status), category(=class), code(=what), severity(=grade), subject(=who.focus), encounter(=context), identified[x](=when.done), author(=who.author), evidence(=why)]'
 WARNING: DiagnosticReport.media.comment: MnM must have confirmed this should not be an Annotation
 WARNING: DiagnosticReport.media: Element names should be singular
 WARNING: ElementDefinition.comment: MnM must have confirmed this should not be an Annotation
