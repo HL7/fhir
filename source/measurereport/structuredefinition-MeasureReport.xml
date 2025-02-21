@@ -331,7 +331,7 @@
       <short value="Where the reported data is from"/>
       <definition value="A reference to the location for which the data is being reported."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
