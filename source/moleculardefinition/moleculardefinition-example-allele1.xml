@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-allele1"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/allele"/>
-    </meta>
-    <type value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
 
     <location>
         <sequenceLocation>
@@ -13,22 +16,24 @@
                 <type value="MolecularDefinition"/>
                 <display value="Starting Sequence Resource: LRG_584"/>
             </sequenceContext>
-                <coordinateInterval>
-                    <numberingSystem>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="LA30100-4"/>
                             <display value="0-based interval counting"/>
                         </coding>
                         <text value="0-based interval counting"/>
-                    </numberingSystem>
-                        <startQuantity>
-                            <value value="5001"/>
-                        </startQuantity>
-                        <endQuantity>
-                            <value value="97867"/>
-                        </endQuantity>
-                </coordinateInterval>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="5001"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="97867"/>
+                </endQuantity>
+            </coordinateInterval>
         </sequenceLocation>
     </location>
     <representation>
@@ -39,16 +44,32 @@
                 <display value="Starting Sequence Resource: LRG_584"/>
             </startingMolecule>
             <edit>
-                <coordinateSystem>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="LA30100-4"/>
-                        <display value="0-based interval counting"/>
-                    </coding>
-                    <text value="0-based interval counting"/>
-                </coordinateSystem>
-                <start value="5123"/>
-                <end value="5124"/>
+<!--                <coordinateSystem>-->
+<!--                    <coding>-->
+<!--                        <system value="http://loinc.org"/>-->
+<!--                        <code value="LA30100-4"/>-->
+<!--                        <display value="0-based interval counting"/>-->
+<!--                    </coding>-->
+<!--                    <text value="0-based interval counting"/>-->
+<!--                </coordinateSystem>-->
+<!--                <start value="5123"/>-->
+<!--                <end value="5124"/>-->
+
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="5123"/>
+                    <end value="5124"/>
+                </coordinateInterval>
+
                 <replacementMolecule>
                     <reference value="MolecularDefinition/example-sequence-t"/>
                     <type value="MolecularDefinition"/>
