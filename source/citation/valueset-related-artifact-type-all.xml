@@ -22,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="RelatedArtifactTypeExpanded"/>
   <title value="Related Artifact Type All"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2022-03-22T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
