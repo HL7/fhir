@@ -120,6 +120,27 @@
         <map value="id"/>
       </mapping>
     </element>
+    <element id="MeasureReport.category">
+      <path value="MeasureReport.category"/>
+      <short value="The category of measure report instance this is (e.g. deqm, ra, vbp)"/>
+      <definition value="The category of measure report instance this is such as Data Exchange for Quality Measures (DEQM), Risk Adjustment, or Value-Based Performance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureCategory"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-category"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.status">
       <path value="MeasureReport.status"/>
       <short value="complete | pending | error"/>
