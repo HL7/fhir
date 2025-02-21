@@ -41,6 +41,6 @@ The DI of the UDI may be stored in a jurisdictional repository and used as the p
 <a name="status"></a>
 <h4>Status Elements</h4>
 <p>
-Devices.status is about the record, while operationalStatus and associationStatus are about other aspects of the device.
+Device.status is about the record, while .availabilityStatus is about the device itself.
 </p>
 </div>
