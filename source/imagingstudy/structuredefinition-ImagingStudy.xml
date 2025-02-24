@@ -541,8 +541,8 @@
     </element>
     <element id="ImagingStudy.description">
       <path value="ImagingStudy.description"/>
-      <short value="Institution-generated description"/>
-      <definition value="The Imaging Manager description of the study. Institution-generated description or classification of the Study (component) performed."/>
+      <short value="Description of the imaging study"/>
+      <definition value="Description or classification of the imaging study."/>
       <alias value="StudyDescription"/>
       <min value="0"/>
       <max value="1"/>
