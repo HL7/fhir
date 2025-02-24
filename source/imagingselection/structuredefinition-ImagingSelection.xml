@@ -156,7 +156,7 @@
     <element id="ImagingSelection.status">
       <path value="ImagingSelection.status"/>
       <short value="available | entered-in-error | inactive | unknown"/>
-      <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
+      <definition value="The current state of the imaging selection. This is distinct from the status of any imaging study, service request, or task associated with the imaging selection."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
