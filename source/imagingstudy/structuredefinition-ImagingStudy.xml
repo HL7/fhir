@@ -582,7 +582,7 @@
     <element id="ImagingStudy.numberOfInstances">
       <path value="ImagingStudy.numberOfInstances"/>
       <short value="Number of Study Related Instances"/>
-      <definition value="Number of SOP Instances in Study. This value given MAY be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element SHOULD be present if any instance elements are present."/>
+      <definition value="Number of known SOP Instances in Study. This value might be present even if the ImagingStudy.series.instance elements are empty or only partially populated."/>
       <alias value="NumberOfStudyRelatedInstances"/>
       <min value="0"/>
       <max value="1"/>
