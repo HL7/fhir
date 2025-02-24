@@ -794,6 +794,7 @@
       <path value="ImagingStudy.series.laterality"/>
       <short value="Body part laterality"/>
       <definition value="The laterality of the (possibly paired) anatomic structures examined. E.g., the left knee, both lungs, or unpaired abdomen. If present, SHALL be consistent with any laterality information indicated in ImagingStudy.series.bodySite."/>
+      <requirement value="If ImagingStudy.series.bodySite is present and specifies laterality - either as part of a coded value or a referenced Body Structure resource - then this value shall be consistent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
