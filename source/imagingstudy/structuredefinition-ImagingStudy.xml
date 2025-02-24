@@ -60,7 +60,7 @@
   </mapping>
   <mapping>
     <identity value="dicom"/>
-    <uri value="http://nema.org/dicom"/>
+    <uri value="https://dicomstandard.org/current"/>
     <name value="DICOM Tag Mapping"/>
   </mapping>
   <mapping>
@@ -95,7 +95,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Reference IHE radiology TF vol 2 table 4.14-1"/>
+        <map value="DICOM Tag Mapping"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -129,7 +129,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="StudyInstanceUID (0020,000D) | study ID (0020,0010)"/>
+        <map value="Study Instance UID (0020,000D) and / or Study ID (0020,0010)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.status">
@@ -202,7 +202,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0061)"/>
+        <map value="Modalities in Study (0008,0061) or Modality (0008,0060)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.subject">
@@ -239,7 +239,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0010/*)"/>
+        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024). Patient Name 90010,0010)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.encounter">
@@ -303,7 +303,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0020)+(0008,0030)"/>
+        <map value="Study Date (0008,0020) and Study Time (0008,0030)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.basedOn">
@@ -337,7 +337,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Accession Number and Issuer (0080,0050)+(0080,0051) | Requested Procedure Code Sequence (0032,1064)"/>
+        <map value="Accession Number (0080,0050) and Issuer of Accession Number Sequence (0080,0051)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.partOf">
@@ -388,7 +388,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0090)+(0008,0096)"/>
+        <map value="Referring Physician's Name (0008,0090) and Referring Physician Identification Sequence (0008,0096)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.endpoint">
@@ -445,7 +445,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,1032)"/>
+        <map value="Procedure Code Sequence (0008,1032)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.location">
@@ -478,7 +478,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,1040) | (0040,0243)"/>
+        <map value="Institutional Department Name (0008,1040) and Institutional Department Type Code Sequence (0008,1041)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.reason">
@@ -517,7 +517,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0040,1002)"/>
+        <map value="Reason for Requested Procedure Code Sequence (0040,1002)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.note">
@@ -556,7 +556,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,1030)"/>
+        <map value="Study Description (0008,1030)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.numberOfSeries">
@@ -576,7 +576,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,1206)"/>
+        <map value="Number of Study Related Series (0020,1206). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
       </mapping>
     </element>
     <element id="ImagingStudy.numberOfInstances">
@@ -596,7 +596,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,1208)"/>
+        <map value="Number of Study Related Instances (0020,1208). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series">
@@ -640,7 +640,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,000E)"/>
+        <map value="Series Instance UID (0020,000E)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.number">
@@ -664,7 +664,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,0011)"/>
+        <map value="Series Number (0020,0011)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.modality">
@@ -695,7 +695,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0060)"/>
+        <map value="Modality (0008,0060)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.description">
@@ -719,7 +719,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,103E)"/>
+        <map value="Series Description (0008,103E)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.numberOfInstances">
@@ -739,7 +739,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,1209)"/>
+        <map value="Number of Series Related Instances (0020,1209). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.endpoint">
@@ -787,7 +787,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0018,0015)"/>
+        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.laterality">
@@ -818,7 +818,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,0060)"/>
+        <map value="Laterality (0020,0060)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.specimen">
@@ -838,7 +838,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0040,0551) + (0040,0562)"/>
+        <map value="Specimen Identifier (0040,0551) or Specimen UID (0040,0554) and + Issuer of the Specimen Identifier Sequence (0040,0562)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.started">
@@ -857,7 +857,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0021) + (0008,0031)"/>
+        <map value="Series Date (0008,0021) + and Series Time (0008,0031)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer">
@@ -887,7 +887,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008, 1050) | (0008, 1052) | (0008, 1070) | (0008, 1072)"/>
+        <map value="One or more of: Performing Physician's Name (0008,1050) and Performing Physician Identification Sequence (0008,1052); Operators' Name (0008,1070) and Operator Identification Sequence (0008,1072); Manufacturer (0008,0070) and Manufacturer's Model Name (0008,1090); or Institution Name (0008,0080)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer.function">
@@ -912,6 +912,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="PRF (Performing Physician's Name); PRF or SPRF (Operator's Name); PRF (Manufacturer / Manufacturer's Model Name); or PRF (Institution Name)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer.actor">
@@ -943,6 +947,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Practitioner (Performing Physician's Name); Practitioner (Operator's Name); Device (Manufacturer / Manufacturer's Model Name); or Organization (Institution Name)" />
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance">
@@ -984,7 +992,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0018)"/>
+        <map value="SOP Instance UID (0008,0018)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance.sopClass">
@@ -1003,7 +1011,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0016)"/>
+        <map value="SOP Class UID (0008,0016)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance.number">
@@ -1026,7 +1034,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0020,0013)"/>
+        <map value="Instance Number (0020,0013)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance.title">
@@ -1045,7 +1053,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0008,0008) | (0007,0080) | (0040,A043) + (0008,0104) | (0042,0010)"/>
+        <map value="Image Type (0008,0008) or Document Title (0042,0010)"/>
       </mapping>
     </element>
   </differential>
