@@ -508,7 +508,7 @@
       <path value="ImagingSelection.instance"/>
       <short value="The selected instances"/>
       <definition value="Each imaging selection includes one or more selected DICOM SOP instances."/>
-      <requirements value="Required if the the selection does not include all instances in the specified series."/>
+      <requirements value="If this element is not present and ImagingSelection.seriesUid is present, all instances in the specified series are included in the selection."/>
       <min value="0"/>
       <max value="*"/>
       <type>
