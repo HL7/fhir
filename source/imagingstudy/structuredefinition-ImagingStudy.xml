@@ -173,7 +173,7 @@
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
       <short value="The distinct values for series' modalities"/>
-      <definition value="All the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
+      <definition value="All the distinct values of series.modality. This may be either an acquisition or a non-acquisition modality."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>
