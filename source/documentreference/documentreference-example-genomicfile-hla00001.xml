@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="example-genomicfile-hla00001"/>
+
+  <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/files"/>
+    <value value="11111"/>
+  </identifier>
+  <status value="current"/>
+  <docStatus value="preliminary"/>
+  <description value="A sample Document Reference instance representing HLA00001."/>
+  <securityLabel>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="R"/>
+      <display value="Restricted"/>
+    </coding>
+  </securityLabel>
+  <content>
+    <attachment>
+      <contentType value="text/html"/>
+      <url value="https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?db=imgthla;id=HLA00001;format=fasta;style=raw"/>
+      <title value="HLA00001"/>
+    </attachment>
+  </content>
+</DocumentReference>

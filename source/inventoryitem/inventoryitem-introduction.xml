@@ -34,10 +34,10 @@ The InventoryItem can also be used on its own for inventory specific purposes - 
 The InventoryItem resource can be referenced from the following resources:
 <ul>
 <li><strong><a href="inventoryreport.html">InventoryReport</a></strong> - when counting items in an inventory</li>
-<li><strong><a href="transport.html">Transport</a></strong> - for tracking the transport of inventory items</li>
+<!-- <li><strong><a href="transport.html">Transport</a></strong> - for tracking the transport of inventory items</li> -->
 <li><strong><a href="supplyrequest.html">SupplyRequest</a></strong>- for requesting the supply of inventory items</li>
 <li><strong><a href="supplydelivery.html">SupplyDelivery</a></strong> - for reporting the delivery of inventory items</li>
-<li><strong><a href="servicerequest.html">ServiceRequest</a></strong> - for example for requesting transport of items</li>
+<!-- <li><strong><a href="servicerequest.html">ServiceRequest</a></strong> - for example for requesting transport of items</li> -->
 </ul>
 
 <p>Because the InventoryItem resource does not contain all the clinical characteristics of the products like Medication, Device, etc. the InventoryItem can refer to any of those product items.</p>
