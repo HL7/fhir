@@ -483,8 +483,8 @@
     </element>
     <element id="ImagingStudy.reason">
       <path value="ImagingStudy.reason"/>
-      <short value="Why the study was requested / performed"/>
-      <definition value="Description of clinical condition indicating why the ImagingStudy was requested, and/or Indicates another resource whose existence justifies this Study."/>
+      <short value="	Why was imaging study performed?"/>
+      <definition value="Describes why the imaging study occurred in coded or textual form or indicates another resource whose existence justifies this imaging study."/>
       <min value="0"/>
       <max value="*"/>
       <type>
