@@ -450,8 +450,8 @@
     </element>
     <element id="ImagingStudy.location">
       <path value="ImagingStudy.location"/>
-      <short value="Where ImagingStudy occurred"/>
-      <definition value="The principal physical location where the ImagingStudy was performed."/>
+      <short value="Where imaging study occurred"/>
+      <definition value="The principal physical location where the imaging study was performed."/>
       <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
