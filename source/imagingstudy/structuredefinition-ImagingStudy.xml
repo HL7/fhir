@@ -541,7 +541,7 @@
     </element>
     <element id="ImagingStudy.description">
       <path value="ImagingStudy.description"/>
-      <short value="Description of the imaging study"/>
+      <short value="Study Description"/>
       <definition value="Description or classification of the imaging study."/>
       <alias value="StudyDescription"/>
       <min value="0"/>
@@ -700,7 +700,7 @@
     </element>
     <element id="ImagingStudy.series.description">
       <path value="ImagingStudy.series.description"/>
-      <short value="Description of the series"/>
+      <short value="Series Description"/>
       <definition value="Description or classification of the series."/>
       <alias value="SeriesDescription"/>
       <min value="0"/>
