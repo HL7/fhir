@@ -619,8 +619,8 @@
     </element>
     <element id="ImagingStudy.series.uid">
       <path value="ImagingStudy.series.uid"/>
-      <short value="DICOM Series Instance UID for the series"/>
-      <definition value="The DICOM Series Instance UID for the series."/>
+      <short value="DICOM Series Instance UID"/>
+      <definition value="The DICOM Series Instance UID of the series."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
       <requirements value="DICOM Series Instance UID."/>
       <alias value="SeriesInstanceUID"/>
