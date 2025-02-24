@@ -43,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, a Referenced Content Item Identifier from a DICOM SR Content Item or a Segment Number from a DICOM Segmentation SOP Instance."/>
+  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation from a DICOM SR Content Item, or a Segment Number from a DICOM Segmentation SOP Instance."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
