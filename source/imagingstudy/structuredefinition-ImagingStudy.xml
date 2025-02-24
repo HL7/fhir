@@ -604,8 +604,8 @@
         <valueCode value="right"/>
       </extension>
       <path value="ImagingStudy.series"/>
-      <short value="Each study has one or more series of instances"/>
-      <definition value="Each study has one or more series of images or other content."/>
+      <short value="The set of Series belonging to the study"/>
+      <definition value="The set of Series belonging to the study. Each Series contains a set of SOP Instances, which could be images, waveforms, or other content."/>
       <min value="0"/>
       <max value="*"/>
       <type>
