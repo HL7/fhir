@@ -411,8 +411,8 @@
     </element>
     <element id="ImagingStudy.procedure">
       <path value="ImagingStudy.procedure"/>
-      <short value="The performed procedure or code"/>
-      <definition value="This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that MAY include the ImagingStudy."/>
+      <short value="Associated procedure(s)"/>
+      <definition value="A procedure or set of procedures during which this imaging study data was created."/>
       <min value="0"/>
       <max value="*"/>
       <type>
