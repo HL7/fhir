@@ -700,8 +700,8 @@
     </element>
     <element id="ImagingStudy.series.description">
       <path value="ImagingStudy.series.description"/>
-      <short value="A short human readable summary of the series"/>
-      <definition value="A description of the series."/>
+      <short value="Description of the series"/>
+      <definition value="Description or classification of the series."/>
       <alias value="SeriesDescription"/>
       <min value="0"/>
       <max value="1"/>
