@@ -80,8 +80,43 @@
       <constraint>
         <key value="isl-1"/>
         <severity value="error"/>
-        <human value="Rule seriesNumber shall only be present if seriesUid is present"/>
-        <expression value="seriesNumber.exists() implies seriesUid.exists()"/>
+        <human value="At least one of seriesUid and imageRegion3D shall be present"/>
+        <expression value="seriesUid.exists() or imageRegion3D.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-2"/>
+        <severity value="error"/>
+        <human value="seriesUid SHALL only be present if studyUid is present"/>
+        <expression value="seriesUid.empty() or studyUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-3"/>
+        <severity value="error"/>
+        <human value="seriesNumber SHALL only be present if seriesUid is present"/>
+        <expression value="seriesNumber.empty() or seriesUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-4"/>
+        <severity value="error"/>
+        <human value="instance SHALL only be present if seriesUid is present"/>
+        <expression value="instance.empty() or seriesUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-5"/>
+        <severity value="error"/>
+        <human value="imageRegion3D SHALL only be present if frameOfReferenceUid is present"/>
+        <expression value="imageRegion3D.empty() or frameOfReferenceUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-6"/>
+        <severity value="error"/>
+        <human value="imageRegion3D SHALL only be present if instance.imageRegion2d is not present"/>
+        <expression value="imageRegion3D.empty() or instance.imageRegion2d.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <mapping>
@@ -373,7 +408,6 @@
       <short value="DICOM Study Instance UID"/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
-      <requirements value="DICOM Study Instance UID.&#xA;Required unless frameOfReferenceUid and imageRegion are present and instance is not present.&#xA;If imagingselection.derivedFrom is present and references an ImagingStudy, the studyUid attribute - if present - must match an identifier of that ImagingStudy."/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -384,6 +418,7 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793"/>
       </example>
+      <condition value="isl-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -395,7 +430,7 @@
       <short value="DICOM Series Instance UID"/>
       <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Instance UID.&#xA;Required unless `frameOfReferenceUid` and `imageRegion` are present and instance is not present. &#xA;Must correspond to a Series that is part of the DICOM study identified by the `studyUID` element."/>
+      <requirements value="Must correspond to a Series that is part of the DICOM study identified by the `studyUid` element."/>
       <alias value="SeriesInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -407,6 +442,9 @@
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
       </example>
       <condition value="isl-1"/>
+      <condition value="isl-2"/>
+      <condition value="isl-3"/>
+      <condition value="isl-4"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -425,7 +463,7 @@
       <type>
         <code value="unsignedInt"/>
       </type>
-      <condition value="isl-1"/>
+      <condition value="isl-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -437,7 +475,6 @@
       <short value="The Frame of Reference UID for the selected images"/>
       <definition value="Uniquely identifies groups of composite instances that have the same coordinate system that conveys spatial and/or temporal information."/>
       <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
-      <requirements value="DICOM Frame of Reference UID.&#xA;                            Required if studyInstanceUid and seriesInstanceUid are not present."/>
       <alias value="FrameOfReferenceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -448,6 +485,7 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.2"/>
       </example>
+      <condition value="isl-5"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -523,6 +561,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-4"/>
       <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.instance.uid">
@@ -621,6 +660,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-6"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D.regionType">
       <path value="ImagingSelection.instance.imageRegion2D.regionType"/>
@@ -674,12 +714,14 @@
       <path value="ImagingSelection.imageRegion3D"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
       <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>
-      <requirements value="Requires that the ImagingSelection.frameOfReferenceUid element is present."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-1"/>
+      <condition value="isl-5"/>
+      <condition value="isl-6"/>
     </element>
     <element id="ImagingSelection.imageRegion3D.regionType">
       <path value="ImagingSelection.imageRegion3D.regionType"/>
