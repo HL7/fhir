@@ -105,10 +105,10 @@
     <element id="ImagingStudy.identifier">
       <path value="ImagingStudy.identifier"/>
       <short value="Business identifier for imaging study"/>
-      <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID and Accession Number."/>
-      <comment value="It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID and Accession Number."/>
+      <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID."/>
+      <comment value="It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
       <requirements value="ImagingStudy.identifier SHALL contain exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
-      <alias value="StudyInstanceUID, AccessionNumber"/>
+      <alias value="StudyInstanceUID"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -310,8 +310,9 @@
       <path value="ImagingStudy.basedOn"/>
       <short value="Fulfills plan or order"/>
       <definition value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
-      <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon."/>
+      <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon. If the ImagingStudy is associated with an Accession Number, this field should include a reference to that value in the form: identifier.value = (Accession Number Value) identifier.type = ACSN. A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
       <comment value="One imaging study MAY support multiple ordered procedures, e.g. chest/abdomen/pelvis CT orders being fulfilled by a single imaging study."/>
+      <alias value="AccessionNumber"/>
       <min value="0"/>
       <max value="*"/>
       <type>
