@@ -745,9 +745,7 @@
     <element id="ImagingStudy.series.endpoint">
       <path value="ImagingStudy.series.endpoint"/>
       <short value="Series access endpoint"/>
-      <definition value="The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.connectionType."/>
-      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances. See [Imaging Study Implementation Notes on Endpoints](imagingstudy.html#endpoints)."/>
-      <requirements value="Access methods for retrieving (e.g., DICOM's WADO-URI and WADO-RS) the series or the series' instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level."/>
+      <definition value="The network service providing access for the study. See implementation notes for information about [using DICOM endpoints](imagingstudy.html#endpoints)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
