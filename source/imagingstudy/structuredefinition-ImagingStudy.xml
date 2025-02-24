@@ -368,7 +368,7 @@
     <element id="ImagingStudy.referrer">
       <path value="ImagingStudy.referrer"/>
       <short value="Referring physician"/>
-      <definition value="The requesting/referring physician."/>
+      <definition value="The referring physician."/>
       <alias value="ReferringPhysiciansName"/>
       <min value="0"/>
       <max value="1"/>
