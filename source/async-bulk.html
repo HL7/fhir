@@ -48,7 +48,7 @@
     <li>
       <p><code>Accept</code> (string)</p>
       <p>Specifies the format of the optional <a href="operationoutcome.html">OperationOutcome Resource</a> response to
-        the kick-off request. A client SHOULD provide this header. A server may support any subset of the <a
+        the kick-off request as well as the format of the eventual asynchronous response. A client SHOULD provide this header. A server may support any subset of the <a
           href="resource-formats.html#wire">Serialization Format Representations</a>. If omitted, the server MAY return an error
         or MAY process the request and return a format selected by the server.</p>
     </li>
@@ -159,6 +159,8 @@
     <code>application/json</code>. In the case that errors prevent the asynchronous operation from completing, the server SHOULD respond
     with a <a href="operationoutcome.html">OperationOutcome Resource</a> in JSON format.
   </p>
+
+  <p>The status request SHOULD NOT send an Accept header.  If it does provide one, it SHALL provide the same Accept header as was in the kick-off request</p>
 
   <h5 id="status-response---in-progress">Response - In-Progress</h5>
   <ul>
