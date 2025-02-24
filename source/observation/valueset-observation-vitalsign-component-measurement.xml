@@ -24,11 +24,9 @@
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-diastolicbp"/>
     </include>
   </compose>

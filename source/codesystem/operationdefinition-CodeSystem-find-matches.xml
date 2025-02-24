@@ -91,30 +91,18 @@
       <type value="code"/>
     </part>
     <part>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="Coding"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="boolean"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="code"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="dateTime"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="integer"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="string"/>
-      </extension>
       <name value="value"/>
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
       <documentation value="The value of the property provided"/>
       <type value="Element"/>
+      <allowedType value="Coding"/>
+      <allowedType value="boolean"/>
+      <allowedType value="code"/>
+      <allowedType value="dateTime"/>
+      <allowedType value="integer"/>
+      <allowedType value="string"/>
     </part>
     <part>
       <name value="subproperty"/>
@@ -131,30 +119,18 @@
         <type value="code"/>
       </part>
       <part>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="Coding"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="boolean"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="code"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="dateTime"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="integer"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="string"/>
-        </extension>
         <name value="value"/>
         <use value="in"/>
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value of the sub-property provided"/>
         <type value="Element"/>
+        <allowedType value="Coding"/>
+        <allowedType value="boolean"/>
+        <allowedType value="code"/>
+        <allowedType value="dateTime"/>
+        <allowedType value="integer"/>
+        <allowedType value="string"/>
       </part>
     </part>
   </parameter>
@@ -203,30 +179,18 @@
         <type value="code"/>
       </part>
       <part>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="Coding"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="boolean"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="code"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="dateTime"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="integer"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="string"/>
-        </extension>
         <name value="value"/>
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value of the property provided"/>
         <type value="Element"/>
+        <allowedType value="Coding"/>
+        <allowedType value="boolean"/>
+        <allowedType value="code"/>
+        <allowedType value="dateTime"/>
+        <allowedType value="integer"/>
+        <allowedType value="string"/>
       </part>
       <part>
         <name value="property"/>
@@ -243,30 +207,18 @@
           <type value="code"/>
         </part>
         <part>
-          <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-            <valueUri value="Coding"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-            <valueUri value="boolean"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-            <valueUri value="code"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-            <valueUri value="dateTime"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-            <valueUri value="integer"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-            <valueUri value="string"/>
-          </extension>
           <name value="value"/>
           <use value="out"/>
           <min value="1"/>
           <max value="1"/>
           <documentation value="The value of the sub-property provided"/>
           <type value="Element"/>
+          <allowedType value="Coding"/>
+          <allowedType value="boolean"/>
+          <allowedType value="code"/>
+          <allowedType value="dateTime"/>
+          <allowedType value="integer"/>
+          <allowedType value="string"/>
         </part>
       </part>
     </part>
