@@ -522,8 +522,8 @@
     </element>
     <element id="ImagingStudy.note">
       <path value="ImagingStudy.note"/>
-      <short value="User-defined comments"/>
-      <definition value="Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study SHOULD be recorded in another resource, e.g. Observation, and not in this element."/>
+      <short value="Comments made about the imaging study"/>
+      <definition value="Comments made about the imaging study by the performer, subject or other participants."/>
       <min value="0"/>
       <max value="*"/>
       <type>
