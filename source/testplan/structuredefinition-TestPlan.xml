@@ -135,7 +135,7 @@
 		</element>
 		<element id="TestPlan.identifier">
 			<path value="TestPlan.identifier"/>
-			<short value="Business identifier identifier for the test plan"/>
+			<short value="Business identifier for the test plan"/>
 			<definition value="A formal identifier that is used to identify this test plan when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
 			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test plan outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
