@@ -562,7 +562,7 @@
     <element id="ImagingStudy.numberOfSeries">
       <path value="ImagingStudy.numberOfSeries"/>
       <short value="Number of Study Related Series"/>
-      <definition value="Number of Series in the Study. This value given MAY be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element SHOULD be present if any series elements are present."/>
+      <definition value="Number of known Series in the Study. This value might be present even if the ImagingStudy.series element is empty or only partially populated."/>
       <alias value="NumberOfStudyRelatedSeries"/>
       <min value="0"/>
       <max value="1"/>
