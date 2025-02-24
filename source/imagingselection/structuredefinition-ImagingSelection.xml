@@ -77,6 +77,13 @@
       <definition value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="isl-1"/>
+        <severity value="error"/>
+        <human value="Rule seriesNumber shall only be present if seriesUid is present"/>
+        <expression value="seriesNumber.exists() implies seriesUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -399,6 +406,7 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
       </example>
+      <condition value="isl-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -410,13 +418,14 @@
       <short value="DICOM Series Number"/>
       <definition value="The Series Number for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Number. &#xA;Must correspond to the series identified by the `seriesUID` element."/>
+      <requirements value="DICOM Series Number. &#xA;Must correspond to the series identified by the `seriesUid` element."/>
       <alias value="SeriesNumber"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="unsignedInt"/>
       </type>
+      <condition value="isl-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
