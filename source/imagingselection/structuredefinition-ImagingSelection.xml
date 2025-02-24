@@ -80,43 +80,43 @@
       <constraint>
         <key value="isl-1"/>
         <severity value="error"/>
-        <human value="At least one of seriesUid and imageRegion3D shall be present"/>
-        <expression value="seriesUid.exists() or imageRegion3D.exists()"/>
+        <human value="At least one of seriesUid or imageRegion3D shall be present"/>
+        <expression value="seriesUid.exists() implies imageRegion3D.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-2"/>
         <severity value="error"/>
         <human value="seriesUid SHALL only be present if studyUid is present"/>
-        <expression value="seriesUid.empty() or studyUid.exists()"/>
+        <expression value="seriesUid.exist() implies studyUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-3"/>
         <severity value="error"/>
         <human value="seriesNumber SHALL only be present if seriesUid is present"/>
-        <expression value="seriesNumber.empty() or seriesUid.exists()"/>
+        <expression value="seriesNumber.exist() implies seriesUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-4"/>
         <severity value="error"/>
         <human value="instance SHALL only be present if seriesUid is present"/>
-        <expression value="instance.empty() or seriesUid.exists()"/>
+        <expression value="instance.exist() implies seriesUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-5"/>
         <severity value="error"/>
         <human value="imageRegion3D SHALL only be present if frameOfReferenceUid is present"/>
-        <expression value="imageRegion3D.empty() or frameOfReferenceUid.exists()"/>
+        <expression value="imageRegion3D.exist() implies frameOfReferenceUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-6"/>
         <severity value="error"/>
-        <human value="imageRegion3D SHALL only be present if instance.imageRegion2d is not present"/>
-        <expression value="imageRegion3D.empty() or instance.imageRegion2d.empty()"/>
+        <human value="imageRegion3D SHALL only be present if instance.imageRegion2D is not present"/>
+        <expression value="imageRegion3D.exist() implies instance.imageRegion2D.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <mapping>
@@ -560,6 +560,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-6"/>
       <condition value="isl-4"/>
       <isSummary value="true"/>
     </element>

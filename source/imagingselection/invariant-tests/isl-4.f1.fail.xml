@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ImagingSelection xmlns="http://hl7.org/fhir">
-  <id value="example-segmentation-image-selection"/>
+  <id value="isl-4.f1.fail"/>
   <identifier>
     <system value="urn:dicom:uid"/>
     <value value="urn:oid:1.2.840.113747.20080222.234082332589842666931650220811572.2.1"/>

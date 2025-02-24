@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ImagingSelection xmlns="http://hl7.org/fhir">
-  <id value="example-segmentation-image-selection"/>
+  <id value="isl-2.f2.fail"/>
   <identifier>
     <system value="urn:dicom:uid"/>
     <value value="urn:oid:1.2.840.113747.20080222.234082332589842666931650220811572.2.1"/>
@@ -23,7 +23,7 @@
       <value value="urn:oid:1.2.840.113747.20080222.234082332592522666931650220811572"/>
     </identifier>
   </derivedFrom>
-<!---->  <studyUid value="1.2.840.113747.20080222.234082332589846966931650220811572"/> -->
+<!--  <studyUid value="1.2.840.113747.20080222.234082332589846966931650220811572"/> -->
   <seriesUid value="1.2.840.113747.20080222.234082332589846992931650220811572.1"/>
   <frameOfReferenceUid value="1.2.840.113747.20080222.234082332589842666931650220811572.0"/>
   <instance>
