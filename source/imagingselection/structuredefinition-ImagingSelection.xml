@@ -605,8 +605,8 @@
       </extension>
       <path value="ImagingSelection.instance.imageRegion2D"/>
       <short value="A specific 2D region in a DICOM image / frame"/>
-      <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.&#xA;If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
-      <requirements value="Shall not be present if the parent imagingSelection.instance is not an image."/>
+      <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates."/>
+      <requirements value="Shall not be present if the parent imagingSelection.instance is not an image. If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
       <min value="0"/>
       <max value="*"/>
       <type>
