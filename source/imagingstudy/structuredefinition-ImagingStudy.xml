@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of instances (images or other data) acquired or produced in a common context.  A series SHALL have only one modality (e.g. X-ray, CT, MR, ultrasound). A study MAY have multiple series which MAY have different modality values."/>
+  <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modality values."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -81,8 +81,8 @@
   <differential>
     <element id="ImagingStudy">
       <path value="ImagingStudy"/>
-      <short value="A set of images produced in single study (one or more series of references images)"/>
-      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study MAY have multiple series of different modalities."/>
+      <short value="A set of images or image-related data produced in single study"/>
+      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modality values."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -135,8 +135,8 @@
     <element id="ImagingStudy.status">
       <path value="ImagingStudy.status"/>
       <short value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
-      <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <definition value="The current state of the imaging study. This is distinct from the status of any service request or task associated with the imaging study."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
