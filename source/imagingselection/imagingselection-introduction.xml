@@ -50,7 +50,7 @@
         </ul>
       
     
-      <p>The <a href="documentreference.html">DocumentReference</a> resource is used to to store non-DICOM images, video, or audio with relevant metadata.</p>
+      <p>The <a href="documentreference.html">DocumentReference</a> resource is used to to store non-DICOM images, video, or audio with relevant metadata. The <a href="documentreference.html">DocumentReference</a> resource might be appropriate for including a rendered DICOM image in cases where only the image is needed and not the full image context.</p>
       <p>The <a href="binary.html">Binary</a> resource to store arbitrary content.</p>
     
     
