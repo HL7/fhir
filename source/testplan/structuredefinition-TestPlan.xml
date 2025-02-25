@@ -11,7 +11,7 @@
 		<valueCode value="draft"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="0"/>
+		<valueInteger value="1"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
 		<valueCode value="business"/>
@@ -135,7 +135,7 @@
 		</element>
 		<element id="TestPlan.identifier">
 			<path value="TestPlan.identifier"/>
-			<short value="Business identifier identifier for the test plan"/>
+			<short value="Business identifier for the test plan"/>
 			<definition value="A formal identifier that is used to identify this test plan when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
 			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test plan outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
@@ -504,11 +504,42 @@
 			<path value="TestPlan.scope"/>
 			<short value="What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference"/>
 			<definition value="What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference..."/>
+			<comment value="Inclusion of an artifact in scope means that at least some portion of the testing pertains to that artifact."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TestPlan.scope.artifact[x]">
+			<path value="TestPlan.scope.artifact[x]"/>
+			<short value="The specific conformance artifact, or narrative criteria, or an external reference being tested"/>
+			<definition value="The specific conformance artifact, or narrative criteria, or an external reference being tested. The canonical reference can be version-specific."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<type>
+				<code value="uri"/>
 			</type>
 		</element>
 		<element id="TestPlan.testTools">
@@ -606,11 +637,42 @@
 			<path value="TestPlan.testCase.scope"/>
 			<short value="The scope or artifact covered by the case"/>
 			<definition value="The scope or artifact covered by the case, when the individual test case is associated with a testable artifact."/>
+			<comment value="Inclusion of an artifact in scope means that at least some portion of the testing pertains to that artifact."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TestPlan.testCase.scope.artifact[x]">
+			<path value="TestPlan.testCase.scope.artifact[x]"/>
+			<short value="The specific conformance artifact, or narrative criteria, or an external reference covered by the case"/>
+			<definition value="The specific conformance artifact, or narrative criteria, or an external reference covered by the case. The canonical reference can be version-specific."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<type>
+				<code value="uri"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.requirement">
@@ -711,8 +773,8 @@
 		</element>
 		<element id="TestPlan.testCase.testRun.script">
 			<path value="TestPlan.testCase.testRun.script"/>
-			<short value="The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript"/>
-			<definition value="The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript."/>
+			<short value="The test cases in a structured language"/>
+			<definition value="The test cases in a structured language e.g. Gherkin, Postman, or FHIR TestScript."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -721,22 +783,29 @@
 		</element>
 		<element id="TestPlan.testCase.testRun.script.language">
 			<path value="TestPlan.testCase.testRun.script.language"/>
-			<short value="The language for the test cases e.g. 'gherkin', 'testscript'"/>
-			<definition value="The language for the test cases e.g. 'gherkin', 'testscript'."/>
+			<short value="The structured language for the test case script"/>
+			<definition value="The structured language for the test case script e.g. Gherkin, Postman, or FHIR TestScript."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/testplan-script-language"/>
+			</binding>
 		</element>
 		<element id="TestPlan.testCase.testRun.script.source[x]">
 			<path value="TestPlan.testCase.testRun.script.source[x]"/>
-			<short value="The actual content of the cases - references to TestScripts or externally defined content"/>
-			<definition value="The actual content of the cases - references to TestScripts or externally defined content."/>
+			<short value="The actual content of the script, reference to test resource (TestScript) or externally defined content"/>
+			<definition value="The actual content of the script, references to test resource (TestScript) or externally defined content."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
 			</type>
 			<type>
 				<code value="Reference"/>
@@ -784,6 +853,9 @@
 				<code value="string"/>
 			</type>
 			<type>
+				<code value="uri"/>
+			</type>
+			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
@@ -800,13 +872,17 @@
 		</element>
 		<element id="TestPlan.testCase.assertion.type">
 			<path value="TestPlan.testCase.assertion.type"/>
-			<short value="Assertion type - for example 'informative' or 'required' "/>
-			<definition value="The test assertion type - this can be used to group assertions as 'required' or 'optional', or can be used for other classification of the assertion."/>
+			<short value="The expected outcome for this assertion"/>
+			<definition value="The test case assertion type - this can be used to group assertions as 'required' or 'optional', or can be used for other classification of the assertion."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
+			<binding>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/testplan-assertion-type"/>
+			</binding>
 		</element>
 		<element id="TestPlan.testCase.assertion.object">
 			<path value="TestPlan.testCase.assertion.object"/>
@@ -816,6 +892,7 @@
 			<max value="*"/>
 			<type>
 				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
 		<element id="TestPlan.testCase.assertion.result">
@@ -826,7 +903,18 @@
 			<max value="*"/>
 			<type>
 				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+		</element>
+		<element id="TestPlan.testCase.testCase">
+			<path value="TestPlan.testCase.testCase"/>
+			<short value="Nested test cases"/>
+			<definition value="Breaks down a larger test case into smaller components."/>
+			<comment value="There is no specified limit to the depth of nesting. However, TestPlan authors are encouraged to consider the impact on the user, user interface and test tools of overly deep nesting."/>
+			<requirements value="TestPlan test cases can consist of complex nested groups."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#TestPlan.testCase"/>
 		</element>
 	</differential>
 </StructureDefinition>

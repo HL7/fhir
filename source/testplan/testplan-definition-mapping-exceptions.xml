@@ -14,7 +14,7 @@
     <divergentElement patternPath="Definition.identifier" resourcePath="TestPlan.identifier">
         <shortUnmatched reason="Unknown">
             <_pattern value="Business identifier for test plan"/>
-            <resource value="Business identifier identifier for the test plan"/>
+            <resource value="Business identifier for the test plan"/>
         </shortUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the test plan."/>

@@ -27,7 +27,7 @@ The TestPlan is related to, but not overlapping, the TestScript resource, as the
 </p>
 
 <p>
-A TestPlan resource can be associated with any canonical resource. This includes, but is not limited to, the ImplementationGuide resource - a TestPlan can be defined for an entire Implementation Guide, or for some of the artifacts in the Implementation Guide, like an AcrotDefinition, Requirements, etc.
+A TestPlan resource can be associated with any canonical resource. This includes, but is not limited to, the ImplementationGuide resource - a TestPlan can be defined for an entire Implementation Guide, or for some of the artifacts in the Implementation Guide, like an ActorDefinition, Requirements, etc.
   </p>
 </div>
 
