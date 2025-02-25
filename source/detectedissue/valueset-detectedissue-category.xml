@@ -26,8 +26,8 @@
   <version value="6.0.0"/>
   <name value="DetectedIssueCategory"/>
   <title value="Detected Issue Category"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -39,35 +39,22 @@
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="_AdministrationDetectedIssueCode"/>
-      </filter>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="_ActSuppliedItemDetectedIssueCode"/>
-      </filter>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="_ClinicalActionDetectedIssueCode"/>
-      </filter>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="_SupplyDetectedIssueCode"/>
-      </filter>
+      <concept>
+        <code value="FOOD" />
+        <display value="Food Interaction Alert"/>
+      </concept>
+      <concept>
+        <code value="DRUG" />
+        <display value="Drug Interaction Alert"/>
+      </concept>
+      <concept>
+        <code value="ALGY" />
+        <display value="Allergy Alert"/>
+      </concept>
+      <concept>
+        <code value="DUPTHPY" />
+        <display value="Duplicate Therapy Alert"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
