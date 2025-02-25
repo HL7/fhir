@@ -8,161 +8,235 @@
 	</identifier>
 	<status value="completed"/>
 	<code>
-		<text value="Inpatient"/>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="435771000124106"/>
+			<display value="General healthful diet"/>
+		</coding>
 	</code>
 	<subject>
 		<display value="Paula Patient Chalmers"/>
 	</subject>
 	<encounter>
-		<reference value="Encounter/example"/>
+		<reference value="Encounter/inpatient-encounter"/>
 	</encounter>
 	<occurrenceDateTime value="2019-08-02T12:45:18+04:00"/>
 	<reportedReference>
 		<reference value="PractitionerRole/example"/>
 	</reportedReference>
-	<consumedItem>
+	<nutritionItem>
 		<type>
-			<text value="food"/>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="102263004"/>
+				<display value="Eggs (edible) (substance)"/>
+			</coding>
 		</type>
 		<nutritionProduct>
 			<concept>
-				<text value="Grill Sandwich"/>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="226886006"/>
+					<display value="Scrambled egg (substance)"/>
+				</coding>
 			</concept>
 		</nutritionProduct>
-		<amount> 
-			<value value="100"/> 
-			<unit value="percent"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="%"/> 
-		</amount> 
-	</consumedItem>
-	<consumedItem>
+		<consumedItem>
+			<amount> 
+				<value value="1"/> 
+				<unit value="egg"/>
+			</amount>
+			<totalIntake>
+				<nutrient>
+					<concept>
+						<coding>
+							<system value="http://snomed.info/sct"/>
+							<code value="735252001"/>
+							<display value="Protein and/or protein derivative (substance)"/>
+						</coding>
+					</concept>
+				</nutrient>
+				<amount>
+					<value value="6"/>
+					<unit value="grams"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g"/>
+				</amount>
+				<energy>
+					<value value="78"/>
+					<unit value="kilocalories"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="kcal"/>
+				</energy>
+			</totalIntake>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
 		<type>
-			<text value="food"/>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="22836000"/>
+				<display value="Vegetable (substance)"/>
+			</coding>
 		</type>
 		<nutritionProduct>
 			<concept>
-				<text value="French Fries Spiral Battered"/>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="227848008"/>
+					<display value="Mixed vegetable curry (substance)"/>
+				</coding>
 			</concept>
 		</nutritionProduct>
-		<amount> 
-			<value value="100"/> 
-			<unit value="percent"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="%"/> 
-		</amount> 
-	</consumedItem>
-	<consumedItem>
+		<consumedItem>
+			<amount> 
+				<value value="1"/> 
+				<unit value="cup"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="cup"/>
+			</amount>
+			<totalIntake>
+				<nutrient>
+					<concept>
+						<coding>
+							<system value="http://snomed.info/sct"/>
+							<code value="735252001"/>
+							<display value="Protein and/or protein derivative (substance)"/>
+						</coding>
+					</concept>
+				</nutrient>
+				<amount>
+					<value value="6"/>
+					<unit value="grams"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g"/>
+				</amount>
+				<energy>
+					<value value="188"/>
+					<unit value="kilocalories"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="kcal"/>
+				</energy>
+			</totalIntake>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
 		<type>
-			<text value="food"/>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="226529007"/>
+				<display value="Starchy food (substance)"/>
+			</coding>
 		</type>
 		<nutritionProduct>
 			<concept>
-				<text value="Tomato Soup Healthy Request"/>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="226756007"/>
+					<display value="Brown rice (substance)"/>
+				</coding>
 			</concept>
 		</nutritionProduct>
-		<amount> 
-			<value value="50"/> 
-			<unit value="percent"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="%"/> 
-		</amount> 
-	</consumedItem>
-	<consumedItem>
+		<consumedItem>
+			<amount> 
+				<value value="0.5"/> 
+				<unit value="cup"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="cup"/>
+			</amount>
+			<totalIntake>
+				<nutrient>
+					<concept>
+						<coding>
+							<system value="http://snomed.info/sct"/>
+							<code value="735252001"/>
+							<display value="Protein and/or protein derivative (substance)"/>
+						</coding>
+					</concept>
+				</nutrient>
+				<amount>
+					<value value="4"/>
+					<unit value="grams"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g"/>
+				</amount>
+				<energy>
+					<value value="108"/>
+					<unit value="kilocalories"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="kcal"/>
+				</energy>
+			</totalIntake>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
 		<type>
-			<text value="food"/>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="226465004"/>
+				<display value="Drinks (substance)"/>
+			</coding>
 		</type>
 		<nutritionProduct>
 			<concept>
-				<text value="Side Garden Salad"/>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="226475001"/>
+					<display value="Tea with milk and sugar (substance)"/>
+				</coding>
 			</concept>
 		</nutritionProduct>
-		<amount> 
-			<value value="50"/> 
-			<unit value="percent"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="%"/> 
-		</amount> 
-	</consumedItem>
-	<consumedItem>
+		<consumedItem>
+			<amount> 
+				<value value="6"/> 
+				<unit value="ounces"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="oz"/>
+			</amount>
+			<totalIntake>
+				<nutrient>
+					<concept>
+						<coding>
+							<system value="http://snomed.info/sct"/>
+							<code value="735252001"/>
+							<display value="Protein and/or protein derivative (substance)"/>
+						</coding>
+					</concept>
+				</nutrient>
+				<amount>
+					<value value="0"/>
+					<unit value="grams"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g"/>
+				</amount>
+			</totalIntake>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
 		<type>
-			<text value="fluid"/>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="72511004"/>
+				<display value="Fruit (substance)"/>
+			</coding>
 		</type>
 		<nutritionProduct>
 			<concept>
-				<text value="Ice Tea Unsweetened"/>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="735215001"/>
+					<display value="Apple (substance)"/>
+				</coding>
 			</concept>
 		</nutritionProduct>
-		<amount> 
-			<value value="100"/> 
-			<unit value="percent"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="%"/> 
-		</amount> 
-	</consumedItem>
-	<ingredientLabel>
-		<nutrient>
-			<concept>
-				<text value="Total Calories"/>
-			</concept>
-		</nutrient>
-		<amount> 
-			<value value="313"/> 
-			<unit value="kilocalorie"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="kcal"/> 
-		</amount> 
-	</ingredientLabel>
-	<ingredientLabel>
-		<nutrient>
-			<concept>
-				<text value="Protein"/>
-			</concept>
-		</nutrient>
-		<amount> 
-			<value value="10.4"/> 
-			<unit value="grams"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="g"/> 
-		</amount> 
-	</ingredientLabel>
-	<ingredientLabel>
-		<nutrient>
-			<concept>
-				<text value="Fat (Total)"/>
-			</concept>
-		</nutrient>
-		<amount> 
-			<value value="18.00"/> 
-			<unit value="grams"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="g"/> 
-		</amount> 
-	</ingredientLabel>
-	<ingredientLabel>
-		<nutrient>
-			<concept>
-				<text value="Carbohydrate"/>
-			</concept>
-		</nutrient>
-		<amount> 
-			<value value="26.47"/> 
-			<unit value="grams"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="g"/> 
-		</amount> 
-	</ingredientLabel>	
-	<ingredientLabel>
-		<nutrient>
-			<concept>
-				<text value="Sodium"/>
-			</concept>
-		</nutrient> 
-		<amount> 
-			<value value="770"/> 
-			<unit value="Milligrams"/> 
-			<system value="http://unitsofmeasure.org"/> 
-			<code value="mg"/> 
-		</amount> 
-	</ingredientLabel>
+		<notConsumedItem>
+			<reason>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="3797007"/>
+					<display value="Periodontal cyst"/>
+				</coding>
+			</reason>
+		</notConsumedItem>
+	</nutritionItem>
 </NutritionIntake>

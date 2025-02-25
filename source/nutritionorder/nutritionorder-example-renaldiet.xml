@@ -42,15 +42,36 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="33489005"/>
-				<display value="Renal diet"/>
+				<code value="437421000124105"/>
+				<display value="Decreased sodium diet (regime/therapy)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1050"/>
 				<display value="Renal"/>
 			</coding>
-			<text value="Renal Diet"/>
+			<text value="Low Sodium Diet"/>
+		</type>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="437401000124100"/>
+				<display value="Decreased potassium diet (regime/therapy)"/>
+			</coding>
+		</type>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="437381000124100"/>
+				<display value="Decreased phosphrous diet (regime/therapy)"/>
+			</coding>
+		</type>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="439061000124104"/>
+				<display value="Fluid restricted diet (regime/therapy)"/>
+			</coding>
 		</type>
 		<!-- EH example of three times a day starting on 2/10 -->
 		<schedule>
@@ -70,46 +91,47 @@ edited by Eric Haas Health eData Inc
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="39972003"/>
+					<code value="60471000"/>
 					<display value="Sodium"/>
 				</coding>
 			</modifier>
 			<amount>
 				<value value="2"/>
-				<unit value="grams"/>
+				<unit value="mg/d"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="g"/>
+				<code value="mg/d"/>
 			</amount>
 		</nutrient>
 		<nutrient>
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="30820000"/>
+					<code value="63793008"/>
 					<display value="Phosphorus"/>
 				</coding>
 			</modifier>
 			<amount>
-				<value value="1000"/>
-				<unit value="milligrams"/>
+				<value value="1"/>
+				<unit value="mg/d"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="mg"/>
+				<code value="mg/d"/>
 			</amount>
 		</nutrient>
 		<nutrient>
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="88480006"/>
+					<code value="19751002"/>
 					<display value="Potassium"/>
 				</coding>
 			</modifier>
 			<amount>
 				<value value="2"/>
-				<unit value="grams"/>
+				<unit value="mg/d"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="g"/>
+				<code value="mg/d"/>
 			</amount>
 		</nutrient>
+		<instruction value="restrict fluid to 1000 mL/day"/>
 	</oralDiet>
 </NutritionOrder>

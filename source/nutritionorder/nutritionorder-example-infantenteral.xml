@@ -20,17 +20,16 @@ edited by Eric Haas Health eData Inc
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
 	</orderer>
-	<enteralFormula>
-		<baseFormulaType>
-			<concept>
+	<oralDiet>
+		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="412414007"/>
-				<display value="infant formula + iron"/>
+				<code value="40043006"/>
+				<display value="Bottle feeding of patient (regime/therapy)"/>
 			</coding>
-		</concept>
-		</baseFormulaType>
-		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
+		</type>
+
+
 		<additive>
 		<type>
 			<concept>
