@@ -92,7 +92,7 @@
   <concept>
     <code value="cancelled"/>
     <display value="Cancelled"/>
-    <definition value="The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;)."/>
+    <definition value="The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;). A data absent reason should be present providing clarity as to why there is no value on an Observation instance"/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
