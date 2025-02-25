@@ -20,6 +20,15 @@ edited by Eric Haas Health eData Inc
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
 	</orderer>
+	<oralDiet>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="182922004"/>
+				<display value="Regular diet care"/>
+			</coding>
+		</type>
+	</oralDiet>
 	<additive>
 		<modularType>
 			<concept>

@@ -63,7 +63,7 @@ edited by Eric Haas Health eData Inc
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="437381000124100"/>
-				<display value="Decreased phosphrous diet (regime/therapy)"/>
+				<display value="Decreased phosphorous diet (regime/therapy)"/>
 			</coding>
 		</type>
 		<type>
@@ -92,7 +92,7 @@ edited by Eric Haas Health eData Inc
 				<coding>
 					<system value="http://snomed.info/sct"/>
 					<code value="60471000"/>
-					<display value="Sodium"/>
+					<display value="Sodium compound"/>
 				</coding>
 			</modifier>
 			<amount>
@@ -107,7 +107,7 @@ edited by Eric Haas Health eData Inc
 				<coding>
 					<system value="http://snomed.info/sct"/>
 					<code value="63793008"/>
-					<display value="Phosphorus"/>
+					<display value="Phosphorus compound"/>
 				</coding>
 			</modifier>
 			<amount>
@@ -122,7 +122,7 @@ edited by Eric Haas Health eData Inc
 				<coding>
 					<system value="http://snomed.info/sct"/>
 					<code value="19751002"/>
-					<display value="Potassium"/>
+					<display value="Potassium compound"/>
 				</coding>
 			</modifier>
 			<amount>
