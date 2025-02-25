@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="evidence-variable-definition"/>
+  <id value="evidence-variable-definition-modifier-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -14,13 +14,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/evidence-variable-definition"/>
+  <url value="http://hl7.org/fhir/ValueSet/evidence-variable-definition-modifier-code"/>
   <version value="6.0.0"/>
-  <name value="EvidenceVariableDefinition"/>
-  <title value="Evidence Variable Definition"/>
+  <name value="EvidenceVariableDefinitionModifierCode"/>
+  <title value="Evidence Variable Definition Modifier Code"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2023-10-23T12:55:11+11:00"/>
+  <date value="2025-02-19T12:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -32,18 +32,34 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Examples of terms that represent an evidence variable definition."/>
+  <description value="Examples of terms that represent an evidence variable definition modifier code."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="182886004"/>
-        <display value="Placebo given (situation)"/>
+        <code value="303105007"/>
+        <display value="Disease phases (qualifier value)"/>
       </concept>
       <concept>
-        <code value="419620001"/>
-        <display value="Death (event)"/>
+        <code value="272103003"/>
+        <display value="Time patterns (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="397669002"/>
+        <display value="Age (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="1157245009"/>
+        <display value="Fixed dose (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="261829003"/>
+        <display value="High dose (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="262459003"/>
+        <display value="Low dose (qualifier value)"/>
       </concept>
     </include>
   </compose>

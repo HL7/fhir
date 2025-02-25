@@ -13,14 +13,16 @@
 <p>Intervention - the conditional state or exposure state being described for which one is expressing the risk of or effect on an outcome</p>
 <p>Comparison - the alternative conditional state or alternative exposure state when one is comparing states for the effect on an outcome</p>
 <p>Outcome - the result or effect of an intervention or exposure in a population</p>
-<p>PICO (and its variants like PECO or PICOT) is a universal acronym used in evidence-based medicine communities to clearly express research questions and evidence findings.</p>
+<p>PICO (and its variants like PECO using E for Exposure or PICOT adding T for Timing) is a universal acronym used in evidence-based medicine communities to clearly express research questions and evidence findings.</p>
 
 <p>The EvidenceVariable Resource allows expression of the components of a PICO question in codeable and reusable formats. The EvidenceVariable.definition element has a CodeableReference datatype which can define the PICO component as a concept and/or reference to a Group Resource.</p>
+<p>The EvidenceVariable Resource is also used within <a href="researchstudy.html">ResearchStudy</a> to describe the endpoint for an outcome measure.</p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>The Resource describing evidence findings (<a href="evidence.html">Evidence</a>) will reference EvidenceVariable to describe what the evidence findings are about.</p>
+<p>The Resource describing a research study protocol (<a href="researchstudy.html">ResearchStudy</a>) will reference EvidenceVariable to describe the endpoint for an outcome measure.</p>
 </div>
 
 <!-- (optional):
