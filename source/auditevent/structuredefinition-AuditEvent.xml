@@ -61,7 +61,7 @@
   <mapping>
     <identity value="dicom"/>
     <uri value="https://dicomstandard.org/current"/>
-    <name value="DICOM Tag Mapping"/>
+    <name value="DICOM AuditMessage Tag Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
