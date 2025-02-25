@@ -797,12 +797,15 @@
 		</element>
 		<element id="TestPlan.testCase.testRun.script.source[x]">
 			<path value="TestPlan.testCase.testRun.script.source[x]"/>
-			<short value="The actual content of the cases - references to TestScripts or externally defined content"/>
-			<definition value="The actual content of the cases - references to TestScripts or externally defined content."/>
+			<short value="The actual content of the script, reference to test resource (TestScript) or externally defined content"/>
+			<definition value="The actual content of the script, references to test resource (TestScript) or externally defined content."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
 			</type>
 			<type>
 				<code value="Reference"/>
@@ -848,6 +851,9 @@
 			<max value="1"/>
 			<type>
 				<code value="string"/>
+			</type>
+			<type>
+				<code value="uri"/>
 			</type>
 			<type>
 				<code value="Reference"/>
