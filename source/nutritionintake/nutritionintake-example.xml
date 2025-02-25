@@ -93,7 +93,7 @@
 				<value value="1"/> 
 				<unit value="cup"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="cup"/>
+				<code value="[cup_us]"/>
 			</amount>
 			<totalIntake>
 				<nutrient>

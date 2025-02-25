@@ -63,7 +63,7 @@ edited by Eric Haas Health eData Inc
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="437381000124100"/>
-				<display value="Decreased phosphorous diet (regime/therapy)"/>
+				<display value="Decreased phosphorus diet (regime/therapy)"/>
 			</coding>
 		</type>
 		<type>
