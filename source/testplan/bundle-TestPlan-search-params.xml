@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="TestPlan-search-params"/>
   <entry>
     <resource>
       <SearchParameter>
-        <id value="TestPlan-scope"/>
+        <id value="TestPlan-scope-artifact-canonical"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="TestPlan.scope"/>
+          <valueString value="TestPlan.scope.artifactCanonical"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope"/>
-        <description value="The scope that is to be tested with this test plan"/>
-        <code value="scope"/>
-        <type value="reference"/>
-        <expression value="TestPlan.scope"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope-artifact-canonical"/>
+        <description value="URL contained in TestPlan.scope.artifactCanonical"/>
+        <code value="scope-canonical"/>
+        <type value="uri"/>
+        <expression value="TestPlan.scope.artifact.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
-  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestPlan-scope-artifact-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestPlan.scope.artifactUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope-artifact-uri"/>
+        <description value="URL contained in TestPlan.scope.artifactUri"/>
+        <code value="scope-uri"/>
+        <type value="uri"/>
+        <expression value="TestPlan.scope.artifact.ofType(uri)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
   <entry>
     <resource>
       <SearchParameter>
@@ -82,5 +99,4 @@
       </SearchParameter>
     </resource>
   </entry>
-
 </Bundle>
