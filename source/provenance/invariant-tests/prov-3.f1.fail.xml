@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/provenance.xsd">
 	<id value="example"/>
 <contained>
 	<Practitioner>
@@ -19,15 +19,15 @@
 
 			<reference value="#a1"/>
 		</practitioner>
+		<organization>
+			<reference value="#org"/>
+		</organization>
 		<code>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/practitioner-role"/>
 				<code value="doctor"/>
 			</coding>
 		</code>
-		<organization>
-			<reference value="#org"/>
-		</organization>
 	</PractitionerRole>
 </contained>
 
@@ -76,7 +76,7 @@
 
 		<onBehalfOf>
 			<reference value="#pr1"/>
-		</onBehalfOf>>
+		</onBehalfOf>
 
 	</agent>
 	<entity>
