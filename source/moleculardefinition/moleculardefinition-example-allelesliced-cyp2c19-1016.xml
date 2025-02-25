@@ -4,8 +4,8 @@
     <moleculeType>
         <coding>
             <system value="http://hl7.org/fhir/sequence-type"/>
-            <code value="dna"/>
-            <display value="DNA Sequence"/>
+            <code value="rna"/>
+            <display value="RNA Sequence"/>
         </coding>
     </moleculeType>
     <location>
@@ -29,6 +29,9 @@
                 <startQuantity>
                     <value value="1016"/>
                 </startQuantity>
+                <endQuantity>
+                    <value value="1016"/>
+                </endQuantity>
             </coordinateInterval>
         </sequenceLocation>
     </location>
