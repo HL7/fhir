@@ -2,6 +2,12 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/us/daf"/>
   <version value="0"/>
   <name value="DataAccessFrameworkDAF"/>

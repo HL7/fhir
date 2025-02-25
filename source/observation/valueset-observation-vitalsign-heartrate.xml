@@ -27,100 +27,13 @@
       <system value="http://loinc.org"/>
       <filter>
         <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP72677-5"/> <!-- Heart rate -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6839-7"/> <!-- NRat -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP308218-9"/> <!-- Heart rate^resting -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6839-7"/> <!-- NRat -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP308219-7"/> <!-- Heart rate^sitting -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6839-7"/> <!-- NRat -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP308220-5"/> <!-- Heart rate^standing -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6839-7"/> <!-- NRat -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP308221-3"/> <!-- Heart rate^supine -->
+        <op value="in"/>
+        <!-- LP72677-5 Heart rate -->
+        <!-- LP308218-9 Heart rate^resting -->
+        <!-- LP308219-7 Heart rate^sitting -->
+        <!-- LP308220-5 Heart rate^standing -->
+        <!-- LP308221-3 Heart rate^supine -->
+        <value value="LP72677-5,LP308218-9,LP308219-7,LP308220-5,LP308221-3"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>

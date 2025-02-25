@@ -481,8 +481,8 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="TestScript.origin">
-			<path value="TestScript.origin"/>
+		<element id="TestScript.testSystem">
+			<path value="TestScript.testSystem"/>
 			<short value="An abstract server representing a client or sender in a message exchange"/>
 			<definition value="An abstract server used in operations within this test script in the origin element."/>
 			<comment value="The purpose of this element is to define the profile of an origin element used elsewhere in the script.  Test engines could then use the origin-profile mapping to offer a filtered list of test systems that can serve as the sender for the interaction."/>
@@ -492,95 +492,54 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="TestScript.origin.index">
-			<path value="TestScript.origin.index"/>
-			<short value="The index of the abstract origin server starting at 1"/>
-			<definition value="Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1."/>
-			<comment value="A given origin index (e.g. 1) can appear only once in the list (e.g. Origin 1 cannot be specified twice ... once as FormFiller and again as FormProcessor within the same script as that could get confusing during test configuration). &#xA;&#xA;Different origin indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Filler).&#xA;&#xA;The origin indices provided elsewhere in the test script must be one of these origin indices."/>
+		<element id="TestScript.testSystem.index">
+			<path value="TestScript.testSystem.index"/>
+			<short value="The index of the abstract test system"/>
+			<definition value="Number for the test system that is unique within this test script.  Referenced by operation.origin and/or operation.destination."/>
+			<comment value="A given test system index (e.g. 1) can appear only once in the list (e.g. Origin 1 cannot be specified twice ... once as actor A and again as actor B within the same script as that could get confusing during test configuration). &#xA;&#xA;Different test system indices could play the same actor in the same test script.&#xA;&#xA;The operation.origin and/or operation.destination values defined elsewhere in the test script must be one of these test system indices."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="positiveInt"/>
 			</type>
 		</element>
-		<element id="TestScript.origin.profile">
-			<path value="TestScript.origin.profile"/>
-			<short value="FHIR-Client | FHIR-SDC-FormFiller"/>
-			<definition value="The type of origin profile the test system supports."/>
-			<comment value="Must be a &quot;sender&quot;/&quot;client&quot; profile."/>
+		<element id="TestScript.testSystem.title">
+			<path value="TestScript.testSystem.title"/>
+			<short value="Label for the test system"/>
+			<definition value="A short human-friendly label for the test system that is unique within this test script and may be used when rendering the script."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="Coding"/>
-			</type>
-			<meaningWhenMissing value="FHIR-Client"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TestScriptProfileOriginType"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="The type of origin profile the test system supports."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-profile-origin-types"/>
-			</binding>
-		</element>
-		<element id="TestScript.origin.url">
-			<path value="TestScript.origin.url"/>
-			<short value="The url path of the origin server"/>
-			<definition value="The explicit url path of the origin server used in this test script."/>
-			<comment value="If provided, the test engine is not expected to prompt for or accept external input of this value."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="url"/>
+				<code value="string"/>
 			</type>
 		</element>
-		<element id="TestScript.destination">
-			<path value="TestScript.destination"/>
-			<short value="An abstract server representing a destination or receiver in a message exchange"/>
-			<definition value="An abstract server used in operations within this test script in the destination element."/>
-			<comment value="The purpose of this element is to define the profile of a destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction."/>
+		<element id="TestScript.testSystem.actor">
+			<path value="TestScript.testSystem.actor"/>
+			<short value="Features met by the test system"/>
+			<definition value="Reference to requirements that must be satisfied by the test system."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="BackboneElement"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
 			</type>
 		</element>
-		<element id="TestScript.destination.index">
-			<path value="TestScript.destination.index"/>
-			<short value="The index of the abstract destination server starting at 1"/>
-			<definition value="Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1."/>
-			<comment value="A given destination index (e.g. 1) can appear only once in the list (e.g. Destination 1 cannot be specified twice ... once as Form-Manager and again as Form-Processor within the same script as that could get confusing during test configuration). &#xA;&#xA;Different destination indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Manager).&#xA;&#xA;The destination indices provided elsewhere in the test script must be one of these destination indices."/>
-			<min value="1"/>
+		<element id="TestScript.testSystem.description">
+			<path value="TestScript.testSystem.description"/>
+			<short value="Formatted information of this test system"/>
+			<definition value="Additional information about the role and capabilities of the systems that would participate in this portion of the script."/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="markdown"/>
 			</type>
 		</element>
-		<element id="TestScript.destination.profile">
-			<path value="TestScript.destination.profile"/>
-			<short value="FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessor"/>
-			<definition value="The type of destination profile the test system supports."/>
-			<comment value="Must be a &quot;receiver&quot;/&quot;server&quot; profile."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<meaningWhenMissing value="FHIR-Server"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TestScriptProfileDestinationType"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="The type of destination profile the test system supports."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-profile-destination-types"/>
-			</binding>
-		</element>
-		<element id="TestScript.destination.url">
-			<path value="TestScript.destination.url"/>
-			<short value="The url path of the destination server"/>
-			<definition value="The explicit url path of the destination server used in this test script."/>
-			<comment value="If provided, the test engine is not expected to prompt for or accept external input of this value."/>
+		<element id="TestScript.testSystem.url">
+			<path value="TestScript.testSystem.url"/>
+			<short value="The url path of this test system"/>
+			<definition value="The explicit url path of the test system used in this test script. If populated, the test engine is not expected to prompt for or accept external input of this value."/>
+			<comment value="This value represents the host location for an origin test system or the base url for a destination test system."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1193,8 +1152,8 @@
 		<element id="TestScript.setup.action.operation.destination">
 			<path value="TestScript.setup.action.operation.destination"/>
 			<short value="Server responding to the request"/>
-			<definition value="The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section."/>
-			<comment value="If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will report an error as it cannot determine what destination to use for the exchange."/>
+			<definition value="The test system where the request message is destined. Must be one of the test system indices listed in TestScript.testSystem section."/>
+			<comment value="If multiple TestScript.testSystem elements are defined and operation.destination is undefined, the test engine will report an error as it cannot determine what destination test system to use for the exchange."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1233,8 +1192,8 @@
 		<element id="TestScript.setup.action.operation.origin">
 			<path value="TestScript.setup.action.operation.origin"/>
 			<short value="Server initiating the request"/>
-			<definition value="The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section."/>
-			<comment value="If absent, test engine will send the message.  When present, test engine will not send the request message but will wait for the request message to be sent from this origin server."/>
+			<definition value="The test system where the request message originates. Must be one of the test system indices listed in TestScript.testSystem section."/>
+			<comment value="If absent, the test engine will send the message. When present, the test engine will not send the request message but will wait for the request message to be sent from this test system."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
