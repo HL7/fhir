@@ -60,7 +60,7 @@
   </mapping>
   <mapping>
     <identity value="dicom"/>
-    <uri value="http://nema.org/dicom"/>
+    <uri value="https://dicomstandard.org/current"/>
     <name value="DICOM Tag Mapping"/>
   </mapping>
   <mapping>
