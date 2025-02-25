@@ -18,7 +18,7 @@
   <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductDispenseStatus"/>
   <title value="Biologically Derived Product Dispense Status Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="Biologically Derived Product Dispense Status Codes"/>
   <caseSensitive value="true"/>
@@ -35,6 +35,13 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>

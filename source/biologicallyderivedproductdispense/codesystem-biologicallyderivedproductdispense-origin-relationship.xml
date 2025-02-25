@@ -18,7 +18,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-origin-relationship"/>
-  <version value="0.1.0"/>
+  <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductDispenseOriginRelationship"/>
   <title value="Biologically Derived Product Dispense Origin Relationship"/>
   <status value="active"/>

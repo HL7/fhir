@@ -18,7 +18,7 @@
   <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductDispenseStatus"/>
   <title value="Biologically Derived Product Dispense Status"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -29,12 +29,6 @@
     <telecom>
       <system value="email"/>
       <value value="fhir@lists.hl7.org"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
   <description value="Biologically Derived Product Dispense Status Codes."/>

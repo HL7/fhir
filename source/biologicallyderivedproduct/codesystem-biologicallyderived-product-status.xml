@@ -23,7 +23,7 @@
   <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductStatus"/>
   <title value="Biologically Derived Product Status"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -37,6 +37,13 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <description value="Biologically Derived Product Status."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"/>

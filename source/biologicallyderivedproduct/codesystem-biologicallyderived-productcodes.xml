@@ -22,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductCodes"/>
   <title value="Biologically Derived Product Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -36,6 +36,13 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <description value="This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes"/>

@@ -30,7 +30,7 @@
   <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductDispensePerformerFunction"/>
   <title value="Biologically Derived Product Dispense Performer Function"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2023-01-29T21:19:50+01:00"/>
   <publisher value="HL7 (FHIR Project)"/>
