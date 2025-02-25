@@ -148,7 +148,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-expiration-date"/>
         <description value="When the product expired (or is expected to expire)"/>
         <code value="expiration-date"/>
-        <type value="dateTime"/>
+        <type value="date"/>
         <expression value="NutritionProduct.instance.expiry"/>
         <processingMode value="normal"/>
       </SearchParameter>
