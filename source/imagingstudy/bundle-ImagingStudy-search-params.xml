@@ -13,7 +13,7 @@
           <valueString value="ImagingStudy.basedOn"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-based-on"/>
-        <description value="The order for the image"/>
+        <description value="The order for the image such as Accession Number"/>
         <code value="based-on"/>
         <type value="reference"/>
         <expression value="ImagingStudy.basedOn"/>
@@ -133,7 +133,7 @@
           <valueString value="ImagingStudy.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-identifier"/>
-        <description value="Identifiers for the Study, such as DICOM Study Instance UID or Accession Number"/>
+        <description value="Identifiers for the Study, such as DICOM Study Instance UID"/>
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ImagingStudy.identifier"/>
