@@ -51,6 +51,10 @@
         <code value="entered-in-error"/>
         <display value="Entered in Error"/>
       </concept>
+      <concept>
+        <code value="unknown"/>
+        <display value="Unknwon"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/detectedissue-status"/>
