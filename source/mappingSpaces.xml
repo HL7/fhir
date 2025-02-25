@@ -500,4 +500,14 @@
 		<sort>43</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<!-- historic -->
+		<url>http://nema.org/dicom</url>
+		<link>https://www.dicomstandard.org/current</link>
+		<columnName>DICOM Mapping</columnName>
+		<title>DICOM Tag Mapping</title>
+		<id>dicom</id>
+		<sort>44</sort>
+    	<publish>true</publish>
+	</space>
 </mappingSpaces>
