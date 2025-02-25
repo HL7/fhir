@@ -1,0 +1,134 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ex-SearchSet-withPermission"/>
+  <meta>
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HTEST"/>
+    </security>
+    <security>
+<!-- Need this defined properly in THO, for now CPLYPOL will do
+      <extension
+                 url="http://hl7.org/fhir/uv/dap/StructureDefinition/dap.permissionImposedOnBundle">
+        <valueReference>
+          <reference
+                     value="http://test.fhir.net/R4/fhir/Permission/in-permission-redisclose-forbidden-without-consent"/>
+        </valueReference>
+      </extension>
+      -->
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <code value="CPLYPOL"/>
+    </security>
+  </meta>
+  <type value="searchset"/>
+  <timestamp value="2023-11-22T09:32:24Z"/>
+  <total value="2"/>
+  <link>
+    <relation value="self"/>
+    <url
+         value="http://test.fhir.net/R4/fhir/Observation?patient=example&amp;status=current"/>
+  </link>
+  <entry>
+    <fullUrl value="http://test.fhir.net/R4/fhir/Observation/in-Observation"/>
+    <resource>
+      <Observation>
+        <id value="in-Observation"/>
+        <meta>
+          <security>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+            <code value="ETH"/>
+          </security>
+          <security>
+            <system
+                    value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+            <code value="R"/>
+          </security>
+        </meta>
+
+        <status value="final"/>
+        <code>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="74013-4"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="Patient/example"/>
+        </subject>
+        <effectiveDateTime value="2022-06-13"/>
+        <performer>
+          <reference value="Patient/example"/>
+        </performer>
+        <valueQuantity>
+          <value value="5"/>
+          <unit value="wine glasses per day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="/d"/>
+        </valueQuantity>
+      </Observation>
+    </resource>
+    <search>
+      <mode value="match"/>
+    </search>
+  </entry>
+  <entry>
+    <fullUrl
+             value="http://test.fhir.net/R4/fhir/Permission/in-permission-redisclose-forbidden-without-consent"/>
+    <resource>
+      <Permission>
+        <id value="in-permission-redisclose-forbidden-without-consent"/>
+        <meta>
+          <security>
+            <system
+                    value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+            <code value="HTEST"/>
+          </security>
+        </meta>
+
+        <status value="active"/>
+        <asserter>
+          <reference value="Organization/example"/>
+        </asserter>
+        <date value="2023-11-22"/>
+        <combining value="deny-unless-permit"/>
+        <rule>
+          <type value="permit"/>
+          <activity>
+            <purpose>
+              <coding>
+                <system
+                        value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+                <code value="TREAT"/>
+              </coding>
+            </purpose>
+            <purpose>
+              <coding>
+                <system
+                        value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+                <code value="HPAYMT"/>
+              </coding>
+            </purpose>
+            <purpose>
+              <coding>
+                <system
+                        value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+                <code value="HOPERAT"/>
+              </coding>
+            </purpose>
+          </activity>
+          <limit>
+            <coding>
+              <system
+                      value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+              <code value="NODSCLCDS"/>
+              <display
+                       value="no disclosure without information subject's consent directive"/>
+            </coding>
+          </limit>
+        </rule>
+      </Permission>
+    </resource>
+    <search>
+      <mode value="include"/>
+    </search>
+  </entry>
+</Bundle>

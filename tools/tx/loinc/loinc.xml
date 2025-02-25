@@ -79,6 +79,7 @@
   <concept id="64292-6" short="" long="Release of information consent Document"/>
   <concept id="64994-7" short="" long="Vaccine funding program eligibility category"/>
   <concept id="69730-0" short="" long="Instructions"/>
+  <concept id="74013-4" short="" long="Alcoholic drinks per day"/>
   <concept id="8302-2" short="" long="Body height"/>
   <concept id="8310-5" short="" long="Body temperature"/>
   <concept id="8462-4" short="" long="Diastolic blood pressure"/>
@@ -190,6 +191,7 @@
   <concept id="LP72831-8" short="" long="Intravascular diastolic"/>
   <concept id="LP72836-7" short="" long="Intravascular systolic"/>
   <concept id="LP7753-9" short="" long="Qn"/>
+  <concept id="LP7767-9" short="" long="BDYCRC.MOLEC"/>
   <concept id="LP7768-7" short="" long="BDYHGT.ATOM"/>
   <concept id="LP7769-5" short="" long="BDYHGT.MOLEC"/>
 </loinc>
