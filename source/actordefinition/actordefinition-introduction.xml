@@ -39,7 +39,7 @@ manufacturer, software version, etc., not the interoperability capabilities or h
 other systems.
 </p>
 <p>
-<a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="practitionerole.html">PractitionerRole</a> 
+<a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="practitionerrole.html">PractitionerRole</a> 
 and <a href="relatedperson.html">RelatedPerson</a> can all represent individual people or animals, which ActorDefinition also does.  
 However ActorDefinition refers to a 'type' of individual, while the others all refer to specific individuals.  ActorDefinition is 
 interested in capability, while the other resources are focused on characteristics.
