@@ -80,8 +80,8 @@
   </mapping>
   <mapping>
     <identity value="xds"/>
-    <uri value="http://ihe.net/xds"/>
-    <name value="XDS metadata equivalent"/>
+    <uri value="https://profiles.ihe.net/ITI/TF/Volume3"/>
+    <name value="IHE Document Sharing (e.g. XDS) metadata Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
