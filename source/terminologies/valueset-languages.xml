@@ -3194,6 +3194,388 @@
           <value value="Kinesisk (Taiwan)"/>
         </designation>
       </concept>
+
+      <concept>
+        <code value="bg"/>
+        <display value="Bulgarian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Bulgarian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Bulgarisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="bs"/>
+        <display value="Bosnian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Bosnian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Bosnisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="cs"/>
+        <display value="Czech"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Czech"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Tschechisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="da"/>
+        <display value="Danish"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Danish"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Dänish"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="et"/>
+        <display value="Estonian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Estonian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Estnisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="ga"/>
+        <display value="Irish"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Irish"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Irisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="hu"/>
+        <display value="Hungarian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Hungarian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Ungarisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="is"/>
+        <display value="Icelandic"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Icelandic"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Isländisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="kk"/>
+        <display value="Kazakh"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Kazakh"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Kasachisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="lt"/>
+        <display value="Lithuanian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Lithuanian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Litauisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="lv"/>
+        <display value="Latvian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Latvian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Lettisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="mk"/>
+        <display value="Macedonian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Macedonian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Makedonisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="mt"/>
+        <display value="Maltese"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Maltese"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Maltesisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="ro"/>
+        <display value="Romanian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Romanian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Rumänisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sk"/>
+        <display value="Slovak"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Slovak"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Slowakisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sl"/>
+        <display value="Slovenian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Slovenian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Slowenisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="sq"/>
+        <display value="Albanian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Albanian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Albanisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="tr"/>
+        <display value="Turkish"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Turkish"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Türkisch"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="uk"/>
+        <display value="Ukrainian"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Ukrainian"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Ukrainisch"/>
+        </designation>
+      </concept>
+
     </include>
   </compose>
 </ValueSet>
