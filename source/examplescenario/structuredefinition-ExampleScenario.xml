@@ -218,9 +218,9 @@
     </element>
     <element id="ExampleScenario.name">
       <path value="ExampleScenario.name"/>
-      <short value="To be removed?"/>
-      <definition value="Temporarily retained for tooling purposes."/>
-      <comment value="Not needed as code will never be generated from one of these"/>
+      <short value="Name for this example scenario (computer friendly)"/>
+      <definition value="A natural language name identifying the ExampleScenario. This name should be usable as an identifier for the resource by machine processing applications such as code generation."/>
+      <comment value="It is not expected that ExampleScenarios will be used to generate code, as they are only examples and not definitional.  However, this element is retained to remain compatible with the canonical resource interface.  Systems are free to omit populating the element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
