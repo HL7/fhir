@@ -723,7 +723,7 @@
       <path value="Provenance.entity.what"/>
       <short value="Identity of entity"/>
       <definition value="Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative."/>
-      <comment value="whatIdentity should be used for entities that are not a Resource type."/>
+      <comment value="The what.identifier should be used for entities that are not a Resource type."/>
       <min value="1"/>
       <max value="1"/>
       <type>
