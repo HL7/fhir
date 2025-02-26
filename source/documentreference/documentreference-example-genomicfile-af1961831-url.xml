@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="example-genomicfile-af1961831-url"/>
+   <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/files"/>
+    <value value="11111"/>
+  </identifier>
+  <status value="current"/>
+  <docStatus value="preliminary"/>
+  <description value="Homo sapiens MHC class I antigen (HLA-B) gene"/>
+  <securityLabel>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="R"/>
+      <display value="Restricted"/>
+    </coding>
+  </securityLabel>
+   <content>
+    <attachment>
+      <contentType value="text/html"/>
+      <url value="https://www.ebi.ac.uk/ena/browser/api/fasta/AF196183.1"/>
+      <title value="Homo sapiens MHC class I antigen (HLA-B) gene"/>
+    </attachment>
+  </content>
+</DocumentReference>

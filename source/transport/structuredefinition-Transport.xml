@@ -213,7 +213,7 @@
     </element>
     <element id="Transport.status">
       <path value="Transport.status"/>
-      <short value="in-progress | completed | abandoned | cancelled | planned | entered-in-error"/>
+      <short value="preparation | in-progress | not-done | suspended | stopped | on-hold | completed | entered-in-error | unknown"/>
       <definition value="A code specifying the state of the transport event."/>
       <min value="0"/>
       <max value="1"/>

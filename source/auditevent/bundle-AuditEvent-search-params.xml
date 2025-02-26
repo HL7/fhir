@@ -289,4 +289,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AuditEvent-entity-desc"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AuditEvent.entity.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-entity-desc"/>
+        <description value="Description of an entity"/>
+        <code value="entity-desc"/>
+        <type value="string"/>
+        <expression value="AuditEvent.entity.description"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

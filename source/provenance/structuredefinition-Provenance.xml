@@ -172,8 +172,8 @@
     <element id="Provenance.recorded">
       <path value="Provenance.recorded"/>
       <short value="When the activity was recorded / updated"/>
-      <definition value="The instant of time at which the activity was recorded."/>
-      <comment value="This can be a little different from the time stamp on the resource if there is a delay between recording the event and updating the provenance and target resource."/>
+      <definition value="The date and time at which the provenance information was recorded / updated, whether in the FHIR Provenance resource or in some other form that is later communicated in the FHIR Provenance."/>
+      <comment value="This can be a little different from the lastUpdated on the Provenance resource if there is a delay between recording the event and updating the provenance and target resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -191,10 +191,6 @@
       <mapping>
         <identity value="fhirauditevent"/>
         <map value="AuditEvent.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Activity.when"/>
       </mapping>
     </element>
     <element id="Provenance.policy">
@@ -502,6 +498,15 @@
         <expression value="who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
+      <!--
+      <constraint>
+        <key value="prov-4"/>
+        <severity value="error"/>
+        <human value="If who is an organization, onBehalfOf can't be a healthcare service within that organization"/>
+        <expression value="who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(HealthcareService).providedBy.resolve().exists() implies who.resolve() != onBehalfOf.resolve().providedBy.resolve()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+      </constraint>
+      -->
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -605,10 +610,12 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+<!--        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/> -->
       </type>
       <condition value="prov-1"/>
       <condition value="prov-2"/>
       <condition value="prov-3"/>
+<!--      <condition value="prov-4"/> -->
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -636,11 +643,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <!-- Device and RelatedPerson are not allowed here. They can act, but have no authority to give to others to act. -->
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+<!--        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/> -->
       </type>
       <condition value="prov-1"/>
       <condition value="prov-2"/>
       <condition value="prov-3"/>
+<!--      <condition value="prov-4"/> -->
       <mapping>
         <identity value="rim"/>
         <map value="Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]"/>
@@ -713,7 +723,7 @@
       <path value="Provenance.entity.what"/>
       <short value="Identity of entity"/>
       <definition value="Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative."/>
-      <comment value="whatIdentity should be used for entities that are not a Resource type."/>
+      <comment value="The what.identifier should be used for entities that are not a Resource type."/>
       <min value="1"/>
       <max value="1"/>
       <type>

@@ -77,11 +77,11 @@
     <element id="Task">
       <path value="Task"/>
       <short value="A task to be performed"/>
-      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a [[[Task]]] (explicit or contained) as a means to track the execution data (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/>
+      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/> 
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="inv-1"/>
+        <key value="tsk-0"/>
         <severity value="error"/>
         <human value="Last modified date must be greater than or equal to authored-on date."/>
         <expression value="lastModified.exists().not() or authoredOn.exists().not() or lastModified &gt;= authoredOn"/>

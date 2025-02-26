@@ -13,7 +13,7 @@
     </extension>
     <item>
       <reference value="Permission/example"/>
-      <display value="Degenerate permision example"/>
+      <display value="Degenerate permission example"/>
     </item>
   </entry>
   <entry>
@@ -25,7 +25,7 @@
     </extension>
     <item>
       <reference value="Permission/example-saner"/>
-      <display value="SANER permision example"/>
+      <display value="SANER permission example"/>
     </item>
   </entry>
   <entry>
@@ -37,7 +37,43 @@
     </extension>
     <item>
       <reference value="Permission/example-vhdir"/>
-      <display value="VhDir permision example"/>
+      <display value="VhDir permission example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of simple directory admin allowing HR and IT"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-directory-admin"/>
+    </extension>
+    <item>
+      <reference value="Permission/ex-permission-directory-admin"/>
+      <display value="Directory permission allowing HR and IT full access"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of authorizing some data in a directory but excluding sensitive elements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-exclude"/>
+    </extension>
+    <item>
+      <reference value="Permission/example-exclude"/>
+      <display value="Directory permission with excluding sensitive elements"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Bundle with included Permission with residual restrictions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-bundle-residual"/>
+    </extension>
+    <item>
+      <reference value="Bundle/ex-SearchSet-withPermission"/>
+      <display value="Bundle with permission expressed residual rules to apply"/>
     </item>
   </entry>
   <entry>

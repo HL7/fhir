@@ -73,7 +73,7 @@
       </extension>
       <path value="DeviceDefinition"/>
       <short value="An instance of a medical-related component of a medical device"/>
-      <definition value="The characteristics, operational status and capabilities of a medical-related component of a medical device."/>
+      <definition value="The definition of a kind of device or device component. Typically, this definition corresponds to a device model although it may be a broader category of device. Defined devices may be regulated medical devices."/>
       <comment value="For the initial scope, this DeviceDefinition resource is only applicable to describe a single node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard and that does not represent a metric. Examples for such a node are MDS, VMD, or Channel."/>
       <min value="0"/>
       <max value="*"/>
@@ -366,6 +366,41 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.contact">
+      <path value="DeviceDefinition.contact"/>
+      <short value="Details for human/organization for support"/>
+      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
+      <comment value="used for troubleshooting etc."/>
+      <min value="0"/>
+      <max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopedRole[typeCode=CON].player"/>
+      </mapping>
+    </element>
+		<element id="DeviceDefinition.publisher">
+			<path value="DeviceDefinition.publisher"/>
+			<short value="The the organization responsible for publishing the definition"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the device definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
     <element id="DeviceDefinition.classification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,225"/>
@@ -765,44 +800,6 @@
       <type>
         <code value="Attachment"/>
       </type>
-    </element>
-    <element id="DeviceDefinition.owner">
-      <path value="DeviceDefinition.owner"/>
-      <short value="Organization responsible for device"/>
-      <definition value="An organization that is responsible for the provision and ongoing maintenance of the device."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".playedRole[typeCode=OWN].scoper"/>
-      </mapping>
-    </element>
-    <element id="DeviceDefinition.contact">
-      <path value="DeviceDefinition.contact"/>
-      <short value="Details for human/organization for support"/>
-      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
-      <comment value="used for troubleshooting etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".scopedRole[typeCode=CON].player"/>
-      </mapping>
     </element>
     <element id="DeviceDefinition.link">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
