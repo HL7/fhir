@@ -4,7 +4,7 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
-This resource is expected to be used in implementation guides or other specifications to provide examples for how certain workflows would manifest.
+This resource is used in implementation guides or other specifications to provide examples for how certain workflows would manifest.
 It can be used to show how instances would evolve over time as well as the interplay of systems over time to accomplish a particular end-state.  It
 will frequently be used to generate sequence diagrams, but also provides further information about all of the entities within the sequence diagrams,
 including the instances shared as part of the exchange.
