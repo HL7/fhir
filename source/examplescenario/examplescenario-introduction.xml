@@ -20,7 +20,7 @@ This resource is most useful when documenting more complex flows rather than sim
 <p>
 <a href="plandefinition.html">PlanDefinitions</a> also describe actors and sequences of interactions between them, including alternatives.  
 However, PlanDefinition defines what's allowed, while ExampleScenario represents a potential pathway through what's allowed.  While an ExampleScenario
-can define alternatives, it doesn't call out all of them.  Instead, it highlights the path(s) of interest to help a reader understand what's possible
+can define alternatives, it doesn't necessarily call out all of them.  Instead, it highlights the path(s) of interest to help a reader understand what's possible
 or how a particular scenario might work.
 
 Any resource can be an 'example' in a specification.  This resource is specifically about highlighting how those examples come together in a workflow - 
