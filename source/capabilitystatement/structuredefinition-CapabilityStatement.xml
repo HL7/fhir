@@ -699,7 +699,7 @@
 		</element>
 		<element id="CapabilityStatement.patchFormat">
 			<path value="CapabilityStatement.patchFormat"/>
-			<short value="Patch formats supported"/>
+			<short value="Patch formats supported (Mime types for FHIR and JSON And XML Patch)"/>
 			<definition value="A list of the patch formats supported by this implementation using their content types."/>
 			<comment value="At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats and match the formats it supports, but this is not always possible or necessary."/>
 			<min value="0"/>
@@ -720,7 +720,7 @@
 				</extension>
 				<strength value="required"/>
 				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/patchmimetypes"/>
 			</binding>
 		</element>
 		<element id="CapabilityStatement.acceptLanguage">
