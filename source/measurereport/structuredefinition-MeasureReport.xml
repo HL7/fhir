@@ -680,6 +680,9 @@
       <type>
         <code value="Duration"/>
       </type>
+      <type>
+        <code value="boolean"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -1023,6 +1026,9 @@
       </type>
       <type>
         <code value="Duration"/>
+      </type>
+      <type>
+        <code value="boolean"/>
       </type>
       <mapping>
         <identity value="rim"/>
