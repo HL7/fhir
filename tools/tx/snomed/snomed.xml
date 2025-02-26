@@ -53,6 +53,9 @@
   <concept id="1157152000" display="Not at risk of elopement from healthcare setting">
     <display value="Not at risk of elopement from healthcare setting"/>
   </concept>
+  <concept id="1157245009" display="Flat dose">
+    <display value="Flat dose"/>
+  </concept>
   <concept id="116154003" display="Patient">
     <display value="Patient"/>
   </concept>
@@ -410,6 +413,12 @@
   <concept id="261183002" display="Upper">
     <display value="Upper"/>
   </concept>
+  <concept id="261829003" display="High dose">
+    <display value="High dose"/>
+  </concept>
+  <concept id="262459003" display="Low dose">
+    <display value="Low dose"/>
+  </concept>
   <concept id="263204007" display="Fracture of shaft of ulna">
     <display value="Fracture of shaft of ulna"/>
   </concept>
@@ -433,6 +442,9 @@
   </concept>
   <concept id="271651005" display="Stable blood pressure">
     <display value="Stable blood pressure"/>
+  </concept>
+  <concept id="272103003" display="Time patterns">
+    <display value="Time patterns"/>
   </concept>
   <concept id="272379006" display="Events">
     <display value="Events"/>
@@ -517,6 +529,9 @@
   </concept>
   <concept id="302188001" display="Bad taste in mouth">
     <display value="Bad taste in mouth"/>
+  </concept>
+  <concept id="303105007" display="Disease phases">
+    <display value="Disease phases"/>
   </concept>
   <concept id="30549001" display="Removal of suture">
     <display value="Removal of suture"/>
@@ -928,6 +943,9 @@
   </concept>
   <concept id="397428000" display="Diphtheria (disorder)">
     <display value="Diphtheria (disorder)"/>
+  </concept>
+  <concept id="397669002" display="Age (qualifier value)">
+    <display value="Age (qualifier value)"/>
   </concept>
   <concept id="397709008" display="Patient died (finding)">
     <display value="Patient died (finding)"/>
