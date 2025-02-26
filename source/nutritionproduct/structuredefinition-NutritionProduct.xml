@@ -187,13 +187,14 @@
     </element>
     <element id="NutritionProduct.manufacturer">
       <path value="NutritionProduct.manufacturer"/>
-      <short value="Manufacturer, representative or officially responsible for the product"/>
-      <definition value="The organisation (manufacturer, representative or legal authorization holder) that is responsible for the device."/>
+      <short value="Manufacturer, representative or person officially responsible for the product"/>
+      <definition value="The organisation (manufacturer, representative or legal authorization holder) or person that is responsible for nutrition product."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -294,6 +295,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IngredientType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the specific ingredient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
+      </binding>
     </element>
     <element id="NutritionProduct.ingredient.amount[x]">
       <path value="NutritionProduct.ingredient.amount[x]"/>
@@ -312,8 +321,8 @@
     </element>
     <element id="NutritionProduct.ingredient.allergen">
       <path value="NutritionProduct.ingredient.allergen"/>
-      <short value="Known or suspected substances that are a part of this product"/>
-      <definition value="Substances associated with allergies and/or intolerances that a part of this product."/>
+      <short value="A known or suspected allergenic and/or substance that is associated with an intolerance"/>
+      <definition value="A known or suspected allergenic and/or substance that is associated with an intolerance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -463,8 +472,8 @@
     </element>
     <element id="NutritionProduct.instance.biologicalSourceEvent">
       <path value="NutritionProduct.instance.biologicalSourceEvent"/>
-      <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>
-      <definition value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled."/>
+      <short value="An identifier of the donation, collection, or pooling event from which biological material in this nutrition product was derived"/>
+      <definition value="An identifier of the donation, collection, or pooling event from which biological material in this nutrition product was derived."/>
       <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <min value="0"/>
       <max value="1"/>
