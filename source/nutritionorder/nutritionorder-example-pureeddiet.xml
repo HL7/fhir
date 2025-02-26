@@ -42,8 +42,8 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="226211001"/>
-				<display value="Pureed diet"/>
+				<code value="439121000124106"/>
+				<display value="Pureed diet (regime/therapy)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
@@ -65,17 +65,6 @@ edited by Eric Haas Health eData Inc
 			</repeat>
 		</timing>
 		</schedule>
-		<!--EH: this example showing how to code for texture modification -->
-		<texture>
-			<modifier>
-				<coding>
-					<system value="http://snomed.info/sct"/>
-					<code value="228055009"/>
-					<display value="Liquidized food"/>
-				</coding>
-				<text value="Pureed"/>
-			</modifier>
-		</texture>
 		<fluidConsistencyType>
 			<coding>
 				<system value="http://snomed.info/sct"/>
