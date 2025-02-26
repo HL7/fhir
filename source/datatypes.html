@@ -729,11 +729,11 @@ populated, and the meaning of the code won't be accessible to systems that don't
 
 <p>
 In some cases, the <code>system</code> might not be known - only the code is known.
-In this case, no useful processing of the code may be performed unless
-the system can be safely inferred by the context.
-This practice should be avoided where possible, as
-information sharing in a wider context is very likely to arise eventually, and codes cannot
-be used in the absence of a known system.
+In this case, no useful processing of the code may be performed unless the system 
+is known implicitly through knowledge of the context (e.g., from a known device/source). 
+This practice should be avoided where possible, as information sharing in a wider context 
+is very likely to arise eventually, and codes cannot be used in the absence of a known system. 
+Thus, systems SHOULD populate the <code>Coding.system</code> whenever the system is known.
 </p>
 <p>
 If the system is present, and there is no code, then this is understood to mean that there
