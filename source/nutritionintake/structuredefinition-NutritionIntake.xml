@@ -195,7 +195,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept indicating the reason for the status of the statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-status-reason"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutritionintake-status-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
