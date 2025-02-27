@@ -33,22 +33,25 @@ The ImagingStudy's DICOM Study Instance UID is encoded in the <code>ImagingStudy
 <a name="accession-number"></a>
 <h3>Accession Number</h3>
 <p>
-The study accession number is encoded in the <code>ImagingStudy.identifier</code> element using the <code>ACSN</code> identifier type, e.g.:
+The study accession number is encoded as <a href="https://build.fhir.org/references.html#reference">Reference.identifier</a> element using the <code>ACSN</code> identifier type, e.g.:
 <pre class="json">
 
-
-"identifier":{
-    "type" : {
-        "coding" : [
-            {
-                "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
-                "code" : "ACSN"
-            }
-        ]
-    },
-    "system":"http://ginormoushospital.org/accession",
-    "value":"GH334103"
-}
+"basedOn": [
+  "reference": {
+    "identifier":{
+        "type" : {
+            "coding" : [
+                {
+                    "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code" : "ACSN"
+                }
+            ]
+        },
+        "system":"http://ginormoushospital.org/accession",
+        "value":"GH334103"
+    }
+  }
+]
 
 </pre>
 </p>

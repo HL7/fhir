@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="product-storage-scale"/>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="testplan-script-language"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -11,17 +12,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/product-storage-scale"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.904"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/testplan-script-language"/>
   <version value="6.0.0"/>
-  <name value="BiologicallyDerivedProductStorageScale"/>
-  <title value="Biologically Derived Product Storage Scale"/>
+  <name value="TestPlanScriptLanguage"/>
+  <title value="TestPlanScriptLanguage"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-02-24T10:56:24+04:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -33,11 +30,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="BiologicallyDerived Product Storage Scale."/>
+  <description value="The TestPlan test run script language."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/product-storage-scale"/>
+      <system value="http://hl7.org/fhir/testplan-script-language"/>
     </include>
   </compose>
 </ValueSet>

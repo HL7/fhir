@@ -21,28 +21,13 @@ edited by Eric Haas Health eData Inc
 		<display value="Dr Adam Careful"/>
 	</orderer>
 	<enteralFormula>
-		<baseFormulaType>
-			<concept>
+		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="412414007"/>
-				<display value="infant formula + iron"/>
+				<code value="40043006"/>
+				<display value="Bottle feeding of patient (regime/therapy)"/>
 			</coding>
-		</concept>
-		</baseFormulaType>
-		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
-		<additive>
-		<type>
-			<concept>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
-				<code value="carbohydrate"/>
-				<display value="Carbohydrate"/>
-			</coding>
-		</concept>
 		</type>
-		<productName value="Acme High Carbohydrate Additive"/>
-	</additive>
 		<caloricDensity>
 			<value value="20"/>
 			<unit value="calories per ounce"/>
@@ -86,6 +71,17 @@ edited by Eric Haas Health eData Inc
 		</maxVolumeToDeliver>
 		<!-- EH infant feeding instruction and additional instructions -->
 		<administrationInstruction value="Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz."/>
-
 	</enteralFormula>
+	<additive>
+	<modularType>
+		<concept>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
+			<code value="carbohydrate"/>
+			<display value="Carbohydrate"/>
+		</coding>
+	</concept>
+	</modularType>
+	<productName value="Acme High Carbohydrate Additive"/>
+</additive>
 </NutritionOrder>
