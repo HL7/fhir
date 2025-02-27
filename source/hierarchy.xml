@@ -488,6 +488,10 @@ signatures.html
         <page title="R4 Conversions" filename="productshelflife-version-maps.html"/>
       </page>
     </page>
+	
+      <page title="Biologically Derived Product" filename="biologically-derived-product-module.html">
+		<!--<page type="resource" resource="BiologicallyDerivedProduct"/>-->
+      </page>
 
   </page>
 
