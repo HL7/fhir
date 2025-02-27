@@ -249,6 +249,9 @@
   <p>
     In a document, current lists are determined by the code on a Composition section.
   </p>
+  <p>The choice of whether a resource is included in a 'current' list is not solely driven by status.  The period when a record is considered still 'current' may vary based on business rules.  For example, a MedicationRequest or MedicationStatement that was only recently changed to 'completed' might still remain as a 'current' medication.  Medications with a longer half-life or where they are community-based rather than in-patient medications might remain on the 'current' list for longer. </p>
+<p>
+    Different systems may have differing rules for when a particular instance should appear in the $current list.  (This is one of the reasons for having an operation rather than merely querying based on status.)</p>
   <a name="lists"></a>
   <p>
     FHIR defines the following names for functional lists:
