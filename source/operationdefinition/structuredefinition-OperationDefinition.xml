@@ -320,7 +320,7 @@
     <element id="OperationDefinition.experimental">
       <path value="OperationDefinition.experimental"/>
       <short value="For testing only - never for real usage"/>
-			<definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
+			<definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
       <comment value="Allows filtering of operation definitions that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level operation definition."/>
       <min value="0"/>
@@ -916,7 +916,7 @@
     </element>
     <element id="OperationDefinition.parameter.binding.strength">
       <path value="OperationDefinition.parameter.binding.strength"/>
-      <short value="required | extensible | preferred | example"/>
+      <short value="required | extensible | preferred | example | descriptive"/>
       <definition value="Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances."/>
       <comment value="For further discussion, see [Using Terminologies](terminologies.html)."/>
       <alias value="conformance"/>

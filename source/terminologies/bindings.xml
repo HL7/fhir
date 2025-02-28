@@ -4835,6 +4835,17 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s125"><Data ss:Type="String">descriptive</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">descriptive</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">There is no constraint on the allowed set of codes at the root level, though there may be additional bindings that apply in certain contexts.  The root binding element will be a description that gives guidance on potential downstream constraint of the allowed codes and/or highlights the presence of additional bindings.</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s128"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s96"/>
