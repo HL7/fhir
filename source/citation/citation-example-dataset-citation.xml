@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Citation xmlns="http://hl7.org/fhir">
-  <id value="citation-example-dataset-citation"/>
+  <id value="example-dataset-citation"/>
   <meta>
     <versionId value="5"/>
     <lastUpdated value="2023-12-02T22:30:09.159Z"/>

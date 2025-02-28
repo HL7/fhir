@@ -24,7 +24,7 @@
       <valueString value="citation-example-for-parachute-rct"/>
     </extension>
     <item>
-      <reference value="Citation/citation-example-for-parachute-rct"/>
+      <reference value="Citation/example-for-parachute-rct"/>
       <display value="Citation for PARACHUTE RCT"/>
     </item>
   </entry>
@@ -36,7 +36,7 @@
       <valueString value="citation-example-dataset-citation"/>
     </extension>
     <item>
-      <reference value="Citation/citation-example-dataset-citation"/>
+      <reference value="Citation/example-dataset-citation"/>
       <display value="DatasetCitation Profile Example"/>
     </item>
   </entry>

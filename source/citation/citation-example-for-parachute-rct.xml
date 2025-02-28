@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Citation xmlns="http://hl7.org/fhir">
-	<id value="citation-example-for-parachute-rct"/>
+	<id value="example-for-parachute-rct"/>
 	<meta>
 		<versionId value="2"/>
 		<lastUpdated value="2025-02-06T18:03:52.258Z"/>
