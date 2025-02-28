@@ -38,10 +38,21 @@
     </telecom>
   </contact>
   <description value="Codes for the main intent of the study."/>
-  <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-focus-type"/>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="372567009"/>
+		<display value="Metformin"/>
+      </concept>
+      <concept>
+        <code value="271062006"/>
+		<display value="Fasting blood glucose measurement"/>
+      </concept>
+      <concept>
+        <code value="228557008"/>
+		<display value="Cognitive and behavioral therapy"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
