@@ -518,12 +518,12 @@
     </element>
     <element id="AdverseEvent.participant.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#13894, GF#18853, J#38823"/>
+        <valueString value="GF#13894, GF#18853, J#38823, J#41402"/>
       </extension>
       <path value="AdverseEvent.participant.actor"/>
       <short value="Who was involved in the adverse event or the potential adverse event"/>
       <definition value="Indicates who or what participated in the event."/>
-      <comment value="For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history. The subject can be a participant if the subject was involved in the adverse event in another capacity beyond just being the subject, such as when the subject is a contributor or informant."/>
+      <comment value="For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history. The subject can be a participant if the subject was involved in the adverse event in another capacity beyond just being the subject, such as when the subject is a contributor or informant. Using Group is only allowed when the group represents a family or a household and does not represent groups of Practitioners."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -535,6 +535,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
