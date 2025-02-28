@@ -484,6 +484,38 @@
         <map value="Definition.derivedFromCanonical"/>
       </mapping>
     </element>
+    <element id="Requirements.imports">
+      <path value="Requirements.imports"/>
+      <short value="External requirements that apply here"/>
+      <definition value="Points to requirements defined elsewhere that have the same force as if they were defined in this instance."/>
+      <comment value="A given requirement should either appear here OR be listed as a derivedFrom in a statement, but not both.  I.e. you either include the referenced requirement unchanged or you include it in a qualified manner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.imports.canonical">
+      <path value="Requirements.imports.canonical"/>
+      <short value="Source of imported statements"/>
+      <definition value="The canonical for the Requirements resource to import statements from."/>
+      <min value="1"/>
+      <max value="1"/>
+      <isSummary value="true"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </type>
+    </element>
+    <element id="Requirements.imports.key">
+      <path value="Requirements.imports.key"/>
+      <short value="Statement key"/>
+      <definition value="The key of a statement to treat as part of the set of requirements defined in this instance."/>
+      <comment value="If no keys are specified, then the interpretation is that all statements in the referenced Requirements instance apply to this instance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
     <element id="Requirements.reference">
       <path value="Requirements.reference"/>
       <short value="External artifact (rule/document etc. that) created this set of requirements"/>
