@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 
 <p>
-The NutritionProduct resource represents the identification of a food (i.e., solid and/or liquid) product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food (i.e., solid and/or liquid) products for human consumption.
+The NutritionProduct resource represents the identification of a food (i.e., solid and/or liquid) product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food (i.e., solid and/or liquid) products for consumption.
 </p>
 </div>
 

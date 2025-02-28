@@ -713,7 +713,7 @@
         <key value="opd-3"/>
         <severity value="error"/>
         <human value="A targetProfile can only be specified for parameters of type Reference, Canonical, or a Resource"/>
-        <expression value="targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/resource-types'))"/>
+        <expression value="targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/all-resource-types'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <constraint>
