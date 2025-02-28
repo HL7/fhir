@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+[%settitle Biologically Derived Product Module%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    [%file newheader%]
+</head>
+<body>
+    [%file newnavbar%]
+
+    <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+    <a name="root"></a>
+    <h2>Biologically Derived Product Module</h2>
+    <a name="intro"></a>
+    <h3>Introduction</h3>
+    <p>
+        This module outlines the resources and functionality used to model biologically derived products (BDP) that have specific requirements for traceability and allocation. The Biologically Derived Product is used to track biological products of human or non-human origin intended to be transplanted or infused into a human.
+    </p>
+    <p>
+        Examples of products of human origin (referred to as Medical Products of Human Origin, or MPHO) include: blood for transfusion; blood and marrow for cellular therapy; organs, cornea, vascular tissue, bone, tendons, and other tissues for transplantation; banked human milk; and, serum eye drops.
+    </p>
+    <p>
+        Examples of non-human derived products include: porcine dermis and porcine heart valves.
+    </p>
+    <p>
+        In most countries BDP are regulated separately from medicines and medical devices and have specific traceability requirements including the need to be able to trace back to the donor, and the need to retain traceability records for very long periods (e.g. 30 years from time of use for tissues and cells clinically applied in the EU).
+    </p>
+    <p>
+        Some BDP are regulated as medical devices in some jurisdictions and these may need to be managed through the Medical Devices module in FHIR. Traceability and lookback functionality will need to take into account that material from a single donation event may result in products that are managed as both biologics and medical devices. Care will need to be taken when products cross international boundaries as the regulatory framework may change, thus a product regulated as a medical device in the US may be regulated as Tissues and Cells in the EU.
+    </p>
+    <p>
+        For BDP derived from a human donor (an MPHO) bi-directional traceability is essential. A profile for MPHO has been developed that specifies that essential traceability identifiers are required.
+    </p>
+    <p>
+        For further information on the boundary between BDP and Specimen see <a href="biologicallyderivedproduct.html#bnr">Biologically Derived Product Boundaries and Relationships</a>.
+    </p>
+
+    <a name="index"></a>
+    <h3>Index</h3>
+    <table width="100%" style="table-layout: fixed">
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="biologicallyderivedproduct.html">Biologically Derived Product</a></li>
+                    <li><a href="biologicallyderivedproductdispense.html">Biologically Derived Product Dispense</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <strong style="color:red">Important Notes:</strong>
+    <ul>
+        <li>
+            For BDP derived from a human donor, traceability between donor and recipient has to be maintained. Models described in this module support traceability. If alternative models are used then care must be taken to ensure the traceability pathway is maintained.
+        </li>
+    </ul>
+
+    <br />
+    <p>The diagram below illustrates the information flow associated with BDP use from clinical request and provision from supplier through to clinical application into the patient. This example demonstrates how traceability and allocation requirements can be supported with responsibility for the BDP being maintained by a custodial entity.</p>
+    <img src="biologicallyderivedproduct-module-generalexample.png" alt="Image showing the general usage of the Biologically Derived Product and related resources" />
+
+    <table class="bare">
+        <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><a href="biologicallyderivedproduct.html">Biologically Derived Product</a></td>
+            <td>
+                <p>
+                    The BiologicallyDerivedProduct resource (BDP) is the resource that carries the information specific to an individual product of biological origin.
+
+                    This resource carries a unique identifier together with elements for the donation identification number, product description code and the division number. These are essential for BDP of human origin to ensure globally unique identification and to meet traceability requirements.
+
+                    The BDP carries information on important characteristics of the product (e.g. blood group; expiration date; red cell antigen profile; collection type; CMV status).
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="supplydelivery.html">Supply Delivery</a></td>
+            <td>
+                <p>
+                    The SupplyDelivery resource (SD) carries information on a consignment of BDP shipped from a supplier (e.g. blood center; tissue bank; eye bank; registry; manufacturer) to a hospital BDP custodian entity (e.g. transfusion laboratory; sterile supplies). The stage element of SupplyDelivery allows the dispatch and receipt events to be captured. The SD references the BDP of each of the products in the consignment.
+                </p>
+            </td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><a href="servicerequest.html">Service Request</a></td>
+            <td>
+                <p>
+                    The ServiceRequest resource carries the request for clinical application of a BDP from an authorized healthcare provider to the hospital BDP custodian responsible for issuing the required product.  This resource may reference a specific BDP or may request provision at the generic level. This may in the future be modelled as a BDPRequest resource.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="biologicallyderivedproductdispense.html">Biologically Derived Product Dispense</a></td>
+            <td>
+                <p>
+                    In response to the ServiceRequest, the BDP custodian carries out any necessary testing and releases the BDP for use. The BDPDispense resource (BDPD) carries information regarding the dispense including the BDP instance and the identification of the intended recipient.
+                </p>
+            </td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><a href="procedure.html">Procedure</a></td>
+            <td>
+                <p>
+                    The clinical team receiving the BDP and associated BDPD performs the clinical application (e.g. transfusion; transplant; etc.) and the event is recorded using the Procedure resource. This resource references the BDP and the recipient identifier, together with relevant information regarding the clinical application activity.
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        There is a degree of flexibility expected with this resource given the wide variety of biologically derived products used in different areas of medicine. For example, the scenario described above includes the use of the SupplyDelivery resource to indicate a BDP being received from an external provider, but the biologically derived product could also originate through a collection event in a surgical suite or apheresis unit in the same facility where the patient is receiving treatment.
+    </p>
+
+    <a name="exampleworkflows"></a>
+    <h3>Example Workflows</h3>
+
+    <a name="example-celltherapy"></a>
+    <h4>Cellular Therapy</h4>
+    <p>It is possible for a ServiceRequest to specify a collection event (procedure) and then a subsequent ServiceRequest for the BDPDispense and infusion (procedure). The procedure would collect from the donor patient and result in a BDP that could later be dispensed to the recipient patient. This is a common occurrence for standard of care blood and marrow transplant (BMT) centers that find a matching donor for an intended recipient, collect healthy blood-forming stem cells, and infuse those cells into a recipient patient. For some indications it is also common for stem cells to be collected from a patient prior to them receiving other treatments (e.g. chemotherapy, radiation), with the cryopreserved cells later being thawed and infused back into the patient.</p>
+    <img src="biologicallyderivedproduct-module-celltherapyexample.png" alt="Image showing the usage of the Biologically Derived Product and related resources for cell therapy" />
+    <br />
+
+    <b>Example: Autologous stem cell transplant that uses pre-treatment healthy stem cells from a patient's own body after a treatment has damaged their bone marrow</b>
+    <ol>
+        <li>
+            BMT clinical team orders the Hospital Transfusion/Cell Therapy Laboratory to collect stem cells from the patient (ServiceRequest). This will include specifying any regimens required such as stem cell mobilization drugs or scheduling requirements.
+        </li>
+        <li>
+            The stem cells are collected from the patient (as many as possible) and cryopreserved for future use (Procedure). This may involve a surgical suite (bone marrow) or apheresis unit (peripheral blood) but the ultimate chain of custody of the product resides with the laboratory. There will commonly be multiple biologically derived product instances as a result of collection.
+        </li>
+        <li>
+            The Hospital Transfusion/Cell Therapy Laboratory processes the stem cells based on the unique needs of the intended recipient. In standard of care applications this could mean plasma reduction while in advanced applications this could include ex vivo expansion or further specialized processing.
+        </li>
+        <li>
+            The Hospital Transfusion/Cell Therapy Laboratory advises the BMT clinical team that cryopreserved products are available in inventory, are medically releasable, and have desired characteristics for purity and potency of the stem cells.
+        </li>
+        <li>
+            The BMT clinical team orders infusion of one or more biologically derived products depending on the dosing needs of the recipient (ServiceRequest and then BiologicallyDerivedProductDispense). This will be scheduled to occur within the context of a larger treatment plan involving a variety of allied health professionals in addition to treatment-specific regimens such as chemotherapy or radiation.
+        </li>
+        <li>
+            The stem cells are infused into the patient and long-term follow-up begins (Procedure). For some kinds of transplant (myeloablative) the timing of this is critical as the patient will effectively have no surviving bone marrow until the stem cells have engrafted which can take upwards of three weeks.
+        </li>
+    </ol>
+
+    <b>Example: Allogeneic stem cell transplant that uses healthy stem cells from a healthy donor to replace bone marrow that is not producing healthy blood cells</b>
+    <ol>
+        <li>
+            BMT clinical team orders human leukocyte antigen (HLA) testing for intended recipient and potential donors to identify if a suitable healthy donor exists. The donor matching may occur through the hospital network or an international registry soliciting stem cell donors on a global basis. This step is relevant for context purposes but is out of scope for the BDP FHIR resources and is not included in the related diagrams.
+        </li>
+        <li>
+            BMT clinical team orders the Hospital Transfusion/Cell Therapy Laboratory to collect stem cells from the selected donor (ServiceRequest). This will include specifying any regimens required such as stem cell mobilization drugs or scheduling requirements.
+        </li>
+        <li>
+            The stem cells are collected from the donor (as many as possible) (Procedure). This may involve a surgical suite (bone marrow) or apheresis unit (peripheral blood) but the ultimate chain of custody of the product resides with the laboratory. There will commonly be multiple biologically derived product instances as a result of collection.
+        </li>
+        <li>
+            The Hospital Transfusion/Cell Therapy Laboratory processes the stem cells based on the unique needs of the intended recipient. In standard of care applications this could mean plasma reduction or RBC depletion while in advanced applications this could include ex vivo expansion or further specialized processing. (not shown in the diagram)
+        </li>
+        <li>
+            The Hospital Transfusion/Cell Therapy Laboratory advises the BMT clinical team that the fresh or cryopreserved products are available in inventory, are medically releasable, and have desired characteristics for purity and potency of the stem cells.
+        </li>
+        <li>
+            The BMT clinical team orders infusion of one or more biologically derived products depending on the dosing needs of the recipient (ServiceRequest and then BiologicallyDerivedProductDispense). This will be scheduled to occur within the context of a larger treatment plan involving a variety of allied health professionals in addition to treatment-specific regimens such as chemotherapy or radiation.
+        </li>
+        <li>
+            The stem cells are infused into the patient and long-term follow-up begins (Procedure). For some kinds of transplant (myeloablative) the timing of this is critical as the patient will effectively have no surviving bone marrow until the stem cells have engrafted which can take upwards of three weeks.
+        </li>
+    </ol>
+
+    <a name="example-corneatransplant"></a>
+    <h4>Cornea Transplant</h4>
+    <p>The example below follows the General Usage workflow shown above, but provides more detail specific to cornea transplantation.</p>
+    <ol>
+        <li>
+            Eye surgeon identifies need for cornea replacement and determines appropriate cornea replacement procedure.
+        </li>
+        <li>
+            Eye surgeon requests required cornea graft from eye bank and provides necessary specifications. (ServiceRequest).
+        </li>
+        <li>
+            Eye bank sources cornea and dispatches to BDP custodian (BiologicallyDerivedProductDispense).
+        </li>
+        <li>
+            The tissue is delivered to the eye clinic BDP custodian (usually an appointed nurse, or the chief nurse of the operating theatre, or transfusion laboratory staff).
+        </li>
+        <li>
+            Surgeon implants cornea (Procedure)
+        </li>
+    </ol>
+
+    <a name="example-bloodtransfusion"></a>
+    <h4>Blood Transfusion</h4>
+    <p>The examples below follow the General Usage workflow shown above, but provide more detail specific to blood transfusion.</p>
+
+    <b>Example: Transfusion of platelets</b>
+    <ol>
+        <li>
+            Patient's clinician identifies the need for a platelet transfusion and places a request with the transfusion laboratory (ServiceRequest).
+        </li>
+        <li>
+            Transfusion laboratory selects suitable platelet units from stock and allocates them for the patient (BiologicallyDerivedProductDispense).
+        </li>
+        <li>
+            Platelet units are transferred from the transfusion laboratory to the ward.
+        </li>
+        <li>
+            Transfusion practitioners verify correct identification of patient and units and proceed with infusion (Procedure).
+        </li>
+        <li>
+            Transfusion laboratory replenishes platelet stock by placing an order with their Blood Center.
+        </li>
+        <li>
+            Blood center dispatches a consignment of products to the transfusion laboratory (SupplyDelivery).
+        </li>
+    </ol>
+
+    <b>Example: Blood transfusion for patient with antibodies.</b>
+    <ol>
+        <li>
+            The patient's clinician identifies the need for a blood transfusion and requests 3 units of red cells (ServiceRequest).
+        </li>
+        <li>
+            Transfusion laboratory orders blood specimens to be collected from the patient.
+        </li>
+        <li>
+            Transfusion laboratory performs blood grouping and antibody investigation.  Blood group B RhD positive. Identifies the presence of anti-C and anti Jk(a).
+        </li>
+        <li>
+            Transfusion laboratory requests supply of Group B or Group O units that are negative for both the C antigen and the Jk(a) antigen.
+        </li>
+        <li>
+            Blood center dispatches the requested units (SupplyDelivery).
+        </li>
+        <li>
+            Transfusion laboratory crossmatches the units against the patient blood specimen.
+        </li>
+        <li>
+            Compatible units are dispensed for the patient (BiologicallyDerivedProductDispense).
+        </li>
+        <li>
+            Blood units are transferred from the transfusion laboratory to the ward.
+        </li>
+        <li>
+            Transfusion practitioners verify correct identification of patient and units and proceed with transfusion (Procedure).
+        </li>
+    </ol>
+
+    <a name="uses"></a>
+    <h3>Common Use Cases</h3>
+    <b>Representation of a biologically derived product and its clinically relevant characteristics.</b>
+    <ol>
+        <li>
+            The BDP provider/manufacturer sources a donation of biological material from a donor, allocates a unique identifier to the donation event, performs testing and transmissible disease screening, and performs processing steps to prepare one or several BDP products from the donated material.
+        </li>
+        <li>
+            Each BDP product is uniquely identified and the BDP provider/manufacturer is responsible for maintaining traceability links between the BDP products and the donor.
+        </li>
+        <li>
+            BDP products are labeled with their unique identification and critical information that varies by BDP type.
+        </li>
+        <li>
+            BDP provider/manufacturer creates a BiologicallyDerivedProduct resource to carry critical and other clinically important information.
+        </li>
+        <li>
+            The BiologicallyDerivedProduct resource is made available to the BDP Custodian receiving the BDP.
+        </li>
+        <li>
+            The BiologicallyDerivedProduct resource is referenced in the BiologicallyDerivedProductDispense, the Procedure, and the patient electronic health record.
+        </li>
+    </ol>
+    <b>Distribution of a consignment of biologically derived products from a supplier or manufacturer to a healthcare organization.</b>
+    <ol>
+        <li>
+            A healthcare organization places an order for biologically derived products from their BDP provider/manufacturer.
+        </li>
+        <li>
+            The BDP provider/manufacturer prepares a consignment to satisfy the order.
+        </li>
+        <li>
+            A SupplyDelivery resource is created for the consignment.
+        </li>
+        <li>
+            For each BDP in the consignment a BiologicallyDerivedProduct resource is referenced in the SupplyDelivery resource.
+        </li>
+        <li>
+            The healthcare organization receives the SupplyDelivery resource and the consignment.
+        </li>
+        <li>
+            Each BDP in the consignment is barcode scanned to verify receipt and crosschecked against the corresponding resources.
+        </li>
+        <li>
+            Information from the BiologicallyDerivedProduct resource is used to populate information in the receiving organization inventory.
+        </li>
+    </ol>
+    <b>Dispense of a biologically derived product from the unit responsible for selection/matching to the team responsible for clinical application.</b>
+    <ol>
+        <li>
+            The clinician responsible for the patient requests application of a biologically derived product.
+        </li>
+        <li>
+            Product is requested from the appropriate BDP Custodian using a ServiceRequest resource.
+        </li>
+        <li>
+            The BDP custodian carries out any necessary matching or selection and dispenses the BDP using the BiologicallyDerivedProductDispense resource.
+        </li>
+        <li>
+            The BDP is transported to the ward.
+        </li>
+        <li>
+            The patient wristband and BDP labels are scanned and electronically checked against the BiologicallyDerivedProductDispense resource, and referenced BiologicallyDerivedProduct resources, to confirm correct allocation
+        </li>
+        <li>
+            The clinical team caring for the patient carries out identification checks of the patient and the products to ensure correct allocation prior to clinical application.
+        </li>
+    </ol>
+    <b>Recording of clinical application of a biologically derived product to a patient.</b>
+    <ol>
+        <li>
+            Following all necessary identification and verification steps the BDP is clinically applied to the patient
+        </li>
+        <li>
+            A Procedure resource is used to capture the event details and includes links to the BiologicallyDerivedProduct resources of the products used.
+        </li>
+        <li>
+            The patient electronic health record is updated to reference the Procedure resource.
+        </li>
+    </ol>
+    <b>Tracking all products derived from a single donation event (all products carrying the same donation identification number) from source to final disposition (clinical use or disposal).</b>
+    <ol>
+        <li>
+            A BDP provider/manufacturer receives post-donation information about a donor of biological material that indicates a potential risk of harm to recipients.
+        </li>
+        <li>
+            The BDP provider/manufacturer determines that it is necessary to withdraw all implicated products from the supply chain, and notify the clinicians of any patients that have already received implicated product.
+        </li>
+        <li>
+            The BDP provider/manufacturer notifies the BDP Custodian for all healthcare organizations that have received implicated products and references the relevant BiologicallyDerivedProduct resources.
+        </li>
+        <li>
+            BDP Custodian initiates a search of all BiologicallyDerivedProductDispense resources to identify implicated product dispensed to patients.
+        </li>
+        <li>
+            For each implicated product that has been dispensed, clinical application is confirmed by accessing the Procedure resource.
+        </li>
+        <li>
+            Clinical staff responsible for each patient that has received implicated product are notified and referred to the provider/manufacturer for more information.
+        </li>
+        <li>
+            BDP Custodian initiates a search of inventory using the information provided in the BiologicallyDerivedProduct resources.
+        </li>
+        <li>
+            Any implicated product in stock is immediately flagged as unsuitable for use and returned to the provider/manufacturer.
+        </li>
+    </ol>
+    <b>Identifying all biologically derived products clinically applied to a patient within a specified time period.</b>
+    <ol>
+        <li>
+            Following a course of BDP treatment, a patient develops symptoms of an infection that is known to be transmissible by BDP.
+        </li>
+        <li>
+            The patients electronic health record is analysed to identify all Procedures involving BDP in the last 3 months.
+        </li>
+        <li>
+            The BiologicallyDerivedProduct resource for each product used is identified, and from this the provider/manufacturer is determined.
+        </li>
+        <li>
+            All providers/manufacturer involved are notified and given the identification information for the products used.
+        </li>
+        <li>
+            Provider/manufacturers identify the donors from their own records and initiate follow-up testing of donors.
+        </li>
+    </ol>
+
+    <a name="other"></a>
+    <h3>Other Resources</h3>
+
+    <b>Diagnostic</b>
+    <ul>
+        <li><a href="observation.html">Observation</a></li>
+        <li><a href="specimen.html">Specimen</a></li>
+    </ul>
+    <p>In the context of blood transfusion, observations based on tests performed on specimens collected from the patient fulfil a number of important roles:</p>
+    <ol>
+        <li>To help determine the need for the clinical application of a BDP (e.g. platelet count on patient specimen gives indication if platelet transfusion is required)</li>
+        <li>To determine important serological information about the patient prior to transfusion (blood group of patient, presence of atypical antibodies)</li>
+        <li>To ensure the selection of safe product for the patient (e.g. blood crossmatch using a patient specimen ensures compatibility between red blood cell units and patient)</li>
+        <li>Follow-up specimen collection can provide information on efficacy of treatment and the need for additional clinical support (e.g. post-transfusion platelet count can indicate effectiveness of platelet therapy)</li>
+        <li>Investigation of suspected transfusion reaction will involve the analysis of pre- and post- transfusion specimens</li>
+    </ol>
+
+    <b>Clinical</b>
+    <ul>
+        <li><a href="procedure.html">Procedure</a></li>
+        <li><b>Note: </b>Observation and Specimen are also in the context of a clinical setting and may need to appear in this module as well.</li>
+    </ul>
+
+    <b>Workflow</b>
+    <ul>
+        <li><a href="servicerequest.html">ServiceRequest</a></li>
+        <li><a href="supplydelivery.html">SupplyDelivery</a></li>
+    </ul>
+
+    <a name="secpriv"></a>
+    <h3>Security and Privacy</h3>
+    <p>
+        The Biologically Derived Product resources typically represent patient-specific data, and as such are susceptible to data breaching.
+        Necessary privacy and security provisions must be in place when searching and fetching this information. For
+        more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+    </p>
+
+    <a name="roadmap"></a>
+    <h3>Developmental Roadmap</h3>
+    <ul>
+        <li>The <em>Biologically Derived Product</em> resource had relatively significant changes leading up to the R5 release, and is still immature at FMM=2. We anticipate that future work could lead to further refinements in the scope and boundaries. Broader use by implementers will help to increase its maturity level.</li>
+        <li>The <em>Biologically Derived Product Dispense</em> resource was introduced in R5. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
+    </ul>
+
+    <h4>Examples to be created</h4>
+    <ul>
+        <li>
+            <b>BDP</b>
+            <ul>
+                <li>A unit of red blood cells for transfusion.  Essential information includes donation identification number, product code, division identifier, blood group, collection type, expiration date, collection or processing facility.</li>
+                <li>
+                    A cornea for transplant.  Essential information includes donation identification number, product code, date and time of collection.
+                </li>
+                <li>
+                    An Achilles tendon with bone block for transplant.  Essential information includes donation identification number, product code, division identifier, expiration date.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>SupplyDelivery</b>
+            <ul>
+                <li>
+                    A consignment of 20 x O RhD Positive, 20 Rh D Positive, 10 O RhD Negative and 10 RhD Negative blood units sent from Blood Center A to Hospital Transfusion Laboratory X.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>ServiceRequest</b>
+            <ul>
+                <li> Request for transfusion of 3 units of red blood cells to a specified patient. </li>
+            </ul>
+        </li>
+        <li>
+            <b>BDP Dispense</b>
+            <ul>
+                <li>
+                    3 units of red blood cells of group A RhD Negative cross-matched for a specified patient.
+                </li>
+                <li>
+                    3 units of red blood cells group O RhD Positive, C Negative, K Negative crossmatched for a specified patient with anti-C and anti-K antibodies.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Procedure</b>
+            <ul>
+                <li>
+                    Record the transfusion of a specific unit of red blood cells to a specified patient. The procedure records the time, date, location of the event and references the patient, biologically derived product, and responsible healthcare staff.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>
+        <i>O&amp;O welcomes feedback to show if the resource designs have made a solution that works, and is implementable, for users across a range of domains.</i>
+    </p>
+
+    [%file newfooter%]
+</body>
+</html>

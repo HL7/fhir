@@ -81,6 +81,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="NutritionProduct-ingredient-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.ingredient.item.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-ingredient-item"/>
+        <description value="The specific ingredient"/>
+        <code value="ingredient-item"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.ingredient.item.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="NutritionProduct-serial-number"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -116,5 +135,23 @@
       </SearchParameter>
     </resource>
   </entry>
-
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-expiration-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.instance.expiry"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-expiration-date"/>
+        <description value="When the product expired (or is expected to expire)"/>
+        <code value="expiration-date"/>
+        <type value="date"/>
+        <expression value="NutritionProduct.instance.expiry"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
