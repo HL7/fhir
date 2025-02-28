@@ -426,7 +426,7 @@
           <valueString value="ResearchStudyFocusType"/>
         </extension>
         <strength value="example"/>
-        <description value="Common codes of research study focus"/>
+        <description value="Some example codes of research study focus"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
       </binding>
     </element>
