@@ -22,27 +22,27 @@
       <system value="http://unitsofmeasure.org"/>
       <concept>
         <code value="min"/>
-        <display value="minutes"/>
+        <display value="min"/>
       </concept>
       <concept>
         <code value="h"/>
-        <display value="hours"/>
+        <display value="hour"/>
       </concept>
       <concept>
         <code value="d"/>
-        <display value="days"/>
+        <display value="day"/>
       </concept>
       <concept>
         <code value="wk"/>
-        <display value="weeks"/>
+        <display value="week"/>
       </concept>
       <concept>
         <code value="mo"/>
-        <display value="months"/>
+        <display value="month"/>
       </concept>
       <concept>
         <code value="a"/>
-        <display value="years"/>
+        <display value="year"/>
       </concept>
     </include>
   </compose>
