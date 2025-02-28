@@ -204,7 +204,7 @@
 			<path value="CanonicalResource.status"/>
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The current state of this {{title}}. "/>
-			<comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).&#xa;&#xa;If a server wishes to reflect whether a given canonical resource is 'supported' or 'enabled' on that server, this is NOT done with status. Instead, expose support for the resource using a 'feature' in the server's CapabilityStatement.  (Not all supported canonical resources will necessarily be searchable on a server, and availability of a canonical resource in a search result does not imply support of the resource for any particular usage.)"/>
 			<requirements value="Enables tracking the life-cycle of the content and filtering of {{title}}s that are appropriate for use versus not."/>
 			<min value="1"/>
 			<max value="1"/>
