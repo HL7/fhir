@@ -1,5 +1,6 @@
 _language
 _query
+molecule_type
 excluded_structure
 _in
 _security
@@ -7,14 +8,11 @@ _type
 _lastupdated
 _filter
 _list
-lifecycle
-subject_state
-included_structure
 _profile
+member_state
 _tag
 _has
 _source
 _id
 _content
 _text
-hrf

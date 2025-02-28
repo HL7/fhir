@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2023-03-19T02:49:02Z</LastSaved>
+  <LastSaved>2025-02-26T07:57:19Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,9 +15,8 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1016,7 +1015,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Corresponding codes in terminologies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A code that has the same meaning as the element in a particular terminology.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Links the meaning of an element to an external terminology, and is very useful for searching and indexing</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system.&#xA;This is used for both mapping to formal terminologies as well as to informal collections of data elements provided they can be treated as a 'system' (i.e. a single namespace with a canonical URI).  For mappings to more complex structures not identifiable with a single id, use the ElementDefinition.mapping structure.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system.&#10;This is used for both mapping to formal terminologies as well as to informal collections of data elements provided they can be treated as a 'system' (i.e. a single namespace with a canonical URI).  For mappings to more complex structures not identifiable with a single id, use the ElementDefinition.mapping structure.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">./code (root or translation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">OM1.7</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4553,11 +4552,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>61</TopRowBottomPane>
+   <TopRowBottomPane>60</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4842,23 +4840,23 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">29</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">warning</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.type</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">profiles SHOULD be unique</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">profile.isDistinct()</Data></Cell>
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">30</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">warning</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.type</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">targetProfiles SHOULD be unique</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">targetProfile.isDistinct()</Data></Cell>
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5034,18 +5032,19 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C8">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R26C8">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Search">
@@ -6421,7 +6420,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C4">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R4C4">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Examples">
@@ -7252,7 +7251,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C13">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R9C13">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="discriminator-type">
@@ -7295,7 +7294,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Pattern</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">The slices have different values in the nominated element, as determined by the applicable fixed value, pattern, or required ValueSet binding. This has the same meaning as 'value' and is deprecated </Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19T00:00:00.000</Data></Cell>
     <Cell><Data ss:Type="String">Pattern' is deprecated - it works exactly the same as 'value'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s139">
@@ -7984,7 +7983,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R3C9">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="resource-slicing-rules">
@@ -8573,7 +8572,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R4C9">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="resource-aggregation-mode">
@@ -9162,7 +9161,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R4C9">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="property-representation">
@@ -9752,7 +9751,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R6C9">
   </AutoFilter>
  </Worksheet>
 <!--canonicalized--></Workbook>
