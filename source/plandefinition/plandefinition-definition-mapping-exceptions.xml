@@ -68,7 +68,7 @@
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="PlanDefinition.experimental">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
             <resource value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
     </divergentElement>

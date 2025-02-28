@@ -100,11 +100,11 @@
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="ObservationDefinition.experimental">
         <shortUnmatched reason="Unknown">
-            <_pattern value="For testing purposes, not real usage"/>
-            <resource value="If for testing purposes, not real usage"/>
+            <_pattern value="For testing only - never for real usage"/>
+            <resource value="If For testing only - never for real usage"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this observation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this observation definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
             <resource value="A flag to indicate that this ObservationDefinition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">

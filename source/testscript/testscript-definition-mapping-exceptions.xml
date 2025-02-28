@@ -54,7 +54,7 @@
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="TestScript.experimental">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
             <resource value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
     </divergentElement>
