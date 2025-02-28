@@ -10,7 +10,7 @@
         <valueMarkdown value=""/> <!--to be added later-->
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-        <valueInteger value="4"/>
+        <valueInteger value="5"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
         <valueCode value="cg"/>
