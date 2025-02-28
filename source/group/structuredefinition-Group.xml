@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but are not formally or legally recognized; i.e. a collection of entities that isn't an Organization. Some groups are allowed to take actions, to do things collectively (but not groups of practitioners providing care - see CareTeam)"/>
+  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not typically expected to act collectively.  These collections are also not typically formally or legally recognized.&#10;&#10;NOTE: Group may be used to define families or households, which in some circumstances may act collectively or have a degree of legal or formal recognition.  This should be considered an exception.  When Group is used for types of entities other than Patient or RelatedPerson, the expectation remains that the Group will not act collectively or have formal recognition - use Organization if these behaviors are needed.&#10;&#10;For example, it is possible for a 'family' Group to be a performer of an Observation or owner of a Task.  However, this is not permitted for a Group made up of Practitioners, PractitionerRoles or Organizations.  Organization or CareTeam would need to be used instead.  A Group of Practitioners could, however, be a subject of an Observation."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -80,7 +80,7 @@
       </extension>
       <path value="Group"/>
       <short value="Group of multiple entities"/>
-      <definition value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization."/>
+      <definition value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not typically expected to act collectively.  These collections are also not typically formally or legally recognized.&#10;&#10;NOTE: Group may be used to define families or households, which in some circumstances may act collectively or have a degree of legal or formal recognition.  This should be considered an exception.  When Group is used for types of entities other than Patient or RelatedPerson, the expectation remains that the Group will not act collectively or have formal recognition - use Organization if these behaviors are needed.&#10;&#10;For example, it is possible for a 'family' Group to be a performer of an Observation or owner of a Task.  However, this is not permitted for a Group made up of Practitioners, PractitionerRoles or Organizations.  Organization or CareTeam would need to be used instead.  A Group of Practitioners could, however, be a subject of an Observation."/>
       <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
