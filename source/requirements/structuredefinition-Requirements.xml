@@ -82,6 +82,12 @@
         <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </constraint>
+      <constraint>
+        <key value="req-1"/>
+        <severity value="error"/>
+        <human value="Actor Keys must be unique"/>
+        <expression value="Requirements.actor.key.isDistinct()"/>
+      </constraint>      
       <mapping>
         <identity value="w5"/>
         <map value="conformance.content"/>
@@ -254,9 +260,9 @@
     </element>
     <element id="Requirements.experimental">
       <path value="Requirements.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of Requirements that are appropriate for use versus not."/>
+      <short value="For testing only - never for real usage"/>
+      <definition value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of Requirements that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Requirements."/>
       <min value="0"/>
       <max value="1"/>
@@ -484,6 +490,38 @@
         <map value="Definition.derivedFromCanonical"/>
       </mapping>
     </element>
+    <element id="Requirements.imports">
+      <path value="Requirements.imports"/>
+      <short value="External requirements that apply here"/>
+      <definition value="Points to requirements defined elsewhere that have the same force as if they were defined in this instance."/>
+      <comment value="A given requirement should either appear here OR be listed as a derivedFrom in a statement, but not both.  I.e. you either include the referenced requirement unchanged or you include it in a qualified manner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.imports.reference">
+      <path value="Requirements.imports.reference"/>
+      <short value="Source of imported statements"/>
+      <definition value="The canonical for the Requirements resource to import statements from."/>
+      <min value="1"/>
+      <max value="1"/>
+      <isSummary value="true"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </type>
+    </element>
+    <element id="Requirements.imports.key">
+      <path value="Requirements.imports.key"/>
+      <short value="Statement key"/>
+      <definition value="The key of a statement to treat as part of the set of requirements defined in this instance."/>
+      <comment value="If no keys are specified, then the interpretation is that all statements in the referenced Requirements instance apply to this instance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
     <element id="Requirements.reference">
       <path value="Requirements.reference"/>
       <short value="External artifact (rule/document etc. that) created this set of requirements"/>
@@ -498,17 +536,34 @@
       <path value="Requirements.actor"/>
       <short value="Actor for these requirements"/>
       <definition value="An actor these requirements are in regard to."/>
-      <comment value="If more than one actor is specified, then it's up to the statements to describe in narrative if they don't apply to all actors."/>
+      <comment value="If more than one actor is specified, then it's up to the statements to explicitly identify the actors that are relevant if the statement doesn't apply to all actors."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
-      </type>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.who"/>
 			</mapping>
+    </element>
+    <element id="Requirements.actor.reference">
+      <path value="Requirements.actor.reference"/>
+      <short value="Actor referenced"/>
+      <definition value="The canonical for an actor relevant to some of the requirements."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+      </type>
+    </element>
+    <element id="Requirements.actor.key">
+      <path value="Requirements.actor.key"/>
+      <short value="Unique label for actor (used in statements)"/>
+      <definition value="A unique string used to reference the actor from specific requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
@@ -547,7 +602,7 @@
     </element>
     <element id="Requirements.statement.conformance">
       <path value="Requirements.statement.conformance"/>
-      <short value="SHALL | SHOULD | MAY | SHOULD-NOT"/>
+      <short value="SHALL | SHOULD | MAY | SHOULD-NOT | SHALL-NOT"/>
       <definition value="A short human usable label for this statement."/>
       <comment value="The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)"/>
       <requirements value="This element is allowed to repeat because a single requirements statement might contain multiple conformance words and thus need to be indexed under multiple conformance categories."/>
@@ -590,25 +645,61 @@
     </element>
     <element id="Requirements.statement.derivedFrom">
       <path value="Requirements.statement.derivedFrom"/>
-      <short value="Another statement this clarifies/restricts ([url#]key)"/>
-      <definition value="Another statement on one of the requirements that this requirement clarifies or restricts."/>
-      <comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. If there is more than one, it should be in the format ```url#key```"/>
+      <short value="Another statement this is refining, tightening, or establishing more context for"/>
+      <definition value="Indicates that this statement is refining, tightening, or establishing more context for the referenced requirement/statement."/>
+      <comment value="With derivedFrom, the scope of what is being accomplished is the same (as opposed to partOf, where the scope of what is being accomplished by the part is narrower). If only the key is populated, this means the statement derives from another sibling statement in the same Requirements resource. If both key and canonical are populated, this indicates the statement derives from an external Requirements resource. The `canonical` must point to one of the `Requirements.derivedFrom` values present in the current resource."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Requirements.statement.derivedFrom.reference">
+      <path value="Requirements.statement.derivedFrom.reference"/>
+      <short value="Pointer to Requirements instance"/>
+      <definition value="The canonical of the Requirements instance this statement is derivedFrom."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
     </element>
-    <element id="Requirements.statement.parent">
-      <path value="Requirements.statement.parent"/>
-      <short value="A larger requirement that this requirement helps to refine and enable"/>
-      <definition value="A larger requirement that this requirement helps to refine and enable."/>
-      <comment value="Follows the same convention as statement.derivedFrom, where a reference is the canonical of the Requirements followed by '#' and the 'key' of the specific requirement."/>
+    <element id="Requirements.statement.derivedFrom.key">
+      <path value="Requirements.statement.derivedFrom.key"/>
+      <short value="Key of referenced statement"/>
+      <definition value="The key, either within this resource or the specified Requirements resource this statement is derivedFrom."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.partOf">
+      <path value="Requirements.statement.partOf"/>
+      <short value="Higher-level requirement or statement which this is a logical sub-requirement of"/>
+      <definition value="Identifies a higher-level requirement or statement which this referencing statement is a logical sub-requirement of.  I.e. This statement is a necessary step to achieving the referenced requirement/statement."/>
+      <comment value="If only the key is populated, this is partOf a statement within the same Requirements resource. If both key and canonical are populated, this is partOf a statement in an external Requirements resource."/>
       <requirements value="Allows requirements to be organized compositionally. E.g. Epic/Story/Task."/>
       <min value="0"/>
       <max value="1"/>
+    </element>
+    <element id="Requirements.statement.partOf.reference">
+      <path value="Requirements.statement.partOf.reference"/>
+      <short value="Pointer to Requirements instance"/>
+      <definition value="The canonical of the Requirements instance this statement is a part of."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.partOf.key">
+      <path value="Requirements.statement.partOf.key"/>
+      <short value="Key of referenced statement"/>
+      <definition value="The key, either within this resource or the specified Requirements resource this statement is a part of."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
       </type>
     </element>
     <element id="Requirements.statement.satisfiedBy">
@@ -654,6 +745,23 @@
 				<identity value="w5"/>
 				<map value="FiveWs.source"/>
 			</mapping>
+    </element>
+    <element id="Requirements.statement.actor">
+      <path value="Requirements.statement.actor"/>
+      <short value="Key of relevant actor"/>
+      <definition value="A reference to the key of an actor listed in Requirements.actor that is relevant to this requirement statement."/>
+      <comment value="If not specified, all actors listed on the Requirements is presumed to be relevant to the statement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <constraint>
+        <key value="req-2"/>
+        <severity value="error"/>
+        <human value="Statement Actors must match a defined actor"/>
+        <expression value="$this in %resource.actor.key"/>
+      </constraint>      
     </element>
   </differential>
 </StructureDefinition>
