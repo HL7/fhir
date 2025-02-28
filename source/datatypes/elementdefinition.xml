@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2025-02-28T10:21:01Z</LastSaved>
+  <LastSaved>2025-02-28T12:20:19Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -4910,13 +4910,13 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">33</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">warning</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">If there's more than one bindable type, it's usually an error for there to be a binding</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">type.where(code in 'code' | 'Coding' | 'CodeableConcept' | 'CodeableReference' | 'uri' | 'string' | 'Quantity').count() &gt; 1 implies binding.empty()</Data></Cell>
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5062,11 +5062,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Zoom>226</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5074,7 +5075,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R29C8">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R30C8">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Search">
