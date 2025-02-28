@@ -1,6 +1,5 @@
 _language
 _query
-molecule_type
 excluded_structure
 _in
 _security
@@ -12,7 +11,6 @@ lifecycle
 subject_state
 included_structure
 _profile
-member_state
 _tag
 _has
 _source
