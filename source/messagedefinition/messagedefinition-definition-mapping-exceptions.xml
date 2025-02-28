@@ -55,12 +55,6 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Definition.experimental" resourcePath="MessageDefinition.experimental">
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
-            <resource value="A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-        </definitionUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Definition.date" resourcePath="MessageDefinition.date">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
     </divergentElement>

@@ -111,12 +111,12 @@
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="Requirements.experimental">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this requirements is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
-            <resource value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this requirements is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+            <resource value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Allows filtering of requirementss that are appropriate for use versus not."/>
-            <resource value="Allows filtering of Requirements that are appropriate for use versus not."/>
+            <resource value="Allows filtering of Requirements that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level requirements."/>
