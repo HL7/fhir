@@ -13,7 +13,9 @@
   <date value="2021-11-02T14:31:30.239Z"/>
   <description value="Example Requirements Set 2"/>
   <derivedFrom value="http://hl7.org/fhir/Requirements/example1"/>
-  <actor value="http://hl7.org/fhir/ActorDefinition/server"/>
+  <actor>
+    <reference value="http://hl7.org/fhir/ActorDefinition/server"/>
+  </actor>
   <statement>
     <key value="44595579-fa13-42a5-bd24-0515cde96963"/>
     <label value="requirement-B1"/>
