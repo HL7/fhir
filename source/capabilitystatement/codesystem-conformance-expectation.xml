@@ -38,16 +38,21 @@
   <concept>
     <code value="SHOULD"/>
     <display value="SHOULD"/>
-    <definition value="Support for the specified capability is strongly encouraged, and failure to support it should only occur after careful consideration."/>
+    <definition value="Support for the specified capability/requirement is strongly encouraged, and failure to support it should only occur after careful consideration."/>
   </concept>
   <concept>
     <code value="MAY"/>
     <display value="MAY"/>
-    <definition value="Support for the specified capability is not necessary to be considered conformant, and the requirement should be considered strictly optional."/>
+    <definition value="Support for the specified capability/requirement is not necessary to be considered conformant, and the requirement should be considered strictly optional."/>
   </concept>
   <concept>
     <code value="SHOULD-NOT"/>
     <display value="SHOULD-NOT"/>
-    <definition value="Support for the specified capability is strongly discouraged and should occur only after careful consideration."/>
+    <definition value="Support for the specified capability/requirement is strongly discouraged and should occur only after careful consideration."/>
+  </concept>
+  <concept>
+    <code value="SHALL-NOT"/>
+    <display value="SHALL-NOT"/>
+    <definition value="Support for the specified capability/requirement is prohibited and should not occur only in any circumstance."/>
   </concept>
 </CodeSystem>

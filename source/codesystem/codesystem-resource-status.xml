@@ -9,7 +9,7 @@
     <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="mnm"/>
+    <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/resource-status"/>
   <identifier>

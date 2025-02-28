@@ -308,7 +308,7 @@
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="The attribute for this product"/>
+        <documentation value="The attribute that this mapping depends on"/>
         <type value="uri"/>
       </part>
       <part>
@@ -316,7 +316,7 @@
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="The value for this product"/>
+        <documentation value="The value of the attribute that this mapping depends on"/>
         <type value="Element"/>
         <allowedType value="code"/>
         <allowedType value="Coding"/>

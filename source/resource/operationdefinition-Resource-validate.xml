@@ -108,6 +108,195 @@
     <type value="UsageContext"/>
   </parameter>
   <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="language"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="One or more language codes (W3C Language tags, with sub-tags). This has the same format as the HTTP accept header, and defaults to the value of the header"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="jurisdiction"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The jurisdiction is used for validating in some profiles where country specific bindings are defined. The default jurisdiction is at the discretion of the server. If you want to specify No jurisdiction, this is functionally equivalent to a jurisdiction of the 'the whole world', which is jurisdiction=uv"/>
+    <type value="code"/>
+    <binding> 
+      <strength value="extensible"/> 
+      <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/> 
+    </binding> 
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="hintAboutNonMustSupport"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="In some cases (e.g. when creating examples for implementation guides or when checking for potential interoperability issues with a new communication partner), it can be useful to know when data elements are present in an instance when those elements are not `mustSupport` in the profile(s) the instance is being validated against. Identifying situations where this occurs might drive a change to the profile or cause a designer to drop an element from the instance. In other cases, the presence of the element can be fine and the information message ignored."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="extension"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The extension parameter controls how extensions are validated. It allows extensions from the specified domain (by matching the URL for the extension), and also has the special values 'any' and 'none'. It is up to the server to choose default settings for this parameter"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="questionnaire"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Whether to validate the questionnaire in QuestionnaireResponse. Values: `none` - ignore, `check` - validate if a questionnaire is specified, and `require` - a questionnaire must be specified, and will be checked."/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="extensible-binding-warnings"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="When the validator encounters a code that is not part of an extensible binding, add a warning to suggest that the code be reviewed. This turns the warning on or off. It's up to the server to decide what the default is."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="display-issues-are-warnings"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Whether it's an error or just a warning when the validator encounters a coding or CodeableConcept where the display value isn't consistent with the display(s) defined by the code systems. It's up to the server to decide what the default is."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="unknown-codesystems-cause-errors"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Whether it's an error or just a warning when the validator encounters a unknown CodeSystem. It's up to the server to decide what the default is."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="level"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The minimum level to report issues - e.g. ignore hints and warnings. By default, all issues are returned"/>
+    <type value="code"/>
+    <binding> 
+      <strength value="required"/> 
+      <valueSet value="http://hl7.org/fhir/ValueSet/issue-severity"/> 
+    </binding> 
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="best-practice"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The level to treat best-practice invariants etc as. By default these are treated as warnings"/>
+    <type value="code"/>
+    <binding> 
+      <strength value="required"/> 
+      <valueSet value="http://hl7.org/fhir/ValueSet/issue-severity"/> 
+    </binding> 
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="current"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If this is true, additional bindings marked as 'current' will also be enforced"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="forPublication"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If this is true, additional validation regarding suitability for 'publishing' are also enforced. Note that HL7 defines a set of rules, but the meaning and use of 'publishing' is at the discretion of the server."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="html-in-markdown"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="What to do when HTML is found in markdown fields. Values = ignore, warning, and error. It's server discretion what the default is, and servers may choose to ignore turning this off (for security consideration reasons)"/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="no_unicode_bidi_control_chars"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Whether the existence of hidden bidi control characters is treated as a warning or an error. See [CVE-2021-42574](https://nvd.nist.gov/vuln/detail/CVE-2021-42574).  Server discretion for the default value, and servers can ignore this setting."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="verbose-mode"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Turns on verbose output, which servers may use to provide explanation of the validation process (e.g. slicing decisions)."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="allow-example-urls"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Allow references in resources to refer to example.org, which are understood to be example URLs. Server discretion for the default value"/>
+    <type value="boolean"/>
+  </parameter>
+
+  <parameter>
     <name value="return"/>
     <use value="out"/>
     <min value="1"/>
