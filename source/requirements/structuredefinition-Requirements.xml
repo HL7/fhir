@@ -82,6 +82,12 @@
         <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </constraint>
+      <constraint>
+        <key value="req-1"/>
+        <severity value="error"/>
+        <human value="Actor Keys must be unique"/>
+        <expression value="Requirements.actor.key.isDistinct()"/>
+      </constraint>      
       <mapping>
         <identity value="w5"/>
         <map value="conformance.content"/>
@@ -493,8 +499,8 @@
       <max value="*"/>
       <isSummary value="true"/>
     </element>
-    <element id="Requirements.imports.canonical">
-      <path value="Requirements.imports.canonical"/>
+    <element id="Requirements.imports.reference">
+      <path value="Requirements.imports.reference"/>
       <short value="Source of imported statements"/>
       <definition value="The canonical for the Requirements resource to import statements from."/>
       <min value="1"/>
@@ -530,17 +536,34 @@
       <path value="Requirements.actor"/>
       <short value="Actor for these requirements"/>
       <definition value="An actor these requirements are in regard to."/>
-      <comment value="If more than one actor is specified, then it's up to the statements to describe in narrative if they don't apply to all actors."/>
+      <comment value="If more than one actor is specified, then it's up to the statements to explicitly identify the actors that are relevant if the statement doesn't apply to all actors."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
-      </type>
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.who"/>
 			</mapping>
+    </element>
+    <element id="Requirements.actor.reference">
+      <path value="Requirements.actor.reference"/>
+      <short value="Actor referenced"/>
+      <definition value="The canonical for an actor relevant to some of the requirements."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+      </type>
+    </element>
+    <element id="Requirements.actor.key">
+      <path value="Requirements.actor.key"/>
+      <short value="Unique label for actor (used in statements)"/>
+      <definition value="A unique string used to reference the actor from specific requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
@@ -628,8 +651,8 @@
       <min value="0"/>
       <max value="1"/>
     </element>
-    <element id="Requirements.statement.derivedFrom.canonical">
-      <path value="Requirements.statement.derivedFrom.canonical"/>
+    <element id="Requirements.statement.derivedFrom.reference">
+      <path value="Requirements.statement.derivedFrom.reference"/>
       <short value="Pointer to Requirements instance"/>
       <definition value="The canonical of the Requirements instance this statement is derivedFrom."/>
       <min value="0"/>
@@ -658,8 +681,8 @@
       <min value="0"/>
       <max value="1"/>
     </element>
-    <element id="Requirements.statement.partOf.canonical">
-      <path value="Requirements.statement.partOf.canonical"/>
+    <element id="Requirements.statement.partOf.reference">
+      <path value="Requirements.statement.partOf.reference"/>
       <short value="Pointer to Requirements instance"/>
       <definition value="The canonical of the Requirements instance this statement is a part of."/>
       <min value="0"/>
@@ -722,6 +745,23 @@
 				<identity value="w5"/>
 				<map value="FiveWs.source"/>
 			</mapping>
+    </element>
+    <element id="Requirements.statement.actor">
+      <path value="Requirements.statement.actor"/>
+      <short value="Key of relevant actor"/>
+      <definition value="A reference to the key of an actor listed in Requirements.actor that is relevant to this requirement statement."/>
+      <comment value="If not specified, all actors listed on the Requirements is presumed to be relevant to the statement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <constraint>
+        <key value="req-2"/>
+        <severity value="error"/>
+        <human value="Statement Actors must match a defined actor"/>
+        <expression value="$this in %resource.actor.key"/>
+      </constraint>      
     </element>
   </differential>
 </StructureDefinition>
