@@ -263,6 +263,12 @@ How to resolve a reference in a Bundle:
     </ul></li>
     <li>Otherwise the resolution fails (and ends) here.</li>
   </ul>
+  <p><b>Resolving canonical references:</b>
+    <ul>
+      <li>If the canonical reference is version-specific, look for an entry with a matching URL and version.   If the canonical omits version, look for an entry with a matching URL and if there is more than one, find the most recent version based on the versionAlgorithm. </li>
+      <li>If there is exactly one, it's a match.  If there are no matches, then resolve as an external canonical as usual.  If there is more than one, it's an error.</li>
+    </ul>
+  <p>
   <p><b>Resolving other references.</b> If the rules above do not apply, the resolution fails (and
     ends) here. The reference has no defined meaning within this specification.</p>
   <p>Note that the rules for resolving references in contained resources are the same as those for
@@ -281,7 +287,12 @@ How to resolve a reference in a Bundle:
 There is an <a href="bundle-references.html">example Bundle that demonstrates</a> these rules.
 </p>
 
+<a name="graph-connected"></a>
+<h3>Graph-connected Bundles</h3>
 
+<p>
+Both <a href="messaging.html">FHIR messages</a> and <a href="documents.html">FHIR documents</a> have a requirement that all entries within the Bundle are interconnected.  This expectation means that all entries in the Bundle must produce a single graph of interconnected resources.  These connections might be via Reference, canonical, url, or "href" references within narrative.  Note that some references might be 'reverse' references, such as Provenances that point to resources within the Bundle.  These references are resolved as defined above.
+</p>
 
 <a name="rest"></a>
 <h3>Serving Bundles using the RESTful API</h3>
