@@ -692,11 +692,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Health Level Seven, Inc. - MnM WG</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Health Level Seven, Inc. - FHIR-I WG</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.reference</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/special/committees/MnM" ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/special/committees/MnM</Data></Cell>
+    <Cell ss:HRef="http://www.hl7.org/Special/committees/fiwg/index.cfm" ss:StyleID="s76"><Data ss:Type="String">http://www.hl7.org/Special/committees/fiwg/index.cfm</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>

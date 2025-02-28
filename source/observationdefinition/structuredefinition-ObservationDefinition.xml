@@ -249,9 +249,9 @@
 		</element>
 		<element id="ObservationDefinition.experimental">
 			<path value="ObservationDefinition.experimental"/>
-			<short value="If for testing purposes, not real usage"/>
+			<short value="If For testing only - never for real usage"/>
 			<definition value="A flag to indicate that this ObservationDefinition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of ObservationDefinition that are appropriate for use vs. not."/>
+			<comment value="Allows filtering of ObservationDefinition that are appropriate for use vs. not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
