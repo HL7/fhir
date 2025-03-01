@@ -90,6 +90,20 @@
 				<map value="conformance.behavior"/>
 			</mapping>
 		</element>
+		<element id="MetadataResource.usage">
+			<path value="MetadataResource.usage"/>
+			<short value="Describes the clinical usage of the {{title}}"/>
+			<definition value="A detailed description of how the {{title}} is used from a clinical/user perspective."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
 		<element id="MetadataResource.approvalDate">
 			<path value="MetadataResource.approvalDate"/>
 			<short value="When the {{title}} was approved by publisher"/>
