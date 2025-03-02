@@ -217,7 +217,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 <tr>
   <td>instant<a name="instant"></a></td>
   <td>An instant in time in a format that is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a timezone offset.
-    Actual timezone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
+    Actual timezone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.  Sub-millisecond precision is optionally allowed.
     Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
