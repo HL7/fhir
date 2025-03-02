@@ -748,7 +748,7 @@
       <path value="OperationDefinition.parameter.name"/>
       <short value="Name in Parameters.parameter.name or in URL"/>
       <definition value="The name of used to identify the parameter."/>
-      <comment value="This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore. Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers."/>
+      <comment value="This name must be a token (start with a letter in a..z or underscore and only contain letters, numerals, and underscore). Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers."/>
       <min value="1"/>
       <max value="1"/>
       <type>
