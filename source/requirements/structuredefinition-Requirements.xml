@@ -525,7 +525,7 @@
     <element id="Requirements.reference">
       <path value="Requirements.reference"/>
       <short value="External artifact (rule/document etc. that) created this set of requirements"/>
-      <definition value="A reference to another artifact that created this set of requirements. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
+      <definition value="A reference to another artifact that created this set of requirements. This could be a profile, etc., or external regulation, or business requirements expressed elsewhere. This URI is intended to point to a specific web page for an artifact, not a canonical URL.  If pointing to HL7 specifications, it is best to point to the version-specific URL."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -705,7 +705,7 @@
     <element id="Requirements.statement.satisfiedBy">
       <path value="Requirements.statement.satisfiedBy"/>
       <short value="Design artifact that satisfies this requirement"/>
-      <definition value="A reference to another artifact that satisfies this requirement. This could be a Profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
+      <definition value="A reference to another artifact that satisfies this requirement. This could be a profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
       <comment value="This is for use when the requirement is met be a pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
       <min value="0"/>
       <max value="*"/>
@@ -716,7 +716,7 @@
     <element id="Requirements.statement.reference">
       <path value="Requirements.statement.reference"/>
       <short value="External artifact (rule/document etc. that) created this requirement"/>
-      <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
+      <definition value="A reference to another artifact that created this requirement. This could be a profile, etc., or external regulation, or business requirements expressed elsewhere. This URI is intended to point to a specific web page for an artifact, not a canonical URL.  If pointing to HL7 specifications, it is best to point to the version-specific URL."/>
       <min value="0"/>
       <max value="*"/>
       <type>
