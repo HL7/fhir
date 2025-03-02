@@ -555,6 +555,23 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="OperationDefinition.synchronicity">
+      <path value="OperationDefinition.synchronicity"/>
+      <short value="synchronous | asynchronous | either"/>
+      <definition value="Indicates that this operation must always be handled as synchronous or asynchronous, or that the server must provide both options, and clients can choose."/>
+      <comment value="An operation derived from another must be consistent with regard to synchronicity - it cannot change from synchronous to asynchronous or vice versa, but it may choose one if synchronicity is either or not specified"/>
+      <meaningWhenMissing value="It is up to server discretion whether to accept a particular invocation of the operation as synchronous or asynchronous."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/synchronicity-control"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>
     <element id="OperationDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
