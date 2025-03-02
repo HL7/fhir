@@ -1106,17 +1106,18 @@
 			</example>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="MimeType"/>
+					<valueString value="SupplementedMimeType"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-				</extension>
 				<strength value="required"/>
-				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.operation.contentType">
@@ -1135,17 +1136,18 @@
 			</example>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="MimeType"/>
+					<valueString value="SupplementedMimeType"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-				</extension>
 				<strength value="required"/>
-				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.operation.destination">

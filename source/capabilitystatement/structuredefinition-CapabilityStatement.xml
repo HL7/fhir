@@ -689,7 +689,7 @@
 					<valueBoolean value="true"/>
 				</extension>
 				<strength value="required"/>
-				<description value="The mime type of an attachment. Any valid mime type is allowed, and also `json`, `xml`, and `ttl`."/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
 				<additional>
 					<purpose value="starter"/>
