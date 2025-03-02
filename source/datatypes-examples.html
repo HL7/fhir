@@ -2746,6 +2746,43 @@ RelativeTime
 <!--xlp:RelativeTime-->See also <a no-external="true" href="datatypes.html#RelativeTime">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
 
+<div class="example">
+  <p><b>Example</b></p>
+  <p>Start a treatment the day after surgery:</p>
+  [%example-start%]
+  <pre class="xml" fragment="RelativeTime">
+    &lt;contextCode&gt;
+      &lt;coding&gt;
+        &lt;system value="http://snomed.info/sct"/&gt;
+        &lt;code value="38102005"/&gt;
+        &lt;display value="Removal of gallbladder/&gt;
+      &lt;/coding&gt;
+    &lt;/contextCode&gt;
+    &lt;offsetDuration&gt;
+      &lt;value value="1"/&gt;
+      &lt;system value="http://unitsofmeasure.org"/&gt;
+      &lt;code value="d"/&gt;
+    &lt;/offsetDuration&gt;
+  </pre>
+  [%example-json%]
+  <pre class="json" fragment="ContactPoint">
+    "contextCode" : {
+      "coding" : [{
+        "system" : "http://snomed.info/sct",
+        "code" : "38102005",
+        "display" : "Removal of gallbladder"
+      }]
+    },
+    "offsetDuration" : {
+      "value" : 1,
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d"
+    }
+  </pre>
+  [%example-end%]
+  
+</div>
+  
 <a name="Signature"></a>
 <a name="signature"></a>
 <h3>
