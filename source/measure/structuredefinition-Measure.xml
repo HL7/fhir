@@ -761,6 +761,18 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Measure.reportingFrequency">
+      <path value="Measure.reportingFrequency"/>
+      <short value="The frequency in which this measure should be reported (e.g. 1 '/a' - yearly, 4 '/a' - quarterly)"/>
+      <definition value="The frequency that this measure should be reported, usually specified by the program it is being submitted to."/>
+			<comment value="Note that reporting frequency is often specified by the expectations of a quality program or initiative that is making use of the measure, rather than on the measure directly."/>
+      <requirements value="Allows the reporting frequency for the given program to be specified in the Measure itself."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
     <element id="Measure.topic">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="deprecated"/>
