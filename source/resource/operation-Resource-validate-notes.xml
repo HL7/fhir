@@ -1,0 +1,95 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Summary Table</h3>
+
+<p>
+This table presents a summary of the options for invoking the validate operation.
+</p>
+<table class="grid">
+<tr>
+ <th title="Resource Present in Parameters">Resource?</th>
+ <th title="Profile specified in Parameters">Profile?</th>
+ <th title="No mode parameter present">Mode = <i>Absent</i></th>
+ <th title="Mode parameter = 'profile'">Mode = <code>profile</code></th>
+ <th title="Mode parameter = 'create'">Mode = <code>create</code></th>
+ <th title="Mode parameter = 'update'">Mode = <code>update</code></th>
+ <th title="Mode parameter = 'delete'">Mode = <code>delete</code></th>
+</tr>
+<tr><td colspan="7" style="background-color: #dddddd"><b>When invoked at System/Type level (<code>/</code> or <code>/[ResourceType]</code>)</b></td></tr>
+<tr>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color:rgb(221, 255, 221)">Content (ignore profile)</td>
+ <td style="background-color:rgb(221, 255, 221)">Content+Profile</td>
+ <td style="background-color:rgb(221, 255, 221)">Content+Profile + Create Rules</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context)</td>
+</tr>
+<tr>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color:rgb(221, 255, 221)">Content</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no profile)</td>
+ <td style="background-color:rgb(221, 255, 221)">Content + Create Rules</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context)</td>
+</tr>
+<tr>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context/content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context/content)</td>
+</tr>
+<tr>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context/content)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no context/content)</td>
+</tr>
+<tr><td colspan="7" style="background-color: #dddddd"><b>When invoked at Resource level (<code>/[ResourceType]/[id]</code>)</b></td></tr>
+<tr>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (action mode needed)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (action mode needed)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (wrong context)</td>
+ <td style="background-color:rgb(221, 255, 221)">Content/By Profile + Update rules</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content allowed)</td>
+</tr>
+<tr>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (action mode needed)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (action mode needed)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (wrong context)</td>
+ <td style="background-color:rgb(221, 255, 221)">Content + Update rules</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content allowed)</td>
+</tr>
+<tr>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color: #eeeeee">Y</td>
+ <td style="background-color:rgb(221, 255, 221)">Existing Content (<s>Profile</s>)</td>
+ <td style="background-color:rgb(221, 255, 221)">Existing Content/By Profile</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (wrong context)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(221, 255, 221)">Delete Rules (<s>Profile</s>)</td>
+</tr>
+<tr>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color: #eeeeee">N</td>
+ <td style="background-color:rgb(221, 255, 221)">Existing Content</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no profile)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (wrong context)</td>
+ <td style="background-color:rgb(255, 222, 218)">Error (no content)</td>
+ <td style="background-color:rgb(221, 255, 221)">Delete Rules</td>
+</tr>
+</table>
+
+</div>
+</div>
