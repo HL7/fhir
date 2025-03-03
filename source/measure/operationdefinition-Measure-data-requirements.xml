@@ -65,7 +65,7 @@
   <parameter>
     <name value="periodStart"/>
     <use value="in"/>
-    <min value="1"/>
+    <min value="0"/>
     <max value="1"/>
     <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
     <type value="date"/>
@@ -73,7 +73,7 @@
   <parameter>
     <name value="periodEnd"/>
     <use value="in"/>
-    <min value="1"/>
+    <min value="0"/>
     <max value="1"/>
     <documentation value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
     <type value="date"/>
