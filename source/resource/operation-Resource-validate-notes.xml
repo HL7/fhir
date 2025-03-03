@@ -19,7 +19,7 @@ This table presents a summary of the options for invoking the validate operation
 <tr>
  <td style="background-color: #eeeeee">Y</td>
  <td style="background-color: #eeeeee">Y</td>
- <td style="background-color:rgb(221, 255, 221)">Content (ignore profile)</td>
+ <td style="background-color:rgb(221, 255, 221)">Content (<s>Profile</s>)</td>
  <td style="background-color:rgb(221, 255, 221)">Content+Profile</td>
  <td style="background-color:rgb(221, 255, 221)">Content+Profile + Create Rules</td>
  <td style="background-color:rgb(255, 222, 218)">Error (no context)</td>
