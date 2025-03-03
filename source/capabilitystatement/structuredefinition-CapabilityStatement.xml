@@ -414,6 +414,7 @@
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
 			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="CapabilityStatement.jurisdiction">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
