@@ -167,6 +167,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="CommunicationRequest.requester">
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who asks for the information to be shared"/>
@@ -192,7 +193,7 @@
     <divergentElement patternPath="Request.performer" resourcePath="CommunicationRequest.informationProvider">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="Reference(CareTeam)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Endpoint)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Endpoint,Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Who should share the information"/>
