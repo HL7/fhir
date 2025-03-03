@@ -642,6 +642,7 @@
 			<max value="1"/>
 			<type>
 				<code value="Resource"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
 			</type>
 			<isSummary value="true"/>
 		</element>
@@ -663,9 +664,9 @@
 				<valueCode value="trial-use"/>
 			</extension>
 			<path value="Bundle.issues"/>
-			<short value="Issues with the Bundle"/>
-			<definition value="Captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
-			<comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
+			<short value="OperationOutcome with issues about the Bundle"/>
+			<definition value="An OperationOutcome that captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
+			<comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries. Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
