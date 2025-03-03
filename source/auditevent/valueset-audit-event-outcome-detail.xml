@@ -40,7 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/audit-event-outcome-detail"/>
+      <system value="http://terminology.hl7.org/CodeSystem/operation-outcome"/>
     </include>
   </compose>
 </ValueSet>
