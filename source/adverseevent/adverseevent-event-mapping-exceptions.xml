@@ -138,7 +138,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="AdverseEvent.participant.actor">
-        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed adverse event"/>
             <resource value="Who was involved in the adverse event or the potential adverse event"/>
