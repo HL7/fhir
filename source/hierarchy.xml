@@ -13,7 +13,7 @@ signatures.html
        [- example]
       mappings
       -->
-<fhir> 
+<fhir>
   <page title="Home" note="(map + search) - focus on useful links" filename="index.html">
     <!-- indexing content, not owned by any particular module  (e.g. owned by the product director) -->
     <page title="Table of Contents" filename="toc.html" icon="index.png">
@@ -432,8 +432,7 @@ signatures.html
       <page type="resource" resource="ArtifactAssessment"/>
       <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
-	  <page type="resource" resource="EvidenceReport"/>
-	  <page type="resource" resource="Citation"/>
+      <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
@@ -443,7 +442,7 @@ signatures.html
       <page type="resource" resource="MeasureReport"/>
     </page>
 
-      <page title="Medication Definition" filename="medication-definition-module.html" icon="medication-icon-16.png">
+    <page title="Medication Definition" filename="medication-definition-module.html" icon="medication-icon-16.png">
       <page type="resource" resource="MedicinalProductDefinition"/>
       <page type="resource" resource="PackagedProductDefinition"/>
       <page type="resource" resource="RegulatedAdministrableProduct"/>
