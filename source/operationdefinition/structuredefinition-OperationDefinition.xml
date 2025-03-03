@@ -740,6 +740,13 @@
         <expression value="(use = 'out') implies searchType.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
+      <constraint> 
+        <key value="opd-8"/> 
+        <severity value="error"/> 
+        <human value="Min &lt;= Max"/> 
+        <expression value="(max = '*') or iif(max != '*', min &lt;= max.toInteger())"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/> 
+      </constraint> 
     </element>
     <element id="OperationDefinition.parameter.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -806,7 +813,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="unsignedInt"/>
       </type>
     </element>
     <element id="OperationDefinition.parameter.max">
@@ -818,6 +825,13 @@
       <type>
         <code value="string"/>
       </type>
+      <constraint> 
+        <key value="opd-9"/> 
+        <severity value="error"/> 
+        <human value="Max SHALL be a number or &quot;*&quot;"/> 
+        <expression value="empty() or ($this = '*') or (toInteger() &gt;= 0)"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/> 
+      </constraint> 
     </element>
     <element id="OperationDefinition.parameter.documentation">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">

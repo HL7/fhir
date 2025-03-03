@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2025-03-02T20:26:30Z</LastSaved>
+  <LastSaved>2025-03-03T01:45:25Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4581,7 +4581,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4921,14 +4920,15 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">34</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">best-practice</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">if there's a required binding with no usage, it should be the base binding</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">strength != 'required' implies additional.where(purpose = 'required' and usage.empty()).empty()</Data></Cell>
     <Cell ss:StyleID="s110"/>
+    <Cell><Data ss:Type="String">Authors are encouraged to but the max value set on the root, and provide other additional value sets as additional bindings</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5063,11 +5063,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>226</Zoom>
+   <Zoom>130</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>17</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

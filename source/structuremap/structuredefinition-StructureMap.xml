@@ -712,6 +712,13 @@
 				<code value="BackboneElement"/>
 			</type>
 			<isSummary value="true"/>
+      <constraint> 
+        <key value="smp-2"/> 
+        <severity value="error"/> 
+        <human value="Min &lt;= Max"/> 
+        <expression value="min.empty() or max.empty() or (max = '*') or iif(max != '*', min &lt;= max.toInteger())"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/StructureMap"/> 
+      </constraint> 
 		</element>
 		<element id="StructureMap.group.rule.source.context">
 			<path value="StructureMap.group.rule.source.context"/>
@@ -731,7 +738,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="unsignedInt"/>
 			</type>
 			<isSummary value="true"/>
 		</element>
@@ -745,6 +752,13 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
+      <constraint> 
+        <key value="smp-3"/> 
+        <severity value="error"/> 
+        <human value="Max SHALL be a number or &quot;*&quot;"/> 
+        <expression value="empty() or ($this = '*') or (toInteger() &gt;= 0)"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/StructureMap"/> 
+      </constraint> 
 		</element>
 		<element id="StructureMap.group.rule.source.type">
 			<path value="StructureMap.group.rule.source.type"/>
