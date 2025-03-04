@@ -401,6 +401,21 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
+		<element id="CapabilityStatement.actorDefinition">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.actorDefinition"/>
+			<short value="ActorDefinitions the CapabilityStatement supports"/>
+			<definition value="ActorDefinitions to describe the specific sets of functionality supported by (or that should be supported by) systems (via obligations)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
 		<element id="CapabilityStatement.jurisdiction">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="deprecated"/>
