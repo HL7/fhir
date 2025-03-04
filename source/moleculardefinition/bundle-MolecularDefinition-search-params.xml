@@ -62,18 +62,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MolecularDefinition-memberState"/>
+        <id value="MolecularDefinition-member"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularDefinition.memberState"/>
+          <valueString value="MolecularDefinition.member"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-memberState"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-member"/>
         <description value="Reference to the state of the molecular member"/>
-        <code value="member-state"/>
+        <code value="member"/>
         <type value="reference"/>
-        <expression value="MolecularDefinition.memberState"/>
+        <expression value="MolecularDefinition.member"/>
         <processingMode value="normal"/>
         <target value="MolecularDefinition"/>
       </SearchParameter>

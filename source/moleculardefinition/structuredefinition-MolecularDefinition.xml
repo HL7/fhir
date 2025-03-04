@@ -132,10 +132,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.memberState">
-      <path value="MolecularDefinition.memberState"/>
-      <short value="Reserved for future profiles (e.g., haplotype, genotype)"/>
-      <definition value="Reserved for future profiles (e.g., haplotype, genotype)."/>
+    <element id="MolecularDefinition.member">
+      <path value="MolecularDefinition.member"/>
+      <short value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)"/>
+      <definition value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
