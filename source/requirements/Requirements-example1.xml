@@ -12,7 +12,14 @@
   <status value="active"/>
   <date value="2021-11-02T14:31:30.239Z"/>
   <description value="Example Requirements Set 1"/>
-  <actor value="http://hl7.org/fhir/ActorDefinition/server"/>
+  <actor>
+    <reference value="http://hl7.org/fhir/ActorDefinition/server"/>
+    <key value="a1"/>
+  </actor>
+  <actor>
+    <reference value="http://hl7.org/fhir/ActorDefinition/broker"/>
+    <key value="a2"/>
+  </actor>
   <statement>
     <key value="req-1"/>
     <conformance value="SHALL"/>
@@ -21,6 +28,7 @@
     <source>
       <display value="Grahame Grieve"/>
     </source>
+    <actor value="a1"/>
   </statement>
   <statement>
     <key value="46f77dcd-d51e-4738-b61f-22506d0cb0ac"/>

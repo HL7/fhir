@@ -175,7 +175,7 @@
           <valueString value="ImplementationGuide.experimental"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImplementationGuide-experimental"/>
-        <description value="For testing purposes, not real usage"/>
+        <description value="For testing only - never for real usage"/>
         <code value="experimental"/>
         <type value="token"/>
         <expression value="ImplementationGuide.experimental"/>

@@ -78,8 +78,8 @@
   <differential>
     <element id="ExampleScenario">
       <path value="ExampleScenario"/>
-      <short value="Example of workflow instance"/>
-      <definition value="Example of workflow instance."/>
+      <short value="A computable description of a set of actors and the interactions between those actors"/>
+      <definition value="A computable description of the actors, interactions between those actors that would occur, and concrete examples of the data that would be exchanged in a specific hypothetical exchange, typically used to help demonstrate the interoperability expectations of a specification.  This resource is used to illustrate a specific time-based exchange, not to define in general terms how exchanges can/should occur."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -218,9 +218,9 @@
     </element>
     <element id="ExampleScenario.name">
       <path value="ExampleScenario.name"/>
-      <short value="To be removed?"/>
-      <definition value="Temporarily retained for tooling purposes."/>
-      <comment value="Not needed as code will never be generated from one of these"/>
+      <short value="Name for this example scenario (computer friendly)"/>
+      <definition value="A natural language name identifying the ExampleScenario. This name should be usable as an identifier for the resource by machine processing applications such as code generation."/>
+      <comment value="It is not expected that ExampleScenarios will be used to generate code, as they are only examples and not definitional.  However, this element is retained to remain compatible with the canonical resource interface.  Systems are free to omit populating the element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -278,9 +278,9 @@
     </element>
     <element id="ExampleScenario.experimental">
       <path value="ExampleScenario.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of example scenarios that are appropriate for use versus not."/>
+      <short value="For testing only - never for real usage"/>
+      <definition value="A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of example scenarios that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level example scenario."/>
       <min value="0"/>
       <max value="1"/>

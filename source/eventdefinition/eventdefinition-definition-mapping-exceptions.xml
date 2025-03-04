@@ -51,12 +51,6 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Definition.experimental" resourcePath="EventDefinition.experimental">
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this event definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-            <resource value="A Boolean value to indicate that this event definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-        </definitionUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="EventDefinition.subject[x]">
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
