@@ -216,7 +216,7 @@
 				<key value="sdf-5"/>
 				<severity value="error"/>
 				<human value="If the structure defines an extension then the structure must have context information"/>
-				<expression value="type != 'Extension' or derivation = 'specialization' or (context.exists())"/>
+				<expression value="type != 'Extension' or base != 'http://hl7.org/fhir/StructureDefinition/Extension' or derivation = 'specialization' or (context.exists())"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
 			</constraint>
 			<constraint>
@@ -282,7 +282,6 @@
 			<path value="StructureDefinition.identifier"/>
 			<short value="Additional identifier for the structure definition"/>
 			<definition value="A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this structure definition outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>

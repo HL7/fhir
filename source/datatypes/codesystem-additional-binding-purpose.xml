@@ -18,10 +18,20 @@
   </jurisdiction>  
   <caseSensitive value="true"/>
   <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired"/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="maximum"/>
     <display value="Maximum Binding"/>
-    <definition value="A required binding, for use when the binding strength is 'extensible' or 'preferred'"/>
+    <definition value="A required binding, for use when the binding strength is 'extensible' or 'preferred'. This is deprecated - it is equivalent to `required`"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="minimum"/>

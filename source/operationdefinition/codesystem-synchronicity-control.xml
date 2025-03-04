@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="synchronicity-control"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="6.0.0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/synchronicity-control"/>
+  <version value="6.0.0"/>
+  <name value="OperationSynchronicityControl"/>
+  <title value="Operation Synchronicity Control"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates that an operation must always be handled as synchronous or asynchronous, or that the server must provide both, and clients can choose"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/synchronicity-control"/>
+  <content value="complete"/>
+  <concept>
+    <code value="synchronous"/>
+    <display value="Synchronous"/>
+    <definition value="This operation is invoked synchronously"/>
+  </concept>
+  <concept>
+    <code value="asynchronous"/>
+    <display value="Asynchronous"/>
+    <definition value="This operation is invoked asynchronously."/>
+  </concept>
+  <concept>
+    <code value="either"/>
+    <display value="System"/>
+    <definition value="This operation can be invoked either synchronously or asynchronously."/>
+  </concept>
+</CodeSystem>

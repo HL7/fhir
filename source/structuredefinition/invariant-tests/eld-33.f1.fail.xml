@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/example"/>
+  <version value="2"/>
+  <name value="LipidProfileExample"/>
+  <status value="draft"/>
+  <fhirVersion value="6.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Observation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]"/>
+      <short value="Entire Report as issued"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/something"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

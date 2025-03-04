@@ -100,4 +100,24 @@
     <display value="Specimen"/>
     <definition value="Group contains Specimen resources."/>
   </concept>
+  <concept>
+    <code value="medication"/>
+    <display value="Medication"/>
+    <definition value="Group contains Medication resources."/>
+  </concept>
+  <concept>
+    <code value="substance"/>
+    <display value="Substance"/>
+    <definition value="Group contains Substance resources."/>
+  </concept>
+  <concept>
+    <code value="biologicallyDerivedProduct"/>
+    <display value="BiologicallyDerivedProduct"/>
+    <definition value="Group contains BiologicallyDerivedProduct resources."/>
+  </concept>
+  <concept>
+    <code value="nutritionProduct"/>
+    <display value="NutritionProduct"/>
+    <definition value="Group contains NutritionProduct resources."/>
+  </concept>
 </CodeSystem>

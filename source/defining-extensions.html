@@ -96,6 +96,24 @@ extension can be found on:
 <p>
 Extensions SHALL only be used on a target that appears in their context list.
 </p>
+<p><b>Notes</b></p>
+<ul>
+  <li>
+    A StructureDefinition.context.type of <code>element</code> means that the value can reference the root elements of resources and datatypes, 
+    which allows for extensions on the root of any structure that allows it (e.g., any DomainResource).
+  </li>
+  <li>
+    By convention, and for legacy reasons, a type of <code>element</code> and a expression of "<code>Element</code>" means that the extension
+    can appear on any element and also on any DomainResource.
+  </li>
+  <li>
+    For a context of 'only on resource root', a context with type of <code>element</code> and expression of <code>DomainResource</code> can be used for
+    all resources, or a specific resource can be specified (e.g., <code>element</code> and expression of <code>Patient</code>).
+  </li>
+  <li>
+    If it is required to say 'all elements except the root', the type would be <code>fhirpath</code> and the expression would be a FHIRPath expression.
+  </li>
+</ul>
 
 <a name="cardinality"></a>
 <h3>Cardinality</h3>

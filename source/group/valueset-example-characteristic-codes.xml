@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="example-characteristic-codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/example-characteristic-codes"/>
+  <version value="1.0.0"/>
+  <name value="ExampleCharacteristicCodes"/>
+  <title value="Example Characterist ic Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-03-03"/>
+  <publisher value="HL7 FHIR Project"/>
+  <description value="This value set contains an example set of LOINC codes that might be used to define common characteristics for grouping individuals in FHIR Group resources."/>
+ <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/> 
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="76691-5"/>
+        <display value="Gender identity"/>
+      </concept>
+      <concept>
+        <code value="76689-9"/>
+        <display value="Sex assigned at birth"/>
+      </concept>
+      <concept>
+        <code value="21112-8"/>
+        <display value="Birth date"/>
+      </concept>
+      <concept>
+        <code value="46463-6"/>
+        <display value="Race or ethnicity"/>
+      </concept>
+      <concept>
+        <code value="45402-5"/>
+        <display value="Primary language"/>
+      </concept>
+      <concept>
+        <code value="71802-3"/>
+        <display value="Housing status"/>
+      </concept>
+      <concept>
+        <code value="8302-2"/>
+        <display value="Body height"/>
+      </concept>
+      <concept>
+        <code value="29463-7"/>
+        <display value="Body weight"/>
+      </concept>
+      <concept>
+        <code value="39156-5"/>
+        <display value="BMI (Body Mass Index)"/>
+      </concept>
+      <concept>
+        <code value="8480-6"/>
+        <display value="Systolic blood pressure"/>
+      </concept>
+      <concept>
+        <code value="8462-4"/>
+        <display value="Diastolic blood pressure"/>
+      </concept>
+      <concept>
+        <code value="15074-8"/>
+        <display value="Glucose [Moles/volume] in Blood"/>
+      </concept>
+      <concept>
+        <code value="2085-9"/>
+        <display value="HDL Cholesterol"/>
+      </concept>
+      <concept>
+        <code value="4548-4"/>
+        <display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+      </concept>
+      <concept>
+        <code value="75323-6"/>
+        <display value="Condition status"/>
+      </concept>
+      <concept>
+        <code value="55758-7"/>
+        <display value="Diabetes status"/>
+      </concept>
+      <concept>
+        <code value="45701-0"/>
+        <display value="Smoking status"/>
+      </concept>
+      <concept>
+        <code value="68518-0"/>
+        <display value="Pregnancy status"/>
+      </concept>
+      <concept>
+        <code value="74468-0"/>
+        <display value="Vaccination status"/>
+      </concept>
+      <concept>
+        <code value="38208-5"/>
+        <display value="Risk assessment cardiovascular disease"/>
+      </concept>
+      <concept>
+        <code value="79423-0"/>
+        <display value="Cardiovascular disease risk score"/>
+      </concept>
+      <concept>
+        <code value="75640-3"/>
+        <display value="Fall risk assessment"/>
+      </concept>
+      <concept>
+        <code value="10160-0"/>
+        <display value="Medication use"/>
+      </concept>
+      <concept>
+        <code value="45260-7"/>
+        <display value="Medication compliance"/>
+      </concept>
+      <concept>
+        <code value="68358-1"/>
+        <display value="Date chronic dialysis began"/>
+      </concept>
+      <concept>
+        <code value="77301-0"/>
+        <display value="Activities of daily living assessment"/>
+      </concept>
+      <concept>
+        <code value="77160-0"/>
+        <display value="Functional outcome score GOSE"/>
+      </concept>
+      <concept>
+        <code value="72133-2"/>
+        <display value="Montreal Cognitive Assessment [MoCA]"/>
+      </concept>
+      <concept>
+        <code value="95023-8"/>
+        <display value="FASI v1.0 - Mobility [CMS Assessment]"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
