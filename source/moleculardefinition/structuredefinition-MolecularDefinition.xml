@@ -134,8 +134,8 @@
     </element>
     <element id="MolecularDefinition.memberState">
       <path value="MolecularDefinition.memberState"/>
-      <short value="Reserved for future profiles (e.g., haplotype, genotype)"/>
-      <definition value="Reserved for future profiles (e.g., haplotype, genotype)."/>
+      <short value="Members of a non contiguous genomic concept (e.g., haplotype, genotype)"/>
+      <definition value="To include members of a genomic concept that are not contigous (e.g., haplotype, genotype)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
