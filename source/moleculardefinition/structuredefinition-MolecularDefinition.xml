@@ -132,7 +132,7 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.memberState">
+    <element id="MolecularDefinition.member">
       <path value="MolecularDefinition.memberState"/>
       <short value="Members of a non contiguous genomic concept (e.g., haplotype, genotype)"/>
       <definition value="To include members of a genomic concept that are not contigous (e.g., haplotype, genotype)."/>
