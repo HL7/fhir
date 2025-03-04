@@ -2,128 +2,128 @@
 
 [%settitle Messaging using FHIR Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  [%file newheader%]
-  <style>
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
+  <head>
+    [%file newheader%]
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
 
-    th,
-    td {
-      padding: 5px;
-    }
+      th,
+      td {
+        padding: 5px;
+      }
 
-    table tr:nth-child(even) {
-      background-color: #eee;
-    }
+      table tr:nth-child(even) {
+        background-color: #eee;
+      }
 
-    table tr:nth-child(odd) {
-      background-color: #fff;
-    }
+      table tr:nth-child(odd) {
+        background-color: #fff;
+      }
 
-    table th {
-      background-color: black;
-      color: white;
-    }
-  </style>
-</head>
+      table th {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
 
-<body>
-[%file newnavbar%]
+  <body>
+    [%file newnavbar%]
 
-<h2>Genomics in FHIR</h2>
-<table class="colstu">
-  <tr>
-    <td id="wg">
-      <a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> Work Group
-    </td>
-    <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td>
-    <td id="ballot">
-      <a href="versions.html#std-process">Standards Status</a>:
-      <!--!ns!--><a href="versions.html#std-process">Trial Use</a>
-    </td>
-  </tr>
-</table>
-<p>
-  The era of precision medicine-- an emerging approach for disease treatment
-  and prevention that takes into account individual variability in genes,
-  environment, and lifestyle for each person-- is upon us.
-</p>
-<p>
-  Precision medicine is fueled by the amazing technological advancements in
-  genomics, making it possible (and feasible) to undertake broad genetic
-  testing on an individual in a clinically useful timeframe. Whereas not so
-  long ago genomics was primarily of concern to bioinformaticists
-  interacting with such artifacts as alignment (e.g. BAM, CRAM) and variant
-  calling (e.g. VCF) data files, we are now seeing tremendous interest
-  across the clinical community for integrating genomics findings and
-  recommendations into the EHR and into the care process. To that end, the
-  HL7 Clinical Genomics Work Group is developing a set of standards for
-  reporting structured genomic data using FHIR.
-</p>
-<p>
-  An individual's genetic data set is large and complex, and therefore
-  requires systems that can manage the size and make sense of the
-  complexity. Unfortunately, due to a lack of widely adopted standards,
-  these systems are often incompatible. A standards-based approach to data
-  exchange that could be adopted to integrate both genetic data and clinical
-  information systems will be crucial to accelerating the integration of
-  precision medicine and to make sense of genetic testing results in a
-  complete clinical context.
-</p>
-<p>
-  The
-  <a href="https://confluence.hl7.org/display/CGW">
-    Clinical Genomics Work Group
-  </a>
-  supports the HL7 mission to create and promote its standards by enabling
-  the semantically meaningful exchange of data between parties interested in
-  clinical, personal, and population genomic information and family health
-  history, which are required to support precision medicine. The committee's
-  work products include:
-</p>
-<ul>
-  <li>
+    <h2>Genomics in FHIR</h2>
+    <table class="colstu">
+      <tr>
+        <td id="wg">
+          <a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> Work Group
+        </td>
+        <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td>
+        <td id="ballot">
+          <a href="versions.html#std-process">Standards Status</a>:
+          <!--!ns!--><a href="versions.html#std-process">Trial Use</a>
+        </td>
+      </tr>
+    </table>
     <p>
-      <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">
-        Genomics Reporting
+      The era of precision medicine-- an emerging approach for disease treatment
+      and prevention that takes into account individual variability in genes,
+      environment, and lifestyle for each person-- is upon us.
+    </p>
+    <p>
+      Precision medicine is fueled by the amazing technological advancements in
+      genomics, making it possible (and feasible) to undertake broad genetic
+      testing on an individual in a clinically useful timeframe. Whereas not so
+      long ago genomics was primarily of concern to bioinformaticists
+      interacting with such artifacts as alignment (e.g. BAM, CRAM) and variant
+      calling (e.g. VCF) data files, we are now seeing tremendous interest
+      across the clinical community for integrating genomics findings and
+      recommendations into the EHR and into the care process. To that end, the
+      HL7 Clinical Genomics Work Group is developing a set of standards for
+      reporting structured genomic data using FHIR.
+    </p>
+    <p>
+      An individual's genetic data set is large and complex, and therefore
+      requires systems that can manage the size and make sense of the
+      complexity. Unfortunately, due to a lack of widely adopted standards,
+      these systems are often incompatible. A standards-based approach to data
+      exchange that could be adopted to integrate both genetic data and clinical
+      information systems will be crucial to accelerating the integration of
+      precision medicine and to make sense of genetic testing results in a
+      complete clinical context.
+    </p>
+    <p>
+      The
+      <a href="https://confluence.hl7.org/display/CGW">
+        Clinical Genomics Work Group
       </a>
-      Implementation Guide: Standardizes the reporting of genomic variants,
-      haplotypes, genotypes, variant annotations, and more.
+      supports the HL7 mission to create and promote its standards by enabling
+      the semantically meaningful exchange of data between parties interested in
+      clinical, personal, and population genomic information and family health
+      history, which are required to support precision medicine. The committee's
+      work products include:
     </p>
-  </li>
-  <li>
-    <p>
-      <a href="moleculardefinition.html">MolecularDefinition</a> Resource: The MolecularDefinition
-      resource represents molecular entities (e.g., nucleotide or protein sequences) for both
-      clinical and non-clinical use cases, including translational research. The resource is
-      definitional, in that it focuses on discrete, computable, and semantically expressive data
-      structures that reflect the genomic domain. Because the resource focuses on the molecular
-      entities rather than specimen source or annotated knowledge, it supports both
-      patient/participant-specific use cases and population-based data, and both human and non-human
-      data.
-    </p>
-  </li>
-  <li>
-    <p>
+    <ul>
+      <li>
+        <p>
+          <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">
+            Genomics Reporting
+          </a>
+          Implementation Guide: Standardizes the reporting of genomic variants,
+          haplotypes, genotypes, variant annotations, and more.
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="moleculardefinition.html">MolecularDefinition</a> Resource: The MolecularDefinition
+          resource represents molecular entities (e.g., nucleotide or protein sequences) for both
+          clinical and non-clinical use cases, including translational research. The resource is
+          definitional, in that it focuses on discrete, computable, and semantically expressive data
+          structures that reflect the genomic domain. Because the resource focuses on the molecular
+          entities rather than specimen source or annotated knowledge, it supports both
+          patient/participant-specific use cases and population-based data, and both human and non-human
+          data.
+        </p>
+      </li>
+      <li>
+        <p>
           <a href="genomicstudy.html">GenomicStudy</a> Resource: A resource that aims at delineating relevant information of a genomic study. 
-      A genomic study might comprise one or more analyses, each serving a specific purpose.
+          A genomic study might comprise one or more analyses, each serving a specific purpose.
           These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Uses of these FHIR artifacts and other genomic use cases can be found
+      <a
+        href="https://confluence.hl7.org/display/CGW/Clinical+Genomics+on+FHIR"
+      >
+        here
+      </a>
     </p>
-  </li>
-</ul>
-<p>
-  Uses of these FHIR artifacts and other genomic use cases can be found
-  <a
-      href="https://confluence.hl7.org/display/CGW/Clinical+Genomics+on+FHIR"
-  >
-    here
-  </a>
-</p>
-[%file newfooter%]
-</body>
+    [%file newfooter%]
+  </body>
 </html>
