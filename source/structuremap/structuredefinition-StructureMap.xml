@@ -850,7 +850,6 @@
 			<path value="StructureMap.group.rule.source.logMessage"/>
 			<short value="Message to put in log if source exists (FHIRPath)"/>
 			<definition value="A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found."/>
-			<comment value="This is typically used for recording that something Is not transformed to the target for some reason."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

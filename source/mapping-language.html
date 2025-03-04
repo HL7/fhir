@@ -375,12 +375,19 @@ context.element {: type} {min..max} {default ([value])} { list-option } as varia
  <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
  <li><b>where ([condition])</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
  <li><b>check ([condition])</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine raises an error. Note: it is usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
+ <li><b>log ([condition])</b>: a FHIRPath expression that is evaluated to a string on the context. If the expression returns a non-empty result, the content is written into the application log</li>
 </ul>
 <p>
 If there are multiple source statements, the rule applies for the permutation of the source elements from each source statement. 
 E.g. if there are 2 source statements, each with 2 matching elements, the rule applies 4 times, one for each combination. 
 Typically, if there is more than one source statement, only one of the elements would repeat. If any of the source data elements
 have no value, then the rule never applies; only existing permutations are executed: for multiple source statements, all of them need to match.
+</p>
+<p>
+The <code>where</code>, <code>check</code> and <code>log</code> statements are executed in order; <code>where</code> first of all filters 
+the full source list, then <code>check</code> checks that what passed the filter meets the author's expectations, and finally 
+<code>log</code> writes what has passed the checks to the application log. Note that the aliases are mapped prior to 
+running these FHIRPath statements, so that the individual items being transformed can be tested or logged correctly.
 </p>
 <div class="example">
 <p><b>Example</b></p>
