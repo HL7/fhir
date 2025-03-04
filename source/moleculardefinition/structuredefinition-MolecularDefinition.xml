@@ -133,7 +133,7 @@
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.member">
-      <path value="MolecularDefinition.memberState"/>
+      <path value="MolecularDefinition.member"/>
       <short value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)"/>
       <definition value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)"/>
       <min value="0"/>
