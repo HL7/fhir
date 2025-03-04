@@ -555,6 +555,7 @@
       <comment value="Within a `.rule` all repetitions of the `.limit` all apply to the rule. That is to say if there are multiple limits, and the rule permits the activity, then all the identified limits are applied to that authorized activity."/>
       <min value="0"/>
       <max value="*"/>
+      <condition value="per-1" />
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -566,7 +567,6 @@
       <definition value="One or more coded restriction such as a refrain or obligation."/>
       <min value="0"/>
       <max value="*"/>
-      <condition value="per-1" />
       <type>
         <code value="CodeableConcept"/>
       </type>
