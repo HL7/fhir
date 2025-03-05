@@ -514,8 +514,8 @@
     </element>
     <element id="MolecularDefinition.location.featureLocation">
       <path value="MolecularDefinition.location.featureLocation"/>
-      <short value="Reserved and possibly deprecated"/>
-      <definition value="Reserved and possibly deprecated."/>
+      <short value="Description of the genomic features where this molecule locates, e.g., specific gene name, regulatory regions, or general feature descriptors"/>
+      <definition value="Describes the genomic features where this molecule locates, e.g., specific gene name, regulatory regions, or general feature descriptor. This attribute helps in two main use cases: first, describes the rough location in terms of a feature/biological function if the coordinate or chromosome-based locations are not available; and second, to complement the exact location by describing its associated biological features. HGNC identifiers, Sequence Ontology (SO) terms, or other code systems may be used as values. For example, decedents of SO term biological_region (SO:0001411) may be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
