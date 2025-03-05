@@ -37,8 +37,8 @@
                             <text value="1-based character counting"/>
                         </system>
                     </coordinateSystem>
-                    <start value="31"/>
-                    <end value="31"/>
+                    <startQuantity value="31"/>
+                    <endQuantity value="31"/>
                 </coordinateInterval>
 
                 <replacementMolecule>
