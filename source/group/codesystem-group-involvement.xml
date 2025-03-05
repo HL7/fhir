@@ -74,6 +74,34 @@
   </concept>
 
   <concept>
+    <code value="primary-contact"/>
+    <display value="Primary Contact"/>
+    <definition value="Patient is included in the list on the grounds of being the primary contact point for a family, household, workplace, etc."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="family"/>
+    </property>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="workplace"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="family-member"/>
+    <display value="Family Member"/>
+    <definition value="Patient is included in the list on the grounds of being a family member in a family group. See [Relationships inside the group](group.html#relationships) for more detailed family relationships."/>
+    <property>
+      <code value="group-type"/>
+      <valueCode value="household"/>
+    </property>
+  </concept>
+
+  <concept>
     <code value="owner"/>
     <display value="Owner"/>
     <definition value="Household member is a legally / officially registered owner of the dwelling that contains the household. Or at least, considers themselves the rightful owner."/>

@@ -178,6 +178,43 @@
       <ifMatch value="W/&quot;2&quot;"/>
     </request>
   </entry>
+  <!-- a provenance reference -->
+  <entry>
+    <fullUrl value="urn:uuid:f6240915-8e9f-4e21-ac6d-ea68ff6b90eb"/>
+    <resource>
+      <Provenance>
+        <target>
+          <!-- the client doesn't and can't know what versions will be assigned, nor can 
+             it know what id will be assigned to the first two of these resources, so it 
+             cannot provide version specific references. What it can do is ask for these
+             references to be made version specific by the server 
+          -->
+          <extension url="http://hl7.org/fhir/StructureDefinition/resolve-as-version-specific">
+            <valueBoolean value="true"/>
+          </extension>
+          <reference value="urn:uuid:88f151c0-a954-468a-88bd-5ae15c08e059"/>
+        </target>
+        <target>
+          <extension url="http://hl7.org/fhir/StructureDefinition/resolve-as-version-specific">
+            <valueBoolean value="true"/>
+          </extension>
+          <reference value="http://example.org/fhir/Patient/123a"/>
+        </target>
+        <activity>
+          <text value="data entry"/>
+        </activity>
+        <agent>
+          <who>
+            <display value="Clerical Staff"/>
+          </who>
+        </agent>
+      </Provenance>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Provenance"/>
+    </request>
+  </entry>
   <entry>
   <!--  a simple delete operation  -->
   <!--  no resource in this case  -->
