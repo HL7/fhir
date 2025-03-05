@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="fhirpath-patch"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/fhirpath-patch"/>
+  <version value="6.0.0"/>
+  <name value="FHIRPathPatchProfile"/>
+  <title value="FHIRPath Patch Profile"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2019-06-06"/>
+  <publisher value="Health Level Seven, Inc / FHIR-Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/fiwg"/>
+    </telecom>
+  </contact>
+  <description value="Describes the valid use of a Parameters resource for a FHIRPath"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <fhirVersion value="6.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Parameters"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter"/>
+      <short value="One root level parameter for each patch operation"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="name"/>
+        </discriminator>
+        <description value="one slice for each parameter, discriminated by name. Parameter order is not important. Extension parameters are not allowed"/>
+        <ordered value="false"/>
+        <rules value="closed"/>
+      </slicing>
+      <short value="Each parameter to the operation is a part. See documentation for rules about which parts are required"/>
+      <min value="1"/>
+      <max value="7"/>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="type"/>
+      <short value="Operation to perform: add | insert | delete | replace | move"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="type"/>
+    </element>
+    <element id="Parameters.parameter.part.valueCode">
+      <path value="Parameters.parameter.part.valueCode"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/patch-operation"/>
+      </binding>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="path"/>
+      <short value="Path - where to perform the operation"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="path"/>
+    </element>
+    <element id="Parameters.parameter.part.valueString">
+      <path value="Parameters.parameter.part.valueString"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="name"/>
+      <short value="name of the property to add (add operation only)"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="name"/>
+    </element>
+    <element id="Parameters.parameter.part.valueString">
+      <path value="Parameters.parameter.part.valueString"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="value"/>
+      <short value="Value to add (or replace) - any valid datatype"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="value"/>
+    </element>
+    <element id="Parameters.parameter.part.value[x]">
+      <path value="Parameters.parameter.part.value[x]"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="index"/>
+      <short value="Index at which insert (insert operation only)"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="index"/>
+    </element>
+    <element id="Parameters.parameter.part.valueInteger">
+      <path value="Parameters.parameter.part.valueInteger"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="source"/>
+      <short value="List index to move from (move operation only)"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="source"/>
+    </element>
+    <element id="Parameters.parameter.part.valueInteger">
+      <path value="Parameters.parameter.part.valueInteger"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part"/>
+      <sliceName value="destination"/>
+      <short value="List index to move to (move operation only)"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Parameters.parameter.part.name">
+      <path value="Parameters.parameter.part.name"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedString value="destination"/>
+    </element>
+    <element id="Parameters.parameter.part.valueInteger">
+      <path value="Parameters.parameter.part.valueInteger"/>
+      <short value=""/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+
+
+  </differential>
+</StructureDefinition>

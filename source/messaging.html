@@ -34,9 +34,11 @@ Messages are <a href="bundle.html">Bundle</a> resources, with the following rule
      This can be computably defined by a <a href="messagedefinition.html">MessageDefinition</a> resource 
      or a <a href="operationdefinition.html">OperationDefinition</a> resource 
      </li>
-  <li>The bundle SHALL NOT include resources that do have references 
-    (by <a href="references.html#Reference">Reference</a> or <a href="references.html#canonical">canonical</a> links) 
-    to the <code>MessageHeader</code>
+  <li>
+    The bundle SHALL NOT include resources that are not part of a connected graph of RESTful references 
+    (i.e. using <a href="references.html#Reference">Reference.reference</a>, <a href="references.html#canonical">canonical</a> 
+    or a <a href="datatypes.html#uri">URI</a>) that includes the <code>MessageHeader</code>; 
+    I.e. It must be possible to traverse the references between resources in such a way that all resources are linked.
   </li>
 </ul>  
 <p>
