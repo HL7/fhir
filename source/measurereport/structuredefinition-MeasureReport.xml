@@ -103,7 +103,6 @@
       <path value="MeasureReport.identifier"/>
       <short value="Additional identifier for the MeasureReport"/>
       <definition value="A formal identifier that is used to identify this MeasureReport when it is represented in other formats or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
       <max value="*"/>

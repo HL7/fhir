@@ -38,9 +38,6 @@
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/group-involvement"/>
     </include>
-    <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-FamilyMember"/>
-    </include>
   </compose>
 </ValueSet>
 
