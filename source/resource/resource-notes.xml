@@ -15,50 +15,58 @@ There are two different ways to identify a resource:
 <h3>Logical ID</h3>
 
 <p>
-Each resource has an <code>id</code> element which contains the "logical id" of the resource
-assigned by the server responsible for storing it. Resources always have a known logical id
-except for a few special cases (e.g. when a new resource is being sent to a server to assign
-a logical id in the <a href="http.html#create">create interaction</a>).
-The logical id is unique within the space of all resources of the same type on
-the same server. Once assigned by the server, the id is never changed.
+Each resource has an <code>id</code> element which contains the "logical id" of the resource 
+assigned by the server responsible for storing it. Resources almost always have a known logical id 
+except for a few special cases:
+</p>
+<ul>
+  <li>when a new resource is being sent to a server to assign a logical id in the <a href="http.html#create">create interaction</a></li>
+  <li>A search response or history response Bundle</li>
+  <li>Any resource (including Parameters) passed as input to an operation that was created purely for use as operation input and is not retained/persisted by the operation invoker</li>
+  <li>Any resource (including Parameters) received as output from an operation that was generated as part of performing the operation and is not retained/persisted by the operation performer.</li>
+  <li>A resource created for exchange outside the RESTful context (e.g. a document sent by email or FTP), including some types of messaging exchanges.</li>
+</ul>
+<p>
+The logical id is unique within the space of all resources of the same type on 
+the same server. Once assigned by the server, the id is never changed. 
 </p>
 <p>
-The location of a resource instance is an absolute URI constructed from the server
-base address at which the instance is found, the resource type and the Logical ID, such as
-http://test.fhir.org/r5/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).
-When the location is an HTTP address, this address can generally be used to retrieve or manipulate the resource.
-Note that implementations SHOULD NOT assume that the location of a resource is always resolvable
-to an accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some
-cases, it might not actually exist (e.g. use of resource outside a RESTful environment).
-Resources reference each other by their location. These references are allowed to be absolute
+The location of a resource instance is an absolute URI constructed from the server 
+base address at which the instance is found, the resource type and the Logical ID, such as 
+http://test.fhir.org/r5/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
+When the location is an HTTP address, this address can generally be used to retrieve or manipulate the resource. 
+Note that implementations SHOULD NOT assume that the location of a resource is always resolvable 
+to an accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
+cases, it might not actually exist (e.g. use of resource outside a RESTful environment). 
+Resources reference each other by their location. These references are allowed to be absolute 
 or relative (see <a href="references.html">Resource References</a> for further discussion).
 </p>
 <p>
 When a resource is copied from one server to another server, the copy might or might not keep
-the same logical id on the new server. This depends on replication and server policy. For further details,
+the same logical id on the new server. This depends on replication and server policy. For further details, 
 see <a href="managing.html">Managing Resource Identity</a> (including "Consistent Resource Identification").
 </p>
 <p>
-Logical ids (and therefore locations) are case sensitive. Logical Ids are always
-opaque, and external systems need not and should not attempt to determine their internal
-structure. A logical id SHALL always be represented in the same way in resource references
-and URLs. Ids can be up to 64 characters long, and contain any combination of upper and
-lowercase ASCII letters, numerals, "-" and ".".
+Logical ids (and therefore locations) are case sensitive. Logical Ids are always 
+opaque, and external systems need not and should not attempt to determine their internal 
+structure. A logical id SHALL always be represented in the same way in resource references 
+and URLs. Ids can be up to 64 characters long, and contain any combination of upper and 
+lowercase ASCII letters, numerals, "-" and ".". 
 </p>
 <p>
 In some contexts, resources are not associated with location on a RESTful server, either
-because they are only created transiently for transfer between systems, or the systems
-are not using RESTful servers. In these cases, resources may be assigned some kind of
+because they are only created transiently for transfer between systems, or the systems 
+are not using RESTful servers. In these cases, resources may be assigned some kind of 
 location anyway, for purposes of consistency, or they might not have an assigned logical
-id, and they are identified based on other kinds of identifiers. See
-<a href="bundle.html#references">Resolving references in Bundles</a> for one method
+id, and they are identified based on other kinds of identifiers. See 
+<a href="bundle.html#references">Resolving references in Bundles</a> for one method 
 of using resources not associated with RESTful servers.
 </p>
 
 <a name="identifier-categories"></a>
 <h4>Identifier Categories</h4>
 <p>
-In general, identifiers are sometimes categorised into one of three
+In general, identifiers are sometimes categorised into one of three 
 categories: Business, informational, and instance.
 </p>
 <ul>
@@ -67,65 +75,65 @@ categories: Business, informational, and instance.
  <li>an <b>instance identifier</b>, guaranteed to be unique for any distinguishable instance of each logical informational entity (i.e. doesn't change for exact copies, but does change as soon as changes are made)</li>
 </ul>
 <p>
-In these terms, the <code>logical id</code> is an instance identifier, and all the other
-identifiers are loosely called "business" identifiers. Note that due to real-world practices
-around IDs, business identifiers are often used to identify things by proxy e.g. identifying
+In these terms, the <code>logical id</code> is an instance identifier, and all the other 
+identifiers are loosely called "business" identifiers. Note that due to real-world practices 
+around IDs, business identifiers are often used to identify things by proxy e.g. identifying 
 multiple different patient records for the same person by the same driver's license number.
 </p>
 
 <a name="identifiers"></a>
 <h4>"Business" Identifiers</h4>
 <p>
-Although the logical id of a resource changes as it moves from server to server, all copies
-of the resource refer to the same underlying concept, and this concept may also be represented
+Although the logical id of a resource changes as it moves from server to server, all copies 
+of the resource refer to the same underlying concept, and this concept may also be represented 
 in other formats (variously, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>,
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, XDS, and many more).
-Each representation carries common identifiers that identify the underlying concept (also called "real-world entity")
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, XDS, and many more). 
+Each representation carries common identifiers that identify the underlying concept (also called "real-world entity") 
 consistently across all contexts of use. This is known as the <code>business identifier</code>, and is found in
-the <i>identifier</i> element, which has the type <a href="datatypes.html#Identifier">Identifier</a>.
+the <i>identifier</i> element, which has the type <a href="datatypes.html#Identifier">Identifier</a>. 
 </p>
 <p>
-All resources that have an <code>identifier</code> element support searching by the identifier, so
-that records can be located by that method. So if an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>
+All resources that have an <code>identifier</code> element support searching by the identifier, so 
+that records can be located by that method. So if an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> 
 message has the following OBR:
 </p>
 <pre>
 OBR|1|845439^GHH OE|1045813^GHH LAB|1554-5^GLUCOSE^LN|||200202150730|...
 </pre>
 <p>
-Then the DiagnosticReport it represents can be located using the
+Then the DiagnosticReport it represents can be located using the 
 following query:
 </p>
 <pre>
  GET [base]/DiagnosticReport?identifier=1045813
 </pre>
 <p>
-Most resources have a logical master server, the system on which the
-record first is created, and which manages the record directly. In
-the master system, the <code>Logical ID</code> might be the same value
-found in the business identifier since the master server can enforce
-business practices that make for stable identifiers. This is usually
-not a safe practice on secondary systems which are not in a position to
+Most resources have a logical master server, the system on which the 
+record first is created, and which manages the record directly. In 
+the master system, the <code>Logical ID</code> might be the same value 
+found in the business identifier since the master server can enforce 
+business practices that make for stable identifiers. This is usually 
+not a safe practice on secondary systems which are not in a position to 
 enforce their required identifier consistency.
 </p>
 
 <a name="canonical"></a>
 <h4>Canonical URLs</h4>
 <p>
-Some resource types have a defined element <code>url</code> which is the 'canonical URL'
-that always identifies the resource. This is a special kind of Business Identifier.
+Some resource types have a defined element <code>url</code> which is the 'canonical URL' 
+that always identifies the resource. This is a special kind of Business Identifier. 
 Note that the element actually contains a URI, but is named <code>url</code> for legacy reasons.
 </p>
 <p>
 The canonical URL serves as a stable logical identifier for the resource, and <b>is the preferred
-way to reference a conformance or knowledge resource</b>. The canonical URL SHOULD also resolve
-to the location where the master copy of the artifact is found, though it is not always possible
-to arrange this. The canonical URL SHALL NOT refer to some other resource (though it may resolve to a different
+way to reference a conformance or knowledge resource</b>. The canonical URL SHOULD also resolve 
+to the location where the master copy of the artifact is found, though it is not always possible 
+to arrange this. The canonical URL SHALL NOT refer to some other resource (though it may resolve to a different 
 version of the same resource).
 </p>
 <p>
 See <a href="references.html#canonical">Canonical references</a> for further discussion of canonical
-references and the <a href="datatypes.html#canonical">canonical data type</a>. The following resources
+references and the <a href="datatypes.html#canonical">canonical data type</a>. The following resources 
 have canonical URLs:
 </p>
 
@@ -174,20 +182,20 @@ Business Identifiers are the preferred basis to recognize the same content on di
 </p>
 <pre>
   GET http://a.company.example.com/Patient/23
-
+  
   &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
     &lt;id value=&quot;23&quot;/&gt;
-    &lt;identifier&gt;
+    &lt;identifier&gt;  
       &lt;system value=&quot;http://a.particular.system/identifier&quot;/&gt;
       &lt;value value=&quot;123456&quot;/&gt;
     &lt;/identifier&gt;
   &lt;/Patient&gt;
 
   GET http://other.company.example.com/fhir/Patient/5860200e-0ee3-42f5-8095-506e18dc9ca2
-
+  
   &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
     &lt;id value=&quot;5860200e-0ee3-42f5-8095-506e18dc9ca2&quot;/&gt;
-    &lt;identifier&gt;
+    &lt;identifier&gt;  
       &lt;system value=&quot;http://a.particular.system/identifier&quot;/&gt;
       &lt;value value=&quot;123456&quot;/&gt;
     &lt;/identifier&gt;
@@ -205,12 +213,12 @@ patient. For this reason, systems SHOULD:
 </ul>
 
 <p>
-Following these practices will make for consistent identification of concepts and real-world entities across
-healthcare eco-systems. For example, medication orders can be represented as
-<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationstatement.html">MedicationStatement</a>.
-Some systems - primary sources - will provide the medication order as a MedicationRequest
-while other secondary systems will provide them as a MedicationStatement. Any system processing
-the resources will need to reconcile these, and the presence of consistent identifiers will
+Following these practices will make for consistent identification of concepts and real-world entities across 
+healthcare eco-systems. For example, medication orders can be represented as 
+<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationstatement.html">MedicationStatement</a>. 
+Some systems - primary sources - will provide the medication order as a MedicationRequest 
+while other secondary systems will provide them as a MedicationStatement. Any system processing 
+the resources will need to reconcile these, and the presence of consistent identifiers will 
 considerably simplify the reconciliation process.
 </p>
 
@@ -227,28 +235,28 @@ is not fixed to a single resource - multiple resources can be derived from a sin
 that matching entity source information means that the resources are identifying the same real-world concept.
 </p>
 
-<a name="implicitRules"></a>
+<a name="implicitRules"></a>  
 <h3>Implicit Rules</h3>
 <p>
-A reference to a custom agreement that describes
-how the resource is being used (e.g. an <a href="profiling.html#glossary">implementation guide</a>)
-that was followed when the resource was constructed, where the implementation guide must be
+A reference to a custom agreement that describes 
+how the resource is being used (e.g. an <a href="profiling.html#glossary">implementation guide</a>)  
+that was followed when the resource was constructed, where the implementation guide must be 
 known and understood in order to safely processing the content.
 </p>
 <p>
-Asserting this rule set restricts the content to be only understood by a limited set of
+Asserting this rule set restricts the content to be only understood by a limited set of 
 trading partners. This inherently limits the usefulness of the data in the long term,
-and should be avoided where possible. However, the existing health
-eco-system is highly fractured, and not yet ready to define, collect, and exchange
-data in a generally exchangeable sense.
+and should be avoided where possible. However, the existing health 
+eco-system is highly fractured, and not yet ready to define, collect, and exchange 
+data in a generally exchangeable sense. 
 </p>
 <p>
 Note that resources are almost always constructed following some custom agreement.
-Best practice - which is recommended throughout the conformance resources - is that
-such agreements make all knowledge about the content of the resource explicit in
-the content of the resource; if custom agreements follow this advice, and declare
-their extensions as required, then it is not necessary to understand the agreement
-in order to safely process the resource content. For this reason, use of
+Best practice - which is recommended throughout the conformance resources - is that 
+such agreements make all knowledge about the content of the resource explicit in 
+the content of the resource; if custom agreements follow this advice, and declare 
+their extensions as required, then it is not necessary to understand the agreement 
+in order to safely process the resource content. For this reason, use of 
 <code>implicitRules</code> is rare.
 </p>
 
@@ -258,25 +266,25 @@ in order to safely process the resource content. For this reason, use of
 
 <p>
 Each resource may have a language element that specifies the base language of the content using a <a href="http://tools.ietf.org/html/bcp47">code defined in BCP 47</a>.
-The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag).
+The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
 </p>
 <p>
-If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>.
-The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided
+If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>. 
+The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
 so that applications processing the data in the resource can specify the language of any alternate presentations generated from the data.
 </p>
 <p>
 There is no default language, though one may be inferred from the context of use.
-Not all of the content of the resource has to be in the specified language.
+Not all of the content of the resource has to be in the specified language. 
 <a href="languages.html">Multiple languages</a> can be supported.
 </p>
 <p>
-Any valid language code as defined in <a href="http://tools.ietf.org/html/bcp47">BCP 47</a> is valid. The
+Any valid language code as defined in <a href="http://tools.ietf.org/html/bcp47">BCP 47</a> is valid. The 
 language code system is complex, with parts for Primary Language, Script, Region, and other variants
 and extensions. In order to simplify implementations, the language element has a <a href="terminologies.html#preferred">preferred binding</a>
-to an enumerated list of common language codes encountered in applications, with translations, and also
+to an enumerated list of common language codes encountered in applications, with translations, and also 
 a <a href="terminologies.html#binding">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
-preventing the use of any language code.
+preventing the use of any language code. 
 </p>
 
 <a name="metadata"></a>
@@ -288,9 +296,9 @@ Resource Metadata
 </h3>
 
 <p>
-Each resource contains an element "meta", of type "Meta", which is a set of
-metadata that provides technical and workflow context to the resource. The
-metadata items are all optional, though some or all of them may be required
+Each resource contains an element "meta", of type "Meta", which is a set of 
+metadata that provides technical and workflow context to the resource. The 
+metadata items are all optional, though some or all of them may be required 
 in particular implementations or contexts of use.
 </p>
 
@@ -303,66 +311,66 @@ in particular implementations or contexts of use.
   <tr>
     <td>versionId (0..1)</td>
     <td><a href="datatypes.html#id">id</a></td>
-    <td>Changes each time the content of the resource changes. Can be referenced in a <a href="references.html#Resource">resource reference</a>.
-      Can be used to ensure that updates are based on the latest version of the resource.
-    <br/>The version can be globally unique, or scoped by the Logical Id of the resource.
-     Version identifiers are generally either a serially incrementing id scoped by the logical id, or a uuid, though neither of these approaches
-     is required. There is no fixed order for version ids - clients cannot assume that a versionId that comes after another one either numerically or alphabetically represents a later version.
+    <td>Changes each time the content of the resource changes. Can be referenced in a <a href="references.html#Resource">resource reference</a>. 
+      Can be used to ensure that updates are based on the latest version of the resource. 
+    <br/>The version can be globally unique, or scoped by the Logical Id of the resource. 
+     Version identifiers are generally either a serially incrementing id scoped by the logical id, or a uuid, though neither of these approaches 
+     is required. There is no fixed order for version ids - clients cannot assume that a versionId that comes after another one either numerically or alphabetically represents a later version. 
      The same versionId can never be used for more than one version of the same resource.
-	    <br/>On the RESTful API: On receiving an <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to
+	    <br/>On the RESTful API: On receiving an <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to 
 		the current value, or remove it. Note that servers SHOULD support versions, but some are unable to</td>
   </tr>
-
+	 
   <tr>
    <td>lastUpdated (0..1)</td>
    <td><a href="datatypes.html#instant">instant</a></td>
-   <td>If populated, this value changes each time the content of the resource
-    changes. It can be used by a system or a human to judge the currency of the resource content.
-    Note that <a href="http.html#update">version aware updates</a> do not depend on this element. Note that
+   <td>If populated, this value changes each time the content of the resource 
+    changes. It can be used by a system or a human to judge the currency of the resource content. 
+    Note that <a href="http.html#update">version aware updates</a> do not depend on this element. Note that 
     <a href="http://hl7.org/fhir/extensions/StructureDefinition-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
-    If present, the timezone code applies to the server copy of the resource, and not necessarily to other
+    If present, the timezone code applies to the server copy of the resource, and not necessarily to other 
     time related elements within the resource even if the timezone offsets are the same.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to the current time on the server</td>
   </tr>
-
+	
   <tr>
    <td>source (0..1)</td>
    <td><a href="datatypes.html#uri">uri</a></td>
    <td>A uri that identifies the data source of the resource. This provides a minimal amount of <a href="provenance.html">Provenance</a>
      information that can be used to track or differentiate the source of information in the resource. The source
-     may be another resource, or it may be a more abstract or general identifier, or identify another FHIR server, end-point, document, message, database, etc.
+     may be another resource, or it may be a more abstract or general identifier, or identify another FHIR server, end-point, document, message, database, etc. 
      The exact use of the source (and the implied Provenance.entity.role) is left to implementer discretion.
      Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHOULD generally leave this unchanged, unless applicable business rules, along with available provenance, dictate otherwise</td>
   </tr>
-
+	
   <tr>
    <td>profile (0..*)</td>
    <td><a href="datatypes.html#canonical">canonical</a></td>
-   <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>). See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion.
-    Can be changed as profiles and value sets change or the system rechecks conformance. The profile can be used to
+   <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>). See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
+    Can be changed as profiles and value sets change or the system rechecks conformance. The profile can be used to 
     <a href="versioning.html#mp-version">indicate which version(s) of FHIR a resource conforms to</a>.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server MAY elect to remove invalid claims, SHOULD retain claims that are correct or untested, and MAY add additional claims it believes are valid</td>
   </tr>
-
+	
   <tr>
    <td>security (0..*)</td>
    <td><a href="datatypes.html#Coding">Coding</a></td>
-   <td><a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to
+   <td><a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to 
     the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHOULD preserve the labels unless applicable business rules dictate otherwise</td>
   </tr>
-
+	
   <tr>
    <td>tag (0..*)</td>
    <td><a href="datatypes.html#Coding">Coding</a></td>
-   <td><a href="resource-definitions.html#Meta.tag">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider
+   <td><a href="resource-definitions.html#Meta.tag">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider 
     the tags when interpreting the meaning of a resource.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHOULD preserve the labels unless applicable business rules dictate otherwise</td>
   </tr>
-
+		
 </table>
-
+  
 <a name="Meta"></a>
 <a name="meta"></a>
 <h3 style="margin-bottom: 1px">Meta</h3>
@@ -598,7 +606,7 @@ in particular implementations or contexts of use.
 
 <p>
 Note that the RESTful API defines some <a href="operations.html">Operations</a> that provide
-<a href="resource-operation-meta.html">direct read and write access</a> to the <i>meta</i> element.
+<a href="resource-operation-meta.html">direct read and write access</a> to the <i>meta</i> element.   
 </p>
 
 <a name="versions"></a>
@@ -613,16 +621,16 @@ There are 3 different versions of interest for a resource:
 </ol>
 <p><b>Record (Resource) Version</b></p>
 <p>
-All resources are conceptually versioned, and each resource sits at the head of a linear list of past versions.
-The past versions are superseded by the current version, and only available for audit/integrity purposes.
-The current version is e.g. http://acme.org/fhir/ResourceType/id123, and a past version would be
+All resources are conceptually versioned, and each resource sits at the head of a linear list of past versions. 
+The past versions are superseded by the current version, and only available for audit/integrity purposes. 
+The current version is e.g. http://acme.org/fhir/ResourceType/id123, and a past version would be 
 http://acme.org/fhir/ResourceType/id123/_history/v2.
 </p>
 <p>
-Note that there's no requirement for servers to keep a history. The
-<a href="http.html#history">history interaction</a> is provided for
-where this is an appropriate service to provide. However, whether a server keeps them
-or not, past versions are dead and gone.
+Note that there's no requirement for servers to keep a history. The 
+<a href="http.html#history">history interaction</a> is provided for 
+where this is an appropriate service to provide. However, whether a server keeps them 
+or not, past versions are dead and gone. 
 The current version of the resource is in the <i>Resource.meta.versionId</i>. For a value set this would be:
 </p>
 <pre>
@@ -634,7 +642,7 @@ The current version of the resource is in the <i>Resource.meta.versionId</i>. Fo
 </pre>
 <p>
 The versionId changes every time the server updates the resource and writes a new version over
-the top of an existing one.
+the top of an existing one. 
 </p>
 <p><b>Business Version</b></p>
 <p>
@@ -648,46 +656,46 @@ Some resources have another version marker in them. For instance, ValueSet has a
 </pre>
 <p>
 This says that this is version 2.0 of the 'example' value set. This is the business version of the value set, the one that humans get involved with.
-These 2 versions elements have quite different lifecycles. To illustrate, take these cases:
+These 2 versions elements have quite different lifecycles. To illustrate, take these cases: 
 </p>
 <ol>
  <li>
-  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1).
-  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.
-  Later, another user creates a revised version of the value set, and this is called version 2. It is committed to the server
-  as an update (PUT [base]/ValueSet/x1).
+  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1). 
+  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1. 
+  Later, another user creates a revised version of the value set, and this is called version 2. It is committed to the server 
+  as an update (PUT [base]/ValueSet/x1). 
   <br/>
   Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 2 and ValueSet.meta.versionId = 2
  </li>
  <li>
-  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1).
-  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.
-  Then a typo is found in the definition, so this is fixed, but it's still v1 of the value set. This is PUT to [base]/ValueSet/x1.
+  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1). 
+  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.   
+  Then a typo is found in the definition, so this is fixed, but it's still v1 of the value set. This is PUT to [base]/ValueSet/x1. 
   Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 1 and ValueSet.meta.versionId = 2.
   <br/>
-  Later, another user creates a revised version of the value set, and this is called version 2. It is commited to the server
+  Later, another user creates a revised version of the value set, and this is called version 2. It is commited to the server 
   as an update (PUT [base]/ValueSet/x1). Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 2 and ValueSet.meta.versionId = 3
- </li>
+ </li> 
  <li>
-  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1).
-  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.
+  A value set is posted to a server (POST [base]/ValueSet) with ValueSet.url = "http://acme.com/valuesets/example". This is identified as the 1st version of the value set (ValueSet.version = 1). 
+  When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.  
   Later, another user creates a revised version of the value set, and this is called version 2.
-This time, as well as supporting this new version 2, there are production systems still using version 1, and both need to be valid on the value set server.
-So a new value set is created on the server (POST [base]/ValueSet) and is assigned the identiity 'x2'.
+This time, as well as supporting this new version 2, there are production systems still using version 1, and both need to be valid on the value set server. 
+So a new value set is created on the server (POST [base]/ValueSet) and is assigned the identiity 'x2'. 
 <br/>
-Now, there are two different value sets, both with URL "http://acme.com/valuesets/example". One has ValueSet.id = x1, ValueSet.version = 1 and
+Now, there are two different value sets, both with URL "http://acme.com/valuesets/example". One has ValueSet.id = x1, ValueSet.version = 1 and 
 ValueSet.meta.versionId = 1 and the other has ValueSet.id = x2, ValueSet.version = 2 and ValueSet.meta.versionId = 1.
  </li>
 </ol>
 <p>
-The version of resource SHOULD change every time some non-significant change is made. Exactly what change
+The version of resource SHOULD change every time some non-significant change is made. Exactly what change 
 constitutes 'significant' depends on context, and is not specified here. Note, though, that it is possible
-to change elements such as <code>status</code> and <code>date</code> without changing the version, such as
-when marking a past version as <code>retired</code>. In general, any other changes should be associated
+to change elements such as <code>status</code> and <code>date</code> without changing the version, such as 
+when marking a past version as <code>retired</code>. In general, any other changes should be associated 
 with a change in version.
 </p>
 <p>
-The <a href="https://semver.org/">Semantic Versioning</a> specification recommend that versions be represented in three parts using the form MAJOR.MINOR.PATCH where,
+The <a href="https://semver.org/">Semantic Versioning</a> specification recommend that versions be represented in three parts using the form MAJOR.MINOR.PATCH where, 
 for the kind of artefacts described in this specification:
 </p>
 <ul>
@@ -696,13 +704,13 @@ for the kind of artefacts described in this specification:
  <li>PATCH version increments when minor changes are made that don't impact on implementations of the artefact (e.g. documentation clarifications)</li>
 </ul>
 <p>
-For the kind of resources that have <a href="#canonical">canonical URLs</a>, this specification
-recommends that implementers follow the Semantic Versioning principles, but does not require this.
+For the kind of resources that have <a href="#canonical">canonical URLs</a>, this specification 
+recommends that implementers follow the Semantic Versioning principles, but does not require this. 
 Implementers should consider, however, making the MAJOR version part of the <a href="#canonical">canonical URL</a>
 rather than putting it in <code>[Resource].version</code>. So instead of this:
 </p>
 <pre class="json">
-{
+{ 
   "resourceType" : "ValueSet",
   "url" : "http://example.org/fhir/ValueSet/blah",
   "version" : "2.1.1"
@@ -712,43 +720,43 @@ rather than putting it in <code>[Resource].version</code>. So instead of this:
 implementers should instead consider:
 </p>
 <pre class="json">
-{
+{ 
   "resourceType" : "ValueSet",
   "url" : "http://example.org/fhir/ValueSet/blah2",
   "version" : "1.1"
  }
 </pre>
 <p>
-The principle advantage is that other artefacts that reference the
+The principle advantage is that other artefacts that reference the 
 first artefact can do so by major version:
 </p>
 
 <pre class="json">
-  "binding" : {
+  "binding" : { 
      "valueSet" : "http://example.org/fhir/ValueSet/blah2"
   }
 </pre>
 <p>
 The alternative - not having the major version in the URL - means that version dependencies
-must be managed by some other method (e.g. managing a set of resources with specific versioned references
-via an <a href="implementationguide.html">Implementation Guide</a>).
+must be managed by some other method (e.g. managing a set of resources with specific versioned references 
+via an <a href="implementationguide.html">Implementation Guide</a>). 
 </p>
 <p>
-There is no single best practice here; the correct choice depends on many factors outside the
-scope of this specification.
+There is no single best practice here; the correct choice depends on many factors outside the 
+scope of this specification. 
 </p>
 
 <a name="bv-format"></a>
 <p>
 For business versions in canonical resources, the busines version SHOULD NOT contain a <code>#</code>
 character, since the version appears in the URL, and the <code>#</code> has special meaning in a URL.
-If the version does contain a <code>#</code>, then it SHALL be escaped properly when used in a URL
+If the version does contain a <code>#</code>, then it SHALL be escaped properly when used in a URL 
 as specified by <a href="references.html#canonical">Canonical References</a>.
 </p>
 
 <p><b>FHIR Version</b></p>
 <p>
-All resources always have a FHIR version against which they were written. Note, however, that resources may be valid
+All resources always have a FHIR version against which they were written. Note, however, that resources may be valid 
 against multiple different FHIR versions, and this becomes progressively more likely as the <a href="versions.html#maturity">maturity
 of the resource</a> progresses.
 </p>
@@ -760,27 +768,27 @@ The version is often not stated explicitly in the resource; it is controlled by 
 <a name="tags"></a>
 <h3>Tags, Profiles, and Security Labels</h3>
 <p>
-These 3 metadata attributes are part of the resource, but are never used to keep information
-that needs to be understood when interpreting the content of a resource; their
-function is limited to finding and controlling access to the resource, and connecting
+These 3 metadata attributes are part of the resource, but are never used to keep information 
+that needs to be understood when interpreting the content of a resource; their 
+function is limited to finding and controlling access to the resource, and connecting 
 resources to technical or clinical workflow.
 </p>
 
 <a name="simple-tags"></a>
 <h4>Tags</h4>
 <p>
-Tags are used to associate additional operational information with the Resources,
+Tags are used to associate additional operational information with the Resources, 
 such as workflow management. A typical use of tagging would be to maintain an informal list
 of resources that need review.
 </p>
 <p>
-In a general tag, the <a href="datatypes.html#coding">coded concept</a> may be a reference to a
-healthcare vocabulary, including ones defined in this specification, or vocabularies such
-as those defined by HL7 for other purposes (e.g. <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>), LOINC, or SNOMED CT.
-Alternatively, the concept may be one defined by the implementation in the local context.
+In a general tag, the <a href="datatypes.html#coding">coded concept</a> may be a reference to a 
+healthcare vocabulary, including ones defined in this specification, or vocabularies such 
+as those defined by HL7 for other purposes (e.g. <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>), LOINC, or SNOMED CT. 
+Alternatively, the concept may be one defined by the implementation in the local context. 
 </p>
 <p>
-The list of tags on a resource is a set, where each tag is unique based on the
+The list of tags on a resource is a set, where each tag is unique based on the 
 <code>system</code>+<code>code</code> combination.
 </p>
 
@@ -788,15 +796,15 @@ The list of tags on a resource is a set, where each tag is unique based on the
 <h4>Profile Tags</h4>
 <p>
 A profile assertion represents a claim that the resource conforms to <a href="structuredefinition.html">the identified StructureDefinition</a>,
-which makes rules about what
+which makes rules about what 
 content is allowed to be in a resource. In a profile tag, the term
 is a URL that references an identified <a href="structuredefinition.html">StructureDefinition</a> resource.
 </p>
 <p>
-It's always possible to determine whether a resource conforms to any
+It's always possible to determine whether a resource conforms to any 
 profile simply by testing it against the profile (the <a href="downloads.html">validation tools</a>
-provide the functionality to perform this test in a variety of contexts).
-However there are several circumstances where simply examining whether
+provide the functionality to perform this test in a variety of contexts). 
+However there are several circumstances where simply examining whether 
 a resource conforms to a particular profile as needed is impractical:
 </p>
 <ul>
@@ -804,25 +812,25 @@ a resource conforms to a particular profile as needed is impractical:
  <li>A receiver that has many profiles to choose when validating resource</li>
 </ul>
 <p>
-Profile Tags serve these use cases - a client/creator of a resource can tag the
-resource with an assertion that the resource conforms to a particular structure definition.
-The server/receiver of the resource can choose to take this assertion at face value, or
-to assist in locating the correct <a href="structuredefinition.html">StructureDefinition</a>
-against which to validate the resource.
+Profile Tags serve these use cases - a client/creator of a resource can tag the 
+resource with an assertion that the resource conforms to a particular structure definition. 
+The server/receiver of the resource can choose to take this assertion at face value, or 
+to assist in locating the correct <a href="structuredefinition.html">StructureDefinition</a> 
+against which to validate the resource. 
 </p>
 <p>
-Note: resources can conform to multiple profiles at once. A resource can conform to
-a profile without ever being labeled that it does, or a resource may falsely claim to conform
-to a profile. For this reason, applications processing resources SHOULD always
+Note: resources can conform to multiple profiles at once. A resource can conform to 
+a profile without ever being labeled that it does, or a resource may falsely claim to conform 
+to a profile. For this reason, applications processing resources SHOULD always 
 depend on the contents of the resource when processing them, and/or check resources
-against the <a href="structuredefinition.html">StructureDefinition</a>s directly rather
+against the <a href="structuredefinition.html">StructureDefinition</a>s directly rather 
 than relying the existence of profile tags for meaning.
-Profile Tags are provided as a method of finding resources that conform to
+Profile Tags are provided as a method of finding resources that conform to 
 a particular <a href="structuredefinition.html">StructureDefinition</a>, not statements of meaning about the resource.
 </p>
 <p>
-Many trading partner agreements will make rules about what claims can be made
-and when they must be tested, which will make the profile assertion more reliable.
+Many trading partner agreements will make rules about what claims can be made 
+and when they must be tested, which will make the profile assertion more reliable. 
 </p>
 <p>
 The list of profiles on a resource is a set, where each profile is unique based on the <code>value</code> of the URI.
@@ -831,8 +839,8 @@ The list of profiles on a resource is a set, where each profile is unique based 
 <a name="security-labels"></a>
 <h4>Security Labels</h4>
 <p>
-A security label is attached to a resource to provide specific security metadata
-about the information in the resource. For further information, see
+A security label is attached to a resource to provide specific security metadata 
+about the information in the resource. For further information, see 
 <a href="security-labels.html">Security Labels</a>.
 </p>
 <p>
@@ -853,12 +861,12 @@ pattern:
  <li>Merge existing and new security labels</li>
 </ul>
 <p>
-However, in some cases, an update may invalidate existing tags.  Servers may update
+However, in some cases, an update may invalidate existing tags.  Servers may update 
 or remove previously existing recognized tags if this is known to be appropriate. A client
 can retrieve the current tags using the <a href="resource-operation-meta.html">$meta</a> operation.
 </p>
 
-
+ 
 <a name="furtherinfo"></a>
 <h3>Further Information</h3>
 <ul>
@@ -886,22 +894,22 @@ The <a href="versions.html#maturity">Maturity level documentation has moved</a>.
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){
+ } catch(exception){ 
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
 
 $( '#tabs-Meta' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-
-
+    
+     
 function store(currentTab) {
   document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){
+  } catch(exception){ 
   }
   $( '#tabs-Meta' ).tabs('option', 'active', currentTab);
-}
+}     
 </script>
 
 </div>
