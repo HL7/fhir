@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Permission xmlns="http://hl7.org/fhir">
-  <id value="example-composite" />
+  <id value="per-1.f2.fail" />
   <status value="active" />
   <asserter>
     <reference value="Organization/f203" />
@@ -11,6 +11,7 @@
     <import>
       <reference value="Permission/example-base" />
     </import>
+    <type value="permit" />
   </rule>
   <rule>
     <type value="permit" />

@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Permission xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+<Permission xmlns="http://hl7.org/fhir">
   <id value="per-1.f1.fail" />
   <status value="active" />
   <asserter>
     <reference value="Organization/f203" />
   </asserter>
   <date value="2018-12-24" />
-  <combining value="permit-overrides"/>
+  <combining value="permit-overrides" />
   <rule>
-  <!-- can't have both an import and rule details -->
     <import>
       <reference value="Permission/example-base" />
     </import>
     <type value="permit" />
     <data>
       <security>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-          <code value="SUD"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+        <code value="SUD" />
       </security>
     </data>
     <activity>
       <actor>
-        <reference value="Organization/f203" />
+        <reference>
+          <reference value="Organization/f203" />
+        </reference>
       </actor>
       <action>
         <coding>
