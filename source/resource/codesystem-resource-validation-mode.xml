@@ -48,6 +48,6 @@
   <concept>
     <code value="profile"/>
     <display value="Validate Against a Profile"/>
-    <definition value="The server checks an existing resource (must be nominated by id, not provided as a parameter) as valid against the nominated profile."/>
+    <definition value="The server checks an existing resource as valid against the nominated profile."/>
   </concept>
 </CodeSystem>

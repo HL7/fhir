@@ -50,6 +50,10 @@
 
 
 <div class="example">
+
+[%example-start%]
+
+
 	<p>A boolean true value:</p><pre class="xml" fragment="boolean">&lt;active value="true" /&gt;</pre>
 	<p>A negative integer value:</p><pre class="xml" fragment="integer">&lt;score value="-14" /&gt;</pre>
 	<p>A high-precision decimal value:</p><pre class="xml" fragment="decimal">&lt;pi value="3.14159265358979323846264338327950288419716939937510" /&gt;</pre>
@@ -64,16 +68,75 @@
   <p>2:35pm in the afternoon:</p><pre class="xml" fragment="time">&lt;time value="14:35:00" /&gt;</pre>
 </div>
 
+[%example-json%]
+<p>A boolean true value:</p><pre class="json" fragment="boolean">  "active" : true</pre>
+<p>A negative integer value:</p><pre class="json" fragment="integer">  "score" : -14</pre>
+<p>A high-precision decimal value:</p><pre class="json" fragment="decimal">  "pi" : 3.14159265358979323846264338327950288419716939937510</pre>
+<p>A stream of bytes, base64 encoded:</p><pre class="json" fragment="base64Binary">  "data" : "/9j/4...KAP//Z"   "!-- covers many lines --&gt;</pre>
+<p>A Unicode string:</p><pre class="json" fragment="string">  "caption" : "Noodles are called ?? in Chinese"</pre>
+<p>A URI that points to a website:</p><pre class="json" fragment="uri">  "reference" : "http://hl7.org/fhir"</pre>
+<p>A URI that is a urn:</p><pre class="json" fragment="uri">  "id" : "urn:isbn:0451450523"</pre>
+<p>A date of birth:</p><pre class="json" fragment="date">  "date" : "1951-06-04"</pre>
+<p>An approximate date of birth:</p><pre class="json" fragment="date">  "date" : "1951-06"</pre>
+<p>The instant a document was created, including timezone:</p><pre class="json" fragment="instant">  "instant" : "2013-06-08T10:57:34+01:00"</pre>
+<p>The instant a document was created, expressed in UTC, with milliseconds:</p><pre class="json" fragment="instant">  "instant" : "2013-06-08T09:57:34.2112Z"</pre>
+<p>2:35pm in the afternoon:</p><pre class="json" fragment="time">  "time" : "14:35:00"</pre>
+
+[%example-end%]
+
 <a name="strings"></a>
 <h3>String Patterns</h3>
 
 <div class="example">
-	<p>A URI that is the root oid of HL7:</p><pre class="xml" fragment="oid">&lt;root value="urn:oid:2.16.840.1.113883" /&gt;</pre>
-	<p>A URI that is a uuid:</p><pre class="xml" fragment="uuid">&lt;id value="urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11" /&gt;</pre>
-	<p>A code:</p><pre class="xml" fragment="code">&lt;code value="acq4+acq5" /&gt;</pre>
-	<p>A code with single internal space:</p><pre class="xml" fragment="code">&lt;code value="Question 4b" /&gt;</pre>
-	<p>A numeric id:</p><pre class="xml" fragment="code">&lt;id value="314" /&gt;</pre>
-	<p>An alphanumeric id:</p><pre class="xml" fragment="code">&lt;id value="alpha-gamma-14" /&gt;</pre>
+  
+[%example-start%]
+
+<p>A URI that is the root oid of HL7:</p><pre class="xml" fragment="oid">&lt;root value="urn:oid:2.16.840.1.113883" /&gt;</pre>
+<p>A URI that is a uuid:</p><pre class="xml" fragment="uuid">&lt;id value="urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11" /&gt;</pre>
+<p>A code:</p><pre class="xml" fragment="code">&lt;code value="acq4+acq5" /&gt;</pre>
+<p>A code with single internal space:</p><pre class="xml" fragment="code">&lt;code value="Question 4b" /&gt;</pre>
+<p>A numeric id:</p><pre class="xml" fragment="code">&lt;id value="314" /&gt;</pre>
+<p>An alphanumeric id:</p><pre class="xml" fragment="code">&lt;id value="alpha-gamma-14" /&gt;</pre>
+[%example-json%]
+
+<p>A URI that is the root oid of HL7:</p><pre class="json" fragment="oid">  "root" : "urn:oid:2.16.840.1.113883"</pre>
+<p>A URI that is a uuid:</p><pre class="json" fragment="uuid">  "id" : "urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11"</pre>
+<p>A code:</p><pre class="json" fragment="code">  "code" : "acq4+acq5"</pre>
+<p>A code with single internal space:</p><pre class="json" fragment="code">  "code" : "Question 4b"</pre>
+<p>A numeric id:</p><pre class="json" fragment="code">  "id" : "314"</pre>
+<p>An alphanumeric id:</p><pre class="json" fragment="code">  "id" : "alpha-gamma-14"</pre>
+[%example-end%]
+</div>
+
+<a name="extensions"></a>
+<h3>Primitive Extensions and Ids</h3>
+
+
+<div class="example">
+  <p>A text representation of a date:</p>
+  [%example-start%]  
+<pre class="xml">
+  &lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
+    &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
+      &lt;valueString value="Easter 1970"/&gt;
+    &lt;/extension&gt;
+  &lt;/<b>birthDate</b>&gt;
+</pre>
+
+  [%example-json%]
+
+<pre class="json">
+  "birthDate": "1970-03-30",
+  "_birthDate": {
+    "id": "314159",
+    "extension" : [ {
+      "url" : "http://example.org/fhir/StructureDefinition/text",
+      "valueString" : "Easter 1970"
+    }]
+  }
+</pre>
+  
+  [%example-end%]
 </div>
 
 <a name="Attachment"></a>
@@ -2683,6 +2746,45 @@ RelativeTime
 <!--xlp:RelativeTime-->See also <a no-external="true" href="datatypes.html#RelativeTime">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
 
+<div class="example">
+  <p><b>Example</b></p>
+  <p>Start a treatment the day after surgery:</p>
+  [%example-start%]
+  <pre class="xml" fragment="RelativeTime">
+    &lt;contextCode&gt;
+      &lt;coding&gt;
+        &lt;system value="http://snomed.info/sct"/&gt;
+        &lt;code value="38102005"/&gt;
+        &lt;display value="Removal of gallbladder"/&gt;
+      &lt;/coding&gt;
+    &lt;/contextCode&gt;
+    &lt;offsetDuration&gt;
+      &lt;value value="1"/&gt;
+      &lt;system value="http://unitsofmeasure.org"/&gt;
+      &lt;code value="d"/&gt;
+    &lt;/offsetDuration&gt;
+  </pre>
+  [%example-json%]
+  <pre class="json" fragment="RelativeTime">
+  {
+    "contextCode" : {
+      "coding" : [{
+        "system" : "http://snomed.info/sct",
+        "code" : "38102005",
+        "display" : "Removal of gallbladder"
+      }]
+    },
+    "offsetDuration" : {
+      "value" : 1,
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d"
+    }
+  }
+  </pre>
+  [%example-end%]
+  
+</div>
+  
 <a name="Signature"></a>
 <a name="signature"></a>
 <h3>

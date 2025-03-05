@@ -2,10 +2,6 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="provenance-relevant-history"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-  </text>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
     <valueString value="provenance-relevant-history-introduction.xml"/>
   </extension>
