@@ -17,13 +17,13 @@
 </ul>
 
 <h4>Resolvable (URL)</h4>
-<p>The following MolecularDefinitions show examples of a sequence represented as a resolvable URL. Note: this example is currently missing the corresponding instance of DocumentReference.</p>
+<p>The following MolecularDefinitions show examples of a sequence represented as a resolvable URL.</p>
 <ul>
     <li><a href="moleculardefinition-example-sequence-cyp2c19-url.html">Sequence example of CYP2C19 as URL</a></li>
 </ul>
 
 <h4>Resolvable (File)</h4>
-<p>The following MolecularDefinitions show examples of a sequence represented as an attached file. Note: this example is currently missing the corresponding instance of DocumentReference.</p>
+<p>The following MolecularDefinitions show examples of a sequence represented as an attached file.</p>
 <ul>
     <li><a href="moleculardefinition-example-sequence-cyp2c19-attached.html">Sequence example of CYP2C19 as Attachment</a></li>
 </ul>
