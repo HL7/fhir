@@ -14,7 +14,7 @@
     <element id="DiagnosticReport">
       <path value="DiagnosticReport"/>
       <short value="Lipid Lab Report"/>
-      <requirements value="The findings and interpretation of a general lipd lab profile."/>
+      <requirements value="The findings and interpretation of a general lipid lab profile."/>
     </element>
   </snapshot>
 </StructureDefinition>
