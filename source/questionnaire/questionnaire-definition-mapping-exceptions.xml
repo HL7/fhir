@@ -7,6 +7,12 @@
             <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.&#xa;&#xa;The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Definition.identifier" resourcePath="Questionnaire.identifier">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Definition.derivedFromCanonical" resourcePath="Questionnaire.derivedFrom">
         <missingTypes _pattern="canonical(Definition)" reason="Derivation is only relevant/possible from other questionnaires"/>
         <extraTypes _resource="canonical(Questionnaire)" reason="Derivation is only relevant/possible from other questionnaires"/>
