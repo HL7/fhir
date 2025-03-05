@@ -16,6 +16,10 @@
             <_pattern value="Business identifier for test script"/>
             <resource value="Additional identifier for the test script"/>
         </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test script outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the test script."/>
             <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
