@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--  This is an example of Observations made about something other than a patient - namely a location -->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
+	<id value="vp-oyster"/>	
+	<status value="preliminary"/>
+	<code>
+		<text value="OYSTER TESTING"/>
+	</code>
+	<subject>
+		<display value="Sonoma oyster farm"/>
+	</subject>
+	<effectiveDateTime value="2017-10-12"/>
+	<issued value="2017-10-14T23:11:24Z"/>
+	<valueQuantity>
+		<value value="1"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="{u}/mL"/>
+	</valueQuantity>
+</Observation>
