@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="patch-operation"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/patch-operation"/>
+  <version value="6.0.0"/>
+  <name value="PatchOperation"/>
+  <title value="Patch Operation"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes identifying the valid FHIRPath patch operations."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/patch-operation"/>
+  <content value="complete"/>
+  <concept>
+    <code value="add"/>
+    <display value="Add"/>
+    <definition value="Add content at the nominated location."/>
+  </concept>
+  <concept>
+    <code value="insert"/>
+    <display value="Insert"/>
+    <definition value="Insert content at the nominated location."/>
+  </concept>
+  <concept>
+    <code value="delete"/>
+    <display value="Delete"/>
+    <definition value="Delete content from the nominated location."/>
+  </concept>
+  <concept>
+    <code value="replace"/>
+    <display value="Replace"/>
+    <definition value="Replace the content with the new content at the nominated location."/>
+  </concept>
+  <concept>
+    <code value="move"/>
+    <display value="Move"/>
+    <definition value="Move content from one location to another."/>
+  </concept>
+</CodeSystem>
