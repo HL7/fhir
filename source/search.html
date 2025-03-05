@@ -19,9 +19,9 @@ Search operations traverse through an existing set of resources filtering by
 parameters supplied to the search operation. The text below describes
 the FHIR search framework, starting with simple cases moving to the more complex.
 Implementers need only implement the amount of
-complexity that they require for their implementations. Servers SHALL declare 
+complexity that they require for their implementations. <span class="fhir-conformance">Servers SHALL declare 
 what features of search they require through their <a href="capabilitystatement.html#search-decl">CapabilityStatement
-search declarations</a>, and clients are encouraged to do this too.
+search declarations</a></span>, and clients are encouraged to do this too.
 </p>
 
 <a name="Contents"></a>
@@ -5871,11 +5871,12 @@ resources on the server, with the possible exception of the creation
 of <a href="auditevent.html">Audit Event</a> resources
 auditing the search itself.
 </p>
-
 <a name="Summary"></a>
 <a name="table"></a>
 <h3>Summary Tables</h3>
 
+<p><b>Conformance Statement Summary</b></p>
+[%conformance-statement-summary%]
 <table class="list">
 <tr><td colspan="4">Common Parameters defined for all resources:</td></tr>
 <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>

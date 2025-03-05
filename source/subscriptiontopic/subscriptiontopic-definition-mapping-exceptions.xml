@@ -69,17 +69,13 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="SubscriptionTopic.experimental">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="For testing purposes, not real usage"/>
-            <resource value="If for testing purposes, not real usage"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this subscription topic is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this subscription topic is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
             <resource value="A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Allows filtering of subscription topics that are appropriate for use versus not."/>
-            <resource value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not."/>
+            <resource value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#xa;&#xa;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level subscription topic."/>

@@ -20,6 +20,10 @@
             <_pattern value="Business identifier for message definition"/>
             <resource value="Business Identifier for a given MessageDefinition"/>
         </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this message definition outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the message definition."/>
             <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
@@ -54,12 +58,6 @@
             <_pattern value="Enables tracking the lifecycle of the content and filtering of message definitions that are appropriate for use versus not."/>
             <resource value=""/>
         </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.experimental" resourcePath="MessageDefinition.experimental">
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-            <resource value="A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.date" resourcePath="MessageDefinition.date">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>

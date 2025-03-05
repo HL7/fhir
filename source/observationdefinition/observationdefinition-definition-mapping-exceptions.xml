@@ -99,17 +99,13 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="ObservationDefinition.experimental">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="For testing purposes, not real usage"/>
-            <resource value="If for testing purposes, not real usage"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this observation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this observation definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
             <resource value="A flag to indicate that this ObservationDefinition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Allows filtering of observation definitions that are appropriate for use versus not."/>
-            <resource value="Allows filtering of ObservationDefinition that are appropriate for use vs. not."/>
+            <resource value="Allows filtering of ObservationDefinition that are appropriate for use vs. not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level observation definition."/>

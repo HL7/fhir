@@ -2,6 +2,33 @@
 
 <!-- insert xhtml content here -->
 <a name="Logic"> </a>
+<h3>Composite Permissions</h3>
+<p>
+In some cases, there are common components across different <code>Permission</code> rules and repeating those common rules could lead 
+to redundancy which in turn could lead to the risk on inconsistency, if the common components are not formulated precisely in the same manner. 
+Therefore, it is desirable to have a mechanism to define a common set of rules and refer to them in a single <code>Permission</code> resources.
+The <code>import</code> attribute enables pointing to such common rules by referencing the <code>Permission</code> resource.
+</p>
+<p>
+If the <code>import</code> attribute is used in rule, the <code>rule</code> element shall not contain any other elements. 
+The result of evluating a rule with an <code>import</code> is defined to be the result of evaluating the referenced <code>Permission</code> resource.
+The decision from that evaluation will then be combined with the decision from the other rues based on the combining algorithm 
+specified in the <code>combining</code> element.
+</p>
+<p>
+If the referenced <code>Permission</code> is not active or expired, this should be interpreted as returning a <code>not-applicable</code> decision 
+because the referenced permission is silent about whether access should be permitted or denied in the given context.
+</p>
+<p>
+A circular reference in processing linked Permissions should be treated as an error, leading to a <code>not-applicable</code> 
+decision bubbling up from the <code>Permission</code> resource in which the circular reference was encountered.
+</p>
+
+<p>
+Implementers shoud rely on pragmatic limits on the length of the chain of linked <code>Permission</code> and put in place
+reasonable guardrails against (maliciously or erroneously) large chains that could lead to draining of resources at the time of processing.
+</p>
+
 <h3>Rules Processing Logic</h3>
 <!-- These rules are repeated on the comment element within the StructureDefinition -->
 <p>

@@ -1,13 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Permission xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
-<id value="example"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-	<status value="active" />
-  <combining value="deny-overrides"/>
+<Permission xmlns="http://hl7.org/fhir">
+  <id value="example" />
 
-  <!-- insert contents here -->
-  
+  <status value="active" />
+  <asserter>
+    <reference value="Organization/example" />
+  </asserter>
+  <date value="2022-06-13" />
+  <combining value="deny-unless-permit" />
+  <rule>
+    <type value="permit" />
+    <data>
+      <resource>
+        <meaning value="authoredby" />
+        <reference>
+          <reference value="Practitioner/example" />
+        </reference>
+      </resource>
+    </data>
+    <activity>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+          <code value="TREAT" />
+        </coding>
+      </purpose>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+          <code value="HPAYMT" />
+        </coding>
+      </purpose>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+          <code value="HOPERAT" />
+        </coding>
+      </purpose>
+    </activity>
+  </rule>
 </Permission>

@@ -12,13 +12,19 @@
   <status value="active"/>
   <date value="2021-11-02T14:31:30.239Z"/>
   <description value="Example Requirements Set 2"/>
-  <derivedFrom value="http://hl7.org/fhir/Requirements/example2"/>
-  <actor value="http://hl7.org/fhir/ActorDefinition/server"/>
+  <derivedFrom value="http://hl7.org/fhir/Requirements/example1"/>
+  <actor>
+    <reference value="http://hl7.org/fhir/ActorDefinition/server"/>
+  </actor>
   <statement>
     <key value="44595579-fa13-42a5-bd24-0515cde96963"/>
     <label value="requirement-B1"/>
     <conformance value="SHOULD"/>
     <requirement value="Operations based on the SNOMED-CT should use the current version within 24 hours of each release"/>
+    <derivedFrom>
+      <reference value="http://hl7.org/fhir/Requirements/example1"/>
+      <key value="req-1"/>
+    </derivedFrom>
     <source>
       <display value="Lloyd Mackenzie"/>
     </source>

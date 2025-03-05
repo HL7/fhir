@@ -137,9 +137,9 @@ same path must conform.
 <table class="grid">
 		<tr>
 				<td><b>ElementDefinition field</b></td>
-				<td><b>Type definition, first element</b></td>
+				<td><b>Type definition, root element</b></td>
 				<td><b>Type definition, following elements</b></td>
-				<td><b>Constraint Definition, first element</b></td>
+				<td><b>Constraint Definition, root element</b></td>
 				<td><b>Constraint Definition, following elements</b></td>
 		</tr>
 		<tr>
@@ -178,22 +178,36 @@ same path must conform.
 				<td>required<sup>‡</sup></td>
 		</tr>
 		<tr>
-				<td>requirements/<br/>comments/alias</td>
+				<td>requirements</td>
 				<td>prohibited</td>
 				<td>optional</td>
 				<td>prohibited<sup>‡</sup></td>
 				<td>optional<sup>‡</sup></td>
 		</tr>
 		<tr>
+				<td>comment</td>
+				<td>optional</td>
+				<td>optional</td>
+				<td>optional</td>
+				<td>optional</td>
+		</tr>
+		<tr>
+				<td>alias</td>
+				<td>optional</td>
+				<td>optional</td>
+				<td>optional</td>
+				<td>optional</td>
+		</tr>
+		<tr>
 				<td>base</td>
-				<td>snapshot: required<br/>differential: optional</td>
-				<td>snapshot: required<br/>differential: optional</td>
-				<td>required</td>
-				<td>required</td>
+				<td>snapshot: expected<br/>differential: optional</td>
+				<td>snapshot: expected<br/>differential: optional</td>
+				<td>expected</td>
+				<td>expected</td>
 		</tr>
 		<tr>
 				<td>type</td>
-				<td>required</td>
+				<td>Not expected</td>
 				<td>required</td>
 				<td>optional</td>
 				<td>optional</td>
@@ -277,23 +291,23 @@ same path must conform.
 		</tr>
 		<tr>
 				<td>isModifier</td>
-				<td>prohibited</td>
 				<td>optional</td>
-				<td>prohibited</td>
+				<td>optional</td>
+				<td>optional</td>
 				<td>optional<sup>†</sup></td>
 		</tr>
 		<tr>
 				<td>isSummary</td>
-				<td>prohibited</td>
+				<td>Not expected</td>
 				<td>optional</td>
-				<td>prohibited</td>
+				<td>Not expected</td>
 				<td>optional<sup>†</sup></td>
 		</tr>
 		<tr>
 				<td>binding</td>
 				<td>prohibited</td>
 				<td>optional</td>
-				<td>prohibited</td>
+				<td>optional</td>
 				<td>optional</td>
 		</tr>
 		<tr>
@@ -305,9 +319,9 @@ same path must conform.
 		</tr>
 		<tr>
 				<td>condition</td>
-				<td>prohibited</td>
+				<td>Not expected</td>
 				<td>optional</td>
-				<td>prohibited</td>
+				<td>Not expected</td>
 				<td>optional<sup>∆</sup></td>
 		</tr>
 		<tr>
@@ -322,6 +336,9 @@ same path must conform.
 		Notes:
 </p>
 <ul>
+	  <li>The root element is the element without <code>.</code> separators in the path. It is not always present in differentials</li>
+	  <li>Expected/Not Expected: this is used in the table to indicate that the element SHOULD or SHOULD NOT be present, but that 
+			real world StructureDefinitions may be encountered that differ from this guidance, and that these are not invalid</li>
 		<li>Type definition: A StructureDefinition without a <code>baseDefinition</code> element, or where the derivation type is 'specialization'</li>
 		<li>Constraint definition: A StructureDefinition with a <code>baseDefinition</code> element and a derivation of 'constraint' - e.g. a definition of a structure that constrains another base structure, referring to the differential portion</li>
 		<li><sup>†</sup>: The element's presence, and value, must match the definition in the base definition</li>

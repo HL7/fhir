@@ -132,10 +132,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.memberState">
-      <path value="MolecularDefinition.memberState"/>
-      <short value="Reserved for future profiles (e.g., haplotype, genotype)"/>
-      <definition value="Reserved for future profiles (e.g., haplotype, genotype)."/>
+    <element id="MolecularDefinition.member">
+      <path value="MolecularDefinition.member"/>
+      <short value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)"/>
+      <definition value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -512,17 +512,17 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.featureLocation">
+    <!-- <element id="MolecularDefinition.location.featureLocation">
       <path value="MolecularDefinition.location.featureLocation"/>
-      <short value="Reserved and possibly deprecated"/>
-      <definition value="Reserved and possibly deprecated."/>
+      <short value="Description of the genomic features where this molecule is located, e.g., specific gene name, regulatory regions, or general feature descriptors"/>
+      <definition value="Describes the genomic features where this molecule is located, e.g., specific gene name, regulatory regions, or general feature descriptor. This attribute helps in two main use cases: first, describes the rough location in terms of a feature/biological function if the coordinate or chromosome-based locations are not available; and second, to complement the exact location by describing its associated biological features. HGNC identifiers, Sequence Ontology (SO) terms, or other code systems may be used as values. For example, decedents of SO term biological_region (SO:0001411) may be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element> -->
 <!--
     <element id="MolecularDefinition.location.featureLocation.geneId">
       <path value="MolecularDefinition.location.featureLocation.geneId"/>

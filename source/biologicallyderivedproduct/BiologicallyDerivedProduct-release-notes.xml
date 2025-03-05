@@ -1,0 +1,13 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<ul>
+  <li>productCategory is now an example binding, to allow any categorization [%jira-task FHIR-36799%]</li>
+  <li>the boundaries with Medication and Specimen were updated [[%jira-task FHIR-36797%], [%jira-task FHIR-36798%]]</li>
+  <li><code>.biologicalSource</code> was renamed <code>.biologicalSourceEvent</code> and definition is updated</li>
+  <li><code>.storage.temperature</code> was renamed <code>.storageTempRequirements</code> and is now a Range</li>
+  <li><code>.status</code> has been renamed <code>.productStatus</code> and now has an example binding</li>
+  <li>Search parameters added: product-category, product-code, status, request, collector </li>
+  <li>Added standard extension collectionProcedure on <code>.collection</code> </li>
+</ul>
+
+</div>

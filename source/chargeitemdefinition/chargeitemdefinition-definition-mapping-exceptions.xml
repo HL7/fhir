@@ -16,6 +16,10 @@
             <_pattern value="Business identifier for charge item definition"/>
             <resource value="Additional identifier for the charge item definition"/>
         </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this charge item definition outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the charge item definition."/>
             <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
@@ -54,12 +58,6 @@
             <_pattern value="Enables tracking the lifecycle of the content and filtering of charge item definitions that are appropriate for use versus not."/>
             <resource value=""/>
         </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.experimental" resourcePath="ChargeItemDefinition.experimental">
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-            <resource value="A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.description" resourcePath="ChargeItemDefinition.description">
         <commentsUnmatched reason="Unknown">

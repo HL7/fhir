@@ -1,7 +1,5 @@
 _language
 _query
-molecule_type
-excluded_structure
 _in
 _security
 _type
@@ -9,7 +7,6 @@ _lastupdated
 _filter
 _list
 _profile
-member_state
 _tag
 _has
 _source

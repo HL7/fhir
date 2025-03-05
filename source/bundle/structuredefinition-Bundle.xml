@@ -84,6 +84,7 @@
 			<max value="*"/>
 			<constraint>
 				<key value="bdl-1"/>
+				<requirements value="There are only two Bundle types where paging is supported and there's a need to know the size of the result set beyond what's in the current instance."/>
 				<severity value="error"/>
 				<human value="total only when a search or history"/>
 				<expression value="total.empty() or (type = 'searchset') or (type = 'history')"/>
@@ -299,9 +300,9 @@
 		</element>
 		<element id="Bundle.total">
 			<path value="Bundle.total"/>
-			<short value="If search, the total number of matches"/>
-			<definition value="If a set of search matches, this is the (potentially estimated) total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
-			<comment value="Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
+			<short value="Total matches across all pages"/>
+			<definition value="If a set of search matches or a history, this is the (potentially estimated) total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
+			<comment value="Only used if the bundle is a search or history result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -395,8 +396,8 @@
 		<element id="Bundle.entry.fullUrl">
 			<path value="Bundle.entry.fullUrl"/>
 			<short value="URI for resource (e.g. the absolute URL server address, URI for UUID/OID, etc.)"/>
-			<definition value="The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: &#xA;* invoking a create&#xA;* invoking or responding to an operation where the body is not a single identified resource&#xA;* invoking or returning the results of a search or history operation."/>
-			<comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the 'id' portion of the fullUrl SHALL end with the Resource.id.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
+			<definition value="The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value unless:&#xA;* the Bundle is a batch or transaction request or response AND&#xA;* the entry is&#xA;    * invoking a create&#xA;		* invoking or responding to an operation where the body is not a single identified resource&#xA;		* invoking or returning the results of a search or history operation."/>
+			<comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the portion of the URL that, by FHIR syntax, corresponds to the resource type and id within the fullUrl SHALL match the resource type and id of the resource.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -642,6 +643,7 @@
 			<max value="1"/>
 			<type>
 				<code value="Resource"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
 			</type>
 			<isSummary value="true"/>
 		</element>
@@ -663,9 +665,9 @@
 				<valueCode value="trial-use"/>
 			</extension>
 			<path value="Bundle.issues"/>
-			<short value="Issues with the Bundle"/>
-			<definition value="Captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
-			<comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
+			<short value="OperationOutcome with issues about the Bundle"/>
+			<definition value="An OperationOutcome that captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
+			<comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries. Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
