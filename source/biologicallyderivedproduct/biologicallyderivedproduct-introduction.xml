@@ -2,7 +2,10 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Biologically Derived Product domain, also see the <a href="biologically-derived-product-module.html">module page</a>.</i></b></p>
+		<blockquote class="stu-note">
+		<p><b>Note to Implementers:</b> For an overview of this resource and others in the Biologically Derived Product domain, also see the <a href="biologically-derived-product-module.html">module page</a>.
+		</p>
+		</blockquote>
 		<p>
 			This is a base resource that represents a material substance originating from a biological entity intended to be clinically applied (e.g., transplanted, infused, grafted) to another (possibly the same) biological entity. Examples include:
 		</p>
