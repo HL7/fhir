@@ -2,9 +2,6 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MolecularDefinition"/>
-  <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-      <valueString value="Clinical.Diagnostics"/>
-    </extension>-->
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Specialized.Definitional Artifacts"/>
   </extension>
@@ -14,9 +11,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-      <valueCode value="patient"/>
-    </extension>-->
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>
   </extension>
@@ -322,9 +316,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-<!--      <type>
-        <code value="string"/>
-      </type>-->
       <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.accession">
@@ -336,9 +327,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-<!--      <type>
-        <code value="string"/>
-      </type>-->
       <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.description[x]">
@@ -444,7 +432,6 @@
       </type>
       <isSummary value="false"/>
     </element>
-
     <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband">
       <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband"/>
       <short value="End"/>
@@ -512,30 +499,6 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <!-- <element id="MolecularDefinition.location.featureLocation">
-      <path value="MolecularDefinition.location.featureLocation"/>
-      <short value="Description of the genomic features where this molecule is located, e.g., specific gene name, regulatory regions, or general feature descriptors"/>
-      <definition value="Describes the genomic features where this molecule is located, e.g., specific gene name, regulatory regions, or general feature descriptor. This attribute helps in two main use cases: first, describes the rough location in terms of a feature/biological function if the coordinate or chromosome-based locations are not available; and second, to complement the exact location by describing its associated biological features. HGNC identifiers, Sequence Ontology (SO) terms, or other code systems may be used as values. For example, decedents of SO term biological_region (SO:0001411) may be used."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element> -->
-<!--
-    <element id="MolecularDefinition.location.featureLocation.geneId">
-      <path value="MolecularDefinition.location.featureLocation.geneId"/>
-      <short value="Gene Id"/>
-      <definition value="The gene Id where this molecule occurs."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
--->
     <element id="MolecularDefinition.representation">
       <path value="MolecularDefinition.representation"/>
       <short value="A representation of a molecular entity"/>
@@ -602,7 +565,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.resolvable">
       <path value="MolecularDefinition.representation.resolvable"/>
       <short value="A resolvable representation of a molecular entity (e.g., URI, attached and formatted file)"/>
@@ -615,7 +577,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.extracted">
       <path value="MolecularDefinition.representation.extracted"/>
       <short value="A molecular entity that is represented as a portion of a different entity"/>
@@ -868,8 +829,6 @@
       </type>
       <isSummary value="false"/>
     </element>
-
-
     <element id="MolecularDefinition.representation.relative.edit.coordinateInterval">
       <path value="MolecularDefinition.representation.relative.edit.coordinateInterval"/>
       <short value="The interval on startingMolecule that defines the portion to be extracted to produce the intended entity"/>

@@ -10,8 +10,6 @@
     </moleculeType>
     <representation>
         <resolvable>
-<!--            <contentType value="text/html"/>-->
-<!--            <url value="https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?db=imgthla;id=HLA00001;format=fasta;style=raw"/>-->
             <reference value="DocumentReference/example-genomicFile-hla00001"/>
         </resolvable>
     </representation>
