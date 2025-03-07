@@ -414,7 +414,7 @@
 				</extension>
 				<strength value="required"/>
 				<description value="The type of actor - system or human."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
 			</binding>
 		</element>
 		<element id="ActorDefinition.documentation">
