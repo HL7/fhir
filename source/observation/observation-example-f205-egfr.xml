@@ -7,7 +7,7 @@
 	<code><!--  Kind of observation = eGFR  --><coding>
 			<system value="http://loinc.org"/>
 			<code value="33914-3"/>
-			<display value="Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"/>
+			<display value="Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"/>
 		</coding>
 	</code>
 	<subject>
@@ -30,7 +30,7 @@
 		<code><!--  Kind of observation = eGFR for AA  --><coding>
 				<system value="http://loinc.org"/>
 				<code value="48643-1"/>
-				<display value="Glomerular filtration rate/1.73 sq M.predicted among blacks [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (MDRD)"/>
+				<display value="Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (MDRD)/1.73 sq M among black population"/>
 			</coding>
 		</code>
 		<valueQuantity><!--  eGFR=54mL/min/1.73m2  --><value value="60"/>
