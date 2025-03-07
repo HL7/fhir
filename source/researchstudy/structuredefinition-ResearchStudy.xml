@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
+  <description value="A scientific study intended to increase health-related knowledge. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>
@@ -82,9 +82,8 @@
     <element id="ResearchStudy">
       <path value="ResearchStudy"/>
       <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
-      <definition value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
-      <comment value="Need to make sure we encompass public health studies."/>
-      <alias value="Clinical Trial"/>
+      <definition value="A scientific study intended to increase health-related knowledge. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
+      <comment value="The ResearchStudy Resource may be used for any type of research study, such as public health studies evaluating populations or systematic reviews evaluating research studies, and is not limited to clinical trials or limited to studies of individual people."/>
       <alias value="Study"/>
       <min value="0"/>
       <max value="*"/>
@@ -355,7 +354,7 @@
     </element>
     <element id="ResearchStudy.phase">
       <path value="ResearchStudy.phase"/>
-      <short value="n-a | early-phase-1 | phase-1 | phase-1-phase-2 | phase-2 | phase-2-phase-3 | phase-3 | phase-4"/>
+      <short value="SEVCO:01030 | SEVCO:01031 | SEVCO:01032 | SEVCO:01033 | SEVCO:01034 | SEVCO:01035 | SEVCO:01036 | SEVCO:01037 | SEVCO:01038"/>
       <definition value="The stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation."/>
       <min value="0"/>
       <max value="1"/>
@@ -365,11 +364,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyPhase"/>
+          <valueString value="StudyDesign"/>
         </extension>
-        <strength value="example"/>
-        <description value="Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-phase"/>
+        <strength value="preferred"/>
+        <description value="This is a set of terms for study design characteristics."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-trial-phase"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -472,10 +471,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyKeyword"/>
+          <valueString value="ResearchStudyFocusType"/>
         </extension>
         <strength value="example"/>
-        <description value="Words associated with the study that may be useful in discovery."/>
+        <description value="Some example codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -1004,7 +1004,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure"/>
       <short value="A variable measured during the study"/>
       <definition value="An &quot;outcome measure&quot;, &quot;endpoint&quot;, &quot;effect measure&quot; or &quot;measure of effect&quot; is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment."/>
-      <comment value="A study may have multiple distinct outcome measures that can be used to assess the overall goal for a study. The goal of a study is in the objective whereas the metric by which the goal is assessed is the outcomeMeasure. Examples: Time to Local Recurrence (TLR), Disease-free Survival (DFS), 30 Day Mortality, Systolic BP"/>
+      <comment value="To re-use and reference a Group represented in ResearchStudy.comparisonGroup.eligibility, one may include the Group Resource in ResearchStudy.contained and then reference the same (internal) Group by its id"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1172,6 +1172,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
       <isSummary value="true"/>
     </element>
