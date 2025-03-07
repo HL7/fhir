@@ -410,7 +410,7 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ExampleScenarioActorType"/>
+					<valueString value="ActorDefinitionActorType"/>
 				</extension>
 				<strength value="required"/>
 				<description value="The type of actor - system or human."/>
