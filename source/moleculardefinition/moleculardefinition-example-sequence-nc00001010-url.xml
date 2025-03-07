@@ -10,8 +10,6 @@
     </moleculeType>
     <representation>
         <resolvable>
-<!--            <contentType value="text/html"/>-->
-<!--            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NC_000010.10?report=fasta"/>-->
             <reference value="DocumentReference/example-genomicfile-nc00001010-url"/>
         </resolvable>
     </representation>

@@ -8,14 +8,6 @@
             <display value="DNA Sequence"/>
         </coding>
     </moleculeType>
-    <!--    <subject>
-            <reference value="Patient/example"/>
-        </subject>-->
-    <!--    <formatted>
-            <contentType value="application/json"/>
-            <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
-            <title value="GA4GH API"/>
-        </formatted>-->
     <representation>
     <literal>
         <value value="ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
@@ -29,18 +21,9 @@ AGAAAGTGAACTTGATGCTCAGTATTTGCAGAATACATTCAAGGTTTCAAAGCGCCAGTCATTTGCTCYG
 TTTTCAAATCCAGGAAATGCAGAAGAGGAATGTGCAACATTCTCTGCCCACTCTGGGTCCTTAAAGAAAC
 AAAGTCCAAAAGTCACTTTTGAATGTGAACAAAAGGAAGAAAATCAAGGAAAGAATGAGTCTAATATCAA
 GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
-        <!--    <encoding>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/..."/>
-            <code value=""/>
-            <display value=""/>
-        </coding>
-        <text value=""/>
-    </encoding>-->
+
     </literal>
     <resolvable>
-<!--        <contentType value="text/html"/>-->
-<!--        <url value="https://www.ncbi.nlm.nih.gov/nuccore/MW716256.1?report=fasta"/>-->
         <reference value="DocumentReference/example-genomicFile-mw7162561"/>
     </resolvable>
     <extracted>
@@ -49,17 +32,6 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             <type value="MolecularDefinition"/>
             <display value="Starting Sequence Resource"/>
         </startingMolecule>
-<!--        <start value="0"/>-->
-<!--        <end value="745"/>-->
-<!--        <coordinateSystem>-->
-<!--            <coding>-->
-<!--                <system value="http://loinc.org"/>-->
-<!--                <code value="LA30100-4"/>-->
-<!--                <display value="0-based interval counting"/>-->
-<!--            </coding>-->
-<!--            <text value="0-based interval counting"/>-->
-<!--        </coordinateSystem>-->
-
         <coordinateInterval>
             <coordinateSystem>
                 <system>
@@ -110,16 +82,6 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             <display value="Starting Sequence Resource"/>
         </startingMolecule>
         <edit>
-<!--            <coordinateSystem>-->
-<!--                <coding>-->
-<!--                    <system value="http://loinc.org"/>-->
-<!--                    <code value="LA30100-4"/>-->
-<!--                    <display value="0-based interval counting"/>-->
-<!--                </coding>-->
-<!--                <text value="0-based interval counting"/>-->
-<!--            </coordinateSystem>-->
-<!--            <start value="0"/>-->
-<!--            <end value="725"/>-->
             <coordinateInterval>
                 <coordinateSystem>
                     <system>
@@ -146,15 +108,5 @@ GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
             </replacedMolecule>
         </edit>
     </relative>
-
-    <!--    <repeated>
-            <sequenceMotif>
-                <reference value="MolecularDefinition/SequenceMotifExample"/>
-                <type value="MolecularDefinition"/>
-                <display value="Sequence Motif Resource"/>
-            </sequenceMotif>
-            <copyCount value="5"/>
-        </repeated>-->
-
     </representation>
 </MolecularDefinition>
