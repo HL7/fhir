@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="An example of using the relatedArtifact element to quote a line of text from the evidence source."/>
+      <valueString value="An example using the relatedArtifact element to quote text from the evidence source"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="evidence-example-quoted-source"/>
@@ -78,7 +78,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example Evidence Resource for EBMonFHIR IG using SingleStudyEvidence and ComparativeEvidence Profiles"/>
+      <valueString value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="evidence-example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
