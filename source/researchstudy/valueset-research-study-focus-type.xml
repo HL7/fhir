@@ -37,11 +37,23 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes for the main intent of the study."/>
-  <immutable value="true"/>
+  <description value="Some example codes of research study focus"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-focus-type"/>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="372567009"/>
+		<display value="Metformin"/>
+      </concept>
+      <concept>
+        <code value="271062006"/>
+		<display value="Fasting blood glucose measurement"/>
+      </concept>
+      <concept>
+        <code value="228557008"/>
+		<display value="Cognitive and behavioral therapy"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
