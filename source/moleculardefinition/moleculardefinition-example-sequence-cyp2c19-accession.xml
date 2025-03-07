@@ -10,8 +10,6 @@
     </moleculeType>
     <representation>
         <resolvable>
-<!--            <contentType value="text/html"/>-->
-<!--            <url value="https://www.ncbi.nlm.nih.gov/nuccore/NG_008384.3?report=fasta"/>-->
             <reference value="DocumentReference/example-genomicFile-cyp2c19-accession"/>
         </resolvable>
     </representation>
