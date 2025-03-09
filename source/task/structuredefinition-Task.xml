@@ -425,7 +425,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskCode"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
       </binding>
@@ -1205,7 +1205,7 @@
           <valueString value="TaskOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <description value="Codes to identify types of input parameters. These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
