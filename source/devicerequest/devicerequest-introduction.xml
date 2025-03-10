@@ -19,7 +19,10 @@ The device use request may represent an order or a prescription entered by a pra
 		<p>
 This resource deals with the allocation of a device to a patient and while it may contain instructions on how to use the device, the data about getting the device to the patient is addressed in other resources. For example, when requesting an oxygen pump for home use instructions on how to use it may be included.  For devices that must be implanted via a surgical or other procedure the implantation is represented in the Procedure resource.
 </p>
-<p>  
+<p> 
+The DeviceRequest resource represents an authorization for a device to be provided. Details about the fulfillment of the authorization are handled by the Task resource. For further information about this separation of responsibilities, refer to the <a href="https://www.hl7.org/fhir/request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
+</p>
+<p> 
 <a href="visionprescription.html">VisionPrescription</a> may appear to overlap with DeviceRequest, but not completely as there are specific vision lens specification details that are present in VisionPrescription. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a>.
 </p>
 <p>
