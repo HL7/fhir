@@ -587,7 +587,7 @@
 		</element>
 		<element id="EvidenceVariable.handling">
 			<path value="EvidenceVariable.handling"/>
-			<short value="boolean | continuous | dichotomous | ordinal | polychotomous"/>
+			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | extension"/>
 			<definition value="The method of handling in statistical analysis."/>
 			<min value="0"/>
 			<max value="1"/>
