@@ -88,4 +88,16 @@
       <display value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Statistical analysis plan with different statistical test if non-normal distribution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-statistic-model-include-if"/>
+    </extension>
+    <item>
+      <reference value="example-statistic-model-include-if"/>
+      <display value="Statistical analysis plan with different statistical test if non-normal distribution"/>
+    </item>
+  </entry>
 </List>
