@@ -45,7 +45,7 @@
   </jurisdiction>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status"/>
-  <content value="example"/>
+  <content value="complete"/>
   <count value="4"/>
   <concept>
     <code value="crossmatched"/>

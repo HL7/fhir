@@ -46,7 +46,7 @@
   <description value="Biologically Derived Product Category."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
-  <content value="example"/>
+  <content value="complete"/>
   <concept>
     <code value="organ"/>
     <display value="Organ"/>
