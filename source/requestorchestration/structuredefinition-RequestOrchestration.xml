@@ -472,7 +472,7 @@
         <key value="rqg-1"/>
         <severity value="error"/>
         <human value="Must have resource or action but not both"/>
-        <expression value="resource.exists() != action.exists()"/>
+        <expression value="resource.exists() implies action.exists().not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </constraint>
     </element>
