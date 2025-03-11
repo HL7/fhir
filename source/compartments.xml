@@ -449,10 +449,6 @@
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">EvidenceReport</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
