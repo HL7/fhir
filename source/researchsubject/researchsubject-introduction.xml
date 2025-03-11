@@ -10,8 +10,8 @@
     <li>can also be a group or part of any of the above.</li>
   </ul>
   <p>Human research subjects are traceable to a particular person but their identifying characteristics are usually hidden to protect study integrity and the subject's privacy. Note that in a human drug trial the human is the research subject even though the drug is what is being investigated.</p>
-  <p>In contemporary research contexts, where humans are involved, the term "Participant" is preferred over "Research Subject". "Participant" emphasizes the active and voluntary role of the individuals in the research process, reflecting a more ethical and respectful approach. However, some contexts still use "Research Subject" due to its broad use in regulatory documents.</p>
-  <p>The ResearchSubject resource describes information about the subject in the context of a research study. It is the resource, which links a patient to one or several studies, captures the business identifier for the research subject in a study, provides a reference to a consent resource and information on the assigned and actual study comparison group the subject is in. It also documents the research subject's individual movement through the study protocol.</p>
+  <p>In contemporary research contexts, where humans are involved, the term &quot;Participant&quot; is preferred over &quot;Research Subject&quot;. &quot;Participant&quot; emphasizes the active and voluntary role of the individuals in the research process, reflecting a more ethical and respectful approach. However, some contexts still use &quot;Research Subject&quot; due to its broad use in regulatory documents.</p>
+  <p>The ResearchSubject Resource describes information about the subject in the context of a research study. It is the Resource, which links a patient to one or several studies, captures the business identifier for the research subject in a study, provides a reference to a Consent Resource and information on the assigned and actual study comparison group the subject is in. It also documents the research subject's individual movement through the study protocol.</p>
   <p>The scope of ResearchSubject is intended to support the following use cases:</p>
   <ul>
     <li>Humans and Animals for Clinical and Pre-clinical Trials</li>
@@ -21,16 +21,16 @@
 	<li>Cases where subjects do not actively participate, but are still represented by their data contributions in retrospective studies</li>
   </ul>
   
-  <p>Known common use cases for this resource are as:</p>
+  <p>Known common use cases for this Resource are as:</p>
   <ul>
     <li>a standard, basic, interface structure for linking healthcare systems with research systems.</li>
 	<li>an interface structure for reading off and for storing key status information to track a subject's progress in a trial, including the pre-screening phase.</li>
 	<li>an operational oversight source for sponsor systems.</li>
   </ul>
   
-  <p>A guiding goal in the development and maintenance of this resource is to provide consistent definitions of <b>states</b>, <b>state-change reasons</b>, and <b>milestones</b> which can be used alone or in combination to document the progress of a research subject over the course of their participation in a study. Defining a permissible workflows for the course of a subject in a study is out of scope of this resource, but the states, state-change reasons, milestones can be used as the basic elements in such a workflow - typically as a PlanDefinition.</p>
+  <p>A guiding goal in the development and maintenance of this Resource is to provide consistent definitions of <b>states</b>, <b>state-change reasons</b>, and <b>milestones</b> which can be used alone or in combination to document the progress of a research subject over the course of their participation in a study. Defining a permissible workflows for the course of a subject in a study is out of scope of this Resource, but the states, state-change reasons, milestones can be used as the basic elements in such a workflow - typically as a PlanDefinition.</p>
   
-  <p>The <b>Subject State</b> is the research subject's movement through the study protocol from the subject's point of view. In retrospective studies, subjects do not actively participate, but are still in scope of this resource represented by their data contributions. The subjectState codes ‘on-study’ and ‘off-study’ track the periods during which their data is included, observed, or considered as part of the study analysis.</p>
+  <p>The <b>Subject State</b> is the research subject's movement through the study protocol from the subject's point of view. In retrospective studies, subjects do not actively participate, but are still in scope of this Resource represented by their data contributions. The subjectState codes ‘on-study’ and ‘off-study’ track the periods during which their data is included, observed, or considered as part of the study analysis.</p>
   
   <p>A Subject State can be assigned a <b>State Change Reason</b> (StateChangeReason) which indicates why the state of the subject changed.</p>
   
@@ -65,14 +65,14 @@
   </table>
   
   <h3>Scenarios for Transition to &quot;On-Study&quot;</h3>
-  <p>Is a person typically considered "on study" before screening or after screening is completed and eligibility is confirmed? This question is a recurring source of confusion. The answer here is that this transition depends on the study:</p>
-  <p><b>#1 - Most Common Case:</b> A person is typically considered <b>"on study"</b> only after screening is completed and eligibility is confirmed.</p>
+  <p>Is a person typically considered &quot;on-study&quot; before screening or after screening is completed and eligibility is confirmed? This question is a recurring source of confusion. The answer here is that this transition depends on the study:</p>
+  <p><b>#1 - Most Common Case:</b> A person is typically considered <b>&quot;on-study&quot;</b> only after screening is completed and eligibility is confirmed.</p>
   <p><b>Key reasons for this:</b></p>
   <ol>
     <li>Screening Completion:
 		<ul>Screening is the process of evaluating a potential participant's eligibility against the protocol's inclusion and exclusion criteria.</ul>
 		<ul>This phase includes activities like reviewing medical history, performing diagnostic tests, and assessing biomarkers.</ul>
-		<ul>Until screening is completed and the participant is deemed eligible, they are not officially &quot;on study.&quot;</ul>
+		<ul>Until screening is completed and the participant is deemed eligible, they are not officially &quot;on-study.&quot;</ul>
 	</li>
     <li>Eligibility Confirmation:
 		<ul>A participant transitions to the &quot;on-study&quot; state once eligibility is confirmed, and they formally enter the study by being enrolled.</ul>
@@ -116,7 +116,7 @@
   </ul>
   <p>In general, the distinction between screening and on-study hinges on the completion of eligibility assessment and enrollment.</p>
   
-  <p><b>#3 - Special Case: If eligibility criteria selection is based entirely on routine care data and no special interventions or study-specific procedures are needed,</b> the potential participant can be set to "on study" directly after eligibility criteria are fulfilled.</p>
+  <p><b>#3 - Special Case: If eligibility criteria selection is based entirely on routine care data and no special interventions or study-specific procedures are needed,</b> the potential participant can be set to &quot;on-study&quot; directly after eligibility criteria are fulfilled.</p>
   <p><b>Key Factors Supporting &quot;On-Study&quot; Status Directly After Eligibility Fulfillment:</b></p>
   <ol>
 	  <li>No Additional Screening Activities:
