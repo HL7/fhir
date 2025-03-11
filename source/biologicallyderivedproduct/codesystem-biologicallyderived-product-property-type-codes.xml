@@ -46,7 +46,7 @@
   <description value="Biologically Derived Product Property Type Code.  This code system http://hl7.org/fhir/biologicallyderived-product-property-type-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
-  <content value="example"/>
+  <content value="complete"/>
   <concept>
     <code value="collectiontype"/>
     <display value="Collection Type"/>

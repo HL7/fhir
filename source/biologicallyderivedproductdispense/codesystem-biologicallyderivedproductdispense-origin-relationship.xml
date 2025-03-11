@@ -45,7 +45,7 @@
   </jurisdiction>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship"/>
-  <content value="example"/>
+  <content value="complete"/>
   <count value="5"/>
   <concept>
     <code value="autologous"/>
