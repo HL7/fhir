@@ -29,7 +29,13 @@
       <display value="Drug Interaction Alert"/>
     </coding>
   </code>
-  <severity value="high"/>
+  <severity>
+    <coding>
+      <system value="http://hl7.org/fhir/detectedissue-severity"/>
+      <code value="high"/>
+      <display value="High"/>
+    </coding>
+  </severity>
   <subject>
     <reference value="Device/example"/>
   </subject>
