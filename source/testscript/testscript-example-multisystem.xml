@@ -32,19 +32,17 @@
   </jurisdiction>
   <purpose value="Patient Read Operation"/>
   <copyright value="© HL7.org 2011+"/>
-  <origin>
+  <testSystem>
     <index value="1"/>
-    <profile>
-      <code value="FHIR-Client"/>
-    </profile>
-  </origin>
-  <destination>
+    <title value="FHIR Client"/>
+    <description value="The FHIR Client system under test."/>
+  </testSystem>
+  <testSystem>
     <index value="1"/>
-    <profile>
-      <code value="FHIR-Server"/>
-    </profile>
+    <title value="FHIR Server"/>
+    <description value="The FHIR Server system under test."/>
     <url value="http://acme.com/fhir/test"/>
-  </destination>
+  </testSystem>
   <destination>
     <index value="2"/>
     <profile>

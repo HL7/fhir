@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-allelesliced-cyp2c19-1016-cont"/>
+    <contained>
+      <MolecularDefinition>
+          <id value="example-sequence-nm0007694-acc"/>
+          <moleculeType>
+              <coding>
+                  <system value="http://hl7.org/fhir/sequence-type"/>
+                  <code value="rna"/>
+                  <display value="RNA Sequence"/>
+              </coding>
+          </moleculeType>
+          <representation>
+            <code>
+              <coding>
+                 <system value="http://www.ncbi.nlm.nih.gov/refseq"/>
+                 <code value="NM_000769.4"/>
+                 <display value="Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), mRNA"/>
+              </coding>
+            </code>
+          </representation>
+      </MolecularDefinition>
+    </contained>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="rna"/>
+            <display value="RNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="#example-sequence-nm0007694-acc"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: (CYP2C19), mRNA, NM_000769.4"/>
+            </sequenceContext>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30102-0"/>
+                            <display value="1-based character counting"/>
+                        </coding>
+                        <text value="1-based character counting"/>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="1016"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="1016"/>
+                </endQuantity>
+            </coordinateInterval>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <focus>
+            <coding>
+                <code value="allele-state"/>
+                <display value="Allele State"/>
+            </coding>
+        </focus>
+        <code>
+            <coding>
+                <system value="https://www.pharmvar.org"/>
+                <version value="6.2"/>
+                <code value="PV00076"/>
+                <display value="CYP2C19*1.002"/>
+            </coding>
+        </code>
+        <literal>
+            <value value="G"/>
+        </literal>
+    </representation>
+    <representation>
+        <focus>
+            <coding>
+                <code value="context-state"/>
+                <display value="Context State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="A"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

@@ -222,7 +222,7 @@
 			<path value="SpecimenDefinition.experimental"/>
 			<short value="If this SpecimenDefinition is not for real usage"/>
 			<definition value="A flag to indicate that this SpecimenDefinition is not authored for  genuine usage."/>
-			<comment value="Allows filtering of SpecimenDefinition that are appropriate for use vs. not."/>
+			<comment value="Allows filtering of SpecimenDefinition that are appropriate for use vs. not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

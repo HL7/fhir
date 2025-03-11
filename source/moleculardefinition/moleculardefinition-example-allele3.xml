@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MolecularDefinition xmlns="http://hl7.org/fhir">
     <id value="example-allele3"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/allele"/>
-    </meta>
-    <type value="dna"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
 
     <location>
         <sequenceLocation>
@@ -23,16 +26,21 @@
                 <display value="Starting Sequence Resource: HLA00001"/>
             </startingMolecule>
             <edit>
-                <coordinateSystem>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="LA30100-4"/>
-                        <display value="0-based interval counting"/>
-                    </coding>
-                    <text value="0-based interval counting"/>
-                </coordinateSystem>
-                <start value="97"/>
-                <end value="98"/>
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="97"/>
+                    <end value="98"/>
+                </coordinateInterval>
+
                 <replacementMolecule>
                     <reference value="MolecularDefinition/example-sequence-c"/>
                     <type value="MolecularDefinition"/>

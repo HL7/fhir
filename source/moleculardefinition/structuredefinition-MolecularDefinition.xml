@@ -2,12 +2,6 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MolecularDefinition"/>
-  <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
-  </meta>
-  <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-      <valueString value="Clinical.Diagnostics"/>
-    </extension>-->
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Specialized.Definitional Artifacts"/>
   </extension>
@@ -17,9 +11,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <!--  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-      <valueCode value="patient"/>
-    </extension>-->
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>
   </extension>
@@ -31,25 +22,23 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1301"/>
   </identifier>
-  <version value="6.0.0"/>
+  <version value="1.0.0"/>
   <name value="MolecularDefinition"/>
   <title value="Molecular Definition"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <date value="2025-01-30"/>
+  <publisher value="Clinical Genomics Working Group (HL7)"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="https://confluence.hl7.org/display/CGW/WorkGroup+Home"/>
     </telecom>
-  </contact>
-  <contact>
     <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
+      <system value="email"/>
+      <value value="clingenomics@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Representation of a molecular definition."/>
+  <description value="Definitional content for a molecular entity, such as a nucleotide or protein sequence."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -69,8 +58,8 @@
   <differential>
     <element id="MolecularDefinition">
       <path value="MolecularDefinition"/>
-      <short value="Representation of a molecular definition"/>
-      <definition value="Representation of a molecular definition."/>
+      <short value="Definitional content for a molecular entity"/>
+      <definition value="Definitional content for a molecular entity, such as a nucleotide or protein sequence."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -80,9 +69,8 @@
     </element>
     <element id="MolecularDefinition.identifier">
       <path value="MolecularDefinition.identifier"/>
-      <short value="Unique ID for this particular resource"/>
-      <definition value="A unique identifier for this particular resource instance."/>
-      <requirements value="Allows MolecularDefinition to be distinguished and referenced."/>
+      <short value="Unique ID of an instance"/>
+      <definition value="A unique identifier for a particular instance of this resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -94,30 +82,66 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-    <element id="MolecularDefinition.type">
-      <path value="MolecularDefinition.type"/>
-      <short value="aa | dna | rna"/>
-      <definition value="The type of the Molecular Definition (Amino Acid, DNA, RNA)."/>
+    <element id="MolecularDefinition.description">
+      <path value="MolecularDefinition.description"/>
+      <short value="Description of the Molecular Definition instance"/>
+      <definition value="A description of the molecular entity in a human friendly format."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularDefinition.moleculeType">
+      <path value="MolecularDefinition.moleculeType"/>
+      <short value="The type of molecule (e.g., DNA, RNA, amino acid)"/>
+      <definition value="The type of molecule (e.g., DNA, RNA, amino acid). This is a broad concept that refers to the general physical composition of the molecule, intended to facilitate searching and to provide domain context for profiles and instances. The terminology binding may be expanded to support additional types of molecules in the future (e.g., peptide nucleic acids, oligosaccharides)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="sequenceType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Type of a molecule -- DNA, RNA, or amino acid sequence."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
-      </binding>
     </element>
-
+    <element id="MolecularDefinition.type">
+      <path value="MolecularDefinition.type"/>
+      <short value="Classification of the molecule into types other than those defined by moleculeType"/>
+      <definition value="Classifications of an instance of the resource into arbitrary types, based on domain semantics. For example, this element could indicate that an instance of moleculeType 'RNA' could have a type of 'mRNA' or 'siRNA'."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.topology">
+      <path value="MolecularDefinition.topology"/>
+      <short value="The structural topology of the molecular entity (e.g., linear, circular)"/>
+      <definition value="The structural topology of the molecular entity. For sequences (e.g., DNA), this could specify 'linear' and 'circular'. More complex entities might be branched or have a quaternary structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.member">
+      <path value="MolecularDefinition.member"/>
+      <short value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)"/>
+      <definition value="Constituents of an aggregate molecular concept (e.g., haplotype, genotype)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="MolecularDefinition.location">
       <path value="MolecularDefinition.location"/>
-      <short value="Location of this molecule"/>
-      <definition value="The molecular location of this molecule."/>
+      <short value="A defined location on a molecular entity"/>
+      <definition value="A defined location on a molecular entity. Location definitions may vary with respect to coordinate space and precision or level of granularity."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -127,8 +151,8 @@
     </element>
     <element id="MolecularDefinition.location.sequenceLocation">
       <path value="MolecularDefinition.location.sequenceLocation"/>
-      <short value="Location of this molecule in context of a sequence"/>
-      <definition value="The Location of this molecule in context of a sequence."/>
+      <short value="A coordinate-based location on a sequence"/>
+      <definition value="A location on a sequence, defined using a nucleotide coordinate system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -138,8 +162,8 @@
     </element>
     <element id="MolecularDefinition.location.sequenceLocation.sequenceContext">
       <path value="MolecularDefinition.location.sequenceLocation.sequenceContext"/>
-      <short value="Reference sequence"/>
-      <definition value="The reference Sequence that contains this location."/>
+      <short value="The sequence on which the location is defined"/>
+      <definition value="A reference to a sequence on which the location is defined."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -150,8 +174,8 @@
     </element>
     <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval">
       <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval"/>
-      <short value="Coordinate Interval for this location"/>
-      <definition value="The coordinate interval for this location."/>
+      <short value="An interval on a sequence"/>
+      <definition value="An interval on a sequence, defined by coordinate-based start and end coordinates."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -159,10 +183,51 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem">
-      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.numberingSystem"/>
-      <short value="Coordinate System"/>
-      <definition value="The coordinate system of this interval."/>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem"/>
+      <short value="The coordinate system used to define the location"/>
+      <definition value="A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system"/>
+      <short value="The type of coordinate system used"/>
+      <definition value="A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL5323-2"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Coordinate system."/>
+        <valueSet value="http://loinc.org/vs/LL5323-2"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin"/>
+      <short value="The location of the origin of the coordinate system"/>
+      <definition value="The location of the origin (0 or 1, depending on the coordinate system). For example, this could specify the origin is at the start of the sequence (e.g., 5’ end or N-terminus), the beginning of a designated feature (e.g., A in the ATG translation initiation codon), or the end of a designated feature (e.g., 3’ end of an exon, from which an offset is calculated into the following intron)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod">
+      <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod"/>
+      <short value="The normalization method used for determining a location within the coordinate system"/>
+      <definition value="The normalization method used for determining a location within the coordinate system. Examples include left shift (e.g., VCF), right shift (e.g., HGVS), or fully justified (e.g., VOCA)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -172,8 +237,8 @@
     </element>
     <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.start[x]">
       <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.start[x]"/>
-      <short value="Start"/>
-      <definition value="The start of this interval."/>
+      <short value="The start location of the interval"/>
+      <definition value="The start location of the interval expressed as a precise coordinate (Quantity) or expressed as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -186,8 +251,8 @@
     </element>
     <element id="MolecularDefinition.location.sequenceLocation.coordinateInterval.end[x]">
       <path value="MolecularDefinition.location.sequenceLocation.coordinateInterval.end[x]"/>
-      <short value="End"/>
-      <definition value="The end of this interval."/>
+      <short value="The end location of the interval"/>
+      <definition value="The end location of the interval expressed as a precise coordinate (Quantity) or as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -200,8 +265,8 @@
     </element>
     <element id="MolecularDefinition.location.sequenceLocation.strand">
       <path value="MolecularDefinition.location.sequenceLocation.strand"/>
-      <short value="Forward or Reverse"/>
-      <definition value="The identification of the strand direction, i.e, forward vs reverse strand."/>
+      <short value="The strand at the coordinateInterval"/>
+      <definition value="The specific strand at the coordinateInterval, when the interval alone is not sufficient to define a location (e.g., double stranded DNA). Example values include 'forward' and 'reverse'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -211,8 +276,8 @@
     </element>
     <element id="MolecularDefinition.location.cytobandLocation">
       <path value="MolecularDefinition.location.cytobandLocation"/>
-      <short value="Location of this molecule in context of a cytoband"/>
-      <definition value="The location of this molecule in context of a cytoband."/>
+      <short value="A cytoband-based location on a sequence"/>
+      <definition value="A location on a sequence, defined using cytobands."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -251,9 +316,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-<!--      <type>
-        <code value="string"/>
-      </type>-->
       <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.accession">
@@ -265,15 +327,12 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-<!--      <type>
-        <code value="string"/>
-      </type>-->
       <isSummary value="false"/>
     </element>
     <element id="MolecularDefinition.location.cytobandLocation.genomeAssembly.description[x]">
       <path value="MolecularDefinition.location.cytobandLocation.genomeAssembly.description[x]"/>
-      <short value="Genome assemble description"/>
-      <definition value="The description of this genome assemble."/>
+      <short value="Genome assembly description"/>
+      <definition value="The description of this genome assembly."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -373,7 +432,6 @@
       </type>
       <isSummary value="false"/>
     </element>
-
     <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband">
       <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband"/>
       <short value="End"/>
@@ -441,47 +499,10 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.featureLocation">
-      <path value="MolecularDefinition.location.featureLocation"/>
-      <short value="Location in context of a feature"/>
-      <definition value="The location of this molecule in context of a feature."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularDefinition.location.featureLocation.geneId">
-      <path value="MolecularDefinition.location.featureLocation.geneId"/>
-      <short value="Gene Id"/>
-      <definition value="The gene Id where this molecule occurs."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-
-<!--    A placeholder for MolDef-to-MolDef relation-->
-
-    <element id="MolecularDefinition.memberState">
-      <path value="MolecularDefinition.memberState"/>
-      <short value="Member"/>
-      <definition value="A member or part of this molecule."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
     <element id="MolecularDefinition.representation">
       <path value="MolecularDefinition.representation"/>
-      <short value="Representation"/>
-      <definition value="The representation of this molecular definition, e.g., as a literal or repeated elements."/>
+      <short value="A representation of a molecular entity"/>
+      <definition value="A representation of a molecular entity, specifically including sequence. Note this element is intended to define the entity primarily through computable, discrete elements that express domain semantics rather than replicating a particular file format or relational schema."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -489,11 +510,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.focus">
       <path value="MolecularDefinition.representation.focus"/>
-      <short value="The focus of the representation"/>
-      <definition value="A representation focus, e.g., reference or alternative state."/>
+      <short value="The domain concept that is the focus of a given instance of the representation"/>
+      <definition value="The domain concept that is the focus of the representation. This element is used to disambiguate the representations of the “reference” and the “alternate” alleles at a given location, for example."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -501,11 +521,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.code">
       <path value="MolecularDefinition.representation.code"/>
-      <short value="A code of the representation"/>
-      <definition value="A representation code."/>
+      <short value="A code (e.g., sequence accession number) used to represent a molecular entity"/>
+      <definition value="A code (e.g., sequence accession number) used to represent a molecular entity."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -513,11 +532,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.literal">
       <path value="MolecularDefinition.representation.literal"/>
-      <short value="A literal representation"/>
-      <definition value="A literal representation."/>
+      <short value="A molecular entity defined as a string literal"/>
+      <definition value="A molecular entity defined as a string literal."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -525,11 +543,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.literal.encoding">
       <path value="MolecularDefinition.representation.literal.encoding"/>
-      <short value="The encoding used for the expression of the primary sequence"/>
-      <definition value="The encoding used for the expression of the primary sequence. This defines the characters that may be used in the primary sequence and it permits the explicit inclusion/exclusion of IUPAC ambiguity codes."/>
+      <short value="The encoding used in the value"/>
+      <definition value="The encoding used for the expression of the entity. For a primary sequence, this element represents the alphabet used (e.g., 1 character DNA without ambiguity codes, 3 character amino acid codes)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -537,11 +554,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.literal.value">
       <path value="MolecularDefinition.representation.literal.value"/>
-      <short value="The primary (linear) sequence, expressed as a literal string"/>
-      <definition value="The primary (linear) sequence, expressed as a literal string."/>
+      <short value="A string literal representation of the molecular entity, using the encoding specified in encoding"/>
+      <definition value="A string literal representation of the molecular entity, using a specific encoding. For example, this may be the primary sequence of a strand of DNA."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -549,24 +565,22 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.resolvable">
       <path value="MolecularDefinition.representation.resolvable"/>
-      <short value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself"/>
-      <definition value="A resolvable representation of a molecule that optionally contains formatting in addition to the specification of the primary sequence itself. The sequence may be provided inline as an attached document or through a resolvable URI."/>
-      <comment value = "Attachment.data for inline, .url for resolvable, optionally with .contentType for format."/>
+      <short value="A resolvable representation of a molecular entity (e.g., URI, attached and formatted file)"/>
+      <definition value="A resolvable representation of a molecular entity, which may be specified as a URI and/or attached document (in a defined format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Attachment"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.extracted">
       <path value="MolecularDefinition.representation.extracted"/>
-      <short value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence"/>
-      <definition value="A Molecular Sequence that is represented as an extracted portion of a different Molecular Sequence."/>
+      <short value="A molecular entity that is represented as a portion of a different entity"/>
+      <definition value="A molecular entity that is represented as a portion of a different entity. For example, this element can represent a subsequence (e.g., genetic region) that is part of and conceptually extracted from a longer sequence (e.g., chromosome sequence). The “parent” entity is specified in startingMolecule and the location of the intended molecular entity on the parent entity is defined by coordinateInterval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -576,8 +590,8 @@
     </element>
     <element id="MolecularDefinition.representation.extracted.startingMolecule">
       <path value="MolecularDefinition.representation.extracted.startingMolecule"/>
-      <short value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted"/>
-      <definition value="The Molecular Sequence that serves as the parent sequence, from which the intended sequence will be extracted."/>
+      <short value="The molecular entity that serves as the conceptual 'parent' from which the intended entity is derived"/>
+      <definition value="A reference to the molecular entity that serves as the conceptual 'parent' from which the intended entity is derived. For example, this could be a chromosome sequence on which a coordinateInterval is defined."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -586,44 +600,101 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.start">
-      <path value="MolecularDefinition.representation.extracted.start"/>
-      <short value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
-      <definition value="The start coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval"/>
+      <short value="The interval on startingMolecule that defines the portion to be extracted to produce the intended entity"/>
+      <definition value="The interval on startingMolecule that defines the portion to be extracted in order to create the intended entity."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.end">
-      <path value="MolecularDefinition.representation.extracted.end"/>
-      <short value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted"/>
-      <definition value="The end coordinate (on the parent sequence) of the interval that defines the subsequence to be extracted."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem"/>
+      <short value="The coordinate system used to define the location"/>
+      <definition value="The coordinate system used to define the location, which may vary depending on application or context of use."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.extracted.coordinateSystem">
-      <path value="MolecularDefinition.representation.extracted.coordinateSystem"/>
-      <short value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based"/>
-      <definition value="The coordinate system used to define the interval that defines the subsequence to be extracted. Coordinate systems are usually 0- or 1-based."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.system">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.system"/>
+      <short value="The type of coordinate system used"/>
+      <definition value="A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL5323-2"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Coordinate system."/>
+        <valueSet value="http://loinc.org/vs/LL5323-2"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin"/>
+      <short value="The location of the origin of the coordinate system"/>
+      <definition value="The location of the origin (0 or 1, depending on the coordinate system). For example, this could specify the origin is at the start of the sequence (e.g., 5’ end or N-terminus), the beginning of a designated feature (e.g., A in the ATG translation initiation codon), or the end of a designated feature (e.g., 3’ end of an exon, from which an offset is calculated into the following intron)."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.normalizationMethod">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.normalizationMethod"/>
+      <short value="The normalization method used for determining a location within the coordinate system"/>
+      <definition value="The normalization method used for determining a location within the coordinate system. Examples include left shift (e.g., VCF), right shift (e.g., HGVS), or fully justified (e.g., VOCA)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.start[x]">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.start[x]"/>
+      <short value="The start location of the interval"/>
+      <definition value="The start location of the interval expressed as a precise coordinate (Quantity) or expressed as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.extracted.coordinateInterval.end[x]">
+      <path value="MolecularDefinition.representation.extracted.coordinateInterval.end[x]"/>
+      <short value="The end location of the interval"/>
+      <definition value="The end location of the interval expressed as a precise coordinate (Quantity) or as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported.."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="MolecularDefinition.representation.extracted.reverseComplement">
       <path value="MolecularDefinition.representation.extracted.reverseComplement"/>
       <short value="A flag that indicates whether the extracted sequence should be reverse complemented"/>
-      <definition value="A flag that indicates whether the extracted sequence should be reverse complemented."/>
-      <comment value="This attribute might be needed in all sequence representation classes, so that any sequence representation could be reverseComplemented."/>
+      <definition value="A flag that indicates whether the extracted sequence should be reverse complemented in order to produce the intended entity. This element is only relevant to molecular entities that support the concept of reverse complement (e.g., double stranded DNA)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -631,12 +702,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="MolecularDefinition.representation.repeated">
       <path value="MolecularDefinition.representation.repeated"/>
-      <short value="A Molecular Sequence that is represented as a repeated sequence motif"/>
-      <definition value="A Molecular Sequence that is represented as a repeated sequence motif."/>
-      <comment value="This class represents motifs that occur in tandem (immediately adjacent to each other) and without edits (each copy of the motif is identical)."/>
+      <short value="A representation as a repeated motif"/>
+      <definition value="A representation of a molecular entity that is expressed as a number of copies of a repeated motif."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -646,8 +715,8 @@
     </element>
     <element id="MolecularDefinition.representation.repeated.sequenceMotif">
       <path value="MolecularDefinition.representation.repeated.sequenceMotif"/>
-      <short value="The sequence that defines the repeated motif"/>
-      <definition value="The sequence that defines the repeated motif."/>
+      <short value="The motif that is repeated"/>
+      <definition value="The motif that is repeated in tandem, which ultimately defines the intended molecular entity."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -658,8 +727,8 @@
     </element>
     <element id="MolecularDefinition.representation.repeated.copyCount">
       <path value="MolecularDefinition.representation.repeated.copyCount"/>
-      <short value="The number of repeats (copies) of the sequence motif"/>
-      <definition value="The number of repeats (copies) of the sequence motif."/>
+      <short value="The number of copies of the motif"/>
+      <definition value="The number of times the motif is repeated to create the intended molecular entity."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -669,8 +738,8 @@
     </element>
     <element id="MolecularDefinition.representation.concatenated">
       <path value="MolecularDefinition.representation.concatenated"/>
-      <short value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences"/>
-      <definition value="A Molecular Sequence that is represented as an ordered concatenation of two or more Molecular Sequences."/>
+      <short value="An ordered concatenation of molecular entities"/>
+      <definition value="A representation comprised of an ordered concatenation of two or more molecular entities."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -680,9 +749,9 @@
     </element>
     <element id="MolecularDefinition.representation.concatenated.sequenceElement">
       <path value="MolecularDefinition.representation.concatenated.sequenceElement"/>
-      <short value="One element of a concatenated Molecular Sequence"/>
-      <definition value="One element of a concatenated Molecular Sequence."/>
-      <comment value="At least two sequenceElement elements are required to represent a concatenated sequence."/>
+      <short value="One of the concatenated entities"/>
+      <definition value="One of the concatenated entities within the concatenated representation."/>
+      <comment value="At least two elements are required to represent a concatenated sequence."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -690,12 +759,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-
-    <!--    More descriptive short and definition to be added later-->
     <element id="MolecularDefinition.representation.concatenated.sequenceElement.sequence">
       <path value="MolecularDefinition.representation.concatenated.sequenceElement.sequence"/>
-      <short value="The Molecular Sequence corresponding to this element"/>
-      <definition value="The Molecular Sequence corresponding to this element."/>
+      <short value="A reference to the sequence that defines this specific concatenated element"/>
+      <definition value="A reference to the sequence that defines this specific concatenated element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -706,8 +773,8 @@
     </element>
     <element id="MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex">
       <path value="MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex"/>
-      <short value="The ordinal position of this sequence element within the concatenated Molecular Sequence"/>
-      <definition value="The ordinal position of this sequence element within the concatenated Molecular Sequence."/>
+      <short value="The ordinal index of the element within the concatenated representation"/>
+      <definition value="The ordinal index of the element within the concatenated representation."/>
       <comment value="0 or 1 based indices are possible, could potentially skip numbers in the sequence, suggest implementers sort numerically prior to concatenating"/>
       <min value="1"/>
       <max value="1"/>
@@ -718,8 +785,8 @@
     </element>
     <element id="MolecularDefinition.representation.relative">
       <path value="MolecularDefinition.representation.relative"/>
-      <short value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence"/>
-      <definition value="A Molecular Definition that is represented as an ordered series of edits on a specified starting sequence."/>
+      <short value="A molecular entity represented as an ordered series of edits on a specified starting entity"/>
+      <definition value="A molecular entity represented as an ordered series of edits on a specified starting entity. This representation can be used to define one entity relative to another."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -729,8 +796,8 @@
     </element>
     <element id="MolecularDefinition.representation.relative.startingMolecule">
       <path value="MolecularDefinition.representation.relative.startingMolecule"/>
-      <short value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied"/>
-      <definition value="The Molecular Sequence that serves as the starting sequence, on which edits will be applied."/>
+      <short value="The molecular entity on which edits will be applied"/>
+      <definition value="The molecular entity that serves as the starting point, on which edits will be applied."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -741,8 +808,8 @@
     </element>
     <element id="MolecularDefinition.representation.relative.edit">
       <path value="MolecularDefinition.representation.relative.edit"/>
-      <short value="An edit (change) made to a sequence"/>
-      <definition value="An edit (change) made to a sequence."/>
+      <short value="A defined edit (change) to be applied"/>
+      <definition value="A defined edit (change) to be applied to the molecular entity."/>
       <comment value = "Edits are applied sequentially. The sequence that results from one edit operation is used as the 'starting' sequence of the next edit operation."/>
       <min value="0"/>
       <max value="*"/>
@@ -753,8 +820,8 @@
     </element>
     <element id="MolecularDefinition.representation.relative.edit.editOrder">
       <path value="MolecularDefinition.representation.relative.edit.editOrder"/>
-      <short value="The order of this edit, relative to other edits on the starting sequence"/>
-      <definition value="The order of this edit, relative to other edits on the starting sequence."/>
+      <short value="Defines the order of edits when multiple edits are to be applied to the startingMolecule"/>
+      <definition value="Defines the order of edits when multiple edits are to be applied to the startingMolecule. This is important when edits may overlap (intervals) or when edits change the length of the entity."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -762,51 +829,101 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.coordinateSystem">
-      <path value="MolecularDefinition.representation.relative.edit.coordinateSystem"/>
-      <short value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based"/>
-      <definition value="The coordinate system used to define the edited intervals on the starting sequence. Coordinate systems are usually 0- or 1-based."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval"/>
+      <short value="The interval on startingMolecule that defines the portion to be extracted to produce the intended entity"/>
+      <definition value="The interval on startingMolecule that defines the portion to be extracted in order to create the intended entity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem"/>
+      <short value="The coordinate system used to define the location"/>
+      <definition value="The coordinate system used to define the location, which may vary depending on application or context of use."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.system">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.system"/>
+      <short value="The type of coordinate system used"/>
+      <definition value="A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LL5323-2"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Genomic coordinate system."/>
-        <valueSet value="http://loinc.org/LL5323-2/"/>
+        <description value="Coordinate system."/>
+        <valueSet value="http://loinc.org/vs/LL5323-2"/>
       </binding>
+      <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.start">
-      <path value="MolecularDefinition.representation.relative.edit.start"/>
-      <short value="The start coordinate of the interval that will be edited"/>
-      <definition value="The start coordinate of the interval that will be edited."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.origin">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.origin"/>
+      <short value="The location of the origin of the coordinate system"/>
+      <definition value="The location of the origin (0 or 1, depending on the coordinate system). For example, this could specify the origin is at the start of the sequence (e.g., 5’ end or N-terminus), the beginning of a designated feature (e.g., A in the ATG translation initiation codon), or the end of a designated feature (e.g., 3’ end of an exon, from which an offset is calculated into the following intron)."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.representation.relative.edit.end">
-      <path value="MolecularDefinition.representation.relative.edit.end"/>
-      <short value="The end coordinate of the interval that will be edited"/>
-      <definition value="The end coordinate of the interval that will be edited."/>
-      <min value="1"/>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.normalizationMethod">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.normalizationMethod"/>
+      <short value="The normalization method used for determining a location within the coordinate system"/>
+      <definition value="The normalization method used for determining a location within the coordinate system. Examples include left shift (e.g., VCF), right shift (e.g., HGVS), or fully justified (e.g., VOCA)."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.start[x]">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.start[x]"/>
+      <short value="The start location of the interval"/>
+      <definition value="The start location of the interval expressed as a precise coordinate (Quantity) or expressed as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.representation.relative.edit.coordinateInterval.end[x]">
+      <path value="MolecularDefinition.representation.relative.edit.coordinateInterval.end[x]"/>
+      <short value="The end location of the interval"/>
+      <definition value="The end location of the interval expressed as a precise coordinate (Quantity) or as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported.."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
       <isSummary value="true"/>
     </element>
     <element id="MolecularDefinition.representation.relative.edit.replacementMolecule">
       <path value="MolecularDefinition.representation.relative.edit.replacementMolecule"/>
-      <short value="The sequence that defines the replacement sequence used in the edit operation"/>
-      <definition value="The sequence that defines the replacement sequence used in the edit operation."/>
+      <short value="The molecular entity that serves as the replacement in the edit operation"/>
+      <definition value="The molecular entity that serves as the replacement in the edit operation. After the edit has been applied, the state of the entity at the specified coordinateInterval is defined by the state of the replacementMolecule."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -817,8 +934,8 @@
     </element>
     <element id="MolecularDefinition.representation.relative.edit.replacedMolecule">
       <path value="MolecularDefinition.representation.relative.edit.replacedMolecule"/>
-      <short value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit"/>
-      <definition value="The sequence on the 'starting' sequence for the edit operation, defined by the specified interval, that will be replaced during the edit."/>
+      <short value="The portion of the molecular entity that is replaced by the replacementMolecule"/>
+      <definition value="The portion of the molecular entity that is replaced by the replacementMolecule as a result of the edit. The value of this element can be derived as the state of the entity at the specified coordinateInterval, prior to the edit being applied. It is provided for convenience."/>
       <min value="0"/>
       <max value="1"/>
       <type>

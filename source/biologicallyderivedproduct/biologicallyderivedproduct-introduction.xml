@@ -2,6 +2,10 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+		<blockquote class="stu-note">
+		<p><b>Note to Implementers:</b> For an overview of this resource and others in the Biologically Derived Product domain, also see the <a href="biologically-derived-product-module.html">module page</a>.
+		</p>
+		</blockquote>
 		<p>
 			This is a base resource that represents a material substance originating from a biological entity intended to be clinically applied (e.g., transplanted, infused, grafted) to another (possibly the same) biological entity. Examples include:
 		</p>
@@ -34,12 +38,13 @@
 			<li>Specimen - A biologically derived product may involve the same material (e.g., tissue, blood, organ, etc.) as a specimen where the intended use determines whether to use Specimen or BiologicallyDerivedProduct. The focus of the Specimen is to conduct a diagnostic test, while the BiologicallyDerivedProduct is to use for a clinical therapy or procedure on the same or different patient. E.g., blood used for a test is represented by a Specimen, while blood for transfusion is represented as a BiologicallyDerivedProduct. A specimen can be obtained from a BiologicallyDerivedProduct thus creating a Specimen instance where Specimen.subject is a BiologicallyDerivedProduct as a source.</li>
 			<li>Substance - A substance is a homogeneous material with a definite composition that can be reproduced in the same way consistently. Certain substances may include or originate from biologically derived product, but from the point where the substance is identified by batch/lot number and any necessary links to the originating donor(s) are held within the manufacturing records the product can be considered and managed as a substance.</li>
 		</ul>
-	</div>
-	<p>
+
+		<p>
 		<a name="bnr-nutrition"></a>
 		<h3>Nutrition Product</h3>
 		If the product is for dietary administration it is represented as a NutritionProduct. If the product is for transplant, infusion, or injection it is represented as a BiologicallyDerivedProduct. We note that this remains a grey area, particularly around certain uses of donated human milk, and additional use cases may need to be clarified to determine the appropriate representation. Local implementation guidance may provide further direction.
-	</p>
+		</p>
+	</div>
 
 <!-- (optional):
 <div>

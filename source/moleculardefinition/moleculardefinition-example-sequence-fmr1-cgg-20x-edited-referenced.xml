@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-fmr1-cgg-20x-edited-referenced"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <relative>
+            <startingMolecule>
+                <reference value="MolecularDefinition/example-sequence-fmr1-cgg-20x-repeat"/>
+                <type value="MolecularDefinition"/>
+                <display value="CGG 20X"/>
+            </startingMolecule>
+            <edit>
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30102-0"/>
+                                <display value="1-based character counting"/>
+                            </coding>
+                            <text value="1-based character counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <startQuantity value="31"/>
+                    <endQuantity value="31"/>
+                </coordinateInterval>
+
+                <replacementMolecule>
+                    <reference value="MolecularDefinition/example-sequence-a"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="A"/>
+                </replacementMolecule>
+                <replacedMolecule>
+                    <reference value="MolecularDefinition/example-sequence-c"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="C"/>
+                </replacedMolecule>
+            </edit>
+        </relative>
+    </representation>
+
+</MolecularDefinition>

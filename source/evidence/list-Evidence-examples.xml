@@ -76,4 +76,16 @@
       <display value="Quoted Source: Prevalence of PASC at 30 days"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Evidence Resource for EBMonFHIR IG using SingleStudyEvidence and ComparativeEvidence Profiles"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
+    </extension>
+    <item>
+      <reference value="example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
+      <display value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
+    </item>
+  </entry>
 </List>

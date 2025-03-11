@@ -8,16 +8,40 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
+ <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
   <url value="http://hl7.org/fhir/biologicallyderivedproductdispense-status"/>
   <version value="6.0.0"/>
-  <name value="BiologicallyDerivedProductDispense"/>
-  <title value="BiologicallyDerivedProductDispense Status Codes"/>
-  <status value="draft"/>
+  <name value="BiologicallyDerivedProductDispenseStatus"/>
+  <title value="Biologically Derived Product Dispense Status Codes"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <description value="BiologicallyDerivedProductDispense Status Codes"/>
+  <description value="Biologically Derived Product Dispense Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
   <content value="complete"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>
