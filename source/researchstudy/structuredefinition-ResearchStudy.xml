@@ -418,14 +418,15 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyFocusType"/>
         </extension>
         <strength value="example"/>
-        <description value="Common codes of research study focus"/>
+        <description value="Some example codes of research study focus"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
       </binding>
     </element>
