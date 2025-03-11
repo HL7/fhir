@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="deprecated"/>
+  </extension>
   <url value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
