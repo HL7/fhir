@@ -11,7 +11,7 @@
   </identifier>
   <name value="Indicator"/>
   <title value="Indicator"/>
-  <status value="draft"/>
+  <status value="retired"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
