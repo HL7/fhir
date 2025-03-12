@@ -1,4 +1,4 @@
 // remove all resources linked to a single patient
 
-GET /open/Patient/f001/$purge
+POST /open/Patient/f001/$purge
 [some headers]
