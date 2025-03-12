@@ -730,15 +730,27 @@
         <code value="ProductShelfLife"/>
       </type>
     </element>
-    <element id="DeviceDefinition.languageCode">
-      <path value="DeviceDefinition.languageCode"/>
+    <element id="DeviceDefinition.outputLanguage">
+      <path value="DeviceDefinition.outputLanguage"/>
       <short value="Language code for the human-readable text strings produced by the device (all supported)"/>
       <definition value="Language code for the human-readable text strings produced by the device (all supported)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="code"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOutputLanguage"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Device output language."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
+      </binding>
     </element>
     <element id="DeviceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
