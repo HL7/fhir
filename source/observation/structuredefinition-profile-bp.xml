@@ -86,13 +86,6 @@
     </element>
     <element id="Observation.category">
       <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
       <min value="2"/>
     </element>
     <element id="Observation.category:BPCode">
@@ -122,8 +115,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
       </binding>
     </element>
-    <element id="Observation.valueQuantity">
-      <path value="Observation.valueQuantity"/>
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]"/>
       <min value="0"/>
       <max value="0"/>
     </element>
@@ -132,23 +125,25 @@
       <slicing>
         <discriminator>
           <type value="value"/>
-          <path value="code.coding.code"/>
+          <path value="extension.url"/>
         </discriminator>
         <discriminator>
-          <type value="value"/>
-          <path value="code.coding.system"/>
+          <type value="pattern"/>
+          <path value="extension.value"/>
         </discriminator>
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
       <min value="2"/>
       <max value="*"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Observation.component:SystolicBP">
       <path value="Observation.component"/>
       <sliceName value="SystolicBP"/>
       <min value="1"/>
       <max value="1"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Observation.component:SystolicBP.extension">
       <path value="Observation.component.extension"/>
@@ -175,8 +170,8 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/observation-componentCategory"/>
       </type>
     </element>
-    <element id="Observation.component:SystolicBP.extension:SBPCode.valueCodeableConcept">
-      <path value="Observation.component.extension.valueCodeableConcept"/>
+    <element id="Observation.component:SystolicBP.extension:SBPCode.value[x]">
+      <path value="Observation.component.extension.value[x]"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -192,6 +187,7 @@
       <definition value="Systolic Blood Pressure."/>
       <alias value="Component Test"/>
       <alias value="Component Name"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignSystolicBP"/>
@@ -201,49 +197,33 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
       </binding>
     </element>
-    <element id="Observation.component:SystolicBP.valueQuantity">
-      <path value="Observation.component.valueQuantity"/>
+    <element id="Observation.component:SystolicBP.value[x]">
+      <path value="Observation.component.value[x]"/>
+      <min value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="Observation.component:SystolicBP.valueQuantity.value">
-      <path value="Observation.component.valueQuantity.value"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:SystolicBP.valueQuantity.unit">
-      <path value="Observation.component.valueQuantity.unit"/>
+    <element id="Observation.component:SystolicBP.value[x].value">
+      <path value="Observation.component.value[x].value"/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:SystolicBP.valueQuantity.system">
-      <path value="Observation.component.valueQuantity.system"/>
+    <element id="Observation.component:SystolicBP.value[x].unit">
+      <path value="Observation.component.value[x].unit"/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.component:SystolicBP.value[x].system">
+      <path value="Observation.component.value[x].system"/>
+      <min value="1"/>
       <fixedUri value="http://unitsofmeasure.org"/>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:SystolicBP.valueQuantity.code">
-      <path value="Observation.component.valueQuantity.code"/>
-      <short value="Coded responses from the common UCUM units for vital signs value set."/>
-      <definition value="Coded responses from the common UCUM units for vital signs value set."/>
+    <element id="Observation.component:SystolicBP.value[x].code">
+      <path value="Observation.component.value[x].code"/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
       <fixedCode value="mm[Hg]"/>
       <mustSupport value="true"/>
     </element>
@@ -278,8 +258,8 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/observation-componentCategory"/>
       </type>
     </element>
-    <element id="Observation.component:DiastolicBP.extension:DBPCode.valueCodeableConcept">
-      <path value="Observation.component.extension.valueCodeableConcept"/>
+    <element id="Observation.component:DiastolicBP.extension:DBPCode.value[x]">
+      <path value="Observation.component.extension.value[x]"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -295,6 +275,7 @@
       <definition value="Diastolic Blood Pressure."/>
       <alias value="Component Test"/>
       <alias value="Component Name"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignDiastolicBP"/>
@@ -304,49 +285,33 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-diastolicbp"/>
       </binding>
     </element>
-    <element id="Observation.component:DiastolicBP.valueQuantity">
-      <path value="Observation.component.valueQuantity"/>
+    <element id="Observation.component:DiastolicBP.value[x]">
+      <path value="Observation.component.value[x]"/>
+      <min value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="Observation.component:DiastolicBP.valueQuantity.value">
-      <path value="Observation.component.valueQuantity.value"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:DiastolicBP.valueQuantity.unit">
-      <path value="Observation.component.valueQuantity.unit"/>
+    <element id="Observation.component:DiastolicBP.value[x].value">
+      <path value="Observation.component.value[x].value"/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:DiastolicBP.valueQuantity.system">
-      <path value="Observation.component.valueQuantity.system"/>
+    <element id="Observation.component:DiastolicBP.value[x].unit">
+      <path value="Observation.component.value[x].unit"/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.component:DiastolicBP.value[x].system">
+      <path value="Observation.component.value[x].system"/>
+      <min value="1"/>
       <fixedUri value="http://unitsofmeasure.org"/>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:DiastolicBP.valueQuantity.code">
-      <path value="Observation.component.valueQuantity.code"/>
-      <short value="Coded responses from the common UCUM units for vital signs value set."/>
-      <definition value="Coded responses from the common UCUM units for vital signs value set."/>
+    <element id="Observation.component:DiastolicBP.value[x].code">
+      <path value="Observation.component.value[x].code"/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
       <fixedCode value="mm[Hg]"/>
       <mustSupport value="true"/>
     </element>
