@@ -354,7 +354,7 @@
     </element>
     <element id="ResearchStudy.phase">
       <path value="ResearchStudy.phase"/>
-      <short value="SEVCO:01030 | SEVCO:01031 | SEVCO:01032 | SEVCO:01033 | SEVCO:01034 | SEVCO:01035 | SEVCO:01036 | SEVCO:01037 | SEVCO:01038"/>
+      <short value="Classifier used for clinical trials"/>
       <definition value="The stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation."/>
       <min value="0"/>
       <max value="1"/>
@@ -364,10 +364,10 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StudyDesign"/>
+          <valueString value="ResearchStudyTrialPhase"/>
         </extension>
         <strength value="preferred"/>
-        <description value="This is a set of terms for study design characteristics."/>
+        <description value="Classifiers of clinical trial progression for human use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-trial-phase"/>
       </binding>
       <mapping>
@@ -1005,7 +1005,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure"/>
       <short value="A variable measured during the study"/>
       <definition value="An &quot;outcome measure&quot;, &quot;endpoint&quot;, &quot;effect measure&quot; or &quot;measure of effect&quot; is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment."/>
-      <comment value="To re-use and reference a Group represented in ResearchStudy.comparisonGroup.eligibility, one may include the Group Resource in ResearchStudy.contained and then reference the same (internal) Group by its id"/>
+      <comment value="A study may have multiple distinct outcome measures that can be used to assess the overall goal for a study. The goal of a study is in the objective whereas the metric by which the goal is assessed is the outcomeMeasure. Examples: Time to Local Recurrence (TLR), Disease-free Survival (DFS), 30 Day Mortality, Systolic BP"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1076,7 +1076,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure.intervention"/>
       <short value="Comparison group of interest"/>
       <definition value="Comparison group of interest."/>
-      <comment value="To do: How to refernece internally to the comparisonGroup.id"/>
+      <comment value="To re-use and reference a Group represented in ResearchStudy.comparisonGroup.eligibility, one may include the Group Resource in ResearchStudy.contained and then reference the same (internal) Group by its id"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1088,7 +1088,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure.comparator"/>
       <short value="Comparison group for comparison"/>
       <definition value="Comparison group for comparison."/>
-      <comment value="To do: How to refernece internally to the comparisonGroup.id"/>
+      <comment value="To re-use and reference a Group represented in ResearchStudy.comparisonGroup.eligibility, one may include the Group Resource in ResearchStudy.contained and then reference the same (internal) Group by its id"/>
       <min value="0"/>
       <max value="1"/>
       <type>
