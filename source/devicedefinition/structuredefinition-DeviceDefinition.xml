@@ -368,7 +368,7 @@
     </element>
     <element id="DeviceDefinition.contact">
       <path value="DeviceDefinition.contact"/>
-      <short value="Details for human/organization for support"/>
+      <short value="Contact details for the publisher"/>
       <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
       <comment value="used for troubleshooting etc."/>
       <min value="0"/>
@@ -388,7 +388,7 @@
     </element>
 		<element id="DeviceDefinition.publisher">
 			<path value="DeviceDefinition.publisher"/>
-			<short value="The the organization responsible for publishing the definition"/>
+			<short value="The name of the organization responsible for publishing the definition"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the device definition."/>
 			<min value="0"/>
 			<max value="1"/>
