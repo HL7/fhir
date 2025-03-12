@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="research-study-trial-phase"/>
+  <meta>
+    <lastUpdated value="2025-03-07T12:40:00+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/research-study-trial-phase"/>
+  <version value="6.0.0"/>
+  <name value="ResearchStudyTrialPhase"/>
+  <title value="Research Study Trial Phase"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-03-07T12:40:00+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Classifiers of clinical trial progression for human use."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/study-design"/>
+    </include>
+    <concept>
+      <code value="SEVCO:01030"/>
+      <display value="Phase 1 trial"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01031"/>
+      <display value="Exploratory investigational new drug study"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01032"/>
+      <display value="Phase 1/Phase 2 trial"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01033"/>
+      <display value="Phase 2 trial"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01034"/>
+      <display value="Phase 2/Phase 3 trial"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01035"/>
+      <display value="Phase 3 trial"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01036"/>
+      <display value="Post-marketing study"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01037"/>
+      <display value="Post-Marketing Surveillance study"/>
+    </concept>
+    <concept>
+      <code value="SEVCO:01038"/>
+      <display value="Expanded Access study"/>
+    </concept>
+  </compose>
+</ValueSet>
