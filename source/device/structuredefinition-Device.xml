@@ -1133,7 +1133,7 @@
         <map value=".playedRole[typeCode=LOCE].scoper"/>
       </mapping>
     </element>
-    <element id="Device.url">
+    <!-- <element id="Device.url">
       <path value="Device.url"/>
       <short value="Network address to contact device"/>
       <definition value="A network address on which the device may be contacted directly."/>
@@ -1151,7 +1151,7 @@
         <identity value="rim"/>
         <map value=".telecom"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>

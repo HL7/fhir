@@ -13,7 +13,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="399010004"/>
-            <display value="Manipulation of the cervical spine - non-surgical (procedure)"/>
+            <display value="Nonsurgical manipulation of cervical spine (procedure)"/>
         </coding>
     </code>
     <subject>

@@ -436,10 +436,8 @@
    id="n1118"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1119"
-   xlink:href="evidencereport.html#EvidenceReport">EvidenceReport</a>|<a
-   id="n1120"
    xlink:href="citation.html#Citation">Citation</a>|<a
-   id="n1121"
+   id="n1120"
    xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a> »</text>
   </g>
   <g

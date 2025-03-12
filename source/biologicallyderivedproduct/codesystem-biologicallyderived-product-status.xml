@@ -47,7 +47,7 @@
   <description value="Biologically Derived Product Status."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"/>
-  <content value="example"/>
+  <content value="complete"/>
   <concept>
     <code value="available"/>
     <display value="Available"/>

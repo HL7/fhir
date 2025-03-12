@@ -28,4 +28,16 @@
       <display value="Certainty Rating Example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This is an example of the RiskOfBias Profile."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="artifactassessment-example-risk-of-bias-assessment-of-parachute-trial"/>
+    </extension>
+    <item>
+      <reference value="ArtifactAssessment/example-risk-of-bias-assessment-of-parachute-trial"/>
+      <display value="Risk of Bias Assessment of PARACHUTE trial"/>
+    </item>
+  </entry>
 </List>
