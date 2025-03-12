@@ -75,7 +75,7 @@
     systems to ensure that tasks are completed. This information is kept separate 
     from the operational details necessary to complete the task, as those details 
     vary across and even within workflows. That detail is expected to be carried 
-    in the referenced <pre>focus</pre> of the task.</p>
+    in the referenced .focus of the task.</p>
 
     <p>The Task resource can represent an authorization for a service to be provided 
     or the fulfillment of an authorization (by another Task or resource type that 
