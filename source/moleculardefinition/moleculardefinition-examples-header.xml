@@ -13,17 +13,17 @@
 <h4>Code (Accession Number)</h4>
 <p>The following MolecularDefinitions show examples of a sequence represented as a code using an accession number.</p>
 <ul>
-    <li>(example file TBD)</li>
+    <li><a href="moleculardefinition-example-genomic-cyp2c19-accession.html">Example of Sequence profile of CYP2C19 as Accession Number</a></li>
 </ul>
 
 <h4>Resolvable (URL)</h4>
-<p>The following MolecularDefinitions show examples of a sequence represented as a resolvable URL. Note: this example is currently missing the corresponding instance of DocumentReference.</p>
+<p>The following MolecularDefinitions show examples of a sequence represented as a resolvable URL.</p>
 <ul>
     <li><a href="moleculardefinition-example-sequence-cyp2c19-url.html">Sequence example of CYP2C19 as URL</a></li>
 </ul>
 
 <h4>Resolvable (File)</h4>
-<p>The following MolecularDefinitions show examples of a sequence represented as an attached file. Note: this example is currently missing the corresponding instance of DocumentReference.</p>
+<p>The following MolecularDefinitions show examples of a sequence represented as an attached file.</p>
 <ul>
     <li><a href="moleculardefinition-example-sequence-cyp2c19-attached.html">Sequence example of CYP2C19 as Attachment</a></li>
 </ul>
@@ -64,6 +64,9 @@
 <p>The following examples illustrate instances of allele. In this example, the asserted state of the allele is different from the state of the context sequence at the given location. Note: the CG group is still determining how to best represent named alleles; therefore, the reference to the star allele in this example should be considered to be a draft (if not ignored).</p>
 <ul>
     <li><a href="moleculardefinition-example-allelesliced-cyp2c19-1016.html">Example of Allele profile including slices for CYP2C19 position 1016</a></li>
+</ul>
+<ul>
+    <li><a href="moleculardefinition-example-allelesliced-cyp2c19-1016-cont.html">Example of Allele profile including slices for CYP2C19 position 1016 while leveraging contained resources</a></li>
 </ul>
 
 <h3>Variation</h3>

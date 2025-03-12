@@ -441,17 +441,6 @@
 				<code value="url"/>
 			</type>
 		</element>
-		<element id="ActorDefinition.capabilities">
-			<path value="ActorDefinition.capabilities"/>
-			<short value="CapabilityStatement for the actor (if applicable)"/>
-			<definition value="The capability statement for the actor (if the concept is applicable)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-			</type>
-		</element>
 		<element id="ActorDefinition.baseDefinition">
 			<path value="ActorDefinition.baseDefinition"/>
 			<short value="Parent actor definition"/>

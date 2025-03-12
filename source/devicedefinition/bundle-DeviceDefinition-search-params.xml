@@ -217,7 +217,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-model"/>
         <description value="The model of the device"/>
-        <code value="model"/>
+        <code value="model-number"/>
         <type value="token"/>
         <expression value="DeviceDefinition.modelNumber"/>
         <processingMode value="normal"/>

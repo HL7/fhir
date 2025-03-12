@@ -51,16 +51,6 @@
                 <display value="CGG 20X"/>
             </startingMolecule>
             <edit>
-<!--                <coordinateSystem>-->
-<!--                    <coding>-->
-<!--                        <system value="http://loinc.org"/>-->
-<!--                        <code value="LA30102-0"/>-->
-<!--                        <display value="1-based character counting"/>-->
-<!--                    </coding>-->
-<!--                </coordinateSystem>-->
-<!--                <start value="31"/>-->
-<!--                <end value="31"/>-->
-
                 <coordinateInterval>
                     <coordinateSystem>
                         <system>

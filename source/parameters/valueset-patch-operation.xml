@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="report-relation-type"/>
+  <id value="patch-operation"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -14,14 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/report-relation-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3066"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/patch-operation"/>
   <version value="6.0.0"/>
-  <name value="ReportRelationshipType"/>
-  <title value="Report Relationship Type"/>
+  <name value="PatchOperation"/>
+  <title value="Patch Operation"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -36,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of relationship between reports."/>
+  <description value="Codes identifying the valid FHIRPath patch operations."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/report-relation-type"/>
+      <system value="http://hl7.org/fhir/patch-operation"/>
     </include>
   </compose>
 </ValueSet>

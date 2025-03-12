@@ -16,9 +16,17 @@ There are two different ways to identify a resource:
 
 <p>
 Each resource has an <code>id</code> element which contains the "logical id" of the resource 
-assigned by the server responsible for storing it. Resources always have a known logical id 
-except for a few special cases (e.g. when a new resource is being sent to a server to assign
-a logical id in the <a href="http.html#create">create interaction</a>). 
+assigned by the server responsible for storing it. Resources almost always have a known logical id 
+except for a few special cases:
+</p>
+<ul>
+  <li>when a new resource is being sent to a server to assign a logical id in the <a href="http.html#create">create interaction</a></li>
+  <li>A search response or history response Bundle</li>
+  <li>Any resource (including Parameters) passed as input to an operation that was created purely for use as operation input and is not retained/persisted by the operation invoker</li>
+  <li>Any resource (including Parameters) received as output from an operation that was generated as part of performing the operation and is not retained/persisted by the operation performer.</li>
+  <li>A resource created for exchange outside the RESTful context (e.g. a document sent by email or FTP), including some types of messaging exchanges.</li>
+</ul>
+<p>
 The logical id is unique within the space of all resources of the same type on 
 the same server. Once assigned by the server, the id is never changed. 
 </p>
@@ -141,7 +149,6 @@ have canonical URLs:
 <li><a href="conditiondefinition.html">ConditionDefinition</a></li>
 <li><a href="eventdefinition.html">EventDefinition</a></li>
 <li><a href="evidence.html">Evidence</a></li>
-<li><a href="evidencereport.html">EvidenceReport</a></li>
 <li><a href="evidencevariable.html">EvidenceVariable</a></li>
 <li><a href="examplescenario.html">ExampleScenario</a></li>
 <li><a href="graphdefinition.html">GraphDefinition</a></li>

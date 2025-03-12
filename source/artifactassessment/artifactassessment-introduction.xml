@@ -18,7 +18,7 @@
 
 <p>ArtifactAssessment may by referenced by ArtifactAssessment and by Task.</p>
 
-<p>ArtifactAssessment may reference any resource of 'community knowledge' and will likely reference Evidence, EvidenceVariable, EvidenceReport, PlanDefinition, ActivityDefinition, Library, Measure, and Citation. ArtifactAssessment may reference any resource of a 'medical record' and will likely reference DocumentReference, Composition, CarePlan, and DiagnosticReport.</p>
+<p>ArtifactAssessment may reference any resource of 'community knowledge' and will likely reference Evidence, EvidenceVariable, PlanDefinition, ActivityDefinition, Library, Measure, and Citation. ArtifactAssessment may reference any resource of a 'medical record' and will likely reference DocumentReference, Composition, CarePlan, and DiagnosticReport.</p>
 
 <p>ArtifactAssessment is about the content of a Resource and not about the provenance of the Resource so should not be confused with Provenance.</p>
 
