@@ -127,7 +127,7 @@
           <valueString value="DeviceAssociation.period"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-code"/>
-        <description value="Search for products that match this code"/>
+        <description value="Search for associations at or within specific times"/>
         <code value="date"/>
         <type value="date"/>
         <expression value="DeviceAssociation.period"/>
