@@ -1,4 +1,4 @@
-// remove everything linked to the nominated patient (in this case, built automatically by the publication tooling)
+// remove everything linked to the patients in the nominated group
 
 HTTP/1.1 200 OK
 [other headers]
