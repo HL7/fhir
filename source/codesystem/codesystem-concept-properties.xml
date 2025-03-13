@@ -115,4 +115,10 @@
     <display value="itemWeight"/>
     <definition value="A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores. In questionnaires, the item weight may be represented using the [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]] extension"/>
   </concept>
+  <concept>
+    <code value="definition"/>
+    <display value="Definition"/>
+    <definition value="A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores. In questionnaires, the item weight may be represented using the [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]] extension"/>
+    <!-- type : String -->
+  </concept>
 </CodeSystem>
