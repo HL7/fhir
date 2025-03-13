@@ -507,7 +507,7 @@
 			<coding>
 				<system value="http://hl7.org/fhir/research-study-party-role"/>
 				<code value="sponsor"/>
-				<display value="sponsor"/>
+				<display value="Sponsor"/>
 			</coding>
 		</role>
 		<classifier>
@@ -524,7 +524,7 @@
 			<coding>
 				<system value="http://hl7.org/fhir/research-study-party-role"/>
 				<code value="lead-sponsor"/>
-				<display value="lead-sponsor"/>
+				<display value="Lead sponsor"/>
 			</coding>
 		</role>
 		<classifier>
@@ -541,7 +541,7 @@
 			<coding>
 				<system value="http://hl7.org/fhir/research-study-party-role"/>
 				<code value="primary-investigator"/>
-				<display value="primary-investigator"/>
+				<display value="Primary investigator"/>
 			</coding>
 		</role>
 		<party>
