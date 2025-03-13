@@ -583,7 +583,17 @@ Other parameters that servers may be required to use:
 	that a supplement was used during the expansion process</td></tr>
 </table>
 <p>
-Beyond this, servers MAY define their own parameters, though Terminology server
+There's also some parameters that only go in the response to an expand, so that the server can inform the 
+consumer of the expansion which value sets, code systems and supplements were used as the basis for the 
+expansion:
+</p>
+<table class="grid">
+ <tr><td><code>used-system</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a code system that was used during the expansion of the value set </td></tr>
+ <tr><td><code>used-supplement</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a code system supplement that was used during the expansion of the value set </td></tr>
+ <tr><td><code>used-valueset</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a different value set that was used during the expansion of the value set </td></tr>
+</table>
+<p>
+Beyond all these parameters, servers MAY define their own parameters, though Terminology server
 authors are requested to bring additional parameters to HL7 (via 'Propose a change' 
 link below) in the interests of interoperability. 
 </p>
