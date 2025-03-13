@@ -784,7 +784,7 @@
     <element id="TerminologyCapabilities.supplements.globals">
       <path value="TerminologyCapabilities.supplements.globals"/>
       <short value="not-supported | explicit | implicit"/>
-      <definition value="Codes that describes how the server implements global language packs - that is, supplements that contain only designations for a single language that are marked as intended by the extension [[[http://hl7.org/fhir/StructureDefinition/codesystem-globalLangPack]]] for use with all value sets and codesystem without explicit reference"/>
+      <definition value="Codes that describes how the server implements global language packs - that is, supplements that contain only designations for a single language that are marked as intended by the extension http://hl7.org/fhir/StructureDefinition/codesystem-globalLangPack for use with all value sets and codesystem without explicit reference"/>
       <min value="0"/>
       <max value="1"/>
       <type>
