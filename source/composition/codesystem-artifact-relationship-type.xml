@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This artifact incorporates the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.)."/>
+  <description value="The type of relationship to the related artifact."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
   <content value="complete"/>
@@ -73,7 +73,7 @@
   <concept>
     <code value="composed-of"/>
     <display value="Composed Of"/>
-    <definition value="This artifact incorposrates the target artifact."/>
+    <definition value="This artifact incorporates the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.)."/>
   </concept>
   <concept>
     <code value="part-of"/>

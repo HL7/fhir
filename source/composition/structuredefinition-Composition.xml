@@ -681,7 +681,7 @@
           <valueString value="ArtifactRelationshipType"/>
         </extension>
         <strength value="required"/>
-        <description value="The workflow/clinical status of the composition."/>
+        <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
