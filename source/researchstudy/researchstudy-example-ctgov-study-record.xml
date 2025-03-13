@@ -541,7 +541,7 @@
 			<coding>
 				<system value="http://hl7.org/fhir/research-study-party-role"/>
 				<code value="primary-investigator"/>
-				<display value="Primary investigator"/>
+				<display value="Principal investigator"/>
 			</coding>
 		</role>
 		<party>
