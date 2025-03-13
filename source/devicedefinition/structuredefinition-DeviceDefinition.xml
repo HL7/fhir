@@ -72,8 +72,8 @@
         <valueCode value="350,150"/>
       </extension>
       <path value="DeviceDefinition"/>
-      <short value="An instance of a medical-related component of a medical device"/>
-      <definition value="The definition of a kind of device or device component. Typically, this definition corresponds to a device model although it may be a broader category of device. Defined devices may be regulated medical devices."/>
+      <short value="The definition of a kind of device or device component"/>
+      <definition value="The definition of a kind of device or device component. Typically, this definition corresponds to a device model although it may be a broader category of device."/>
       <comment value="For the initial scope, this DeviceDefinition resource is only applicable to describe a single node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard and that does not represent a metric. Examples for such a node are MDS, VMD, or Channel."/>
       <min value="0"/>
       <max value="*"/>
@@ -730,15 +730,27 @@
         <code value="ProductShelfLife"/>
       </type>
     </element>
-    <element id="DeviceDefinition.languageCode">
-      <path value="DeviceDefinition.languageCode"/>
+    <element id="DeviceDefinition.outputLanguage">
+      <path value="DeviceDefinition.outputLanguage"/>
       <short value="Language code for the human-readable text strings produced by the device (all supported)"/>
       <definition value="Language code for the human-readable text strings produced by the device (all supported)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="code"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOutputLanguage"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Device output language."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
+      </binding>
     </element>
     <element id="DeviceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">

@@ -385,9 +385,9 @@
 	</primaryPurposeType>
 	<phase>
 		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/research-study-phase"/>
-			<code value="phase-1"/>
-			<display value="Phase 1"/>
+			<system value="http://hl7.org/fhir/study-design"/>
+			<code value="SEVCO:01030"/>
+			<display value="Phase 1 trial"/>
 		</coding>
 	</phase>
 	<studyDesign>

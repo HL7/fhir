@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
-  <id value="Patient-purge"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
+  <id value="purge"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
@@ -33,25 +30,11 @@
       <valueString value="$purge-response.txt"/>
     </extension>
   </extension>
-  <url value="http://hl7.org/fhir/build/OperationDefinition/Patient-purge"/>
-  <version value="6.0.0"/>
-  <name value="Purge"/>
-  <title value="Purge Patient Record"/>
-  <status value="draft"/>
+  <url value="http://hl7.org/fhir/Operationdefinition/purge"/>
+  <name value="purge"/>
+  <title value="Purge Group Record"/>
   <kind value="operation"/>
-  <date value="2023-12-11T10:01:24+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
-    </telecom>
-  </contact>
-  <description value="This operation is used to request the removal of all current and historical versions for all resources in a patient compartment.  The result will be an OperationOutcome with results and/or details about execution.&#xA;&#xA;Following are some common `issue-type` values:&#xA;- `success` the request has been completed to the server's satisfaction - the patient and associated resources are no longer accessible&#xA;- `incomplete` the request is partially complete, but additional processing will continue (e.g., the server is continuing to clean out resources)&#xA;&#xA;When supported, it is recommended (though not required) to support an [Asynchronous Request Pattern](async.html).&#xA;&#xA;Note that the deletion of resources typically involves many policy decisions.  Implementers are expected to use this operation in conjunction with their policies for such a request - e.g., soft vs. hard delete, audibility/traceability, evaluation of referential integrity, etc."/>
+  <description value="This operation is used to request the removal of all current and historical versions for all resources in a Group of patient compartments.  The result will be an OperationOutcome with results and/or details about execution.&#xA;&#xA;Following are some common `issue-type` values:&#xA;- `success` the request has been completed to the server's satisfaction - the patient and associated resources are no longer accessible&#xA;- `incomplete` the request is partially complete, but additional processing will continue (e.g., the server is continuing to clean out resources)&#xA;&#xA;When supported, it is recommended (though not required) to support an [Asynchronous Request Pattern](async.html).&#xA;&#xA;Note that the deletion of resources typically involves many policy decisions.  Implementers are expected to use this operation in conjunction with their policies for such a request - e.g., soft vs. hard delete, audibility/traceability, evaluation of referential integrity, etc."/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -61,8 +44,6 @@
   </jurisdiction>
   <affectsState value="false"/>
   <code value="purge"/>
-  <resource value="Patient"/>
-  <resource value="Group"/>
   <system value="false"/>
   <type value="false"/>
   <instance value="true"/>
