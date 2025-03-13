@@ -223,25 +223,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Composition-related"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Composition.relatesTo.resourceReference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-related-ref"/>
-        <description value="Target of the relationship"/>
-        <code value="related"/>
-        <type value="reference"/>
-        <expression value="Composition.relatesTo.resourceReference"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Composition-section"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
