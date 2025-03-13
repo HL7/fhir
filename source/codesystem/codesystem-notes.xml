@@ -189,7 +189,15 @@ by the FHIR specification.
  <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
 </table>
 <p>
-Code System representations SHOULD use these properties where possible.
+Code System representations SHOULD use these properties where possible and these codes for these properties. 
+Code System representations SHOULD regard the codes for these properties (e.g. status, inactive, notSelectable, etc.)
+as reserved values in CodeSystem.property.code values and that when used they SHOULD refer to the properties defined
+in the concept properties code system.
+</p>
+<p>
+In the absence of CodeSystem.property data elements being provided, when properties with these code values
+are added to a concept (in CodeSystem.concept.property.code) the intended property SHOULD be assumed to refer
+to the defined concept properties in the <a href="codesystem-concept-properties.html">http://hl7.org/fhir/concept-properties</a> code system.
 </p>
 <p>
 The parent and child properties are used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation),
