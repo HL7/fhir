@@ -37,23 +37,23 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/task-business-status"/>
   <content value="complete"/>
   <concept>
-    <code value="registered"/>
-    <display value="Registered"/>
-    <definition value="The task is registered and pending action."/>
+    <code value="specimen-collected"/>
+    <display value="Specimen Collected"/>
+    <definition value="The specimen has been collected."/>
   </concept>
   <concept>
-    <code value="in-progess"/>
-    <display value="In-Progess"/>
-    <definition value="The task is in progress."/>
+    <code value="iv-prepped"/>
+    <display value="IV Prepped"/>
+    <definition value="The patient IV has been prepared."/>
   </concept>
   <concept>
-    <code value="preliminary"/>
-    <display value="Preliminary"/>
-    <definition value="The outcomes of the task are preliminary and may be incomplete."/>
+    <code value="specimen-in-transit"/>
+    <display value="Specimen In Transit"/>
+    <definition value="The specimen is in transit."/>
   </concept>
   <concept>
-    <code value="final"/>
-    <display value="Final"/>
-    <definition value="The outcomes of the task are final."/>
+    <code value="waiting-for-final-review"/>
+    <display value="Waiting For Final Review"/>
+    <definition value="Waiting for final review."/>
   </concept>
 </CodeSystem>
