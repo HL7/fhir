@@ -929,7 +929,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element> -->
-    <element id="Device.mode">
+    <!-- <element id="Device.mode">
       <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
@@ -966,7 +966,7 @@
       <type>
         <code value="Duration"/>
       </type>
-    </element>
+    </element> -->
     <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
