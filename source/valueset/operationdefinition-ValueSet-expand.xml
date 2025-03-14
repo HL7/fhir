@@ -289,7 +289,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Specifies an library that provides expansion rules for the operation. The library references a Parameters resource that contains additional $expand parameters. See the [CRMI specification description of manifests]https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-manifestlibrary.html) for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter."/>
+    <documentation value="Specifies an library that provides expansion rules for the operation. The library has an extension expansionParameters that references a contained Parameters resource that contains additional $expand parameters. See the [CRMI specification description of manifests]https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-manifestlibrary.html) and [CRMI expansion rules](https://build.fhir.org/ig/HL7/crmi-ig/artifact-terminology-service.html#expansion-rules) for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter."/>
     <type value="canonical"/>
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>

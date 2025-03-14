@@ -27,7 +27,7 @@
   <name value="ObservationInterpretationCodes"/>
   <title value="Observation Interpretation Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
