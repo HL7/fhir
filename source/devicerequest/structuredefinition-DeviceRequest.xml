@@ -820,6 +820,7 @@
       <path value="DeviceRequest.reason"/>
       <short value="Coded/Linked Reason for request"/>
       <definition value="Reason or justification for the use of this device."/>
+      <comment value="When doNotPerform is true, this is the reason for requesting not to provide the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
