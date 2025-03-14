@@ -65,19 +65,24 @@
     subject (for example, surgery, physiotherapy, training, counseling). A Task resource
     often exists in parallel with clinical resources. For example, a Task could
     request fulfillment of a <a href="servicerequest.html">ServiceRequest</a>
-    ordering a Procedure that would result in a Procedure, <a
+    ordering a procedure that would result in a Procedure, <a
     href="observation.html">Observation</a>, <a
     href="diagnosticreport.html">DiagnosticReport</a>, <a
     href="imagingstudy.html">ImagingStudy</a> or similar resource.  Another
     example would be a Task that requests fulfillment of a <a
     href="communicationrequest.html">CommunicationRequest</a> to be performed
-    between various actors.</p>
+    between various actors. The task resource tracks the state of a task, enabling 
+    systems to ensure that tasks are completed. This information is kept separate 
+    from the operational details necessary to complete the task, as those details 
+    vary across and even within workflows. That detail is expected to be carried 
+    in the referenced .focus of the task.</p>
 
-    <p>As stated above, the Task resource tracks the state of a task, enabling
-    systems to ensure that tasks are completed. This information is kept
-    separate from the operational details necessary to complete the task, as
-    those details vary across and even within workflows. That detail is expected
-    to be carried in the referenced `focus` of the task. </p>
+    <p>The Task resource can represent an authorization for a service to be provided 
+    or the fulfillment of an authorization (by another Task or resource type that 
+    implements the Request pattern). For further information about the separation of
+    responsibilities, refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a>
+    section of the Request pattern. Information about the details of the fulfillment 
+    of an authorization may be handled by additional Task resource instances.</p>
 
      <p>Tasks may have named inputs and outputs. Inputs represent
      information that may or must be present in order for a task to

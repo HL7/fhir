@@ -60,18 +60,18 @@
 	</custodian>
 	<relatesTo>
 		<type value="replaces" />
-		<resourceReference>
+		<targetReference>
 			<reference value="Composition/old-example" />
-		</resourceReference>
+		</targetReference>
 	</relatesTo>
 	<relatesTo>
-	    <type value="appends" />
-		<resourceReference>
+		<type value="appends" />
+		<targetReference>
 			<identifier>
 				<system value="http://example.org/fhir/NamingSystem/document-ids"/>
 				<value value="ABC123"/>
 			</identifier>
-		</resourceReference>
+		</targetReference>
 	</relatesTo>
 	<event>
 		<period>

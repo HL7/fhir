@@ -58,7 +58,7 @@
   <concept>
     <code value="risk-class"/>
     <display value="Risk Class"/>
-    <definition value="Class or catefory of risk."/>
+    <definition value="Class or category of risk."/>
   </concept>
   <concept>
     <code value="electrical"/>
