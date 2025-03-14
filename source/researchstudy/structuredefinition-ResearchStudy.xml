@@ -290,18 +290,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value=".relatedDocument"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.relatesTo"/>
-      </mapping>
     </element>
     <element id="ResearchStudy.relatesTo.type">
       <path value="ResearchStudy.relatesTo.type"/>
