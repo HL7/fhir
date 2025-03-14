@@ -1152,7 +1152,7 @@
         <map value=".telecom"/>
       </mapping>
     </element> -->
-    <element id="Device.endpoint">
+    <!-- <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>
       <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
@@ -1178,7 +1178,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.note">
       <path value="Device.note"/>
       <short value="Device notes and comments"/>
