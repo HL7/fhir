@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="task-input-parameter-type"/>
+  <id value="task-inputoutput-parameter-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,10 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/task-input-parameter-type"/>
+  <url value="http://hl7.org/fhir/task-inputoutput-parameter-type"/>
   <version value="6.0.0"/>
-  <name value="TaskInputParameterType"/>
-  <title value="Task Input Parameter Type"/>
+  <name value="TaskInputOutputParameterType"/>
+  <title value="Task Input/Output Parameter Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2025-03-12T10:00:00+08:00"/>
@@ -32,9 +32,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The input types for the task."/>
+  <description value="The input and output types for the task."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/task-input-parameter-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
   <content value="complete"/>
   <concept>
     <code value="collected-specimen"/>

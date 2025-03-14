@@ -1004,7 +1004,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/task-input-parameter-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1210,7 +1210,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of input parameters. These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/task-output-parameter-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
