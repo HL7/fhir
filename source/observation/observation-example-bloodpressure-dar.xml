@@ -111,7 +111,8 @@ this is shown here to demonstrate  the concept of translations within the codeab
 				<code value="8462-4"/>
 				<display value="Diastolic blood pressure"/>
 			</coding>
-		</code><!--   Here the Diastolic measurement is missing and we give a reason using the DataAbsentReason element   --><dataAbsentReason>
+		</code><!--   Here the Diastolic measurement is missing and we give a reason using the DataAbsentReason element   -->
+		<dataAbsentReason>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 				<code value="not-performed"/>
