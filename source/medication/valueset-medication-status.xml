@@ -21,7 +21,7 @@
   <name value="MedicationStatusCodes"/>
   <title value="Medication Status Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

@@ -17,7 +17,7 @@
   <name value="GuideParameterCode"/>
   <title value="Guide Parameter Code"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="GuideParameterCode"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
