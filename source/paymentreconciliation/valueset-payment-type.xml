@@ -27,7 +27,7 @@
   <name value="PaymentTypeCodes"/>
   <title value="Payment Type Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

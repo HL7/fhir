@@ -140,7 +140,7 @@ Properties are defined using the following elements:
   <td>uri</td>
   <td>optional <a href="datatypes.html#code">uri</a></td>
   <td>Reference to the formal meaning of the property. One possible source of meaning is the <a href="codesystem-concept-properties.html">Concept Properties</a> code system.
-    This part of the definition is optional, but is recommended to provide an additional level of definitional consistency</td>
+    This part of the definition is optional, but is recommended to provide an additional level of definitional consistency. See further comments below</td>
  </tr>
  <tr>
   <td>description</td>
@@ -153,6 +153,20 @@ Properties are defined using the following elements:
   <td>The type of the property value. The values for properties of type "code" (CodeSystem.concept.property.valueCode) are drawn from the codes defined in the CodeSystem instance.</td>
  </tr>
 </table>
+<p>
+Properties do not have to have a <code>uri</code> the formally defines them, but they SHOULD have a <code>uri</code>, and 
+this is particularly important when using properties across multiple code systems. The following guidelines apply:
+</p>
+<ul>
+  <li>By convention, property URIs SHOULD have the form {canonical}#{code} where {canonical} is the CodeSystem URI, and {code} is the code for the property</li>
+  <li>The convention {canonical}#{code} is also used in some contexts to refer directly to a concept defined by the CodeSystem, so 
+     if there is a concept defined with the same code as the property, it is treated as a 'backing' concept, to allow reasoning and use in value sets</li>
+  <li>Properties are explicitly defined, not implied by the existence of a concept with the same code, and the definitions and properties of the concept to not contribute to the definition of the property</li>
+  <li>CodeSystems MAY (and should!) use properties defined in other code system. The <a href="codesystem-concept-properties.html">Concept Properties</a> Code System exists for this purpose, and the properties defined there SHOULD always be used where applicable</li>
+  <li>When using a property defined in another code system, a code system SHOULD provide a full definition - <code>code</code>, <code>uri</code>, <code>description</code>, <code>type</code>, and <a href="https://hl7.org/fhir/extensions/StructureDefinition-codesystem-property-valueset.html">valueSet</a> where applicable</li>
+  <li>In such cases, the definition of the property must be consistent with the source CodeSystem. CodeSystems MAY contain additional descriptive text around the use of the property, and MAY narrow the applicable value set if there is one</li>
+  <li>If any of these features are not redeclared, applications SHOULD assume that the source CodeSystem definitions apply</li>
+</ul>
 <p>
 Note that properties provide a common view of concept relationships that is common across all code systems.
 Some code systems define properties with more sophistication, such as groups of properties, or subsumption
@@ -184,12 +198,23 @@ by the FHIR specification.
  <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code (deprecated: use <code>alternateCode</code>, and see the <a href="#synonyms">discussion below</a>)</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#alternateCode : code</td><td>This property contains the code for another representation of this concept, with the same real-world meaning, in this code system</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#comment : string</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#order : decimal</td><td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#definition : string</td><td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td></tr>
 </table>
 <p>
-Code System representations SHOULD use these properties where possible.
+Code System representations SHOULD use these properties where possible and these codes for these properties. 
+Code System representations SHOULD regard the codes for these properties (e.g. status, inactive, notSelectable, etc.)
+as reserved values in CodeSystem.property.code values and that when used they SHOULD refer to the properties defined
+in the concept properties code system.
+</p>
+<p>
+In the absence of CodeSystem.property data elements being provided, when properties with these code values
+are added to a concept (in CodeSystem.concept.property.code) the intended property SHOULD be assumed to refer
+to the defined concept properties in the <a href="codesystem-concept-properties.html">http://hl7.org/fhir/concept-properties</a> code system.
 </p>
 <p>
 The parent and child properties are used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation),
@@ -221,6 +246,46 @@ which means "not to be used in some circumstances", though the exact circumstanc
 somewhere. This is sometimes also considered a status, though it's usually dependent on the context
 of use (e.g. set in a ValueSet).
 </p>
+
+<a name="synonyms"></a>
+<h3>Synonyms and Alternate Codes</h3>
+
+<p>
+Many code systems define multiple codes for the same real world concept. Some code systems do this as a matter of policy
+(e.g. case-sensitive vs case insensitive) while others arise over time as the editorial process unfolds. Some 
+established code systems treat these as synonym codes for the same concept, while others treat them as synonym
+concepts - duplicated concepts with the same real world meaning, though the definition sometimes differ. Another 
+reason for duplicated concepts is to deal with implied poly-heirarchical concepts in systems that do not support 
+formal poly-heirarchies.
+</p>
+<p>
+Whatever the reason, in FHIR code systems, all kinds of synonyms are represented the same way: as 
+duplicate concepts with a declared relationship between them. The relationship is declared using the 
+'alternateCode' property, which identities another concept with the same
+real-world meaning that the code system defines.
+</p>
+<p>
+In most cases (but not necessarily all), the concepts related with the alternateCode property will have the same:
+</p>
+<ul>
+<li>property values (with the exception of alternateCode, and administrative properties)</li>
+<li>designations</li>
+</ul>
+<p>
+The alternateCode property allows CodeSystem resource instances to represent multiple codes for a concept defined in a code system.
+The correct way to use the alternateCode property for an instance of CodeSystem.concept (A):
+</p>
+<ul> 
+ <li>the alternateCode value must be the code associated with a different CodeSystem.concept (B) in the same CodeSystem; and</li>
+ <li>B SHALL contain an instance of the alternateCode property with the value of the code for A. I.e. reflexivity is required (see csd-6 above)</li>
+ <li>All relationships shall be explicit - relationships (including transitivity and parent/child) must not be assumed.</li>
+</ul>
+
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+This section is newly introduced in R6 after extensive consideration in committee, and comments are sought. 
+</p></blockquote>
+
 
 <a name="hierarchy"></a>
 <h2>Concept Hierarchy</h2>
