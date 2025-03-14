@@ -268,23 +268,82 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.relatedArtifact">
-      <path value="ResearchStudy.relatedArtifact"/>
-      <short value="References, URLs, and attachments"/>
-      <definition value="Citations, references, URLs and other related documents.  When using relatedArtifact to share URLs, the relatedArtifact.type will often be set to one of &quot;documentation&quot; or &quot;supported-with&quot; and the URL value will often be in relatedArtifact.document.url but another possible location is relatedArtifact.resource when it is a canonical URL."/>
+    <element id="ResearchStudy.citeAs">
+      <path value="ResearchStudy.citeAs"/>
+      <short value="How to cite this ResearchStudy"/>
+      <definition value="Display of or reference to the bibliographic citation of this ResearchStudy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.relatesTo">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,0"/>
+      </extension>
+      <path value="ResearchStudy.relatesTo"/>
+      <short value="Relationships to other Resources"/>
+      <definition value="Relationships that this ResearchStudy has with other FHIR or non-FHIR resources that already exist."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="RelatedArtifact"/>
+        <code value="BackboneElement"/>
       </type>
       <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Citations, Links, Available Study Data/Documents"/>
+        <identity value="rim"/>
+        <map value=".outboundRelationship"/>
       </mapping>
       <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="StudyProtocolDocument, StudyProtocolDocumentVersion"/>
+        <identity value="cda"/>
+        <map value=".relatedDocument"/>
       </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.relatesTo"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.relatesTo.type">
+      <path value="ResearchStudy.relatesTo.type"/>
+      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | summarizes"/>
+      <definition value="The type of relationship to the related artifact."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of relationship to the related artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.relatesTo.target[x]">
+        <path value="ResearchStudy.relatesTo.target[x]"/>
+        <short value="The artifact that is related to this ResearchStudy"/>
+        <definition value="The artifact that is related to this ResearchStudy Resource."/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+            <code value="uri"/>
+        </type>
+        <type>
+            <code value="Attachment"/>
+        </type>
+        <type>
+            <code value="canonical"/>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        </type>
+        <type>
+            <code value="Reference"/>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        </type>
+        <type>
+            <code value="markdown"/>
+        </type>
     </element>
     <element id="ResearchStudy.date">
       <path value="ResearchStudy.date"/>
