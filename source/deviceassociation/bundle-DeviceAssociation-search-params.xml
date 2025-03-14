@@ -59,7 +59,7 @@
       </SearchParameter>
     </resource>
   </entry>  
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="DeviceAssociation-patient"/>
@@ -77,7 +77,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
@@ -135,4 +135,23 @@
       </SearchParameter>
     </resource>
   </entry>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAssociation-relationship"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAssociation.relationship"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-code"/>
+        <description value="Search for associations at or within specific times"/>
+        <code value="relationship"/>
+        <type value="token"/>
+        <expression value="DeviceAssociation.relationship"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>  
 </Bundle>
