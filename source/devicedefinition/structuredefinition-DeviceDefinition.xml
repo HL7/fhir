@@ -26,6 +26,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
     <valueString value="CanonicalResource"/>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+     <valueString value="CanonicalResource"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
