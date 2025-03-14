@@ -19,7 +19,7 @@
   <name value="AllSecurityLabels"/>
   <title value="All Security Labels"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2014-07-28"/>
   <publisher value="FHIR project team"/>
   <contact>

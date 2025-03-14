@@ -27,7 +27,7 @@
   <name value="TestScriptOperationCode"/>
   <title value="Test Script Operation Code"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

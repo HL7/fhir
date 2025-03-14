@@ -7,7 +7,7 @@
   <name value="UCUMCodes"/>
   <title value="UCUM Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>
