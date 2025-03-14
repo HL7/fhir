@@ -275,6 +275,9 @@
   <concept id="228367002" display="Does not misuse drugs">
     <display value="Does not misuse drugs"/>
   </concept>
+  <concept id="228557008" display="Cognitive and behavioral therapy">
+    <display value="Cognitive and behavioral therapy"/>
+  </concept>
   <concept id="229506003" display="Scar tissue massage">
     <display value="Scar tissue massage"/>
   </concept>
@@ -439,6 +442,9 @@
   </concept>
   <concept id="267425008" display="Lactose intolerance">
     <display value="Lactose intolerance"/>
+  </concept>
+  <concept id="271062006" display="Fasting blood glucose level">
+    <display value="Fasting blood glucose level"/>
   </concept>
   <concept id="271651005" display="Stable blood pressure">
     <display value="Stable blood pressure"/>
@@ -691,6 +697,9 @@
   </concept>
   <concept id="371292009" display="Proximal interphalangeal joint structure of second toe (body structure)">
     <display value="Proximal interphalangeal joint structure of second toe (body structure)"/>
+  </concept>
+  <concept id="372567009" display="Metformin (substance)">
+    <display value="Metformin (substance)"/>
   </concept>
   <concept id="3729002" display="Hospital-based outpatient pediatric clinic">
     <display value="Hospital-based outpatient pediatric clinic"/>

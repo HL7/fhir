@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="DeviceDefinitionRegulatoryIdentifierType"/>
   <title value="Device Definition Regulatory Identifier Type"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Regulatory Identifier type"/>
   <compose>
     <include>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="deprecated"/>
+  </extension>
   <url value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -8,9 +11,13 @@
   </identifier>
   <name value="Indicator"/>
   <title value="CDS Hooks Indicator"/>
-  <status value="draft"/>
+  <status value="retired"/>
   <experimental value="false"/>
   <description value="This codesystem captures the indicator codes defined by the CDS Hooks specification. The indicator is included as an element of the cards in a CDS Hooks response and conveys the urgency and/or importance of the information in each card. See [Card Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification for more information."/>
+  <relatedArtifact>
+    <type value="successor"/>
+    <resource value="http://terminology.hl7.org/CodeSystem/cdshooks-indicator"/>
+  </relatedArtifact>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

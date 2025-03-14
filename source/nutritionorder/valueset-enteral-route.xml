@@ -27,7 +27,7 @@
   <name value="EnteralRouteCodes"/>
   <title value="Enteral Route Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>

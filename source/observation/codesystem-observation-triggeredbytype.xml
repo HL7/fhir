@@ -18,7 +18,7 @@
   <name value="TriggeredBytype"/>
   <title value="triggered Bytype"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2022-03-16T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
