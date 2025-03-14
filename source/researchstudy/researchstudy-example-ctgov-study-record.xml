@@ -364,9 +364,7 @@
 	</label>
 	<relatesTo>
 		<type value="transforms"/>
-		<targetAttachment>
-			<url value="https://clinicaltrials.gov/api/v2/studies/NCT05503693?format=json"/>
-		</targetAttachment>
+		<targetUri value="https://clinicaltrials.gov/api/v2/studies/NCT05503693?format=json"/>
 	</relatesTo>
 	<relatesTo>
 		<type value="transformed-with"/>

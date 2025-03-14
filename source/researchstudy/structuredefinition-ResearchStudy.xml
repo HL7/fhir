@@ -271,7 +271,7 @@
     <element id="ResearchStudy.citeAs">
       <path value="ResearchStudy.citeAs"/>
       <short value="How to cite this ResearchStudy"/>
-      <definition value="Display of or reference to the bibliographic citation of this ResearchStudy."/>
+      <definition value="Display of the bibliographic citation of this ResearchStudy."/>
       <min value="0"/>
       <max value="1"/>
       <type>
