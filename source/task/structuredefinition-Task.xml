@@ -311,6 +311,7 @@
         </extension>
         <strength value="example"/>
         <description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-business-status"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -752,6 +753,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of task performers."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-performer-function-code"/>
       </binding>
     </element>
     <element id="Task.performer.actor">
@@ -812,6 +814,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1001,6 +1004,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1206,6 +1210,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of input parameters. These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
