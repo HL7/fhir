@@ -1001,7 +1001,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.relatesTo.resourceReference"/>
+        <map value="Composition.relatesTo.targetReference"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

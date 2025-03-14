@@ -998,7 +998,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.handling">
 			<path value="Evidence.statistic.modelCharacteristic.variable.handling"/>
-			<short value="boolean | continuous | dichotomous | ordinal | polychotomous"/>
+			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | extension"/>
 			<definition value="How the variable is classified for use in adjusted analysis."/>
 			<min value="0"/>
 			<max value="1"/>

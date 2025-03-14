@@ -1544,7 +1544,7 @@
 			<path value="PlanDefinition.action.condition"/>
 			<short value="Whether or not the action is applicable"/>
 			<definition value="An expression that describes applicability criteria or start/stop conditions for the action."/>
-			<comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true."/>
+			<comment value="If no applicability conditions are present, the action is considered applicable (i.e. it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g. applicability and start criteria are never considered together)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

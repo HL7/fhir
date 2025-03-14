@@ -108,7 +108,7 @@
 				<key value="nsd-3"/>
 				<severity value="error"/>
 				<human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
-				<expression value="uniqueId.where(authoritative = 'true').select(type.toString() &amp; period.start.toString() &amp; period.end.toString()).isDistinct()"/>
+				<expression value="uniqueId.where(authoritative = true).select(type.toString() &amp; period.start.toString() &amp; period.end.toString()).isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
 			</constraint>
 			<constraint>

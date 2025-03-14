@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="risk-assessment-outcome"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/risk-assessment-outcome"/>
+  <version value="6.0.0"/>
+  <name value="RiskAssessmentOutcome"/>
+  <title value="Risk Assessment Outcome"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Example value set illustrating possible codes for identifying the condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/risk-assessment-outcome"/>
+    </include>
+  </compose>
+</ValueSet>
