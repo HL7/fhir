@@ -11,7 +11,7 @@
   <name value="IdentifierTypeCodes"/>
   <title value="Identifier Type Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

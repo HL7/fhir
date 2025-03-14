@@ -94,19 +94,19 @@
     <type value="code"/>
   </parameter>
   <parameter>
-    <name value="system"/>
+    <name value="sourceSystem"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The system for the code that is to be translated"/>
+    <documentation value="The system for the sourceCode to be translated. Note: the previous name of this input parameter was `system`, and servers MAY choose to still accept that name"/>
     <type value="uri"/>
   </parameter>
   <parameter>
-    <name value="version"/>
+    <name value="sourceVersion"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The version of the system, if one was provided in the source data"/>
+    <documentation value="The version for the system of the sourceCode to be translated. Note: the previous name of this input parameter was `version`, and servers MAY choose to still accept that name."/>
     <type value="string"/>
   </parameter>
   <parameter>

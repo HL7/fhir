@@ -7,7 +7,7 @@
   <name value="AllUCUMExpressionForDistance"/>
   <title value="All UCUM Expression for Distance"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>

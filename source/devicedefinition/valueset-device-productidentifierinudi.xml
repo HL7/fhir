@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="DeviceProductionIdentifierInUDI"/>
   <title value="Device Production Identifier In UDI"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Device Production Identifier in UDI"/>
   <compose>
     <include>

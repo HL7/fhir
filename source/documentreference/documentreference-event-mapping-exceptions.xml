@@ -113,6 +113,10 @@
             <_pattern value="The date the occurrence of the document reference was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="When the document reference was created."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#xa;&#xa;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#xa;&#xa;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <resource value="Referencing/indexing time is used for tracking, organizing versions and searching. Provide the most precise timestamp available."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.author">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known"/>
