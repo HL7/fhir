@@ -481,6 +481,11 @@ signatures.html
 		<!--<page type="resource" resource="BiologicallyDerivedProduct"/>-->
       </page>
 
+      <page title="Nutrition" filename="nutrition-module.html">
+		<!--<page type="resource" resource="Nutrition"/>-->
+      </page>
+
+
   </page>
 
 </fhir>
