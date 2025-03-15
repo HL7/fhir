@@ -55,7 +55,7 @@ other resources, or find that they need to, the following rules apply:
 </p>
 <ul>
  <li>Additional Resources to be used like this SHALL be registered with HL7</li>
- <li>Unapproved resources SHALL not be used</li>
+ <li>Unapproved resources SHALL NOT be used</li>
  <li>Registered and approved resources are given a name by HL7, and this is the name that must be used for the resource</li>
  <li>All such registered and approved resources SHALL have a publicly available definition using a <a href="structuredefinition.html">StructureDefinition</a>
    published as part of an <a href="implementationguide.html">ImplementationGuide</a>, published at the canonical URL. Note that the definitions will be reviewed for quality by HL7 prior to approval</li>
