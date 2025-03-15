@@ -140,6 +140,18 @@
         <map value="methodCode"/>
       </mapping>
     </element>
+    <element id="MeasureReport.message">
+      <path value="MeasureReport.message"/>
+      <short value="Evaluation messages"/>
+      <definition value="A reference to an OperationOutcome that contains any information, warning, and/or error messages that were generated while processing an operation such as $evaluate."/>
+      <comment value="Operation processing often generates information, warning, or error messages that don't necessarily stop processing (so would not result in an OperationOutcome as the overall result of the operation) but still need to be communicated as part of the result. This element allows for these messages to be included as a reference to an OperationOutcome resource (typically included as a contained resource in the result of the operation)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+      </type>
+    </element>
     <element id="MeasureReport.status">
       <path value="MeasureReport.status"/>
       <short value="complete | pending | error"/>

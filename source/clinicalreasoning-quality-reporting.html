@@ -266,6 +266,11 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <p>In addition, implementations may return a MeasureReport with a status of pending, indicating that the evaluation is in progress. In this case, clients can request the MeasureReport resource until the status changes to complete.</p>
 
+<a name="Evaluation Messages"> </a>
+<h5>Evaluation Messages</h5>
+
+<p>As part of the evaluation of a Measure to produce a MeasureReport, systems may report information messages, warnings, and errors using the MeasureReport.message element. The MeasureReport.message can be used to reference an OperationOutcome resource describing issues that have occurred during the evaluation. Note that the OperationOutcome resource referenced is typically contained within the returned MeasureReport.</p>
+
 <a name="references"> </a>
 <h4>References</h4>
 
