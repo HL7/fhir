@@ -146,7 +146,7 @@
           <valueString value="DeviceAssociation.relationship"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-code"/>
-        <description value="Search for associations at or within specific times"/>
+        <description value="Search for specific device association relationships"/>
         <code value="relationship"/>
         <type value="token"/>
         <expression value="DeviceAssociation.relationship"/>
