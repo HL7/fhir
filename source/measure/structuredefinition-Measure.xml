@@ -1066,6 +1066,33 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="Measure.improvementNotation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>       
+      <path value="Measure.improvementNotation"/>
+      <short value="increase | decrease"/>
+      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
+      <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureImprovementNotation"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".interpretationCode"/>
+      </mapping>
+    </element>    
     <element id="Measure.term">
       <path value="Measure.term"/>
       <short value="Defined terms used in the measure documentation"/>

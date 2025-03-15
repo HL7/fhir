@@ -416,6 +416,41 @@
         <map value="methodCode"/>
       </mapping>
     </element>
+    <element id="MeasureReport.improvementNotation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
+      </extension>
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>        
+      <path value="MeasureReport.improvementNotation"/>
+      <short value="increase | decrease"/>
+      <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
+      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureImprovementNotation"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>    
     <element id="MeasureReport.group">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,0"/>
@@ -521,7 +556,7 @@
     <element id="MeasureReport.group.improvementNotation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
-      </extension>
+      </extension>    
       <path value="MeasureReport.group.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score. Exercise caution when using any values besides increase or decrease for improvementNotation."/>
