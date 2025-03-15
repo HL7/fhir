@@ -426,6 +426,12 @@
   </improvementNotation>
   <guidance value="A discharge to a designated cancer center or children's hospital should be captured as a discharge to an acute care facility. It is acceptable to calculate Gestational Age using the American College of Obstetricians and Gynecologists ReVITALize guidelines, which define Gestational Age as calculated using the best obstetrical Estimated Due Date (EDD) based on the formula: Gestational Age= (280-(EDD-Reference Date))/7 where Reference Date is the date on which you are trying to determine gestational age. For PC-05, Reference Date is the Birth Date. Note however that the calculation may yield a non-whole number and gestational age should be rounded off to the nearest completed week. For example, an infant born on the 5th day of the 36th week (35 weeks and 5/7 days) is at a gestational age of 35 weeks, not 36 weeks."/>
   <group id="PopulationGroup1">
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>  
     <population>
       <code>
         <coding>
@@ -472,6 +478,12 @@
     </population>
   </group>
   <group id="PopulationGroup2">
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>  
     <population>
       <code>
         <coding>
