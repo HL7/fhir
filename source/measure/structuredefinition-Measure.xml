@@ -1066,30 +1066,6 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.improvementNotation">
-      <path value="Measure.improvementNotation"/>
-      <short value="increase | decrease"/>
-      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
-      <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureImprovementNotation"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".interpretationCode"/>
-      </mapping>
-    </element>
     <element id="Measure.term">
       <path value="Measure.term"/>
       <short value="Defined terms used in the measure documentation"/>
@@ -1390,7 +1366,7 @@
     <element id="Measure.group.improvementNotation">
       <path value="Measure.group.improvementNotation"/>
       <short value="increase | decrease"/>
-      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
+      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range). Exercise caution when using any values besides increase or decrease for improvementNotation."/>
       <comment value="When specified at the group level, this element defines the improvementNotation for this specific group. If not specified, improvementNotation for this group is determined by the root improvementNotation element"/>
       <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
       <min value="0"/>
@@ -1403,7 +1379,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureImprovementNotation"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
@@ -1411,6 +1387,23 @@
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
       </mapping>
     </element>
+    <element id="Measure.group.improvementNotationGuidance">
+      <path value="Measure.group.improvementNotationGuidance"/>
+      <short value="Explanation of improvement notation"/>
+      <definition value="Narrative text to explain the improvement notation and how to interpret it."/>
+      <comment value="This element allows explanation to the improvementNotation be provided. In some cases, additional guidance is required to clearly communicate measure intent around improvement notation. For example, a measure looking at Ceasarean-section births may have an improvement notation of “decrease”, but it is critical to be able to communicate that a measure score of 0 is not the intent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>       
     <element id="Measure.group.library">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Library is not required to allow for measures that are strictly narrative, as well as for measures that have inline criteria expressions."/>
