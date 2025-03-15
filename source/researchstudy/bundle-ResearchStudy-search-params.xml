@@ -424,13 +424,13 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-progress-status-state"/>
+        <id value="ResearchStudy-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-state"/>
         <description value="Label for status or state"/>
-        <code value="progress-status-state"/>
+        <code value="state"/>
         <type value="token"/>
         <expression value="ResearchStudy.progressStatus.state"/>
         <processingMode value="normal"/>
@@ -440,13 +440,13 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-progress-status-actual"/>
+        <id value="ResearchStudy-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-actual"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-actual"/>
         <description value="Actual if true else anticipated"/>
-        <code value="progress-status-actual"/>
+        <code value="actual"/>
         <type value="token"/>
         <expression value="ResearchStudy.progressStatus.actual"/>
         <processingMode value="normal"/>
@@ -456,13 +456,13 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-progress-status-period"/>
+        <id value="ResearchStudy-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-period"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-period"/>
         <description value="Date range"/>
-        <code value="progress-status-period"/>
+        <code value="period"/>
         <type value="date"/>
         <expression value="ResearchStudy.progressStatus.period"/>
         <processingMode value="normal"/>
