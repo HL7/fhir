@@ -12,6 +12,50 @@
   <li>Bundles have both .id and .identifier - see <a href="resource.html#id">Resource Identities</a> for further information</li>  
 </ul>
 
+
+<a name="additional"></a>
+<h3>Using additional resources in Bundles</h3>
+<p>
+Bundle entries contain resources which may be either be one of the <%res-type-count%> resources
+defined in this specification, or an <a href="resource.html#additional">additional resource</a>. 
+</p>
+<p>
+In JSON, this looks like:
+</p>
+<pre class="json">
+{
+  "resourceType" : "Bundle",
+  "entry" : [{
+    "resource" : {
+      "resourceType" : "ViewDefinition",
+      "resourceDefinition" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition|2.0.0-pre",
+      "id": "a-valid-id",
+      // etc
+    }
+  }]
+}
+</pre>
+<p>
+In XML, this looks like:
+</p>
+<pre class="xml">
+&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
+  &lt;entry&gt; 
+    &lt;resource&gt; 
+      &lt;ViewDefinition xmlns="http://hl7.org/fhir" 
+        resourceDefinition="http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition|2.0.0-pre">
+        <id value="a-valid-id"/>
+        // etc
+      &lt;ViewDefinition&gt;
+    &lt;/resource&gt; 
+  &lt;/entry&gt; 
+&lt;/Bundle&gt; 
+</pre>
+
+<blockquote class="ballot-note">
+  <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
+</blockquote>
+
 <a name="using"></a>
 
 <h3>Using Bundles</h3>

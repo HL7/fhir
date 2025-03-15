@@ -16,6 +16,45 @@
 </ul>
 <p>REST can be somewhat heavy in terms of the number of service calls needed to manipulate all desired resources. This is part of the cost associated with the flexibility that allows a single RESTful interface to support a wide range of use-cases.</p>
 
+<a name="additional"></a>
+<h3>Using additional resources in DomainResource.contained</h3>
+<p>
+Contained resources may be either be one of the <%res-type-count%> resources
+defined in this specification, or an <a href="resource.html#additional">additional resource</a>. 
+</p>
+<p>
+In JSON, this looks like:
+</p>
+<pre class="json">
+{
+  "resourceType" : "Basic",
+  "contained" : [{
+    "resourceType" : "ViewDefinition",
+    "resourceDefinition" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition|2.0.0-pre",
+    "id": "a-valid-id",
+    // etc
+  }]
+}
+</pre>
+<p>
+In XML, this looks like:
+</p>
+<pre class="xml">
+&lt;Basic xmlns="http://hl7.org/fhir"&gt;
+  &lt;contained&gt; 
+    &lt;ViewDefinition xmlns="http://hl7.org/fhir" 
+      resourceDefinition="http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition|2.0.0-pre">
+      <id value="a-valid-id"/>
+      // etc
+    &lt;ViewDefinition&gt;
+  &lt;/contained&gt; 
+&lt;/Bundle&gt; 
+</pre>
+
+<blockquote class="ballot-note">
+  <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
+</blockquote>
+
 
 <a name="search"></a>
 <h2>Searching Extensions</h2>

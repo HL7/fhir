@@ -222,40 +222,54 @@ This technique has many uses:
  <li>Describing common design patterns used in FHIR</li>
  <li>Defining a content model to support the mapping language</li>
 </ul>
-<!--
-<h2>Profiled FHIR</h2>
-<p>
-If a profile is unambiguous, then the FHIR profile tooling (ref to be provided when the tooling exists)
-is able to generate reference implementation based object models that express
-the profiled model natively, where the object interface does not include
-prohibited elements, treats declared extensions as primary properties and
-slices lists according to the profile. This eases the burden on an implementer,
-though this object model can only be used with a sub-set of the possible resources. <!-.-only if it enforces maxOccurs.  Extra elements can be mapped into extensions -!->
-</p>
-<p>
-The tooling is also able to generate bi-directional transforms between the
-<a href="xml.html">normal XML format</a> and an XML representation of this
-profiled object model and schema for this profiled XML representation.
-This XML form has extensions promoted into the primary XML form by using the
-extension code as the XML name and sliced lists are renamed to use the
-Profile.resource.element.name as the XML element name. Profiles are only suitable
-for this use if they ensure that there are no clashing extension names when
-the extension definition spaces are ignored and that the sliced list names are
-appropriate.<!-.- Any reason we limit this to only XML? - because transforms are XML things -!->
-</p>
+
+<a name="additional"> </a>
+<h3>Using StructureDefinitions to Define Additional Resource</h3>
 
 <p>
-Implementations are allowed to exchange this profiled XML format. Implementations
-that do so are not fully conformant to FHIR; instead they can claim to be conformant
-to "Profiled FHIR". Implementations should consider carefully before adopting this
-approach; while it will reduce the amount of work required to initially implement
-particular profiles, it will increase the amount of work required to exchange this
-data with other communities or to re-use tooling and applications that are also
-used in other contexts. This cost should particularly be considered in light of the
-fact that the previously discussed tooling allows applications to be written as
-though they are dealing with "Profiled FHIR" instances when they are in fact sending
-and receiving fully conformant FHIR instances.
+<a href="resource.html#additional">Additional resources</a> are defined by StructureDefinition resources,
+following these rules:
 </p>
--->
+<ul>
+ <li>The canonical URL of the definition is in some other canonical space than <code>http://hl7.org/fhir</code></li>
+ <li>The fhirVersion SHALL be <code>6.0.0</code> or a subsequent published version of FHIR</li>
+ <li>The kind SHALL be <code>resource</code></li>
+ <li>abstract SHALL be <code>false</code></li>
+ <li>The type SHALL match the canonical URL exactly</li>
+ <li>The baseDefinition SHALL be a direct reference to one of the abstract resources published by this specification 
+  (<a href="resource.html">Resource</a>, <a href="domainresource.html">DomainResource</a>, <a href="canonicalresource.html">CanonicalResource</a> or <a href="metadataresource.html">MetadataResource</a>)</li>
+ <li>The derivation SHALL be <code>specialization</code></li>
+ <li>The root of the element path SHALL be the tail of the canonical URL</li>
+ <li>The root of the element SHOULD be the name assigned by HL7 to the resource</li>
+</ul> 
+<p>
+Here is an example with other properties removed:
+</p>
+<pre class="json">
+{
+  "resourceType" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition",
+  "fhirVersion" : "6.0.0",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CanonicalResource",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ViewDefinition",
+      // snip
+    }]
+  }
+}
+</pre>
+<p>
+Once defined, additional resources are profiled like any other resource.
+</p>
+
+<blockquote class="ballot-note">
+<p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
+</blockquote>
+
 
 </div>

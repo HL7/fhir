@@ -196,8 +196,4 @@
     <code value="SubstanceSpecification"/> 
     <display value="SubstanceSpecification"/> 
   </concept> 
-  <concept> 
-    <code value="InsuranceProduct"/> 
-    <display value="InsuranceProduct"/> 
-  </concept> 
 </CodeSystem>

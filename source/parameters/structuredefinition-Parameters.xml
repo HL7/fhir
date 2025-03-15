@@ -287,7 +287,7 @@
       <path value="Parameters.parameter.resource"/>
       <short value="If parameter is a whole resource"/>
       <definition value="Conveys the content if the parameter is a whole resource."/>
-      <comment value="When resolving references in resources, the operation definition may specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to its general resource resolution methods."/>
+      <comment value="This may be a resource defined in the FHIR specification, or an [additional resource](resource.html#additional). When resolving references in resources, the operation definition may specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to its general resource resolution methods."/>
       <min value="0"/>
       <max value="1"/>
       <type>
