@@ -12,7 +12,7 @@
       <valueString value="actordefinition-lab-report-consumer"/>
     </extension>
     <item>
-      <reference value="ActorDefinition/client"/>
+      <reference value="ActorDefinition/lab-report-consumer"/>
       <display value="aboratory Report Consumer"/>
     </item>
   </entry>
@@ -24,7 +24,7 @@
       <valueString value="actordefinition-lab-report-creator"/>
     </extension>
     <item>
-      <reference value="ActorDefinition/server"/>
+      <reference value="ActorDefinition/lab-report-creator"/>
       <display value="Laboratory Report Creator"/>
     </item>
   </entry>

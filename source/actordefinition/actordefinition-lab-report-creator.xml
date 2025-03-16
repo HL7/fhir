@@ -1,14 +1,12 @@
 <ActorDefinition xmlns="http://hl7.org/fhir">
-  <id value="actor-creator-eu-lab"/>
+  <id value="lab-report-creator"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p class="res-header-id">
-        <b>Generated Narrative: ActorDefinition actor-creator-eu-lab</b>
+        <b>Generated Narrative: ActorDefinition lab-report-creator</b>
       </p>
-      <a name="actor-creator-eu-lab"></a>
-      <a name="hcactor-creator-eu-lab"></a>
-      <a name="actor-creator-eu-lab-en-US"></a>
+      <a name="lab-report-creator"></a>
       <table class="grid">
         <tr>
           <td>
