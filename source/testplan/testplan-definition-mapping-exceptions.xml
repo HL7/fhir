@@ -14,8 +14,12 @@
     <divergentElement patternPath="Definition.identifier" resourcePath="TestPlan.identifier">
         <shortUnmatched reason="Unknown">
             <_pattern value="Business identifier for test plan"/>
-            <resource value="Business identifier identifier for the test plan"/>
+            <resource value="Business identifier for the test plan"/>
         </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test plan outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the test plan."/>
             <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
@@ -57,12 +61,6 @@
             <_pattern value="Enables tracking the lifecycle of the content and filtering of test plans that are appropriate for use versus not."/>
             <resource value=""/>
         </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.experimental" resourcePath="TestPlan.experimental">
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this test plan is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-            <resource value="A Boolean value to indicate that this test plan is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.date" resourcePath="TestPlan.date">
         <definitionUnmatched reason="Unknown">

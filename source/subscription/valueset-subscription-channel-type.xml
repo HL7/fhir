@@ -27,7 +27,7 @@
   <name value="SubscriptionChannelType"/>
   <title value="Subscription Channel Type"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

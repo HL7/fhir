@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MolecularDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-identifier"/>
+        <description value="The unique identity for a particular sequence"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MolecularDefinition.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularDefinition-moleculeType"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularDefinition.moleculeType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-moleculeType"/>
+        <description value="Amino Acid Sequence/ DNA Sequence / RNA Sequence"/>
+        <code value="moleculetype"/>
+        <type value="token"/>
+        <expression value="MolecularDefinition.moleculeType"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularDefinition-topology"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularDefinition.topology"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-topology"/>
+        <description value="The structural topology of the molecular entity (e.g., linear, circular)"/>
+        <code value="topology"/>
+        <type value="token"/>
+        <expression value="MolecularDefinition.topology"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularDefinition-member"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularDefinition.member"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-member"/>
+        <description value="Reference to the state of the molecular member"/>
+        <code value="member"/>
+        <type value="reference"/>
+        <expression value="MolecularDefinition.member"/>
+        <processingMode value="normal"/>
+        <target value="MolecularDefinition"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularDefinition-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularDefinition.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularDefinition-type"/>
+        <description value="Classification of the molecule into types other than those defined by moleculeType"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="MolecularDefinition.type"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

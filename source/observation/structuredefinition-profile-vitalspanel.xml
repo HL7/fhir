@@ -10,7 +10,7 @@
     <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'85353-1'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -93,10 +93,11 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="2"/>
     </element>
-    <element id="Observation.category:VSCat">
+    <element id="Observation.category:VitalsPanelCode">
       <path value="Observation.category"/>
-      <sliceName value="VSCat"/>
+      <sliceName value="VitalsPanelCode"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -112,6 +113,14 @@
       <definition value="Vital Signs Panel."/>
       <alias value="Panel Name"/>
       <alias value="Panel Code"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsPanel"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="This identifies the set of LOINC codes that are appropriate for representing a panel of vital sign measurements in Observation.code."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-panel"/>
+      </binding>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>

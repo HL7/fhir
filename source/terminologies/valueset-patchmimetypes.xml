@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="PatchMimeTypes"/>
+  <title value="Patch Mime Types"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International - FHIR-Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes the possible codes from [BCP-13](http://tools.ietf.org/html/bcp13) that are valid for Patch formats"/>
+  <compose>
+    <include>
+      <system value="urn:ietf:bcp:13"/>
+      <concept>  
+        <code value="application/fhir+xml"/>
+      </concept>
+      <concept>  
+        <code value="application/fhir+json"/>
+      </concept>
+      <concept>  
+        <code value="application/fhir+turtle"/>
+      </concept>
+      <concept>  
+        <code value="application/json-patch+json"/>
+      </concept>
+      <concept>  
+        <code value="application/xml-patch+xml"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

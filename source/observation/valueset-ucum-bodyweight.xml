@@ -24,7 +24,7 @@
   <name value="BodyWeightUnits"/>
   <title value="Body Weight Units"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project"/>
   <description value="UCUM units for recording Body Weight"/>
   <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-cyp2c19-attached"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <resolvable>
+            <reference value="DocumentReference/example-genomicFile-cyp2c19-attached"/>
+        </resolvable>
+    </representation>
+</MolecularDefinition>

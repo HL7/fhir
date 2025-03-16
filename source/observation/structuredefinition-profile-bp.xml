@@ -10,7 +10,7 @@
     <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **85354-9'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;2.  One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;3.  One  `Observation.component.code` which must have &#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'mm[Hg]'**"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -93,10 +93,11 @@
         </discriminator>
         <rules value="open"/>
       </slicing>
+      <min value="2"/>
     </element>
-    <element id="Observation.category:VSCat">
+    <element id="Observation.category:BPCode">
       <path value="Observation.category"/>
-      <sliceName value="VSCat"/>
+      <sliceName value="BPCode"/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -158,7 +159,7 @@
         </discriminator>
         <discriminator>
           <type value="pattern"/>
-          <path value="valueCodeableConcept"/>
+          <path value="value"/>
         </discriminator>
         <rules value="open"/>
       </slicing>
@@ -261,7 +262,7 @@
         </discriminator>
         <discriminator>
           <type value="pattern"/>
-          <path value="valueCodeableConcept"/>
+          <path value="value"/>
         </discriminator>
         <rules value="open"/>
       </slicing>

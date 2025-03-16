@@ -22,7 +22,7 @@
     <divergentElement patternPath="Request.basedOn" resourcePath="ServiceRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
         <extraTypes
-            _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration)" reason="Unknown"/>
+            _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="What request fulfills"/>
@@ -99,7 +99,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#xa;&#xa;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
-            <resource value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance."/>
+            <resource value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
@@ -140,7 +140,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
-            <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
+            <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="ServiceRequest.subject">
@@ -197,6 +197,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="ServiceRequest.requester">
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
             <resource value="The individual who initiated the request and has responsibility for its activation."/>
@@ -218,6 +219,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="ServiceRequest.performer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Requested performer"/>
@@ -230,15 +232,15 @@
     <divergentElement patternPath="Request.reason" resourcePath="ServiceRequest.reason">
         <shortUnmatched reason="Unknown">
             <_pattern value="Why is service (not) needed?"/>
-            <resource value="Explanation/Justification for procedure or service"/>
+            <resource value="Reason or indication for requesting the service"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the request is being made in coded or textual form, or Indicates another resource whose existence justifies this request."/>
-            <resource value="An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`."/>
+            <resource value="The reason or the indication for requesting the service (e.g., procedure, lab test)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>
-            <resource value="This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise, use `concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
+            <resource value="This element represents why the request is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Use `reason.concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.insurance" resourcePath="ServiceRequest.insurance">

@@ -6,7 +6,7 @@
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="2"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -51,7 +51,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This operation is used to request the removal of all current and historical versions for all resources in a patient compartment or from a Group of patient compartments.  The return is an OperationOutcome with results and/or details about execution.&#xD;&#xD;Following are some common `issue-type` values:&#xD;- `success` the request has been completed to the server's satisfaction - the patient and associated resources are no longer accessible&#xD;- `incomplete` the request is partially complete, but additional processing will continue (e.g., the server is continuing to clean out resources)&#xD;&#xD;When supported, it is recommended (though not required) to support an [Asynchronous Request Pattern](async.html).&#xD;&#xD;Note that the deletion of resources typically involves many policy decisions.  Implementers are expected to use this operation in conjunction with their policies for such a request - e.g., soft vs. hard delete, audibility/traceability, evaluation of referential integrity, etc.." />
+  <description value="This operation is used to request the removal of all current and historical versions for all resources in a patient compartment.  The result will be an OperationOutcome with results and/or details about execution.&#xA;&#xA;Following are some common `issue-type` values:&#xA;- `success` the request has been completed to the server's satisfaction - the patient and associated resources are no longer accessible&#xA;- `incomplete` the request is partially complete, but additional processing will continue (e.g., the server is continuing to clean out resources)&#xA;&#xA;When supported, it is recommended (though not required) to support an [Asynchronous Request Pattern](async.html).&#xA;&#xA;Note that the deletion of resources typically involves many policy decisions.  Implementers are expected to use this operation in conjunction with their policies for such a request - e.g., soft vs. hard delete, audibility/traceability, evaluation of referential integrity, etc."/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -69,7 +69,7 @@
   <parameter>
     <name value="return"/>
     <use value="out"/>
-    <min value="1"/>
+    <min value="0"/>
     <max value="1"/>
     <documentation value="Status and/or results of the purge request"/>
     <type value="OperationOutcome"/>

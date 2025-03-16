@@ -13,7 +13,12 @@
   <manufacturer value="Vanderbilt Genetics Institute"/>
   <name>
     <value value="Triodenovo Software"/>
-    <type value="user-friendly-name"/>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+          <code value="user-friendly-name"/>
+      </coding>
+    </type>	
   </name>
   <type>
     <coding>

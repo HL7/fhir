@@ -1,0 +1,146 @@
+<Permission xmlns="http://hl7.org/fhir">
+  <id value="example-exclude"/>
+  <meta>
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HTEST"/>
+    </security>
+  </meta>
+
+  <status value="active"/>
+  <asserter>
+    <reference value="Organization/example"/>
+  </asserter>
+  <date value="2023-11-22"/>
+  <!-- combining rule is deny-unless-permit, ANY permit authorizes access, so rules do not need to be exhaustively processed, but if no permit is found then access is denied.-->
+  <combining value="deny-unless-permit"/>
+  <rule>
+  <!-- rule is #permit for administrative actions on the directory. This enables maintenance by those with directory admin authorization -->
+    <type value="permit"/>
+    <activity>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="C"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="R"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="U"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="D"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="E"/>
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HDIRECT"/>
+        </coding>
+      </purpose>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HSYSADMIN"/>
+        </coding>
+      </purpose>
+    </activity>
+  </rule>
+  <rule>
+  <!-- When anyone that has TPO authority accesses the directory, they get access to all entries in the directory, but any data marked as Location Sensitive is excluded. Presumes Practitioner resources are tagged at the element level following DS4P Inline Security Labels that indicate the sensitive location elements using the LOCIS tag -->
+    <type value="permit"/>
+    <activity>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="R"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="E"/>
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="TREAT"/>
+        </coding>
+      </purpose>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HPAYMT"/>
+        </coding>
+      </purpose>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HOPERAT"/>
+        </coding>
+      </purpose>
+    </activity>
+    <limit>
+        <tag>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+        <code value="LOCIS"/>
+        </tag>
+    </limit>
+  </rule>
+  <rule>
+  <!-- When a Patient accesses the directory, it will be with PurposeOfUse of PATRQT. They only get access to Doctors, and only non-sensitive data. So not access to kitchen staff, janitor, nurses, etc. -->
+    <type value="permit"/>
+    <data>
+      <expression>
+        <description
+                     value="select all Practitioner resources where the Practitioner has a PractitionerRole with code of doctor"/>
+        <language value="application/x-fhir-query"/>
+        <expression
+                    value="Practitioner?_has:PractitionerRole:practitioner:role=http://terminology.hl7.org/CodeSystem/practitioner-role|doctor"/>
+      </expression>
+    </data>
+    <activity>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="R"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/audit-event-action"/>
+          <code value="E"/>
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="PATRQT"/>
+        </coding>
+      </purpose>
+    </activity>
+    <limit>
+        <tag>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+        <code value="LOCIS"/>
+        </tag>
+    </limit>
+  </rule>
+</Permission>

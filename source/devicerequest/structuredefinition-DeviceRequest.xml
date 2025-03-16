@@ -396,7 +396,7 @@
       <path value="DeviceRequest.doNotPerform"/>
       <short value="True if the request is to stop or not to start using the device"/>
       <definition value="If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses."/>
-      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reasonCode includes the reason for marking the DeviceRequest as 'do not perform'."/>
+      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reason includes the reason for marking the DeviceRequest as 'do not perform'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -820,6 +820,7 @@
       <path value="DeviceRequest.reason"/>
       <short value="Coded/Linked Reason for request"/>
       <definition value="Reason or justification for the use of this device."/>
+      <comment value="When doNotPerform is true, this is the reason for requesting not to provide the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -2,42 +2,49 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<a name="dstu"></a>
 		<p>
-			<strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
-		<p>
-			ServiceRequest represents an order or proposal or plan, as distinguished by <code>ServiceRequest.intent</code> to perform a diagnostic or other service on or for a patient. ServiceRequest represents a proposal or plan or order for a service to be performed that would result in a <a href="procedure.html">Procedure</a> or <a href="diagnosticreport.html">DiagnosticReport</a>, which in turn may reference one or more <a href="observation.html">Observations</a>, which summarize the performance of the procedures and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject. This resource may be used to share relevant information required to support a referral or a transfer of care request from one
-practitioner or organization to another when a patient is required to be referred to another provider for a
-consultation
-/second opinion and/or for short term or longer term management of one or more health issues or problems.
-</p>
-		<p>
-Examples include:
-</p>
+			ServiceRequest represents an order or proposal or plan to perform a diagnostic or other service on or for a patient (including non-human patients in veterinary settings). Examples of the types of services that may be ordered by a ServiceRequest are:
+		</p>
 		<ul>
-			<li>  diagnostic tests/studies</li>
-			<li>  endoscopic procedures</li>
-			<li>  counseling</li>
-			<li>  biopsies</li>
-			<li>  therapies (e.g., physio-, social-, psychological-)</li>
-			<li>  (exploratory) surgeries or procedures</li>
-			<li>  exercises</li>
-			<li>  specialist consultation and assessments</li>
-			<li>  community services</li>
-			<li>  nursing services</li>
-			<li>  pharmacist medication review, and</li>
-			<li>  other clinical interventions.</li>
+			<li>diagnostic tests/studies</li>
+			<li>endoscopic procedures</li>
+			<li>counseling</li>
+			<li>biopsies</li>
+			<li>therapies (e.g., physio-, social-, psychological-)</li>
+			<li>(exploratory) surgeries or procedures</li>
+			<li>exercises</li>
+			<li>specialist consultation and assessments</li>
+			<li>community services</li>
+			<li>nursing services</li>
+			<li>pharmacist medication review, and</li>
+			<li>other clinical interventions.</li>
 		</ul>
 		<p>
-  Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient themselves.
-</p>
-		<p>The principal intention of ServiceRequest is to support ordering procedures for one patient (which includes non-human patients in veterinary medicine). However, in many contexts, healthcare related processes include performing diagnostic investigations on groups of subjects, devices involved in the provision of healthcare, and even environmental locations such as ducts, bodies of water, etc. ServiceRequest supports all these usages.  The service request may represent an order that is entered by a practitioner in a CPOE system as well as a proposal made by a clinical decision support (CDS) system based on a patient's clinical record and context of care. Planned procedures referenced by a <a href="careplan.html">CarePlan</a> may also be represented by this resource. </p>
-		<p>The general work flow that this resource facilitates is that a clinical system creates a service request. The service request is then accessed by or exchanged with a system, perhaps via intermediaries, that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the service request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.</p>
-		<p>The ServiceRequest resource allows requesting only a single procedure. If a workflow requires requesting multiple procedures simultaneously, this is done using multiple instances of this resource. These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the <a href="request.html">Request pattern</a>
+			A ServiceRequest can represent an order that is entered by a practitioner in a CPOE system, or a proposal made by a clinical decision support (CDS) system based on a patient's clinical record and context of care. Planned procedures, perhaps following a defined <a href="careplan.html">CarePlan</a>, may also be represented by this resource.
+		</p>
+		<p>
+			The <code>ServiceRequest.intent</code> element identifies if the resource represents an order, proposal, or plan to perform the indicated service for, or on, a patient. The service to be performed might result in a <a href="procedure.html">Procedure</a>; and could be summarized in a <a href="diagnosticreport.html">DiagnosticReport</a> detailing the performance and outcomes, perhaps through referencing select generated <a href="observation.html">Observations</a>, <a href="imagingstudy.html">ImagingStudies</a>, <a href="specimen.html">Specimens</a> or other resources. The various generated resources are typically linked back to this ServiceRequest through their <code>basedOn</code> elements. The ServiceRequest resource may be used to share information to support a referral or transfer-of-care request from one practitioner or organization to another for a consultation, second opinion, or short- or longer-term management of health issues or problems.
+		</p>
+		<p>
+			Healthcare-related processes may also include requesting diagnostic investigation on a group of subjects; ordering maintenance of devices involved in the provision of healthcare; or, requesting testing of environmental locations such as ducts, bodies of water, etc. 
+		</p>
+		<p>
+			Procedures may be performed by a healthcare professional, by the patient themself, or a friend or relative.
+		</p>
+		<p>
+			The general work flow that this resource facilitates is that a clinical system creates a service request. The service request is then accessed by or exchanged, perhaps via intermediaries, with a system that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the service request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.
+		</p>
+		<p>
+			Only a single procedure is requested by each ServiceRequest; if a workflow requires requesting multiple procedures simultaneously, this is done using multiple ServiceRequests. These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the <a href="request.html">Request pattern</a>.
+		</p>
+		<p>
+			Multiple ServiceRequests may exist that are associated in some way. When the association is a simple grouping, say for billing, that grouping can be indicated with the <code>ServiceRequest.requisition</code> element. When the ServiceRequest execution needs to be coordinated in some fashion, another resource such as <a href="requestorchestration.html">RequestOrchestration</a> may be needed.
+		</p>
+		<p>
+			<strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.
 		</p>
 	</div>
 	<div>
-		<a name="bnr"></a><a href="request.html">Request pattern</a>
 		<h2>Boundaries and Relationships</h2>
 	    <p>
 	     ServiceRequest is a record of a proposal/plan or order for a service to be performed that would result in a <a href="procedure.html">Procedure</a>,

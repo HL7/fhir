@@ -302,9 +302,9 @@
 		</element>
 		<element id="CapabilityStatement.experimental">
 			<path value="CapabilityStatement.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of capability statements that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of capability statements that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level capability statement."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -398,6 +398,21 @@
 			<max value="*"/>
 			<type>
 				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.actorDefinition">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.actorDefinition"/>
+			<short value="ActorDefinitions the CapabilityStatement supports"/>
+			<definition value="ActorDefinitions to describe the specific sets of functionality supported by (or that should be supported by) systems (via obligations)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
 			</type>
 			<isSummary value="true"/>
 		</element>
@@ -683,14 +698,14 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="MimeType"/>
+					<valueString value="SupplementedMimeType"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
 				<strength value="required"/>
-				<description value="The mime type of an attachment. Any valid mime type is allowed."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
 				<additional>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
@@ -699,7 +714,7 @@
 		</element>
 		<element id="CapabilityStatement.patchFormat">
 			<path value="CapabilityStatement.patchFormat"/>
-			<short value="Patch formats supported"/>
+			<short value="Patch formats supported (Mime types for FHIR and JSON And XML Patch)"/>
 			<definition value="A list of the patch formats supported by this implementation using their content types."/>
 			<comment value="At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats and match the formats it supports, but this is not always possible or necessary."/>
 			<min value="0"/>
@@ -720,7 +735,7 @@
 				</extension>
 				<strength value="required"/>
 				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/patchmimetypes"/>
 			</binding>
 		</element>
 		<element id="CapabilityStatement.acceptLanguage">
@@ -910,7 +925,7 @@
 		<element id="CapabilityStatement.rest.resource.type">
 			<path value="CapabilityStatement.rest.resource.type"/>
 			<short value="A resource type that is supported"/>
-			<definition value="A type of resource exposed via the restful interface."/>
+			<definition value="A type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -926,9 +941,21 @@
 					<valueBoolean value="true"/>
 				</extension>
 				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.definition">
+			<path value="CapabilityStatement.rest.resource.definition"/>
+			<short value="The definition for an additional resource"/>
+			<definition value="The definition of the resource, if the resource is an additional resource. If it is not an additional resource, then this element must not be present."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="CapabilityStatement.rest.resource.profile">
 			<path value="CapabilityStatement.rest.resource.profile"/>

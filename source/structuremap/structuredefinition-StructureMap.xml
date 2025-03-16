@@ -135,7 +135,6 @@
 			<path value="StructureMap.identifier"/>
 			<short value="Additional identifier for the structure map"/>
 			<definition value="A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this structure map outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -247,9 +246,9 @@
 		</element>
 		<element id="StructureMap.experimental">
 			<path value="StructureMap.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of structure maps that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of structure maps that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level structure map."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -713,6 +712,13 @@
 				<code value="BackboneElement"/>
 			</type>
 			<isSummary value="true"/>
+      <constraint> 
+        <key value="smp-2"/> 
+        <severity value="error"/> 
+        <human value="Min &lt;= Max"/> 
+        <expression value="min.empty() or max.empty() or (max = '*') or iif(max != '*', min &lt;= max.toInteger())"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/StructureMap"/> 
+      </constraint> 
 		</element>
 		<element id="StructureMap.group.rule.source.context">
 			<path value="StructureMap.group.rule.source.context"/>
@@ -732,7 +738,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="unsignedInt"/>
 			</type>
 			<isSummary value="true"/>
 		</element>
@@ -746,6 +752,13 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
+      <constraint> 
+        <key value="smp-3"/> 
+        <severity value="error"/> 
+        <human value="Max SHALL be a number or &quot;*&quot;"/> 
+        <expression value="empty() or ($this = '*') or (toInteger() &gt;= 0)"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/StructureMap"/> 
+      </constraint> 
 		</element>
 		<element id="StructureMap.group.rule.source.type">
 			<path value="StructureMap.group.rule.source.type"/>
@@ -837,7 +850,6 @@
 			<path value="StructureMap.group.rule.source.logMessage"/>
 			<short value="Message to put in log if source exists (FHIRPath)"/>
 			<definition value="A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found."/>
-			<comment value="This is typically used for recording that something Is not transformed to the target for some reason."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

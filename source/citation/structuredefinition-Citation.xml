@@ -142,7 +142,7 @@
 			<path value="Citation.version"/>
 			<short value="Business version of the citation record"/>
 			<definition value="The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different citation record instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<comment value="This is a business version label used for display in understanding the formal version of the citation record, not a resource version id or technical version number for an archival system. There may be different citation record instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -223,12 +223,16 @@
 				<strength value="required"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
 			</binding>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
 		</element>
 		<element id="Citation.experimental">
 			<path value="Citation.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this citation record is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of citation records that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this citation record is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of citation records that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level citation record."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -257,6 +261,21 @@
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="Citation.author">
+			<path value="Citation.author"/>
+			<short value="Who authored the citation record"/>
+			<definition value="Who authored or created the citation record."/>
+			<comment value="The Citation.author element is structured to support a name (with a string datatype) and contact point information for the author/creator, and is not structured to support unique identifiers for the author. If detailed contributorship data is needed for the authorship of the citation record, then one can create a Citation Resource for the Citation Resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.author"/>
 			</mapping>
 		</element>
 		<element id="Citation.publisher">
@@ -399,6 +418,7 @@
 			<type>
 				<code value="date"/>
 			</type>
+			<isSummary value="true"/>
 			<mapping>
 				<identity value="objimpl"/>
 				<map value="no-gen-base"/>
@@ -415,6 +435,7 @@
 			<type>
 				<code value="date"/>
 			</type>
+			<isSummary value="true"/>
 			<mapping>
 				<identity value="objimpl"/>
 				<map value="no-gen-base"/>
@@ -437,11 +458,11 @@
 				<map value="no-gen-base"/>
 			</mapping>
 		</element>
-		<element id="Citation.author">
-			<path value="Citation.author"/>
-			<short value="Who authored the citation record"/>
-			<definition value="Who authored or created the citation record."/>
-			<comment value="The Citation.author element is structured to support a name (with a string datatype) and contact point information for the author/creator, and is not structured to support unique identifiers for the author. If detailed contributorship data is needed for the authorship of the citation record, then one can create a Citation Resource for the Citation Resource."/>
+		<element id="Citation.recorder">
+			<path value="Citation.recorder"/>
+			<short value="Who entered the data for the citation record"/>
+			<definition value="Who entered the data for the citation record."/>
+			<comment value="The Citation.recorder element is structured to support a name (with a string datatype) and contact point information for the recorder, and is not structured to support unique identifiers for the recorder. If detailed contributorship data is needed, then one can create a Citation Resource for the Citation Resource."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -502,7 +523,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="CitationSummaryStyle"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="preferred"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
 			</binding>
 		</element>
@@ -539,7 +560,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="CitationClassificationType"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="preferred"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
 			</binding>
 		</element>
@@ -622,6 +643,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="Value unknown"/>
 		</element>
 		<element id="Citation.statusDate.period">
 			<path value="Citation.statusDate.period"/>
@@ -669,7 +691,7 @@
 			<path value="Citation.citedArtifact.relatedIdentifier"/>
 			<short value="Identifier not unique to the cited artifact. May include trial registry identifiers"/>
 			<definition value="A formal identifier that is used to identify things closely related to the cited artifact."/>
-			<comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This related identifier would not be used as unique identifier for the cited artifact itself. Multiple published articles (each with their own unique identifier) may relate to the same study record in a research registry. Commonly used related identifiers for study registries include ClinicalTrials.gov identifier (NCTId) and PROSPERO identifier (used for registration of systematic reviews). To maintain interoperability, the suggested identifier.system values to use for these 2 identifiers are: ClinicalTrials.gov = &quot;https://clinicaltrials.gov&quot; PROSPERO = &quot;https://www.crd.york.ac.uk/prospero/&quot;"/>
+			<comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This related identifier would not be used as a unique identifier for the cited artifact itself. Multiple published articles (each with their own unique identifier) may relate to the same study record in a research registry. Commonly used related identifiers for study registries include ClinicalTrials.gov identifier (NCTId) and PROSPERO identifier (used for registration of systematic reviews). To maintain interoperability, the suggested identifier.system values to use for these 2 identifiers are: ClinicalTrials.gov = &quot;https://clinicaltrials.gov&quot; PROSPERO = &quot;https://www.crd.york.ac.uk/prospero/&quot;"/>
 			<requirements value="Allows externally provided and/or usable identifiers to be associated with this the cited artifact."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -692,30 +714,11 @@
 		<element id="Citation.citedArtifact.version">
 			<path value="Citation.citedArtifact.version"/>
 			<short value="The defined version of the cited artifact"/>
+			<comment value="This is a business version label used for display in understanding the formal version of the cited artifact, not a resource version id or technical version number for an archival system."/>
 			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.version.value">
-			<path value="Citation.citedArtifact.version.value"/>
-			<short value="The version number or other version identifier"/>
-			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.version.baseCitation">
-			<path value="Citation.citedArtifact.version.baseCitation"/>
-			<short value="Citation for the main version of the cited artifact"/>
-			<comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be version-specific."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
 			</type>
 		</element>
 		<element id="Citation.citedArtifact.currentState">
@@ -769,6 +772,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="Value unknown"/>
 		</element>
 		<element id="Citation.citedArtifact.statusDate.period">
 			<path value="Citation.citedArtifact.statusDate.period"/>
@@ -813,17 +817,22 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="code"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="Language"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="A human language."/>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
 				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				<strength value="required"/>
+				<description value="IETF language tag for a human language"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="Citation.citedArtifact.title.text">
@@ -850,7 +859,7 @@
 			<short value="The kind of abstract"/>
 			<definition value="Used to express the reason for or classification of the abstract."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
@@ -869,17 +878,22 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="code"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="Language"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="A human language."/>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
 				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				<strength value="required"/>
+				<description value="IETF language tag for a human language"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="Citation.citedArtifact.abstract.text">
@@ -935,10 +949,10 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="Citation.citedArtifact.part.baseCitation">
-			<path value="Citation.citedArtifact.part.baseCitation"/>
-			<short value="The citation for the full article or artifact"/>
-			<comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be specific to the citation of the specified part. For example, the part-specific Citation may have additional contributorship data that supercedes the contributorship data for the full citation when there is a need to uniquely report the contributorship for an image or supplement associated with the fuller citation record."/>
+		<element id="Citation.citedArtifact.baseCitation">
+			<path value="Citation.citedArtifact.baseCitation"/>
+			<short value="Citation for the primary version and complete form of the cited artifact"/>
+			<comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be version-specific or part-specific. For example, the part-specific Citation may have additional contributorship data that supercedes the contributorship data for the full citation when there is a need to uniquely report the contributorship for an image or supplement associated with the fuller citation record."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1057,6 +1071,7 @@
 		<element id="Citation.citedArtifact.publicationForm">
 			<path value="Citation.citedArtifact.publicationForm"/>
 			<short value="If multiple, used to represent alternative forms of the article that are not separate citations"/>
+			<definition value="Where, when and how the artifact was published. If multiple, used to represent alternative forms of the article that are not separate citations."/>
 			<comment value="A common use is a journal article with a publication date and pagination for a print version and a different publication date for the online version of the same article."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1186,7 +1201,7 @@
 		<element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
 			<path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
 			<short value="Season in which the cited artifact was published"/>
-			<definition value="Spring, Summer, Fall/Autumn, Winter."/>
+			<definition value="Season in which the cited artifact was published, e.g. Spring, Summer, Fall/Autumn, Winter."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1210,17 +1225,22 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="code"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="Language"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="A human language."/>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
 				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				<strength value="required"/>
+				<description value="IETF language tag for a human language"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="Citation.citedArtifact.publicationForm.accessionNumber">
@@ -1338,7 +1358,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="CitedArtifactClassificationType"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="preferred"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
 			</binding>
 		</element>
@@ -1382,13 +1402,15 @@
 		</element>
 		<element id="Citation.citedArtifact.contributorship.complete">
 			<path value="Citation.citedArtifact.contributorship.complete"/>
-			<short value="Indicates if the list includes all authors and/or contributors"/>
+			<short value="Indicates if all authors are included"/>
+			<definition value="Indication whether all authors are included in the entry content."/>
 			<comment value="If list is incomplete, &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="Value unknown"/>
 		</element>
 		<element id="Citation.citedArtifact.contributorship.entry">
 			<path value="Citation.citedArtifact.contributorship.entry"/>
@@ -1439,7 +1461,7 @@
 		<element id="Citation.citedArtifact.contributorship.entry.contributionType">
 			<path value="Citation.citedArtifact.contributorship.entry.contributionType"/>
 			<short value="The specific contribution"/>
-			<definition value="This element identifies the specific nature of an individual’s contribution with respect to the cited work."/>
+			<definition value="The specific nature of an individual’s contribution with respect to the cited work."/>
 			<comment value="The CreDiT taxonomy provides a way to encode contribution information. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1491,7 +1513,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ArtifactContributionInstanceType"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="preferred"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
 			</binding>
 		</element>
@@ -1513,6 +1535,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="Value unknown"/>
 		</element>
 		<element id="Citation.citedArtifact.contributorship.entry.rankingOrder">
 			<path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
@@ -1559,7 +1582,7 @@
 			<short value="The format for the display string"/>
 			<definition value="The format for the display string, such as author last name with first letter capitalized followed by forename initials."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
@@ -1567,7 +1590,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ContributorSummaryStyle"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-style"/>
 			</binding>
 		</element>
@@ -1583,7 +1606,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ContributorSummarySource"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="preferred"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-source"/>
 			</binding>
 		</element>

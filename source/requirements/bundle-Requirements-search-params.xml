@@ -332,7 +332,7 @@
         <description value="An actor these requirements are for"/>
         <code value="actor"/>
         <type value="reference"/>
-        <expression value="Requirements.actor"/>
+        <expression value="Requirements.actor.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

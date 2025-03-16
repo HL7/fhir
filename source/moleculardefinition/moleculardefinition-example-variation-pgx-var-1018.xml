@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-variation-pgx-var-1018"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-nc00001010-url"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: Homo sapiens chromosome 10, GRCh37.p13 Primary Assembly, NC_000010.10"/>
+            </sequenceContext>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30102-0"/>
+                            <display value="1-based character counting"/>
+                        </coding>
+                        <text value="1-based character counting"/>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="96612495"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="96612495"/>
+                </endQuantity>
+            </coordinateInterval>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <focus>
+            <coding>
+                <code value="reference-state"/>
+                <display value="Reference State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="C"/>
+        </literal>
+    </representation>
+    <representation>
+        <focus>
+            <coding>
+                <code value="alternative-state"/>
+                <display value="Alternative State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="C"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

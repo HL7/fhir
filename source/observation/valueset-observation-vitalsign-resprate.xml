@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-vitalsign-resprate"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-resprate"/>
+  <name value="VitalSignsRespRate"/>
+  <title value="Vital Signs - Respiratory Rate"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing respiratory rate vital sign measurements in Observation.code."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="COMPONENT"/>
+        <op value="in"/>
+        <!-- LP72199-0 Breaths -->
+        <!-- LP309823-5 Breaths^resting -->
+        <value value="LP72199-0,LP309823-5"/>
+      </filter>
+      <filter>
+        <property value="PROPERTY"/>
+        <op value="="/>
+        <value value="LP6839-7"/> <!-- NRat -->
+      </filter>
+      <filter>
+        <property value="TIME_ASPCT"/>
+        <op value="="/>
+        <value value="LP6960-1"/> <!-- Pt -->
+      </filter>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="LP7753-9"/> <!-- Qn -->
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

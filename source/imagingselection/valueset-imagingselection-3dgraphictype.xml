@@ -14,9 +14,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="ii"/>
-  </extension>
   <url value="http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -24,10 +21,10 @@
   </identifier>
   <version value="6.0.0"/>
   <name value="ImagingSelection3DGraphicType"/>
-  <title value="Imaging Selection3 D Graphic Type"/>
-  <status value="draft"/>
+  <title value="Imaging Selection 3D Graphic Type"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2024-12-30"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

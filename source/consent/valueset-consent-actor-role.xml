@@ -6,8 +6,8 @@
   </meta>
   <name value="ConsentActorRoles"/>
   <title value="Consent Actor Roles"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <contact>
     <telecom>
       <system value="url"/>

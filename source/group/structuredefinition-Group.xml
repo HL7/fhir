@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but are not formally or legally recognized; i.e. a collection of entities that isn't an Organization. Some groups are allowed to take actions, to do things collectively (but not groups of practitioners providing care - see CareTeam)"/>
+  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not typically expected to act collectively.  These collections are also not typically formally or legally recognized.&#10;&#10;NOTE: Group may be used to define families or households, which in some circumstances may act collectively or have a degree of legal or formal recognition.  This should be considered an exception.  When Group is used for types of entities other than Patient or RelatedPerson, the expectation remains that the Group will not act collectively or have formal recognition - use Organization if these behaviors are needed.&#10;&#10;For example, it is possible for a 'family' Group to be a performer of an Observation or owner of a Task.  However, this is not permitted for a Group made up of Practitioners, PractitionerRoles or Organizations.  Organization or CareTeam would need to be used instead.  A Group of Practitioners could, however, be a subject of an Observation."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -80,7 +80,7 @@
       </extension>
       <path value="Group"/>
       <short value="Group of multiple entities"/>
-      <definition value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization."/>
+      <definition value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not typically expected to act collectively.  These collections are also not typically formally or legally recognized.&#10;&#10;NOTE: Group may be used to define families or households, which in some circumstances may act collectively or have a degree of legal or formal recognition.  This should be considered an exception.  When Group is used for types of entities other than Patient or RelatedPerson, the expectation remains that the Group will not act collectively or have formal recognition - use Organization if these behaviors are needed.&#10;&#10;For example, it is possible for a 'family' Group to be a performer of an Observation or owner of a Task.  However, this is not permitted for a Group made up of Practitioners, PractitionerRoles or Organizations.  Organization or CareTeam would need to be used instead.  A Group of Practitioners could, however, be a subject of an Observation."/>
       <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
@@ -254,9 +254,9 @@
     </element>
     <element id="Group.experimental">
       <path value="Group.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this Group is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-      <comment value="Allows filtering of Groups that are appropriate for use versus not."/>
+      <short value="For testing only - never for real usage"/>
+      <definition value="A Boolean value to indicate that this Group is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of Groups that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Group."/>
       <min value="0"/>
       <max value="1"/>
@@ -392,11 +392,8 @@
       </type>
     </element>
     <element id="Group.type">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Do we need &quot;mixed&quot; groups?"/>
-      </extension>
       <path value="Group.type"/>
-      <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen"/>
+      <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | substance | biologicallyDerivedProduct | nutritionProduct"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
       <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, or Specimen for the other types.), or a Group of the resources of the appropriate type."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
@@ -517,6 +514,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If absent, this element is treated as though it had been set to 'all-of'"/>
       <isModifier value="true"/>
       <isModifierReason value="Changing the combinationMethod from all-of to any other value changes the interpretation of multiple characteristics."/>
       <isSummary value="true"/>
@@ -545,7 +543,7 @@
       <path value="Group.characteristic"/>
       <short value="Include / Exclude group members by Trait"/>
       <definition value="Identifies traits whose presence r absence is shared by members of the group."/>
-      <comment value="All the identified characteristics must be true for an entity to a member of the group."/>
+      <comment value="Some subset (as determined by combinationMethod) of the identified characteristics must be true for an entity to a member of the group."/>
       <requirements value="Needs to be a generic mechanism for identifying what individuals can be part of a group."/>
       <min value="0"/>
       <max value="*"/>
@@ -575,6 +573,7 @@
         </extension>
         <strength value="example"/>
         <description value="List of characteristics used to describe group members; e.g. gender, age, owner, location, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/example-characteristic-codes"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -611,13 +610,6 @@
         <code value="Expression"/>
       </type>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GroupCharacteristicValue"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Value of descriptive member characteristic; e.g. red, male, pneumonia, Caucasian, etc."/>
-      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="./value"/>
@@ -712,11 +704,17 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Quantity"/>
+        <code value="unsignedInt"/>
       </type>
       <type>
         <code value="Range"/>
       </type>
+      <constraint>
+        <key value="grp-1"/>
+        <severity value="error"/>
+        <human value="Ranges have to be positive"/>
+        <expression value="($this is Range) implies ((low.empty() or ((low.code.exists() or low.value.empty()) and (low.system.empty() or low.system = %ucum) and (low.code.empty() or low.code = '1') and (low.value.empty() or low.value.hasValue().not() or low.value.toString().contains('.').not()) and (low.value.empty() or low.value.hasValue().not() or low.value &gt;= 0))) and (high.empty() or ((high.code.exists() or high.value.empty()) and (high.system.empty() or high.system = %ucum) and (high.code.empty() or high.code = '1') and (high.value.empty() or high.value.hasValue().not() or high.value.toString().contains('.').not()) and (high.value.empty() or high.value.hasValue().not() or high.value &gt;= 0))))"/>
+      </constraint>
     </element>
     <element id="Group.characteristic.duration[x]">
       <path value="Group.characteristic.duration[x]"/>
@@ -795,12 +793,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
     </element>
     <element id="Group.member.involvement">
       <path value="Group.member.involvement"/>
       <short value="Code that describes how user is part of the group"/>
       <definition value="A code that describes how a user is involved in the group. Some groups (e.g. exposure-group) typically don't have variance between members, or it is not tracked, while for other groups (e.g. family, household) this may be meaningful."/>
+      <comment value="See [Relationships inside the group](group.html#relationships) for more detailed family relationships."/>
       <min value="0"/>
       <max value="*"/>
       <type>

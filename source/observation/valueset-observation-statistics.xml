@@ -21,7 +21,7 @@
   <version value="6.0.0"/>
   <name value="StatisticsCode"/>
   <title value="Statistics Code"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Description Needed Here"/>
   <compose>
     <include>

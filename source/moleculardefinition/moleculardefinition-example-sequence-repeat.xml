@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-repeat"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <repeated>
+            <sequenceMotif>
+                <reference value="MolecularDefinition/example-sequence-ggc"/>
+                <type value="MolecularDefinition"/>
+                <display value="GGC"/>
+            </sequenceMotif>
+            <copyCount value="9"/>
+        </repeated>
+    </representation>
+
+</MolecularDefinition>

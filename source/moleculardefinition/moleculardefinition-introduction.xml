@@ -1,0 +1,57 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    
+    [%stu-note dstu%]
+
+      Molecular Definition resource will replace <a href="molecularsequence.html"> Molecular Sequence</a> resource. Current page of the <a href="molecularsequence.html"> Molecular Sequence</a> is temporarily available for referencing and review purposes.
+
+    [%end-note%]
+
+  <h2>Scope and Usage</h2>
+  <p>
+    The MolecularDefinition resource represents molecular entities (e.g., nucleotide or protein sequences) for both clinical and non-clinical use cases, including translational research. The resource is definitional, in that it focuses on discrete, computable, and semantically expressive data structures that reflect the genomic domain. Because the resource focuses on the molecular entities rather than specimen source or annotated knowledge, it supports both patient/participant-specific use cases and population-based data, and both human and non-human data.
+  </p>
+  <p>
+    The MolecularDefinition resource itself is abstract, but it supports profiles for core molecular concepts, including Sequence (nucleotide and protein), Allele, Variation, Haplotype, and Genotype. Support for additional molecular types, such as structural variation, fusions, and biomarkers, will be considered in the future.
+  </p>
+  <p>
+    Use cases supported by this resource include but are not limited to: 
+  </p>
+  <ul>
+    <li>Structured exchange of simple sequences of DNA, RNA, or amino acids (whole genome/exome sequencing)</li>
+    <li>Representation of clinically significant alleles that impact drug response (e.g., pharmacogenomic CDS)</li>
+    <li>Structured representation of simple and complex genetic variations for diagnostic purposes (clinical diagnosis or risk)</li>
+    <li>Expression of genotypes that have clinical or research significance (clinical decision making)</li>
+    <li>Representation of genomic variations that are stored within a public knowledge base</li>
+    <li>Expression of alleles that are used within risk calculators</li>
+  </ul>
+  <h3>Sequence Representation</h3>
+  <p>
+    Use cases often require expression of the same genomic concept in different ways. Since the concept is the same and only the serialization of it differs, the Molecular Definition resource supports multiple approaches to representing molecular sequences. This allows senders and receivers of messages to choose a sequence representation that is most intuitive for the particular use case.
+  </p>
+  <p>
+    It is important to note that all representations of a given sequence MUST resolve to the exact same primary sequence. Therefore, if a single instance of MolecularDefinition contains one <code>literal</code>, two <code>resolvable</code> files, and a <code>code</code>, all four of those representations must represent the same sequence. Note that this equivalence does not apply to metadata or annotations that are outside the scope of the Molecular Definition resource, since those data are not definitional to the molecule. 
+  </p>
+  </div>
+
+  <div>
+  <h2>Boundaries and Relationships</h2>
+  <p>
+    The MolecularDefinition resource should be profiled and used to capture representations of molecular concepts such as sequence, allele, haplotype, and genotype.
+  </p>
+  <p>
+    This resource does not capture workflow (e.g., test ordering/resulting process), the method of obtaining or specifying the molecular content (e.g., the test or assay), or the interpretation of the results (e.g., clinical impact). Those concepts will be captured by profiles of Observation and by the Genomic Study resource. In particular, the Genomics Reporting Implementation Guide contains extensive support for the observation and reporting of clinical genomic results.
+  </p>
+
+  </div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+</div> 

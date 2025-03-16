@@ -71,8 +71,8 @@
 				<valueCode value="0,0"/>
 			</extension>
 			<path value="ActorDefinition"/>
-			<short value="An application that exchanges data"/>
-			<definition value="Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
+			<short value="A system or non-system participant involved in an information exchange process"/>
+			<definition value="Provides a definition of an actor - a system, individual, non-system device, or collective - that plays a role in a process, such as data exchange, along with associated obligations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>
@@ -159,7 +159,7 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="??"/>
+					<valueString value="versionAlgorithm"/>
 				</extension>
 				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
@@ -225,9 +225,9 @@
 		</element>
 		<element id="ActorDefinition.experimental">
 			<path value="ActorDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this actor definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of actor definitions that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this actor definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of actor definitions that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level actor definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -400,7 +400,7 @@
 		</element>
 		<element id="ActorDefinition.type">
 			<path value="ActorDefinition.type"/>
-			<short value="person | system"/>
+			<short value="system | non-system | individual | patient | practitioner | related-person | device | collective | care-team | group | healthcare-service | organization"/>
 			<definition value="Whether the actor represents a human or an appliction."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -422,9 +422,9 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="ActorDefinition.documentation"/>
-			<short value="Functionality associated with the actor"/>
-			<definition value="Documentation about the functionality of the actor."/>
-			<comment value="In general terms, the description desribes what the actor is, and this element describes what the actor does (or is expected to do)."/>
+			<short value="Explanation and details about the actor"/>
+			<definition value="Details describing the nature of the actor as well as boundaries that distinguish this type of actor from other actors."/>
+			<comment value="The description describes what the actor is, and this element describes what the actor does (or is expected to do)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -441,25 +441,14 @@
 				<code value="url"/>
 			</type>
 		</element>
-		<element id="ActorDefinition.capabilities">
-			<path value="ActorDefinition.capabilities"/>
-			<short value="CapabilityStatement for the actor (if applicable)"/>
-			<definition value="The capability statement for the actor (if the concept is applicable)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-			</type>
-		</element>
-		<element id="ActorDefinition.derivedFrom">
-			<path value="ActorDefinition.derivedFrom"/>
-			<short value="Definition of this actor in another context / IG"/>
-			<definition value="A url that identifies the definition of this actor in another IG (which IG must be listed in the dependencies). This actor inherits all the obligations etc. as defined in the other IG."/>
+		<element id="ActorDefinition.baseDefinition">
+			<path value="ActorDefinition.baseDefinition"/>
+			<short value="Parent actor definition"/>
+			<definition value="An ActorDefinition that is a super-type of this actor.  This actor inherits all of the obligations that apply to the referenced actor definition and can be used wherever the referenced ActorDefinition can."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-			
+
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
           <valueBoolean value="true"/>
         </extension>

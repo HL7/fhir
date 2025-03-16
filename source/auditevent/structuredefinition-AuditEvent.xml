@@ -60,8 +60,8 @@
   </mapping>
   <mapping>
     <identity value="dicom"/>
-    <uri value="http://nema.org/dicom"/>
-    <name value="DICOM Tag Mapping"/>
+    <uri value="https://dicomstandard.org/current"/>
+    <name value="DICOM AuditMessage Tag Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
@@ -477,7 +477,7 @@
     <element id="AuditEvent.basedOn">
       <path value="AuditEvent.basedOn"/>
       <short value="Workflow authorization within which this event occurred"/>
-      <definition value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+      <definition value="Allows tracing of authorization for the events and tracking whether proposals/recommendations were acted upon."/>
       <requirements value="Allows tracing of authorization for the audit event and tracking whether proposals/recommendations were acted upon."/>
       <min value="0"/>
       <max value="*"/>
@@ -725,7 +725,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1160,6 +1163,28 @@
       <mapping>
         <identity value="dicom"/>
         <map value="ParticipantObjectSensitivity"/>
+      </mapping>
+    </element>
+    <element id="AuditEvent.entity.description">
+      <path value="AuditEvent.entity.description"/>
+      <short value="Descriptive text"/>
+      <definition value="Text that describes the entity in more detail."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="ParticipantObjectDescription"/>
       </mapping>
     </element>
     <element id="AuditEvent.entity.query">

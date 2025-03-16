@@ -6,7 +6,6 @@
     <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.class" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.context" reason="Unknown"/>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- shows how to use a filter based on a property defined in a supplement -->
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="example-supplement"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-supplement">
+    <valueCanonical value="http://hl7.org/fhir/CodeSystem/example-supplement"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/example-supplement"/>
+  <name value="ACMECholCodesPlasmaSupplemented"/>
+  <title value="ACME Codes for Cholesterol: Plasma only (Supplemented)"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2018-11-01"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
+  <description value="ACME Codes for Cholesterol: Plasma only - demonstrating the use of a supplement defined in a CodeSystem"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/example"/>
+      <!--  
+        Use a filter based on a property defined in the supplement.
+        Need to explicitly reference the supplement in the extension
+        above (this is always true for properties; designations might
+        be found in language packs that aren't explicitly in scope)
+		  -->
+      <filter>
+        <property value="legacy"/>
+        <op value="="/>
+        <value value="true"/>
+      </filter>
+    </include>
+    <property value="status"/>
+  </compose>
+</ValueSet>

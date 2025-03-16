@@ -240,23 +240,8 @@
         <description value="Filter search parameter which supports a more sophisticated grammar for searching. See [documentation](search_filter.html) for further details"/>
         <code value="_filter"/>
         <type value="special"/>
-        <xpathUsage value="other"/>
+        <processingMode value="other"/>
       </SearchParameter>
     </resource>
   </entry>  
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Resource-_text"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_text"/>
-        <description value="Text search against the narrative"/>
-        <code value="_text"/>
-        <type value="string"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
 </Bundle>

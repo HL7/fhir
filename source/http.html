@@ -806,7 +806,7 @@ Servers can choose whether or not to support client defined ids, and indicate su
 using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate">CapabilityStatement.rest.resource.updateCreate</a>.
 </p>
 <p>
-A server SHALL not return a <code>201</code> response if it did not create a new resource.
+A server SHALL NOT return a <code>201</code> response if it did not create a new resource.
 If a new resource is created, a location header SHALL be returned (though it SHALL be the 
 same as the location in the URL of the PUT request).
 </p>
@@ -1840,7 +1840,7 @@ If a reference within a transaction contains a version-specific reference, the e
 already exists - either on the target server or on another server. If the intention is to point to a version created as
 part of the current transaction, the reference should be a version-independent reference and SHALL include the
 <a href="[%extensions-location%]StructureDefinition-resolve-as-version-specific.html">extension resolve-as-version-specific</a>
-extension, requesting that the server update the reference to be version-specific to the
+extension (see <a href="bundle-transaction.html">Transaction Example</a>), requesting that the server update the reference to be version-specific to the
 target version produced by this transaction. If there is no entry in the transaction Bundle that creates a new version of
 the referenced resource, this MAY be treated as an error.
 </p> 

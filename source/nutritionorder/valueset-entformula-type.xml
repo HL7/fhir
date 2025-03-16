@@ -44,7 +44,6 @@
 				<code value="346415002"/>
 			</concept>
 		</include>
-<!--
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -53,6 +52,5 @@
         <value value="346415002"/>
       </filter>
     </include>
--->
   </compose>
 </ValueSet>

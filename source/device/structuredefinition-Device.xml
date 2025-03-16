@@ -140,7 +140,7 @@
         <map value="The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty."/>
       </mapping>
     </element>
-    <element id="Device.displayName">
+    <!-- <element id="Device.displayName">
       <path value="Device.displayName"/>
       <short value="The name used to display by default when the device is referenced"/>
       <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.name, or may be another simple name."/>
@@ -149,7 +149,7 @@
       <type>
         <code value="string"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.definition">
       <path value="Device.definition"/>
       <short value="The reference to the definition for the device"/>
@@ -157,19 +157,9 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
-
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Definition valueset"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes to identify device definition concepts."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
-      </binding>
-
     </element>
     <element id="Device.udiCarrier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -672,7 +662,8 @@
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
       <definition value="The kind or type of device. A device instance may have more than one type - in which case those are the types that apply to the specific instance of the device."/>
-      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor."/>
+      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor.
+      Device.type relates DeviceDefinition.classification.type using the same binding enabling referencing."/> 
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -938,7 +929,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element> -->
-    <element id="Device.mode">
+    <!-- <element id="Device.mode">
       <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
@@ -975,7 +966,7 @@
       <type>
         <code value="Duration"/>
       </type>
-    </element>
+    </element> -->
     <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
@@ -1043,7 +1034,7 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element> -->
-    <element id="Device.owner">
+    <!-- <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
       <definition value="An organization that is responsible for the provision and ongoing maintenance of the device."/>
@@ -1061,7 +1052,7 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=OWN].scoper"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.contact">
       <path value="Device.contact"/>
       <short value="Details for human/organization for support"/>
@@ -1142,7 +1133,7 @@
         <map value=".playedRole[typeCode=LOCE].scoper"/>
       </mapping>
     </element>
-    <element id="Device.url">
+    <!-- <element id="Device.url">
       <path value="Device.url"/>
       <short value="Network address to contact device"/>
       <definition value="A network address on which the device may be contacted directly."/>
@@ -1160,8 +1151,8 @@
         <identity value="rim"/>
         <map value=".telecom"/>
       </mapping>
-    </element>
-    <element id="Device.endpoint">
+    </element> -->
+    <!-- <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>
       <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
@@ -1187,7 +1178,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.note">
       <path value="Device.note"/>
       <short value="Device notes and comments"/>

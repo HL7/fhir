@@ -808,6 +808,9 @@
 		<translation lang="es">Persona</translation>
 		<translation lang="zh">人员</translation>
 	</item>
+	<item id="PersonalRelationship">
+		<translation lang="en">PersonalRelationship</translation>
+	</item>
 	<item id="PharmacyClaim">
 		<translation lang="en">PharmacyClaim</translation>
 		<translation lang="fr">DemandePharmaceutique</translation>
@@ -948,6 +951,9 @@
 		<translation lang="en">MolecularSequence</translation>
 		<translation lang="es">SecuenciaMolecular</translation>
 		<translation lang="zh">分子序列</translation>
+	</item>
+	<item id="MolecularDefinition">
+		<translation lang="en">MolecularSequence</translation>
 	</item>
 	<!--item id="ServiceDefinition">
 		<translation lang="en">ServiceDefinition</translation>

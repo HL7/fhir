@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-genotype1"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <name value="CYP2C19*1B and HLA00002"/>
+    <memberState>
+        <reference value="MolecularDefinition/example-haplotype1"/>
+        <type value="MolecularDefinition"/>
+        <display value="First haplotype, CYP2C19*1B"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-haplotype2"/>
+        <type value="MolecularDefinition"/>
+        <display value="Second haplotype, HLA00002"/>
+    </memberState>
+</MolecularDefinition>
