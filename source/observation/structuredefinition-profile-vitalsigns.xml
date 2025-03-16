@@ -89,7 +89,7 @@
         <key value="vs-1"/>
         <severity value="error"/>
         <human value="if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day"/>
-        <expression value="($this as dateTime).toString().length() &gt;= 8"/>
+        <expression value="(effective as dateTime).toString().length() >= 8"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
       <constraint>
