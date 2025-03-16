@@ -29,7 +29,7 @@
   <name value="CommonLanguages"/>
   <title value="Common Languages"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2016-08-22T09:53:05+00:00"/>
   <publisher value="HL7 International - FHIR-Infrastructure"/>
   <contact>
@@ -3434,7 +3434,6 @@
           <value value="Kinesisk (Taiwan)"/>
         </designation>
       </concept>
-
       <concept>
         <code value="bg"/>
         <display value="Bulgarian"/>
@@ -3815,7 +3814,6 @@
           <value value="Ukrainisch"/>
         </designation>
       </concept>
-
     </include>
   </compose>
 </ValueSet>
