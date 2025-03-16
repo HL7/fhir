@@ -85,14 +85,14 @@
       </extension>
       <path value="MedicationDispense"/>
       <short value="Dispensing a medication to a named patient"/>
-      <definition value="iif(whenPrepared.extension('http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists().not() and whenHandedOver.extension('http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists().not(), whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared,true)"/>
+      <definition value="Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
         <key value="mdd-1"/>
         <severity value="error"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
-        <expression value="whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared"/>
+        <expression value="iif(whenPrepared.extension('http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists().not() and whenHandedOver.extension('http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists().not(), whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared,true)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>
