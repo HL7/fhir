@@ -551,14 +551,14 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/report-action-result-codes"/>
       </binding>
     </element>
-    <element id="TestReport.test.timeTaken">
-      <path value="TestReport.test.timeTaken"/>
-      <short value="Number of milliseconds to run the test"/>
-      <definition value="The total number of milliseconds to run the test."/>
+    <element id="TestReport.test.period">
+      <path value="TestReport.test.period"/>
+      <short value="Start and End times running the test (accurate to milliseconds)"/>
+      <definition value="The start and end times running the test, to allow time taken to be tracked. Accurate to at least milliseconds)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="positiveInt"/>
+        <code value="Period"/>
       </type>
     </element>
     <element id="TestReport.test.action">
