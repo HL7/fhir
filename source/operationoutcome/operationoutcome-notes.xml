@@ -58,7 +58,7 @@ a resource, or some location in the HTTP request (when appropriate).
 <p>
 Error locations are always reported using a <a href="fhirpath.html#simple">simplified FHIRPath</a>
 statement in the <code>expression</code> element. In addition to the simplified FHIRPath restrictions, the expression
-SHALL not contain a .resolve() function. These examples are legal:
+SHALL NOT contain a .resolve() function. These examples are legal:
 </p>
 <pre class="xml">
  &lt;expression value=&quot;Patient.identifier&quot;/&gt;
