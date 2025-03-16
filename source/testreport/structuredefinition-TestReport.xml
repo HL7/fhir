@@ -551,6 +551,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/report-action-result-codes"/>
       </binding>
     </element>
+    <element id="TestReport.test.timeTaken">
+      <path value="TestReport.test.timeTaken"/>
+      <short value="Number of milliseconds to run the test"/>
+      <definition value="The total number of milliseconds to run the test."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="TestReport.test.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="TestAction"/>
