@@ -26,7 +26,7 @@ Using includes, but is not limited to, the report display, storage or processing
       </table>
     </div>
   </text>
-  <url value="http://hl7.eu/fhir/laboratory/actor-consumer-eu-lab"/>
+  <url value="http://hl7.org/fhir/ActorDefinition/lab-report-consumer"/>
   <version value="0.2.0-ci"/>
   <name value="LabReportConsumer"/>
   <status value="active"/>

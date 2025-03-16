@@ -25,7 +25,7 @@
       </table>
     </div>
   </text>
-  <url value="http://hl7.eu/fhir/laboratory/actor-creator-eu-lab"/>
+  <url value="http://hl7.org/fhir/ActorDefinition/lab-report-creator"/>
   <version value="0.2.0-ci"/>
   <name value="LabReportCreator"/>
   <status value="active"/>
