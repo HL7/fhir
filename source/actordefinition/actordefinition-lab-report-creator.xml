@@ -1,0 +1,53 @@
+<ActorDefinition xmlns="http://hl7.org/fhir">
+  <id value="actor-creator-eu-lab"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p class="res-header-id">
+        <b>Generated Narrative: ActorDefinition actor-creator-eu-lab</b>
+      </p>
+      <a name="actor-creator-eu-lab"></a>
+      <a name="hcactor-creator-eu-lab"></a>
+      <a name="actor-creator-eu-lab-en-US"></a>
+      <table class="grid">
+        <tr>
+          <td>
+            <b>Actor: LabReportCreator </b>
+          </td>
+          <td/>
+          <td>Type: system </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div>
+              <p>This actor represents the Laboratory Report creators. That is the actor creating the report that can be send to a consumer or to a repository for report storage and sharing.</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <url value="http://hl7.eu/fhir/laboratory/actor-creator-eu-lab"/>
+  <version value="0.2.0-ci"/>
+  <name value="LabReportCreator"/>
+  <status value="active"/>
+  <date value="2024-12-14T06:50:57+00:00"/>
+  <publisher value="HL7 Europe"/>
+  <contact>
+    <name value="HL7 Europe"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.eu"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="150"/>
+      <display value="Europe"/>
+    </coding>
+  </jurisdiction>
+  <copyright value="Used by permission of HL7 Europe, all rights reserved Creative Commons License"/>
+  <type value="system"/>
+  <documentation value="This actor represents the Laboratory Report creators. That is the actor creating the report that can be send to a consumer or to a repository for report storage and sharing."/>
+</ActorDefinition>
