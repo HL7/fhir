@@ -29,7 +29,7 @@ in order to support consistent definitions for schema and UML derived code.
 The XML representation for a resource is described using this format: 
 </p>
 <pre class="spec">
- &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt;   <span style="float: right"><a title="Documentation for this format" href="xml.html"><img src="help.png" alt="doco"/></a></span>
+ &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value") <a href="#additional">resourceDefinition</a>="{canonical}"&gt;   <span style="float: right"><a title="Documentation for this format" href="xml.html"><img src="help.png" alt="doco"/></a></span>
    <span style="color:gray">&lt;!-- from Resource: id, meta, implicitRules, and language --&gt;</span>
    &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><span title="Inv-5: Some rule apples to this element" style="color: brown"><b><img alt="??" src="lock.png"/> 1..1</b></span> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB[x]&gt;
@@ -42,6 +42,7 @@ The XML representation for a resource is described using this format:
 Using this format:
 </p>
 <ul>
+ <li>The name at the root is the name of the resource type, and is either a resource type defined in this specification, or as <a href="#additional">explained below</a></li>
  <li>To build a valid XML instance of a resource, simply replace the contents of the elements and attributes with valid content 
    as described by the cardinality, type rules and content description found in the comment in each element</li>
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
@@ -72,8 +73,38 @@ Using this format:
   This page contains some JSON examples for the purposes of 
   comparison between the two formats. The formats page has a <a href="resource-formats.html#comparison">comparison between the XML and JSON formats</a>.
 </p>
-  
 
+<a name="additional"></a>
+<h3>XML representation of additional resources</h3>
+
+<p>
+When <a href="resource.html#additional">additional resources</a> are represented in XML, the
+base document name is the name of the resource as allocated by HL7, the namespace is the normal 
+FHIR namespace, and an additional
+attribute is present, <code>resourceDefinition</code>. The resourceDefinition value contains a 
+canonical reference to the definition of the resource and always includes the version explicitly,
+e.g.  
+</p>
+
+<pre class="xml">
+&lt;ViewDefinition xmlns="http://hl7.org/fhir" 
+  resourceDefinition="http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition|2.0.0-pre"&gt;
+  &lt;id value="a-valid-id"/&gt;
+  // etc
+&lt;ViewDefinition&gt;
+</pre>
+
+<p>
+The <code>resourceDefinition</code> attribute is a feature of the XML format, and is not defined anywhere 
+in the structural definitions of FHIR (in the same way that the base name is not).
+The resourceDefinition attribute is not present if the resource is one defined in this specification.
+</p>
+<p>
+Also, see note about the schema and additional resources below.
+</p>
+<blockquote class="ballot-note">
+  <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
+</blockquote>
 <a name="repeat"></a>
 <h3>XML Representation for repeating elements</h3>
 
@@ -213,6 +244,11 @@ datatypes and base infrastructure types. In addition, there
 is a schema for each resource and a common schema <a href="fhir-all.xsd">fhir-all.xsd</a> 
 that includes all the resource schemas. For schema processors that do not like circular
 includes, there is <a href="fhir-single.xsd">a single schema</a> that contains everything.
+</p>
+<p>
+The base schema only describes the resources defined in this specification; additional resources 
+are not included in the schema. If enough implementers identify a need for this, HL7 may choose 
+to provide a tool that stitches a new schema for a given set of additional resources.
 </p>
 <p>
 In addition to the w3c schema files, this specification also provides Schematron files that
