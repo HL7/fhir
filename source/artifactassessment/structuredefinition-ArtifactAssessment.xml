@@ -395,51 +395,7 @@
       <definition value="Relationship that this content component has with other FHIR or non-FHIR resources that already exist."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ArtifactAssessment.content.relatesTo.type">
-      <path value="ArtifactAssessment.content.relatesTo.type"/>
-      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
-      <definition value="The type of relationship to the related artifact."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactRelationshipType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of relationship to the related artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
-      </binding>
-    </element>
-    <element id="ArtifactAssessment.content.relatesTo.target[x]">
-        <path value="ArtifactAssessment.content.relatesTo.target[x]"/>
-        <short value="The artifact that is related to this ArtifactAssessment's content"/>
-        <definition value="The artifact that is related to this ArtifactAssessment Resource's content."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-            <code value="uri"/>
-        </type>
-        <type>
-            <code value="Attachment"/>
-        </type>
-        <type>
-            <code value="canonical"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-        </type>
-        <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-        </type>
-        <type>
-            <code value="markdown"/>
-        </type>
+	  <contentReference value="#ArtifactAssessment.relatesTo"/>
     </element>
     <element id="ArtifactAssessment.content.freeToShare">
       <path value="ArtifactAssessment.content.freeToShare"/>
