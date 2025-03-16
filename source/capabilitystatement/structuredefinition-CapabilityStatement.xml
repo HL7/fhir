@@ -925,7 +925,7 @@
 		<element id="CapabilityStatement.rest.resource.type">
 			<path value="CapabilityStatement.rest.resource.type"/>
 			<short value="A resource type that is supported"/>
-			<definition value="A type of resource exposed via the restful interface."/>
+			<definition value="A type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -941,9 +941,21 @@
 					<valueBoolean value="true"/>
 				</extension>
 				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.definition">
+			<path value="CapabilityStatement.rest.resource.definition"/>
+			<short value="The definition for an additional resource"/>
+			<definition value="The definition of the resource, if the resource is an additional resource. If it is not an additional resource, then this element must not be present."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="CapabilityStatement.rest.resource.profile">
 			<path value="CapabilityStatement.rest.resource.profile"/>
