@@ -12,7 +12,6 @@
   <name value="VitalSignsMeasurement"/>
   <title value="Vital Signs Measurement"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>

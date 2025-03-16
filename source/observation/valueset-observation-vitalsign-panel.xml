@@ -12,7 +12,6 @@
   <name value="VitalSignsPanel"/>
   <title value="Vital Signs - Panel"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
