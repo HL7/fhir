@@ -239,25 +239,13 @@
     </element>
     <element id="Observation.component.code">
       <path value="Observation.component.code"/>
-      <short value="Vital Sign Measurement"/>
-      <definition value="Vital Sign Measurement."/>
-      <binding>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="This identifies the vital sign measurement."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSigns"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="This identifies the vital sign measurement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-measurement"/>
-      </binding>
+      <short value="Vital Sign measurement or component"/>
+      <definition value="Vital Sign measurement or component."/>
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
       <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
       <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <condition value="vs-3"/>
     </element>
     <element id="Observation.component.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity"/>
@@ -265,19 +253,18 @@
       <definition value="Vital Sign value recorded as a component with UCUM (preferred)."/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Common UCUM units for recording Vital Signs."/>
+          <valueString value="UCUM units"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSignsUnits"/>
+          <valueString value="UCUMunits"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Commonly encountered UCUM units for recording Vital Signs."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+        <description value="UCUM units - for recording Vital Signs and components."/>
+        <valueSet value="http://unitsofmeasure.org/vs"/>
       </binding>
     </element>
     <element id="Observation.component.dataAbsentReason">
       <path value="Observation.component.dataAbsentReason"/>
-      <condition value="vs-3"/>
     </element>
   </differential>
 </StructureDefinition>

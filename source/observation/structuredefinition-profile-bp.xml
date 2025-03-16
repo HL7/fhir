@@ -196,6 +196,7 @@
       <path value="Observation.component.valueQuantity"/>
       <short value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]"/>
       <definition value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]."/>
+      <condition value="vs-3"/>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
@@ -211,6 +212,7 @@
     </element>
     <element id="Observation.component:SystolicBP.dataAbsentReason">
       <path value="Observation.component.dataAbsentReason"/>
+      <condition value="vs-3"/>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.component:DiastolicBP">
@@ -274,6 +276,7 @@
       <path value="Observation.component.valueQuantity"/>
       <short value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]"/>
       <definition value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]."/>
+      <condition value="vs-3"/>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
@@ -289,6 +292,7 @@
     </element>
     <element id="Observation.component:DiastolicBP.dataAbsentReason">
       <path value="Observation.component.dataAbsentReason"/>
+      <condition value="vs-3"/>
       <mustSupport value="true"/>
     </element>
   </differential>
