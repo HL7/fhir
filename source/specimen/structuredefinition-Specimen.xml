@@ -849,10 +849,19 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCondition"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Codes describing the state of the specimen."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0493"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-condition"/>
       </binding>
+      <!-- <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenCondition"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the state of the specimen."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-condition"/>
+      </binding> -->
       <mapping>
         <identity value="v2"/>
         <map value="SPM-24"/>
