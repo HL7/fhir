@@ -424,13 +424,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-state"/>
+        <id value="ResearchStudy-progress-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-state"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.progressStatus.state"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-state"/>
         <description value="Label for status or state"/>
-        <code value="state"/>
+        <code value="progress-state"/>
         <type value="token"/>
         <expression value="ResearchStudy.progressStatus.state"/>
         <processingMode value="normal"/>
@@ -440,13 +443,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-actual"/>
+        <id value="ResearchStudy-progress-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-actual"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.progressStatus.actual"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-actual"/>
         <description value="Actual if true else anticipated"/>
-        <code value="actual"/>
+        <code value="progress-actual"/>
         <type value="token"/>
         <expression value="ResearchStudy.progressStatus.actual"/>
         <processingMode value="normal"/>
@@ -456,13 +462,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-period"/>
+        <id value="ResearchStudy-progress-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-period"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.progressStatus.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-period"/>
         <description value="Date range"/>
-        <code value="period"/>
+        <code value="progress-period"/>
         <type value="date"/>
         <expression value="ResearchStudy.progressStatus.period"/>
         <processingMode value="normal"/>
@@ -483,12 +492,12 @@
         <expression value="ResearchStudy.progressStatus"/>
         <processingMode value="normal"/>
         <component>
-          <definition value="state"/>
-          <expression value="state"/>
+          <definition value="progress-state"/>
+          <expression value="progress-state"/>
         </component>
         <component>
-          <definition value="period"/>
-          <expression value="period"/>
+          <definition value="progress-period"/>
+          <expression value="progress-period"/>
         </component>
       </SearchParameter>
     </resource>
@@ -507,12 +516,12 @@
         <expression value="ResearchStudy.progressStatus"/>
         <processingMode value="normal"/>
         <component>
-          <definition value="state"/>
-          <expression value="state"/>
+          <definition value="progress-state"/>
+          <expression value="progress-state"/>
         </component>
         <component>
-          <definition value="actual"/>
-          <expression value="actual"/>
+          <definition value="progress-actual"/>
+          <expression value="progress-actual"/>
         </component>
       </SearchParameter>
     </resource>
@@ -531,16 +540,16 @@
         <expression value="ResearchStudy.progressStatus"/>
         <processingMode value="normal"/>
         <component>
-          <definition value="state"/>
-          <expression value="state"/>
+          <definition value="progress-state"/>
+          <expression value="progress-state"/>
         </component>
         <component>
-          <definition value="period"/>
-          <expression value="period"/>
+          <definition value="progress-period"/>
+          <expression value="progress-period"/>
         </component>
         <component>
-          <definition value="actual"/>
-          <expression value="actual"/>
+          <definition value="progress-actual"/>
+          <expression value="progress-actual"/>
         </component>
       </SearchParameter>
     </resource>
