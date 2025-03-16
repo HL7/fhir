@@ -221,8 +221,8 @@
 				<valueCode value="490,150"/>
 			</extension>
 			<path value="EvidenceVariable.citeAs"/>
-			<short value="Display of suggested citation for this EvidenceVariable"/>
-			<definition value="Display of suggested citation for this EvidenceVariable."/>
+			<short value="Display of how to cite this EvidenceVariable"/>
+			<definition value="Display of the suggested method of how to cite this EvidenceVariable."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
