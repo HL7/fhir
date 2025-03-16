@@ -154,8 +154,8 @@
         <valueCode value="400,0"/>
       </extension>
       <path value="ArtifactAssessment.relatesTo"/>
-      <short value="Relationships to other Resources"/>
-      <definition value="Relationships that this ArtifactAssessment has with other FHIR or non-FHIR resources that already exist."/>
+      <short value="Relationship to other Resources"/>
+      <definition value="Relationship that this ArtifactAssessment has with other FHIR or non-FHIR resources that already exist."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -292,7 +292,7 @@
     <element id="ArtifactAssessment.citeAs">
       <path value="ArtifactAssessment.citeAs"/>
       <short value="How to cite the comment or rating"/>
-      <definition value="Display of or reference to the bibliographic citation of the comment, classifier, or rating."/>
+      <definition value="Display of the bibliographic citation of the comment, classifier, or rating."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -394,8 +394,8 @@
         <valueCode value="400,0"/>
       </extension>
       <path value="ArtifactAssessment.content.relatesTo"/>
-      <short value="Relationships to other Resources"/>
-      <definition value="Relationships that this ArtifactAssessment has with other FHIR or non-FHIR resources that already exist."/>
+      <short value="Relationship to other Resources"/>
+      <definition value="Relationship that this content component has with other FHIR or non-FHIR resources that already exist."/>
       <min value="0"/>
       <max value="*"/>
       <type>

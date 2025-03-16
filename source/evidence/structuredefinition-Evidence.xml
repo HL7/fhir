@@ -207,8 +207,8 @@
 				<valueCode value="490,150"/>
 			</extension>
 			<path value="Evidence.citeAs"/>
-			<short value="Citation for this Evidence"/>
-			<definition value="Citation display of suggested citation for this Evidence."/>
+			<short value="Display of suggested citation for this Evidence"/>
+			<definition value="Display of suggested citation for this Evidence."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
