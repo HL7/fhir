@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="extended-resource-types"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/> 
+  </extension> 
+  <url value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
+  <version value="6.0.0"/>
+  <name value="ExtendedResourceTypes"/> 
+  <title value="Extended Resource Types"/> 
+  <status value="active"/> 
+  <experimental value="false"/> 
+  <publisher value="HL7, International"/> 
+  <description value="Current and past FHIR resource types (deleted or renamed), and additional resource types. Note that the binding to additional resources is not version fixed, and will change over time"/> 
+  <immutable value="true"/> 
+  <compose> 
+    <include> 
+      <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/> 
+    </include> 
+    <include> 
+      <system value="http://hl7.org/fhir/fhir-old-types"/> 
+    </include> 
+    <include> 
+      <system value="http://hl7.org/fhir/tools/CodeSystem/additional-resources"/> 
+    </include> 
+  </compose> 
+</ValueSet>

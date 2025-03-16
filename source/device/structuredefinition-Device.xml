@@ -929,7 +929,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element> -->
-    <element id="Device.mode">
+    <!-- <element id="Device.mode">
       <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
@@ -966,7 +966,7 @@
       <type>
         <code value="Duration"/>
       </type>
-    </element>
+    </element> -->
     <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
@@ -1034,7 +1034,7 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element> -->
-    <element id="Device.owner">
+    <!-- <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
       <definition value="An organization that is responsible for the provision and ongoing maintenance of the device."/>
@@ -1052,7 +1052,7 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=OWN].scoper"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.contact">
       <path value="Device.contact"/>
       <short value="Details for human/organization for support"/>
@@ -1152,7 +1152,7 @@
         <map value=".telecom"/>
       </mapping>
     </element> -->
-    <element id="Device.endpoint">
+    <!-- <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>
       <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
@@ -1178,7 +1178,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.note">
       <path value="Device.note"/>
       <short value="Device notes and comments"/>
