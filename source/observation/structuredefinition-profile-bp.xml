@@ -81,8 +81,6 @@
       <path value="Observation"/>
       <short value="FHIR Blood Pressure Profile"/>
       <definition value="This profile defines  how to represent Blood Pressure observations in FHIR using a standard LOINC code and UCUM units of measure.  This is a grouping structure. It has no value in Observation.valueQuantity but contains at least one component (systolic and/or diastolic)."/>
-      <min value="0"/>
-      <max value="*"/>
     </element>
     <element id="Observation.category">
       <path value="Observation.category"/>
@@ -104,8 +102,6 @@
       <path value="Observation.code"/>
       <short value="Blood Pressure"/>
       <definition value="Blood Pressure."/>
-      <alias value="Test"/>
-      <alias value="Name"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignBPPanel"/>
@@ -117,7 +113,6 @@
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <min value="0"/>
       <max value="0"/>
     </element>
     <element id="Observation.component">
@@ -134,6 +129,8 @@
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
+      <short value="Used when reporting systolic and diastolic blood pressure."/>
+      <definition value="Used when reporting systolic and diastolic blood pressure."/>
       <min value="2"/>
       <max value="*"/>
       <mustSupport value="true"/>
@@ -185,9 +182,7 @@
       <path value="Observation.component.code"/>
       <short value="Systolic Blood Pressure"/>
       <definition value="Systolic Blood Pressure."/>
-      <alias value="Component Test"/>
-      <alias value="Component Name"/>
-      <mustSupport value="true"/>
+      <min value="1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignSystolicBP"/>
@@ -197,34 +192,25 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
       </binding>
     </element>
-    <element id="Observation.component:SystolicBP.value[x]">
-      <path value="Observation.component.value[x]"/>
-      <min value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
+    <element id="Observation.component:SystolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity"/>
+      <short value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]"/>
+      <definition value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]."/>
       <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Common UCUM units for Blood Pressure."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BloodPressureUnits"/>
+        </extension>
+        <strength value="required"/>
+        <description value="mm[Hg]"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-bp"/>
+      </binding>
     </element>
-    <element id="Observation.component:SystolicBP.value[x].value">
-      <path value="Observation.component.value[x].value"/>
-      <min value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.component:SystolicBP.value[x].unit">
-      <path value="Observation.component.value[x].unit"/>
-      <min value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.component:SystolicBP.value[x].system">
-      <path value="Observation.component.value[x].system"/>
-      <min value="1"/>
-      <fixedUri value="http://unitsofmeasure.org"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.component:SystolicBP.value[x].code">
-      <path value="Observation.component.value[x].code"/>
-      <min value="1"/>
-      <fixedCode value="mm[Hg]"/>
+    <element id="Observation.component:SystolicBP.dataAbsentReason">
+      <path value="Observation.component.dataAbsentReason"/>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.component:DiastolicBP">
@@ -232,6 +218,7 @@
       <sliceName value="DiastolicBP"/>
       <min value="1"/>
       <max value="1"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Observation.component:DiastolicBP.extension">
       <path value="Observation.component.extension"/>
@@ -273,9 +260,7 @@
       <path value="Observation.component.code"/>
       <short value="Diastolic Blood Pressure"/>
       <definition value="Diastolic Blood Pressure."/>
-      <alias value="Component Test"/>
-      <alias value="Component Name"/>
-      <mustSupport value="true"/>
+      <min value="1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignDiastolicBP"/>
@@ -285,34 +270,25 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-diastolicbp"/>
       </binding>
     </element>
-    <element id="Observation.component:DiastolicBP.value[x]">
-      <path value="Observation.component.value[x]"/>
-      <min value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
+    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity"/>
+      <short value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]"/>
+      <definition value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]."/>
       <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Common UCUM units for Blood Pressure."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BloodPressureUnits"/>
+        </extension>
+        <strength value="required"/>
+        <description value="mm[Hg]"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-bp"/>
+      </binding>
     </element>
-    <element id="Observation.component:DiastolicBP.value[x].value">
-      <path value="Observation.component.value[x].value"/>
-      <min value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.component:DiastolicBP.value[x].unit">
-      <path value="Observation.component.value[x].unit"/>
-      <min value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.component:DiastolicBP.value[x].system">
-      <path value="Observation.component.value[x].system"/>
-      <min value="1"/>
-      <fixedUri value="http://unitsofmeasure.org"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.component:DiastolicBP.value[x].code">
-      <path value="Observation.component.value[x].code"/>
-      <min value="1"/>
-      <fixedCode value="mm[Hg]"/>
+    <element id="Observation.component:DiastolicBP.dataAbsentReason">
+      <path value="Observation.component.dataAbsentReason"/>
       <mustSupport value="true"/>
     </element>
   </differential>
