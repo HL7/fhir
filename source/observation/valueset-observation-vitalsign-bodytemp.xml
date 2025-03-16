@@ -12,7 +12,6 @@
   <name value="VitalSignsBodyTemp"/>
   <title value="Vital Signs - Body Temp"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
