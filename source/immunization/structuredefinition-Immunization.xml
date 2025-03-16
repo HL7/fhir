@@ -711,8 +711,8 @@
         <valueString value="#13290."/>
       </extension>
       <path value="Immunization.performer.function"/>
-      <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+      <short value="Type of performance"/>
+      <definition value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
