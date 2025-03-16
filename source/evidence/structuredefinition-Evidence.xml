@@ -202,19 +202,15 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
-		<element id="Evidence.citeAs[x]">
+		<element id="Evidence.citeAs">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="490,150"/>
 			</extension>
-			<path value="Evidence.citeAs[x]"/>
-			<short value="Citation for this evidence"/>
-			<definition value="Citation Resource or display of suggested citation for this evidence."/>
+			<path value="Evidence.citeAs"/>
+			<short value="Citation for this Evidence"/>
+			<definition value="Citation display of suggested citation for this Evidence."/>
 			<min value="0"/>
 			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-			</type>
 			<type>
 				<code value="markdown"/>
 			</type>
@@ -465,15 +461,59 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="Evidence.relatedArtifact">
-			<path value="Evidence.relatedArtifact"/>
-			<short value="Link or citation to artifact associated with the summary"/>
-			<definition value="Link or citation to artifact associated with the summary."/>
-			<comment value="Use type value 'derived-from' to denote the source for the Evidence content. To express exact phrasing in the source material, use a classifier instance with a coding value of 'Quotation' and a text value of the quoted content. The coding value of 'Quotation' can be expressed with a system value of 'http://hl7.org/fhir/provenance-entity-role', a code value of 'quotation' and a display value of 'Quotation'."/>
-			<min value="0"/>
-			<max value="*"/>
+		<element id="Evidence.relatesTo">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+			<valueCode value="400,0"/>
+		  </extension>
+		  <path value="Evidence.relatesTo"/>
+		  <short value="Relationships to other Resources"/>
+		  <definition value="Relationships that this Evidence has with other FHIR or non-FHIR resources that already exist."/>
+		  <min value="0"/>
+		  <max value="*"/>
+		  <type>
+			<code value="BackboneElement"/>
+		  </type>
+		</element>
+		<element id="Evidence.relatesTo.type">
+		  <path value="Evidence.relatesTo.type"/>
+		  <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
+		  <definition value="The type of relationship to the related artifact."/>
+		  <min value="1"/>
+		  <max value="1"/>
+		  <type>
+			<code value="code"/>
+		  </type>
+		  <binding>
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			  <valueString value="ArtifactRelationshipType"/>
+			</extension>
+			<strength value="required"/>
+			<description value="The type of relationship to the related artifact."/>
+			<valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+		  </binding>
+		</element>
+		<element id="Evidence.relatesTo.target[x]">
+			<path value="Evidence.relatesTo.target[x]"/>
+			<short value="The artifact that is related to this Evidence"/>
+			<definition value="The artifact that is related to this Evidence Resource."/>
+			<min value="1"/>
+			<max value="1"/>
 			<type>
-				<code value="RelatedArtifact"/>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="markdown"/>
 			</type>
 		</element>
 		<element id="Evidence.description">
