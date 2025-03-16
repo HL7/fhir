@@ -92,7 +92,7 @@
         <key value="mdd-1"/>
         <severity value="error"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
-        <expression value="iif(whenPrepared.extension('http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists().not() and whenHandedOver.extension('http://hl7.org/fhir/StructureDefinition/data-absent-reason').exists().not(), whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared,true)"/>
+        <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>
