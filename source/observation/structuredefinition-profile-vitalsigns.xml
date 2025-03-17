@@ -106,6 +106,13 @@
         <expression value="component.exists() implies (component.value.exists() or component.dataAbsentReason.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
+      <constraint>
+        <key value="vs-4"/>
+        <severity value="error"/>
+        <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
+        <expression value="dataAbsentReason.exists() or value.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
     </element>
     <element id="Observation.status">
       <path value="Observation.status"/>
@@ -155,7 +162,7 @@
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="This identifies the vital sign measurement."/>
+          <valueString value="This identifies the vital sign or panel measurement."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSigns"/>
