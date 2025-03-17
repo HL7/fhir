@@ -4,6 +4,7 @@
    <version value="20220809"/>
    <title value="Example map with priorities"/>
    <status value="draft"/>
+   <experimental value="false"/>
 	<publisher value="HL7 International / Terminology Infrastructure"/>
 	<contact>
 		<telecom>

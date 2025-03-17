@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="artifact-relationship-type"/>
+  <id value="task-performer-function-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -11,17 +14,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.2957"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/task-performer-function-code"/>
   <version value="6.0.0"/>
-  <name value="ArtifactRelationshipType"/>
-  <title value="Artifact Relationship Type"/>
-  <status value="active"/>
+  <name value="TaskPerformerFunctionCode"/>
+  <title value="Task Performer Function Code"/>
+  <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-03-11T10:55:11.085+11:00"/>
+  <date value="2025-03-12T10:00:00+08:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -33,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Artifact Relationship Type"/>
-  <immutable value="true"/>
+  <description value="The performer of the task."/>
+  <immutable value="false"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/artifact-relationship-type"/>
+      <system value="http://hl7.org/fhir/task-performer-function-code"/>
     </include>
   </compose>
 </ValueSet>

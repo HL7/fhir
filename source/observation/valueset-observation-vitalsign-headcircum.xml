@@ -12,7 +12,6 @@
   <name value="VitalSignsHeadCircum"/>
   <title value="Vital Signs - Head Circumference"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
