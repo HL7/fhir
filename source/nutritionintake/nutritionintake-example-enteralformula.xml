@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<NutritionIntake xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="enteral-formula"/>
+	<status value="completed"/>
+	<subject>
+		<display value="Paula Patient Chalmers"/>
+	</subject>
+	<nutritionItem>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/CodeSystem/nutrition-product-category"/>
+				<code value="enteral-formula"/>
+				<display value="Enteral formula"/>
+			</coding>
+		</type>
+		<nutritionProduct>
+			<reference>
+				<reference value="NutritionProduct/high-protein-formula"/>
+			</reference>
+		</nutritionProduct>
+		<consumedItem>
+			<schedule>
+				<repeat>
+					<frequency value="1"/>
+					<timeOfDay value="19:00"/>
+				</repeat>
+			</schedule>
+			<amount> 
+				<value value="711"/> 
+				<unit value="ml"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="ml"/>
+			</amount>
+			<totalIntake>
+				<nutrient>
+					<concept>
+						<coding>
+							<system value="http://hl7.org/fhir/CodeSystem/nutrient-code"/>
+							<code value="735252001"/>
+							<display value="Protein and/or protein derivative (substance)"/>
+						</coding>
+					</concept>
+				</nutrient>
+				<amount>
+					<value value="45"/>
+					<unit value="grams"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g"/>
+				</amount>
+				<energy>
+					<value value="711"/>
+					<unit value="kilocalories"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="kcal"/>
+				</energy>
+			</totalIntake>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="102281005"/>
+				<display value="Minced and moist food (IDDSI Level 5)"/>
+			</coding>
+		</type>
+		<nutritionProduct>
+			<concept>
+				<text value="IDDSI Minced and Moist Level 5 foods"/>
+			</concept>
+		</nutritionProduct>
+		<consumedItem>
+			<amount> 
+				<value value="50"/> 
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</amount>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="102282003"/>
+				<display value="Mildly thick drink (IDDSI Level 2)"/>
+			</coding>
+		</type>
+		<nutritionProduct>
+			<concept>
+				<text value="IDDSI Mildly Thick Level 2 drinks"/>
+			</concept>
+		</nutritionProduct>
+		<consumedItem>
+			<amount> 
+				<value value="50"/> 
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</amount>
+		</consumedItem>
+	</nutritionItem>
+</NutritionIntake>

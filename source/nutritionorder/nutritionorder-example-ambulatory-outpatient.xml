@@ -1,0 +1,69 @@
+<NutritionOrder xmlns='http://hl7.org/fhir'>
+  <intent value='order'/>
+  <id value='ambulatory-outpatient'/>
+  <status value='active'/>
+  <patient>
+    <reference value='Patient/example'/>
+    <display value='Ambulatory/Outpatient'/>
+  </patient>
+  <dateTime value='2024-XX-XXT00:00:00Z'/>
+  <orderer>
+    <reference value='Practitioner/example'/>
+    <display value=' Physician'/>
+  </orderer>
+  <oralDiet>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='1255823003'/>
+        <display value='International Dysphagia Diet Standardisation Initiative Framework - Minced and Moist Level 5 food'/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='1255822008'/>
+        <display value='International Dysphagia Diet Standardisation Initiative Framework - Mildly Thick Level 2 drinks'/>
+      </coding>
+    </type>
+  </oralDiet>
+  <enteralFormula>
+    <routeOfAdministration>
+      <coding>
+        <system value='https://terminology.hl7.org/'/>
+        <display value='Instillation, gastrostomy feeding'/>
+        <code value='GT'/>
+      </coding>
+    </routeOfAdministration>
+    <baseFormulaType>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='442991000124104'/>
+        <display value='Adult high protein formula'/>
+      </coding>
+    </baseFormulaType>
+    <caloricDensity>
+      <value value='750'/>
+      <unit value='kcal'/>
+      <system value='http://unitsofmeasure.org'/>
+      <code value='kcal'/>
+    </caloricDensity>
+    <administration>
+      <schedule>
+        <repeat>
+          <frequency value='1'/>
+          <period value='1'/>
+          <periodUnit value='d'/>
+          <timeOfDay value='19:00'/>
+        </repeat>
+      </schedule>
+      <quantity>
+        <value value='750'/>
+        <unit value='mL'/>
+        <system value='http://unitsofmeasure.org'/>
+        <code value='mL'/>
+      </quantity>
+    </administration>
+    <administrationInstruction value='750 mL of high-protein formula via bolus at 7:00 pm at 100ml/hr.'/>
+  </enteralFormula>
+</NutritionOrder>

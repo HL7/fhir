@@ -1,0 +1,80 @@
+<NutritionOrder xmlns='http://hl7.org/fhir'>
+  <id value='malnutritionlongtermcare'/>
+  <status value='active'/>
+  <intent value='order'/>
+  <patient>
+    <reference value='Patient/example'/>
+    <display value='Heart Failure Patient'/>
+  </patient>
+  <allergyIntolerance>
+    <reference value='AllergyIntolerance/lactose-intolerance'/>
+    <display value='Lactose Intolerance'/>
+  </allergyIntolerance>
+  <excludeFoodModifier>
+    <coding>
+      <system value='http://snomed.info/sct'/>
+      <code value=''/>
+      <display value='strawberry'/>
+    </coding>
+  </excludeFoodModifier>
+  <oralDiet>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='439111000124103'/>
+        <display value='Mechanically altered'/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='1255164005'/>
+        <display value='Halal diet'/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='425458000'/>
+        <display value='Lactose-free diet'/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='437421000124105 '/>
+        <display value=' Decreased sodium diet '/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='439061000124104 '/>
+        <display value=' Fluid restricted diet '/>
+      </coding>
+    </type>
+    <schedule>
+      <repeat>
+        <frequency value='3'/>
+        <period value='1'/>
+        <periodUnit value='d'/>
+      </repeat>
+    </schedule>
+    <nutrient>
+      <modifier>
+        <coding>
+          <system value='http://snomed.info/sct'/>
+          <code value='39972003'/>
+          <display value='Sodium'/>
+        </coding>
+      </modifier>
+      <amount>
+        <value value='2'/>
+        <unit value='g'/>
+        <system value='http://unitsofmeasure.org'/>
+        <code value='g'/>
+      </amount>
+    </nutrient>
+    <instruction value='1500ml of fluid/day'/>
+  </oralDiet>
+</NutritionOrder>

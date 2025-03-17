@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionIntake xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="malnutrition-staff-reported"/>
+	<status value="completed"/>
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Paula Patient Chalmers"/>
+	</subject>
+	<recorded value="2024-01-09T14:00:00Z"/>
+	<reportedReference>
+		<reference value="Practitioner/example"/>
+		<display value="Reported by the nurse"/>
+	</reportedReference>
+	<nutritionItem>
+		<nutritionProduct>
+			<reference>
+				<reference value="NutritionProduct/apple-slices"/>
+			</reference>
+		</nutritionProduct>
+		<consumedItem>
+			<amount> 
+				<value value="100"/> 
+				<unit value="g"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="g"/>
+			</amount>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
+		<nutritionProduct>
+			<reference>
+				<reference value="NutritionProduct/whole-milk"/>
+			</reference>
+		</nutritionProduct>
+		<consumedItem>
+			<amount> 
+				<value value="240"/> 
+				<unit value="ml"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="ml"/>
+			</amount>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
+		<nutritionProduct>
+			<reference>
+				<reference value="NutritionProduct/boiled-eggs"/>
+			</reference>
+		</nutritionProduct>
+		<consumedItem>
+			<amount> 
+				<value value="2"/> 
+			</amount>
+		</consumedItem>
+	</nutritionItem>
+	<nutritionItem>
+		<nutritionProduct>
+			<concept>
+				<coding>
+					<code value="442651000124102"/>
+					<system value="http://snomed.info/sct"/>
+					<display value="Adult formula (product)"/>
+				</coding>
+			</concept>
+		</nutritionProduct>
+		<consumedItem>
+			<amount> 
+				<value value="200"/>
+				<unit value="g"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="g"/> 
+			</amount>
+		</consumedItem>
+	</nutritionItem>
+	<note>
+		<text value="Breakfast meal with apple slices, whole milk, boiled eggs, and Boost pudding."/>
+	</note>
+</NutritionIntake>

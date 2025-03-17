@@ -1,0 +1,54 @@
+{
+  "resourceType": "NutritionProduct",
+  "id": "high-protein-enteral-supplement",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "443111000124101",
+        "display": "High protein formula (product)"
+      }
+    ],
+    "text": "High protein formula"
+  },
+  "status": "active",
+  "category": [{
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "346415002",
+        "display": "Enteral and supplement feeds (product)"
+      }
+    ]
+    }
+  ],
+  "manufacturer": [{
+    "reference": "Organization/Abbott",
+    "display": "Abbott"
+    }],
+  "nutrient": [
+    {
+      "item": {
+       "concept": [
+         {
+           "system": "http://snomed.info/sct",
+           "code": "1354492001",
+         }
+       ] 
+      },
+      "amountQuantity": {
+        "value": 15,
+        "unit": "gm/serving"
+      }
+    }
+  ],
+  "energy": {
+    "value": 1,
+    "unit": "kcal/mL",
+    "system": "http://unitsofmeasure.org",
+    "code": "kcal/mL"
+  },
+  "instance": {
+    "name": "Promote"
+  }
+}
