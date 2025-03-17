@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
+  <id value="purge"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$purge-request.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$purge-response.txt"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/Operationdefinition/purge"/>
+  <name value="purge"/>
+  <title value="Purge Group Record"/>
+  <kind value="operation"/>
+  <description value="This operation is used to request the removal of all current and historical versions for all resources in a Group of patient compartments.  The result will be an OperationOutcome with results and/or details about execution.&#xA;&#xA;Following are some common `issue-type` values:&#xA;- `success` the request has been completed to the server's satisfaction - the patient and associated resources are no longer accessible&#xA;- `incomplete` the request is partially complete, but additional processing will continue (e.g., the server is continuing to clean out resources)&#xA;&#xA;When supported, it is recommended (though not required) to support an [Asynchronous Request Pattern](async.html).&#xA;&#xA;Note that the deletion of resources typically involves many policy decisions.  Implementers are expected to use this operation in conjunction with their policies for such a request - e.g., soft vs. hard delete, audibility/traceability, evaluation of referential integrity, etc."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <affectsState value="false"/>
+  <code value="purge"/>
+  <system value="false"/>
+  <type value="false"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Status and/or results of the purge request"/>
+    <type value="OperationOutcome"/>
+  </parameter>
+</OperationDefinition>

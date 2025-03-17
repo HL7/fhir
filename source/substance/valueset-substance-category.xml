@@ -27,7 +27,7 @@
   <name value="SubstanceCategoryCodes"/>
   <title value="Substance Category Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 Orders and Observations Workgroup"/>
   <contact>
     <telecom>

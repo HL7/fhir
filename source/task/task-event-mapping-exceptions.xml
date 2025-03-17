@@ -81,6 +81,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="Task.code">
+        <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="What service was done"/>
             <resource value="Task Type"/>

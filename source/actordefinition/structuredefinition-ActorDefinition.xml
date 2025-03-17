@@ -159,7 +159,7 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="??"/>
+					<valueString value="versionAlgorithm"/>
 				</extension>
 				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
@@ -410,11 +410,11 @@
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ExampleScenarioActorType"/>
+					<valueString value="ActorDefinitionActorType"/>
 				</extension>
 				<strength value="required"/>
 				<description value="The type of actor - system or human."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
 			</binding>
 		</element>
 		<element id="ActorDefinition.documentation">

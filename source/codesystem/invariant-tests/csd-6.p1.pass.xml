@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <status value="draft"/>
+  
+  <concept>
+    <code value="A"/>
+    <display value="A"/>
+    <property>
+      <code value="alternateCode"/>
+      <valueCode value="B"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="B"/>
+    <display value="B"/>
+    <property>
+      <code value="alternateCode"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

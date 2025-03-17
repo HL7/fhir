@@ -587,7 +587,7 @@
 		</element>
 		<element id="EvidenceVariable.handling">
 			<path value="EvidenceVariable.handling"/>
-			<short value="boolean | continuous | dichotomous | ordinal | polychotomous"/>
+			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | extension"/>
 			<definition value="The method of handling in statistical analysis."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -703,6 +703,17 @@
 			<path value="EvidenceVariable.dataStorage.path"/>
 			<short value="Where to find the data element in the dataset"/>
 			<definition value="The mapping (order of elements) to reach the element containing the  data element in the dataset."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.dataStorage.delimiter">
+			<path value="EvidenceVariable.dataStorage.delimiter"/>
+			<short value="Character(s) separating values in a string-based list"/>
+			<definition value="A character or series of characters that is used within a string to signal the separation of discrete values."/>
+			<comment value="The delimiter element SHOULD only be used when the datatype element is a string- or text-based datatype. The delimiter element is used when the data is stored in a string which contains a list or array of values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
