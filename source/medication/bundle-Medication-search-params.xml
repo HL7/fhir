@@ -49,6 +49,7 @@
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.doseForm"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Medication-form"/>
         <description value="Returns medications for a specific dose form"/>
         <code value="form"/>
