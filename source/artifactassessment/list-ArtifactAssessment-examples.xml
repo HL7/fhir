@@ -40,4 +40,16 @@
       <display value="Risk of Bias Assessment of PARACHUTE trial"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Justification for Recommendation: ADA Obesity Management Recommendation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="artifactassessment-example-justification-for-recommendation"/>
+    </extension>
+    <item>
+      <reference value="ArtifactAssessment/example-justification-for-recommendation"/>
+      <display value="Justification for Recommendation: ADA Obesity Management Recommendation"/>
+    </item>
+  </entry>
 </List>
