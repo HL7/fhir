@@ -22,7 +22,7 @@
 			<schedule>
 				<repeat>
 					<frequency value="1"/>
-					<timeOfDay value="19:00"/>
+					<timeOfDay value="19:00:00"/>
 				</repeat>
 			</schedule>
 			<amount> 

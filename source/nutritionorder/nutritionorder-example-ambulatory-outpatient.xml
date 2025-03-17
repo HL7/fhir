@@ -1,7 +1,7 @@
 <NutritionOrder xmlns='http://hl7.org/fhir'>
   <id value='ambulatory-outpatient'/>
-  <intent value='order'/>
   <status value='active'/>
+  <intent value='order'/>
   <subject>
     <reference value='Patient/example'/>
     <display value='Ambulatory/Outpatient'/>
