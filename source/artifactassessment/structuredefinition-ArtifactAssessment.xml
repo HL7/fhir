@@ -127,6 +127,16 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="ArtifactAssessment.citeAs">
+      <path value="ArtifactAssessment.citeAs"/>
+      <short value="How to cite the comment or rating"/>
+      <definition value="Display of the bibliographic citation of the comment, classifier, or rating."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="ArtifactAssessment.artifact[x]">
       <path value="ArtifactAssessment.artifact[x]"/>
       <short value="The artifact assessed, commented upon or rated"/>
@@ -288,16 +298,6 @@
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
-    </element>
-    <element id="ArtifactAssessment.citeAs">
-      <path value="ArtifactAssessment.citeAs"/>
-      <short value="How to cite the comment or rating"/>
-      <definition value="Display of the bibliographic citation of the comment, classifier, or rating."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
     </element>
     <element id="ArtifactAssessment.content">
       <path value="ArtifactAssessment.content"/>
