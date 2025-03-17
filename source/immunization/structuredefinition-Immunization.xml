@@ -711,8 +711,8 @@
         <valueString value="#13290."/>
       </extension>
       <path value="Immunization.performer.function"/>
-      <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+      <short value="Type of performance"/>
+      <definition value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1146,12 +1146,19 @@
       <path value="Immunization.protocolApplied.doseNumber"/>
       <short value="Dose number within series"/>
       <definition value="Nominal position in a series as intended by the practitioner administering the dose."/>
-      <comment value="The use of an integer is preferred if known. Text should only be used in cases where an integer is not available (such as when documenting a recurring booster dose)."/>
+      <comment value="The dose number may be communicated as either a coded concept (for example Dose 1, Dose 2 or Booster) or as free text as needed by the use case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DoseNumber"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code expressing the vaccine dose number - several coding schemes exist or will be defined for each jurisdiction."/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -1164,12 +1171,19 @@
       <path value="Immunization.protocolApplied.seriesDoses"/>
       <short value="Recommended number of doses for immunity"/>
       <definition value="The recommended number of doses to achieve immunity as intended by the practitioner administering the dose."/>
-      <comment value="The use of an integer is preferred if known."/>
+      <comment value="The number of doses in a series may be communicated as either a coded concept or as free text as needed by the use case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SeriesDoses"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code expressing the doses recommended or expected - several coding schemes exist or will be defined for each jurisdiction."/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>

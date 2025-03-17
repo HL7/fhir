@@ -12,7 +12,6 @@
   <name value="VitalSignsRespRate"/>
   <title value="Vital Signs - Respiratory Rate"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
