@@ -1751,14 +1751,16 @@ serializes the <a href="datatypes.html#markdown">markdown</a> datatype using att
 <a name="XML"></a>
 <h3>XML Signature rules</h3>
 <p>
-When the signature is an XML Digital Signature (contentType = application/signature+xml), the following rules apply:
+When the signature is an XML Digital Signature (<code>sigFormat</code> = <code>application/signature+xml</code>), the following rules apply:
 </p>
 <ul>
  <li>The Signature.data is base64 encoded XML-Signature</li>
  <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
+ <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
+ <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
  <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
+ <li>The signature can be XML Signature or JSON Jose, Regardless the Resource itself is in XML form or JSON form, e.g. XML Signature can be generated for a Resource in JSON format.</li>
 </ul>
 <p>
 There are three levels of signature verification:
@@ -1775,14 +1777,15 @@ For example, some environments may choose a different XAdES profile, hashing alg
 <a name="JSON"></a>
 <h3>JSON Signature rules</h3>
 <p>
-When the signature is an JSON Digital Signature (contentType = application/jose), the following rules apply:
+When the signature is an JSON Digital Signature (<code>sigFormat</code> = <code>application/jose</code>), the following rules apply:
 </p>
 <ul>
  <li>The Signature.data is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
- <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
+ <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
  <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as the srCms element.</li>
  <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
 </ul>
 <p>
 There are three levels of signature verification:
