@@ -179,8 +179,8 @@
     </element>
     <element id="ImmunizationRecommendation.authority">
       <path value="ImmunizationRecommendation.authority"/>
-      <short value="Who is responsible for protocol"/>
-      <definition value="Indicates the authority who published the protocol (e.g. ACIP)."/>
+      <short value="Who is responsible for schedule"/>
+      <definition value="Indicates the authority who published the schedule (e.g. ACIP, WHO, NITAG)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
