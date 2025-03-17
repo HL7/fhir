@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+  <id value="lipid-panel-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/lipids-diagnostic-report"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>
+      <pre>
+Test                  Units       Value       Reference Range
+Cholesterol           mmol/L      6.3         &lt;4.5
+Triglyceride          mmol/L      1.3         &lt;2.0
+HDL Cholesterol       mmol/L      1.3         &gt;1.5
+LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
+      </pre>
+      <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
+    </div>
+  </text>
+  <identifier>
+    <system value="http://acme.com/lab/reports"/>
+    <value value="5234342"/>
+  </identifier>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
+      <code value="HM"/>
+      <display value="Hematology"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="57698-3"/>
+      <display value="Lipid panel with direct LDL - Serum or Plasma"/>
+    </coding>
+    <text value="Lipid Panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/pat2"/>
+    <display value="Wile E. Coyote"/>
+  </subject>
+  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+  <issued value="2013-01-27T11:45:33+11:00"/>
+  <performer>
+    <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+    <display value="Acme Laboratory, Inc"/>
+  </performer>
+  
+  <!-- References to contained observations -->
+  <result>
+    <reference value="#cholesterol"/>
+  </result>
+  <result>
+    <reference value="#triglyceride"/>
+  </result>
+  <result>
+    <reference value="#hdlcholesterol"/>
+  </result>
+  <result>
+    <reference value="#ldlcholesterol"/>
+  </result>
+  
+  <!-- Contained resources -->
+  <contained>
+    <!-- Cholesterol observation with profile reference -->
+    <Observation>
+      <id value="cholesterol"/>
+      <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
+      </meta>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="35200-5"/>
+          <display value="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
+        </coding>
+        <text value="Cholesterol"/>
+      </code>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
+      <valueQuantity>
+        <value value="6.3"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="H"/>
+          <display value="High"/>
+        </coding>
+      </interpretation>
+      <note>
+        <text value="Patient reported having eaten fatty foods the day before."/>
+      </note>
+      <referenceRange>
+        <high>
+          <value value="4.5"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </high>
+        <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
+      </referenceRange>
+    </Observation>
+    
+    <!-- Triglyceride observation -->
+    <Observation>
+      <id value="triglyceride"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="35217-9"/>
+          <display value="Triglyceride [Mass or Moles/volume] in Serum or Plasma"/>
+        </coding>
+        <text value="Triglyceride"/>
+      </code>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
+      <valueQuantity>
+        <value value="1.3"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="N"/>
+          <display value="Normal"/>
+        </coding>
+      </interpretation>
+      <referenceRange>
+        <high>
+          <value value="2.0"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </high>
+        <text value="Normal range: less than 2.0 mmol/L"/>
+      </referenceRange>
+    </Observation>
+    
+    <!-- HDL Cholesterol observation -->
+    <Observation>
+      <id value="hdlcholesterol"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="2085-9"/>
+          <display value="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
+        </coding>
+        <text value="Cholesterol in HDL"/>
+      </code>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
+      <valueQuantity>
+        <value value="1.3"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="L"/>
+          <display value="Low"/>
+        </coding>
+      </interpretation>
+      <referenceRange>
+        <low>
+          <value value="1.5"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </low>
+        <text value="Desirable: greater than 1.5 mmol/L"/>
+      </referenceRange>
+    </Observation>
+    
+    <!-- LDL Cholesterol observation -->
+    <Observation>
+      <id value="ldlcholesterol"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="13457-7"/>
+          <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
+        </coding>
+        <text value="LDL Chol. (Calc)"/>
+      </code>
+      <subject>
+        <reference value="Patient/pat2"/>
+      </subject>
+      <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+      <performer>
+        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        <display value="Acme Laboratory, Inc"/>
+      </performer>
+      <valueQuantity>
+        <value value="4.6"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="H"/>
+          <display value="High"/>
+        </coding>
+      </interpretation>
+      <referenceRange>
+        <high>
+          <value value="3.0"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </high>
+        <text value="Optimal: less than 3.0 mmol/L"/>
+      </referenceRange>
+    </Observation>
+  </contained>
+  
+  <conclusion value="Patient has elevated total cholesterol and LDL levels with borderline low HDL. Recommend lifestyle modifications and consideration of lipid-lowering therapy."/>
+</DiagnosticReport>
