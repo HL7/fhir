@@ -261,6 +261,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">suspended</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">failed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">replaced</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">replaced</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">complete</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">inactive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">abandoned</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
