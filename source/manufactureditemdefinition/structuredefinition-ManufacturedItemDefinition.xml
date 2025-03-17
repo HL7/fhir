@@ -334,8 +334,8 @@
         <valueCode value="275,180"/>
       </extension>
       <path value="ManufacturedItemDefinition.component"/>
-      <short value="Physical parts of the manufactured item, that it is intrisically made from. This is distinct from the ingredients that are part of its chemical makeup"/>
-      <definition value="Physical parts of the manufactured item, that it is intrisically made from. This is distinct from the ingredients that are part of its chemical makeup."/>
+      <short value="Physical parts of the manufactured item, that it is intrinsically made from. This is distinct from the ingredients that are part of its chemical makeup"/>
+      <definition value="Physical parts of the manufactured item, that it is intrinsically made from. This is distinct from the ingredients that are part of its chemical makeup."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -375,8 +375,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.amount">
       <path value="ManufacturedItemDefinition.component.amount"/>
-      <short value="The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume)"/>
-      <definition value="The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume)."/>
+      <short value="The measurable amount of total quantity of all substances in the component, expressible in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of total quantity of all substances in the component, expressible in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -400,8 +400,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.amount">
       <path value="ManufacturedItemDefinition.component.constituent.amount"/>
-      <short value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)"/>
-      <definition value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)."/>
+      <short value="The measurable amount of the substance, expressible in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of the substance, expressible in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
