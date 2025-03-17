@@ -12,7 +12,6 @@
   <name value="VitalSignsOxygenSat"/>
   <title value="Vital Signs - Oxygen Sat"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
