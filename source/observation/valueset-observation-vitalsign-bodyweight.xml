@@ -12,7 +12,6 @@
   <name value="VitalSignsBodyWeight"/>
   <title value="Vital Signs - Body Weight"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
