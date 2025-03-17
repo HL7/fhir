@@ -186,13 +186,9 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="Immunization.performer.function">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Type of performance"/>
-            <resource value="What type of performance was done"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Distinguishes the type of involvement of the performer in the immunization.."/>
-            <resource value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+            <resource value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
