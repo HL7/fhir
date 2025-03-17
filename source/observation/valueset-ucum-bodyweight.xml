@@ -32,12 +32,19 @@
       <system value="http://unitsofmeasure.org"/>
       <concept>
         <code value="kg"/>
-      </concept>
-      <concept>
-        <code value="[lb_av]"/>
+        <display value="kilogram"/>
       </concept>
       <concept>
         <code value="g"/>
+        <display value="gram"/>
+      </concept>
+      <concept>
+        <code value="[lb_av]"/>
+        <display value="pound (US and British)"/>
+      </concept>
+      <concept>
+        <code value="[oz_av]"/>
+        <display value="ounce (US and British)"/>
       </concept>
     </include>
   </compose>
