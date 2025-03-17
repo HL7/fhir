@@ -596,7 +596,6 @@ When true, active orders that may exist for the same medication are expected to 
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
