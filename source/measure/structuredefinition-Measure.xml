@@ -760,6 +760,18 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Measure.reportingFrequency">
+      <path value="Measure.reportingFrequency"/>
+      <short value="The frequency in which this measure should be reported (e.g. 1 '/a' - yearly, 4 '/a' - quarterly)"/>
+      <definition value="The frequency that this measure should be reported, usually specified by the program it is being submitted to."/>
+			<comment value="Note that reporting frequency is often specified by the expectations of a quality program or initiative that is making use of the measure, rather than on the measure directly."/>
+      <requirements value="Allows the reporting frequency for the given program to be specified in the Measure itself."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
     <element id="Measure.topic">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="deprecated"/>
@@ -943,6 +955,21 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>
+    <element id="Measure.scoringPrecision">
+      <path value="Measure.scoringPrecision"/>
+      <short value="How many decimals (The number of decimal places to include in the score when the score is a decimal-valued result)"/>
+      <definition value="When the score is a decimal value this should be used to specify the expected minimum number of digits after the decimal point to use for the precision of the value. When a scoringUnit is also specified, this value is the expected minimum number of digits after the decimal point when the score is expressed in the units specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
@@ -1369,6 +1396,21 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.scoringPrecision">
+      <path value="Measure.group.scoringPrecision"/>
+      <short value="How many decimals (The number of decimal places to include in the score when the score is a decimal-valued result)"/>
+      <definition value="When the score is a decimal value this should be used to specify the expected minimum number of digits after the decimal point to use for the precision of the value. When a scoringUnit is also specified, this value is the expected minimum number of digits after the decimal point when the score is expressed in the units specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
