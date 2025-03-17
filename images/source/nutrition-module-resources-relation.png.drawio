@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.1">
+  <diagram name="Page-1" id="qU7yf2vjBRUqdZi0QlT7">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;curved=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-1" target="ZlnrbJBH5tZuXvmFxJx_-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-1" value="Patient/Group" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;curved=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-2" target="ZlnrbJBH5tZuXvmFxJx_-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-2" value="Practitioner" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-3" target="ZlnrbJBH5tZuXvmFxJx_-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-3" target="ZlnrbJBH5tZuXvmFxJx_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-3" value="ClinicalImpression/&lt;div&gt;Condition (Assessment/Dx)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;startFill=0;curved=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-2" target="ZlnrbJBH5tZuXvmFxJx_-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-5" target="ZlnrbJBH5tZuXvmFxJx_-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-5" value="Goal(s)&lt;div&gt;(NPC Intervention)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-6" target="ZlnrbJBH5tZuXvmFxJx_-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-6" value="&lt;div&gt;NutritionIntake&lt;/div&gt;&lt;div&gt;(NPC Assessment/&lt;/div&gt;&lt;div&gt;MonitoringDX)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-7" target="ZlnrbJBH5tZuXvmFxJx_-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-7" value="CarePlan&lt;div&gt;(NPC Intervention)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ZlnrbJBH5tZuXvmFxJx_-13" target="ZlnrbJBH5tZuXvmFxJx_-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-13" value="&lt;div&gt;NutritionOrder&lt;/div&gt;&lt;div&gt;(NPC Intervention)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlnrbJBH5tZuXvmFxJx_-16" value="NutritionProduct&lt;div&gt;(NPC Intervention)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

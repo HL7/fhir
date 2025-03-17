@@ -382,8 +382,10 @@
     </element>
     <element id="MedicationRequest.doNotPerform">
       <path value="MedicationRequest.doNotPerform"/>
-      <short value="True if patient is to stop taking or not to start taking the medication"/>
-      <definition value="If true, indicates that the provider is asking for the patient to either stop taking or to not start taking the specified medication. For example, the patient is taking an existing medication and the provider is changing their medication. They want to create two seperate requests: one to stop using the current medication and another to start the new medication."/>
+      <short value="If true, indicates the provider is ordering a patient should not take the specified medication"/>
+      <definition value="If true, indicates the provider is ordering a patient should not take the specified medication. The reason for this order can be provided in the .reason element. A MedicationRequest with .doNotPerform = true will not result in any dispense or administration. 
+A request not to take or administer medication is a standalone request, and does not update any other medication request.  
+When true, active orders that may exist for the same medication are expected to be canceled/ended, and new orders for the same medication are not expected."/>
       <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;."/>
       <min value="0"/>
       <max value="1"/>
