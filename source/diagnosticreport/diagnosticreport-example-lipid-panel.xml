@@ -48,23 +48,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
     <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
     <display value="Acme Laboratory, Inc"/>
   </performer>
-  
-  <!-- References to contained observations -->
-  <result>
-    <reference value="#cholesterol"/>
-  </result>
-  <result>
-    <reference value="#triglyceride"/>
-  </result>
-  <result>
-    <reference value="#hdlcholesterol"/>
-  </result>
-  <result>
-    <reference value="#ldlcholesterol"/>
-  </result>
-  
-  <!-- Contained resources -->
-  <contained>
+    <contained>
     <!-- Cholesterol observation with profile reference -->
     <Observation>
       <id value="cholesterol"/>
@@ -275,6 +259,23 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       </referenceRange>
     </Observation>
   </contained>
+  
+  <!-- References to contained observations -->
+  <result>
+    <reference value="#cholesterol"/>
+  </result>
+  <result>
+    <reference value="#triglyceride"/>
+  </result>
+  <result>
+    <reference value="#hdlcholesterol"/>
+  </result>
+  <result>
+    <reference value="#ldlcholesterol"/>
+  </result>
+  
+  <!-- Contained resources -->
+
   
   <conclusion value="Patient has elevated total cholesterol and LDL levels with borderline low HDL. Recommend lifestyle modifications and consideration of lipid-lowering therapy."/>
 </DiagnosticReport>
