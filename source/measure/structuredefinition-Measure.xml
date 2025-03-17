@@ -1389,7 +1389,7 @@
     <element id="Measure.group.scoringPrecision">
       <path value="Measure.group.scoringPrecision"/>
       <short value="How many decimals (The number of decimal places to include in the score when the score is a decimal-valued result)"/>
-      <definition value="When the score is a decimal value this should be used to specify the number of digits after the decimal point to use for the precision of the value."/>
+      <definition value="When the score is a decimal value this should be used to specify the expected minimum number of digits after the decimal point to use for the precision of the value. When a scoringUnit is also specified, this value is the expected minimum number of digits after the decimal point when the score is expressed in the units specified."/>
       <min value="0"/>
       <max value="1"/>
       <type>
