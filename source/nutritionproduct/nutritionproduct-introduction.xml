@@ -1,12 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"></a>
-<h2>Scope and Usage</h2>
+	<a name="bnc"></a>
+	<h2>Scope and Usage</h2>
 
-<p>
-The NutritionProduct resource represents the identification of a food (i.e., solid and/or liquid) product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food (i.e., solid and/or liquid) products for consumption.
-</p>
+	<blockquote class="stu-note">
+	<p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
+	</p>
+	</blockquote>
+
+	<p>
+	The NutritionProduct resource represents the identification of a food (i.e., solid and/or liquid) product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food (i.e., solid and/or liquid) products for consumption.
+	</p>
 </div>
 
 
