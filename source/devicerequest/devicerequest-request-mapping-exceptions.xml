@@ -215,7 +215,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act."/>
-            <resource value=""/>
+            <resource value="When doNotPerform is true, this is the reason for requesting not to provide the device."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.insurance" resourcePath="DeviceRequest.insurance">
