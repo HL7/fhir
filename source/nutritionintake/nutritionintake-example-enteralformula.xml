@@ -60,8 +60,8 @@
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="102281005"/>
-				<display value="Minced and moist food (IDDSI Level 5)"/>
+				<code value="1255823003"/>
+				<display value="International Dysphagia Diet Standardisation Initiative Framework - Minced and Moist Level 5 food (regime/therapy)"/>
 			</coding>
 		</type>
 		<nutritionProduct>
@@ -82,8 +82,8 @@
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="102282003"/>
-				<display value="Mildly thick drink (IDDSI Level 2)"/>
+				<code value="1255822008"/>
+				<display value="International Dysphagia Diet Standardisation Initiative Framework - Mildly Thick Level 2 drinks (regime/therapy)"/>
 			</coding>
 		</type>
 		<nutritionProduct>

@@ -57,8 +57,8 @@
 		<nutritionProduct>
 			<concept>
 				<coding>
-					<code value="442651000124102"/>
 					<system value="http://snomed.info/sct"/>
+					<code value="442651000124102"/>
 					<display value="Adult formula (product)"/>
 				</coding>
 			</concept>

@@ -2,10 +2,11 @@
   <id value='heart-failure'/>
   <status value='active'/>
   <intent value='order'/>
-  <patient>
+  <subject>
     <reference value='Patient/example'/>
     <display value='Heart Failure Patient'/>
-  </patient>
+  </subject>
+	<dateTime value="2024-10-23T00:00:00Z"/>
   <allergyIntolerance>
     <reference value='AllergyIntolerance/lactose-intolerance'/>
     <display value='Lactose Intolerance'/>
@@ -13,7 +14,7 @@
   <excludeFoodModifier>
     <coding>
       <system value='http://snomed.info/sct'/>
-      <code value=''/>
+      <code value='102261002'/>
       <display value='strawberry'/>
     </coding>
   </excludeFoodModifier>
@@ -22,7 +23,7 @@
       <coding>
         <system value='http://snomed.info/sct'/>
         <code value='439111000124103'/>
-        <display value='Mechanically altered'/>
+        <display value='Mechanically altered diet'/>
       </coding>
     </type>
     <type>
@@ -42,15 +43,15 @@
     <type>
       <coding>
         <system value='http://snomed.info/sct'/>
-        <code value='437421000124105 '/>
-        <display value=' Decreased sodium diet '/>
+        <code value='437421000124105'/>
+        <display value='Decreased sodium diet'/>
       </coding>
     </type>
     <type>
       <coding>
         <system value='http://snomed.info/sct'/>
-        <code value='439061000124104 '/>
-        <display value=' Fluid restricted diet '/>
+        <code value='439061000124104'/>
+        <display value='Fluid restricted diet'/>
       </coding>
     </type>
     <schedule>
