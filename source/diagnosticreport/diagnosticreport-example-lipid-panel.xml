@@ -40,7 +40,6 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
           <code value="35200-5"/>
           <display value="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
         </coding>
-        <text value="Cholesterol"/>
       </code>
       <subject>
         <reference value="Patient/pat2"/>
@@ -69,9 +68,9 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <referenceRange>
         <high>
           <value value="4.5"/>
-          <unit value="mmol/L"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/L"/>
+          <unit value="mmol/l"/>
+         <!--  <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/> -->
         </high>
         <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
       </referenceRange>
