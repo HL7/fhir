@@ -68,8 +68,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <referenceRange>
         <high>
           <value value="4.5"/>
-          <unit value="mmol/l"/>
-         <!--  <system value="http://unitsofmeasure.org"/>
+       <!--     <unit value="mmol/l"/>
+         <system value="http://unitsofmeasure.org"/>
           <code value="mmol/L"/> -->
         </high>
         <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
@@ -263,16 +263,16 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
   
   <!-- References to contained observations -->
   <result>
-    <reference value="#cholesterol"/>
+    <reference value="cholesterol"/>
   </result>
   <result>
-    <reference value="#triglyceride"/>
+    <reference value="triglyceride"/>
   </result>
   <result>
-    <reference value="#hdlcholesterol"/>
+    <reference value="hdlcholesterol"/>
   </result>
   <result>
-    <reference value="#ldlcholesterol"/>
+    <reference value="ldlcholesterol"/>
   </result>
   
  
