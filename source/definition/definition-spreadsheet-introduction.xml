@@ -26,7 +26,7 @@ and <a href="servicerequest.html">ServiceRequests</a> and results in the executi
 <h2>Boundaries and Relationships</h2>
 <p>
 This logical model is one of three common <a href="workflow.html#respatterns">workflow patterns</a>.  The other two patterns are <a href="event.html">Event</a> and
-<a href="request.html">Request</a>.  This pattern is followed by (or is intended to be followed by a number of <a href="workflow.html#list">other FHIR resources</a>/
+<a href="request.html">Request</a>.  This pattern is followed by (or is intended to be followed) by a number of <a href="workflow.html#list">other FHIR resources</a>/
 </p>
 <p>
 Both definitions and <a href="request.html">requests</a> deal with activities that "can" occur, but requests represent a specific intention for something to occur and are bound to
@@ -47,6 +47,8 @@ brackets] identifies areas where domain variation is expected and encouraged.  O
 omit an element outright are also possible, but should be discussed with the FHIR Infrastructure work group's Workflow project to ensure the rationale for non-alignment is
 understood, to confirm that the deviation is necessary and to identify whether any adjustments to the pattern are appropriate.
 </p>
+<p>Note that not all resources that contain <code>Definition</code> in their name are considered to be <code>definition</code> resources from a workflow perspective. For example, <code>ActorDefinition</code>, <code>SpecimenDefinition</code>, etc. are defining entities, not activities.
+</p> 
 <p>
 This pattern provides a linkage to the <a href="w5.html">W5</a> list of standard data elements.  Resources that adhere to this pattern should ensure their w5 mappings are
 consistent, as is their data element ordering.
