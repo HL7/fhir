@@ -455,7 +455,7 @@
         </extension>
         <strength value="required"/>
         <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -603,7 +603,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -674,7 +674,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1064,7 +1064,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
         <identity value="rim"/>

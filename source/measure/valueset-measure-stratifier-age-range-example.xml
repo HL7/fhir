@@ -12,7 +12,7 @@
   <version value="6.0.0"/>
   <name value="MeasureStratifierAgeRangeExample"/>
   <title value="Measure Stratifier Age Range Example"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="An example value set representing a possible age range stratification."/>

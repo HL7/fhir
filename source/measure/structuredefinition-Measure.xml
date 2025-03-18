@@ -991,7 +991,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The composite scoring method of the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/composite-measure-scoring"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1017,7 +1017,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1113,7 +1113,7 @@
         </extension>
         <strength value="required"/>
         <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1291,7 +1291,7 @@
           <valueString value="MeasureType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1449,7 +1449,7 @@
           <valueString value="MeasureImprovementNotation"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1550,7 +1550,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of population."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1632,7 +1632,7 @@
           <valueString value="MeasureAggregateMethod"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-aggregate-method"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-aggregate-method"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1995,7 +1995,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The intended usage for supplemental data elements in the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-data-usage"/>
       </binding>
       <mapping>
         <identity value="rim"/>
