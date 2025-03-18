@@ -415,6 +415,13 @@
         <code value="string"/>
       </type>
       <condition value="qrs-2"/>
+      <condition value="qrs-3"/>
+			<constraint>
+        <key value="qrs-3"/>
+        <severity value="error"/>
+        <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
+        <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
