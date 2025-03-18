@@ -21,7 +21,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 
       <contained>
     <!-- Cholesterol observation with profile reference -->
-    <Observation>
+    <!-- <Observation>
       <id value="cholesterol"/>
       <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
@@ -68,13 +68,13 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <referenceRange>
         <high>
           <value value="4.5"/>
-       <!--     <unit value="mmol/l"/>
+           <unit value="mmol/l"/>
          <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/L"/> -->
+          <code value="mmol/L"/>
         </high>
         <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
       </referenceRange>
-    </Observation>
+    </Observation> -->
     
     <!-- Triglyceride observation -->
     <Observation>
