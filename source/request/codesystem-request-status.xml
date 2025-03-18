@@ -36,23 +36,28 @@
     <definition value="The request (and any implicit authorization to act) has been temporarily withdrawn but is expected to resume in the future."/>
   </concept>
   <concept>
-    <code value="revoked"/>
-    <display value="Revoked"/>
-    <definition value="The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur."/>
-  </concept>
-  <concept>
-    <code value="completed"/>
-    <display value="Completed"/>
-    <definition value="The activity described by the request has been fully performed.  No further activity will occur."/>
-  </concept>
-  <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be &quot;revoked&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it. If real-world activity has occurred, the status should be &quot;revoked&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which."/>
+    <definition value="The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
+  </concept>
+  <concept>
+    <code value="ended"/>
+    <display value="Ended"/>
+    <definition value="This request is no longer to be acted upon. This status does not differentiate what degree of action (if any) has already been undertaken against the request."/>
+    <concept>
+      <code value="completed"/>
+      <display value="Completed"/>
+      <definition value="The activity described by the request has been fully performed. No further activity will occur."/>
+    </concept>
+    <concept>
+      <code value="revoked"/>
+      <display value="Revoked"/>
+      <definition value="The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions. No further activity should occur."/>
+    </concept>
   </concept>
 </CodeSystem>
