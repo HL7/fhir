@@ -382,6 +382,12 @@
 				<expression value="resource.exists() or request.exists() or response.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
+			<condition value="bdl-11"/>
+			<condition value="bdl-12"/>
+			<condition value="bdl-13"/>
+			<condition value="bdl-14"/>
+			<condition value="bdl-15"/>
+			<condition value="bdl-2"/>
 			<isSummary value="true"/>
 		</element>
 		<element id="Bundle.entry.link">

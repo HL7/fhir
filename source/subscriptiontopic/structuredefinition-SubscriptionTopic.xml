@@ -207,7 +207,6 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="cnl-0"/>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
