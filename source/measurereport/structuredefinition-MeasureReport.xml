@@ -140,6 +140,18 @@
         <map value="methodCode"/>
       </mapping>
     </element>
+    <element id="MeasureReport.messages">
+      <path value="MeasureReport.messages"/>
+      <short value="Evaluation messages"/>
+      <definition value="A reference to an OperationOutcome that contains any information, warning, and/or error messages that were generated while processing an operation such as $evaluate."/>
+      <comment value="Operation processing often generates information, warning, or error messages that don't necessarily stop processing (so would not result in an OperationOutcome as the overall result of the operation) but still need to be communicated as part of the result. This element allows for these messages to be included as a reference to an OperationOutcome resource (typically included as a contained resource in the result of the operation)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+      </type>
+    </element>
     <element id="MeasureReport.status">
       <path value="MeasureReport.status"/>
       <short value="complete | pending | error"/>
@@ -419,6 +431,9 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
       </extension>
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>        
       <path value="MeasureReport.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
@@ -446,7 +461,7 @@
         <identity value="rim"/>
         <map value="interpretationCode"/>
       </mapping>
-    </element>
+    </element>    
     <element id="MeasureReport.group">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,0"/>
@@ -493,7 +508,7 @@
         <identity value="rim"/>
         <map value="participation[typeCode=AUT].time"/>
       </mapping>
-    </element>
+    </element>    
     <element id="MeasureReport.group.code">
       <path value="MeasureReport.group.code"/>
       <short value="Meaning of the group"/>
@@ -549,6 +564,55 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.improvementNotation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
+      </extension>    
+      <path value="MeasureReport.group.improvementNotation"/>
+      <short value="increase | decrease"/>
+      <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score. Exercise caution when using any values besides increase or decrease for improvementNotation."/>
+      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureImprovementNotation"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>    
+    <element id="MeasureReport.group.improvementNotationGuidance">
+      <path value="MeasureReport.group.improvementNotationGuidance"/>
+      <short value="Explanation of improvement notation"/>
+      <definition value="Narrative text to explain the improvement notation and how to interpret it."/>
+      <comment value="This element allows explanation to the improvementNotation be provided. In some cases, additional guidance is required to clearly communicate measure intent around improvement notation. For example, a measure looking at Ceasarean-section births may have an improvement notation of “decrease”, but it is critical to be able to communicate that a measure score of 0 is not the intent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>       
     <element id="MeasureReport.group.population">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,240"/>
