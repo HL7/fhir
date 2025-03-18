@@ -19,7 +19,7 @@
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
-  <description value="Identifier subgroups in a population for measuring purposes."/>
+  <description value="This example code system defines codes for common types of measure stratification."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
   <content value="complete"/>

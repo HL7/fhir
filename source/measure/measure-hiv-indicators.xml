@@ -64,39 +64,7 @@
       </criteria>
     </stratifier>
   </group>
-  <!-- Option 2: Extensions -->
-  <group>
-    <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART3_N"/></coding></code>
-    <description value="Number of adults and children currently receiving antiretroviral therapy (ART)"/>
-    <population>
-      <code><text value="cohort"/></code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Receiving antiretroviral therapy (ART) during measurement period"/>
-      </criteria>
-    </population>
-    <!--stratifier-->
-      <!--extension url="http://hl7.org/fhir/StructureDefinition/cqf-stratifierComponent">
-        <extension url="identifier"/>
-          <valueIdentifier><system value="http://ihe.net/qrph/adx"/><value value="AGE_GROUP"/></valueIdentifier>
-        </extension>
-        <extension url="criteria">
-          <valueString value="Age Group"/>
-        </extension>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-stratifierComponent">
-        <extension url="identifier"/>
-          <valueIdentifier><system value="http://ihe.net/qrph/adx"/><value value="SEX"/></valueIdentifier>
-        </extension>
-        <extension url="criteria">
-          <valueString value="Sex"/>
-        </extension>
-      </extension-->
-      <!--identifier><system value="http://ihe.net/qrph/adx/"/><value value="AGE_GROUP:SEX"/></identifier>
-      <criteria value="Age Group/Sex"/-->
-    <!--/stratifier-->
-  </group>
-  <!-- Option 3: Represent Using Stratifier Components -->
+  <!-- Option 2: Represent Using Stratifier Components -->
   <group>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART5_N"/></coding></code>
     <description value="Number of adults and children who are still on treatment at 12 months after initiating ART"/>
@@ -153,11 +121,21 @@
       </criteria>
     </population>
     <stratifier>
-      <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
-      <criteria>
-        <language value="text/cql"/>
-        <expression value="Age Group/Sex"/>
-      </criteria>
+      <component>
+        <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP"/></coding></code>
+        <criteria>
+          <language value="text/cql"/>
+          <expression value="Age Group"/>
+        </criteria>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-age-range-example"/>
+      </component>
+      <component>
+        <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="SEX"/></coding></code>
+        <criteria>
+          <language value="text/cql"/>
+          <expression value="Sex"/>
+        </criteria>
+      </component>
     </stratifier>
   </group>
   <group>

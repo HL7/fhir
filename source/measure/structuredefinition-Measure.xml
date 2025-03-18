@@ -1753,6 +1753,29 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="Measure.group.stratifier.valueSet">
+      <path value="Measure.group.stratifier.valueSet"/>
+      <short value="What stratum values?"/>
+      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+    </element>
+    <element id="Measure.group.stratifier.unit">
+      <path value="Measure.group.stratifier.unit"/>
+      <short value="What units?"/>
+      <definition value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
+      <comment value="This element may be used to define the expected units of stratum values, when that information cannot be inferred from the calculation logic directly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.stratifier.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,450"/>
@@ -1864,6 +1887,29 @@
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="Measure.group.stratifier.component.valueSet">
+      <path value="Measure.group.stratifier.component.valueSet"/>
+      <short value="What stratum values?"/>
+      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+    </element>
+    <element id="Measure.group.stratifier.component.unit">
+      <path value="Measure.group.stratifier.component.unit"/>
+      <short value="What units?"/>
+      <definition value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
+      <comment value="This element may be used to define the expected units of stratum values, when that information cannot be inferred from the calculation logic directly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Measure.supplementalData">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1981,6 +2027,29 @@
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="Measure.supplementalData.valueSet">
+      <path value="Measure.supplementalData.valueSet"/>
+      <short value="What supplemental data values?"/>
+      <definition value="A value set defining the set of possible values for supplemental data in this element. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce supplemental data values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <comment value="This element may be used to define a supplemental data element rather than requiring the element to be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+    </element>
+    <element id="Measure.supplementalData.unit">
+      <path value="Measure.supplementalData.unit"/>
+      <short value="What units?"/>
+      <definition value="Indicates what units, if any, supplemental data values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
+      <comment value="This element may be used to define the expected units of supplemental data values, when that information cannot be inferred from the calculation logic directly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>
