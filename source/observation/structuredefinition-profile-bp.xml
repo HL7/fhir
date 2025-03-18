@@ -140,6 +140,13 @@
       <sliceName value="SystolicBP"/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="vsp-3"/>
+        <severity value="error"/>
+        <human value="If component exists and there is no component value a component data absent reason must be present (used in defined slices of Observation.component)"/>
+        <expression value="component.exists() implies (component.value.exists() or component.dataAbsentReason.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.component:SystolicBP.extension">
@@ -220,6 +227,13 @@
       <sliceName value="DiastolicBP"/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="vsp-3"/>
+        <severity value="error"/>
+        <human value="If component exists and there is no component value a component data absent reason must be present (used in defined slices of Observation.component)"/>
+        <expression value="component.exists() implies (component.value.exists() or component.dataAbsentReason.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.component:DiastolicBP.extension">
