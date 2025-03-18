@@ -102,7 +102,7 @@
 				<key value="que-2"/>
 				<severity value="error"/>
 				<human value="The link ids for groups and questions must be unique within the questionnaire"/>
-				<expression value="descendants().linkId.isDistinct()"/>
+				<expression value="repeat(item).linkId.isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<mapping>
@@ -1019,6 +1019,12 @@
 				<expression value="operator = 'exists' implies (answer is boolean)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
+			<constraint>
+        <key value="que-18"/>
+        <severity value="warning"/>
+        <human value="Referenced questions SHOULD exist in the Questionnaire (unless still in draft, working with modular forms, etc.)"/>
+        <expression value="question.exists() implies %resource.repeat(item).linkId contains question"/>
+      </constraint>
 			<isModifier value="true"/>
 			<isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren't actually present"/>
 			<mapping>
@@ -1036,6 +1042,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<condition value="que-18"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
