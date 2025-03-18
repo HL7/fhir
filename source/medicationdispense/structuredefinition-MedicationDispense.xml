@@ -560,7 +560,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (&lt;Quantity (NM)&gt; ^ &lt;Units (CWE)&gt;), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
+        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type ([Quantity (NM)] ^ [Units (CWE)]), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
