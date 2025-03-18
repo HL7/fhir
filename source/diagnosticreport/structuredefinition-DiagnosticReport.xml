@@ -452,7 +452,7 @@
     </element>
     <element id="DiagnosticReport.procedure">
       <path value="DiagnosticReport.procedure"/>
-      <short value="The procedure(s) from which the report was produced."/>
+      <short value="The procedure(s) from which the report was produced"/>
       <definition value="The procedure(s) that are reported on in the DiagnosticReport."/>
       <comment value="This is a summary of the report, not a list of results."/>
       <min value="0"/>
