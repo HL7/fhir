@@ -751,7 +751,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -875,7 +874,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="NutritionOrder.supplement">
@@ -1034,7 +1033,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1079,7 +1077,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="NutritionOrder.enteralFormula">
@@ -1177,7 +1175,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1319,7 +1316,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1342,7 +1338,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <type>
         <code value="Ratio"/>
@@ -1364,7 +1359,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1476,7 +1470,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
     </element>
     <element id="NutritionOrder.additive.routeOfAdministration">
