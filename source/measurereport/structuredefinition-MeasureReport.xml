@@ -532,6 +532,20 @@
         <map value="code"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.description">
+      <path value="MeasureReport.group.description"/>
+      <short value="Summary description"/>
+      <definition value="The human readable description of this population group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.subject">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Subject can be a Group when the measurereport type is summary."/>
@@ -665,6 +679,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="code"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.population.description">
+      <path value="MeasureReport.group.population.description"/>
+      <short value="The human readable description of this population criteria"/>
+      <definition value="The human readable description of this population criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.population.count">
@@ -819,6 +847,21 @@
         <map value="code"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.stratifier.description">
+      <path value="MeasureReport.group.stratifier.description"/>
+      <short value="The human readable description of this stratifier"/>
+      <definition value="The human readable description of this stratifier criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <condition value="mea-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.stratifier.stratum">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="StratifierGroup"/>
@@ -923,6 +966,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="code"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.stratum.component.description">
+      <path value="MeasureReport.group.stratifier.stratum.component.description"/>
+      <short value="The human readable description of this stratifier component"/>
+      <definition value="The human readable description of this stratifier criteria component."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component.value[x]">
