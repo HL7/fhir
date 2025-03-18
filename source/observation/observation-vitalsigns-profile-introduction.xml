@@ -77,7 +77,8 @@
 					</td>
 					<td>85353-1</td>
 					<td>
-						It represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</td>
+						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em>
+						<p>This represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</p></td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>
@@ -102,7 +103,8 @@
 					</td>
 					<td>8867-4</td>
 					<td>
-						<em>Heart rate</em> - To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be included as an additional observation.</td>
+						<em>Heart rate</em>
+						<p>To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be included as an additional component observation.</p></td>
 					<td>/min</td>
 					<td>
 						<a href="observation-example-heart-rate.html">Heart Rate Example</a>
@@ -114,7 +116,8 @@
 					</td>
 					<td>2708-6</td>
 					<td>
-						<em>Oxygen saturation in Arterial blood</em> - This code replaces 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry as the "interoperability category" code</em> (but MAY be used in Observation.code).</td>
+						<em>Oxygen saturation in Arterial blood</em>
+						<p>The 2708-6 code or the more specific 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry</em> code (or another appropriate code for arterial oxygen saturation) may be used in Observation.code to specify the actual measurement that was performed.</p></td>
 					<td>%</td>
 					<td>
 						<a href="observation-example-satO2.html">Oxygen Saturation Example</a>
@@ -126,7 +129,8 @@
 					</td>
 					<td>8310-5</td>
 					<td>
-						<em>Body temperature</em> - To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations.</td>
+						<em>Body temperature</em>
+						<p>To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional component observations.</p></td>
 					<td>Cel, [degF]</td>
 					<td>
 						<a href="observation-example-body-temperature.html">Body Temperature Example</a>
@@ -138,28 +142,14 @@
 					</td>
 					<td>8302-2</td>
 					<td>
-						<em>Body height</em> - The more specific code 8306-3 -<em>Body height - lying</em> (i.e., body length - typically used for infants) MAY also be used in Observation.code.
+						<em>Body height</em>
+						<p>The more specific code 8306-3 -<em>Body height - lying</em> (i.e., body length - typically used for infants) MAY also be used in Observation.code to specify the actual measurement that was performed.</p>
 					</td>
 					<td>cm, [in_i]</td>
 					<td>
 						<a href="observation-example-body-height.html">Body height Example</a>
 					</td>
 				</tr>
-				<!--
-				<tr>
-					<td>
-						<a href="bodylength.html">Body length</a>
-					</td>
-					<td>8306-3</td>
-					<td>
-						<em>Body height -lying</em> - Like height, but lying down, typically this is used for infants</td>
-					<td>cm, [in_i]</td>
-					<td>
-						<a href="observation-example-body-length.html">Body Length Example</a>
-					</td>
-				</tr>
-				-->
-
 				<tr>
 					<td>
 						<a href="headcircum.html">Head circumference</a>
@@ -179,8 +169,9 @@
 					</td>
 					<td>29463-7</td>
 					<td>
-						<em>Body weight</em> - The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY also be used in Observation.code.</td>
-					<td>g, kg,[lb_av]</td>
+						<em>Body weight</em>
+						<p>The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY also be used in Observation.code to specify the actual measurement that was performed.</p></td>
+					<td>g, kg,[lb_av], [oz_av]</td>
 					<td>
 						<a href="observation-example.html">Body Weight Example</a>
 					</td>
@@ -204,7 +195,8 @@
 					</td>
 					<td>85354-9</td>
 					<td>
-						<em>Blood pressure panel with all children optional</em> - This is a component observation.  It has no value in Observation.valueQuantity and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional observations.</td>
+						<em>Blood pressure panel with all children optional</em>
+						<p>This is a component observation.  It has no value in Observation.value[x] and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional component observations.</p></td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html"> Blood Pressure Example with missing Diastolic measurement</a>
@@ -216,7 +208,8 @@
 					</td>
 					<td>8480-6</td>
 					<td>
-						<em>Systolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
+						<em>Systolic blood pressure</em>
+						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
@@ -228,24 +221,13 @@
 					</td>
 					<td>8462-4</td>
 					<td>
-						<em>Diastolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
+						<em>Diastolic blood pressure</em>
+						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
 					</td>
 				</tr>
-				<!--				<tr>
-					<td>
-						<a href="mbp.html">Mean blood pressure</a>
-					</td>
-					<td>8478-0</td>
-					<td>mm[Hg]</td>
-					<td>The mean blood pressure is most commonly a direct average taken off of an instrument.</td>
-					<td>
-						<a href="observation-example-mbp.html">Mean Blood Pressure Example</a>
-					</td>
-				</tr>
--->
 			</tbody>
 		</table>
 		<p></p>
