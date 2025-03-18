@@ -221,7 +221,7 @@
         <valueString value="[#3720],[#14414]."/>
       </extension>
       <path value="NutritionOrder.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The workflow status of the nutrition order/request."/>
       <comment value="Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
