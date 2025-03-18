@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="NutritionIntake"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="NutritionIntake" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="NutritionIntake.identifier">
         <shortUnmatched reason="Unknown">
@@ -21,8 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="NutritionIntake.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(NutritionOrder,CarePlan,ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(NutritionOrder,CarePlan,ServiceRequest)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Fulfils plan, proposal or order"/>
@@ -38,8 +36,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="NutritionIntake.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(NutritionIntake,Procedure,Observation)" reason="Unknown"/>
+        <extraTypes _resource="Reference(NutritionIntake,Procedure,Observation)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular nutrition intake is a component or step."/>
             <resource value="A larger event of which this particular event is a component or step."/>
@@ -59,8 +56,8 @@
             <resource value="A code representing the patient or other source's judgment about the state of the intake that this assertion is about.  Generally, this will be active or completed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="NutritionIntake is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for NutritionIntake.status contains codes that assert the status of the consumption of the food (i.e. solid and/or liquid), breastmilk, infant formula, supplements, enteral formula by the patient (for example, stopped or on hold) as well as codes that assert the status of the Nutrition Intake itself (for example, entered in error).&#xa;&#xa;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="NutritionIntake is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for NutritionIntake.status contains codes that assert the status of the consumption of the food (i.e. solid and/or liquid), breastmilk, infant formula, supplements, enteral formula by the patient (for example, stopped or on hold) as well as codes that assert the status of the Nutrition Intake itself (for example, entered in error).&#10;&#10;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.statusReason" resourcePath="NutritionIntake.statusReason">
@@ -70,7 +67,7 @@
             <resource value="Captures the reason for the current state of the NutritionIntake."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#xa;."/>
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
             <resource value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-taken&quot;, &quot;on-hold&quot;, &quot;cancelled&quot; or &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
         </commentsUnmatched>
     </divergentElement>
@@ -129,7 +126,7 @@
             <resource value="The interval of time during which it is being asserted that the patient is/was consuming the food (i.e. solid and/or liquid)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="This attribute reflects the period over which the patient consumed the food (i.e. solid and/or liquid) and is expected to be populated on the majority of NutritionIntake. If the food (i.e. solid and/or liquid) is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
         </commentsUnmatched>
     </divergentElement>
