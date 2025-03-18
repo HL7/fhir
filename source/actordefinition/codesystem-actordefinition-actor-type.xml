@@ -23,7 +23,7 @@
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
-    <telecom>
+    <telecom> 
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
@@ -35,6 +35,7 @@
   <description value="The type of actor - system or human."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="system"/>
