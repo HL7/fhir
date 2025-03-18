@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+	<id value="high-protein-enteral-supplement"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="443111000124101"/>
+			<display value="High protein Formula (product)"/>
+		</coding>
+	</code>
+	<status value = "active"/>
+  <category>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="346415002"/>
+			<display value="Enteral and supplement feeds (product)"/>
+		</coding>
+	</category>
+	<manufacturer>
+		<display value="Abbott"/>
+	</manufacturer>
+	<nutrient>
+		<item>
+			<concept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="1354492001"/>
+				</coding>
+			</concept>
+		</item>
+		<amountQuantity>
+			<value value="15"/>
+			<unit value="gm/serving"/>
+		</amountQuantity>
+	</nutrient>
+	<energy>
+		<value value="1"/>
+		<unit value="kcal/ml"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="kcal/ml"/>
+	</energy>
+	<instance>
+		<name value="Promote"/>
+	</instance>
+</NutritionProduct>
