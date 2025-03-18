@@ -19,7 +19,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
     </div>
   </text>
 
-      <contained>
+  <contained>
     <!-- Cholesterol observation with profile reference -->
     <Observation>
       <id value="cholesterol"/>
@@ -72,6 +72,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
       </referenceRange>
     </Observation>
+    </contained>
+    <contained>
     
     <!-- Triglyceride observation -->
     <Observation>
@@ -123,8 +125,10 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <text value="Normal range: less than 2.0 mmol/L"/>
       </referenceRange>
     </Observation>
-    
+    </contained>
+
     <!-- HDL Cholesterol observation -->
+    <contained>
     <Observation>
       <id value="hdlcholesterol"/>
       <status value="final"/>
@@ -174,7 +178,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <text value="Desirable: greater than 1.5 mmol/L"/>
       </referenceRange>
     </Observation>
-    
+    </contained>
+    <contained>
     <!-- LDL Cholesterol observation -->
     <Observation>
       <id value="ldlcholesterol"/>
