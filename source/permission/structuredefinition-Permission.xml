@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/secure/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Permission resource holds access rules for a given data and context."/>
+  <description value="Permission resource holds access rules for a given data and access request context."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -67,7 +67,7 @@
     <element id="Permission">
       <path value="Permission"/>
       <short value="Access Rules"/>
-      <definition value="Permission resource holds access rules for a given data and context."/>
+      <definition value="Permission resource holds access rules for a given data and access request context."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

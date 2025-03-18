@@ -23,7 +23,7 @@
   <name value="GenomicStudyStatus"/>
   <title value="Genomic Study Status"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

@@ -23,8 +23,7 @@
   </identifier>
   <name value="VitalSignsUnits"/>
   <title value="Vital Signs Units"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
   <publisher value="FHIR Project"/>
   <description value="Common UCUM units for recording Vital Signs"/>
   <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
@@ -54,6 +53,10 @@
       <concept>
         <code value="[lb_av]"/>
         <display value="pound (US and British)"/>
+      </concept>
+      <concept>
+        <code value="[oz_av]"/>
+        <display value="ounce (US and British)"/>
       </concept>
       <concept>
         <code value="Cel"/>

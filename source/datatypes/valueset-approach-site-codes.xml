@@ -34,7 +34,7 @@
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="phx"/>
   </extension>
   <name value="SNOMEDCTAnatomicalStructureAdministrationSites"/>
   <title value="SNOMED CT Anatomical Structure for Administration Site Codes"/>

@@ -7,7 +7,7 @@
   <name value="CommonUCUMCodesForDuration"/>
   <title value="Common UCUM Codes for Duration"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>

@@ -17,7 +17,7 @@
   <name value="QuestionnaireAnswerConstraint"/>
   <title value="Questionnaire answer constraint codes"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Codes that describe the types of constraints possible on a question item that has a list of permitted answers"/>
   <caseSensitive value="true"/>
   <content value="complete"/>

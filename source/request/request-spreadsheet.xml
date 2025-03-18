@@ -4470,30 +4470,38 @@
     <Cell><Data ss:Type="String">The request (and any implicit authorization to act) has been temporarily withdrawn but is expected to resume in the future</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.suspended</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="58">
-    <Cell><Data ss:Type="String">revoked</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Revoked</Data></Cell>
-    <Cell><Data ss:Type="String">The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43">
-    <Cell><Data ss:Type="String">completed</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell><Data ss:Type="String">The activity described by the request has been fully performed.  No further activity will occur.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.completed</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="86">
     <Cell><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell><Data ss:Type="String">This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be "revoked" rather than "entered-in-error".)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.nullified</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="43">
+    <Cell><Data ss:Type="String">ended</Data>ended</Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Ended</Data></Cell>
+    <Cell><Data ss:Type="String">This request is no longer to be acted upon. This status does not differentiate what degree of action (if any) has already been undertaken against the request.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="43">
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">ended</Data></Cell>
+    <Cell><Data ss:Type="String">Completed</Data></Cell>
+    <Cell><Data ss:Type="String">The activity described by the request has been fully performed.  No further activity will occur.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="58">
+    <Cell><Data ss:Type="String">revoked</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">ended</Data></Cell>
+    <Cell><Data ss:Type="String">Revoked</Data></Cell>
+    <Cell><Data ss:Type="String">The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
+   </Row> 
    <Row ss:AutoFitHeight="0" ss:Height="86">
     <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
     <Cell><Data ss:Type="String">The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
