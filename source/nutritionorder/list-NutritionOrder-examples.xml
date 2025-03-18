@@ -160,4 +160,40 @@
       <display value="Infant Enteral"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Ambulatory Outpatient Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-ambulatory-outpatient"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/ambulatory-outpatient"/>
+      <display value="Ambulatory Outpatient"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Heart Failure Patient Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-heart-failure"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/heart-failure"/>
+      <display value="Heart Failure Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Malnutrition Long Term Care Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-malnutrition"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/malnutritionlongtermcare"/>
+      <display value="Malnutrition Long Term Care Diet"/>
+    </item>
+  </entry>
 </List>

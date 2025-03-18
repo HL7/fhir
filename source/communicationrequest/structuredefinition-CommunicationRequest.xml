@@ -177,7 +177,7 @@
     </element>
     <element id="CommunicationRequest.status">
       <path value="CommunicationRequest.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The status of the proposal or order."/>
       <min value="1"/>
       <max value="1"/>

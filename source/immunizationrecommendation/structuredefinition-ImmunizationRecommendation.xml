@@ -179,8 +179,8 @@
     </element>
     <element id="ImmunizationRecommendation.authority">
       <path value="ImmunizationRecommendation.authority"/>
-      <short value="Who is responsible for protocol"/>
-      <definition value="Indicates the authority who published the protocol (e.g. ACIP)."/>
+      <short value="Who is responsible for schedule"/>
+      <definition value="Indicates the authority who published the schedule (e.g. ACIP, WHO, NITAG)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -457,7 +457,7 @@
     <element id="ImmunizationRecommendation.recommendation.series">
       <path value="ImmunizationRecommendation.recommendation.series"/>
       <short value="Name of vaccination series"/>
-      <definition value="One possible path to achieve presumed immunity against a disease - within the context of an authority."/>
+      <definition value="The name of the vaccination series within the context of the authority which defines the series. A series is one possible path to achieve presumed immunity against a disease."/>
       <min value="0"/>
       <max value="1"/>
       <type>
