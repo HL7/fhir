@@ -199,7 +199,7 @@
         <valueString value="GF#10617."/>
       </extension>
       <path value="CarePlan.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record."/>
       <comment value="The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid."/>
       <requirements value="Allows clinicians to determine whether the plan is actionable or not."/>
