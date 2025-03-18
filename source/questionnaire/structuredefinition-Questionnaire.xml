@@ -1092,7 +1092,7 @@
 				<code value="Coding"/>
 			</type>
 			<type>
-				<code value="Quantity"/>
+				<code value="SimpleQuantity"/>
 			</type>
 			<type>
 				<code value="Reference"/>
@@ -1422,7 +1422,7 @@
 				<code value="Coding"/>
 			</type>
 			<type>
-				<code value="Quantity"/>
+				<code value="SimpleQuantity"/>
 			</type>
 			<type>
 				<code value="Reference"/>
