@@ -304,7 +304,7 @@
 
 <p>As depicted in the above diagram, an EHR invokes a CDS Hooks request at the appropriate point in the workflow, providing the requested context and data. The CDS Service responds by performing an $apply operation against the specified PlanDefinition, and transforming the resulting RequestOrchestration into a CDS Hooks response.</p>
 
-<p>Because PlanDefinitions can be used in a broad range of use cases, this module defines the <a href="library-cqf.html">CQL Library</a> and <a href="computableplandefinition.html">Computable PlanDefinition</a> profiles to describe the special case of a PlanDefinition being used as an event-condition-action rule with conditions and other dynamic behavior specified in a CQL Library. This arrangement provides a common and consistent pattern for describing decision support that can be easily integrated using the CDS Hooks specification.</p>
+<p>For more detailed descriptions of how PlanDefinitions and CQL can be used to represent computable clinical recommendation logic, see the <a href="http://hl7.org/fhir/uv/cpg">FHIR Clinical Guidelines</a>. implementation guide. Specifically, the implementation guide describes the special case of a PlanDefinition being used as an event-condition-action rule with conditions and other dynamic behavior specified in a CQL Library. This arrangement provides a common and consistent pattern for describing decision support that can be easily integrated using the CDS Hooks specification.</p>
 [%file newfooter%]
 </body>
 </html>
