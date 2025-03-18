@@ -549,6 +549,24 @@
         <valueSet value="http://terminology.hl7.org/ValueSet/evidence-quality"/>
       </binding>
     </element>
+    <element id="DetectedIssue.managementCode">
+      <path value="DetectedIssue.managementCode"/>
+      <short value="Importance of taking action on the issue"/>
+      <definition value="An indication of the importance or type of step that should or may be taken in order to address the detected issue. This is different than mitigation in that it is not specifically providing actions to be taken, rather general suggestions about approach."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueManagementCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value=""/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-management-code"/>
+      </binding>
+    </element>
     <element id="DetectedIssue.mitigation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,0"/>
