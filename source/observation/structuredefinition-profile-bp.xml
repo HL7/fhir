@@ -199,10 +199,13 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
       </binding>
     </element>
-    <element id="Observation.component:SystolicBP.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity"/>
+    <element id="Observation.component:SystolicBP.value[x]">
+      <path value="Observation.component.value[x]"/>
       <short value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]"/>
       <definition value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <condition value="vsp-3-sbp"/>
       <mustSupport value="true"/>
       <binding>
@@ -286,10 +289,13 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-diastolicbp"/>
       </binding>
     </element>
-    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity"/>
+    <element id="Observation.component:DiastolicBP.value[x]">
+      <path value="Observation.component.value[x]"/>
       <short value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]"/>
       <definition value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <condition value="vsp-3-dbp"/>
       <mustSupport value="true"/>
       <binding>
