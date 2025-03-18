@@ -103,9 +103,10 @@
     </element>
     <element id="DetectedIssue.identifier">
       <path value="DetectedIssue.identifier"/>
-      <short value="Unique id for the detected issue"/>
-      <definition value="Business identifier associated with the detected issue record."/>
-      <requirements value="Allows linking instances of the same detected issue found on different servers."/>
+      <short value="Business identifier for detected issue"/>
+      <definition value="Business identifiers assigned to this detected issue by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the detected issue as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -131,9 +132,9 @@
     </element>
     <element id="DetectedIssue.status">
       <path value="DetectedIssue.status"/>
-      <short value="preliminary | final | entered-in-error | mitigated"/>
-      <definition value="Indicates the status of the detected issue."/>
-      <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the issue as not currently valid."/>
+      <short value="preliminary | final | entered-in-error | unknown | mitigated"/>
+      <definition value="The current state of the detected issue."/>
+      <comment value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <alias value="status"/>
       <min value="1"/>
       <max value="1"/>
@@ -166,15 +167,16 @@
     </element>
     <element id="DetectedIssue.category">
       <path value="DetectedIssue.category"/>
-      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
-      <definition value="A code that classifies the general type of detected issue."/>
-      <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
+      <short value="High level categorization of detected issue"/>
+      <definition value="Partitions the detected issue into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+      <comment value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#xa;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
       <requirements value="Used for filtering what detected issues are retrieved and displayed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DetectedIssueCategory"/>
@@ -199,7 +201,7 @@
     <element id="DetectedIssue.code">
       <path value="DetectedIssue.code"/>
       <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
-      <definition value="Identifies the specific type of issue identified."/>
+      <definition value="A code that identifies the specific type of issue detected."/>
       <alias value="type"/>
       <min value="0"/>
       <max value="1"/>
@@ -209,11 +211,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DetectedIssueCategory"/>
+          <valueString value="DetectedIssueCode"/>
         </extension>
         <strength value="preferred"/>
         <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-code"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -221,7 +223,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.class"/>
+        <map value="FiveWs.what[x]"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -240,7 +242,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -250,7 +252,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="SeverityObservation"/>
         </extension>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <description value="Indicates the potential degree of impact of the identified issue on the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-severity"/>
       </binding>
@@ -308,10 +310,10 @@
     </element>
     <element id="DetectedIssue.encounter">
       <path value="DetectedIssue.encounter"/>
-      <short value="Encounter detected issue is part of"/>
-      <definition value="The encounter during which this issue was detected."/>
-      <comment value="This will typically be the encounter the DetectedIssue was created during, but some DetectedIssues may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-      <requirements value="Links this detected issue to the Encounter context."/>
+      <short value="Encounter the detected issue is part of"/>
+      <definition value="The Encounter during which this detected issue was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the detected issue was created during, but some detected issues may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <requirements value="Links the detected issue to the Encounter context.  May also affect access control."/>
       <alias value="context"/>
       <min value="0"/>
       <max value="1"/>
@@ -339,8 +341,9 @@
     </element>
     <element id="DetectedIssue.identified[x]">
       <path value="DetectedIssue.identified[x]"/>
-      <short value="When identified"/>
-      <definition value="The date or period when the detected issue was initially identified."/>
+      <short value="When detected issue occurred/is occurring"/>
+      <definition value="The date, period or timing when the detected issue did occur or is occurring."/>
+      <comment value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
       <requirements value="No-one can be responsible for mitigation prior to the issue being identified."/>
       <min value="0"/>
       <max value="1"/>
@@ -350,6 +353,9 @@
       <type>
         <code value="Period"/>
       </type>
+      <type>
+        <code value="Timing"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -357,7 +363,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
+        <map value="FiveWs.done[x]"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

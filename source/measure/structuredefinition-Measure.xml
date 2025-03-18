@@ -154,7 +154,6 @@
       <path value="Measure.identifier"/>
       <short value="Additional identifier for the measure"/>
       <definition value="A formal identifier that is used to identify this measure when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
       <max value="*"/>
@@ -349,9 +348,9 @@
     </element>
     <element id="Measure.experimental">
       <path value="Measure.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of measures that are appropriate for use versus not."/>
+      <short value="For testing only - never for real usage"/>
+      <definition value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of measures that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level measure."/>
       <min value="0"/>
       <max value="1"/>
@@ -761,6 +760,18 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Measure.reportingFrequency">
+      <path value="Measure.reportingFrequency"/>
+      <short value="The frequency in which this measure should be reported (e.g. 1 '/a' - yearly, 4 '/a' - quarterly)"/>
+      <definition value="The frequency that this measure should be reported, usually specified by the program it is being submitted to."/>
+			<comment value="Note that reporting frequency is often specified by the expectations of a quality program or initiative that is making use of the measure, rather than on the measure directly."/>
+      <requirements value="Allows the reporting frequency for the given program to be specified in the Measure itself."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
     <element id="Measure.topic">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 				<valueCode value="deprecated"/>
@@ -949,6 +960,21 @@
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
       </mapping>
     </element>
+    <element id="Measure.scoringPrecision">
+      <path value="Measure.scoringPrecision"/>
+      <short value="How many decimals (The number of decimal places to include in the score when the score is a decimal-valued result)"/>
+      <definition value="When the score is a decimal value this should be used to specify the expected minimum number of digits after the decimal point to use for the precision of the value. When a scoringUnit is also specified, this value is the expected minimum number of digits after the decimal point when the score is expressed in the units specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>
     <element id="Measure.compositeScoring">
       <path value="Measure.compositeScoring"/>
       <short value="opportunity | all-or-nothing | linear | weighted"/>
@@ -1068,6 +1094,9 @@
       </mapping>
     </element>
     <element id="Measure.improvementNotation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>       
       <path value="Measure.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
@@ -1090,7 +1119,7 @@
         <identity value="rim"/>
         <map value=".interpretationCode"/>
       </mapping>
-    </element>
+    </element>    
     <element id="Measure.term">
       <path value="Measure.term"/>
       <short value="Defined terms used in the measure documentation"/>
@@ -1372,6 +1401,21 @@
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
       </mapping>
     </element>
+    <element id="Measure.group.scoringPrecision">
+      <path value="Measure.group.scoringPrecision"/>
+      <short value="How many decimals (The number of decimal places to include in the score when the score is a decimal-valued result)"/>
+      <definition value="When the score is a decimal value this should be used to specify the expected minimum number of digits after the decimal point to use for the precision of the value. When a scoringUnit is also specified, this value is the expected minimum number of digits after the decimal point when the score is expressed in the units specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>
     <element id="Measure.group.rateAggregation">
       <path value="Measure.group.rateAggregation"/>
       <short value="How is rate aggregation performed for this measure"/>
@@ -1391,7 +1435,7 @@
     <element id="Measure.group.improvementNotation">
       <path value="Measure.group.improvementNotation"/>
       <short value="increase | decrease"/>
-      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
+      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range). Exercise caution when using any values besides increase or decrease for improvementNotation."/>
       <comment value="When specified at the group level, this element defines the improvementNotation for this specific group. If not specified, improvementNotation for this group is determined by the root improvementNotation element"/>
       <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
       <min value="0"/>
@@ -1404,7 +1448,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureImprovementNotation"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
@@ -1412,6 +1456,23 @@
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
       </mapping>
     </element>
+    <element id="Measure.group.improvementNotationGuidance">
+      <path value="Measure.group.improvementNotationGuidance"/>
+      <short value="Explanation of improvement notation"/>
+      <definition value="Narrative text to explain the improvement notation and how to interpret it."/>
+      <comment value="This element allows explanation to the improvementNotation be provided. In some cases, additional guidance is required to clearly communicate measure intent around improvement notation. For example, a measure looking at Ceasarean-section births may have an improvement notation of “decrease”, but it is critical to be able to communicate that a measure score of 0 is not the intent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>       
     <element id="Measure.group.library">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Library is not required to allow for measures that are strictly narrative, as well as for measures that have inline criteria expressions."/>

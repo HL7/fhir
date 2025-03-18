@@ -12,7 +12,6 @@
   <name value="VitalSignsDiastolicBP"/>
   <title value="Vital Signs - Diastolic BP"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>

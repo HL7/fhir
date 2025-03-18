@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
+	<id value="example-outcome-death-or-major-injury"/>
+	<url value="https://fevir.net/resources/EvidenceVariable/297743"/>
+	<identifier>
+		<type>
+			<text value="FEvIR Object Identifier"/>
+		</type>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="https://fevir.net/FOI/297743"/>
+		<assigner>
+			<display value="Computable Publishing LLC"/>
+		</assigner>
+	</identifier>
+	<title value="Outcome: Death or Major Traumatic Injury on Impact"/>
+	<shortTitle value="Death or Major Traumatic Injury on Impact"/>
+	<citeAs value="Outcome: Death or Major Traumatic Injury on Impact [Database Entry: FHIR EvidenceVariable Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 297743. Revised 2025-02-15. Available at: https://fevir.net/resources/EvidenceVariable/297743. Computable resource at: https://fevir.net/resources/EvidenceVariable/297743#json."/>
+	<status value="active"/>
+	<author>
+		<name value="Joanne Dehnbostel"/>
+	</author>
+	<publisher value="Computable Publishing LLC"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="support@computablepublishing.com"/>
+		</telecom>
+	</contact>
+	<description value="Example of VariableDefinition for EBMonFHIR IG"/>
+	<useContext>
+		<code>
+			<system value="https://fevir.net/resources/CodeSystem/179423"/>
+			<code value="evidence-communication"/>
+			<display value="Evidence Communication"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="https://fevir.net/resources/CodeSystem/179423"/>
+				<code value="VariableDefinition"/>
+				<display value="VariableDefinition"/>
+			</coding>
+		</valueCodeableConcept>
+	</useContext>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+	<actual value="true"/>
+	<definition>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="417746004"/>
+				<display value="Traumatic injury"/>
+			</coding>
+			<text value="Death or Major Traumatic Injury"/>
+		</concept>
+	</definition>
+	<definitionModifier>
+		<code>
+			<coding>
+				<system value="http://snomed.info/ct"/>
+				<code value="246112005"/>
+				<display value="Severity"/>
+			</coding>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="371924009"/>
+				<display value="Moderate to severe"/>
+			</coding>
+			<text value="Major or Fatal (in the context of severity of traumatic injury)"/>
+		</valueCodeableConcept>
+	</definitionModifier>
+	<handling value="boolean"/>
+	<timing>
+		<contextCode>
+			<text value="impact"/>
+		</contextCode>
+		<offsetDuration>
+			<value value="0"/>
+		</offsetDuration>
+		<text value="on impact"/>
+	</timing>
+</EvidenceVariable>

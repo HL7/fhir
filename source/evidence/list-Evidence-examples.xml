@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="An example of using the relatedArtifact element to quote a line of text from the evidence source."/>
+      <valueString value="An example using the relatedArtifact element to quote text from the evidence source"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="evidence-example-quoted-source"/>
@@ -74,6 +74,30 @@
     <item>
       <reference value="Evidence/example-quoted-source"/>
       <display value="Quoted Source: Prevalence of PASC at 30 days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
+    </extension>
+    <item>
+      <reference value="example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
+      <display value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Statistical analysis plan with different statistical test if non-normal distribution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidence-example-statistic-model-include-if"/>
+    </extension>
+    <item>
+      <reference value="example-statistic-model-include-if"/>
+      <display value="Statistical analysis plan with different statistical test if non-normal distribution"/>
     </item>
   </entry>
 </List>

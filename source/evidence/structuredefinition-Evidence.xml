@@ -125,7 +125,6 @@
 			<path value="Evidence.identifier"/>
 			<short value="Additional identifier for the summary"/>
 			<definition value="A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this summary outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -203,19 +202,15 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
-		<element id="Evidence.citeAs[x]">
+		<element id="Evidence.citeAs">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="490,150"/>
 			</extension>
-			<path value="Evidence.citeAs[x]"/>
-			<short value="Citation for this evidence"/>
-			<definition value="Citation Resource or display of suggested citation for this evidence."/>
+			<path value="Evidence.citeAs"/>
+			<short value="Display of how to cite this Evidence"/>
+			<definition value="Display of the suggested method of how to cite this Evidence."/>
 			<min value="0"/>
 			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-			</type>
 			<type>
 				<code value="markdown"/>
 			</type>
@@ -251,8 +246,9 @@
 		</element>
 		<element id="Evidence.experimental">
 			<path value="Evidence.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of artifacts that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -465,15 +461,59 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="Evidence.relatedArtifact">
-			<path value="Evidence.relatedArtifact"/>
-			<short value="Link or citation to artifact associated with the summary"/>
-			<definition value="Link or citation to artifact associated with the summary."/>
-			<comment value="Use type value 'derived-from' to denote the source for the Evidence content. To express exact phrasing in the source material, use a classifier instance with a coding value of 'Quotation' and a text value of the quoted content. The coding value of 'Quotation' can be expressed with a system value of 'http://hl7.org/fhir/provenance-entity-role', a code value of 'quotation' and a display value of 'Quotation'."/>
-			<min value="0"/>
-			<max value="*"/>
+		<element id="Evidence.relatesTo">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+			<valueCode value="400,0"/>
+		  </extension>
+		  <path value="Evidence.relatesTo"/>
+		  <short value="Relationships to other Resources"/>
+		  <definition value="Relationships that this Evidence has with other FHIR or non-FHIR resources that already exist."/>
+		  <min value="0"/>
+		  <max value="*"/>
+		  <type>
+			<code value="BackboneElement"/>
+		  </type>
+		</element>
+		<element id="Evidence.relatesTo.type">
+		  <path value="Evidence.relatesTo.type"/>
+		  <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
+		  <definition value="The type of relationship to the related artifact."/>
+		  <min value="1"/>
+		  <max value="1"/>
+		  <type>
+			<code value="code"/>
+		  </type>
+		  <binding>
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			  <valueString value="ArtifactRelationshipType"/>
+			</extension>
+			<strength value="required"/>
+			<description value="The type of relationship to the related artifact."/>
+			<valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+		  </binding>
+		</element>
+		<element id="Evidence.relatesTo.target[x]">
+			<path value="Evidence.relatesTo.target[x]"/>
+			<short value="The artifact that is related to this Evidence"/>
+			<definition value="The artifact that is related to this Evidence Resource."/>
+			<min value="1"/>
+			<max value="1"/>
 			<type>
-				<code value="RelatedArtifact"/>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="markdown"/>
 			</type>
 		</element>
 		<element id="Evidence.description">
@@ -998,7 +1038,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.handling">
 			<path value="Evidence.statistic.modelCharacteristic.variable.handling"/>
-			<short value="continuous | dichotomous | ordinal | polychotomous"/>
+			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | extension"/>
 			<definition value="How the variable is classified for use in adjusted analysis."/>
 			<min value="0"/>
 			<max value="1"/>

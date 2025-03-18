@@ -7,30 +7,21 @@
 <p>
 This specification defines a series of different types of resource that can be used to exchange and/or store data 
 in order to solve a wide range of healthcare related problems, both clinical and administrative. In addition,
-this specification defines several different ways of exchanging the resources.
+this specification defines several different ways of exchanging the resources. All the resources defined in this 
+specification and elsewhere are specializations of this Resource type.
 </p>
 <p>
 A resource is an entity that:
 </p>
 <ul>
  <li>has a known identity by which it can be addressed</li>
- <li>identifies itself as one of the types of resource defined in this specification</li>
+ <li>identifies itself as one of the types of resource defined in this specification or as described below</li>
  <li>contains a set of structured data items as described by the definition of the resource type</li>
  <li>has an identified version that changes if the contents of the resource change</li>
 </ul>
 <p>
 Resources have <a href="resource-formats.html">multiple representations</a>. 
 </p>
-<!--
-<p>
-Basic definitions:
-</p>
-<table class="grid">
- <tr> <td>Resource</td> <td>An instance of data that is stored or exchanged</td> </tr>
- <tr> <td>Resource Definition</td> <td>Defines the data elements that are part of the resource</td> </tr>
- <tr> <td>Profile</td> <td>Additional rules about the data elements for a particular context of use. There's a specific type of resource - the <a href="structuredefinition.html">StructureDefinition Resource</a> that is used to represent a profile</td> </tr>
-</table>
--->
 
 </div>
 
@@ -53,6 +44,51 @@ Resource is the ancestor of <a href="domainresource.html">DomainResource</a> fro
 <p>
 Note: there is documentation for the <a href="formats.html">Structure</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations of the resource structure. 
 </p>
+
+<a name="additional"></a>
+<h2>Additional Resources defined Outside This Specification</h2>
+<p>
+This specification defines the base <%res-type-count%> resources that comprise 
+the "FHIR resources". Additional resources may be defined in other specifications,
+and used as part of the FHIR framework. For those implementers who wish to use 
+other resources, or find that they need to, the following rules apply:
+</p>
+<ul>
+ <li>Additional Resources to be used like this SHALL be registered with HL7</li>
+ <li>Unapproved resources SHALL NOT be used</li>
+ <li>Registered and approved resources are given a name by HL7, and this is the name that must be used for the resource</li>
+ <li>All such registered and approved resources SHALL have a publicly available definition using a <a href="structuredefinition.html">StructureDefinition</a>
+   published as part of an <a href="implementationguide.html">ImplementationGuide</a>, published at the canonical URL. Note that the definitions will be reviewed for quality by HL7 prior to approval</li>
+</ul>
+<p>
+HL7 publishes the list of approved resource at <b>(somewhere?)</b> (todo: this needs further work, but at 
+this time the functional list is published here: <a href="https://raw.githubusercontent.com/FHIR/ig-registry/refs/heads/master/additional-resources.json">IG Registry</a>).
+If you wish to register such a resource, the process starts by making a proposal <a href="https://chat.fhir.org/#narrow/channel/491058-Additional-Resource-Proposals">here</a>.
+</p>
+<p>
+These sections contain information about how additional resources work in the various places that they may be 
+encountered through this specification:
+</p>
+<ul>
+ <li><a href="json.html#additional">JSON representation</a></li>
+ <li><a href="xml.html#additional">XML representation</a></li>
+ <li><a href="structuredefinition.html#additional">Defining Additional Resources</a></li>
+ <li><a href="bundle.html#additional">Bundle.entry</a></li>
+ <li><a href="capabilitystatement.html#additional">CapabilityStatement.rest.resource</a></li>
+ <li><a href="domainresource.html#additional">DomainResource.contained</a></li>
+ <li><a href="parameters.html#additional">Parameters.parameter.resource</a></li>
+</ul>
+
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+Additional resources are a new and major feature introduced as part of FHIR R6.
+The primary driver is to support distributed development of new resources on 
+faster life cycles than the main specification, which we expect to slow considerably 
+once R6 is published
+</p><p>
+We expect considerable debate about this idea and how it's implemented, and
+we welcome comment in the ballot, or directly on <a href="http://chat.fhir.org">chat.fhir.org</a>
+</p></blockquote>
 
 </div>
 

@@ -16,7 +16,7 @@
   <name value="InteractionTrigger"/>
   <title value="Interaction Trigger"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

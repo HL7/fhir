@@ -9,7 +9,7 @@
     <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="mnm"/>
+    <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/resource-status"/>
   <identifier>
@@ -82,29 +82,34 @@
     <definition value="The process described/requested in this resource has been halted for some reason"/>
   </concept>
   <concept>
-    <code value="failed"/>
-    <display value="failed"/>
-    <definition value="The process described/requested in the resource could not be completed, and no further action is planned"/>
-  </concept>
-  <concept>
     <code value="replaced"/>
     <display value="replaced"/>
     <definition value="The information in this resource has been replaced by information in another resource"/>
   </concept>
   <concept>
-    <code value="complete"/>
-    <display value="complete"/>
-    <definition value="The process described/requested in the resource has been completed, and no further action is planned"/>
+    <code value="ended"/>
+    <display value="ended"/>
+    <definition value="The process described/requested has reached a state where no further action is planned"/>
+    <concept>
+      <code value="complete"/>
+      <display value="complete"/>
+      <definition value="The process described/requested in the resource has been completed, and no further action is planned"/>
+    </concept>
+    <concept>
+      <code value="failed"/>
+      <display value="failed"/>
+      <definition value="The process described/requested in the resource could not be completed, and no further action is planned"/>
+    </concept>
+    <concept>
+      <code value="abandoned"/>
+      <display value="abandoned"/>
+      <definition value="The process described/requested in the resource did not complete - usually due to some workflow error, and no further action is planned"/>
+    </concept>
   </concept>
   <concept>
     <code value="inactive"/>
     <display value="inactive"/>
     <definition value="The resource describes information that is no longer valid or a process that is stopped occurring"/>
-  </concept>
-  <concept>
-    <code value="abandoned"/>
-    <display value="abandoned"/>
-    <definition value="The process described/requested in the resource did not complete - usually due to some workflow error, and no further action is planned"/>
   </concept>
   <concept>
     <code value="unknown"/>

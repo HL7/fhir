@@ -20,8 +20,8 @@ requires special care: For new resources that need to have a corresponding Prove
 reference is often not knowable until after the target resource has been updated. This can create an 
 integrity problem for the system - what if the Provenance resource cannot be created after the target 
 resource has been updated? To avoid any such integrity problems, the target resource and the Provenance resources should be submitted 
-as a pair using a <a href="http.html#transaction">transaction</a>. 
-The <a href="provenance.html#header">Provenance http header</a> may be used if supported. 
+as a pair using a <a href="http.html#transaction">transaction</a> (see the <a href="bundle-transaction.html">Transaction Example</a>). 
+Alternatively, the <a href="provenance.html#header">Provenance http header</a> may be used if supported. 
 </p>
 
 <a name="element"> </a>
@@ -45,13 +45,13 @@ X-Provenance: { "resourceType": "Provenance", "location": { "reference": "Locati
 [body]
 </pre>
 <p>
-The intent is that the server picks up the provenance, fills out the  <code>target</code>,
+The intent is that the server picks up the provenance, fills out the <code>target</code>,
 and then stores the provenance information as it normally would.
 Notes:
 </p>
 <ul>
  <li>Irrespective of the Content-Type or Accept headers, the Provenance resource is in the <a href="json.html">JSON format</a></li>
- <li>The provenance SHALL not have a specified <code>Provenance.target</code>. The server will fill the <code>target</code> in as it processes 
+ <li>The provenance SHALL NOT have a specified <code>Provenance.target</code>. The server will fill the <code>target</code> in as it processes 
      the contents of the POST/PUT and determines the ids of the resource(s) to which the interaction applies</li>
  <li>Servers MAY ignore the header, but SHOULD process it if they support provenance</li>
  <li>Some server frameworks impose a length limit on individual HTTP headers, or on the the headers as a whole. Servers MAY reject a request if the X-Provenance header is too long</li>

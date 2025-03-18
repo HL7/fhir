@@ -11,10 +11,16 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
   <url value="http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-origin-relationship"/>
-  <version value="0.1.0"/>
+  <version value="6.0.0"/>
   <name value="BiologicallyDerivedProductDispenseOriginRelationship"/>
-  <title value="Biologically derived product dispense - origin relationship"/>
+  <title value="Biologically Derived Product Dispense Origin Relationship"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2023-01-29T21:19:50+01:00"/>
@@ -24,8 +30,12 @@
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
   </contact>
-  <description value="Biologically derived product dispense - origin relationship"/>
+  <description value="Biologically Derived Product Dispense Origin Relationship"/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>

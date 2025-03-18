@@ -8,14 +8,6 @@
             <display value="DNA Sequence"/>
         </coding>
     </moleculeType>
-    <!--    <subject>
-            <reference value="Patient/example"/>
-        </subject>-->
-    <!--    <formatted>
-            <contentType value="application/json"/>
-            <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
-            <title value="GA4GH API"/>
-        </formatted>-->
     <representation>
         <literal>
             <value value="ATGAACAGACAAGTAAAAGACATGACAGYGATACTTTCCCAGAGCTGAAGTTAACAAATGCACCTGGTTC
@@ -30,14 +22,6 @@
                 AAAGTCCAAAAGTCACTTTTGAATGTGAACAAAAGGAAGAAAATCAAGGAAAGAATGAGTCTAATATCAA
                 GCCTGTACAGACAGTTAATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGAGCCTGTACAGACAGTT
                 AATATCACTGCAGGCTTTCCTGTGGTTGGTCAGAAAGA"/>
-            <!--    <encoding>
-            <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/..."/>
-                <code value=""/>
-                <display value=""/>
-            </coding>
-            <text value=""/>
-        </encoding>-->
         </literal>
     </representation>
 </MolecularDefinition>

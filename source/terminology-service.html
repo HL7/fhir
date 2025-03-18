@@ -1243,7 +1243,7 @@ If there's new entries in the closure table, the server returns a 200 OK with:
       "code": "22298006",
       "target": [{
         "code": "128599005",
-        "equivalence": "subsumes"
+        "relationship": " source-is-narrower-than-target"
       }]
     }
   }]
@@ -1254,7 +1254,7 @@ If there's new entries in the closure table, the server returns a 200 OK with:
 <ul>
  <li>The server can return multiple elements, each with 1 or more targets</li>
  <li>servers may return the relationship represented in either direction</li>
- <li>it's important to understand the relationship the right way around. From the spec: The equivalence is read from target to source (e.g. the target is 'wider' than the source). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
+ <li>it's important to understand the relationship the right way around. From the definition for <a href="https://www.hl7.org/fhir/conceptmap-definitions.html#ConceptMap.group.element.target.relationship ">ConceptMap.group.element.target.relationship</a>: the relationship is read from source to target (e.g. source-is-narrower-than-target). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
  <li>In the $closure operation, the response never explicitly states that a code is subsumed by itself. Clients should assume that this is implicit</li>
  <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions it has issued for replay (see below)</li>
  <li>As well as entering codes that are actually used, the client also enters search terms into the closure table</li>

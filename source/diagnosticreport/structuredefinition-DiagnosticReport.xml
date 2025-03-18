@@ -340,6 +340,16 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.relatesTo">
+      <path value="DiagnosticReport.relatesTo"/>
+      <short value="Related DiagnosticReports"/>
+      <definition value="Other DiagnosticReports that the current DiagnosticReport replaces, amendens, extends, or otherwise relates to."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
     <element id="DiagnosticReport.encounter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3839]."/>
@@ -464,6 +474,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
       </type>
       <isSummary value="true"/>
       <mapping>

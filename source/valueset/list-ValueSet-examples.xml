@@ -42,6 +42,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Example using proeprty filter (intensional) defined in a supplement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-supplement"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-supplement"/>
+      <display value="supplement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="ValueSet Example using a prepared expansion"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

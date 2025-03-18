@@ -24,6 +24,7 @@ The JSON representation for a resource is based on the <a href="https://www.rfc-
 
 <pre class="spec">{
   "resourceType" : "<a title="The resource type being referenced" class="dict" href="resourcelist.html"><b>[Resource Type]</b></a>",
+  "resourceDefinition" : "<a title="The resource definition for additional resources" class="dict" href="resource.html#additional">(see below)</a>",
   // from <a href="json.html">Source</a>: <a href="json.html">property0</a>
   "<a title="long description" class="dict" href="json.html">property1</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html">[primitive]</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
   "<a title="long description" class="dict" href="json.html">property2</a>" : { <span style="color: darkgreen"><a href="datatypes.html">[Datatype]</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
@@ -58,11 +59,10 @@ Using this format:
  <li>Objects are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>String property values can never be empty. Either the property is absent, or it is present with at least one character of content</li>
  <li>The <span style="color: brown"><b>R!</b></span> denotes that an element is mandatory - it must be present (or in an array, at least one item must be present)</li>
- <li>In this format, <code>//</code> is used for comments. While // is legal in Javascript, it is not legal in JSON, and comments SHALL not be in JSON instances irrespective of whether particular applications ignore them</li>
+ <li>In this format, <code>//</code> is used for comments. While // is legal in Javascript, it is not legal in JSON, and comments SHALL NOT be in JSON instances irrespective of whether particular applications ignore them</li>
  <li>The character encoding is always UTF-8</li>
  <li>The MIME-type for this format is <code>application/fhir+json</code>.</li>
 </ul>
-
 <p>
 Given the way <a href="extensibility.html">extensions</a> work, applications reading
 JSON resources will never encounter unknown properties. However, once an application
@@ -72,15 +72,47 @@ in order to foster forwards compatibility in this regard, but may also choose no
 <!-- Applications declare their behavior with regard to unknown elements using
 <a href="capabilitystatement-definitions.html#CapabilityStatement.acceptUnknown">CapabilityStatement.acceptUnknown</a>. -->
 </p>
-<a name="xml"></a>
+
+
+<a name="additional"></a>
+<h3>JSON representation of additional resources</h3>
+
 <p>
-This page contains some XML examples for the purposes of 
-comparison between the two formats. The formats page has 
-a <a href="resource-formats.html#comparison">comparison between the JSON and XML formats</a>.
+When <a href="resource.html#additional">additional resources</a> are represented in JSON, the
+resourceType property contains the name of the resource as allocated by HL7, and an additional
+property is present, <code>resourceDefinition</code>. The resourceDefinition value is a 
+canonical reference to the definition of the resource and always includes the version explicitly,
+e.g.  
 </p>
+
+<pre class="json">
+{
+  "resourceType" : "ViewDefinition",
+  "resourceDefinition" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition|2.0.0-pre",
+  "id": "a-valid-id",
+  // etc
+}
+</pre>
+
+<p>
+The <code>resourceDefinition</code> property is a feature of the JSON format, and is not defined anywhere 
+in the structural definitions of FHIR (in the same way that the <code>resourceType</code> property is not).
+The resourceDefinition property is not present if the resourceType is one defined in this specification.
+</p>
+<blockquote class="ballot-note">
+  <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
+  </blockquote>
+  
 
 <a name="repeat"></a>
 <h3>JSON Representation for repeating elements</h3>
+
+<a name="xml"></a>
+<p>
+Note that this page contains some XML examples for the purposes of 
+comparison between the two formats. The formats page has 
+a <a href="resource-formats.html#comparison">comparison between the JSON and XML formats</a>.
+</p>
 
 <p>
 An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.

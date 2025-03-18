@@ -156,7 +156,6 @@
 			<path value="PlanDefinition.identifier"/>
 			<short value="Additional identifier for the plan definition"/>
 			<definition value="A formal identifier that is used to identify this plan definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this plan definition outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -368,9 +367,9 @@
 		</element>
 		<element id="PlanDefinition.experimental">
 			<path value="PlanDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of plan definitions that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of plan definitions that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level plan definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1545,7 +1544,7 @@
 			<path value="PlanDefinition.action.condition"/>
 			<short value="Whether or not the action is applicable"/>
 			<definition value="An expression that describes applicability criteria or start/stop conditions for the action."/>
-			<comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true."/>
+			<comment value="If no applicability conditions are present, the action is considered applicable (i.e. it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g. applicability and start criteria are never considered together)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
