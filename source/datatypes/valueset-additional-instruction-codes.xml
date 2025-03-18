@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="phx"/>
   </extension>
   <name value="SNOMEDCTAdditionalDosageInstructions"/>
   <title value="SNOMED CT Additional Dosage Instructions"/>

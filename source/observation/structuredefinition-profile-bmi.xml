@@ -81,6 +81,13 @@
       <path value="Observation"/>
       <short value="FHIR Body Mass Index (BMI) Profile"/>
       <definition value="This profile defines  how to represent Body Mass Index (BMI) observations in FHIR using a standard LOINC code and UCUM units of measure."/>
+      <constraint>
+        <key value="vs-4"/>
+        <severity value="error"/>
+        <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
+        <expression value="dataAbsentReason.exists() or value.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
     </element>
     <element id="Observation.category">
       <path value="Observation.category"/>
@@ -120,6 +127,7 @@
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
+      <condition value="vsp-4"/>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
@@ -135,6 +143,7 @@
     </element>
     <element id="Observation.dataAbsentReason">
       <path value="Observation.dataAbsentReason"/>
+      <condition value="vsp-4"/>
       <mustSupport value="true"/>
     </element>
   </differential>

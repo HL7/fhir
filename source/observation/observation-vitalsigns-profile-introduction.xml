@@ -5,7 +5,7 @@
 		</h2>
 		<a name="dstu"></a>
 		<p>Vital signs is one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient.  These include the "primary" vital signs of heart rate, respiratory rate, blood pressure (systolic and diastolic) and body temperature, plus additional measurements such as body height, body weight, BMI and oxygen saturation. Support for basic mandatory searching of resources is defined below in the <a href="#Quick_Start">Quick Start</a> section. When a FHIR implementation supports any of the vital signs observations listed below, the implementation <strong>SHALL</strong> conform to the vital signs base profile and also the profile for the specific vital sign observation.</p>
-		<p><i>[Note: These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.]</i></p>
+		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations that were developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project.]</i></p>
 	</div>
 	<div>
 		<a name="bnc"></a>
@@ -67,7 +67,7 @@
 					</td>
 					<td>85353-1</td>
 					<td>
-						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em> - It represent a panel of vital signs listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.    When used, Observation.valueQuantity is not present; instead, related links (with type=has-member) reference the vital signs observations  (e.g. respiratory rate, heart rate, BP, etc.).  This code replaces the deprecated code 8716-3  - <em>Vital signs</em>  which is used in the Argonaut Data Query Implementation Guide. </td>
+						It represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>
