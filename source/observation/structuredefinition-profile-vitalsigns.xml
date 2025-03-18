@@ -86,28 +86,28 @@
       <alias value="Results"/>
       <alias value="Tests"/>
       <constraint>
-        <key value="vs-1"/>
+        <key value="vsp-1"/>
         <severity value="error"/>
         <human value="if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day"/>
         <expression value="(effective as dateTime).toString().length() >= 8"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
       <constraint>
-        <key value="vs-2"/>
+        <key value="vsp-2"/>
         <severity value="error"/>
         <human value="If there is no component or hasMember element then either a value[x] or a data absent reason must be present."/>
         <expression value="(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
       <constraint>
-        <key value="vs-3"/>
+        <key value="vsp-3"/>
         <severity value="error"/>
         <human value="If component exists and there is no component value a component data absent reason must be present (used in defined slices of Observation.component)"/>
         <expression value="component.exists() implies (component.value.exists() or component.dataAbsentReason.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
       <constraint>
-        <key value="vs-4"/>
+        <key value="vsp-4"/>
         <severity value="error"/>
         <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
         <expression value="dataAbsentReason.exists() or value.exists()"/>
@@ -192,7 +192,7 @@
       <type>
         <code value="Period"/>
       </type>
-      <condition value="vs-1"/>
+      <condition value="vsp-1"/>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.value[x]">
@@ -202,7 +202,7 @@
       <type>
         <code value="Quantity"/>
       </type>
-      <condition value="vs-2"/>
+      <condition value="vsp-2"/>
     </element>
     <element id="Observation.value[x]:valueQuantity">
       <path value="Observation.valueQuantity"/>
@@ -222,7 +222,7 @@
     </element>
     <element id="Observation.dataAbsentReason">
       <path value="Observation.dataAbsentReason"/>
-      <condition value="vs-2"/>
+      <condition value="vsp-2"/>
     </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
