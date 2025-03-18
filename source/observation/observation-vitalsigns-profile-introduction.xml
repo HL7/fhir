@@ -42,6 +42,16 @@
 		</ol>
 	</div>
 	<div>
+		<a name="must-support"></a>
+		<h2>Must Support Expectations for Vital Signs Profiles</h2>
+		<p>When a Vital Signs profile element is marked as mustSupport, the minimum expectations are:
+		<ul>
+			<li>Senders must populate the mustSupport element if the data is available and permissions allow.</li>
+			<li>Receivers must be capable of consuming the mustSupport element if the element is relevant to their business case.</li>
+		</ul>
+		</p>
+	</div>
+	<div>
 		<a name="vitals-table"></a>
 		<h2>Formal View of Specific Vital Signs Profile Content</h2>
 		<ul>
