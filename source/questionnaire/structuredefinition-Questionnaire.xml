@@ -877,6 +877,12 @@
         <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
         <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
       </constraint>
+			<constraint>
+        <key value="que-17"/>
+        <severity value="error"/>
+        <human value="If question is non-repeating, cannot have more than one initialSelected answer option"/>
+        <expression value="repeats.not() implies answerOption.where(initialSelected=true).count() &lt;= 1"/>
+      </constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".id"/>
@@ -1294,6 +1300,7 @@
 			<condition value="que-4"/>
 			<condition value="que-11"/>
 			<condition value="que-14"/>
+			<condition value="que-17"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
