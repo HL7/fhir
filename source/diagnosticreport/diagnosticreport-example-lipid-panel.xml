@@ -21,7 +21,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 
       <contained>
     <!-- Cholesterol observation with profile reference -->
-    <!-- <Observation>
+    <Observation>
       <id value="cholesterol"/>
       <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
@@ -74,7 +74,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         </high>
         <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
       </referenceRange>
-    </Observation> -->
+    </Observation>
     
     <!-- Triglyceride observation -->
     <Observation>
@@ -263,16 +263,16 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
   
   <!-- References to contained observations -->
   <result>
-    <reference value="cholesterol"/>
+    <reference value="#cholesterol"/>
   </result>
   <result>
-    <reference value="triglyceride"/>
+    <reference value="#triglyceride"/>
   </result>
   <result>
-    <reference value="hdlcholesterol"/>
+    <reference value="#hdlcholesterol"/>
   </result>
   <result>
-    <reference value="ldlcholesterol"/>
+    <reference value="#ldlcholesterol"/>
   </result>
   
  
