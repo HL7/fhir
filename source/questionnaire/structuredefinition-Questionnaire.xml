@@ -795,8 +795,8 @@
 			<constraint>
 				<key value="que-1a"/>
 				<severity value="error"/>
-				<human value="Group items must have nested items when Questionanire is complete"/>
-				<expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
+				<human value="Group items must have nested items when Questionanire is active"/>
+				<expression value="(type='group' and %resource.status='active') implies item.empty().not()"/>
 			</constraint>
 			<constraint>
 				<key value="que-1b"/>
