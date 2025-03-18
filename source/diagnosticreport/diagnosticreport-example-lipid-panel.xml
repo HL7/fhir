@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="lipid-panel-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/lipids-diagnostic-report"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>
+      <pre>
+Test                  Units       Value       Reference Range
+Cholesterol           mmol/L      6.3         &lt;4.5
+Triglyceride          mmol/L      1.3         &lt;2.0
+HDL Cholesterol       mmol/L      1.3         &gt;1.5
+LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
+      </pre>
+      <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
+    </div>
+  </text>
 
-    <contained>
+      <contained>
     <!-- Cholesterol observation with profile reference -->
     <Observation>
       <id value="cholesterol"/>
@@ -213,33 +230,6 @@
       </referenceRange>
     </Observation>
   </contained>
-
-
-
-
-
-
-
-
-
-
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/lipids-diagnostic-report"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>
-      <pre>
-Test                  Units       Value       Reference Range
-Cholesterol           mmol/L      6.3         &lt;4.5
-Triglyceride          mmol/L      1.3         &lt;2.0
-HDL Cholesterol       mmol/L      1.3         &gt;1.5
-LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
-      </pre>
-      <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
-    </div>
-  </text>
   <identifier>
     <system value="http://acme.com/lab/reports"/>
     <value value="5234342"/>
