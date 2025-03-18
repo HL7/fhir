@@ -178,22 +178,28 @@
       <type>
         <code value="Period"/>
       </type>
-      <condition value="vs-1"/>
+      <condition value="vsp-1"/>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
       <type>
         <code value="Quantity"/>
       </type>
-      <condition value="vs-2"/>
+      <condition value="vsp-2"/>
+    <!--
     </element>
     <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity"/>
+      <path value="Observation.value[x]"/>
+      <sliceName value="valueQuantity"/>
       <short value="Vital Sign value recorded with UCUM (preferred)"/>
       <definition value="Vital Sign value recorded with UCUM (preferred)."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      -->
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Common UCUM units for recording Vital Signs."/>
@@ -208,7 +214,7 @@
     </element>
     <element id="Observation.dataAbsentReason">
       <path value="Observation.dataAbsentReason"/>
-      <condition value="vs-2"/>
+      <condition value="vsp-2"/>
     </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
@@ -237,13 +243,25 @@
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
-      <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <slicing> 
+        <discriminator> 
+          <type value="type"/> 
+          <path value="$this"/> 
+        </discriminator> 
+        <ordered value="false"/> 
+        <rules value="open"/> 
+      </slicing> 
+      <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
     </element>
     <element id="Observation.component.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity"/>
-      <short value="Vital Sign value recorded as a component with UCUM (preferred)"/>
-      <definition value="Vital Sign value recorded as a component with UCUM (preferred)."/>
+      <path value="Observation.component.value[x]"/>
+      <sliceName value="valueQuantity"/>
+      <short value="Vital Sign component value recorded as a component with UCUM (preferred)"/>
+      <definition value="Vital Sign component value recorded as a component with UCUM (preferred)."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="UCUM units"/>
