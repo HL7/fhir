@@ -330,7 +330,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="tr-1"/>
       <condition value="tr-2"/>
     </element>
     <element id="TestReport.setup.action.operation.result">
@@ -386,7 +385,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="tr-1"/>
       <condition value="tr-2"/>
     </element>
     <element id="TestReport.setup.action.assert.result">
