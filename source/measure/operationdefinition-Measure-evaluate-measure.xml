@@ -122,6 +122,10 @@
     <max value="1"/>
     <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of individual will be used if the subject parameter is supplied, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
     <type value="code"/>
+    <binding>
+      <strength value="required"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/measure-report-evaluation-type"/>
+    </binding>
   </parameter>
   <parameter>
     <name value="provider"/>
