@@ -1483,7 +1483,7 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="id"/>
+				<code value="string"/>
 			</type>
 			<condition value="pld-3"/>
 			<mapping>
@@ -1657,7 +1657,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="id"/>
+				<code value="string"/>
 			</type>
 			<condition value="pld-0"/>
 			<mapping>
@@ -1759,7 +1759,7 @@
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="id"/>
+				<code value="string"/>
 			</type>
 			<condition value="pld-4"/>
 			<mapping>
