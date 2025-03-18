@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>rik</LastAuthor>
+  <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-05-09T10:27:29Z</LastSaved>
+  <LastSaved>2025-03-17T23:50:59Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,7 +18,6 @@
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -654,7 +653,8 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="71.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="86.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="38.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="15" ss:StyleID="s68" ss:Width="579.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="479.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="579.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="21" ss:StyleID="s68" ss:Width="165.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="29" ss:StyleID="s69">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Element</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Format is ResourceName.componentName.componentName</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -686,9 +686,8 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">MarketingStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String">BackboneType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">administrative.medication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">Should be a datatype but couldn’t make it work as one</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">The marketing status describes the date when an item is actually put on the market or the date as of which it is no longer available</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The marketing status describes the date when an item is actually put on the market or the date as of which it is no longer available</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.country</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -704,7 +703,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The country in which the marketing authorization has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The country in which the marketing status applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -720,7 +719,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Where a Medicines Regulatory Agency has granted a marketing authorization for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The jurisdiction in which the marketing status applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -736,7 +735,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">This attribute provides information on the status of the marketing of the item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="72" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.dateRange</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -752,7 +751,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The dates that the item is made available on the market by the owner (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction. Note that “on the market” refers to the release of the item into the distribution chain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="72" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.restoreDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -768,7 +767,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The date when the item is due to be placed back on the market by the owner, manufacturer or distributor, after a suspension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

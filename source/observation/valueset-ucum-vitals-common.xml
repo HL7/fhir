@@ -55,6 +55,10 @@
         <display value="pound (US and British)"/>
       </concept>
       <concept>
+        <code value="[oz_av]"/>
+        <display value="ounce (US and British)"/>
+      </concept>
+      <concept>
         <code value="Cel"/>
         <display value="degree Celsius"/>
       </concept>

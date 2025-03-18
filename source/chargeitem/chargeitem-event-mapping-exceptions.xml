@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="ChargeItem"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="ChargeItem" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ChargeItem.identifier">
         <shortUnmatched reason="Unknown">
@@ -46,8 +45,8 @@
             <resource value="The current state of the ChargeItem."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#10;&#10;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="ChargeItem.code">
@@ -95,7 +94,7 @@
             <resource value="Date/time(s) or duration when the charged service was applied."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="The list of types may be constrained as appropriate for the type of charge item."/>
         </commentsUnmatched>
     </divergentElement>
@@ -140,8 +139,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ChargeItem.performingOrganization">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed charge item"/>

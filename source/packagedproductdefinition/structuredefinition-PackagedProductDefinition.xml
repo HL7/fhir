@@ -90,7 +90,7 @@
     <element id="PackagedProductDefinition.identifier">
       <path value="PackagedProductDefinition.identifier"/>
       <short value="A unique identifier for this package as whole - not for the content of the package"/>
-      <definition value="A unique identifier for this package as whole - not the the content of the package. Unique instance identifiers assigned to a package by manufacturers, regulators, drug catalogue custodians or other organizations."/>
+      <definition value="A unique identifier for this package as whole - not the content of the package. Unique instance identifiers assigned to a package by manufacturers, regulators, drug catalogue custodians or other organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>

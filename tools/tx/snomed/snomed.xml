@@ -107,6 +107,9 @@
   <concept id="133932002" display="Caregiver">
     <display value="Caregiver"/>
   </concept>
+  <concept id="1354492001" display="Nutritional protein and/or protein derivative">
+    <display value="Nutritional protein and/or protein derivative"/>
+  </concept>
   <concept id="14168008" display="Rabies">
     <display value="Rabies"/>
   </concept>

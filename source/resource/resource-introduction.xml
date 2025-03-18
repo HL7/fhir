@@ -46,7 +46,7 @@ Note: there is documentation for the <a href="formats.html">Structure</a>, <a hr
 </p>
 
 <a name="additional"></a>
-<h2>Additional Resources defined Outside This Specification</h2>
+<h3>Additional Resources defined Outside This Specification</h3>
 <p>
 This specification defines the base <%res-type-count%> resources that comprise 
 the "FHIR resources". Additional resources may be defined in other specifications,

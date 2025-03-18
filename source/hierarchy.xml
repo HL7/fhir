@@ -485,6 +485,10 @@ signatures.html
 		<!--<page type="resource" resource="Nutrition"/>-->
       </page>
 
+      <page title="Device" filename="device-module.html">
+		<!--<page type="resource" resource="Device"/>-->
+      </page>
+
 
   </page>
 

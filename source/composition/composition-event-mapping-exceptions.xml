@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="Composition"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="Composition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Composition.identifier">
         <shortUnmatched reason="Unknown">
@@ -29,8 +28,8 @@
             <resource value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xa;&#xa;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#10;&#10;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="Composition.type">
@@ -92,14 +91,13 @@
             <resource value="The composition editing time, when the composition was last logically changed by the author."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="The Last Modified Date on the composition may be after the date of the document was attested without being changed. This means that the date on an amended document is the date of the amendment, not the date of original authorship."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="Composition.author">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(Practitioner,PractitionerRole,CareTeam,Device,Patient,RelatedPerson,Organization)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Practitioner,PractitionerRole,CareTeam,Device,Patient,RelatedPerson,Organization)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed composition and what they did"/>
             <resource value="Who and/or what authored the composition"/>
