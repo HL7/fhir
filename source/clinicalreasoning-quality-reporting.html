@@ -178,6 +178,17 @@
 	<li>When the expressions involve multiple libraries, rather than having to retrieve and deal with the requirements for each library, the $data-requirements operation can aggregate the requirements and return them as a single <code>module-definition</code> library.</li>
 </ul>
 
+<a name="composite-measures"> </a>
+<h4>Composite Measures</h4>
+
+<p>In addition to multiple rate measures, the Measure resource allows for <em>composite measures</em> to be built by referencing existing measures. For example, public health indicators may be defined and combined in multiple ways by different public health agencies:</p>
+
+<img alt="Measure Structure" src="pha-sample-measure-outline.png" style="width:600px;height:400px"/>
+
+<p>In the above example, two different agencies are able to make use of the same definitions in different ways by using composite measures.</p>
+
+<p>For a more complete treatment of composite measures, refer to the <a href="http://hl7.org/fhir/uv/cqm">Quality Measure</a> implementation guide.</p>
+
 <a name="invoking-measures"> </a>
 <h4>Invoking Measures</h4>
 
