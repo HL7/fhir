@@ -1229,7 +1229,7 @@
 			<path value="PlanDefinition.actor.option.typeReference"/>
 			<short value="Who or what can participate"/>
 			<definition value="The type of participant in the action."/>
-			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location). Note that specimen as a participant in cell-line research is acceptable, but specimen in clinical research would typically be represented as the focus rather the subject."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1969,7 +1969,7 @@
 			<path value="PlanDefinition.action.participant.typeReference"/>
 			<short value="Who or what can participate"/>
 			<definition value="The type of participant in the action."/>
-			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location). Note that specimen as a participant in cell-line research is acceptable, but specimen in clinical research would typically be represented as the focus rather the subject."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
