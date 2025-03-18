@@ -20,6 +20,7 @@
 		</assigner>
 	</identifier>
 	<title value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
+	<citeAs value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator [Database Entry: FHIR Evidence Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 318273. Revised 2025-02-17. Available at: https://fevir.net/resources/Evidence/318273. Computable resource at: https://fevir.net/resources/Evidence/318273#json."/>
 	<status value="active"/>
 	<author>
 		<name value="Joanne Dehnbostel"/>
@@ -32,18 +33,14 @@
 		</telecom>
 	</contact>
 	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-	<relatedArtifact>
+	<relatesTo>
 		<type value="part-of"/>
-		<resourceReference>
+		<targetReference>
 			<reference value="Composition/312172"/>
 			<type value="Composition"/>
 			<display value="PARACHUTE Trial Results"/>
-		</resourceReference>
-	</relatedArtifact>
-	<relatedArtifact>
-		<type value="cite-as"/>
-		<citation value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator [Database Entry: FHIR Evidence Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 318273. Revised 2025-02-17. Available at: https://fevir.net/resources/Evidence/318273. Computable resource at: https://fevir.net/resources/Evidence/318273#json."/>
-	</relatedArtifact>
+		</targetReference>
+	</relatesTo>
 	<description value="Example Evidence Resource for EBMonFHIR IG using SingleStudyEvidence and ComparativeEvidence Profiles"/>
 	<variableDefinition>
 		<variableRole value="population"/>

@@ -81,7 +81,7 @@
       <constraint>
         <key value="ing-1"/>
         <severity value="error"/>
-        <human value="If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allegen information should be documented in that resource"/>
+        <human value="If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allergen information should be documented in that resource"/>
         <expression value="Ingredient.where(allergenicIndicator=true).count() + Ingredient.substance.code.reference.count()  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
       </constraint>
@@ -224,7 +224,7 @@
     <element id="Ingredient.allergenicIndicator">
       <path value="Ingredient.allergenicIndicator"/>
       <short value="If the ingredient is a known or suspected allergen"/>
-      <definition value="If the ingredient is a known or suspected allergen. Note that this is a property of the substance, so if a reference to a SubstanceDefinition is used to decribe that (rather than just a code), the allergen information should go there, not here."/>
+      <definition value="If the ingredient is a known or suspected allergen. Note that this is a property of the substance, so if a reference to a SubstanceDefinition is used to describe that (rather than just a code), the allergen information should go there, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -402,7 +402,7 @@
     <element id="Ingredient.substance.strength.textPresentation">
       <path value="Ingredient.substance.strength.textPresentation"/>
       <short value="Text of either the whole presentation strength or a part of it (rest being in Strength.presentation as a ratio)"/>
-      <definition value="A textual represention of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio."/>
+      <definition value="A textual representation of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -441,7 +441,7 @@
     <element id="Ingredient.substance.strength.textConcentration">
       <path value="Ingredient.substance.strength.textConcentration"/>
       <short value="Text of either the whole concentration strength or a part of it (rest being in Strength.concentration as a ratio)"/>
-      <definition value="A textual represention of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio."/>
+      <definition value="A textual representation of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio."/>
       <min value="0"/>
       <max value="1"/>
       <type>
