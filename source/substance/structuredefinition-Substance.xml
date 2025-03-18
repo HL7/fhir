@@ -97,7 +97,7 @@
       </extension>
       <path value="Substance.identifier"/>
       <short value="Unique identifier"/>
-      <definition value="Unique identifier for the substance. For an instance, an identifier associated with the package/container (usually a label affixed directly)."/>
+      <definition value="Unique identifier for the substance, often an identifier associated with the package/container of the substance instance (usually a label affixed directly)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -112,19 +112,6 @@
         <identity value="rim"/>
         <map value=".id"/>
       </mapping>
-    </element>
-    <element id="Substance.instance">
-      <path value="Substance.instance"/>
-      <short value="Is this an instance of a substance or a kind of one"/>
-      <definition value="A boolean to indicate if this an instance of a substance or a kind of one (a definition)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="Not known why this is labelled a modifier"/>
-      <isSummary value="true"/>
     </element>
     <element id="Substance.status">
       <path value="Substance.status"/>
@@ -266,69 +253,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".player.quantity"/>
-      </mapping>
-    </element>
-    <element id="Substance.ingredient">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,36"/>
-      </extension>
-      <path value="Substance.ingredient"/>
-      <short value="Composition information about the substance"/>
-      <definition value="A substance can be composed of other substances."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".player.scopesRole[classCode=INGR]"/>
-      </mapping>
-    </element>
-    <element id="Substance.ingredient.quantity">
-      <path value="Substance.ingredient.quantity"/>
-      <short value="Optional amount (concentration)"/>
-      <definition value="The amount of the ingredient in the substance - a concentration ratio."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".quantity"/>
-      </mapping>
-    </element>
-    <element id="Substance.ingredient.substance[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#9233]."/>
-      </extension>
-      <path value="Substance.ingredient.substance[x]"/>
-      <short value="A component of the substance"/>
-      <definition value="Another substance that is a component of this substance."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceIngredient"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Substance Ingredient codes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".player"/>
       </mapping>
     </element>
   </differential>

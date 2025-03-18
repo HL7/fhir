@@ -45,6 +45,9 @@ These instances can be linked in different ways, depending on the needs of the w
         </td>
     </tr>
 </table>
+
+The MedicationRequest resource represents an authorization for both a dispense and an administration to be provided. Details about the fulfillment of the authorization are typically handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the link <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
+
 </div>
 
 <p>MedicationRequests can be instantiated from a protocol which is represented by a Definition resource - ActivityDefinition or PlanDefinition. For more information on protocols, see <a href="https://hl7.org/fhir/plandefinition.html#12.23.4.3">applying a PlanDefinition</a>.</p>
