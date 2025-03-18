@@ -383,11 +383,30 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.subject[x]"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Library-subject-code"/>
-        <description value="The subject of the Library when expressed as a reference or canonical"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-subject-reference"/>
+        <description value="The subject of the Library when expressed as a reference"/>
         <code value="subject-reference"/>
         <type value="reference"/>
-        <expression value="Library.subject as Reference | Library.subject as canonical"/>
+        <expression value="Library.subject as Reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-subject-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.subject[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-subject-canonical"/>
+        <description value="The subject of the Library when expressed as a canonical"/>
+        <code value="subject-canonical"/>
+        <type value="reference"/>
+        <expression value="Library.subject as canonical"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
