@@ -1061,11 +1061,11 @@
     </element>
     <element id="Measure.rationale">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Rationale and purpose are scheduled to be collapsed."/>
+        <valueString value="Rationale and purpose were scheduled to be collapsed, but further discussion and experience clarified the need for differentiation between purpose and rationale."/>
       </extension>
       <path value="Measure.rationale"/>
-      <short value="Detailed description of why the measure exists"/>
-      <definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
+      <short value="Justification for the measure in terms of impact, gap in care, and evidence."/>
+      <definition value="Provides a detailed justification of the need for the measure including statements pertaining to importance criterion: impact, gap in care, and evidence."/>
       <requirements value="Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale."/>
       <min value="0"/>
       <max value="1"/>
