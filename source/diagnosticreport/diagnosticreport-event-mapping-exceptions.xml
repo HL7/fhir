@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="DiagnosticReport"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="DiagnosticReport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="DiagnosticReport.identifier">
         <shortUnmatched reason="Unknown">
@@ -21,8 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="DiagnosticReport.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
@@ -47,7 +45,7 @@
             <resource value="The status of the diagnostic report."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -64,8 +62,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DiagnosticReport.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(Device,Location,Organization,Practitioner,Medication,Substance,BiologicallyDerivedProduct)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,Location,Organization,Practitioner,Medication,Substance,BiologicallyDerivedProduct)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
             <resource value="The subject of the report - usually, but not always, the patient"/>
@@ -108,7 +105,7 @@
             <resource value="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
         </commentsUnmatched>
     </divergentElement>
