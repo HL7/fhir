@@ -23,9 +23,6 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
     <!-- Cholesterol observation with profile reference -->
     <Observation>
       <id value="cholesterol"/>
-      <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
-      </meta>
       <status value="final"/>
       <category>
         <coding>
