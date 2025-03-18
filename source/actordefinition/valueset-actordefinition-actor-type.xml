@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="examplescenario-actor-type"/>
+  <id value="actordefinition-actor-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -14,14 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.858"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
   <version value="6.0.0"/>
-  <name value="ExampleScenarioActorType"/>
-  <title value="Example Scenario Actor Type"/>
+  <name value="ActorDefinitionActorType"/>
+  <title value="Actor Definition Actor Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -40,7 +36,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/examplescenario-actor-type"/>
+      <system value="http://hl7.org/fhir/actordefinition-actor-type"/>
     </include>
   </compose>
 </ValueSet>

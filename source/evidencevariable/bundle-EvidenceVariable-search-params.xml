@@ -5,25 +5,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EvidenceVariable-composed-of"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-composed-of"/>
-        <description value="What resource is being referenced"/>
-        <code value="composed-of"/>
-        <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type='composed-of').resource"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="EvidenceVariable-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -148,44 +129,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EvidenceVariable-depends-on"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-depends-on"/>
-        <description value="What resource is being referenced"/>
-        <code value="depends-on"/>
-        <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type='depends-on').resource"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="EvidenceVariable-derived-from"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-derived-from"/>
-        <description value="What resource is being referenced"/>
-        <code value="derived-from"/>
-        <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type='derived-from').resource"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="EvidenceVariable-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -243,25 +186,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EvidenceVariable-predecessor"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-predecessor"/>
-        <description value="What resource is being referenced"/>
-        <code value="predecessor"/>
-        <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type='predecessor').resource"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="EvidenceVariable-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -293,25 +217,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="EvidenceVariable.status"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="EvidenceVariable-successor"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-successor"/>
-        <description value="What resource is being referenced"/>
-        <code value="successor"/>
-        <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type='successor').resource"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

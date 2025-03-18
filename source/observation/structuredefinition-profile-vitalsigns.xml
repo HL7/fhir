@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One status in `Observation.status` which has a [required](terminologies.html#extensible) binding to:&#xA;    -    [ObservationStatus] value set.&#xA;1.  A category in `Observation.category` which must have:&#xA;    -   a fixed `Observation.category.coding.system`=&quot;http://terminology.hl7.org/CodeSystem/observation-category&quot;&#xA;    -   a fixed `Observation.category.coding.code`= &quot;vital-signs&quot;&#xA;&#xA;1.  A code in `Observation.code`&#xA;    -   a fixed `Observation.code.coding.system`= &quot;http://loinc.org&quot;&quot;&#xA;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](terminologies.html#extensible) binding to:&#xA;         -   [Vital Signs] value set.&#xA;                &#xA;1.  One patient in `Observation.subject`&#xA;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#xA;1.  Either one `Observation.value[x]` or a populated component (with `component.code` and `component.value[x]`), if there is no value, one code in `Observation.DataAbsentReason`&#xA;    -   if a vital sign measure then:&#xA;        -  One numeric value in Observation.valueQuantity.value&#xA;        - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xA;        - a UCUM unit code in Observation.valueQuantity.code which has a required binding to the [Vital Signs Units] value set.&#xA;    -   Observation.DataAbsentReason is bound to [Observation Value&#xA;        Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group component observations (Note: See&#xA;    the comments regarding blood pressure in the table above), one or&#xA;    more `Observation.component.code` each of which must have:&#xA;    -   a fixed&#xA;        `Observation.component.code.coding.system` =&quot;&quot;http://loinc.org&quot;&quot;&#xA;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#xA;             -   [Vital Signs Units] value set.&#xA;&#xA;1.  Either one `Observation.component.valueQuantity` or, if there is&#xA;    no value, one code in `Observation.component.DataAbsentReason`&#xA;    -   Observation.component.DataAbsentReason is bound to [Observation&#xA;        Value Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group observations, one or more reference&#xA;    to Vitals Signs Observations in `Observation.related.target`&#xA;    -   a fixed `Observation.related.type`= &quot;has-member&quot;&quot;&#xA;&#xA; [Vital Signs]: valueset-observation-vitalsign-measurement.html&#xA;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#xA;  [extensible]: terminologies.html#extensible&#xA;  [ObservationStatus]: valueset-observation-status.html&#xA; [Observation Value Absent Reason]: valueset-data-absent-reason.html&#xA;[required]: terminologies.html#required&quot;"/>
+    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One status in `Observation.status` which has a [required](terminologies.html#extensible) binding to:&#xA;    -    [ObservationStatus] value set.&#xA;1.  A category in `Observation.category` which must have:&#xA;    -   a fixed `Observation.category.coding.system`=&quot;http://terminology.hl7.org/CodeSystem/observation-category&quot;&#xA;    -   a fixed `Observation.category.coding.code`= &quot;vital-signs&quot;&#xA;&#xA;1.  A code in `Observation.code`&#xA;    -   a fixed `Observation.code.coding.system`= &quot;http://loinc.org&quot;&quot;&#xA;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](terminologies.html#extensible) binding to:&#xA;         -   [Vital Signs] value set.&#xA;                &#xA;1.  One patient in `Observation.subject`&#xA;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#xA;1.  Either one `Observation.value[x]` or a populated component (with `component.code` and either `component.value[x]` or `component.dataAbsentReason`) or hasMember relationship.  If there are none of those, then one code in `Observation.DataAbsentReason`&#xA;    -   if a vital sign measure then:&#xA;        -  One numeric value in Observation.valueQuantity.value&#xA;        - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xA;        - a UCUM unit code in Observation.valueQuantity.code which has a required binding to the [Vital Signs Units] value set.&#xA;    -   Observation.DataAbsentReason is bound to [Observation Value&#xA;        Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group component observations (Note: See&#xA;    the comments regarding blood pressure in the table above), one or&#xA;    more `Observation.component.code` each of which must have:&#xA;    -   a fixed&#xA;        `Observation.component.code.coding.system` =&quot;&quot;http://loinc.org&quot;&quot;&#xA;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#xA;             -   [Vital Signs Units] value set.&#xA;&#xA;1.  Either one `Observation.component.valueQuantity` or, if there is&#xA;    no value, one code in `Observation.component.DataAbsentReason`&#xA;    -   Observation.component.DataAbsentReason is bound to [Observation&#xA;        Value Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group observations, one or more reference&#xA;    to Vitals Signs Observations in `Observation.related.target`&#xA;    -   a fixed `Observation.related.type`= &quot;has-member&quot;&quot;&#xA;&#xA; [Vital Signs]: valueset-observation-vitalsign-measurement.html&#xA;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#xA;  [extensible]: terminologies.html#extensible&#xA;  [ObservationStatus]: valueset-observation-status.html&#xA; [Observation Value Absent Reason]: valueset-data-absent-reason.html&#xA;[required]: terminologies.html#required&quot;"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="4"/>
@@ -85,10 +85,15 @@
       <alias value="Measurement"/>
       <alias value="Results"/>
       <alias value="Tests"/>
-      <min value="0"/>
-      <max value="*"/>
       <constraint>
-        <key value="vs-2"/>
+        <key value="vsp-1"/>
+        <severity value="error"/>
+        <human value="if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day"/>
+        <expression value="(effective as dateTime).toString().length() >= 8"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
+      <constraint>
+        <key value="vsp-2"/>
         <severity value="error"/>
         <human value="If there is no component or hasMember element then either a value[x] or a data absent reason must be present."/>
         <expression value="(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())"/>
@@ -97,19 +102,7 @@
     </element>
     <element id="Observation.status">
       <path value="Observation.status"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
       <mustSupport value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Status"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
-      </binding>
     </element>
     <element id="Observation.category">
       <path value="Observation.category"/>
@@ -152,14 +145,10 @@
       <short value="Vital Sign Measurement"/>
       <definition value="Vital Sign Measurement."/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="This identifies the vital sign measurement."/>
+          <valueString value="This identifies the vital sign or panel measurement."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSigns"/>
@@ -172,7 +161,6 @@
     <element id="Observation.subject">
       <path value="Observation.subject"/>
       <min value="1"/>
-      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
@@ -184,7 +172,6 @@
       <short value="Often just a dateTime for Vital Signs"/>
       <definition value="Often just a dateTime for Vital Signs."/>
       <min value="1"/>
-      <max value="1"/>
       <type>
         <code value="dateTime"/>
       </type>
@@ -192,31 +179,21 @@
         <code value="Period"/>
       </type>
       <condition value="vs-1"/>
-      <constraint>
-        <key value="vs-1"/>
-        <severity value="error"/>
-        <human value="if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day"/>
-        <expression value="($this as dateTime).toString().length() &gt;= 8"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
-      </constraint>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <short value="Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept."/>
-      <definition value="Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept."/>
-      <min value="0"/>
-      <max value="1"/>
+      <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <condition value="vs-2"/>
-      <mustSupport value="true"/>
     </element>
-    <element id="Observation.valueQuantity">
+    <element id="Observation.value[x]:valueQuantity">
       <path value="Observation.valueQuantity"/>
-      <short value="Vital Sign Value recorded with UCUM (preferred)"/>
-      <definition value="Vital Sign Value recorded with UCUM (preferred)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
+      <short value="Vital Sign value recorded with UCUM (preferred)"/>
+      <definition value="Vital Sign value recorded with UCUM (preferred)."/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Common UCUM units for recording Vital Signs."/>
@@ -231,23 +208,15 @@
     </element>
     <element id="Observation.dataAbsentReason">
       <path value="Observation.dataAbsentReason"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
       <condition value="vs-2"/>
-      <mustSupport value="true"/>
     </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
-      <short value="Used when reporting vital signs panel components"/>
-      <definition value="Used when reporting vital signs panel components."/>
+      <short value="Used when reporting observations included in a vital signs panel"/>
+      <definition value="Used when reporting observations included in a vital signs panel."/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
     </element>
     <element id="Observation.derivedFrom">
@@ -255,82 +224,40 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
     </element>
     <element id="Observation.component">
       <path value="Observation.component"/>
-      <short value="Used when reporting systolic and diastolic blood pressure."/>
-      <definition value="Used when reporting systolic and diastolic blood pressure."/>
-      <constraint>
-        <key value="vs-3"/>
-        <severity value="error"/>
-        <human value="If there is no a value a data absent reason must be present"/>
-        <expression value="value.exists() or dataAbsentReason.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
-      </constraint>
-      <mustSupport value="true"/>
     </element>
     <element id="Observation.component.code">
       <path value="Observation.component.code"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <mustSupport value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="This identifies the vital sign component measurement."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSignsComponent"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="This identifies the vital sign component measurement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-component-measurement"/>
-      </binding>
+      <short value="Vital Sign measurement or component"/>
+      <definition value="Vital Sign measurement or component."/>
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
-      <short value="Vital Sign Value"/>
-      <definition value="Vital Sign Value."/>
-      <min value="0"/>
-      <max value="1"/>
-      <condition value="vs-3"/>
-      <mustSupport value="true"/>
+      <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
     </element>
-    <element id="Observation.component.valueQuantity">
+    <element id="Observation.component.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity"/>
-      <short value="Vital Sign Component Value recorded with UCUM (preferred)"/>
-      <definition value="Vital Sign Component Value recorded with UCUM (preferred)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
+      <short value="Vital Sign value recorded as a component with UCUM (preferred)"/>
+      <definition value="Vital Sign value recorded as a component with UCUM (preferred)."/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Common UCUM units for recording Vital Signs."/>
+          <valueString value="UCUM units"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSignsComponentUnits"/>
+          <valueString value="UCUMunits"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Commonly encountered UCUM units for recording Vital Signs Components."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+        <description value="UCUM units - for recording Vital Signs and components."/>
+        <valueSet value="http://unitsofmeasure.org/vs"/>
       </binding>
     </element>
     <element id="Observation.component.dataAbsentReason">
       <path value="Observation.component.dataAbsentReason"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <condition value="vs-3"/>
-      <mustSupport value="true"/>
     </element>
   </differential>
 </StructureDefinition>

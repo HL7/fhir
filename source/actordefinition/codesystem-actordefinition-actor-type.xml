@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="examplescenario-actor-type"/>
+  <id value="actordefinition-actor-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,20 +14,16 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/examplescenario-actor-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.859"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/actordefinition-actor-type"/>
   <version value="6.0.0"/>
-  <name value="ExampleScenarioActorType"/>
-  <title value="Example Scenario Actor Type"/>
+  <name value="ActorDefinitionActorType"/>
+  <title value="Actor Definition Actor Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
-    <telecom>
+    <telecom> 
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
@@ -38,7 +34,8 @@
   </contact>
   <description value="The type of actor - system or human."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="system"/>
