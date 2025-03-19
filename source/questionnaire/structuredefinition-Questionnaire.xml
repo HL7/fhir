@@ -768,15 +768,14 @@
 				<key value="que-5"/>
 				<severity value="error"/>
 				<human value="Only coding, decimal, integer, date, dateTime, time, string, quantity, reference, or uri items can have answerOption"/>
-				<expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity' or type = 'reference' or type = 'uri') or answerOption.empty())"/>
+				<expression value="(('coding' | 'decimal' | 'integer' | 'date' | 'dateTime' | 'time' | 'string' | 'quantity' | 'reference' | 'uri') contains type) or answerOption.empty()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
-			
 			<constraint>
 				<key value="que-5b"/>
 				<severity value="error"/>
 				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption"/>
-				<expression value="(type='coding' type = 'string' or type = 'uri') or answerValueSet.empty())"/>
+				<expression value="(('coding' | 'string' | 'uri') contains type) or answerValueSet.empty()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>

@@ -76,6 +76,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="QuestionnaireResponse.author">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <missingTypes _pattern="Reference(CareTeam)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <!--Old pattern: Who performed questionnaire response and what they did-->
             <!--Old reason: Incorporates content from profile with context-specific wording-->
