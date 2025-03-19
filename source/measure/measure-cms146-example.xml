@@ -89,12 +89,6 @@
   </relatedArtifact>
   <library value="http://hl7.org/fhir/Library/library-cms146-example"/>
   <disclaimer value="These performance Measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED &#34;AS IS&#34; WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>
-  <scoring>
-  	<coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-  	  <code value="proportion"/>
-  	</coding>
-  </scoring>
   <type>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
@@ -104,48 +98,64 @@
   <rationale value="Group A streptococcal bacterial infections and other infections that cause pharyngitis (which are most often viral) often produce the same signs and symptoms (IDSA 2002). The American Academy of Pediatrics, the Centers for Disease Control and Prevention, and the Infectious Diseases Society of America all recommend a diagnostic test for Strep A to improve diagnostic accuracy and avoid unnecessary antibiotic treatment (Linder et al. 2005). Estimated economic costs of pediatric streptococcal pharyngitis in the United States range from $224 million to $539 million per year, including indirect costs related to parental work losses. At a higher level, the economic cost of antibiotic resistance vary but have extended as high as $20 billion in excess direct healthcare costs, with additional costs to society for lost productivity as high as $35 billion a year (2008 dollars) (Roberts et al. 2009)."/>
   <clinicalRecommendationStatement value="The Infectious Diseases Society of America (IDSA) &#34;recommends swabbing the throat and testing for GAS pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&#34;"/>
   <guidance value="This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure"/>
-  <group id="CMS146-group-1">
+  <group>
+    <linkId value="CMS146-group-1"/>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="proportion"/>
+      </coding>
+    </scoring>
     <improvementNotation>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-      <code value="increase"/>
-    </coding>
-  </improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>
     <population>
+      <linkId value="CMS146-group-1-ip"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="initial-population"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.InitialPopulation"/></criteria>
+      <criteria><language value="text/cql-identifier"/><expression value="InitialPopulation"/></criteria>
     </population>
     <population>
+      <linkId value="CMS146-group-1-num"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="numerator"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.Numerator"/></criteria>
+      <criteria><language value="text/cql-identifier"/><expression value="Numerator"/></criteria>
     </population>
     <population>
+      <linkId value="CMS146-group-1-den"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="denominator"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.Denominator"/></criteria>
+      <criteria><language value="text/cql-identifier"/><expression value="Denominator"/></criteria>
     </population>
     <population>
+      <linkId value="CMS146-group-1-denex"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="denominator-exclusion"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.DenominatorExclusion"/></criteria>
+      <criteria><language value="text/cql-identifier"/><expression value="DenominatorExclusion"/></criteria>
     </population>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-ages-up-to-9"/>
       <code><text value="stratifier-ages-up-to-9"/></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.AgesUpToNine"/></criteria>
+      <criteria><language value="text/cql-identifier"/><expression value="AgesUpToNine"/></criteria>
     </stratifier>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-ages-10-plus"/>
       <code><text value="stratifier-ages-10-plus"/></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.AgesTenPlus"/></criteria>
+      <criteria><language value="text/cql-identifier"/><expression value="AgesTenPlus"/></criteria>
     </stratifier>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-gender"/>
       <code><text value="stratifier-gender"/></code>
       <criteria><language value="text/fhirpath"/><expression value="Patient.gender"/></criteria>
     </stratifier>
   </group>
   <supplementalData>
+    <linkId value="CMS146-supplemental-data-gender"/>
     <code><text value="supplemental-data-gender"/></code>
     <criteria><language value="text/fhirpath"/><expression value="Patient.gender"/></criteria>
   </supplementalData>
   <supplementalData>
+    <linkId value="CMS146-supplemental-data-deceased"/>
     <code><text value="supplemental-data-deceased"/></code>
-    <criteria><language value="text/fhirpath"/><expression value="deceasedBoolean"/></criteria>
+    <criteria><language value="text/fhirpath"/><expression value="Patient.deceased"/></criteria>
   </supplementalData>
 </Measure>
