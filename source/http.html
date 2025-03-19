@@ -1833,6 +1833,17 @@ Similarly if the narrative includes <code>&lt;img src="urn:uuid:someguid"/&gt;</
 transaction creating a Binary with a full url of <code>urn:uuid:someguid</code>, that entire URL would be replaced with the new
 absolute URL of the created Binary resource.
 </p>
+
+[%dragons-start%]
+<p>
+NOTE: it is unsafe to simply perform a string replacement on the contents of both the resource generally 
+and even the narrative text element. Proper replacement requires parsing of narrative content and looking 
+for links inside of the specific tags listed.
+</p>
+[%dragons-end%]
+:
+
+
 <a name="vs-refs"> </a>
 <h4>Version specific references and updates</h4>
 <p>
