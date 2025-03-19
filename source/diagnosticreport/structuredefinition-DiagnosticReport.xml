@@ -470,7 +470,7 @@
       <path value="DiagnosticReport.performer"/>
       <short value="Responsible Diagnostic Service"/>
       <definition value="The diagnostic service that is responsible for issuing the report."/>
-      <comment value="This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report."/>
+      <comment value="This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report.  In the regulated context of diagnostic laboratory work on humans, it is extremely likely that regulation requires a human performer.  Point of care testing, veterinary testing, drug screens, and environmental surveillance are common cases where the device is the performer with no additional human interaction or direct oversight."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
       <alias value="Laboratory"/>
       <alias value="Service"/>
@@ -488,6 +488,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>   
       </type>
       <isSummary value="true"/>
       <mapping>
