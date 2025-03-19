@@ -991,7 +991,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The composite scoring method of the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/composite-measure-scoring"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1017,7 +1017,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1061,11 +1061,11 @@
     </element>
     <element id="Measure.rationale">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Rationale and purpose are scheduled to be collapsed."/>
+        <valueString value="Rationale and purpose were scheduled to be collapsed, but further discussion and experience clarified the need for differentiation between purpose and rationale."/>
       </extension>
       <path value="Measure.rationale"/>
-      <short value="Detailed description of why the measure exists"/>
-      <definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
+      <short value="Justification for the measure in terms of impact, gap in care, and evidence"/>
+      <definition value="Provides a detailed justification of the need for the measure including statements pertaining to importance criterion: impact, gap in care, and evidence."/>
       <requirements value="Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale."/>
       <min value="0"/>
       <max value="1"/>
@@ -1113,7 +1113,7 @@
         </extension>
         <strength value="required"/>
         <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1291,7 +1291,7 @@
           <valueString value="MeasureType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1449,7 +1449,7 @@
           <valueString value="MeasureImprovementNotation"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1550,7 +1550,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of population."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1575,7 +1575,7 @@
       <path value="Measure.group.population.criteria"/>
       <short value="The criteria that defines this population"/>
       <definition value="An expression that specifies the criteria for the population, typically the name of an expression in a library."/>
-      <comment value="In the case of a continuous-variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information."/>
+      <comment value="In the case of a continuous-variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1632,7 +1632,7 @@
           <valueString value="MeasureAggregateMethod"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-aggregate-method"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-aggregate-method"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1726,6 +1726,7 @@
       <path value="Measure.group.stratifier.criteria"/>
       <short value="How the measure should be stratified"/>
       <definition value="An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1741,7 +1742,7 @@
       <path value="Measure.group.stratifier.groupDefinition"/>
       <short value="A group resource that defines this population"/>
       <definition value="A Group resource that defines this population as a set of characteristics."/>
-      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group."/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1752,6 +1753,29 @@
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="Measure.group.stratifier.valueSet">
+      <path value="Measure.group.stratifier.valueSet"/>
+      <short value="What stratum values?"/>
+      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+    </element>
+    <element id="Measure.group.stratifier.unit">
+      <path value="Measure.group.stratifier.unit"/>
+      <short value="What units?"/>
+      <definition value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
+      <comment value="This element may be used to define the expected units of stratum values, when that information cannot be inferred from the calculation logic directly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Measure.group.stratifier.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1839,6 +1863,7 @@
       <path value="Measure.group.stratifier.component.criteria"/>
       <short value="Component of how the measure should be stratified"/>
       <definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1853,7 +1878,7 @@
       <path value="Measure.group.stratifier.component.groupDefinition"/>
       <short value="A group resource that defines this population"/>
       <definition value="A Group resource that defines this population as a set of characteristics."/>
-      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group."/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1864,6 +1889,29 @@
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="Measure.group.stratifier.component.valueSet">
+      <path value="Measure.group.stratifier.component.valueSet"/>
+      <short value="What stratum values?"/>
+      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+    </element>
+    <element id="Measure.group.stratifier.component.unit">
+      <path value="Measure.group.stratifier.component.unit"/>
+      <short value="What units?"/>
+      <definition value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
+      <comment value="This element may be used to define the expected units of stratum values, when that information cannot be inferred from the calculation logic directly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Measure.supplementalData">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1947,7 +1995,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The intended usage for supplemental data elements in the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-data-usage"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1972,6 +2020,7 @@
       <path value="Measure.supplementalData.criteria"/>
       <short value="Expression describing additional data to be reported"/>
       <definition value="The criteria for the supplemental data. This is typically the name of a valid expression defined within a referenced library, but it may also be a path to a specific data element. The criteria defines the data to be returned for this element."/>
+      <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1981,6 +2030,29 @@
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="Measure.supplementalData.valueSet">
+      <path value="Measure.supplementalData.valueSet"/>
+      <short value="What supplemental data values?"/>
+      <definition value="A value set defining the set of possible values for supplemental data in this element. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce supplemental data values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <comment value="This element may be used to define a supplemental data element rather than requiring the element to be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+    </element>
+    <element id="Measure.supplementalData.unit">
+      <path value="Measure.supplementalData.unit"/>
+      <short value="What units?"/>
+      <definition value="Indicates what units, if any, supplemental data values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
+      <comment value="This element may be used to define the expected units of supplemental data values, when that information cannot be inferred from the calculation logic directly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

@@ -216,7 +216,7 @@
 				<key value="sdf-5"/>
 				<severity value="error"/>
 				<human value="If the structure defines an extension then the structure must have context information"/>
-				<expression value="type != 'Extension' or base != 'http://hl7.org/fhir/StructureDefinition/Extension' or derivation = 'specialization' or (context.exists())"/>
+				<expression value="type != 'Extension' or baseDefinition != 'http://hl7.org/fhir/StructureDefinition/Extension' or derivation = 'specialization' or (context.exists())"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
 			</constraint>
 			<constraint>
