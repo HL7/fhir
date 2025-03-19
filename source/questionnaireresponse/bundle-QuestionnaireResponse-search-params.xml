@@ -233,4 +233,324 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-linkId"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.linkId"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-linkId"/>
+        <description value="Question linkIds found within the response"/>
+        <code value="linkId"/>
+        <type value="token"/>
+        <expression value="QuestionnaireResponse.item.linkId"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerConcept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueBoolean, QuestionnaireResponse.item.answer.valueCoding"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerConcept"/>
+        <description value="Question answers of type coding or boolean found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerConcept"/>
+        <type value="token"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(boolean) | QuestionnaireResponse.item.answer.value.ofType(Coding)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerDate"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueDate, QuestionnaireResponse.item.answer.valueDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerDate"/>
+        <description value="Question answers of type date or dateTime found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerDate"/>
+        <type value="date"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(date) | QuestionnaireResponse.item.answer.value.ofType(dateTime)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerNumber"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueInteger, QuestionnaireResponse.item.answer.valueDecimal"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerNumber"/>
+        <description value="Question answers of type integer or decimal found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerNumber"/>
+        <type value="number"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(integer) | QuestionnaireResponse.item.answer.value.ofType(decimal)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerQuantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueSimpleQuantity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerQuantity"/>
+        <description value="Question answers of type quantity found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerQuantity"/>
+        <type value="quantity"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(Quantity)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerReference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerReference"/>
+        <description value="Question answers of type reference found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerReference"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerString"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueString"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerString"/>
+        <description value="Question answers of type string found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerString"/>
+        <type value="string"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(string)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-answerUri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.item.answer.valueUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-answerUri"/>
+        <description value="Question answers of type uri found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="answerUri"/>
+        <type value="uri"/>
+        <expression value="QuestionnaireResponse.item.answer.value.ofType(uri)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemConcept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemConcept"/>
+        <description value="Question with items having the specified linkId and answers of type boolean or coding found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemConcept"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerConcept"/>
+          <expression value="item.answer.value.ofType(boolean) | item.answer.value.ofType(Coding)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemDate"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemDate"/>
+        <description value="Question with items having the specified linkId and answers of type date or dateTime found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemDate"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerDate"/>
+          <expression value="item.answer.value.ofType(date) | item.answer.value.ofType(dateTime)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemNumber"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemNumber"/>
+        <description value="Question with items having the specified linkId and answers of type integer or decimal found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemNumber"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerNumber"/>
+          <expression value="item.answer.value.ofType(integer) | item.answer.value.ofType(decimal)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemQuantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemQuantity"/>
+        <description value="Question with items having the specified linkId and answers of type quantity found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemQuantity"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerQuantity"/>
+          <expression value="item.answer.value.ofType(Quantity)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemReference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemReference"/>
+        <description value="Question with items having the specified linkId and answers of type reference found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemReference"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerReference"/>
+          <expression value="item.answer.value.ofType(Reference)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemString"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemString"/>
+        <description value="Question with items having the specified linkId and answers of type string found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemString"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerString"/>
+          <expression value="item.answer.value.ofType(String)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-itemUri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-itemUri"/>
+        <description value="Question with items having the specified linkId and answers of type uri found within the response.  (Primarily for use as part of other composite search parameters.)  Refer to [questionnaireresponse.html#searching](searching guidance) on the resource page for considerations on the use of this parameter."/>
+        <code value="itemUri"/>
+        <type value="composite"/>
+        <expression value="QuestionnaireResponse"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="linkId"/>
+          <expression value="item.linkId"/>
+        </component>
+        <component>
+          <definition value="answerUri"/>
+          <expression value="item.answer.value.ofType(Uri)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
