@@ -979,24 +979,30 @@
       <start value="2014-01-01" />
       <end value="2014-03-31" />
   </period>
-  <group id="CMS146-group-1">
+  <group>
+    <linkId value="CMS146-group-1"/>
     <population>
+      <linkId value="CMS146-group-1-ip"/>
       <code><coding><code value="initial-population"/></coding></code>
       <count value="500"/>
     </population>
     <population>
+      <linkId value="CMS146-group-1-num"/>
       <code><coding><code value="numerator"/></coding></code>
       <count value="200"/>
     </population>
     <population>
+      <linkId value="CMS146-group-1-den"/>
       <code><coding><code value="denominator"/></coding></code>
       <count value="500"/>
     </population>
     <population>
+      <linkId value="CMS146-group-1-denex"/>
       <code><coding><code value="denominator-exclusion"/></coding></code>
       <count value="100"/>
     </population>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-ages-up-to-9"/>
       <code><text value="stratifier-ages-up-to-9"/></code>
       <stratum>
         <valueBoolean value="true"/>
@@ -1038,6 +1044,7 @@
       </stratum>
     </stratifier>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-ages-10-plus"/>
       <code><text value="stratifier-ages-10-plus"/></code>
       <stratum>
         <valueBoolean value="true"/>
@@ -1079,6 +1086,7 @@
       </stratum>
     </stratifier>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-gender"/>
       <code><text value="stratifier-gender"/></code>
       <stratum>
         <valueCodeableConcept><text value="male"/></valueCodeableConcept>
