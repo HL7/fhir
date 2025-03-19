@@ -1046,6 +1046,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.participant">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="450,100"/>
+			</extension>
 			<path value="ActivityDefinition.participant"/>
 			<short value="Who should participate in the action"/>
 			<definition value="Indicates who should participate in performing the action described."/>
@@ -1179,7 +1182,6 @@
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<type>
@@ -1320,6 +1322,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.dynamicValue">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="520,335"/>
+			</extension>
 			<path value="ActivityDefinition.dynamicValue"/>
 			<short value="Dynamic aspects of the definition"/>
 			<definition value="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result."/>
