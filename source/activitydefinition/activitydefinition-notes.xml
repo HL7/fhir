@@ -31,6 +31,8 @@
 
 <p>Note that the parameters to the $apply operation are available within dynamicValue CQL and FHIRPath expressions as context variables, accessible by the name of the parameter prefixed with a percent (%) symbol. For example, to access the subject given to the apply, use the expression <code>%subject</code>.</p>
 
+<p>In addition, the subject element establishes the context for CQL expressions evaluated during the operation, as discussed in the <a href="clinicalreasoning-topics-using-expressions.html#evaluation-context">Evaluation Context</a> discussion in the Using Expressions topic.</p>
+
 <p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
 
 <h3>Event Resources</h3>
