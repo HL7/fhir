@@ -79,7 +79,7 @@
       <constraint>
         <key value="mrp-2"/>
         <severity value="error"/>
-        <human value="Stratifiers SHALL be either a single criteria or a set of criteria components"/>
+        <human value="Stratifiers SHALL be either a single criteria element or a set of criteria components"/>
         <expression value="group.stratifier.stratum.all(value.exists() xor component.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
@@ -121,7 +121,7 @@
     </element>
     <element id="MeasureReport.category">
       <path value="MeasureReport.category"/>
-      <short value="The category of measure report instance this is (e.g. deqm, ra, vbp)"/>
+      <short value="The category of measure report instance this is (example codes include deqm, ra, vbp)"/>
       <definition value="The category of measure report instance this is such as Data Exchange for Quality Measures (DEQM), Risk Adjustment, or Value-Based Performance."/>
       <min value="0"/>
       <max value="1"/>
@@ -754,7 +754,7 @@
       <path value="MeasureReport.group.population.subjectReport"/>
       <short value="For subject-list reports, references to the individual reports for subjects in this population"/>
       <definition value="A reference to an individual level MeasureReport resource for a member of the population."/>
-      <comment value="This element SHALL NOT be used in with subjectResults, either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
+      <comment value="This element SHALL NOT be used with subjectResults. Either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
       <min value="0"/>
       <max value="*"/>
       <type>
