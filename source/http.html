@@ -1651,12 +1651,15 @@ on the value of the <code>mode</code> parameter:
 Servers MAY ignore the mode parameter and return a CapabilityStatement resource. Note: servers might be required to support this parameter in further versions of this specification.
 </p>
 <p>
-If a <code>404 Not Found</code> is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
-nominated service url. An <code>ETag</code> header SHOULD be returned with the Response. The value of the ETag header SHALL change if the
-returned resource changes.
+Servers SHOULD check for the <a href="#version-parameter">fhirVersion MIME-type parameter</a> when processing this request.
 </p>
 <p>
-Servers SHOULD check for the <a href="#version-parameter">fhirVersion MIME-type parameter</a> when processing this request.
+An <code>ETag</code> header SHOULD be returned with the response. The value of the ETag header SHALL change 
+if the returned resource changes. For more information on versioning, see <a href="#versioning">Resource Metadata and Versioning</a>.
+For more information on the <code>ETag</code> header, see <a href="#Http-Headers">HTTP Headers</a>.
+</p>
+<p>
+If a <code>404 Not Found</code> is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
 </p>
 <p>
 The resource returned typically has an arbitrary id, and no meta element, though it is not prohibited.
