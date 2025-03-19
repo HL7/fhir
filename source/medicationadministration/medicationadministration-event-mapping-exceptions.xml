@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="MedicationAdministration"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="MedicationAdministration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="MedicationAdministration.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
@@ -40,8 +39,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="MedicationAdministration.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(MedicationAdministration,Procedure,MedicationDispense)" reason="Unknown"/>
+        <extraTypes _resource="Reference(MedicationAdministration,Procedure,MedicationDispense)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular medication administration is a component or step."/>
             <resource value="A larger event of which this particular event is a component or step."/>
@@ -61,7 +59,7 @@
             <resource value="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -76,7 +74,7 @@
             <resource value="A code indicating why the administration was not performed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#xa;."/>
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -137,7 +135,7 @@
             <resource value="A specific date/time or interval of time during which the administration took place (or did not take place). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -164,10 +162,10 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="MedicationAdministration.performer.actor">
-        <missingTypes
-            _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
-        <extraTypes
-            _resource="CodeableReference(Practitioner,PractitionerRole,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+
+        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Patient,RelatedPerson,Device,Group)" reason="Unknown"/>
+
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed medication administration"/>
             <resource value="Who or what performed the medication administration"/>

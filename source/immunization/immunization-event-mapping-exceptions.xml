@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="Immunization"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="Immunization" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Immunization.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
@@ -22,8 +21,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Immunization.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,ImmunizationRecommendation)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,ImmunizationRecommendation)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Authority that the immunization event is based on"/>
@@ -47,7 +45,7 @@
             <resource value="Indicates the current status of the immunization event."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -57,7 +55,7 @@
             <resource value="Indicates the reason the immunization event was not performed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#xa;."/>
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
             <resource value="This is generally only used for the status of &quot;not-done&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
         </commentsUnmatched>
     </divergentElement>
@@ -133,13 +131,14 @@
             <resource value="Date vaccine administered or was to be administered."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
-            <resource value="When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
+
+            <resource value="When immunizations are given, a specific date and time should always be recorded if known. If the time is not known, it should not be included. However, systems primarily rely on the date component of the immunization record for determining dose validity and future dose forecasting. For this reason, immunization records should preserve the immunization date as recorded for the time zone where the dose was administered. Care should be taken when recording and transmitting time and time zone information, as adjustments based on time zone can shift the recorded date. Additionally, because Patient.birthDate does not include a time component, systems should ensure that comparisons between occurrence date and birth date do not introduce inconsistencies in determining patient age at vaccination. When immunizations are patient reported, a specific date might not be known. Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
+
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reported[x]" resourcePath="Immunization.primarySource">
-        <missingTypes
-            _pattern="Reference(Patient,RelatedPerson,Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient,RelatedPerson,Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Reported rather than primary record"/>
             <resource value="Indicates context the data was captured in"/>
@@ -154,10 +153,8 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reported[x]" resourcePath="Immunization.informationSource">
-        <missingTypes
-            _pattern="boolean, Reference(Patient,RelatedPerson,Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
-        <extraTypes
-            _resource="CodeableReference(Patient,Practitioner,PractitionerRole,RelatedPerson,Organization)" reason="Unknown"/>
+        <missingTypes _pattern="boolean, Reference(Patient,RelatedPerson,Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Patient,Practitioner,PractitionerRole,RelatedPerson,Organization)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -186,13 +183,9 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="Immunization.performer.function">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Type of performance"/>
-            <resource value="What type of performance was done"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Distinguishes the type of involvement of the performer in the immunization.."/>
-            <resource value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+            <resource value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows disambiguation of the types of involvement of different performers."/>

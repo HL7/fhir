@@ -906,12 +906,11 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="csd-1"/>
 			<constraint>
 				<key value="csd-6"/>
 				<severity value="error"/>
 				<human value="If a concept identifies an alternate, there must be a reciprocal relationship"/>
-				<expression value="defineVariable('sc', code).property.all((code = 'alternateCode') implies defineVariable('ac', valueCode).%resource.repeat(concept).where(code = %ac).exists(property.where(code = 'alternateCode').valueCode = %sc))"/>
+				<expression value="defineVariable('sc', code).property.all((code = 'alternateCode') implies defineVariable('ac', value).%resource.repeat(concept).where(code = %ac).exists(property.where(code = 'alternateCode').value = %sc))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
 			</constraint>
 		</element>
@@ -1115,8 +1114,6 @@
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#CodeSystem.concept"/>
-			<condition value="csd-1"/>
-			<condition value="csd-2"/>
 		</element>
 	</differential>
 </StructureDefinition>

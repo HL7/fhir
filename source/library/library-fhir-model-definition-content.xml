@@ -10266,9 +10266,6 @@
         <ns4:element name="contact">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
         </ns4:element>
-        <ns4:element name="relatedArtifact">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RelatedArtifact"/>
-        </ns4:element>
         <ns4:element name="keyword">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </ns4:element>

@@ -11,7 +11,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Extension"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
   <snapshot>
     <element id="DiagnosticReport">
