@@ -19,10 +19,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-
-
-
-
+  
+  
+  
+  
   <TabRatio>500</TabRatio>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -164,7 +164,7 @@
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R1C1:R141C35"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R1C1:R142C35"/>
   </Names>
   <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="142" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="224.0"/>
@@ -1512,6 +1512,37 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">inactive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DeviceDefinition.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s65"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">active</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">inactive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4471,35 +4502,35 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">VisionPrescription.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s64"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">VisionPrescription.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s64"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">draft</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">active</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">cancelled</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4518,11 +4549,11 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>5</SplitHorizontal>
-   <TopRowBottomPane>118</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
