@@ -1,0 +1,16 @@
+{
+  "resourceType" : "Questionnaire",
+  "status" : "draft",
+  "item" : [{
+    "linkId" : "test",
+    "type" : "text",
+    "answerOption": [
+      {
+        "valueString": "http://foo"
+      },
+      {
+        "valueInteger": 1
+      }
+    ]
+ }]
+}

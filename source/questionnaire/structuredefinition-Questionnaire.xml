@@ -767,8 +767,16 @@
 			<constraint>
 				<key value="que-5"/>
 				<severity value="error"/>
-				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet"/>
-				<expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())"/>
+				<human value="Only coding, decimal, integer, date, dateTime, time, string, quantity, reference, or uri items can have answerOption"/>
+				<expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity' or type = 'reference' or type = 'uri') or answerOption.empty())"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
+			
+			<constraint>
+				<key value="que-5b"/>
+				<severity value="error"/>
+				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption"/>
+				<expression value="(type='coding' type = 'string' or type = 'uri') or answerValueSet.empty())"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -838,6 +846,24 @@
 				<expression value="answerConstraint.exists() implies answerOption.exists() or answerValueSet.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
+			<constraint>
+        <key value="que-17"/>
+        <severity value="error"/>
+        <human value="If question is non-repeating, cannot have more than one initialSelected answer option"/>
+        <expression value="repeats.not() implies answerOption.where(initialSelected=true).count() &lt;= 1"/>
+      </constraint>
+			<constraint>
+        <key value="que-18a"/>
+        <severity value="error"/>
+        <human value="The types of any specified answerOptions must align with the item type"/>
+        <expression value="answerOption.value.exists() implies defineVariable('type', type).trace('type', %type).answerOption.value.type().name.distinct().select(iif($this='simplequantity', 'quantity', $this.lower())).where(%type!=$this and (%type='text' and $this='string').not() and (%type='url' and $this='uri').not()).trace('Unmatched answerOption type(s)').empty()"/>
+      </constraint>
+			<constraint>
+        <key value="que-18b"/>
+        <severity value="error"/>
+        <human value="The types of any specified initial values must align with the item type"/>
+        <expression value="initial.value.exists() implies defineVariable('type', type).trace('type', %type).initial.value.type().name.distinct().select(iif($this='simplequantity', 'quantity', $this.lower())).where(%type!=$this and (%type='text' and $this='string').not() and (%type='url' and $this='uri').not()).trace('Unmatched initial value type(s)').empty()"/>
+      </constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]"/>
@@ -858,8 +884,6 @@
 				<code value="string"/>
 			</type>
 			<condition value="que-2"/>
-			<condition value="que-15"/>
-			<condition value="que-16"/>
 			<constraint>
 				<key value="que-15"/>
 				<severity value="warning">
@@ -876,12 +900,6 @@
         <severity value="error"/>
         <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
         <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
-      </constraint>
-			<constraint>
-        <key value="que-17"/>
-        <severity value="error"/>
-        <human value="If question is non-repeating, cannot have more than one initialSelected answer option"/>
-        <expression value="repeats.not() implies answerOption.where(initialSelected=true).count() &lt;= 1"/>
       </constraint>
 			<mapping>
 				<identity value="rim"/>
@@ -1023,7 +1041,7 @@
         <key value="que-18"/>
         <severity value="warning"/>
         <human value="Referenced questions SHOULD exist in the Questionnaire (unless still in draft, working with modular forms, etc.)"/>
-        <expression value="question.exists() implies %resource.repeat(item).linkId contains question"/>
+        <expression value="question.exists() implies (%resource.repeat(item).linkId contains question)"/>
       </constraint>
 			<isModifier value="true"/>
 			<isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren't actually present"/>
@@ -1275,14 +1293,14 @@
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="ValueSet containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For items of type Coding, the value set indicates the allowed code + system matches.  For items of type 'string' the display values in the value set expansion are taken as the allowed values for the item.  For items of type 'uri', the code values in the value set expansion are taken as the allowed values for the item."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
 			</type>
-			<condition value="que-5"/>
+			<condition value="que-5b"/>
 			<condition value="que-4"/>
 			<condition value="que-14"/>
 			<mapping>
@@ -1307,7 +1325,6 @@
 			<condition value="que-4"/>
 			<condition value="que-11"/>
 			<condition value="que-14"/>
-			<condition value="que-17"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
@@ -1324,10 +1341,16 @@
 			<min value="1"/>
 			<max value="1"/>
 			<type>
+				<code value="decimal"/>
+			</type>
+			<type>
 				<code value="integer"/>
 			</type>
 			<type>
 				<code value="date"/>
+			</type>
+			<type>
+				<code value="dateTime"/>
 			</type>
 			<type>
 				<code value="time"/>
@@ -1336,12 +1359,19 @@
 				<code value="string"/>
 			</type>
 			<type>
+				<code value="uri"/>
+			</type>
+			<type>
 				<code value="Coding"/>
+			</type>
+			<type>
+				<code value="SimpleQuantity"/>
 			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+			<condition value="que-18a"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="QuestionnaireQuestionOption"/>
@@ -1365,6 +1395,7 @@
 				<code value="boolean"/>
 			</type>
 			<meaningWhenMissing value="Only selected items explicitly marked to be selected"/>
+			<condition value="que-17"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
@@ -1442,6 +1473,7 @@
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+			<condition value="que-18b"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="QuestionnaireQuestionOption2"/>
