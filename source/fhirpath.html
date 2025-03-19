@@ -225,12 +225,27 @@ Note that in most cases, the resource is not contained by another resource, and
 then %rootResource is the same as %resource.
 </p>
 
+<p>
+In addition to the general purpose variables above, additional variables and/or guidance about variable use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
+</p>
+<ul>
+  <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a></li>
+  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
+</ul>
+
 <a name="functions"></a>
 <h4>Additional functions</h4>
 <p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
 Some of these functions are candidates for elevation to the base version of 
 FHIRPath when the next version is released.
 </p>
+
+<p>
+In addition to the general purpose functions below, additional functions function use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
+</p>
+<ul>
+  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
+</ul>
 
 <p><b>extension(url : string) : collection</b><a name="fn-extension"> </a></p>
 <p>Will filter the input collection for items named "extension" with the given url. 
@@ -417,6 +432,22 @@ system is recognized by the FHIRPath implementation and the codes are comparable
 <p>
 This function is intended to be added to the core FHIRPath specification in a future version.
 </p>
+<hr/>
+
+<div class="draft-content">
+
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+These functions are added to FHIRPath as part of this ballot.  This content has been exercised as part of the SDC specification and is therefore a candidate for normative in the R6 FHIR release.
+</p>
+
+<p><b>weight() : decimal</b><a name="fn-weight"> </a></p>
+
+This functions returns the ordinal value for an element. This may be based on an <a href="https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the result will be an empty set. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
+
+This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
+
+
+</div>
 
 <a name="changes"></a>
 <h4>Changes to operators</h4>
