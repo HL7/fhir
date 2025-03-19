@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="Encounter"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="Encounter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Encounter.identifier">
         <shortUnmatched reason="Unknown">
@@ -21,8 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Encounter.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,DeviceRequest,MedicationRequest,ServiceRequest,RequestOrchestration,NutritionOrder,VisionPrescription,ImmunizationRecommendation)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DeviceRequest,MedicationRequest,ServiceRequest,RequestOrchestration,NutritionOrder,VisionPrescription,ImmunizationRecommendation)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
@@ -68,7 +66,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Not to be used to link an encounter to an Encounter - use 'context' for that."/>
-            <resource value="This is also used for associating a child's encounter back to the mother's encounter.&#xd;&#xd;Refer to the Notes section in the Patient resource for further details."/>
+            <resource value="This is also used for associating a child's encounter back to the mother's encounter.&#13;&#13;Refer to the Notes section in the Patient resource for further details."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="Encounter.status">
@@ -81,7 +79,7 @@
             <resource value="The current state of the encounter (not the state of the patient within the encounter - that is subjectState)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
         </commentsUnmatched>
     </divergentElement>
@@ -136,7 +134,7 @@
             <resource value="The actual start and end time of the encounter."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="If not (yet) known, the end of the Period may be omitted."/>
         </commentsUnmatched>
     </divergentElement>
@@ -150,11 +148,11 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date, period or timing when the encounter did occur or is occurring."/>
-            <resource value="Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.&#xd;&#xd;When missing it is the time in between the start and end values."/>
+            <resource value="Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.&#13;&#13;When missing it is the time in between the start and end values."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
-            <resource value="If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xd;&#xd;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
+            <resource value="If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#13;&#13;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="Encounter.participant">
@@ -186,8 +184,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="Encounter.serviceProvider">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed encounter"/>
