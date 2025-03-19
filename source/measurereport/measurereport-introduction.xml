@@ -5,12 +5,14 @@
 <h2>Scope and Usage</h2>
 
 <p>
-The MeasureReport resource represents the results of calculating a measure for a specific subject or group of subjects. The <code>$evaluate-measure</code> operation of the <a href="measure.html">Measure</a> resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: individual, subject-list, and summary.
+The MeasureReport resource represents the results of calculating a measure for a specific subject or group of subjects. The <code>$evaluate</code> operation of the <a href="measure.html">Measure</a> resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: individual, subject-list, and summary.
 </p>
 
 <p>
-The resource draws requirements from the HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category 1 (QRDA I) DSTU Release 3 (US Realm) and the HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category III (QRDA III), DSTU Release 1 implementation guides.
+The resource draws requirements from the HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category 1 (QRDA I) Release 1 STU5.3 (US Realm) and the HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category III (QRDA III), Release 1 implementation guides.
 </p>
+
+<p>An <em>individual</em> MeasureReport contains information about a specific subject and typically includes references to the relevant data used to generate the report. A <em>subject-list</em> MeasureReport reports on a list of subjects and provides a List resource that contains references to individual-level reports for each subject being reported. A <em>summary</em> MeasureReport reports on a group of subjects and contains population counts and the calculated score as defined by the Measure. Finally, <em>data-collection</em> reports are used to communicate the data of interest, so no scoring or other calculated information is expected.</p>
 
 <p>For a detailed discussion of how to use the Measure and MeasureReport resources, refer to the <a href="clinicalreasoning-quality-reporting.html">Quality Reporting</a> topic.</p>
 
