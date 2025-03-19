@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Substance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
 	<id value="f205"/>
-	<contained>
-		<Substance>
-			<id value="ingr1"/>
-			<instance value="false"/>
-			<code>
-				<concept>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="372687004"/>
-						<display value="Amoxicillin (substance)"/>
-					</coding>
-				</concept>
-			</code>
-		</Substance>
-	</contained>
-	<contained>
-		<Substance>
-			<id value="ingr2"/>
-			<instance value="false"/>
-			<code>
-				<concept>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="395938000"/>
-						<display value="Clavulanate potassium (substance)"/>
-					</coding>
-				</concept>
-			</code>
-		</Substance>
-	</contained>
-	<instance value="false"/>
 	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/substance-category"/>
@@ -49,42 +18,4 @@
 		</concept>
 	</code>
 	<description value="Augmentin 875"/>
-	<ingredient>
-		<quantity>
-			<numerator>
-				<value value="875"/>
-				<unit value="mg"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="mg"/>
-			</numerator>
-			<denominator>
-				<value value="1000"/>
-				<unit value="mg"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="mg"/>
-			</denominator>
-		</quantity>
-		<substanceReference>
-			<reference value="#ingr1"/>
-		</substanceReference>
-	</ingredient>
-	<ingredient>
-		<quantity>
-			<numerator>
-				<value value="125"/>
-				<unit value="mg"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="mg"/>
-			</numerator>
-			<denominator>
-				<value value="1000"/>
-				<unit value="mg"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="mg"/>
-			</denominator>
-		</quantity>
-		<substanceReference>
-			<reference value="#ingr2"/>
-		</substanceReference>
-	</ingredient>
 </Substance>
