@@ -305,4 +305,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-url"/>
+        <description value="The uri that identifies the code system"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="DeviceDefinition.url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>
