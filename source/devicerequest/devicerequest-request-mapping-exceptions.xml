@@ -78,6 +78,10 @@
     </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="DeviceRequest.status">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the device request."/>
             <resource value="The status of the request."/>

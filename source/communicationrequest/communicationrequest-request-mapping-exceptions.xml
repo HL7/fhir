@@ -53,6 +53,10 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="CommunicationRequest.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the communication request."/>
             <resource value="The status of the proposal or order."/>

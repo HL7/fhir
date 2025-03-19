@@ -55,6 +55,10 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="RequestOrchestration.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the request orchestration."/>
             <resource value="The current state of the request. For request orchestrations, the status reflects the status of all the requests in the orchestration."/>

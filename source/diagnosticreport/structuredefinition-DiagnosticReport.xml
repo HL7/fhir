@@ -450,6 +450,19 @@
         <map value="participation[typeCode=VRF or AUT].time"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.procedure">
+      <path value="DiagnosticReport.procedure"/>
+      <short value="The procedure(s) from which the report was produced"/>
+      <definition value="The procedure(s) that are reported on in the DiagnosticReport."/>
+      <comment value="This is a summary of the report, not a list of results."/>
+      <min value="0"/>
+      <max value="*"/>
+       <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+       </type>
+       <isSummary value="true"/>
+      </element>
     <element id="DiagnosticReport.performer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="12/22/2016 EH: 8936,11428,13169."/>
