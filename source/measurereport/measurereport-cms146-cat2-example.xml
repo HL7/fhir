@@ -1557,6 +1557,18 @@
   </period>
   <group>
     <linkId value="CMS146-group-1"/>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="proportion"/>
+      </coding>
+    </scoring>
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>
     <population>
       <linkId value="CMS146-group-1-ip"/>
       <code><coding><code value="initial-population"/></coding></code>
@@ -1590,18 +1602,6 @@
         <reference value="List/CMS146-denominator-exclusions"/>
       </subjectResults>
     </population>
-    <scoring>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-        <code value="proportion"/>
-      </coding>
-    </scoring>
-    <improvementNotation>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-        <code value="increase"/>
-      </coding>
-    </improvementNotation>
     <measureScoreQuantity>
       <value value="0.5"/>
     </measureScoreQuantity>
