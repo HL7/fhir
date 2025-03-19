@@ -201,6 +201,13 @@
     </element>
     <element id="Observation.component:SystolicBP.value[x]">
       <path value="Observation.component.value[x]"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="Observation.component:SystolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.value[x]"/>
+      <sliceName value="valueQuantity"/>
       <short value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]"/>
       <definition value="Vital Sign Systolic BP Component Value recorded with UCUM mm[Hg]."/>
       <type>
@@ -291,8 +298,15 @@
     </element>
     <element id="Observation.component:DiastolicBP.value[x]">
       <path value="Observation.component.value[x]"/>
-      <short value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]"/>
-      <definition value="Vital Sign Diastolic BP Component Value recorded with UCUM mm[Hg]."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.value[x]"/>
+      <sliceName value="valueQuantity"/>
+      <short value="Vital Sign DiastolicBP BP Component Value recorded with UCUM mm[Hg]"/>
+      <definition value="Vital Sign DiastolicBP BP Component Value recorded with UCUM mm[Hg]."/>
       <type>
         <code value="Quantity"/>
       </type>
