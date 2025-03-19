@@ -89,7 +89,7 @@
         <human value="Measure Reports used for data collection SHALL NOT communicate group and score information"/>
         <expression value="(type != 'data-exchange') or group.exists().not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
-      </constraint>
+      </constraint>  
       <mapping>
         <identity value="rim"/>
         <map value="Observation[classCode=OBS, moodCode=EVN]"/>
@@ -559,6 +559,13 @@
       <definition value="The populations that make up the population group, one for each type of population appropriate for the measure."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="mrp-3"/>
+        <severity value="error"/>
+        <human value="The count and countQuantity elements SHALL be mutually exclusive"/>
+        <expression value="count.exists() xor countQuantity.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+      </constraint>         
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -613,6 +620,7 @@
       <type>
         <code value="integer"/>
       </type>
+      <condition value="mrp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
@@ -630,6 +638,7 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <condition value="mrp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
@@ -923,10 +932,17 @@
       <short value="Population results in this stratum"/>
       <definition value="The populations that make up the stratum, one for each type of population appropriate to the measure."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="*"/>    
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="mrp-4"/>
+        <severity value="error"/>
+        <human value="The count and countQuantity elements for a statum population SHALL be mutually exclusive"/>
+        <expression value="count.exists() xor countQuantity.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+      </constraint>         
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -977,6 +993,7 @@
       <type>
         <code value="integer"/>
       </type>
+      <condition value="mrp-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
@@ -994,6 +1011,7 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <condition value="mrp-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
