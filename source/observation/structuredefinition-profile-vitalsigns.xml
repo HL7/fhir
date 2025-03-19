@@ -88,7 +88,7 @@
       <constraint>
         <key value="vsp-1"/>
         <severity value="error"/>
-        <human value="if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day"/>
+        <human value="if Observation.effective[x] (as dateTime) has a value then that value shall be precise at least to the day"/>
         <expression value="(effective as dateTime).toString().length() >= 8"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
@@ -169,14 +169,11 @@
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]"/>
-      <short value="Often just a dateTime for Vital Signs"/>
-      <definition value="Often just a dateTime for Vital Signs."/>
+      <short value="Vital Signs are point in time measurements and are recorded using the dateTime data type"/>
+      <definition value="Vital Signs are point in time measurements and are recorded using the dateTime data type."/>
       <min value="1"/>
       <type>
         <code value="dateTime"/>
-      </type>
-      <type>
-        <code value="Period"/>
       </type>
       <condition value="vsp-1"/>
       <mustSupport value="true"/>
@@ -189,17 +186,6 @@
         <code value="Quantity"/>
       </type>
       <condition value="vsp-2"/>
-    <!--
-    </element>
-    <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.value[x]"/>
-      <sliceName value="valueQuantity"/>
-      <short value="Vital Sign value recorded with UCUM (preferred)"/>
-      <definition value="Vital Sign value recorded with UCUM (preferred)."/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      -->
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Common UCUM units for recording Vital Signs."/>
