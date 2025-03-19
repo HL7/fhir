@@ -16,7 +16,6 @@ The resource draws requirements from the HL7 CDA R2 Implementation Guide: Qualit
 
 <p>For a detailed discussion of how to use the Measure and MeasureReport resources, refer to the <a href="clinicalreasoning-quality-reporting.html">Quality Reporting</a> topic.</p>
 
-<p>Note that this resource is a special case of the more general notion of a query evaluation result. However, because the general case requires the ability to represent arbitrary content, this resource uses a simple indicator structure to describe population sizes for each population type defined in the measure. The intent is to be able to represent the more general case as well, either by generalizing this resource, or by making this structure a profile of a more general resource, and we are actively seeking comments about what approaches might be taken to achieve that aim.</p>
 </div>
 
 <div>
