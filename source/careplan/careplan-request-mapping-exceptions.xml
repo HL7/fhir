@@ -51,6 +51,10 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="CarePlan.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the care plan."/>
             <resource value="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record."/>
