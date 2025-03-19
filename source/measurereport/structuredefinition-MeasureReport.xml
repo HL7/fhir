@@ -579,6 +579,30 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.scoring">
+      <path value="MeasureReport.group.scoring"/>
+      <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
+      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Scoring determines what method was used to calculate the measure score and is required for correct interpretation of the score"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureScoring"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.improvementNotation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>

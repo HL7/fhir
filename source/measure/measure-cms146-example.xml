@@ -89,12 +89,6 @@
   </relatedArtifact>
   <library value="http://hl7.org/fhir/Library/library-cms146-example"/>
   <disclaimer value="These performance Measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED &#34;AS IS&#34; WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>
-  <scoring>
-  	<coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
-  	  <code value="proportion"/>
-  	</coding>
-  </scoring>
   <type>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
@@ -106,6 +100,12 @@
   <guidance value="This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure"/>
   <group>
     <linkId value="CMS146-group-1"/>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="proportion"/>
+      </coding>
+    </scoring>
     <improvementNotation>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>

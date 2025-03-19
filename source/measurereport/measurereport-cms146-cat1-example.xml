@@ -1055,6 +1055,21 @@
       <code><coding><code value="denominator-exclusion"/></coding></code>
       <count value="0"/>
     </population>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="proportion"/>
+      </coding>
+    </scoring>
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>
+    <measureScoreQuantity>
+      <value value="1.0"/>
+    </measureScoreQuantity>
     <stratifier>
       <linkId value="CMS146-group-1-stratifier-ages-up-to-9"/>
       <code><text value="stratifier-ages-up-to-9"/></code>
