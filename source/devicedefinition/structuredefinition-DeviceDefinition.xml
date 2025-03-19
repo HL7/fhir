@@ -366,6 +366,71 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.additive">
+      <path value="DeviceDefinition.additive"/>
+      <short value="Material added to a container device"/>
+      <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by another party subsequent to manufacturing."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Material"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.additive.type">
+      <path value="DeviceDefinition.additive.type"/>
+      <short value="The additive substance"/>
+      <definition value="The type of the substance added to the container.  This is represented as a concept from a code system or described in a Substance resource."/>
+      <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device additive substance type codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.additive.quantity">
+      <path value="DeviceDefinition.additive.quantity"/>
+      <short value="Quantity of additive substance within container"/>
+      <definition value="The quantity of the additive substance in the container; may be volume, dimensions, or other appropriate measurements, depending on the container and additive substance type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[classCode=CONT].quantity"/>
+      </mapping>
+    </element>
     <element id="DeviceDefinition.contact">
       <path value="DeviceDefinition.contact"/>
       <short value="Contact details for the publisher"/>
