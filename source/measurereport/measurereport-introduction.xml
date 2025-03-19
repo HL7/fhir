@@ -17,12 +17,26 @@ The resource draws requirements from the HL7 CDA R2 Implementation Guide: Qualit
 <p>Note that this resource is a special case of the more general notion of a query evaluation result. However, because the general case requires the ability to represent arbitrary content, this resource uses a simple indicator structure to describe population sizes for each population type defined in the measure. The intent is to be able to represent the more general case as well, either by generalizing this resource, or by making this structure a profile of a more general resource, and we are actively seeking comments about what approaches might be taken to achieve that aim.</p>
 </div>
 
+<a name="stu"></a>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+
+A new <code>countQuantity</code> element is added in this ballot. The CQI Work Group is seeking reviewers and implementers feedback on these two options addressing the need to support decimal-valued count. 
+</p>
+			<ol>
+				<li>Option 1: generalize the <code>count</code> element itself (i.e. change the <code>count</code> element to a Quantity, a breaking change)</li>
+				<li>Option 2: keep the approach of defining a new <code>countQuantity</code> element to maintain backwards compatibility</li>
+			</ol>
+<p>
+</p></blockquote>
+
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>Although the MeasureReport is conceptually an <a href="observation.html">Observation</a>, there is enough specific information required to support the quality reporting use case to warrant a separate resource.</p>
 
 <p>The resource is differentiated from a general purpose query result because it communicates specific information related to quality measurement evaluation that would be difficult to convey generally without imposing some other structure on top of the general results.</p>
 </div>
+
 
 <!-- (optional):
 <div>
