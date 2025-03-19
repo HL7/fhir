@@ -208,7 +208,7 @@
     <divergentElement patternPath="Request.performer" resourcePath="MedicationRequest.performer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
-        <extraTypes _resource="Reference(DeviceDefinition)" reason="Unknown"/>
+        <extraTypes _resource="Reference(DeviceDefinition,Group)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
