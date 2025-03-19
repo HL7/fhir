@@ -235,7 +235,7 @@
           <path value="$this"/> 
         </discriminator> 
         <ordered value="false"/> 
-        <rules value="open"/> 
+        <rules value="closed"/>
       </slicing> 
       <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
       <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
