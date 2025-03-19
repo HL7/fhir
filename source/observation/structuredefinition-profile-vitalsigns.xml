@@ -88,7 +88,7 @@
       <constraint>
         <key value="vsp-1"/>
         <severity value="error"/>
-        <human value="if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day"/>
+        <human value="if Observation.effective[x] (as dateTime) has a value then that value shall be precise at least to the day"/>
         <expression value="(effective as dateTime).toString().length() >= 8"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
@@ -169,31 +169,23 @@
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]"/>
-      <short value="Often just a dateTime for Vital Signs"/>
-      <definition value="Often just a dateTime for Vital Signs."/>
+      <short value="Vital Signs are point in time measurements and are recorded using the dateTime data type"/>
+      <definition value="Vital Signs are point in time measurements and are recorded using the dateTime data type."/>
       <min value="1"/>
       <type>
         <code value="dateTime"/>
       </type>
-      <type>
-        <code value="Period"/>
-      </type>
-      <condition value="vs-1"/>
+      <condition value="vsp-1"/>
       <mustSupport value="true"/>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
       <type>
         <code value="Quantity"/>
       </type>
-      <condition value="vs-2"/>
-    </element>
-    <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity"/>
-      <short value="Vital Sign value recorded with UCUM (preferred)"/>
-      <definition value="Vital Sign value recorded with UCUM (preferred)."/>
+      <condition value="vsp-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Common UCUM units for recording Vital Signs."/>
@@ -208,7 +200,7 @@
     </element>
     <element id="Observation.dataAbsentReason">
       <path value="Observation.dataAbsentReason"/>
-      <condition value="vs-2"/>
+      <condition value="vsp-2"/>
     </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
@@ -237,13 +229,25 @@
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
-      <short value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <slicing> 
+        <discriminator> 
+          <type value="type"/> 
+          <path value="$this"/> 
+        </discriminator> 
+        <ordered value="false"/> 
+        <rules value="open"/> 
+      </slicing> 
+      <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
     </element>
     <element id="Observation.component.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity"/>
-      <short value="Vital Sign value recorded as a component with UCUM (preferred)"/>
-      <definition value="Vital Sign value recorded as a component with UCUM (preferred)."/>
+      <path value="Observation.component.value[x]"/>
+      <sliceName value="valueQuantity"/>
+      <short value="Vital Sign component value recorded as a component with UCUM (preferred)"/>
+      <definition value="Vital Sign component value recorded as a component with UCUM (preferred)."/>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="UCUM units"/>
