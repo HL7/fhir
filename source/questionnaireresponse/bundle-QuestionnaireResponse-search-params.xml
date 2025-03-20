@@ -603,7 +603,7 @@
 			</SearchParameter>
 		</resource>
 	</entry>
-<!--	<entry>
+	<entry>
 		<resource>
 			<SearchParameter>
 				<id value="QuestionnaireResponse-item-uri"/>
@@ -629,5 +629,5 @@
 				</component>
 			</SearchParameter>
 		</resource>
-	</entry>-->
+	</entry>
 </Bundle>

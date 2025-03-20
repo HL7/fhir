@@ -47,9 +47,9 @@
     <include>
       <system value="http://hl7.org/fhir/item-type"/>
     </include>
-<!--    <exclude>
+    <exclude>
       <system value="http://hl7.org/fhir/item-type"/>
       <code value="question"/>
-    </exclude>-->
+    </exclude>
   </compose>
 </ValueSet>
