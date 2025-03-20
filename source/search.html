@@ -5047,7 +5047,8 @@ results for the convenience of the client.
 <h5>Contained Resources (_contained)</h5>
 <p>
 By default, search results only include resources that are not contained in other resources.
-However, chained parameters will be evaluated inside contained resources. To illustrate this, consider
+<span class="fhir-conformance">However, chained parameters SHOULD be evaluated inside contained 
+resources.</span> To illustrate this, consider
 a <a href="medicationrequest.html">MedicationRequest</a> resource (id: <code>MedicationRequest/23</code>) 
 that has a contained Medication resource specifying a custom formulation that has ingredient with an 
 <code>itemCodeableConcept</code> "abc" in "http://example.org/medications" (id: <code>Medication/m1</code>).
