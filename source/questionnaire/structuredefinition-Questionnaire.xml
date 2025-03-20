@@ -1007,7 +1007,7 @@
 				</extension>
 				<strength value="required"/>
 				<description value="Distinguishes groups from questions and display text and indicates data type for questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/item-type"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/item-type-useable"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
