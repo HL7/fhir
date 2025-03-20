@@ -103,7 +103,7 @@ search declarations</a></span>, and clients are encouraged to do this too.
         <ul>
           <li><a href="#_include">Inline Requests (_include, _revinclude)</a></li>
           <li><a href="#external">External References</a></li>
-          <li><a href="#_graph">Graph Definitions (_graph)</a> <span class="stu">TU</span></li>
+          <li><a href="#_graph">Graph Definitions (_graph)</a></li>
           <li><a href="#contained">Contained Resources (_contained)</a></li>
           <li><a href="#paging">Paging and Other Resources</a></li>
         </ul>
@@ -343,13 +343,13 @@ parameter(s)</span>
 </p>
 <p>
   Self links SHALL be expressed as an HTTP GET-based search with the relevant parameters included as query
-  parameters, because of the semantics around the link types <span class="stu">TU</span>.  This means that the same self link is a 
+  parameters, because of the semantics around the link types.  This means that the same self link is a 
   valid response for any equivalent search, regardless of how a search is performed (e.g., HTTP GET, HTTP POST, 
   Messaging, etc.).
 </p>
 <p>
   Self links MAY be returned as absolute URIs or URIs relative to the base URL of a server, and 
-  MAY or MAY NOT be resolvable <span class="stu">TU</span>.  A server that does not support search via GET will return links
+  MAY or MAY NOT be resolvable.  A server that does not support search via GET will return links
   in the same style as a server that does not support search via POST.  Note that this makes the 
   <code>self</code> link special in the context of bundle links, as all other links are intended
   to be resolvable by a client.
@@ -357,7 +357,7 @@ parameter(s)</span>
 <p>
   Clients SHALL review the returned parameters in the self link to ensure proper processing of results.
   Generally, ignored parameters will result in clients receiving more results than intended.  In those
-  situations, clients SHOULD filter received records to account for additional data <span class="stu">TU</span>.
+  situations, clients SHOULD filter received records to account for additional data.
 </p>
 
 <a name="paginglinks"></a>
@@ -369,8 +369,8 @@ parameter(s)</span>
   are widely-used synonyms and are interchangeable.
 </p>
 <p>
-  As with the self link, all relevant paging links SHALL be expressed as GET requests <span class="stu">TU</span>.  
-  Servers SHOULD NOT include content that is considered sensitive in the URLs <span class="stu">TU</span>.
+  As with the self link, all relevant paging links SHALL be expressed as GET requests.  
+  Servers SHOULD NOT include content that is considered sensitive in the URLs.
 </p>
 
 <a name="entries"></a>
@@ -403,14 +403,14 @@ parameter(s)</span>
 <p>
   Entries marked with <code>outcome</code> in search results are <a href="operationoutcome.html">OperationOutcome</a>
   resources with information related to the processing of a search.  For example, a server MAY use an outcome record
-  to report to a client that a search was unacceptable <span class="stu">TU</span>.
+  to report to a client that a search was unacceptable.
 </p>
 
 <a name="errors"></a>
 <h4>Handling Errors</h4>
 <p>
 If a server is unable to execute a search request, it MAY either return an error for the request or return success
-with an <code>outcome</code> containing details of the error <span class="stu">TU</span>. A HTTP status code of 
+with an <code>outcome</code> containing details of the error. A HTTP status code of 
 <code>403</code> signifies that the server refused to perform the search,
 while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
 the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
@@ -600,8 +600,7 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
       By returning a warning message in the search 
       <a href="operationoutcome.html">OperationOutcome</a> (see also: 
       <a href="#errors">Handling Errors</a>) indicating that not all filters were applied on all 
-      resources.  This SHOULD only occur in situations where it is known that some filters haven't been applied
-      <span class="stu">TU</span>.
+      resources.  This SHOULD only occur in situations where it is known that some filters haven't been applied.
     </li>
     <li>
       By exposing distinct FHIR endpoints for each data source and the different capabilities in an endpoint-specific manner.
@@ -612,7 +611,7 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
 <a name="batching"></a>
 <h4>Batching Search Requests</h4>
 <p>
-  Servers MAY support <a href="http.html#transaction">batching</a> multiple requests <span class="stu">TU</span>.  In the context of search, 
+  Servers MAY support <a href="http.html#transaction">batching</a> multiple requests.  In the context of search, 
   this allows several searches to be performed serially via a single request.  Note that each operation of a <code>batch</code> is independent,
   so it is not possible to use the results of one request as input to another in the same batch.
 </p>
@@ -624,9 +623,9 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
 <p>
   When bundling requests via <code>batch</code> or <code>transaction</code>, HTTP verbs and the URLs for RESTful interfaces 
   are used.  When requesting searches in a bundle, systems SHOULD accept searches via GET, even if they do not typically accept GET-based 
-  searches <span class="stu">TU</span>.  There is no standard way to convey POST-based searches within a Bundle and the architectural differences when searching via
+  searches.  There is no standard way to convey POST-based searches within a Bundle and the architectural differences when searching via
   GET or POST are not relevant within a Bundle.  Servers receiving searches within a Bundle SHOULD NOT impose any GET-specific limitations 
-  on search (i.e. restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle <span class="stu">TU</span>.
+  on search (i.e. restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle.
 </p>
 
 <a name="messaging"></a>
@@ -703,7 +702,7 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
   When a search parameter points to a complex or backbone element (an element that contains sub-elements), by default the 
   search is interpreted as a search against one or more values in sub-elements with an appropriate type, as selected by the 
   implementation. A search parameter MAY instead explicitly choose elements by using an expression that instead points directly 
-  to the sub-elements <span class="stu">TU</span>.
+  to the sub-elements.
 </p>
 
 <a name="multivalue"></a>
@@ -858,7 +857,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 </p>
 
 <p>
-  The following table contains examples of how joins work depending on their element types <span class="stu">TU</span>.
+  The following table contains examples of how joins work depending on their element types.
   Note that this table is illustrative and not comprehensive.  Additionally, the joins listed below can be combined in a 
   single request to form more complicated logic.  For brevity, this table demonstrates the joins only against the same element type, 
   though this is not a requirement.  For example, it is common to join one parameter against a simple scalar element with 
@@ -1051,7 +1050,7 @@ name=valueA,valueB</span>
     </td>
   </tr>
   <tr>
-    <td><code><a href="#modifiercodetext">code-text</a></code> <span class="stu">TU</span> </td>
+    <td><code><a href="#modifiercodetext">code-text</a></code></td>
     <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       Tests whether the textual display value in a resource (e.g., <code>CodeableConcept.text</code>, <code>Coding.display</code>, 
@@ -1116,7 +1115,7 @@ name=valueA,valueB</span>
    </tr>
    <tr>
     <td><code><a href="#modifiernotin">not-in</a></code></td>
-    <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       Tests whether the value in a resource is not a member of the supplied parameter ValueSet.
     </td>
@@ -1130,7 +1129,7 @@ name=valueA,valueB</span>
    </tr>
    <tr>
     <td><code><a href="#modifiertexttoken">text</a></code></td>
-    <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       Tests whether the textual value in a resource (e.g., <code>CodeableConcept.text</code>, <code>Coding.display</code>, 
       <code>Identifier.type.text</code>, or <code>Reference.display</code>) matches the supplied parameter value using 
@@ -1145,7 +1144,7 @@ name=valueA,valueB</span>
     </td>
    </tr>
    <tr>
-    <td><code><a href="#modifiertextadvanced">text-advanced</a></code> <span class="stu">TU</span> </td>
+    <td><code><a href="#modifiertextadvanced">text-advanced</a></code></td>
     <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       Tests whether the value in a resource matches the supplied parameter value using advanced text handling that searches
@@ -1221,7 +1220,7 @@ location:above=A101</span>
     as a version search against the canonical resource.  The format of the parameter is either <b><code>[url]</code></b> or 
     <b><code>[url]|[version]</code></b> (see <a href="#encoding-note">Encoding Note</a>).  This search is only allowed if the version scheme for the
     resource is known (e.g., a known version-scheme extension or element).  Version-related search criteria against 
-    resources with unknown versioning schemes SHALL be either ignored or rejected <span class="stu">TU</span>.  The <code>above</code>
+    resources with unknown versioning schemes SHALL be either ignored or rejected.  The <code>above</code>
     modifier comparison is performed as a 'greater than' against the version-scheme defined by the resource.
   </p>
   <p>
@@ -1353,7 +1352,7 @@ location:below=BuildingA</span>
     as a version search against the canonical resource.  The format of the parameter is either <b><code>[url]</code></b> or 
     <b><code>[url]|[version]</code></b> (see <a href="#encoding-note">Encoding Note</a>). This search is only allowed if the version scheme for the
     resource is known (e.g., a known version-scheme extension or element).  Version-related search criteria against 
-    resources with unknown versioning schemes SHALL be either ignored or rejected <span class="stu">TU</span>.  The <code>below</code>
+    resources with unknown versioning schemes SHALL be either ignored or rejected.  The <code>below</code>
     modifier comparison is performed as a 'less than' against the version-scheme defined by the resource.
   </p>
   <p>
@@ -1435,7 +1434,7 @@ url:above=http://acme.org/fhir</span>
   </p>
 
   <a name="modifiercodetext"></a>
-  <h5>code-text <span class="stu">TU</span></h5>
+  <h5>code-text</h5>
   <p>
     The <code>code-text</code> modifier allows clients to indicate that a supplied <code>string</code> input should be matched
     as a case-insensitive and combining-character insensitive match against the start of target string.  This modifier is used
@@ -1956,7 +1955,7 @@ identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|12345</span>
 
 
   <a name="modifiertexttoken"></a>
-  <h5>text with <em>reference</em> <span class="stu">TU</span> or <em>token</em> type search parameters</h5>
+  <h5>text with <em>reference</em>or <em>token</em> type search parameters</h5>
   <p>
     The <code>text</code> modifier on search parameters of type <a href="#reference">reference</a> and <a href="#token">token</a>
     allows clients to indicate that a supplied <code>string</code> should be used to perform a string-search against the text
@@ -2034,7 +2033,7 @@ section:text=(bone OR liver) and metastases</span>
   </p>
 
   <a name="modifiertextadvanced"></a>
-  <h5>text-advanced <span class="stu">TU</span></h5>
+  <h5>text-advanced</h5>
   <p>
     The <code>text-advanced</code> modifier allows clients to request matching based on advanced string processing of the search parameter input
     against the text associated with a code or value.  For example, <code>CodeableConcept.text</code>, <code>Coding.display</code>, or 
@@ -2447,7 +2446,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
 </p>
 <p>
 The date parameter format is <code>yyyy-mm-ddThh:mm:ss.ssss[Z|(+|-)hh:mm]</code> (the standard XML format).  Note 
-that fractional seconds MAY be ignored by servers <span class="stu">TU</span>.
+that fractional seconds MAY be ignored by servers.
 </p>
 <p>
 Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
@@ -2807,12 +2806,12 @@ The interpretation of a <i>reference</i> parameter is either (see <a href="#enco
   <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference).</li>
   <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
    for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>).</li>
-  <li><b><code>[parameter]=[type]/[id]/_history/[version]</code></b> <span class="stu">TU</span> the logical [id] of a resource of a specified type using a 
+  <li><b><code>[parameter]=[type]/[id]/_history/[version]</code></b> the logical [id] of a resource of a specified type using a 
    local reference (i.e. a relative reference), for when the reference can point to different types of resources and a specific version is requested. Note 
    that server implementations MAY return an error when using this syntax if resource versions are not supported.  For more information, see 
    <a href="#versions">References and Versions</a>.</li>
   <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by its canonical URL</li>
-  <li><b><code>[parameter]=[url]|[version]</code></b> <span class="stu">TU</span> where the search element is a canonical reference, the [url] is an absolute URL, and a specific version
+  <li><b><code>[parameter]=[url]|[version]</code></b> where the search element is a canonical reference, the [url] is an absolute URL, and a specific version
   or partial version is desired.  For more information, see <a href="#versions">References and Versions</a>. </li>
 </ul>
 <p>
@@ -2838,7 +2837,7 @@ subject=Patient/123</span>
   <ul>
     <li><code>Patient/123</code> - exact match of search input</li>
     <li><code>http://example.org/fhir/Patient/123</code> - search input with implicit resolution to the local server</li>
-    <li><code>Patient/123/_history/1</code> - reference to a specific version of the search input <span class="stu">TU</span></li>
+    <li><code>Patient/123/_history/1</code> - reference to a specific version of the search input</li>
   </ul>
 </p>
 <p>
@@ -2858,7 +2857,7 @@ subject=http://example.org/fhir/Patient/123</span>
     <li><code>Patient/123</code> - search input with implicit reference to the local server</li>
   </ul>
   Note that it will <b>not</b> match an Observation with <code>Patient/123/_history/1</code>, since the original reference was 
-  not a relative reference <span class="stu">TU</span>.
+  not a relative reference.
 </p>
 <p>
   Also, the search:
@@ -2974,12 +2973,12 @@ the entire supplied parameter, including casing and accents.
 <p>
 When a string type search parameter points to a complex or backbone element (an element that contains sub-elements), by default the 
 search is interpreted as a search against one or more string values in sub-elements, as selected by the implementation. A search 
-parameter MAY explicitly choose elements by using an expression that instead points directly to the sub-elements. <span class="stu">TU</span>
+parameter MAY explicitly choose elements by using an expression that instead points directly to the sub-elements.
 </p>
 <p>
 For example, if a search parameter is of type string and the expression points to <code>Patient.name</code>, the implementation MAY search 
 against any one or more elements of the <a href="datatypes.html#humanname">HumanName</a> datatype (e.g., <code>given</code>, <code>family</code>, 
-<code>prefix</code>, <code>suffix</code>, etc.) <span class="stu">TU</span>. However, if the search parameter intends to explicitly match against
+<code>prefix</code>, <code>suffix</code>, etc.). However, if the search parameter intends to explicitly match against
 <code>given</code> and <code>family</code> only, the search parameter should use an expression of <code>Patient.name.given | Patient.name.family</code>.
 </p>
 <p>
@@ -4173,8 +4172,7 @@ types that the search applies to. This can be done by using the standard search 
   If multiple types are specified, all search parameters that can be referenced commonly
   between resources can be used (e.g., listed with the same <code>name</code> in the
   CapabilityStatement, typically the value of 
-  <a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a>)
-  <span class="stu">TU</span>.
+  <a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a>).
   For example, both <a href="patient.html#search">Patient</a> and <a href="person.html#search">Person</a>
   define a search parameter referenced by <code>name</code>.  Assuming a server implements
   both parameters and uses <code>name</code> to do so, the <code>name</code> parameter
@@ -4182,7 +4180,7 @@ types that the search applies to. This can be done by using the standard search 
   even though the search parameters do not share a common definition. If a request references
   multiple parameters that are not the same type (e.g., if one parameter is a
   <code>number</code> type and another is a <code>token</code> type, despite sharing the same name),
-  this is an error and servers SHOULD return a 400 status <span class="stu">TU</span>.
+  this is an error and servers SHOULD return a 400 status.
 </p>
 
 <a name="implicitresources"></a>
@@ -4192,7 +4190,7 @@ types that the search applies to. This can be done by using the standard search 
   (e.g. <a href="codesystem.html#detailed-metadata">Implicit Code Systems</a>).  When searching 
   resources where implicit instances might exist, it is up to the server whether they will include 
   implicit resources as part of the search set.  Implementation Guides MAY set specific expectations 
-  about search behavior around implicit resources. <span class="stu">TU</span>
+  about search behavior around implicit resources.
 </p>
 
 <a name="advanced"></a>
@@ -4218,7 +4216,6 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
   at the <code>instance</code> level.  Query operations SHOULD NOT be invoked via
   any method other than search with the <code>_query</code> parameter (e.g., 
   servers SHOULD NOT execute query operations via <code>[base]/$[operation code]</code>, etc.).
-  <span class="stu">TU</span>
 </p>
 <p>
   For named queries, all the <a href="#standard">standard search parameters</a> (parameters for 
@@ -4237,11 +4234,11 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
   <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam">CapabilityStatement.rest.searchParam</a> or 
   <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam">CapabilityStatement.rest.resource.searchParam</a>). 
   Servers MAY further document the search parameters they support for a specific <code>query</code> operation - either in text 
-  or by defining a constrained operation based on the original that explicitly enumerates all supported parameters. <span class="stu">TU</span>
+  or by defining a constrained operation based on the original that explicitly enumerates all supported parameters.
 </p>
 <p>
   In order to ensure consistent behavior, authors SHOULD include relevant search parameters
-  in the named query definition (<code>OperationDefinition</code>). <span class="stu">TU</span>
+  in the named query definition (<code>OperationDefinition</code>).
 </p>
 <p>
   For example, the operation definition:
@@ -4356,7 +4353,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01</span>
         Query with a no additional parameters, filter results according to a standard patient birthdate query.<br/>
         Note that servers SHOULD accept query parameters that are not enumerated in named queries based on their standard
         support (e.g., parameters that are supported for a given resource type), but servers MAY choose to ignore parameters
-        not specified by the OperationDefinition <span class="stu">TU</span>.
+        not specified by the OperationDefinition.
       </td>
     </tr>
     <tr>
@@ -4370,7 +4367,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
       </td>
       <td>
         Query with both a <code>ward</code> parameter value passed to the named query and a standard patient query filter by birthdate.<br/>
-        Note that query parameters are unordered, so parameters to a named query MAY appear in any location or sequence <span class="stu">TU</span>.
+        Note that query parameters are unordered, so parameters to a named query MAY appear in any location or sequence.
       </td>
     </tr>
   </table>
@@ -4378,8 +4375,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
 </p>
 <p>
   Note that operations defined as named queries (using a <code>OperationDefinition.kind</code> of <code>query</code>)
-  SHOULD NOT be invoked via any mechanism other than search (i.e., do not expose <code>[base]/[type]/$[operation code]</code>)
-  <span class="stu">TU</span>.
+  SHOULD NOT be invoked via any mechanism other than search (i.e., do not expose <code>[base]/[type]/$[operation code]</code>).
 </p>
 
 
@@ -4396,7 +4392,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
 <p>
   Note that with the exception of <code>_include</code> and <code>_revinclude</code>, search result parameters SHOULD only appear once in a 
   search.  If such a parameter appears more than once, the behavior is undefined and a server MAY treat the situation 
-  as an error <span class="stu">TU</span>.
+  as an error.
 </p>
 <p>
   The search result parameters defined by this specification are:
@@ -4421,7 +4417,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
     </td>
   </tr>
   <tr>
-    <td><code><a href="#_graph">_graph</a></code> <span class="stu">TU</span></td>
+    <td><code><a href="#_graph">_graph</a></code></td>
     <td>
       Include additional resources according to a <code>GraphDefinition</code>.
     </td>
@@ -4463,7 +4459,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
     </td>
   </tr>
   <tr>
-    <td><code><a href="#_total">_total</a></code> <span class="stu">TU</span></td>
+    <td><code><a href="#_total">_total</a></code></td>
     <td>
       Request a precision of the total number of results for a request.
     </td>
@@ -4609,7 +4605,7 @@ number of matches, not how many are returned in a single Bundle response.
 </p>
 
 <a name="_maxresults"></a>
-<h4>Limiting Total Result Size (_maxresults) <span class="stu">TU</span></h4>
+<h4>Limiting Total Result Size (_maxresults)</h4>
 <p>
   In some scenarios, a client knows that it will only process a certain number of results for a search, regardless of how many records there are.  For example, if an application is providing an overview of patient activity and will only display the most recent observation on a summary screen, telling the server that additional records will never be retrieved allows the server to free any resources that might have been reserved for paging.
 </p>
@@ -4666,7 +4662,7 @@ resource. It can contain one of the following values:
     (these mandatory elements are included to ensure that the payload is valid FHIR; servers MAY omit elements 
     within these sub-trees as long as they ensure that the payload is valid).  Servers MAY return extensions,
     but clients SHOULD NOT rely on extensions being present and SHOULD use another search mode if data contained
-    in extensions is required. <span class="stu">TU</span>
+    in extensions is required.
   </td>
  </tr>
  <tr>
@@ -4735,7 +4731,7 @@ _elements=identifier,active,link</span>
 The <code>_elements</code> parameter consists of a comma-separated list of base element
 names such as, elements defined at the root level in the resource. Each element name SHALL 
 be the base element name without specifying <code>[x]</code> or one of the types (e.g.,
-"value" is valid, while "value[x]" and "valueQuantity" are not) <span class="stu">TU</span>.  Only
+"value" is valid, while "value[x]" and "valueQuantity" are not).  Only
 elements that are listed are to be returned. Clients SHOULD list all mandatory and modifier
 elements in a resource as part of the list of elements.  Servers have the right to return
 more data than request, however clients can generally expect that returned elements will be:
@@ -4842,7 +4838,7 @@ The score is a decimal number with a value between (and including) 0 and 1, wher
 <ul>
   <li>
     <b><code>[_include|_revinclude]=*</code></b>: the wildcard literal <code>*</code> (asterisk) is requesting all resources and 
-    references supported by the server (will typically only be supported references that are indexed). <span class="stu">TU</span>
+    references supported by the server (will typically only be supported references that are indexed).
   </li>
   <li>
     <b><code>[_include|_revinclude]=[resource]:*</code></b>: where <code>[resource]</code> is the name of the source resource from which the join comes
@@ -5013,7 +5009,7 @@ results for the convenience of the client.
 </p>
 
 <a name="_graph"></a>
-<h5>Graph Definitions (_graph) <span class="stu">TU</span></h5>
+<h5>Graph Definitions (_graph)</h5>
 <p>
   While inline requests for additional resources are flexible, there are times when a more
   structured approach is desired (e.g., optimizing frequent requests, etc.).  To facilitate
@@ -5236,10 +5232,10 @@ pages.  This approach allows both sender and receiver to avoid caching results o
   <a href="#modifiers">modifiers</a> and <a href="#prefix">prefixes</a> that are permitted for that parameter's
   <a href="#ptypes">search type</a> are expected to be supported.  If an implementation wishes to restrict which 
   modifiers they support, the implementation must define their own <code>SearchParameter</code> instance, which
-  SHOULD inherit from the original definition <span class="stu">TU</span>.  The definition of any locally-defined  
+  SHOULD inherit from the original definition.  The definition of any locally-defined  
   search parameters SHALL be available to clients, either as resources at the <code>[base]/SearchParameter</code>
   endpoint or as <a href="references.html#contained">contained</a> resources in the 
-  <a href="capabilitystatement.html">CapabilityStatement</a> <span class="stu">TU</span>.
+  <a href="capabilitystatement.html">CapabilityStatement</a>.
 </p>
 
 <a name="all"></a>
@@ -5591,7 +5587,7 @@ will match Observation resources that contain a <code>Resource.meta.profile</cod
 </p>
 <p>
   The <code>_query</code> search parameter is defined as a <a href="#special">special</a> type parameter.  Input to the
-  parameter is treated as a token-based search <span class="stu">TU</span>, requiring an exact match to the query name,
+  parameter is treated as a token-based search, requiring an exact match to the query name,
   as defined by the <code>OperationDefinition.code</code> element.
 </p>
 <p>
@@ -5797,7 +5793,7 @@ which path contains the match.
 </p>
 <p>
 Servers are not required to implement any of the standard search parameters. However, servers SHOULD
-support the <a href="#id"><code>_id</code></a> parameter <span class="stu">TU</span>.  Servers MAY also define their own parameters.
+support the <a href="#id"><code>_id</code></a> parameter.  Servers MAY also define their own parameters.
 </p>
 <p>
   Note that all search parameters defined in this specification, both common and resource-specific, are listed in the <a href="searchparameter-registry.html">search parameter registry</a>.
@@ -5875,7 +5871,7 @@ In other respects, servers have considerable discretion with regards to supporti
  <li>Servers can choose which parameters to support (other than <code>_id</code> above).</li>
  <li>Servers can choose when and where to implement parameter chaining, and when and where they support the <code>_include</code> parameter.</li>
  <li>Servers can declare additional parameters in the profiles referenced from their Capability statements. Servers SHOULD define custom search parameters
-    with codes starting with a hyphen ("-") character to ensure that the names they choose do not clash with future parameters defined by this specification. <span class="stu">TU</span></li>
+    with codes starting with a hyphen ("-") character to ensure that the names they choose do not clash with future parameters defined by this specification.</li>
  <li>Servers are not required to enforce case sensitivity on parameter names, though the names are case sensitive (and URLs are generally case-sensitive).</li>
  <li>Servers may choose how many results to return, though the client can use <code>_count</code> as above</li>
  <li>Servers can choose how to sort the return results, though they SHOULD honor the <code>_sort</code> parameter.</li>
