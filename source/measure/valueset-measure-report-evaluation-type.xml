@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="item-type"/>
+  <id value="measure-report-evaluation-type"/>
   <meta>
+    <lastUpdated value="2025-03-18T15:21:02.749+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="cqi"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="4"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/item-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.444"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.437"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/measure-report-evaluation-type"/>
   <version value="6.0.0"/>
-  <name value="QuestionnaireItemType"/>
-  <title value="Questionnaire Item Type"/>
+  <name value="MeasureReportEvaluationType"/>
+  <title value="Measure Report Evaluation Type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-03-18T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -41,15 +33,24 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Distinguishes groups from questions and display text and indicates data type for questions."/>
+  <description value="The type of evaluation for the measure report."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/item-type"/>
+      <system value="http://hl7.org/fhir/measure-report-type"/>
     </include>
-<!--    <exclude>
-      <system value="http://hl7.org/fhir/item-type"/>
-      <code value="question"/>
-    </exclude>-->
+    <exclude>
+      <system value="http://hl7.org/fhir/measure-report-type"/>
+      <concept>
+        <code value="data-exchange"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

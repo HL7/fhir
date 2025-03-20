@@ -10,9 +10,7 @@
   <description value="Cancer Quality Forum Questionnaire 2012"/>
   <item>
     <linkId value="1"/>
-    <type value="boolean"/>
-    <answerOption>
-      <valueString value="foo"/>
-    </answerOption>
+    <type value="decimal"/>
+    <answerValueSet value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
   </item>
 </Questionnaire>
