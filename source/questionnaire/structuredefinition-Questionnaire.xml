@@ -102,7 +102,7 @@
 				<key value="que-2"/>
 				<severity value="error"/>
 				<human value="The link ids for groups and questions must be unique within the questionnaire"/>
-				<expression value="descendants().linkId.isDistinct()"/>
+				<expression value="repeat(item).linkId.isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<mapping>
@@ -122,7 +122,7 @@
 			<path value="Questionnaire.url"/>
 			<short value="Canonical identifier for this questionnaire, represented as an absolute URI (globally unique)"/>
 			<definition value="An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers."/>
-			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.&#xa;&#xa;The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.&#xa;&#xa;The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.&#xa;&#xa;Questionnaire.url SHOULD always be populated unless the Questionnaire is a contained resource (in which case it will be pointed to by the containing resource using id, not url.  E.g. QuestionnaireResponse.questionnaire using '#[ContainedQuestionnaire.id]')"/>
 			<requirements value="Allows the questionnaire to be referenced by a single globally unique identifier.&#xa;&#xa;This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -767,8 +767,15 @@
 			<constraint>
 				<key value="que-5"/>
 				<severity value="error"/>
-				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet"/>
-				<expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())"/>
+				<human value="Only coding, decimal, integer, date, dateTime, time, string, quantity, reference, or uri items can have answerOption"/>
+				<expression value="(('coding' | 'decimal' | 'integer' | 'date' | 'dateTime' | 'time' | 'string' | 'quantity' | 'reference' | 'uri') contains type) or answerOption.empty()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
+			<constraint>
+				<key value="que-5b"/>
+				<severity value="error"/>
+				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption"/>
+				<expression value="(('coding' | 'string' | 'uri') contains type) or answerValueSet.empty()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -795,8 +802,8 @@
 			<constraint>
 				<key value="que-1a"/>
 				<severity value="error"/>
-				<human value="Group items must have nested items when Questionanire is complete"/>
-				<expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
+				<human value="Group items must have nested items when Questionanire is active"/>
+				<expression value="(type='group' and %resource.status='active') implies item.empty().not()"/>
 			</constraint>
 			<constraint>
 				<key value="que-1b"/>
@@ -838,12 +845,33 @@
 				<expression value="answerConstraint.exists() implies answerOption.exists() or answerValueSet.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
+			<constraint>
+        <key value="que-17"/>
+        <severity value="error"/>
+        <human value="If question is non-repeating, cannot have more than one initialSelected answer option"/>
+        <expression value="repeats.not() implies answerOption.where(initialSelected=true).count() &lt;= 1"/>
+      </constraint>
+			<constraint>
+        <key value="que-18a"/>
+        <severity value="error"/>
+        <human value="The types of any specified answerOptions must align with the item type"/>
+        <expression value="answerOption.value.exists() implies defineVariable('type', type).trace('type', %type).answerOption.value.type().name.distinct().select(iif($this='simplequantity', 'quantity', $this.lower())).where(%type!=$this and (%type='text' and $this='string').not() and (%type='url' and $this='uri').not()).trace('Unmatched answerOption type(s)').empty()"/>
+      </constraint>
+			<constraint>
+        <key value="que-18b"/>
+        <severity value="error"/>
+        <human value="The types of any specified initial values must align with the item type"/>
+        <expression value="initial.value.exists() implies defineVariable('type', type).trace('type', %type).initial.value.type().name.distinct().select(iif($this='simplequantity', 'quantity', $this.lower())).where(%type!=$this and (%type='text' and $this='string').not() and (%type='url' and $this='uri').not()).trace('Unmatched initial value type(s)').empty()"/>
+      </constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]"/>
 			</mapping>
 		</element>
 		<element id="Questionnaire.item.linkId">
+			<extension url="http://hl7.org/fhir/StructureDefinition/regex">
+        <valueString value="[^\s]+( [^\s]+)*"/>
+      </extension>
 			<path value="Questionnaire.item.linkId"/>
 			<short value="Unique id for item in questionnaire"/>
 			<definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
@@ -866,6 +894,12 @@
 				<expression value="$this.length() &lt;= 255"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
+			<constraint>
+        <key value="que-16"/>
+        <severity value="error"/>
+        <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
+        <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
+      </constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".id"/>
@@ -1002,6 +1036,12 @@
 				<expression value="operator = 'exists' implies (answer is boolean)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
+			<constraint>
+        <key value="que-18"/>
+        <severity value="warning"/>
+        <human value="Referenced questions SHOULD exist in the Questionnaire (unless still in draft, working with modular forms, etc.)"/>
+        <expression value="question.exists() implies (%resource.repeat(item).linkId contains question)"/>
+      </constraint>
 			<isModifier value="true"/>
 			<isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren't actually present"/>
 			<mapping>
@@ -1019,6 +1059,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<condition value="que-18"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
@@ -1081,7 +1122,7 @@
 				<code value="Coding"/>
 			</type>
 			<type>
-				<code value="Quantity"/>
+				<code value="SimpleQuantity"/>
 			</type>
 			<type>
 				<code value="Reference"/>
@@ -1251,14 +1292,14 @@
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="ValueSet containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For items of type Coding, the value set indicates the allowed code + system matches.  For items of type 'string' the display values in the value set expansion are taken as the allowed values for the item.  For items of type 'uri', the code values in the value set expansion are taken as the allowed values for the item."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
 			</type>
-			<condition value="que-5"/>
+			<condition value="que-5b"/>
 			<condition value="que-4"/>
 			<condition value="que-14"/>
 			<mapping>
@@ -1299,10 +1340,16 @@
 			<min value="1"/>
 			<max value="1"/>
 			<type>
+				<code value="decimal"/>
+			</type>
+			<type>
 				<code value="integer"/>
 			</type>
 			<type>
 				<code value="date"/>
+			</type>
+			<type>
+				<code value="dateTime"/>
 			</type>
 			<type>
 				<code value="time"/>
@@ -1311,12 +1358,19 @@
 				<code value="string"/>
 			</type>
 			<type>
+				<code value="uri"/>
+			</type>
+			<type>
 				<code value="Coding"/>
+			</type>
+			<type>
+				<code value="SimpleQuantity"/>
 			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+			<condition value="que-18a"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="QuestionnaireQuestionOption"/>
@@ -1340,6 +1394,7 @@
 				<code value="boolean"/>
 			</type>
 			<meaningWhenMissing value="Only selected items explicitly marked to be selected"/>
+			<condition value="que-17"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
@@ -1411,12 +1466,13 @@
 				<code value="Coding"/>
 			</type>
 			<type>
-				<code value="Quantity"/>
+				<code value="SimpleQuantity"/>
 			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+			<condition value="que-18b"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="QuestionnaireQuestionOption2"/>

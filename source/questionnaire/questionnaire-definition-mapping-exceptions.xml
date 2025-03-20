@@ -1,13 +1,13 @@
 <mappingExceptions pattern="Definition" resource="Questionnaire" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Definition.url" resourcePath="Questionnaire.url">
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#10;&#10;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#10;&#10;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-            <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#10;&#10;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#10;&#10;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.&#10;&#10;The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
+            <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#10;&#10;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#10;&#10;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.&#10;&#10;The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension.&#10;&#10;Questionnaire.url SHOULD always be populated unless the Questionnaire is a contained resource (in which case it will be pointed to by the containing resource using id, not url.  E.g. QuestionnaireResponse.questionnaire using '#[ContainedQuestionnaire.id]')"/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.identifier" resourcePath="Questionnaire.identifier">
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Removed information not relevant to this resource">
             <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI."/>
             <resource value=""/>
         </commentsUnmatched>
@@ -29,10 +29,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="Questionnaire.subjectType">
-        <missingTypes _pattern="CodeableReference(Group)" reason="Unknown">
-            <!--Old pattern: CodeableConcept, Reference(Group)-->
-            <!--Old reason: For Questionnaires, no use-case for Group and subjects only need to be constrained on basis of resource, so no need for translations-->
-        </missingTypes>
+        <missingTypes _pattern="CodeableReference(Group)" reason="The missing type(s) never apply in any context where this resource is used"/>
         <extraTypes _resource="code" reason="For Questionnaires, only need to identify type of subject based on resource type, so can be tighter."/>
         <bindingStrength _pattern="example" _resource="required" reason="For Questionnaires, only need to identify type of subject based on resource type, so can be tighter."/>
         <shortUnmatched reason="Incorporates content from profile with context-specific wording">
@@ -49,19 +46,19 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.jurisdiction" resourcePath="Questionnaire.jurisdiction">
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Fixed small typo">
             <_pattern value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
             <resource value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended.&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.effectivePeriod" resourcePath="Questionnaire.effectivePeriod">
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
             <resource value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a questionnaire intended to be used for the year 2016 might be published in 2015.&#10;&#10;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.code" resourcePath="Questionnaire.code">
-        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <upperCardinality _pattern="1" _resource="*" reason="In this resource, multiple repetitions are possible"/>
         <missingTypes _pattern="CodeableConcept" reason="We use Coding rather than CodeableConcept because we don't want text"/>
         <extraTypes _resource="Coding" reason="We use Coding rather than CodeableConcept because we don't want text"/>
         <bindingExistence _pattern="false" _resource="true" reason="While a binding could not be defined at the pattern level, the resource is specific enough to allow a binding"/>
@@ -75,8 +72,8 @@
         </definitionUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Definition.product" reason="Questionnaires aren't tied to any particular product"/>
-    <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromUri" reason="Not relevant for this resource"/>
+    <unmappedElement patternPath="Definition.performerType" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Definition.partOf" reason="Composition of questionnaires is handled via extensions in the SDC IG"/>
     <unmappedElement patternPath="Definition.topic" reason="Handled as part of useContext"/>
 </mappingExceptions>

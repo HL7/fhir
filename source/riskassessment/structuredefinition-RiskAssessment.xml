@@ -376,7 +376,7 @@
     </element>
     <element id="RiskAssessment.reason">
       <path value="RiskAssessment.reason"/>
-      <short value="Why the assessment was necessary?"/>
+      <short value="Why was the assessment necessary?"/>
       <definition value="The reason the risk assessment was performed."/>
       <min value="0"/>
       <max value="*"/>

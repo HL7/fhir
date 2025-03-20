@@ -87,7 +87,7 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The version of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied."/>
+    <documentation value="The version of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied, and the version is not supplied with it."/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -122,6 +122,10 @@
     <max value="1"/>
     <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of individual will be used if the subject parameter is supplied, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
     <type value="code"/>
+    <binding>
+      <strength value="required"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/measure-report-evaluation-type"/>
+    </binding>
   </parameter>
   <parameter>
     <name value="provider"/>

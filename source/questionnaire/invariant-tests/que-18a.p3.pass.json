@@ -1,0 +1,20 @@
+{
+  "resourceType" : "Questionnaire",
+  "status" : "draft",
+  "item" : [{
+    "linkId" : "test",
+    "type" : "reference",
+    "answerOption": [
+      {
+        "valueReference": {
+          "display": "foo1"
+        }
+      },
+      {
+        "valueReference": {
+          "display": "foo2"
+        }
+      }
+    ]
+ }]
+}

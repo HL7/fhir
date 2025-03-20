@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="composite-measure-scoring"/>
+  <id value="measure-report-evaluation-type"/>
   <meta>
+    <lastUpdated value="2025-03-18T15:21:02.749+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -12,24 +13,15 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="4"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.773"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.757"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/measure-report-evaluation-type"/>
   <version value="6.0.0"/>
-  <name value="CompositeMeasureScoring"/>
-  <title value="Composite Measure Scoring"/>
+  <name value="MeasureReportEvaluationType"/>
+  <title value="Measure Report Evaluation Type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-03-18T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -41,11 +33,24 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The composite scoring method of the measure."/>
+  <description value="The type of evaluation for the measure report."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/composite-measure-scoring"/>
+      <system value="http://hl7.org/fhir/measure-report-type"/>
     </include>
+    <exclude>
+      <system value="http://hl7.org/fhir/measure-report-type"/>
+      <concept>
+        <code value="data-exchange"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="MeasureDefinitionExample"/>
   <title value="Measure Definition Example"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Example Measure Definitions for the Measure Resource."/>
