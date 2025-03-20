@@ -271,7 +271,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element id="DiagnosticReport.result.Cholesterol">
+    <element id="DiagnosticReport.result:Cholesterol">
       <path value="DiagnosticReport.result"/>
       <sliceName value="Cholesterol"/>
       <short value="Cholesterol Result"/>
@@ -291,7 +291,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element id="DiagnosticReport.result.Triglyceride">
+    <element id="DiagnosticReport.result:Triglyceride">
       <path value="DiagnosticReport.result"/>
       <sliceName value="Triglyceride"/>
       <short value="Triglyceride Result"/>
@@ -311,7 +311,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element id="DiagnosticReport.result.HDLCholesterol">
+    <element id="DiagnosticReport.result:HDLCholesterol">
       <path value="DiagnosticReport.result"/>
       <sliceName value="HDLCholesterol"/>
       <short value="HDL Cholesterol Result"/>
@@ -331,7 +331,7 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element id="DiagnosticReport.result.LDLCholesterol">
+    <element id="DiagnosticReport.result:LDLCholesterol">
       <path value="DiagnosticReport.result"/>
       <sliceName value="LDLCholesterol"/>
       <short value="LDL Cholesterol result, if reported"/>
