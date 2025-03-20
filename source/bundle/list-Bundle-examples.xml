@@ -42,6 +42,30 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A complex example transaction request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-request-transaction-complex"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-request-transaction-complex"/>
+      <display value="transaction"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Response for the complex example transaction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-response-transaction-complex"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-response-transaction-complex"/>
+      <display value="transaction-response"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Retrieve a patients medications, allergies, problems and immunizations"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
