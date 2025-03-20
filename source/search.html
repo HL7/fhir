@@ -4630,13 +4630,19 @@ The <code>_maxresults</code> parameter has no impact on the value of <code>Bundl
 number of matches, not how many are returned in a response.
 </p>
 <p>
+The <code>_maxresults</code> parameter only affects the number of resources returned as matches (<code>entry.search.mode=match</code>).
+It does not affect the number of resources returned as included resources (<code>entry.search.mode=include</code>) or operation outcomes
+(<code>entry.search.mode=outcome</code>).
+</p>
+<p>
 The combination of <code>_sort</code> and <code>_maxresults</code> can be used to return
 only the latest resource that meets a particular criteria - set the
 criteria, and then sort by date in descending order, with <code>_maxresults=1</code>.
 This way, the last matching resource will be returned.
 </p>
 <p>
-  Note that <code>_maxresults</code> does not absolve a server from paging requirements.  For example, a client can request <code>_maxresults=10&amp;_count=5</code> to receive (at most) two pages of five results each.
+  Note that <code>_maxresults</code> does not absolve a server from paging requirements. For example, a client can 
+  request <code>_maxresults=10&amp;_count=5</code> to receive (at most) two pages of five results each.
 </p>
 
 <a name="summary"></a>
