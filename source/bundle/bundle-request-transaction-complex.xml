@@ -1,10 +1,10 @@
 <Bundle 
   xmlns="http://hl7.org/fhir">
-   <type value="transaction" />
    <id value="bundle-request-transaction-complex"/>
    <meta>
        <lastUpdated value="2025-03-20T00:00:00Z"/>
    </meta>
+   <type value="transaction" />
    <entry>
        <fullUrl value="urn:uuid:a008e191-0dfa-3ab3-b035-49d7d2e69cb4" />
        <resource>
@@ -25,6 +25,7 @@
                    <value value="Francisco472.Gusikowski974@example.com" />
                    <use value="work" />
                </telecom>
+               <gender value="female" />
                <address>
                    <line value="8 SHIPWAY PL # C-8" />
                    <city value="CHARLESTOWN" />
@@ -32,7 +33,6 @@
                    <postalCode value="021294301" />
                    <country value="US" />
                </address>
-               <gender value="female" />
            </Practitioner>
        </resource>
        <request>
@@ -177,10 +177,13 @@
                    <system value="https://github.com/synthetichealth/synthea" />
                    <value value="eaeb9228-4420-5e9c-b217-4c1a98ff9fe0" />
                </identifier>
-               <status value="finished" />
+               <status value="completed" />
                <class>
-                   <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
-                   <code value="AMB" />
+                  <coding>
+                      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+                      <code value="AMB" />
+                      <display value="ambulatory" />
+                   </coding>
                </class>
                <type>
                    <coding>
@@ -194,6 +197,10 @@
                    <reference value="urn:uuid:dbc4a3f7-9c69-4435-3ce3-4e1988ab6b91" />
                    <display value="Mrs. Ada662 Sari509 Balistreri607" />
                </subject>
+               <serviceProvider>
+                   <reference value="Organization?identifier=urn:ietf:rfc:3986|urn:oid:2.16.840.1.113883.19.5" />
+                   <display value="Good Health Clinic" />
+               </serviceProvider>
                <participant>
                    <type>
                        <coding>
@@ -207,19 +214,11 @@
                        <start value="2015-09-05T21:57:47+00:00" />
                        <end value="2015-09-05T22:48:16+00:00" />
                    </period>
-                   <individual>
+                   <actor>
                        <reference value="Practitioner?identifier=http://hl7.org/fhir/sid/us-npi|9999947796" />
                        <display value="Dr. Francisco472 Gusikowski974" />
-                   </individual>
+                   </actor>
                </participant>
-               <period>
-                   <start value="2015-09-05T21:57:47+00:00" />
-                   <end value="2015-09-05T22:48:16+00:00" />
-               </period>
-               <serviceProvider>
-                   <reference value="Organization?identifier=urn:ietf:rfc:3986|urn:oid:2.16.840.1.113883.19.5" />
-                   <display value="Good Health Clinic" />
-               </serviceProvider>
            </Encounter>
        </resource>
        <request>
@@ -232,7 +231,7 @@
        <resource>
            <Observation>
                <id value="f5030c53-c71d-9dd6-a85f-6647c09c34b4" />
-               <status value="completed" />
+               <status value="final" />
                <category>
                    <coding>
                        <system value="http://terminology.hl7.org/CodeSystem/observation-category" />
