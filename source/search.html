@@ -5470,6 +5470,14 @@ will match Questionnaire resources with a <code>Resource.language</code> of <cod
   or an implementation's internal equivalent.
 </p>
 <p>
+  Note that there may be situations where the returned data elements might change without any change to the <code>lastUpdated</code> 
+  element. For example, if a server returns a code value and its corresponding display by using a foreign-key reference to
+  a code system, updates to the code system that affect the display name might not be reflected in the <code>lastUpdated</code> value
+  of the resource holding the code. It is also possible that an underlying record might be updated in a way that is not surfaced in 
+  the FHIR representation of a resource (e.g. changing non-exposed metadata) which can cause <code>lastUpdated</code> to change even
+  when there is no apparent change in the data.
+</p>
+<p>
 For example, the following search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
