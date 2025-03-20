@@ -1748,7 +1748,8 @@ Examples:
 <h4>Batch Processing Rules</h4>
 <p>
 For a <code>batch</code>, there SHALL be no interdependencies between the different entries
-in the Bundle that cause change on the server. The success or failure of one change SHOULD
+in the Bundle that cause change on the server. E.g. multiple entries making updates, patches, 
+or deletes to the same resource with would be considered interdependencies. The success or failure of one change SHOULD
 not alter the success or failure or resulting content of another change. Servers SHOULD
 validate that this is the case. Note that it is considered that servers execute the batch
 in the same order as that specified below for transactions, though the order of execution
