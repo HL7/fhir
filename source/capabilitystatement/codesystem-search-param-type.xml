@@ -84,4 +84,9 @@
     <display value="Special"/>
     <definition value="Special logic applies to this parameter per the description of the search parameter. A SearchParameter SHOULD be marked as special if no other type applies."/>
   </concept>
+  <concept>
+    <code value="resource"/>
+    <display value="Resource"/>
+    <definition value="A search parameter defined to chain through into embedded resources."/>
+  </concept>
 </CodeSystem>

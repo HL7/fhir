@@ -501,7 +501,7 @@
 		</element>
 		<element id="SearchParameter.type">
 			<path value="SearchParameter.type"/>
-			<short value="number | date | string | token | reference | composite | quantity | uri | special"/>
+			<short value="number | date | string | token | reference | composite | quantity | uri | special | resource"/>
 			<definition value="The type of value that a search parameter may contain, and how the content is interpreted."/>
 			<min value="1"/>
 			<max value="1"/>

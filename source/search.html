@@ -65,7 +65,7 @@ search declarations</a></span>, and clients are encouraged to do this too.
         <a href="#quantity">quantity</a>, <a href="#reference">reference</a>, 
         <a href="#string">string</a>, <a href="#token">token</a>, 
         <a href="#uri">uri</a></li>
-	    <li>Extended Parameter Types: <a href="#composite">composite</a>, <a href="#special">special</a></li>
+	    <li>Extended Parameter Types: <a href="#composite">composite</a>, <a href="#resource">resource</a>, <a href="#special">special</a></li>
     </ul>
   </li>
   <li><a href="#specialconditions">Special Search Conditions</a>
@@ -3509,6 +3509,30 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   </table>
  </span>
 
+
+ <a name="resource"></a>
+ <h4>Resource Parameters</h4>
+ <p>
+ A <code>resource</code> type parameter is a special case parameter type that is used to enable
+ chaining through elements that are actual resources (e.g., <a href="bundle-definitions.html#Bundle.entry.resource">Bundle.entry.resource</a>).
+ </p>
+ <p>
+  Note that the <code>resource</code> search parameter type does not define a test behavior for the parameter itself.  For example, when using the 
+  <a href="bundle-search.html#Bundle-composition">Bundle-composition</a> search parameter, the behavior of a test such as 
+  <code>Bundle?composition=Composition/123</code> is <em>undefined</em>. Since search parameters of <code>resource</code> type are only
+  defined to chain a search through to a resource, thus the correct search would be shaped like <code>Bundle?composition._id=123</code>.
+ </p>
+ <p>
+ Implementers will generally need to do special implementations for these parameters.
+ </p>
+
+ [%impl-note%]
+ <p>
+  In FHIR R5 and earlier versions, the <code>resource</code> search type did not exist and 
+  some search parameters of type <code>reference</code> were defined expecting to chain through embedded resources.
+ </p>
+ [%end-note%]
+ 
 
 <a name="specialconditions"></a>
 <h3>Special Search Conditions</h3>
