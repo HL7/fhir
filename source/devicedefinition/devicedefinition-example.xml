@@ -4,4 +4,6 @@
 	<identifier>
 		<value value="0"/>
 	</identifier>
+	<status value="draft"/>
+	
 </DeviceDefinition>

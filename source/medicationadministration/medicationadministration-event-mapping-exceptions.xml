@@ -163,9 +163,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="MedicationAdministration.performer.actor">
         <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
-
         <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Patient,RelatedPerson,Device,Group)" reason="Unknown"/>
-
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed medication administration"/>
             <resource value="Who or what performed the medication administration"/>

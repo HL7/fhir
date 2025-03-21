@@ -11,8 +11,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="QuestionnaireResponse.basedOn">
-        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ServiceRequest)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Request)" reason="This is a generic type and we use specific types"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest)" reason="We use specific types rather than a generic type"/>
         <shortUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Request fulfilled by this QuestionnaireResponse"/>
@@ -23,8 +23,8 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="QuestionnaireResponse.partOf">
-        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Observation,Procedure)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Event)" reason="This is a generic type and we use specific types"/>
+        <extraTypes _resource="Reference(Observation,Procedure)" reason="We use specific types rather than a generic type"/>
         <definitionUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="A larger event of which this particular questionnaire response is a component or step."/>
             <resource value="A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of."/>
@@ -68,23 +68,20 @@
             <_pattern value="The date the occurrence of the questionnaire response was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
             <resource value="May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#10;&#10;This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="QuestionnaireResponse.author">
-        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(CareTeam)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <!--Old pattern: Who performed questionnaire response and what they did-->
-            <!--Old reason: Incorporates content from profile with context-specific wording-->
+        <lowerCardinality _pattern="1" _resource="0" reason="The resource scope is broader than the pattern assumptions and this element will not always be known"/>
+        <missingTypes _pattern="Reference(CareTeam)" reason="The missing type(s) never apply in any context where this resource is used"/>
+        <extraTypes _resource="Reference(Group)" reason="This should be in the pattern too"/>
+        <shortUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="Who performed questionnaire response"/>
             <resource value="The individual or device that received and recorded the answers"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <!--Old pattern: Indicates who or what performed the questionnaire response and how they were involved.-->
-            <!--Old reason: Incorporates content from profile with context-specific wording-->
+        <definitionUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="Indicates who or what performed the questionnaire response."/>
             <resource value="The individual or device that received the answers to the questions in the QuestionnaireResponse and recorded them in the system."/>
         </definitionUnmatched>
@@ -94,11 +91,11 @@
     <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.code" reason="Implicit for this resource - 'Form was filled out'"/>
     <unmappedElement patternPath="Event.location" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.performer.function" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.note" reason="Unknown"/>
+    <unmappedElement patternPath="Event.note" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.category" reason="Not relevant for this resource.  If there was categorization, it would be on the Questionnaire"/>
     <unmappedElement patternPath="Event.occurrence" reason="Occurrence time is implicit in the questions and may vary for different questions"/>
     <unmappedElement patternPath="Event.product" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Not relevant for this resource"/>
 </mappingExceptions>

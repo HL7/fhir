@@ -116,7 +116,7 @@ When the type is provided directly, it SHALL agree with the type determined by r
 the resource.
 </p>
 <p>
-Note that in practice, it is often not necessary to know the type of the target resource is,
+Note that in practice, it is often not necessary to know what the type of the target resource is,
 unless it's going to be resolved anyway, so in many cases, specifying the type of the
 target resource is unnecessary.
 </p>
@@ -124,7 +124,7 @@ target resource is unnecessary.
 In order to support <a href="structuredefinition.html#logical">Logical Models</a>,
 the <code>type</code> element has the type of "uri". Whenever <code>type</code>
 appears in resources, the uri is represented relative to the base URI
-<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources, then, the
+<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources (and including <a href="resource.html#additional">additional resources</a>), the
 value is simply a code that is the type of resource - e.g. "Patient".
 </p>
 
@@ -371,6 +371,9 @@ the version and/or currency of their local copy of the artifact.
 The following resources have <a href="canonicalresource.html">canonical URLs</a> and are allowed to be the target of references to a canonical URLs:
 </p>
 [%canonical-resources%]
+<p>
+In addition, some types of <a href="resource.html#additional">Additional Resources</a> 
+</p>
 <p>
 A few elements that have references to canonical URLs have a <a href="elementdefinition-definitions.html#ElementDefinition.type.targetProfile">targetProfile</a> of <code>http://hl7.org/fhir/StructureDefinition/Resource</code>,
 which is shown as canonical(Any) in this specification. Such references SHALL only reference one of these types of resources.

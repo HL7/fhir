@@ -21,6 +21,8 @@ Permission is used to express who has specific rights to specific data under spe
 The Permission can express permit or deny rules; and with permit rules there may be residual refrains, obligations, or filtering. 
 The Permission resource may be used to record the access control constraints under which data can be collected, used, or shared.
 </p>
+</div>
+<div>
 <h2>Boundaries and Relationships</h2>
 <p>
 The Permission resource is intended to be used to encode access control policies in a FHIR interoperable language. Where the access control policies protect access to FHIR defined interactions, resources, and operations; from actions done by organizations, practitioners, patients, and etc.
