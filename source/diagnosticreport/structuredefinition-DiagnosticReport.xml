@@ -340,6 +340,16 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.relatesTo">
+      <path value="DiagnosticReport.relatesTo"/>
+      <short value="Related DiagnosticReports"/>
+      <definition value="Other DiagnosticReports that the current DiagnosticReport replaces, amendens, extends, or otherwise relates to."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
     <element id="DiagnosticReport.encounter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3839]."/>
@@ -440,6 +450,19 @@
         <map value="participation[typeCode=VRF or AUT].time"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.procedure">
+      <path value="DiagnosticReport.procedure"/>
+      <short value="The procedure(s) from which the report was produced"/>
+      <definition value="The procedure(s) that are reported on in the DiagnosticReport."/>
+      <comment value="This is a summary of the report, not a list of results."/>
+      <min value="0"/>
+      <max value="*"/>
+       <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+       </type>
+       <isSummary value="true"/>
+      </element>
     <element id="DiagnosticReport.performer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="12/22/2016 EH: 8936,11428,13169."/>
@@ -447,7 +470,7 @@
       <path value="DiagnosticReport.performer"/>
       <short value="Responsible Diagnostic Service"/>
       <definition value="The diagnostic service that is responsible for issuing the report."/>
-      <comment value="This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report."/>
+      <comment value="This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report.  In the regulated context of diagnostic laboratory work on humans, it is extremely likely that regulation requires a human performer.  Point of care testing, veterinary testing, drug screens, and environmental surveillance are common cases where the device is the performer with no additional human interaction or direct oversight."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
       <alias value="Laboratory"/>
       <alias value="Service"/>
@@ -465,6 +488,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>   
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -650,6 +674,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">

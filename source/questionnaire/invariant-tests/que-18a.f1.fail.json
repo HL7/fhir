@@ -1,0 +1,16 @@
+{
+  "resourceType" : "Questionnaire",
+  "status" : "draft",
+  "item" : [{
+    "linkId" : "test",
+    "type" : "decimal",
+    "answerOption": [
+      {
+        "valueInteger": 1
+      },
+      {
+        "valueInteger": 2
+      }
+    ]
+ }]
+}

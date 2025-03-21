@@ -84,7 +84,7 @@
       </extension>
       <path value="ServiceRequest"/>
       <short value="A request for a service to be performed"/>
-      <definition value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed."/>
+      <definition value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed. When the ServiceRequest is active, it represents an authorization to perform the service."/>
       <alias value="diagnostic request"/>
       <alias value="referral"/>
       <alias value="referral request"/>
@@ -317,7 +317,7 @@
         <valueString value="[#3720][#10296][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The status of the order."/>
       <comment value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
       <min value="1"/>
@@ -1183,10 +1183,13 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10589][#11119]#13196][#13821]."/>
       </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="ServiceRequest.specimen"/>
       <short value="Procedure Samples"/>
       <definition value="One or more specimens that the laboratory procedure will use."/>
-      <comment value="The purpose of the ServiceRequest.specimen is to reflect the actual specimen that the requested test/procedure is asked to be performed on, whether the lab already has it or not.  References to specimens for purposes other than to perform a test/procedure on should be made using the ServiceRequest.supportingInfo or the Specimen.parent where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo a general reference for context."/>
+      <comment value="Most commonly the association between the Specimen and ServiceRequest resources will be from the Specimen to the ServiceRequest, as usually the ServiceRequest is created first and provides the authorization for the specimen to be collected, and the reference to the ServiceRequest is recorded using the Specimen.request element.  The ServiceRequest.specimen element, on the other hand, is being deprecated and is discouraged from use and is intended to be removed in a future release.  In the less common cases where the specimen to be used to perform the test is already known and available and needs to be specified at the time the ServiceRequest is created, it is preferable to use the 'extension-specimenRequest' extension on the ServiceRequest resource, which enables specifying a particular specimen to be used either by a direct reference, more generally by a coded concept specifying the specimen type, or by the context of another ServiceRequest and any existing specimen(s) that may be associated with that request.  When a specimen is referenced, it is expected to be used.  If for some reason the specified specimen is unable to be used (doesn't exist, wrong specimen type, insufficient quantity or quality, etc.), the decision to collect another specimen or to not perform the test must be based on established policies or determined by some other means agreed to with the requester.  References to specimens for purposes other than performing a test/procedure should be made using ServiceRequest.supportingInfo or the Specimen.parent, where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo provides a general reference for context."/>
       <min value="0"/>
       <max value="*"/>
       <type>

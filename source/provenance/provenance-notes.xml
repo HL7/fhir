@@ -51,7 +51,7 @@ Notes:
 </p>
 <ul>
  <li>Irrespective of the Content-Type or Accept headers, the Provenance resource is in the <a href="json.html">JSON format</a></li>
- <li>The provenance SHALL not have a specified <code>Provenance.target</code>. The server will fill the <code>target</code> in as it processes 
+ <li>The provenance SHALL NOT have a specified <code>Provenance.target</code>. The server will fill the <code>target</code> in as it processes 
      the contents of the POST/PUT and determines the ids of the resource(s) to which the interaction applies</li>
  <li>Servers MAY ignore the header, but SHOULD process it if they support provenance</li>
  <li>Some server frameworks impose a length limit on individual HTTP headers, or on the the headers as a whole. Servers MAY reject a request if the X-Provenance header is too long</li>

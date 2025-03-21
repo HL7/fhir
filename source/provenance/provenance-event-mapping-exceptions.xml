@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="Provenance"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="Provenance" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.basedOn" resourcePath="Provenance.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="More specific to the use-case"/>
@@ -58,7 +57,7 @@
             <resource value="The period during which the activity occurred."/>
         </definitionUnmatched>
         <commentsUnmatched reason="More specific description">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
         </commentsUnmatched>
     </divergentElement>
@@ -135,8 +134,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Provenance.why">
         <upperCardinality _pattern="*" _resource="1" reason="Use-Case need"/>
-        <missingTypes
-            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
+        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
         <extraTypes _resource="markdown" reason="Use-Case need"/>
         <summary _pattern="true" _resource="false" reason="Not needed"/>
         <bindingExistence _pattern="true" _resource="false" reason="not sure"/>

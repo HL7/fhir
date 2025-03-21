@@ -92,7 +92,7 @@
         <key value="mdd-1"/>
         <severity value="error"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
-        <expression value="whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared"/>
+        <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>
@@ -438,6 +438,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -559,12 +560,23 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (&lt;Quantity (NM)&gt; ^ &lt;Units (CWE)&gt;), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
+        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type ([Quantity (NM)] ^ [Units (CWE)]), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="effectiveUseTime"/>
       </mapping>
+    </element>
+    <element id="MedicationDispense.fillNumber">
+      <path value="MedicationDispense.fillNumber"/>
+      <short value="A number that represents the known fill this dispense represents"/>
+      <definition value="Represents the known number of the fill over the entire lifetime of the prescription, i.e. if this is the first dispense by this pharmacy but the third fill overall, then the fillNumber will be 3.  Each fill number represents one dispensation, even if that dispensation is not for the full quantity.  Partial fills are not represented by decimal quantities, i.e., a partial fill of 40 tablets (full quantity is 100 tablets) adds 1 to the prior fill number, not 0.4."/>
+      <comment value="This element may  be inaccurate as it relies on the dispensing pharmacy to be aware of all fills that have occurred for the request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
     </element>
     <element id="MedicationDispense.recorded">
       <path value="MedicationDispense.recorded"/>
@@ -679,6 +691,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="rim"/>

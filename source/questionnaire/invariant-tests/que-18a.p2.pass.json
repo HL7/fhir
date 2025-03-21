@@ -1,0 +1,16 @@
+{
+  "resourceType" : "Questionnaire",
+  "status" : "draft",
+  "item" : [{
+    "linkId" : "test",
+    "type" : "url",
+    "answerOption": [
+      {
+        "valueUri": "http://foo.org"
+      },
+      {
+        "valueUri": "http://foo.org"
+      }
+    ]
+ }]
+}

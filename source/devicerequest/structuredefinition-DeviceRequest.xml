@@ -278,7 +278,7 @@
         <valueString value="DeviceRequest.status."/>
       </extension>
       <path value="DeviceRequest.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The status of the request."/>
       <comment value="This element is labeled as a modifier because the status contains the codes revoked and entered-in-error that mark the request as not currently valid."/>
       <min value="0"/>
@@ -820,6 +820,7 @@
       <path value="DeviceRequest.reason"/>
       <short value="Coded/Linked Reason for request"/>
       <definition value="Reason or justification for the use of this device."/>
+      <comment value="When doNotPerform is true, this is the reason for requesting not to provide the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>

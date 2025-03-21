@@ -382,6 +382,12 @@
 				<expression value="resource.exists() or request.exists() or response.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
+			<condition value="bdl-11"/>
+			<condition value="bdl-12"/>
+			<condition value="bdl-13"/>
+			<condition value="bdl-14"/>
+			<condition value="bdl-15"/>
+			<condition value="bdl-2"/>
 			<isSummary value="true"/>
 		</element>
 		<element id="Bundle.entry.link">
@@ -412,6 +418,7 @@
 			<path value="Bundle.entry.resource"/>
 			<short value="A resource in the bundle"/>
 			<definition value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type. This is allowed to be a Parameters resource if and only if it is referenced by something else within the Bundle that provides context/meaning."/>
+			<comment value="This may be a resource defined in the FHIR specification, or an [additional resource](resource.html#additional)"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

@@ -1269,7 +1269,7 @@
           <valueString value="SubstanceNameAuthority"/>
         </extension>
         <strength value="preferred"/>
-        <description value="An authority that officates substance names."/>
+        <description value="An authority that officiates substance names."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-authority"/>
       </binding>
       <mapping>

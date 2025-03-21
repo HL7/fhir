@@ -37,7 +37,28 @@
     established (and information about progress of execution) may be found in <a href="task.html">Task</a> resources
     that have a focus of this request.
   </p>
-
+  <p>
+    In some systems, the notion of <em>fulfillment status</em> may be projected into a single overall status, which is then referred to as <em>Request status</em> (e.g. <em>Prescription status</em>) - e.g. having <em>Request statuses</em> such as <em>requested</em>, <em>accepted</em>, <em>in progress</em> alongside statuses such as <em>draft</em>, <em>on-hold</em>, and <em>completed</em>. FHIR has specifically split these two types of statuses apart and tracks them in two separate resources.  The rationale for doing so is as follows:
+  </p>
+  <ul>
+    <li>It is not a given that fulfillment is necessarily sought for all <em>active</em> authorizations.  It's not uncommon in some areas for an authorization to exist but the individual responsible for seeking fulfillment to never actually do so</li>
+    <li>It is possible for fulfillment of the same authorization to be sought multiple times - for example, asking one lab to fulfill an order, receiving a rejection, then asking a second lab.  The <em>rejected</em> status for the first lab needs to be tracked alongside the <em>accepted</em> status for the second lab.</li>
+    <li>In some cases, fulfillment might be sought for less than the entire authorization.  E.g. seeking performance of a single service repetition, a single set of tests, a single dispense, even though the authorization might cover multiple repetitions/sets of tests/dispenses</li>
+    <li>The <code>Request</code> resource is often <em>signed</em> - whether digitally or in some other manner and, as such it is problematic to have a filler revising the Request instance to change its status reflecting fulfillment progress</li>
+    <li>The fulfillment process often has complexities around tracking the details of progress.  E.g. specimen collection, specimen transport, initial assessment, drug packaged, insurance processed, etc.  Conveying this information in Task which has the ability to convey 'business' status, as well as the ability to break complex processes down into sub-Tasks, each with their own status provides a robust way of handling these complexities.</li>
+  </ul>
+  <p>
+    In situations where a source system does not track fulfillment independent of the <code><em>Request</em></code> resource, they <strong>may</strong> opt to surface the statuses dealing with fulfillment via one or more [contained] Task instances, though this still creates challenges around filling systems updating the Request instance and any signature mechanisms would need to accommodate this process.
+  </p>
+  <p>
+    Irrespective of the <code>Request.intent</code>, changes to the status of the <code><em>Request</em></code> should always be under the control of the requester and be a reflection of changes to the recommendation/authorization.  For example, a Request should only change to <code>complete</code> when the requester determines that the action they requested has been completed as ordered (or sufficiently close to what was ordered). For further clarity, the status of a <code><em>Request</em></code> with a given <code>intent</code> (e.g. a proposal) is NOT generally changed automatically when a fulfilling <code><em>Request</em></code> (e.g. an order) or <code><em>Event</em></code> is created or has its own status changed.
+  </p>
+  <p>
+    If there is no closed loop process that allows the requester to evaluate what was done, then the status of a request might never change from <code>active</code> or might only be changed to <code>ended</code> when the system automatically updates the status when the recommendation/authorization has expired.
+  </p>
+  <p>
+    If there is a need to track <em>status of fulfillment</em> on a <code><em>Request</em></code>, this could be done with a fulfillment Task, possibly as a contained resource.
+  </p>
   <a name="updating"></a>
   <h2>Updating requests</h2>
   <p>

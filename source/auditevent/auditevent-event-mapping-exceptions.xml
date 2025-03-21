@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="AuditEvent"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="AuditEvent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.basedOn" resourcePath="AuditEvent.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="More specific to the use-case"/>
@@ -69,7 +68,7 @@
             <resource value="The time or period during which the activity occurred."/>
         </definitionUnmatched>
         <commentsUnmatched reason="More specific description">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="The time or period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
         </commentsUnmatched>
     </divergentElement>
@@ -101,8 +100,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="AuditEvent.agent.who">
-        <extraTypes
-            _resource="Reference(DeviceDefinition,Group,HealthcareService)" reason="Unknown"/>
+        <extraTypes _resource="Reference(DeviceDefinition,Group,HealthcareService)" reason="Unknown"/>
         <shortUnmatched reason="More specific description">
             <_pattern value="Who performed audit event"/>
             <resource value="Identifier of who"/>
@@ -128,8 +126,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="AuditEvent.authorization">
-        <missingTypes
-            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
+        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
         <extraTypes _resource="CodeableConcept" reason="Use-Case need"/>
         <shortUnmatched reason="Use-Case need">
             <_pattern value="Why was audit event performed?"/>

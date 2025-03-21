@@ -531,6 +531,42 @@
         <map value=".outboundRelationship[typeCode=INST].target[classCode=ALRT, moodCode=DEFN].text.uri"/>
       </mapping>
     </element>
+    <element id="DetectedIssue.qualityOfEvidence">
+      <path value="DetectedIssue.qualityOfEvidence"/>
+      <short value="The quality of the evidence supporting the detected issue"/>
+      <definition value="The quality of the evidence supporting identification of the detected issue. The code system used specifies the quality scale used to grade this evidence source while the code specifies the actual quality score (represented as a coded value) associated with the evidence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueQualityOfEvidence"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A rating system that describes the quality of evidence such as the GRADE, DynaMed, or Oxford CEBM systems."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/evidence-quality"/>
+      </binding>
+    </element>
+    <element id="DetectedIssue.managementCode">
+      <path value="DetectedIssue.managementCode"/>
+      <short value="Importance of taking action on the issue"/>
+      <definition value="An indication of the importance or type of step that should or may be taken in order to address the detected issue. This is different than mitigation in that it is not specifically providing actions to be taken, rather general suggestions about approach."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueManagementCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value=""/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-management-code"/>
+      </binding>
+    </element>
     <element id="DetectedIssue.mitigation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,0"/>

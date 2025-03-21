@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="DetectedIssue"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="DetectedIssue" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.status" resourcePath="DetectedIssue.status">
         <shortUnmatched reason="Specialization">
@@ -22,8 +21,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DetectedIssue.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Generalization"/>
-        <extraTypes
-            _resource="Reference(Device,Location,Organization,Procedure,Practitioner,Medication,Substance,BiologicallyDerivedProduct,NutritionProduct)" reason="Generalization"/>
+        <extraTypes _resource="Reference(Device,Location,Organization,Procedure,Practitioner,Medication,Substance,BiologicallyDerivedProduct,NutritionProduct)" reason="Generalization"/>
         <shortUnmatched reason="Specialization">
             <_pattern value="Individual service was done for/to"/>
             <resource value="Associated subject"/>
@@ -50,8 +48,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="DetectedIssue.implicated">
-        <missingTypes
-            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Generalization"/>
+        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Generalization"/>
         <extraTypes _resource="Reference(Resource)" reason="Generalization"/>
         <bindingExistence _pattern="true" _resource="false" reason="Generalization"/>
         <shortUnmatched reason="Specialization">
