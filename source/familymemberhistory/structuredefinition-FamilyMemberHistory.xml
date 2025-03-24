@@ -292,11 +292,12 @@
     </element>
     <element id="FamilyMemberHistory.participant.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#37477"/>
+        <valueString value="J#37477, J#41404"/>
       </extension>
       <path value="FamilyMemberHistory.participant.actor"/>
       <short value="Who or what participated in the activities related to the family member history"/>
       <definition value="Indicates who or what participated in the activities related to the family member history."/>
+	  <comment value="Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -308,6 +309,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -530,6 +532,9 @@
       </mapping>
     </element>
     <element id="FamilyMemberHistory.condition">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#47829"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
@@ -541,6 +546,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value&lt;Diagnosis]"/>
@@ -555,6 +561,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCode"/>

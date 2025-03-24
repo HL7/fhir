@@ -808,7 +808,6 @@
         <code value="string"/>
       </type>
     </element>
-
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>
@@ -929,7 +928,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element> -->
-    <element id="Device.mode">
+    <!-- <element id="Device.mode">
       <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
@@ -966,7 +965,7 @@
       <type>
         <code value="Duration"/>
       </type>
-    </element>
+    </element> -->
     <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
@@ -1034,7 +1033,7 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element> -->
-    <element id="Device.owner">
+    <!-- <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
       <definition value="An organization that is responsible for the provision and ongoing maintenance of the device."/>
@@ -1052,6 +1051,111 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=OWN].scoper"/>
       </mapping>
+    </element> -->
+    <element id="Device.additive">
+      <path value="Device.additive"/>
+      <short value="Material added to a container device"/>
+      <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Material"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.type">
+      <path value="Device.additive.type"/>
+      <short value="The additive substance"/>
+      <definition value="The type of the substance added to the container.  This is represented as a concept from a code system or described in a Substance resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device additive substance type codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.quantity">
+      <path value="Device.additive.quantity"/>
+      <short value="Quantity of additive substance within container"/>
+      <definition value="The quantity of the additive substance in the container; may be volume, dimensions, or other appropriate measurements, depending on the container and additive substance type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[classCode=CONT].quantity"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.performer">
+      <path value="Device.additive.performer"/>
+      <short value="Entity adding substance to the container"/>
+      <definition value="The performer who adds the substance to the container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM].role"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.performed">
+      <path value="Device.additive.performed"/>
+      <short value="When the additive substance was added to the container"/>
+      <definition value="Time when the additive substance was placed into the container by the performer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
     </element>
     <element id="Device.contact">
       <path value="Device.contact"/>
@@ -1063,6 +1167,7 @@
       <type>
         <code value="ContactPoint"/>
       </type>
+      <!--
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.source"/>
@@ -1071,6 +1176,7 @@
         <identity value="rim"/>
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
+      -->
     </element>
     <element id="Device.distributor">
       <path value="The distributor of the model of device"/>
@@ -1133,7 +1239,7 @@
         <map value=".playedRole[typeCode=LOCE].scoper"/>
       </mapping>
     </element>
-    <element id="Device.url">
+    <!-- <element id="Device.url">
       <path value="Device.url"/>
       <short value="Network address to contact device"/>
       <definition value="A network address on which the device may be contacted directly."/>
@@ -1151,8 +1257,8 @@
         <identity value="rim"/>
         <map value=".telecom"/>
       </mapping>
-    </element>
-    <element id="Device.endpoint">
+    </element> -->
+    <!-- <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>
       <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
@@ -1178,7 +1284,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.note">
       <path value="Device.note"/>
       <short value="Device notes and comments"/>

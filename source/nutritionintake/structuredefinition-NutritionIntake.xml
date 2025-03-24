@@ -105,37 +105,6 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-    <element id="NutritionIntake.instantiatesCanonical">
-      <path value="NutritionIntake.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="Instantiates FHIR protocol or definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern">
-          <valueCanonical value="http://hl7.org/fhir/StructureDefinition/Definition"/>
-        </extension>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
-      </type>
-    </element>
-    <element id="NutritionIntake.instantiatesUri">
-      <path value="NutritionIntake.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="Instantiates external protocol or definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
     <element id="NutritionIntake.basedOn">
       <path value="NutritionIntake.basedOn"/>
       <short value="Fulfils plan, proposal or order"/>
@@ -226,7 +195,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept indicating the reason for the status of the statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalassessment-status-reason"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutritionintake-status-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -441,8 +410,8 @@
     </element>
     <element id="NutritionIntake.nutritionItem.consumedItem.amount">
       <path value="NutritionIntake.nutritionItem.consumedItem.amount"/>
-      <short value="Quantity of the specified food (i.e. solid and/or liquid) "/>
-      <definition value="Quantity of the specified food (i.e. solid and/or liquid) ."/>
+      <short value="Quantity of the specified food (i.e. solid and/or liquid)"/>
+      <definition value="Quantity of the specified food (i.e. solid and/or liquid)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -519,18 +488,18 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
     </element>
-    <element id="NutritionIntake.nutritionItem.notConsumed">
-      <path value="NutritionIntake.nutritionItem.notConsumed"/>
-      <short value="Flag to indicate if the food (i.e. solid and/or liquid) was refused or otherwise not consumed"/>
-      <definition value="Indicator that the nutrition item was not consumed, such as it was refused, held (e.g., tube feedings), or otherwise not provided."/>
+    <element id="NutritionIntake.nutritionItem.notConsumedItem">
+      <path value="NutritionIntake.nutritionItem.notConsumedItem"/>
+      <short value="What nutrition item was not consumed"/>
+      <definition value="What nutrition item was not consumed."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="boolean"/>
+        <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="NutritionIntake.nutritionItem.notConsumedReason">
-      <path value="NutritionIntake.nutritionItem.notConsumedReason"/>
+    <element id="NutritionIntake.nutritionItem.notConsumedItem.reason">
+      <path value="NutritionIntake.nutritionItem.notConsumedItem.reason"/>
       <short value="Reason the nutrition item was not consumed"/>
       <definition value="Document the reason the nutrition item was not consumed, such as refused, held, etc."/>
       <min value="0"/>
@@ -547,10 +516,32 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/not-consumed-reason"/>
       </binding>
     </element>
+    <element id="NutritionIntake.nutritionItem.notConsumedItem.schedule">
+      <path value="NutritionIntake.nutritionItem.notConsumedItem.schedule"/>
+      <short value="The intended frequency of consumption that was not followed"/>
+      <definition value="The intended frequency of consumption that was not followed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.nutritionItem.notConsumedItem.amount">
+      <path value="NutritionIntake.nutritionItem.notConsumedItem.amount"/>
+      <short value="Quantity of the specified food (i.e. solid and/or liquid) that was not consumed"/>
+      <definition value="Quantity of the specified food (i.e. solid and/or liquid) that was not consumed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="NutritionIntake.performer">
       <path value="NutritionIntake.performer"/>
-      <short value="Who performed the intake and how they were involved"/>
-      <definition value="Who performed the intake and how they were involved."/>
+      <short value="Who or what performed the intake and how they were involved"/>
+      <definition value="Who or what performed the intake and how they were involved."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -560,7 +551,7 @@
     <element id="NutritionIntake.performer.function">
       <path value="NutritionIntake.performer.function"/>
       <short value="Type of performer"/>
-      <definition value="Type of performer."/>
+      <definition value="Type of performance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -577,8 +568,8 @@
     </element>
     <element id="NutritionIntake.performer.actor">
       <path value="NutritionIntake.performer.actor"/>
-      <short value="Who performed the intake"/>
-      <definition value="Who performed the intake."/>
+      <short value="Who or what performed the intake"/>
+      <definition value="Who or what performed the intake."/>
       <min value="1"/>
       <max value="1"/>
       <type>

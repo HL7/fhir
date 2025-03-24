@@ -948,6 +948,24 @@
     <Cell><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">PatchMimeType</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The mime type of patch resource - allowed patch types only.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">valueset-patchmimetypes</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell><Data ss:Type="String">4.0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">NoteType</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">The presentation types of notes.</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">code list</Data></Cell>
@@ -962,13 +980,6 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="16" ss:StyleID="s77"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
-    <Cell><Data ss:Type="String">Operation outcome (see translations.xml)</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-operation-outcome</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipationRoleType</Data></Cell>
@@ -4812,6 +4823,17 @@
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s128"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s125"><Data ss:Type="String">descriptive</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">descriptive</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">There is no constraint on the allowed set of codes at the root level, though there may be additional bindings that apply in certain contexts.  The root binding element will be a description that gives guidance on potential downstream constraint of the allowed codes and/or highlights the presence of additional bindings.</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s128"/>

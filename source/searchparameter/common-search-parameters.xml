@@ -342,6 +342,7 @@
         <base value="CoverageEligibilityRequest"/>
         <base value="CoverageEligibilityResponse"/>
         <base value="DetectedIssue"/>
+        <base value="DeviceAssociation"/>
         <base value="DeviceRequest"/>
         <base value="DeviceUsage"/>
         <base value="DiagnosticReport"/>

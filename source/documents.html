@@ -105,8 +105,11 @@ The document bundle SHALL include only:
 </p>
 <ol>
  <li>The composition set: the single Composition resource, and the resources it links to</li>
- <li>The supporting information: Any resources that are part of the graph of resources that reference or 
-  are referenced from the composition set, either directly or indirectly (e.g. recursively in a chain)</li>
+ <li>
+  The supporting information: Any resources that are part of the graph of resources that reference or are referenced 
+  from the composition set, either directly or indirectly (e.g. recursively in a chain).  Such references SHALL use 
+  <a href="references.html#Reference">Reference.reference</a>, <a href="references.html#canonical">canonical</a> 
+    or a <a href="datatypes.html#uri">URI</a></li>
  <li>Supporting Collateral: A Binary resource containing a stylesheet (as described below)</li>
 </ol>
 <p>

@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="MeasureStratifierExample"/>
   <title value="Measure Stratifier Example"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Identifier subgroups in a population for measuring purposes."/>

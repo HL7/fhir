@@ -1028,6 +1028,11 @@ Bindings have a property that defines the degree of flexibility associated
 with the use of the codes in the value set. See <a href="terminologies.html#strength">Binding Strength</a> for further information.
 </p>
 
+<a name="additionalbindings"></a>
+<h3>Additional Bindings</h3>
+<p>
+When deriving an element from an element that has additional bindings, an additionalBinding can be constrained if it has the same key.  If the base additionalBinding does not have a key, it cannot be constrained.  Rules for constraining additionalBinding uses and value sets are the same as for constraining regular bindings.
+</p>
 <a name="tx"></a>
 <h3>Mixing Custom and Standard Terminologies</h3>
 <p>
@@ -1094,7 +1099,7 @@ The specific meaning of "Must Support" SHALL be defined. Profiles can do this in
 </p>
 <ul>
   <li>They can provide detailed <a href="obligations.html>">Obligations</a></li>
-  <li>They can describe their expectations in <code>ElementDefinition.definition</code>,
+  <li>They can describe their expectations in <code>ElementDefinition.comment</code>,
     the general <code>StructureDefinition.description</code> or in other 
     documentation for the implementation guide that includes the profile</li>
 </ul>

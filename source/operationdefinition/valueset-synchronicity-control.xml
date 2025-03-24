@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="synchronicity-control"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="6.0.0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/synchronicity-control"/>
+  <version value="6.0.0"/>
+  <name value="OperationSynchronicityControl"/>
+  <title value="Operation Synchronicity Control"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates that an operation must always be handled as synchronous or asynchronous, or that the server must provide both, and clients can choose"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/synchronicity-control"/>
+    </include>
+  </compose>
+</ValueSet>

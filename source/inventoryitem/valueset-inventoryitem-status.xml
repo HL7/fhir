@@ -13,7 +13,7 @@
   <name value="InventoryItemStatusCodes"/>
   <title value="InventoryItem Status Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

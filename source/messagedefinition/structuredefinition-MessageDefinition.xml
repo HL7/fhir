@@ -148,7 +148,6 @@
 			<path value="MessageDefinition.identifier"/>
 			<short value="Business Identifier for a given MessageDefinition"/>
 			<definition value="A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this message definition outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -292,9 +291,9 @@
 		</element>
 		<element id="MessageDefinition.experimental">
 			<path value="MessageDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of message definitions that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of message definitions that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level message definition."/>
 			<min value="0"/>
 			<max value="1"/>

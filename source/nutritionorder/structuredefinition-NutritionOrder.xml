@@ -89,7 +89,7 @@
       <max value="*"/>
       <constraint>
         <key value="nor-1"/>
-        <severity value="warning"/>
+        <severity value="error"/>
         <human value="Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class"/>
         <expression value="oralDiet.exists() or supplement.exists() or enteralFormula.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
@@ -138,7 +138,7 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.instantiatesCanonical">
+    <element id="NutritionOrder.instantiates">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
@@ -154,55 +154,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="NutritionOrder.instantiatesUri">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="NutritionOrder.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="NutritionOrder.instantiates">
-      <path value="NutritionOrder.instantiates"/>
-      <short value="Instantiates protocol or definition"/>
-      <definition value="The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.instantiates"/>
@@ -234,8 +185,6 @@
         <map value="Request.basedOn"/>
       </mapping>
     </element>
-
-
     <element id="NutritionOrder.groupIdentifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
@@ -272,7 +221,7 @@
         <valueString value="[#3720],[#14414]."/>
       </extension>
       <path value="NutritionOrder.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The workflow status of the nutrition order/request."/>
       <comment value="Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
@@ -475,8 +424,8 @@
         <map value="author.time"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.orderer">
-      <path value="NutritionOrder.orderer"/>
+    <element id="NutritionOrder.requester">
+      <path value="NutritionOrder.requester"/>
       <short value="Who ordered the diet, formula or nutritional supplement"/>
       <definition value="The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings."/>
       <min value="0"/>
@@ -571,13 +520,10 @@
       </mapping>
     </element>
     <element id="NutritionOrder.excludeFoodModifier">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference."/>
-      </extension>
       <path value="NutritionOrder.excludeFoodModifier"/>
       <short value="Food that should not be given"/>
-      <definition value="This modifier is used to convey Order-specific modifier about the type of oral food  (i.e. solid and/or liquid) that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
-      <comment value="Information on a patient's food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn't receive or consume."/>
+      <definition value="This modifier is used to convey Order-specific modifiers that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or Gluten-Free. While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to what should be eliminated from the patient’s diet for any reason. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
+      <comment value="Specific types of oral food (solid/liquid) to avoid."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -805,7 +751,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -929,7 +874,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="NutritionOrder.supplement">
@@ -1088,7 +1033,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1133,7 +1077,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="NutritionOrder.enteralFormula">
@@ -1231,7 +1175,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1373,7 +1316,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1396,7 +1338,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <type>
         <code value="Ratio"/>
@@ -1418,7 +1359,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1530,8 +1470,33 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
+    </element>
+    <element id="NutritionOrder.additive.routeOfAdministration">
+      <path value="NutritionOrder.additive.routeOfAdministration"/>
+      <short value="How the additive should enter the patient's gastrointestinal tract"/>
+      <definition value="The administration into the patient's gastrointestinal  tract for purposes of providing the additive, e.g. nasogastric tube, oral."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdditiveRouteOfAdministration"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes specifying the route of administration of additive."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/enteral-route"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".routeCode"/>
+      </mapping>
     </element>
     <element id="NutritionOrder.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

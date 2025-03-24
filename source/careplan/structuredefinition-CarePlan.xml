@@ -199,7 +199,7 @@
         <valueString value="GF#10617."/>
       </extension>
       <path value="CarePlan.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record."/>
       <comment value="The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid."/>
       <requirements value="Allows clinicians to determine whether the plan is actionable or not."/>
@@ -629,12 +629,12 @@
     </element>
     <element id="CarePlan.activity.performedActivity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#26064, J#45000"/>
+        <valueString value="J#26064, J#45000, J#48415"/>
       </extension>
       <path value="CarePlan.activity.performedActivity"/>
       <short value="Activities that are completed or in progress (concept, or Appointment, Encounter, Procedure, etc.)"/>
       <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
-      <comment value="Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
+      <comment value="The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
       <requirements value="Links plan to resulting actions."/>
       <min value="0"/>
       <max value="*"/>
@@ -660,10 +660,13 @@
       </mapping>
     </element>
     <element id="CarePlan.activity.progress">
-      <path value="CarePlan.activity.progress"/>
+       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#48415"/>
+      </extension>
+	  <path value="CarePlan.activity.progress"/>
       <short value="Comments about the activity status/progress"/>
       <definition value="Notes about the adherence/status/progress of the activity."/>
-      <comment value="This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description."/>
+      <comment value="This element should NOT be used to describe the activity to be performed - that occurs within the resource pointed to by CarePlan.activity.plannedActivityReference."/>
       <requirements value="Can be used to capture information about adherence, progress, concerns, etc."/>
       <min value="0"/>
       <max value="*"/>

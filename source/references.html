@@ -68,7 +68,7 @@ For canonical references, see below. The general references are handled by the <
 <h3 style="margin-bottom: 1px">Reference</h3>
 [%dtstatus Reference%]
 <p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
-<!--xlp:Reference-->See also <a no-external="true" href="references-definitions.html#Reference">Detailed Descriptions</a>, <a no-external="true" href="references-profiles.html#Reference">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-references.html#Reference">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-references.html#Reference">R4 Conversions</a>
+<!--xlp:Reference-->See also <a no-external="true" href="references-definitions.html#Reference">Detailed Descriptions</a>, <a no-external="true" href="references-profiles.html#Reference">Profiles</a> and <a no-external="true" href="[%extensions-location%]extensions-references.html#Reference">Extensions</a>
 </p>
 <p>The Reference type contains at least one of a <code>reference</code> (literal reference),
 an <code>identifier</code> (logical reference), and a <code>display</code> (text description of target).
@@ -116,7 +116,7 @@ When the type is provided directly, it SHALL agree with the type determined by r
 the resource.
 </p>
 <p>
-Note that in practice, it is often not necessary to know the type of the target resource is,
+Note that in practice, it is often not necessary to know what the type of the target resource is,
 unless it's going to be resolved anyway, so in many cases, specifying the type of the
 target resource is unnecessary.
 </p>
@@ -124,7 +124,7 @@ target resource is unnecessary.
 In order to support <a href="structuredefinition.html#logical">Logical Models</a>,
 the <code>type</code> element has the type of "uri". Whenever <code>type</code>
 appears in resources, the uri is represented relative to the base URI
-<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources, then, the
+<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources (and including <a href="resource.html#additional">additional resources</a>), the
 value is simply a code that is the type of resource - e.g. "Patient".
 </p>
 
@@ -371,6 +371,9 @@ the version and/or currency of their local copy of the artifact.
 The following resources have <a href="canonicalresource.html">canonical URLs</a> and are allowed to be the target of references to a canonical URLs:
 </p>
 [%canonical-resources%]
+<p>
+In addition, some types of <a href="resource.html#additional">Additional Resources</a> 
+</p>
 <p>
 A few elements that have references to canonical URLs have a <a href="elementdefinition-definitions.html#ElementDefinition.type.targetProfile">targetProfile</a> of <code>http://hl7.org/fhir/StructureDefinition/Resource</code>,
 which is shown as canonical(Any) in this specification. Such references SHALL only reference one of these types of resources.
@@ -717,7 +720,7 @@ References for which the hierarchical behavior is not specified:
 <h2>CodeableReference - Reference by Instance or By Class</h2>
 [%dtstatus CodeableReference%]
 <p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
-<!--xlp:CodeableReference-->See also <a no-external="true" href="references-definitions.html#CodeableReference">Detailed Descriptions</a>, <a no-external="true" href="references-profiles.html#CodeableReference">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-references.html#CodeableReference">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-references.html#CodeableReference">R4 Conversions</a>
+<!--xlp:CodeableReference-->See also <a no-external="true" href="references-definitions.html#CodeableReference">Detailed Descriptions</a>, <a no-external="true" href="references-profiles.html#CodeableReference">Profiles</a> and <a no-external="true" href="[%extensions-location%]extensions-references.html#CodeableReference">Extensions</a>
 </p>
 
 

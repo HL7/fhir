@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="risk-assessment-outcome"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/risk-assessment-outcome"/>
+  <version value="6.0.0"/>
+  <name value="RiskAssessmentOutcome"/>
+  <title value="Risk Assessment Outcome"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example code system illustrating possible codes for identifying the condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-outcome"/>
+  <content value="complete"/>
+  <concept>
+    <code value="death"/>
+    <display value="Death"/>
+    <definition value="Death"/>
+  </concept>
+  <concept>
+    <code value="remission"/>
+    <display value="Remission"/>
+    <definition value="Remission"/>
+  </concept>
+  <concept>
+    <code value="amputation"/>
+    <display value="Amputation"/>
+    <definition value="Amputation"/>
+  </concept>
+  <concept>
+    <code value="infection"/>
+    <display value="Infection"/>
+    <definition value="Infection"/>
+  </concept>
+</CodeSystem>

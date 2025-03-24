@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Request" resource="ServiceRequest"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Request" resource="ServiceRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Request.identifier" resourcePath="ServiceRequest.identifier">
         <shortUnmatched reason="Unknown">
@@ -11,7 +10,7 @@
             <resource value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#10;&#10;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 V2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 V2).  For further discussion and examples see the resource notes section below."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -21,8 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.basedOn" resourcePath="ServiceRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="What request fulfills"/>
@@ -32,7 +30,7 @@
             <resource value="Plan/proposal/order fulfilled by this request."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -79,12 +77,16 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="ServiceRequest.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the service request."/>
             <resource value="The status of the order."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#10;&#10;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
             <resource value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
         </commentsUnmatched>
     </divergentElement>
@@ -98,7 +100,7 @@
             <resource value="Whether the request is a proposal, plan, an original order or a reflex order."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xa;&#xa;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#xa;&#xa;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#10;&#10;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
             <resource value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -122,7 +124,7 @@
             <resource value="Set this to true if the record is saying that the service/procedure should NOT be performed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the &quot;do not&quot; request only applies within the specified time.  If a performerType is specified then the &quot;do not&quot; request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, performerType and performer.&#xa;&#xa;In some cases, the Request.code may pre-coordinate prohibition into the requested action.  E.g. &quot;NPO&quot; (nothing by mouth), &quot;DNR&quot; (do not recussitate).  If this happens, doNotPerform SHALL NOT be set to true.  I.e. The resource shall not have double negation. (E.g. &quot;Do not DNR&quot;)."/>
+            <_pattern value="The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the &quot;do not&quot; request only applies within the specified time.  If a performerType is specified then the &quot;do not&quot; request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, performerType and performer.&#10;&#10;In some cases, the Request.code may pre-coordinate prohibition into the requested action.  E.g. &quot;NPO&quot; (nothing by mouth), &quot;DNR&quot; (do not recussitate).  If this happens, doNotPerform SHALL NOT be set to true.  I.e. The resource shall not have double negation. (E.g. &quot;Do not DNR&quot;)."/>
             <resource value="In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ServiceRequest.code and ServiceRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -132,8 +134,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.code" resourcePath="ServiceRequest.code">
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes
-            _resource="CodeableReference(ActivityDefinition,PlanDefinition)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(ActivityDefinition,PlanDefinition)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Service requested/ordered"/>
             <resource value="What is being requested/ordered"/>
@@ -197,6 +198,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="ServiceRequest.requester">
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
             <resource value="The individual who initiated the request and has responsibility for its activation."/>
@@ -218,6 +220,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="ServiceRequest.performer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Requested performer"/>
@@ -287,8 +290,8 @@
             <resource value="Key events in the history of the request."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances SHOULD adhere to the [provenance-relevant-history profile](provenance-relevant-history.html).&#xa;&#xa;See additional guidance [here](request.html#history)."/>
-            <resource value="This might not include provenances for all versions of the request – only those deemed “relevant” or important.&#xd;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#xd;All Provenances should have some historical version of this Request as their subject."/>
+            <_pattern value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances SHOULD adhere to the [provenance-relevant-history profile](provenance-relevant-history.html).&#10;&#10;See additional guidance [here](request.html#history)."/>
+            <resource value="This might not include provenances for all versions of the request – only those deemed “relevant” or important.&#13;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#13;All Provenances should have some historical version of this Request as their subject."/>
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>

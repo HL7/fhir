@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Definition" resource="SubscriptionTopic"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Definition" resource="SubscriptionTopic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Definition.url" resourcePath="SubscriptionTopic.url">
         <lowerCardinality _pattern="0" _resource="1" reason="SubscriptionTopics are not ever expected to be contained"/>
@@ -60,8 +59,8 @@
             <resource value="The current state of the SubscriptionTopic."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#10;&#10;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#10;&#10;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of subscription topics that are appropriate for use versus not."/>
@@ -69,17 +68,13 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.experimental" resourcePath="SubscriptionTopic.experimental">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="For testing purposes, not real usage"/>
-            <resource value="If for testing purposes, not real usage"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this subscription topic is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
+            <_pattern value="A Boolean value to indicate that this subscription topic is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
             <resource value="A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Allows filtering of subscription topics that are appropriate for use versus not."/>
-            <resource value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not."/>
+            <resource value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level subscription topic."/>
@@ -157,7 +152,7 @@
             <resource value="A jurisdiction in which the Topic is intended to be used."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="It may be possible for the subscription topic to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <_pattern value="It may be possible for the subscription topic to be used in jurisdictions other than those for which it was originally designed or intended&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
             <resource value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
         </commentsUnmatched>
     </divergentElement>

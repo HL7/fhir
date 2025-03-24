@@ -127,6 +127,16 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="ArtifactAssessment.citeAs">
+      <path value="ArtifactAssessment.citeAs"/>
+      <short value="How to cite the comment or rating"/>
+      <definition value="Display of the bibliographic citation of the comment, classifier, or rating."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="ArtifactAssessment.artifact[x]">
       <path value="ArtifactAssessment.artifact[x]"/>
       <short value="The artifact assessed, commented upon or rated"/>
@@ -148,6 +158,61 @@
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
+    </element>
+    <element id="ArtifactAssessment.relatesTo">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,0"/>
+      </extension>
+      <path value="ArtifactAssessment.relatesTo"/>
+      <short value="Relationship to other Resources"/>
+      <definition value="Relationship that this ArtifactAssessment has with other FHIR or non-FHIR resources that already exist."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.relatesTo.type">
+      <path value="ArtifactAssessment.relatesTo.type"/>
+      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
+      <definition value="The type of relationship to the related artifact."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of relationship to the related artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.relatesTo.target[x]">
+        <path value="ArtifactAssessment.relatesTo.target[x]"/>
+        <short value="The artifact that is related to this ArtifactAssessment"/>
+        <definition value="The artifact that is related to this ArtifactAssessment Resource."/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+            <code value="uri"/>
+        </type>
+        <type>
+            <code value="Attachment"/>
+        </type>
+        <type>
+            <code value="canonical"/>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        </type>
+        <type>
+            <code value="Reference"/>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        </type>
+        <type>
+            <code value="markdown"/>
+        </type>
     </element>
     <element id="ArtifactAssessment.date">
       <path value="ArtifactAssessment.date"/>
@@ -233,20 +298,6 @@
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
-    </element>
-    <element id="ArtifactAssessment.citeAs[x]">
-      <path value="ArtifactAssessment.citeAs[x]"/>
-      <short value="How to cite the comment or rating"/>
-      <definition value="Display of or reference to the bibliographic citation of the comment, classifier, or rating."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-      </type>
-      <type>
-        <code value="markdown"/>
-      </type>
     </element>
     <element id="ArtifactAssessment.content">
       <path value="ArtifactAssessment.content"/>
@@ -338,15 +389,13 @@
         <code value="uri"/>
       </type>
     </element>
-    <element id="ArtifactAssessment.content.relatedArtifact">
-      <path value="ArtifactAssessment.content.relatedArtifact"/>
-      <short value="Additional information"/>
-      <definition value="Additional related artifacts that provide supporting documentation, additional evidence, or further information related to the content."/>
+    <element id="ArtifactAssessment.content.relatesTo">
+      <path value="ArtifactAssessment.content.relatesTo"/>
+      <short value="Relationship to other Resources"/>
+      <definition value="Relationship that this content component has with other FHIR or non-FHIR resources that already exist."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
+	  <contentReference value="#ArtifactAssessment.relatesTo"/>
     </element>
     <element id="ArtifactAssessment.content.freeToShare">
       <path value="ArtifactAssessment.content.freeToShare"/>

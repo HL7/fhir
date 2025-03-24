@@ -195,7 +195,7 @@
     </element>
     <element id="RequestOrchestration.status">
       <path value="RequestOrchestration.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The current state of the request. For request orchestrations, the status reflects the status of all the requests in the orchestration."/>
       <min value="1"/>
       <max value="1"/>
@@ -472,7 +472,7 @@
         <key value="rqg-1"/>
         <severity value="error"/>
         <human value="Must have resource or action but not both"/>
-        <expression value="resource.exists() != action.exists()"/>
+        <expression value="resource.exists() implies action.exists().not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </constraint>
     </element>
@@ -615,7 +615,7 @@
       <path value="RequestOrchestration.action.condition"/>
       <short value="Whether or not the action is applicable"/>
       <definition value="An expression that describes applicability criteria, or start/stop conditions for the action."/>
-      <comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all of the conditions are true."/>
+      <comment value="If no applicability conditions are present, the action is considered applicable (i.e. it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g. applicability and start criteria are never considered together)"/>
       <min value="0"/>
       <max value="*"/>
       <type>

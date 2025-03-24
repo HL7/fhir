@@ -293,7 +293,7 @@
 			</concept>
 			<concept>
 				<code value="SEVCO:01035"/>
-				<display value="Phase 3 Trial"/>
+				<display value="Phase 3 trial"/>
 				<definition value="A clinical trial to gather the evidence of effectiveness and safety of an intervention, intended to provide an adequate basis for regulatory approval for clinical use."/>
 				<designation>
 					<use>

@@ -8,6 +8,9 @@
   <concept id="102263004" display="Eggs (edible)">
     <display value="Eggs (edible)"/>
   </concept>
+  <concept id="103693007" display="Diagnostic procedure">
+    <display value="Diagnostic procedure"/>
+  </concept>
   <concept id="10531005" display="Free-standing ambulatory surgery facility">
     <display value="Free-standing ambulatory surgery facility"/>
   </concept>
@@ -25,6 +28,9 @@
   </concept>
   <concept id="108252007" display="Laboratory procedure">
     <display value="Laboratory procedure"/>
+  </concept>
+  <concept id="10828004" display="Positive">
+    <display value="Positive"/>
   </concept>
   <concept id="111064005" display="Sulfur compound">
     <display value="Sulfur compound"/>
@@ -46,6 +52,9 @@
   </concept>
   <concept id="1157152000" display="Not at risk of elopement from healthcare setting">
     <display value="Not at risk of elopement from healthcare setting"/>
+  </concept>
+  <concept id="1157245009" display="Flat dose">
+    <display value="Flat dose"/>
   </concept>
   <concept id="116154003" display="Patient">
     <display value="Patient"/>
@@ -97,6 +106,9 @@
   </concept>
   <concept id="133932002" display="Caregiver">
     <display value="Caregiver"/>
+  </concept>
+  <concept id="1354492001" display="Nutritional protein and/or protein derivative">
+    <display value="Nutritional protein and/or protein derivative"/>
   </concept>
   <concept id="14168008" display="Rabies">
     <display value="Rabies"/>
@@ -266,6 +278,9 @@
   <concept id="228367002" display="Does not misuse drugs">
     <display value="Does not misuse drugs"/>
   </concept>
+  <concept id="228557008" display="Cognitive and behavioral therapy">
+    <display value="Cognitive and behavioral therapy"/>
+  </concept>
   <concept id="229506003" display="Scar tissue massage">
     <display value="Scar tissue massage"/>
   </concept>
@@ -404,6 +419,12 @@
   <concept id="261183002" display="Upper">
     <display value="Upper"/>
   </concept>
+  <concept id="261829003" display="High dose">
+    <display value="High dose"/>
+  </concept>
+  <concept id="262459003" display="Low dose">
+    <display value="Low dose"/>
+  </concept>
   <concept id="263204007" display="Fracture of shaft of ulna">
     <display value="Fracture of shaft of ulna"/>
   </concept>
@@ -425,8 +446,14 @@
   <concept id="267425008" display="Lactose intolerance">
     <display value="Lactose intolerance"/>
   </concept>
+  <concept id="271062006" display="Fasting blood glucose level">
+    <display value="Fasting blood glucose level"/>
+  </concept>
   <concept id="271651005" display="Stable blood pressure">
     <display value="Stable blood pressure"/>
+  </concept>
+  <concept id="272103003" display="Time patterns">
+    <display value="Time patterns"/>
   </concept>
   <concept id="272379006" display="Events">
     <display value="Events"/>
@@ -512,8 +539,14 @@
   <concept id="302188001" display="Bad taste in mouth">
     <display value="Bad taste in mouth"/>
   </concept>
+  <concept id="303105007" display="Disease phases">
+    <display value="Disease phases"/>
+  </concept>
   <concept id="30549001" display="Removal of suture">
     <display value="Removal of suture"/>
+  </concept>
+  <concept id="306206005" display="Referral to service">
+    <display value="Referral to service"/>
   </concept>
   <concept id="307085007" display="Difficulty processing information">
     <display value="Difficulty processing information"/>
@@ -632,6 +665,9 @@
   <concept id="367336001" display="Chemotherapy">
     <display value="Chemotherapy"/>
   </concept>
+  <concept id="368209003" display="Right upper arm">
+    <display value="Right upper arm"/>
+  </concept>
   <concept id="36989005" display="Mumps">
     <display value="Mumps"/>
   </concept>
@@ -664,6 +700,9 @@
   </concept>
   <concept id="371292009" display="Proximal interphalangeal joint structure of second toe (body structure)">
     <display value="Proximal interphalangeal joint structure of second toe (body structure)"/>
+  </concept>
+  <concept id="372567009" display="Metformin (substance)">
+    <display value="Metformin (substance)"/>
   </concept>
   <concept id="3729002" display="Hospital-based outpatient pediatric clinic">
     <display value="Hospital-based outpatient pediatric clinic"/>
@@ -916,6 +955,9 @@
   </concept>
   <concept id="397428000" display="Diphtheria (disorder)">
     <display value="Diphtheria (disorder)"/>
+  </concept>
+  <concept id="397669002" display="Age (qualifier value)">
+    <display value="Age (qualifier value)"/>
   </concept>
   <concept id="397709008" display="Patient died (finding)">
     <display value="Patient died (finding)"/>

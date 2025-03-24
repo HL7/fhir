@@ -41,6 +41,11 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
   <content value="complete"/>
   <concept>
+    <code value="boolean"/>
+    <display value="boolean variable"/>
+    <definition value="A boolean variable is a variable which is defined to have only 2 possible values: True or False."/>
+  </concept>
+  <concept>
     <code value="continuous"/>
     <display value="continuous variable"/>
     <definition value="A continuous variable is one for which, within the limits the variable ranges, any value is possible (from STATO http://purl.obolibrary.org/obo/STATO_0000251)."/>
@@ -59,5 +64,10 @@
     <code value="polychotomous"/>
     <display value="polychotomous variable"/>
     <definition value="A polychotomous variable is a categorical variable which is defined to have minimally 2 categories or possible values. (from STATO  http://purl.obolibrary.org/obo/STATO_0000087).  Suggestion to limit code use to situations when neither dichotomous nor ordinal variables apply."/>
+  </concept>
+  <concept>
+    <code value="extension"/>
+    <display value="extension"/>
+    <definition value="The variable handling is defined in an extension."/>
   </concept>
 </CodeSystem>

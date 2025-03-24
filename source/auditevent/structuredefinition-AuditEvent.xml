@@ -60,8 +60,8 @@
   </mapping>
   <mapping>
     <identity value="dicom"/>
-    <uri value="http://nema.org/dicom"/>
-    <name value="DICOM Tag Mapping"/>
+    <uri value="https://dicomstandard.org/current"/>
+    <name value="DICOM AuditMessage Tag Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
@@ -725,7 +725,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <mapping>

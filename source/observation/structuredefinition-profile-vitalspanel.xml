@@ -10,7 +10,7 @@
     <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'85353-1'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -80,9 +80,7 @@
     <element id="Observation">
       <path value="Observation"/>
       <short value="FHIR Vital Signs Panel Profile"/>
-      <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP)."/>
-      <min value="0"/>
-      <max value="*"/>
+      <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP - with a minimum of 2 members of the set/panel required)."/>
     </element>
     <element id="Observation.category">
       <path value="Observation.category"/>
@@ -124,13 +122,11 @@
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <min value="0"/>
       <max value="0"/>
     </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
-      <min value="1"/>
-      <max value="*"/>
+      <min value="2"/>
       <mustSupport value="true"/>
     </element>
   </differential>

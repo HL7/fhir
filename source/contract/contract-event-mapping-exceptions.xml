@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="Contract"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="Contract" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Contract.identifier">
         <shortUnmatched reason="Unknown">
@@ -49,7 +48,7 @@
             <resource value="The status of the resource instance."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active."/>
         </commentsUnmatched>
     </divergentElement>
@@ -103,7 +102,7 @@
             <resource value="Relevant time or time-period when this Contract is applicable."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -118,7 +117,7 @@
             <resource value="Relevant time or time-period when this Contract Provision is applicable."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -131,6 +130,10 @@
             <_pattern value="The date the occurrence of the contract was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="When this  Contract was issued."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <resource value=""/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.recorded" resourcePath="Contract.term.issued">
         <shortUnmatched reason="Unknown">
@@ -141,6 +144,10 @@
             <_pattern value="The date the occurrence of the contract was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="When this Contract Provision was issued."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <resource value=""/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="Contract.term.action.type">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
@@ -172,8 +179,7 @@
     <divergentElement patternPath="Event.reason" resourcePath="Contract.term.action.intent">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
-        <missingTypes
-            _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">

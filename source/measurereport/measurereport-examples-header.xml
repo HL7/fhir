@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-These examples illustrate the use of the MeasureReport resource to report individual, subject-listing, and summary-level results for measure calculation.
+<p>These examples illustrate the use of the MeasureReport resource to report individual, subject-listing, and summary-level results for measure calculation.</p>
+
+<p>Additional examples can be found in the <a href="http://hl7.org/fhir/us/davinci-deqm">Data Exchange for Quality Measure</a> implementation guide.</p>
 
 </div>

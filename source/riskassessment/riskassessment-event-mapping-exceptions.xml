@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="RiskAssessment"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="RiskAssessment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="RiskAssessment.identifier">
         <shortUnmatched reason="Unknown">
@@ -66,12 +65,11 @@
             <resource value="The status of the RiskAssessment, using the same statuses as an Observation."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="RiskAssessment.code">
-        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="What service was done"/>
             <resource value="Type of assessment"/>
@@ -124,7 +122,7 @@
             <resource value="The date (and possibly time) the risk assessment was performed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -145,7 +143,7 @@
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Why was risk assessment performed?"/>
-            <resource value="Why the assessment was necessary?"/>
+            <resource value="Why was the assessment necessary?"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the risk assessment occurred in coded or textual form or Indicates another resource whose existence justifies this risk assessment."/>

@@ -119,7 +119,7 @@
     <element id="Medication.code">
       <path value="Medication.code"/>
       <short value="Codes that identify this medication"/>
-      <definition value="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems."/>
+      <definition value="A code (or set of codes) that specify this medication, or a textual description. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems. The name of the medication can be conveyed in the code.text even if it is different from any of the coding displayName values."/>
       <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
       <min value="0"/>
       <max value="1"/>
@@ -247,7 +247,7 @@
       <path value="Medication.ingredient"/>
       <short value="Active or inactive ingredient"/>
       <definition value="Identifies a particular constituent of interest in the product."/>
-      <comment value="The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients."/>
+      <comment value="The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.  If Medication.code represents a fully specified product (the product + the strength + the dosage form) then including ingredients is duplicative.  However, there may be implementation considerations which dictate including ingredients when Medication.code is a fully specified product.  For compounded products, active and inactive ingredients should be included.  However, even with all ingredients specified, a Medication resource should not be considered a &quot;recipe&quot; as the sequence and techniques for preparing the final product cannot be included."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -262,7 +262,7 @@
       <path value="Medication.ingredient.item"/>
       <short value="The ingredient (substance or medication) that the ingredient.strength relates to"/>
       <definition value="The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication)."/>
-      <requirements value="The ingredient may reference a substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
+      <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
       <min value="1"/>
       <max value="1"/>
       <type>

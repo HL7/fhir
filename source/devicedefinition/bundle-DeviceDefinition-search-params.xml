@@ -189,18 +189,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceDefinition-organization"/>
+        <id value="DeviceDefinition-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceDefinition.owner"/>
+          <valueString value="DeviceDefinition.contact.name"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-organization"/>
-        <description value="The organization responsible for the device"/>
-        <code value="organization"/>
-        <type value="reference"/>
-        <expression value="DeviceDefinition.owner"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-publisher"/>
+        <description value="The contact for the publisher of the device definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="DeviceDefinition.contact.name | DeviceDefinition.publisher"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +217,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-model"/>
         <description value="The model of the device"/>
-        <code value="model"/>
+        <code value="model-number"/>
         <type value="token"/>
         <expression value="DeviceDefinition.modelNumber"/>
         <processingMode value="normal"/>
@@ -305,4 +305,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-url"/>
+        <description value="The uri that identifies the code system"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="DeviceDefinition.url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>

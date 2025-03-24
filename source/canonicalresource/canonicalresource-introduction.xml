@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
 <div>
@@ -24,7 +24,7 @@ As an interface, this type is never created directly - see <a href="uml.html#int
 <h2>Boundaries and Relationships</h2>
 
 <p>
-This interface extends the base <a href="domainresource.html">DomainResource</a>. The following resources 
+This interface extends the base <a href="domainresource.html">DomainResource</a>. The following resources
 implement this interface:
 </p>
 
@@ -40,7 +40,6 @@ implement this interface:
 <li><a href="conditiondefinition.html">ConditionDefinition</a></li>
 <li><a href="eventdefinition.html">EventDefinition</a></li>
 <li><a href="evidence.html">Evidence</a></li>
-<li><a href="evidencereport.html">EvidenceReport</a></li>
 <li><a href="evidencevariable.html">EvidenceVariable</a></li>
 <li><a href="examplescenario.html">ExampleScenario</a></li>
 <li><a href="graphdefinition.html">GraphDefinition</a></li>
@@ -69,5 +68,4 @@ implement this interface:
 </div>
 
 
-</div>
 </div>

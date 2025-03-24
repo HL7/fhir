@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="ConceptSubsumptionOutcome"/>
   <title value="Concept Subsumption Outcome"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Description Needed Here"/>
   <compose>
     <include>

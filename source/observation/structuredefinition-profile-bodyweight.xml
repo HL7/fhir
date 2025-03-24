@@ -7,10 +7,10 @@
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'29463-7'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', or '[lb_av]'**"/>
+    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'29463-7'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', '[lb_av]' or '[oz_av]'**"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -19,7 +19,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
-    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'29463-7'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', or '[lb_av]'**"/>
+    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'29463-7'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', '[lb_av]' or '[oz_av]'**"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/bodyweight"/>
   <identifier>
@@ -81,8 +81,13 @@
       <path value="Observation"/>
       <short value="FHIR Body Weight Profile"/>
       <definition value="This profile defines  how to represent body weight observations in FHIR using a standard LOINC code and UCUM units of measure."/>
-      <min value="0"/>
-      <max value="*"/>
+      <constraint>
+        <key value="vs-4"/>
+        <severity value="error"/>
+        <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
+        <expression value="dataAbsentReason.exists() or value.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
     </element>
     <element id="Observation.category">
       <path value="Observation.category"/>
@@ -111,8 +116,6 @@
       <path value="Observation.code"/>
       <short value="Body Weight"/>
       <definition value="Body Weight."/>
-      <alias value="Test"/>
-      <alias value="Name"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsBodyWeight"/>
@@ -124,44 +127,7 @@
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
-    </element>
-    <element id="Observation.valueQuantity.value">
-      <path value="Observation.valueQuantity.value"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.unit">
-      <path value="Observation.valueQuantity.unit"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.system">
-      <path value="Observation.valueQuantity.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://unitsofmeasure.org"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.code">
-      <path value="Observation.valueQuantity.code"/>
-      <short value="Coded responses from the common UCUM units for vital signs value set."/>
-      <definition value="Coded responses from the common UCUM units for vital signs value set."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
+      <condition value="vsp-4"/>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
@@ -171,9 +137,14 @@
           <valueString value="BodyWeightUnits"/>
         </extension>
         <strength value="required"/>
-        <description value="g | kg  | [lb_av]"/>
+        <description value="g | kg  | [lb_av] | [oz_av]"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ucum-bodyweight"/>
       </binding>
+    </element>
+    <element id="Observation.dataAbsentReason">
+      <path value="Observation.dataAbsentReason"/>
+      <condition value="vsp-4"/>
+      <mustSupport value="true"/>
     </element>
   </differential>
 </StructureDefinition>

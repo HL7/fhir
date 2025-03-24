@@ -12,7 +12,6 @@
   <name value="VitalSignsSystolicBP"/>
   <title value="Vital Signs - Systolic BP"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
@@ -27,120 +26,13 @@
       <system value="http://loinc.org"/>
       <filter>
         <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP72836-7"/> <!-- Intravascular systolic -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6847-0"/> <!-- Pres -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SYSTEM"/>
-        <op value="="/>
-        <value value="LP7034-4"/> <!-- Arterial system -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP304522-8"/> <!-- Intravascular systolic^sitting -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6847-0"/> <!-- Pres -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SYSTEM"/>
-        <op value="="/>
-        <value value="LP7034-4"/> <!-- Arterial system -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP304524-4"/> <!-- Intravascular systolic^supine -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6847-0"/> <!-- Pres -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SYSTEM"/>
-        <op value="="/>
-        <value value="LP7034-4"/> <!-- Arterial system -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP304523-6"/> <!-- Intravascular systolic^standing -->
-      </filter>
-      <filter>
-        <property value="PROPERTY"/>
-        <op value="="/>
-        <value value="LP6847-0"/> <!-- Pres -->
-      </filter>
-      <filter>
-        <property value="TIME_ASPCT"/>
-        <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
-      </filter>
-      <filter>
-        <property value="SYSTEM"/>
-        <op value="="/>
-        <value value="LP7034-4"/> <!-- Arterial system -->
-      </filter>
-      <filter>
-        <property value="SCALE_TYP"/>
-        <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
-      </filter>
-    </include>
-    <include>
-      <system value="http://loinc.org"/>
-      <filter>
-        <property value="COMPONENT"/>
-        <op value="="/>
-        <value value="LP304513-7"/> <!-- Intravascular systolic^lying in L-lateral position -->
+        <op value="in"/>
+        <!-- LP72836-7 Intravascular systolic -->
+        <!-- LP304522-8 Intravascular systolic^sitting -->
+        <!-- LP304524-4 Intravascular systolic^supine -->
+        <!-- LP304523-6 Intravascular systolic^standing -->
+        <!-- LP304513-7 Intravascular systolic^lying in L-lateral position -->
+        <value value="LP72836-7,LP304522-8,LP304524-4,LP304523-6,LP304513-7"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>

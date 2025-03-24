@@ -177,22 +177,43 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AdverseEvent-resultingeffect"/>
+        <id value="AdverseEvent-resultingeffect-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AdverseEvent.resultingEffect"/>
+          <valueString value="AdverseEvent.resultingEffect.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-resultingeffect"/>
         <description value="Effect on the subject due to this event"/>
-        <code value="resultingeffect"/>
+        <code value="resultingeffect-reference"/>
         <type value="reference"/>
-        <expression value="AdverseEvent.resultingEffect"/>
+        <expression value="AdverseEvent.resultingEffect.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-resultingeffect-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.resultingEffect.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-resultingeffect"/>
+        <description value="Effect on the subject due to this event"/>
+        <code value="resultingeffect-code"/>
+        <type value="token"/>
+        <expression value="AdverseEvent.resultingEffect.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+    
   <entry>
     <resource>
       <SearchParameter>

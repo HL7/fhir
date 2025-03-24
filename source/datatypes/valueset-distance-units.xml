@@ -7,7 +7,7 @@
   <name value="CommonUCUMCodesForDistance"/>
   <title value="Common UCUM Codes for Distance"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
     <telecom>

@@ -10,6 +10,8 @@
 
 <p>Note that because the library content may be embedded as well as be retrievable from an external repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
 
+<p>A common use case for the Library resource is to establish the release dependencies of a collection of artifacts. A library with a type of <code>asset-collection</code> can be used to define the collection of artifacts, as well as the required dependencies, especially when the artifacts in the collection have version-independent canonical references, as is often the case with CodeSystem and ValueSet references. This usage is known as an <i>artifact manifest</i>, and is described more fully in the <a href="http://hl7.org/fhir/uv/crmi/version-manifest.html">Artifact Manifest</a> topic of the <a href="http://hl7.org/fhir/uv/crmi/index.html">Canonical Resource Management Infrastructure</a> implementation guide.</p>
+
 </div>
 
 <div>

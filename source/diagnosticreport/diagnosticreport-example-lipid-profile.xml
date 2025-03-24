@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+  <!-- Resource ID -->
+  <id value="lipid-profile-example"/>
+  
+  <!-- Status - one of registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown -->
+  <status value="final"/>
+  
+  <!-- Category - Laboratory -->
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
+      <code value="LAB"/>
+      <display value="Laboratory"/>
+    </coding>
+  </category>
+  
+  <!-- Code - Lipid Panel -->
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="24331-1"/>
+      <display value="Lipid 1996 panel - Serum or Plasma"/>
+    </coding>
+  </code>
+  
+  <!-- Subject reference -->
+  <subject>
+    <reference value="#patient"/>
+  </subject>
+  
+  <!-- Encounter reference (optional) -->
+  <encounter>
+    <reference value="#encounter"/>
+  </encounter>
+  
+  <!-- Effective date/time of the report -->
+  <effectiveDateTime value="2023-12-10T08:30:00+11:00"/>
+  
+  <!-- When the report was issued -->
+  <issued value="2023-12-10T11:45:00+11:00"/>
+  
+  <!-- Who was responsible for the report -->
+  <performer>
+    <reference value="#organization"/>
+  </performer>
+  
+  <!-- Specimen reference -->
+  <specimen>
+    <reference value="#specimen"/>
+  </specimen>
+  
+  <!-- Results - references to the contained Observation resources -->
+  <result>
+    <reference value="#cholesterol"/>
+  </result>
+  <result>
+    <reference value="#triglyceride"/>
+  </result>
+  <result>
+    <reference value="#hdl"/>
+  </result>
+  <result>
+    <reference value="#ldl"/>
+  </result>
+  
+  <!-- Conclusion -->
+  <conclusion value="Patient has elevated cholesterol and LDL levels with borderline HDL. Recommend lifestyle modifications and consideration of lipid-lowering therapy."/>
+  
+  <!-- Media - a graph of patient's lipid values over time -->
+  <media>
+    <comment value="Lipid trends over the past 12 months"/>
+    <link>
+      <contentType value="image/png"/>
+      <url value="http://example.org/fhir/Binary/lipid-trend-graph"/>
+    </link>
+  </media>
+  
+  <!-- Contained resources -->
+  <contained>
+    <!-- Patient resource -->
+    <Patient>
+      <id value="patient"/>
+      <identifier>
+        <system value="http://example.org/fhir/identifier/mrn"/>
+        <value value="12345"/>
+      </identifier>
+      <name>
+        <family value="Smith"/>
+        <given value="John"/>
+      </name>
+      <gender value="male"/>
+      <birthDate value="1970-03-15"/>
+    </Patient>
+    
+    <!-- Encounter resource -->
+    <Encounter>
+      <id value="encounter"/>
+      <status value="finished"/>
+      <class>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+        <code value="AMB"/>
+        <display value="ambulatory"/>
+      </class>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="270427003"/>
+          <display value="Patient-initiated encounter"/>
+        </coding>
+      </type>
+      <subject>
+        <reference value="#patient"/>
+      </subject>
+      <period>
+        <start value="2023-12-10T07:15:00+11:00"/>
+        <end value="2023-12-10T08:00:00+11:00"/>
+      </period>
+    </Encounter>
+    
+    <!-- Specimen resource -->
+    <Specimen>
+      <id value="specimen"/>
+      <status value="available"/>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="119364003"/>
+          <display value="Serum specimen"/>
+        </coding>
+      </type>
+      <subject>
+        <reference value="#patient"/>
+      </subject>
+      <receivedTime value="2023-12-10T07:45:00+11:00"/>
+      <collection>
+        <collectedDateTime value="2023-12-10T07:30:00+11:00"/>
+        <fastingStatusCodeableConcept>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0916"/>
+            <code value="F"/>
+            <display value="Patient fasting"/>
+          </coding>
+        </fastingStatusCodeableConcept>
+      </collection>
+    </Specimen>
+    
+    <!-- Organization resource -->
+    <Organization>
+      <id value="organization"/>
+      <name value="Clinical Laboratories Inc."/>
+      <telecom>
+        <system value="phone"/>
+        <value value="+1 (555) 123-4567"/>
+      </telecom>
+    </Organization>
+    
+    <!-- Cholesterol Observation resource - implementing the profile -->
+    <Observation>
+      <id value="cholesterol"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <!-- Code - using the fixed code from the profile -->
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="35200-5"/>
+          <display value="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
+        </coding>
+      </code>
+      <subject>
+        <reference value="#patient"/>
+      </subject>
+      <effectiveDateTime value="2023-12-10T08:30:00+11:00"/>
+      <!-- Value - Cholesterol value in mmol/L as specified in the profile -->
+      <valueQuantity>
+        <value value="6.3"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <!-- Interpretation - High -->
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="H"/>
+          <display value="High"/>
+        </coding>
+      </interpretation>
+      <!-- Reference range - as fixed in the profile -->
+      <referenceRange>
+        <high>
+          <value value="4.5"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </high>
+        <text value="High Risk at or above 4.5 mmol/L (Per Australian NHF Recommendations)"/>
+      </referenceRange>
+    </Observation>
+    
+    <!-- Triglyceride Observation resource -->
+    <Observation>
+      <id value="triglyceride"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="35217-9"/>
+          <display value="Triglyceride [Mass/volume] in Serum or Plasma"/>
+        </coding>
+      </code>
+      <subject>
+        <reference value="#patient"/>
+      </subject>
+      <effectiveDateTime value="2023-12-10T08:30:00+11:00"/>
+      <valueQuantity>
+        <value value="1.8"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="N"/>
+          <display value="Normal"/>
+        </coding>
+      </interpretation>
+      <referenceRange>
+        <high>
+          <value value="2.0"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </high>
+        <text value="Normal range: less than 2.0 mmol/L"/>
+      </referenceRange>
+    </Observation>
+    
+    <!-- HDL Cholesterol Observation resource -->
+    <Observation>
+      <id value="hdl"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="2085-9"/>
+          <display value="HDL Cholesterol [Mass/volume] in Serum or Plasma"/>
+        </coding>
+      </code>
+      <subject>
+        <reference value="#patient"/>
+      </subject>
+      <effectiveDateTime value="2023-12-10T08:30:00+11:00"/>
+      <valueQuantity>
+        <value value="0.9"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="L"/>
+          <display value="Low"/>
+        </coding>
+      </interpretation>
+      <referenceRange>
+        <low>
+          <value value="1.0"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </low>
+        <text value="Desirable: greater than 1.0 mmol/L"/>
+      </referenceRange>
+    </Observation>
+    
+    <!-- LDL Cholesterol Observation resource -->
+    <Observation>
+      <id value="ldl"/>
+      <status value="final"/>
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+      </category>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="18262-6"/>
+          <display value="LDL Cholesterol [Mass/volume] in Serum or Plasma"/>
+        </coding>
+      </code>
+      <subject>
+        <reference value="#patient"/>
+      </subject>
+      <effectiveDateTime value="2023-12-10T08:30:00+11:00"/>
+      <valueQuantity>
+        <value value="4.6"/>
+        <unit value="mmol/L"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mmol/L"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="H"/>
+          <display value="High"/>
+        </coding>
+      </interpretation>
+      <referenceRange>
+        <high>
+          <value value="3.0"/>
+          <unit value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </high>
+        <text value="Optimal: less than 3.0 mmol/L"/>
+      </referenceRange>
+    </Observation>
+  </contained>
+</DiagnosticReport>

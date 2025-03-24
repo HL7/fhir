@@ -207,7 +207,6 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="cnl-0"/>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
@@ -303,9 +302,9 @@
 		</element>
 		<element id="SubscriptionTopic.experimental">
 			<path value="SubscriptionTopic.experimental"/>
-			<short value="If for testing purposes, not real usage"/>
+			<short value="If For testing only - never for real usage"/>
 			<definition value="A flag to indicate that this TopSubscriptionTopicic is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not."/>
+			<comment value="Allows filtering of SubscriptionTopic that are appropriate for use vs. not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<requirements value="Enables experimental content to be developed following the same life-cycle as a production-level SubscriptionTopic would."/>
 			<min value="0"/>
 			<max value="1"/>
