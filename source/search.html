@@ -2236,22 +2236,44 @@ are identified:
 </p>
 <table class="grid">
  <tr>
+  <td colspan="3"><b>Decimal Values</b></td>
+ </tr>
+ <tr>
 	<td>range of the value</td>
 	<td>The limits implied by the precision of the value</td>
-  <td>The number 2.0 has a range of 1.95 to 2.05<br/>
-    The date 2015-08-12 has a range from 2015-08-12T00:00:00.0000 inclusive to 2015-08-13T00:00:00.0000 exclusive.</td>
+  <td>The number 2.0 has a range of 1.95 to 2.05</td>
  </tr>
  <tr>
 	<td>range below the value</td>
 	<td>Up to the specified value</td>
-  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000<br/>
-      The range before 2015-08-12T05:23:45 includes any time up to 2015-08-12T05:23:45.000000000000000</td>
+  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000</td>
  </tr>
  <tr>
 	<td>range above the value</td>
 	<td>The specified value and up</td>
   <td>The range above 2.0 includes any value greater or equal to &lt;2.00000000000000000000<br/>
       The range after 2015-08-12T05:23:45 includes any time after 2015-08-12T05:23:45.000000000000000</td>
+ </tr>
+ <tr>
+  <td colspan="3"><b>Date / Time Values</b></td>
+ </tr>
+ <tr>
+	<td>range of the value</td>
+	<td>The limits implied by the precision of the value</td>
+  <td>The date 2015-08-12 has a range from 2015-08-12T00:00:00.0000 inclusive to 2015-08-13T00:00:00.0000 exclusive<br/>
+      The date 2015-08  has a range from 2015-08-12T00:00:00.0000 inclusive to 2015-09-01T00:00:00.0000 exclusive</td>
+ </tr>
+ <tr>
+	<td>range below the value</td>
+	<td>Up to the specified value</td>
+  <td>The range before 2015-08-12T05:23:45 includes any time up to 2015-08-12T05:23:45.000000000000000<br/>
+      The range before 2015-08 includes any time up to 2015-08-00T00:00:00.000000000000000</td>
+ </tr>
+ <tr>
+	<td>range above the value</td>
+	<td>The specified value and up</td>
+  <td>The range after 2015-08-12T05:23:45 includes any time from 2015-08-12T05:23:46.000000000000000 and later<br/>
+      The range after 2015-08 includes any time from 2015-09-01T00:00:00.000000000000000 and later</td>
  </tr>
 </table>
 <p>
