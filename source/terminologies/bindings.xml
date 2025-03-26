@@ -3056,12 +3056,12 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">resource</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">A search parameter defined to chain through into embedded resources</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s128"/>
