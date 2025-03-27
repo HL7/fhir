@@ -10,6 +10,7 @@
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <description value="Search Composition Bundle"/>
   <code value="example-constraint"/>
+  <aliasCode value="constraint-example"/>
   <base value="Bundle"/>
   <type value="reference"/>
   <expression value="Bundle.entry[0].resource"/>
