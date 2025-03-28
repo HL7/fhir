@@ -1094,9 +1094,6 @@
       </mapping>
     </element>
     <element id="Measure.improvementNotation">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>       
       <path value="Measure.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
