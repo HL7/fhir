@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/investigation-sets"/>
+  <name value="InvestigationType"/>
+  <title value="Investigation Type"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Example value set for investigation type."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="271336007"/>
+        <display value="Examination / signs"/>
+      </concept>
+      <concept>
+        <code value="160237006"/>
+        <display value="History/symptoms"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

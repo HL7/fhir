@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/ClinicalAssessment-status"/>
+  <name value="ClinicalAssessmentStatus"/>
+  <title value="Clinical assessment Status"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
+  <description value="Codes that reflect the current state of a clinical assessment within its overall lifecycle."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/event-status"/>
+      <concept>
+        <code value="in-progress"/>
+      </concept>
+      <concept>
+        <code value="completed"/>
+      </concept>
+      <concept>
+        <code value="entered-in-error"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
