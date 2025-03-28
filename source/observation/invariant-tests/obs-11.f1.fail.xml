@@ -23,6 +23,7 @@
 	</subject>
 	<organizer value="true"/>
 	<effectiveDateTime value="2018-03-11T16:07:54+00:00"/>
+	<valueString value="A pos"/>
 	<hasMember>
 		<reference value="Observation/bloodgroup"/>
 	</hasMember>

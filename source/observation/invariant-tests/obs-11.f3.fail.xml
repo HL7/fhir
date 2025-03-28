@@ -29,4 +29,20 @@
 	<hasMember>
 		<reference value="Observation/rhstatus"/>
 	</hasMember>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="890-4"/>
+				<display value="Blood group antibody screen [Presence] in Serum or Plasma"/>
+			</coding>
+		</code>
+		<valueCodeableConcept> 
+			<coding> 
+			<system value="http://snomed.info/sct"/> 
+			<code value="10828004"/>
+			<display value="Positive"/>
+			</coding> 
+		</valueCodeableConcept> 
+	</component>
 </Observation>
