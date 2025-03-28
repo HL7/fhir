@@ -6,6 +6,11 @@
   <mode value="working"/>
   <entry>
     <item>
+      <reference value="OperationDefinition/Measure-evaluate"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
       <reference value="OperationDefinition/Measure-evaluate-measure"/>
     </item>
   </entry>

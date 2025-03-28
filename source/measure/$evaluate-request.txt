@@ -1,0 +1,5 @@
+// Request evaluation of the CMS146 measure for all patients over a measurement period of all of 2014
+GET [base]/Measure/CMS146/$evaluate-measure?periodStart=2014&periodEnd=2014
+
+// Request evaluation of the CMS146 measure for patient 124 over a measurement period of the first 3 months of 2014
+GET [base]/Measure/CMS146/$evaluate-measure?subject=124&periodStart=2014-01&periodend=2014-03
