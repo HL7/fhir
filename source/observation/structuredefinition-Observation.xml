@@ -567,7 +567,7 @@
       <path value="Observation.organizer"/>
       <short value="This observation organizes/groups a set of sub-observations"/>
       <definition value="This observation serves as an organizer or grouper for a set of (one or more) sub-observations."/>
-      <comment value="An observation that is an organizer/grouper does not have a value (or dataAbsentReason) of its own - all values are included in the sub-observations.  The sub-observations are linked using hasMember (it is possible that the organizer/grouper observation may be created first, and the sub-observations are not created until a later time).  An organizer/grouper observation also does not contain any any components."/>
+      <comment value="An observation that is an organizer/grouper does not have a value (or dataAbsentReason) of its own - all values are included in the sub-observations.  The sub-observations are linked using hasMember element references (in some instances there may be no hasMember references, as it is possible that the organizer/grouper observation may be created first, and the sub-observations are not created until a later time).  An organizer/grouper observation also does not contain any components."/>
       <min value="0"/>
       <max value="1"/>
       <type>
