@@ -115,36 +115,43 @@
     <population>
       <linkId value="CMS146-group-1-ip"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="initial-population"/></coding></code>
+      <description value="Outpatient, telephone, virtual encounter (i.e., e-visit or virtual check-in), or emergency department (ED) visits with a diagnosis of pharyngitis or tonsillitis from January 1 to December 28 of the measurement period and an antibiotic order on or three days after the episode date among patients 3 years or older"/>
       <criteria><language value="text/cql-identifier"/><expression value="InitialPopulation"/></criteria>
     </population>
     <population>
       <linkId value="CMS146-group-1-num"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="numerator"/></coding></code>
+      <description value="A group A streptococcus test in the seven-day period from three days prior to the episode date through three days after the episode date"/>
       <criteria><language value="text/cql-identifier"/><expression value="Numerator"/></criteria>
     </population>
     <population>
       <linkId value="CMS146-group-1-den"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="denominator"/></coding></code>
+      <description value="Equals Initial Population"/>
       <criteria><language value="text/cql-identifier"/><expression value="Denominator"/></criteria>
     </population>
     <population>
       <linkId value="CMS146-group-1-denex"/>
       <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="denominator-exclusion"/></coding></code>
+      <description value="Exclude pharyngitis episodes when the patient had hospice care for any part of the measurement period.\n\nExclude pharyngitis episodes when the patient had a comorbid condition during the 12 months prior to or on the episode date.\n\nExclude pharyngitis episodes where the patient is taking antibiotics in the 30 days prior to the episode date.\n\nExclude pharyngitis episodes where the patient had a competing diagnosis on or three days after the episode date."/>
       <criteria><language value="text/cql-identifier"/><expression value="DenominatorExclusion"/></criteria>
     </population>
     <stratifier>
       <linkId value="CMS146-group-1-stratifier-ages-up-to-9"/>
       <code><text value="stratifier-ages-up-to-9"/></code>
+      <description value="3-9 years"/>
       <criteria><language value="text/cql-identifier"/><expression value="AgesUpToNine"/></criteria>
     </stratifier>
     <stratifier>
       <linkId value="CMS146-group-1-stratifier-ages-10-plus"/>
       <code><text value="stratifier-ages-10-plus"/></code>
+      <description value="10 years or older"/>
       <criteria><language value="text/cql-identifier"/><expression value="AgesTenPlus"/></criteria>
     </stratifier>
     <stratifier>
       <linkId value="CMS146-group-1-stratifier-gender"/>
       <code><text value="stratifier-gender"/></code>
+      <description value="Stratification based on gender of patient"/>
       <criteria><language value="text/fhirpath"/><expression value="Patient.gender"/></criteria>
     </stratifier>
   </group>
