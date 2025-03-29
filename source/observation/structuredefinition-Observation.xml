@@ -109,7 +109,7 @@
       <constraint>
         <key value="obs-6"/>
         <severity value="error"/>
-        <human value="dataAbsentReason SHALL only be present if Observation.value[x] is not present"/>
+        <human value="Observation.dataAbsentReason SHALL only be present if Observation.value[x] is not present"/>
         <expression value="dataAbsentReason.empty() or value.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
@@ -123,7 +123,7 @@
       <constraint>
         <key value="obs-10"/>
         <severity value="error"/>
-        <human value="dataAbsentReason SHALL only be present if Observation.component.value[x] is not present"/>
+        <human value="Observation.component.dataAbsentReason SHALL only be present if Observation.component.value[x] is not present"/>
         <expression value="component.empty() or component.where(dataAbsentReason.exists()).all(value.empty())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
@@ -1307,6 +1307,7 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="obs-7"/>
+      <condition value="obs-10"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -1412,6 +1413,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
+      <condition value="obs-10"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="sct-concept"/>
@@ -1444,6 +1446,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-10"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>
