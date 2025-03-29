@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="non-hdl"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation non-hdl</b></p><a name="non-hdl"> </a><a name="hcnon-hdl"> </a><a name="non-hdl-en-US"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span>, <span title="Codes:{urn:oid:1.2.840.114350.1.13.177.2.7.10.798268.30 Lab}">Lab</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 43396-1}, {urn:oid:1.2.840.114350.1.13.177.2.7.5.737384.36 NHDL}, {urn:oid:1.2.840.114350.1.13.177.2.7.5.737384.97 85999596}, {urn:oid:1.2.840.114350.1.13.177.2.7.5.737384.97 25017210}, {urn:oid:1.2.840.114350.1.13.177.2.7.5.737384.259 TST1268}, {urn:oid:1.2.840.114350.1.13.177.2.7.5.737384.97 86025201}, {urn:oid:1.2.840.114350.1.13.177.2.7.5.737384.97 900436250}, {urn:oid:1.2.840.114350.1.13.177.2.7.2.768282 485}">Non HDL Cholesterol</span></p><p><b>subject</b>: <a href="Patient/pat2">Donald, Duck</a></p><p><b>effective</b>: 2015-08-16T06:40:17Z</p><p><b>issued</b>: 2015-08-16T08:40:17Z</p><p><b>value</b>: 191 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  code = 'mg/dL')</span></p><p><b>note</b>: Calculated non-HDL Cholesterol (non-HDL-C) indirectly measures LDL-C, Lp(a), 
+IDL-C, and VLDL-C. It is a surrogate marker for Apoprotein B. Goal should be
+ less than 130 mg/dL.
+</p><p><b>specimen</b>: <a href="Specimen/sst">Serum sample</a></p></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+      <display value="Laboratory"/>
+    </coding>
+    <text value="Laboratory"/>
+  </category>
+  <category>
+    <coding>
+      <system value="urn:oid:1.2.840.114350.1.13.177.2.7.10.798268.30"/>
+      <code value="Lab"/>
+      <display value="Lab"/>
+    </coding>
+    <text value="Lab"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="43396-1"/>
+      <display value="Cholesterol non HDL [Mass/volume] in Serum or Plasma"/>
+    </coding>
+    <text value="Non HDL Cholesterol"/>
+  </code>
+  <subject>
+    <reference value="Patient/pat2"/>
+  </subject>
+  <effectiveDateTime value="2015-08-16T06:40:17Z"/>
+  <issued value="2015-08-16T08:40:17Z"/>
+  <valueQuantity>
+    <value value="191"/>
+    <unit value="mg/dL"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="mg/dL"/>
+  </valueQuantity>
+  <note>
+    <text value="Calculated non-HDL Cholesterol (non-HDL-C) indirectly measures LDL-C, Lp(a), &#xD;&#xA;IDL-C, and VLDL-C. It is a surrogate marker for Apoprotein B. Goal should be&#xD;&#xA; less than 130 mg/dL.&#xD;&#xA;"/>
+  </note>
+  <specimen>
+    <reference value="Specimen/sst"/>
+    <display value="Serum sample"/>
+  </specimen>
+</Observation>
