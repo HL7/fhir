@@ -1,8 +1,26 @@
 // Request the data-of-interest for Measure/measure-mrp for Patient/Practitioner-2178 for all of 2018
-GET [base]/Measure/measure-mrp/$collect-data?periodStart=2018&periodEnd=2018&subject=Patient/Practitioner-2178
+GET [base]/Measure/$collect-data?measureId=measure-mrp&periodStart=2018&periodEnd=2018&subject=Patient/Practitioner-2178
 
-// Request the data-of-interest since 2018-07-21 for Measure/measure-mrp for Patient/Practitioner-2178 
-GET [base]/Measure/measure-mrp/$collect-data?periodStart=2018&periodEnd=2018&subject=Patient/Practitioner-2178&lastReceivedOn=2018-07-21
+--------------------------------------
+// Request the data-of-interest since 2018-07-21 for Measure/measure-mrp for Patient/Practitioner-2178
+GET [base]/Measure/$collect-data?measureId=measure-mrp&periodStart=2018&periodEnd=2018&subject=Patient/Practitioner-2178&lastReceivedOn=2018-07-21
 
+--------------------------------------
+// Request the data-of-interest for Measure/measure-mrp with a subject of group 124
+GET [base]/Measure/$collect-data?measureId=measure-mrp&periodStart=2018-01&periodEnd=2018-03&subjectGroup=124
 
+--------------------------------------
+// Request the data-of-interest for a measure using measureIdentifier
+GET [base]/Measure/$collect-data?measureIdentifier=http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms|130&periodStart=2018-01&periodEnd=2018-03&subject=Patient/124
 
+--------------------------------------
+// Request the data-of-interest for a measure using the measureUrl
+GET [base]/Measure/$collect-data?measureUrl=http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130|7.3.000&periodStart=2018-01&periodEnd=2018-03&subject=Patient/124
+
+--------------------------------------
+// Request the data-of-interest for a measure with an organization instead of a subject.
+GET [base]/Measure/$collect-data?measureIdentifier=http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms|130&periodStart=2014-01&periodEnd=2014-03&organization=Organization/124
+
+--------------------------------------
+// Request the data-of-interest for a measure with an organization and practitioner instead of subject
+GET [base]/Measure/$collect-data?measureUrl=http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130|7.3.000&periodStart=2014-01&periodEnd=2014-03&organization=Organization/124&practitioner=Practitioner/124
