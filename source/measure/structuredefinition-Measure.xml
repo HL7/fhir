@@ -1477,7 +1477,7 @@
     <element id="Measure.group.component">
       <path value="Measure.group.component"/>
       <short value="A component of a composite measure"/>
-      <definition value="If this is a composite measure, a component of the composite"/>
+      <definition value="If this is a composite measure, a component of the composite."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1491,7 +1491,7 @@
     <element id="Measure.group.component.measure">
       <path value="Measure.group.component.measure"/>
       <short value="What measure?"/>
-      <definition value="The measure that contains the definition of the component calculation"/>
+      <definition value="The measure that contains the definition of the component calculation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
