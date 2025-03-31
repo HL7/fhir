@@ -5,6 +5,9 @@
 		<p>
 			ServiceRequest represents an order or proposal or plan to perform a diagnostic or other service on or for a patient (including non-human patients in veterinary settings). Examples of the types of services that may be ordered by a ServiceRequest are:
 		</p>
+		<blockquote class="stu-note">
+			<p><b>Note to Balloters:</b>The new 'servicerequest-specimenSuggestion' extension is expected to be available soon in an upcoming release of the Extensions Pack.</p>
+		</blockquote>
 		<ul>
 			<li>diagnostic tests/studies</li>
 			<li>endoscopic procedures</li>

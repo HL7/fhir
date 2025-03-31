@@ -374,7 +374,8 @@
       <path value="Account.guarantor.party"/>
       <short value="Responsible entity"/>
       <definition value="The entity who is responsible."/>
-      <min value="1"/>
+      <comment value="A party and/or an account is expected to be present on the guarantor."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
@@ -414,6 +415,21 @@
         <identity value="rim"/>
         <map value=".holder.guarantorRole.effectiveTime"/>
       </mapping>
+    </element>
+    <element id="Account.guarantor.account">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+      <path value="Account.guarantor.account"/>
+      <short value="A specific Account for the guarantor"/>
+      <definition value="Reference to a specific Account belonging to the guarantor to use."/>
+      <comment value="A party and/or an account is expected to be present on the guarantor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+      </type>
     </element>
 
     <element id="Account.diagnosis">
@@ -631,48 +647,21 @@
       <isSummary value="true"/>
     </element>
 
-    <element id="Account.relatedAccount">
-      <path value="Account.relatedAccount"/>
-      <short value="Other associated accounts related to this account"/>
-      <definition value="Other associated accounts related to this account."/>
+    <element id="Account.parent">
+      <path value="Account.parent"/>
+      <short value="Reference to an associated parent Account"/>
+      <definition value="Reference to an associated parent Account which has this account as a sub-account."/>
       <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Account.relatedAccount.relationship">
-      <path value="Account.relatedAccount.relationship"/>
-      <short value="Relationship of the associated Account"/>
-      <definition value="Relationship of the associated Account."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AccountRelationship"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates the relationship between the accounts"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/account-relationship"/>
-      </binding>
-    </element>
-    <element id="Account.relatedAccount.account">
-      <path value="Account.relatedAccount.account"/>
-      <short value="Reference to an associated Account"/>
-      <definition value="Reference to an associated Account."/>
-      <min value="1"/>
       <max value="1"/>
       <type>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
-          <valueBoolean value="false"/>
+          <valueBoolean value="true"/>
         </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
       </type>
     </element>
+
     <element id="Account.currency">
       <path value="Account.currency"/>
       <short value="The base or default currency"/>

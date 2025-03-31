@@ -177,16 +177,18 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Account-guarantor-account"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Account.relatedAccount.account"/>
+          <valueString value="Account.guarantor.account"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <description value="Parent and other related accounts"/>
-        <code value="relatedaccount"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-guarantor-account"/>
+        <description value="Account to use for the guarantor"/>
+        <code value="guarantor-account"/>
         <type value="reference"/>
-        <expression value="Account.relatedAccount.account"/>
+        <expression value="Account.guarantor.account"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

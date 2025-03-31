@@ -8,6 +8,13 @@
 			category of services that are provided by an organization at a location.<br/>
 			The location of the services could be virtual, as with telemedicine services.<br/>
 		</p>
+		<p>
+			HealthcareService is the intersection of Organization, Location and Service. 
+			It can also be used as actor, e.g. as performer/requester/recipient
+			(therefore it is also available on the request and the event pattern in such roles).
+			In such cases the meaning of "HealthcareService A ordered B" translates to
+			"The collection of people who work with/for HealthcareService A ordered B"
+		</p>
 		<p>Common examples of HealthcareServices resources are:</p>
 		<ul>
 			<li>Allied Health</li>

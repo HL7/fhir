@@ -70,4 +70,11 @@ In contrast to the Observation resource, the <a href="diagnosticreport.html">Dia
 </p>
   </div>
 
+<a name="stu"></a>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+A new <code>organizer</code> element (trial-use) is added to the normative Observation resource in this ballot. The OO Work Group is seeking reviewers and implementer feedback on this new element, which is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.
+</p>
+</blockquote>
+
 </div>

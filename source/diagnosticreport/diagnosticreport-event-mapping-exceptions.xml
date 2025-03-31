@@ -98,7 +98,7 @@
         <missingTypes _pattern="Timing" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="When diagnostic report occurred/is occurring"/>
-            <resource value="Clinically relevant time/time-period for report"/>
+            <resource value="Clinically relevant time/time-period for the results that are included in the report"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date, period or timing when the diagnostic report did occur or is occurring."/>
