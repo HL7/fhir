@@ -273,6 +273,50 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
         </p>
+        <h4>Representing User Identities</h4>
+        <p>
+            When considering how a User Identity could be represented in FHIR resources:
+        </p>
+        <ul>
+            <li>Systems MAY use .identifier on the Patient, RelatedPerson, Practitioner or Person resources for user identities.</li>
+            <li>When using a Person resource, this identifier MAY be duplicated to the other related resources, however is not required.</li>
+            <li>User identities MAY be handled completely outside of the FHIR and not represented on FHIR resources at all.</li>
+            <li>DO NOT use .telecom properties to represent user identities.</li>
+        </ul>
+        <p>
+            Example Identifier for a User Identity:
+        </p>
+<pre class="json" fragment="Identifier">
+"identifier": [
+{
+    "type": {
+    "coding": [
+        {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "USER",
+        "display": "User Name"
+        }
+    ]
+    },
+    "value": "username@example.org"
+}]
+</pre>
+        [%impl-note%]
+        <p>
+            Some systems may use e-mail as a unique user identifier.  Other systems may use e-mail as one piece of potentially uniquely identifying information.  And other systems may use it for communication (where communication may be to validate identity, or for other purposes).
+        </p>
+        <p>
+            If an e-mail is used as both a user identifier and as a method of communication, then you'd put the same e-mail in both spots (identifier and telecom).
+        </p>
+        <p>
+            Also, consider that not all individuals that need to be identified may have e-mails, for example, kids in a pediatric setting.
+        </p>
+        [%end-note%]
+        [%impl-note%]
+        <p>
+            The FHIR SMART App Launch specification MAY refer to a FHIR Patient, RelatedPerson, Practitioner, PractitionerRole or Person resource instance in its <code>fhirUser</code> claim.
+        </p>
+        [%end-note%]
 
         <a name="uses"></a>
         <h3>Common Use Cases</h3>
