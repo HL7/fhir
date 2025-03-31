@@ -249,6 +249,26 @@
       </SearchParameter>
     </resource>
   </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-qualification-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.qualification.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-qualification-code"/>
+        <description value="The type of qualification"/>
+        <code value="qualification-code"/>
+        <type value="token"/>
+        <expression value="Practitioner.qualification.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
   <entry>
     <resource>
       <SearchParameter>
@@ -268,6 +288,31 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-qual-code-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-qual-code-period"/>
+        <description value="The practitioner has a qualification during a specific period"/>
+        <code value="qual-code-period"/>
+        <type value="composite"/>
+        <expression value="Practitioner.qualification"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="qualification-code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="qualification-period"/>
+          <expression value="period"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+
   <entry>
     <resource>
       <SearchParameter>
