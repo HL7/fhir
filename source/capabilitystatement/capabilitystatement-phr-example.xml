@@ -7,32 +7,54 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
      
       
+      
+      
       <p>Prototype Capability Statement for September 2013 Connectathon</p>
      
+      
+      
       
       <p>The server offers read and search support on the following resource types:</p>
      
       
+      
+      
       <ul>
       
+        
+        
         
         <li>Patient</li>
       
         
+        
+        
         <li>DocumentReference</li>
       
+        
+        
         
         <li>Condition</li>
       
         
+        
+        
         <li>DiagnosticReport</li>
     
+      
+      
       
       </ul>
     
     
+    
+    
     </div>
   </text>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.34.7"/>
+  </identifier>
   <name value="PHRTemplate"/>
   <title value="PHR Template"/>
   <status value="draft"/>

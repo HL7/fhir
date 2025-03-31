@@ -10,18 +10,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3353"/>
+  </identifier>
   <name value="EventOrRequestResourceTypes"/>
   <title value="Event or Request Resource Types"/>
   <status value="active"/>
   <experimental value="false"/>
   <description value="All Resource Types that represent event or request resources"/>
   <immutable value="true"/>
-  <compose>
-    <include>
-      <import value="http://hl7.org/fhir/event-resource-types"/>
-    </include>
-    <include>
-      <import value="http://hl7.org/fhir/request-resource-types"/>
-    </include>
-  </compose>
 </ValueSet>

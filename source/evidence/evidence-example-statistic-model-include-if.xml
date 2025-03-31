@@ -1,99 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Evidence xmlns="http://hl7.org/fhir">
-	<id value="example-statistic-model-include-if"/>
-	<meta>
-		<versionId value="9"/>
-		<lastUpdated value="2025-03-10T14:59:32.227Z"/>
-		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/statistic-model"/>
-	</meta>
-	<url value="https://fevir.net/resources/Evidence/346428"/>
-	<identifier>
-		<type>
-			<text value="FEvIR Object Identifier"/>
-		</type>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="https://fevir.net/FOI/346428"/>
-		<assigner>
-			<display value="Computable Publishing LLC"/>
-		</assigner>
-	</identifier>
-	<title value="Example of statistical analysis plan with different statistical test if non-normal distribution"/>
-	<status value="active"/>
-	<author>
-		<name value="Brian S. Alper, MD, MSPH"/>
-	</author>
-	<publisher value="Computable Publishing LLC"/>
-	<contact>
-		<telecom>
-			<system value="email"/>
-			<value value="support@computablepublishing.com"/>
-		</telecom>
-	</contact>
-	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-	<description value="This example uses the StatisticModelIncludeIf extension to represent the model characteristic of Welch&apos;s 2-sample t-test if the data is consistent with a normal distribution (based on Shapiro-Wilk test with p-value &gt;= 0.05) and a Wilcoxon Mann-Whitney test if not."/>
-	<variableDefinition>
-		<description value="Adults with hypertension"/>
-		<variableRole value="population"/>
-	</variableDefinition>
-	<variableDefinition>
-		<description value="Reversitol vs. Placebo"/>
-		<variableRole value="exposure"/>
-	</variableDefinition>
-	<variableDefinition>
-		<description value="Change in systolic blood pressure from baseline to 3 months"/>
-		<variableRole value="outcome"/>
-	</variableDefinition>
-	<studyDesign>
-		<coding>
-			<system value="https://fevir.net/sevco"/>
-			<code value="SEVCO:01003"/>
-			<display value="randomized assignment"/>
-		</coding>
-	</studyDesign>
-	<statistic>
-		<statisticType>
-			<coding>
-				<system value="https://fevir.net/sevco"/>
-				<code value="STATO:0000457"/>
-				<display value="difference in means"/>
-			</coding>
-		</statisticType>
-		<modelCharacteristic>
-			<extension url="http://hl7.org/fhir/StructureDefinition/statistic-model-include-if">
-				<extension url="attribute">
-					<valueCodeableConcept>
-						<text value="data distribution"/>
-					</valueCodeableConcept>
-				</extension>
-				<extension url="value">
-					<valueCodeableConcept>
-						<text value="normal distribution (Shapiro-Wilk test with p-value &gt;= 0.05)"/>
-					</valueCodeableConcept>
-				</extension>
-			</extension>
-			<code>
-				<text value="Welch&apos;s 2-sample t-test"/>
-			</code>
-			<intended value="true"/>
-		</modelCharacteristic>
-		<modelCharacteristic>
-			<extension url="http://hl7.org/fhir/StructureDefinition/statistic-model-include-if">
-				<extension url="attribute">
-					<valueCodeableConcept>
-						<text value="data distribution"/>
-					</valueCodeableConcept>
-				</extension>
-				<extension url="value">
-					<valueCodeableConcept>
-						<text value="not consistent with normal distribution (Shapiro-Wilk test with p-value &lt; 0.05)"/>
-					</valueCodeableConcept>
-				</extension>
-			</extension>
-			<code>
-				<text value="Wilcoxon Mann-Whitney test"/>
-			</code>
-			<intended value="true"/>
-		</modelCharacteristic>
-	</statistic>
+  <id value="example-statistic-model-include-if"/>
+  <meta>
+    <versionId value="9"/>
+    <lastUpdated value="2025-03-10T14:59:32.227Z"/>
+    <profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/statistic-model"/>
+  </meta>
+  <url value="https://fevir.net/resources/Evidence/346428"/>
+  <identifier>
+    <type>
+      <text value="FEvIR Object Identifier"/>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="https://fevir.net/FOI/346428"/>
+    <assigner>
+      <display value="Computable Publishing LLC"/>
+    </assigner>
+  </identifier>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.10.6"/>
+  </identifier>
+  <title value="Example of statistical analysis plan with different statistical test if non-normal distribution"/>
+  <status value="active"/>
+  <publisher value="Computable Publishing LLC"/>
+  <contact>
+    <telecom>
+      <system value="email"/>
+      <value value="support@computablepublishing.com"/>
+    </telecom>
+  </contact>
+  <author>
+    <name value="Brian S. Alper, MD, MSPH"/>
+  </author>
+  <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+  <description value="This example uses the StatisticModelIncludeIf extension to represent the model characteristic of Welch's 2-sample t-test if the data is consistent with a normal distribution (based on Shapiro-Wilk test with p-value &gt;= 0.05) and a Wilcoxon Mann-Whitney test if not."/>
+  <variableDefinition>
+    <description value="Adults with hypertension"/>
+  </variableDefinition>
+  <variableDefinition>
+    <description value="Reversitol vs. Placebo"/>
+  </variableDefinition>
+  <variableDefinition>
+    <description value="Change in systolic blood pressure from baseline to 3 months"/>
+  </variableDefinition>
+  <studyDesign>
+    <coding>
+      <system value="https://fevir.net/sevco"/>
+      <code value="SEVCO:01003"/>
+      <display value="randomized assignment"/>
+    </coding>
+  </studyDesign>
+  <statistic>
+    <statisticType>
+      <coding>
+        <system value="https://fevir.net/sevco"/>
+        <code value="STATO:0000457"/>
+        <display value="difference in means"/>
+      </coding>
+    </statisticType>
+    <modelCharacteristic>
+      <extension url="http://hl7.org/fhir/StructureDefinition/statistic-model-include-if">
+        <extension url="attribute">
+          <valueCodeableConcept>
+            <text value="data distribution"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="value">
+          <valueCodeableConcept>
+            <text value="normal distribution (Shapiro-Wilk test with p-value &gt;= 0.05)"/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <code>
+        <text value="Welch's 2-sample t-test"/>
+      </code>
+    </modelCharacteristic>
+    <modelCharacteristic>
+      <extension url="http://hl7.org/fhir/StructureDefinition/statistic-model-include-if">
+        <extension url="attribute">
+          <valueCodeableConcept>
+            <text value="data distribution"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="value">
+          <valueCodeableConcept>
+            <text value="not consistent with normal distribution (Shapiro-Wilk test with p-value &lt; 0.05)"/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <code>
+        <text value="Wilcoxon Mann-Whitney test"/>
+      </code>
+    </modelCharacteristic>
+  </statistic>
 </Evidence>

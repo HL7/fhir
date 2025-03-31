@@ -1,4 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <PlanDefinition xmlns="http://hl7.org/fhir">
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.11"/>
+  </identifier>
   <status value="draft"/>
   <action>
     <title value="Create an episode of care to link the related events"/>
@@ -20,8 +26,6 @@
       </coding>
     </type>
     <definitionCanonical value="http://example.org/fhir/ActivityDefinition/episode-of-care"/>
-
-    <!-- Sub action to link related encounters to the new episode of care -->
     <action>
       <title value="Link related encounters"/>
       <type>
@@ -32,7 +36,6 @@
       </type>
       <definitionCanonical>
         <extension>
-          <url value="cqf-expression"/>
           <valueExpression>
             <language value="text/cql"/>
             <expression value="RelatedEncounters"/>
@@ -40,10 +43,10 @@
         </extension>
       </definitionCanonical>
       <dynamicValue>
-        <path value="episodeOfCare"/> <!-- This is the path to the episodeOfCare element of the related encounter -->
+        <path value="episodeOfCare"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="%parent_target"/> <!-- This assumes the ability to "assign" a reference -->
+          <expression value="%parent_target"/>
         </expression>
       </dynamicValue>
     </action>

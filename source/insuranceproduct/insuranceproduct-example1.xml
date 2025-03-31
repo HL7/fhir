@@ -7,6 +7,10 @@
 			Health Level Seven International Staff Plan
 		</div>
 	</text>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.33.1"/>
+  </identifier>
 	<!-- HL7 itself -->
 	<name value="Health Level Seven International Staff Plan" />
 	<alias value="HL7 International" />

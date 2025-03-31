@@ -16,6 +16,10 @@
     <valueInteger value="5"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.3318"/>
+  </identifier>
   <name value="VersionIndependentResourceTypesAll"/>
   <title value="Version Independent Resource Types (All)"/>
   <status value="active"/>

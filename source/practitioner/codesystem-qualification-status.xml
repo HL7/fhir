@@ -12,6 +12,10 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/qualification-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2137"/>
+  </identifier>
   <version value="6.0.0-ballot2"/>
   <name value="QualificationStatus"/>
   <title value="Qualification Status"/>

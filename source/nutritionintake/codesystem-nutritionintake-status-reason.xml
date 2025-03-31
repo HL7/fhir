@@ -9,6 +9,10 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/CodeSystem/nutritionintake-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2129"/>
+  </identifier>
   <name value="NutritionIntakeStatusReason"/>
   <title value="Nutrition Intake Status Reason Codes"/>
   <status value="draft"/>
@@ -31,7 +35,7 @@
     <code value="3"/>
     <display value="Request requires clarification"/>
     <definition value="Clarification is required before the intake can be acted upon."/>
-	</concept>
+  </concept>
   <concept>
     <code value="4"/>
     <display value="Allergy"/>
