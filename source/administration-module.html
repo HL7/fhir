@@ -114,17 +114,44 @@ in order to support consistent definitions for schema and UML derived code.
                 Person resource will be hosted on external systems.
 [%end-note%]
 
+        <h5>Representing Households and Personal Relationships</h5>
+        <div>
+            <img src="administration-module-relationships.png" alt="Image showing the administration module references between person based resources" width="600px" />
+        </div>
+        <p>
+            There are many use cases that require providing and tracking care to households, families, tribes, villages, shared accommodations, etc.
+        </p>
+        <p>
+            Within these collections of people there can be quite complex networks of relationships between the members.
+        </p>
+        <p>
+            <a href="group.html">Group</a> resources representing households are able to act collectively, however groups of this kind can only contain Patients and RelatedPersons (and potentially other Groups).
+        </p>
+        <p>
+            The <a href="group.html">Group</a> resource is used to collect all the members of the household, and within that resource the <code>member.involvement</code> property
+            is used to describe the role or relationship of the individual (member) has with the group, not with other members of the group.
+        </p>
+        <p>
+            The relationship between the members of the group can be quite complex, and transient over time, and is recorded using the <a href="personalrelationship.html">PersonalRelationship</a> resource,
+            which connects 2 members of the group together (only members of type <a href="patient.html">Patient</a>, <a href="relatedperson.html">RelatedPerson</a>).
+        </p>
+        <p>
+            The <a href="personalrelationship.html">PersonalRelationship</a> resource can also be used outside the group, in these cases it can also reference non group members, including <a href="person.html">Person</a> resources.
+        </p>
+        <p>
+            Some use cases might require a <a href="personalrelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
+        </p>
+        <p>
+            <a href="personalrelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
+        </p>
+
         <a name="agg-pop"></a>
-        <h4>Aggregate Populations</h4>
+        <h5>Aggregate Populations</h5>
         <p>
             The Group resource should be used when representing an aggregate population, where the system is not
             tracking the individual members.  Examples of aggregate populations include households, a tribe, workers
             at a job site, or attendees at a sporting event. 
         </p>
-        <table class="bare">
-            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-            [%res-item Group%]
-        </table>
 
         <a name="clinical-reg"></a>
         <h4>Clinical / Financial Categorization Resources</h4>
@@ -233,7 +260,7 @@ in order to support consistent definitions for schema and UML derived code.
             One of the more common use cases is for marking a patient as being a <a href="security-labels.html">celebrity</a>.
         </p>
         <p>
-            Note that privacy considerations apply to Person, Practitioner and RelatedPerson records in addition to Patient's.
+            Note that privacy considerations apply to Person, Practitioner, RelatedPerson and PersonalRelationship records in addition to Patient's.
         </p>
         <p>
             While Organization, Location, Device and other non-person-identifying records are generally subject to less stringent
