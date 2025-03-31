@@ -16,7 +16,7 @@ Episodic Accounts often exist for the duration of a relatively short billing cyc
 associated Episodic Account would close, and a new account would open for the next billing cycle.  A patient that is admitted for 6 months, where the billing cycle is
 monthly, would have 6 episodic accounts each covering one month.<br/>
 
-Episodic Accounts may be communicated using the Account.covers property.
+Episodic Accounts are intended to be communicated using the Account.covers property.
 </li>
 <li><b>Perpetual Account</b>
 A long running account that accumulates charges and payments associated with a specific beneficiary.  This account is often open for as long as the beneficiary has a
@@ -24,7 +24,7 @@ relationship with the healthcare organization.  It may be linked to an EpisodeOf
 related to car crash (i.e., third party liability).  One associated with charges related to a research study the patient is participating in.  And one for their general
 personal/family care, which would be covered by their normal insurance.<br/>
 
-Perpetual Accounts may be communicated using the Encounter.account or EpisodeOfCare.account properties.
+Perpetual Accounts are intended to be communicated using the Encounter.account or EpisodeOfCare.account properties.
 </li>
 </ul>
 </div>
