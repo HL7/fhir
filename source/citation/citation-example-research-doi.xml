@@ -55,10 +55,12 @@
       <value value="10.1038/s41597-021-00811-3"/>
     </relatedIdentifier>
     <dateAccessed value="2021-03-17"/>
+    <version value="1.0.0"/>
     <title>
       <type>
         <text value="primary-human-use"/>
       </type>
+      <language value="en"/>
       <text value="NInFEA: Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology Research"/>
     </title>
     <abstract>
@@ -69,6 +71,7 @@
           <display value="Primary human use"/>
         </coding>
       </type>
+      <language value="en"/>
       <text value="The development of algorithms for the extraction of the foetal ECG (fECG) from non-invasive recordings is hampered by the lack of publicly-available reference datasets, which could be used to benchmark different algorithms while providing a ground truth on the foetal heart activity when an invasive scalp lead is unavailable. By enriching the electrophysiological recordings with simultaneous multimodal signals, these datasets could also help the investigation of the foetal cardiac physiology, providing ground truth for the analysis in early pregnancy, when the fECG is not directly accessible.  The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology Research (NInFEA) is the first open-access dataset featuring simultaneous non-invasive electrophysiological recordings, fetal pulsed-wave Doppler (PWD) and maternal respiration signals. The dataset includes 60 entries from 39 voluntary pregnant women, between the 21st and the 27th week of gestation. Every entry is composed of 27 electrophysiological channels (2048 Hz, 22 bits, acquired by means of the TMSi Porti7 system), maternal respiration signal (through a resistive thoracic belt), synchronised foetal trans-abdominal PWD and clinical annotations provided by expert clinicians at the time of the signal collection."/>
     </abstract>
     <relatesTo>
@@ -107,6 +110,7 @@
         </publisher>
       </publishedIn>
       <articleDate value="2020-11-12"/>
+      <language value="en"/>
       <copyright value="https://physionet.org/content/ninfea/view-license/1.0.0/ and https://physionet.org/content/ninfea/1.0.0/LICENSE.txt"/>
     </publicationForm>
     <webLocation>

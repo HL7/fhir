@@ -581,6 +581,9 @@
   </identifier>
   <title value="30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
   <status value="active"/>
+  <author>
+    <name value="Computable Publishing®: MEDLINE-to-FEvIR Converter"/>
+  </author>
   <publisher value="Computable Publishing LLC"/>
   <contact>
     <telecom>
@@ -606,9 +609,6 @@
   <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
   <approvalDate value="2019-04-09"/>
   <lastReviewDate value="2020-02-25"/>
-  <author>
-    <name value="Computable Publishing®: MEDLINE-to-FEvIR Converter"/>
-  </author>
   <classification>
     <type>
       <coding>
@@ -721,6 +721,7 @@
           <display value="Primary title"/>
         </coding>
       </type>
+			<language value="en"/>
       <text value="PARACHUTE Trial Citation Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
     </title>
     <abstract>

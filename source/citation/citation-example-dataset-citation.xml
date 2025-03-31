@@ -489,6 +489,9 @@
   <title value="DatasetCitation: Extrachromosomal DNA Amplification Contributes to Small Cell Lung Cancer Heterogeneity and is Associated with Worse Outcomes"/>
   <status value="active"/>
   <date value="2025-02-24T19:37:10+00:00"/>
+  <author>
+    <name value="Brian S. Alper"/>
+  </author>
   <publisher value="HL7 International / Clinical Decision Support"/>
   <contact>
     <name value="HL7 International / Clinical Decision Support"/>
@@ -499,9 +502,6 @@
   </contact>
   <description value="This Citation Resource is referenced in an example for the EBMonFHIR Implementation Guide."/>
   <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-  <author>
-    <name value="Brian S. Alper"/>
-  </author>
   <summary>
     <style>
       <coding>
@@ -532,6 +532,7 @@
           <display value="Primary title"/>
         </coding>
       </type>
+      <language value="en"/>
       <text value="Extrachromosomal DNA Amplification Contributes to Small Cell Lung Cancer Heterogeneity and is Associated with Worse Outcomes"/>
     </title>
     <abstract>
@@ -543,6 +544,7 @@
         </coding>
         <text value="Study Description"/>
       </type>
+      <language value="en"/>
       <text value="Small-cell lung cancer (SCLC) is a very aggressive neuroendocrine lung cancer often associated with oncogenic MYC amplifications, which are known to drive SCLC heterogeneity marked by neuroendocrine (NE) and non-neuroendocrine (non-NE) cell states. The genetic mechanisms of MYC amplification and phenotypic plasticity between cell states is not known. Using data from cell-lines and a few patient-derived samples along with integrated whole-genome sequencing, long-range optical mapping, single-cell DNA sequencing, and fluorescence in situ hybridization, we have attempted to successfully characterize extrachromosomal DNA (ecDNA) as the primary source of MYC amplifications and driver fusions in SCLC.&#xA;&#xA;Study Design:&#xA;Cross-Sectional&#xA;Study Type:&#xA;Observational&#xA;Total number of consented subjects: 5"/>
     </abstract>
     <publicationForm>
