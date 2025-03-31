@@ -321,7 +321,7 @@ signatures.html
       <page type="resource" resource="CarePlan"/>
       <page type="resource" resource="Goal"/>
       <page type="resource" resource="CareTeam"/>
-      <page type="resource" resource="ClinicalImpression"/>
+      <page type="resource" resource="ClinicalAssessment"/>
 
       <page type="resource" resource="AdverseEvent"/>
       <page type="resource" resource="DetectedIssue"/>
