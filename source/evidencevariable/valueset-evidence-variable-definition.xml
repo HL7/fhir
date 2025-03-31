@@ -15,6 +15,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/evidence-variable-definition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3347"/>
+  </identifier>
   <version value="6.0.0"/>
   <name value="EvidenceVariableDefinition"/>
   <title value="Evidence Variable Definition"/>

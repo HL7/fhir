@@ -8,6 +8,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3351"/>
+  </identifier>
   <version value="6.0.0"/>
   <name value="Iso316612"/>
   <title value="Iso 3166 Part 1: 2 Letter Codes"/>

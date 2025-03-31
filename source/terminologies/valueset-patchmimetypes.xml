@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3349"/>
+  </identifier>
   <name value="PatchMimeTypes"/>
   <title value="Patch Mime Types"/>
   <status value="draft"/>
@@ -16,19 +20,19 @@
   <compose>
     <include>
       <system value="urn:ietf:bcp:13"/>
-      <concept>  
+      <concept>
         <code value="application/fhir+xml"/>
       </concept>
-      <concept>  
+      <concept>
         <code value="application/fhir+json"/>
       </concept>
-      <concept>  
+      <concept>
         <code value="application/fhir+turtle"/>
       </concept>
-      <concept>  
+      <concept>
         <code value="application/json-patch+json"/>
       </concept>
-      <concept>  
+      <concept>
         <code value="application/xml-patch+xml"/>
       </concept>
     </include>

@@ -5,54 +5,34 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <p>
-        
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm arm-dose1, 
       </p>
-      
       <p>
-        
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm arm-dose2, 
       </p>
-      
       <p>
-        
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-screening, 
       </p>
-      
       <p>
-        
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-single-blind-run-in, 
       </p>
-      
       <p>
-        
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-treatment-phase, 
       </p>
-      
       <p>
-        
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-follow-up, 
       </p>
-      
       <p>
-        
         <b>status: </b>active, 
       </p>
-      
       <p>
-        
         <b>type: </b>study, 
       </p>
-      
       <p>
-        
         <b>purpose: </b>Defines the execution of study AD-4833PNFP-341, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -64,9 +44,7 @@
         <b>exit: </b>, 
         <b>description: </b>Screening assessments complete, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -83,9 +61,7 @@
         <b>exit: </b>, 
         <b>description: </b>1 week after start of Element, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -101,9 +77,7 @@
         <b>exit: </b>, 
         <b>description: </b>30 weeks after start of Element, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -115,9 +89,7 @@
         <b>exit: </b>, 
         <b>description: </b>2 weeks after start of Element, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -129,9 +101,7 @@
         <b>exit: </b>, 
         <b>description: </b>Screening assessments complete, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -148,9 +118,7 @@
         <b>exit: </b>, 
         <b>description: </b>1 week after start of Element, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -166,9 +134,7 @@
         <b>exit: </b>, 
         <b>description: </b>30 weeks after start of Element, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
@@ -180,9 +146,7 @@
         <b>exit: </b>, 
         <b>description: </b>2 weeks after start of Element, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 1, 
@@ -192,9 +156,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 2, 
@@ -204,9 +166,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 3, 
@@ -216,9 +176,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 4, 
@@ -228,9 +186,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 5, 
@@ -240,9 +196,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 6, 
@@ -252,9 +206,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 7, 
@@ -264,9 +216,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 8, 
@@ -276,9 +226,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 9, 
@@ -288,9 +236,7 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-      
       <p>
-        
         <b>step: </b>, 
         <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
         <b>name: </b>VISIT 10, 
@@ -300,7 +246,6 @@
         <b>detail: </b>, 
         <b>category: </b>encounter, 
       </p>
-    
     </div>
   </text>
   <contained>
@@ -346,6 +291,10 @@
       <valueString value="Follow up"/>
     </extension>
   </extension>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.16"/>
+  </identifier>
   <type>
     <coding>
       <code value="protocol"/>

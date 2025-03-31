@@ -14,6 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.3319"/>
+  </identifier>
   <name value="SubscriptionTypes"/>
   <title value="Types used with Subscriptions"/>
   <status value="active"/>
