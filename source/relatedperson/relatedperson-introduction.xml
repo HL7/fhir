@@ -49,5 +49,15 @@ Example RelatedPersons are:
 	when involved in the care of her child.  See the <a href="patient.html#maternity">Mother and newborn relationships</a>
 	section for more details on that example.
 </p>
+<p>
+	<b>Boundaries between this and <a href="personalrelationship.html">PersonalRelationship</a></b><br/>
+	The RelatedPerson resource contains the details of both the individual and their relationship to the patient.
+	RelatedPerson would be used when the individual is documented within the context of a patient's chart.
+</p>
+<p>
+	RelatedPerson can be an actor and do things.  PersonalRelationship cannot do things.  PersonalRelationship is one way
+	you can discover someone who can do things. A PersonalRelationship does not automatically indicate that the target
+	individual may NOT be assumed to take actions on behalf of a source individual.
+</p>
 </div>
 </div>
