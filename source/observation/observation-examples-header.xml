@@ -35,8 +35,7 @@
 		</li>
 		<li>
 			<p>Simple blood typing example:</p>
-
-				<ul>
+			<ul>
 				<li>
 					<a href="observation-example-bgpanel.html">A simple blood typing panel.</a>
 				</li>
@@ -47,9 +46,33 @@
 					<a href="observation-example-rhstatus.html"> An example of a blood Rh antigen measurement.</a>
 				</li>
 			</ul>
-
 		</li>
-
+		<li>
+			<p>Lipid panel with organizer Observation:</p>
+			<ul>
+				<li>
+					<a href="observation-example-lipidpanel-organizer.html">An example of a lipid panel with an organizer Observation.</a>
+				</li>
+				<li>
+					<a href="observation-example-cholesterol.html"> An example of a total cholesterol measurement.</a>
+				</li>
+				<li>
+					<a href="observation-example-hdl.html"> An example of a HDL measurement.</a>
+				</li>
+				<li>
+					<a href="observation-example-ldl.html"> An example of a LDL measurement.</a>
+				</li>
+				<li>
+					<a href="observation-example-non-hdl.html"> An example of a non-HDL cholesterol measurement.</a>
+				</li>
+				<li>
+					<a href="observation-example-triglycerides.html"> An example of a triglycerides measurement.</a>
+				</li>
+				<li>
+					<a href="observation-example-vldl.html"> An example of a VLDL measurement.</a>
+				</li>
+			</ul>
+		</li>
 	</ul>
 
 	<h3>Exam Findings and Simple Assessments</h3>

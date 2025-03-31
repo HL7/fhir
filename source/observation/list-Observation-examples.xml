@@ -640,4 +640,88 @@
       <display value="body-weight-with-arabic-code"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a total cholesterol measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-cholesterol"/>
+    </extension>
+    <item>
+      <reference value="Observation/cholesterol"/>
+      <display value="Cholesterol"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a HDL measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-hdl"/>
+    </extension>
+    <item>
+      <reference value="Observation/hdl"/>
+      <display value="HDL"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a LDL measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-ldl"/>
+    </extension>
+    <item>
+      <reference value="Observation/ldl"/>
+      <display value="LDL"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a non-HDL cholesterol measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-non-hdl"/>
+    </extension>
+    <item>
+      <reference value="Observation/non-hdl"/>
+      <display value="Non-HDL Cholesterol"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a triglycerides measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-triglycerides"/>
+    </extension>
+    <item>
+      <reference value="Observation/triglycerides"/>
+      <display value="Triglycerides"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a VLDL measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-vldl"/>
+    </extension>
+    <item>
+      <reference value="Observation/vldl"/>
+      <display value="VLDL"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a lipid panel using an organizer Observation."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-lipidpanel-organizer"/>
+    </extension>
+    <item>
+      <reference value="Observation/lipidpanel-organizer"/>
+      <display value="Lipid panel with organizer"/>
+    </item>
+  </entry>
 </List>
