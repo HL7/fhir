@@ -26,6 +26,8 @@
       </coding>
     </type>
     <definitionCanonical value="http://example.org/fhir/ActivityDefinition/episode-of-care"/>
+
+    <!-- Sub action to link related encounters to the new episode of care -->
     <action>
       <title value="Link related encounters"/>
       <type>
@@ -36,6 +38,7 @@
       </type>
       <definitionCanonical>
         <extension>
+          <url value="cqf-expression"/>
           <valueExpression>
             <language value="text/cql"/>
             <expression value="RelatedEncounters"/>
@@ -43,10 +46,10 @@
         </extension>
       </definitionCanonical>
       <dynamicValue>
-        <path value="episodeOfCare"/>
+        <path value="episodeOfCare"/> <!-- This is the path to the episodeOfCare element of the related encounter -->
         <expression>
           <language value="text/cql"/>
-          <expression value="%parent_target"/>
+          <expression value="%parent_target"/> <!-- This assumes the ability to "assign" a reference -->
         </expression>
       </dynamicValue>
     </action>

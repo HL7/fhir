@@ -20,4 +20,12 @@
   <experimental value="false"/>
   <description value="All Resource Types that represent event or request resources"/>
   <immutable value="true"/>
+  <compose> 
+    <include> 
+      <import value="http://hl7.org/fhir/event-resource-types"/> 
+    </include> 
+    <include> 
+      <import value="http://hl7.org/fhir/request-resource-types"/> 
+    </include> 
+  </compose> 
 </ValueSet>

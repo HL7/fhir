@@ -27,6 +27,7 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/fhir-types"/>
+      <!-- filled in by the build -->
     </include>
   </compose>
 </ValueSet>

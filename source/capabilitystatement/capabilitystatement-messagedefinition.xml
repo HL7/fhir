@@ -22,11 +22,14 @@
   <software>
     <name value="EHR"/>
   </software>
+	<!--  while the FHIR infrastructure is turning over prior to development, a version is  
+    required.   --> 
   <implementation>
     <description value="Acme Message endpoint"/>
     <url value="http://acem.com/fhir/message-drop"/>
   </implementation>
   <fhirVersion value="6.0.0"/>
+  <!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  --> 
   <format value="xml"/>
   <format value="json"/>
   <messaging>
@@ -35,6 +38,7 @@
         <system value="http://hl7.org/fhir/message-transport"/>
         <code value="mllp"/>
       </protocol>
+      <!-- LLP server at 10.1.1.10 on port 9234 --> 
       <address value="mllp:10.1.1.10:9234"/>
     </endpoint>
     <reliableCache value="30"/>
