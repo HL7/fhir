@@ -21,7 +21,7 @@
     <a href="insuranceplan.html">InsurancePlan</a> describes the costs to the subscriber or beneficiary associated with benefits, as well as additional information about the offering, such as who administers the plan, a coverage area, contact information, etc. The specific benefits covered by the plan are described in the InsuranceProduct referenced in InsurancePlan.product.
 </p>
 <p>
-    A <a href="coverage">Coverage</a> resource establishes the link between an InsurancePlan and a beneficiary and optionally a subscriber.
+    A <a href="coverage.html">Coverage</a> resource establishes the link between an InsurancePlan and a beneficiary and optionally a subscriber.
 </p>
 </div>
 
