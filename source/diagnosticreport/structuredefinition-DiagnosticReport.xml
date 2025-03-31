@@ -386,7 +386,7 @@
     </element>
     <element id="DiagnosticReport.effective[x]">
       <path value="DiagnosticReport.effective[x]"/>
-      <short value="Clinically relevant time/time-period for report"/>
+      <short value="Clinically relevant time/time-period for the results that are included in the report"/>
       <definition value="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself."/>
       <comment value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
       <requirements value="Need to know where in the patient history to file/present this report."/>
