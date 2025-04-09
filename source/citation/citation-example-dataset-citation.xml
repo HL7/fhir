@@ -481,10 +481,6 @@
       <display value="Computable Publishing LLC"/>
     </assigner>
   </identifier>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.8.3"/>
-  </identifier>
   <version value="1.0.0-ballot2"/>
   <title value="DatasetCitation: Extrachromosomal DNA Amplification Contributes to Small Cell Lung Cancer Heterogeneity and is Associated with Worse Outcomes"/>
   <status value="active"/>
