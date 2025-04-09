@@ -465,7 +465,7 @@
       </name>
     </Practitioner>
   </contained>
-  <url value="https://fevir.net/resources/Citation/179559"/>
+  <url value="http://hl7.org/fhir/Citation/example-dataset-citation"/>
   <identifier>
     <type>
       <coding>

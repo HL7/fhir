@@ -560,7 +560,7 @@
       </content>
     </ArtifactAssessment>
   </contained>
-  <url value="https://fevir.net/resources/Citation/306957"/>
+  <url value="http://hl7.org/fhir/Citation/example-for-parachute-rct"/>
   <identifier>
     <type>
       <text value="FEvIR Object Identifier"/>

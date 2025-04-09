@@ -8,7 +8,7 @@
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/comparative-evidence"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/single-study-evidence"/>
 	</meta>
-	<url value="https://fevir.net/resources/Evidence/318273"/>
+	<url value="http://hl7.org/fhir/Evidence/example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
