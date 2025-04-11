@@ -560,7 +560,7 @@
       </content>
     </ArtifactAssessment>
   </contained>
-  <url value="https://fevir.net/resources/Citation/306957"/>
+  <url value="http://hl7.org/fhir/Citation/example-for-parachute-rct"/>
   <identifier>
     <type>
       <text value="FEvIR Object Identifier"/>
@@ -574,10 +574,6 @@
   <identifier>
     <system value="https://pubmed.ncbi.nlm.nih.gov"/>
     <value value="30545967"/>
-  </identifier>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.8.2"/>
   </identifier>
   <title value="30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
   <status value="active"/>

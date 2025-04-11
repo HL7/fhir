@@ -8,7 +8,7 @@
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/comparative-evidence"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/single-study-evidence"/>
 	</meta>
-	<url value="https://fevir.net/resources/Evidence/318273"/>
+	<url value="http://hl7.org/fhir/Evidence/example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
@@ -19,10 +19,6 @@
 			<display value="Computable Publishing LLC"/>
 		</assigner>
 	</identifier>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.10.8"/>
-  </identifier>
 	<title value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
 	<citeAs value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator [Database Entry: FHIR Evidence Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 318273. Revised 2025-02-17. Available at: https://fevir.net/resources/Evidence/318273. Computable resource at: https://fevir.net/resources/Evidence/318273#json."/>
 	<status value="active"/>
