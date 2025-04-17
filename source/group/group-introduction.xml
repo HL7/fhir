@@ -25,65 +25,55 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
     <li>'definitional': Use this code if the Group Resource provides structured data (i.e. the Group.characteristic values) that is necessary and sufficient to define the qualifications for group membership (the inclusion and exclusion criteria for defining what makes something a member of the group). Use of the 'definitional' code will require use of the Group.type element. If a group is both enumerated and definitional, then use the enumerated code.</li>
     <li>'conceptual': Use this code if the Group Resource is an abstract representation of a group that is neither enumerated (listing or counting actual members) nor definitional (providing complete definition for membership qualifications). A different use of the 'conceptual' code is when the Group is otherwise 'definitional' but the Group.type cannot be used because the actual type value is not included in FHIR types.</li>
 </ul>
-<h4>Group.type</h4>
-<p>In the conventional use of the Group Resource, the type specifies the type of FHIR resources that can be used to represent Group members. The Group.type element is required if the Group.membership element has a value of definitional or enumerated.</p>
-<p>In other words, type is letting you know the type of group (Person, Specimen,...). The choices in Group.type are limited to concepts represented in FHIR. If type is person, then the members would have to be Resources of type person. If type is device, you will expect a different set of Resources for Group members.</p>
-<h4>Group.code</h4>
-<p>Group.code is used to describe the&nbsp;kind&nbsp;of group members, especially when a more specific classification than the Group.type value is desired. For example, if Group.type is 'animal', then Group.code may be 'cow'. If Group.type is 'device',&nbsp;then Group.code could be 'syringe' or 'cytometer'.&nbsp;</p>
-<h4>Group.quantity</h4>
-<p>Group.quantity is a count of group members, so it must be an integer if used.</p>
 <h4>Group.combinationMethod</h4>
-<p>Group.combinationMethod is used when there are two or more Group.characteristic instances to define how the characteristics are combined.&nbsp;</p>
+<p>Group.combinationMethod is used when there are two or more Group.characteristic instances to define how the characteristics are combined.</p>
 <ul>
-    <li>Use a code&nbsp;all-of&nbsp;to indicate that each of the characteristics must be met. This is functionally equivalent to&nbsp; combining all characteristics with an AND operator.</li>
-    <li>Use a code&nbsp;any-of&nbsp;to indicate that at least one of the characteristics must be met. This is functionally equivalent to combining all characteristics with an OR operator.</li>
-    <li>Use a code&nbsp;at-least&nbsp;to indicate that at least&nbsp;n&nbsp;of the characteristics must be met. Use Group.combinationThreshold to specify the value of&nbsp;n.</li>
-    <li>Use a code&nbsp;at-most&nbsp;to indicate that at most&nbsp;n&nbsp;of the characteristics must be met. Use Group.combinationThreshold to specify the value of&nbsp;n.</li>
-    <li>Use a code&nbsp;except-subset&nbsp;to indicate that the characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria. Explaining by example: “Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years” (<a href="https://fevir.net/resources/Group/170441" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170441</a>)</li>
+    <li>Use a code 'all-of' to indicate that each of the characteristics must be met. This is functionally equivalent to combining all characteristics with an AND operator.</li>
+    <li>Use a code 'any-of' to indicate that at least one of the characteristics must be met. This is functionally equivalent to combining all characteristics with an OR operator.</li>
+    <li>Use a code 'at-least' to indicate that at least n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.</li>
+    <li>Use a code 'at-most' to indicate that at most n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.</li>
+    <li>Use a code 'except-subset' to indicate that the characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria. Explaining by example: “Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years” (<a href="https://fevir.net/resources/Group/170441" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170441</a>) -- THIS EXAMPLE WILL BE ADDED TO Group examples INSTEAD OF USING THE EXTERNAL LINK.</li>
 </ul>
 <h4>Group.combinationThreshold</h4>
 <p>Provides the value of "n" when "at-least" or "at-most" codes are used for Group.combinationMethod (see above)</p>
-<h4>Group.characteristic.code&nbsp;</h4>
-<p>Each characteristic must have a code value (CodeableConcept datatype) to specify the attribute. For instance:&nbsp;</p>
+<h4>Group.characteristic.code</h4>
+<p>Each characteristic must have a code value (CodeableConcept datatype) to specify the attribute. For instance:</p>
 <ul>
-    <li>for a characteristic of "age &gt; 18 years” the attribute is “age” and the attribute of age may be expressed as&nbsp;</li>
+    <li>for a characteristic of "age &gt; 18 years” the attribute is “age” and the attribute of age may be expressed as</li>
 </ul>
-<p>"code": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://snomed.info/sct" class="external-link" rel="nofollow">http://snomed.info/sct</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "397669002",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Age"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; }</p>
+<p>"code": { "coding": [ { "system": "http://snomed.info/sct", "code": "397669002", "display": "Age" } ] }</p>
 <ul>
-    <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the attribute is "Body mass index" and the attribute may be expressed as.</li>
+    <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the attribute is "Body mass index" and the attribute may be expressed as</li>
 </ul>
-<p>&nbsp;<br>&nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; "code": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://loinc.org/" class="external-link" rel="nofollow">http://loinc.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "39156-5",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Body mass index (BMI) [Ratio]"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; }</p>
-<p>(Examples taken from&nbsp;<a href="https://fevir.net/resources/Group/171819" class="external-link" rel="nofollow">https://fevir.net/resources/Group/171819</a>)</p>
+<p>"code": { "coding": [ { "system": "http://loinc.org", "code": "39156-5", "display": "Body mass index (BMI) [Ratio]" } ] }</p>
 <h4>Group.characteristic.value[x]</h4>
 <p>Each characteristic must have a value[x] value to specify the value of the attribute that holds for members of the group. There is no [x] in the JSON or XML expression as it is replaced with the data type (CodeableConcept, boolean, Quantity, Range, Reference, uri, or Expression)</p>
-<p>For instance:&nbsp;</p>
+<p>For instance:</p>
 <ul>
-    <li>for a characteristic of "age &gt; 18 years” the value is “&gt; 18 years” and the value may be expressed with a Quantity datatype as&nbsp;</li>
+    <li>for a characteristic of "age &gt; 18 years” the value is “&gt; 18 years” and the value may be expressed with a Quantity datatype as</li>
 </ul>
-<p>"valueQuantity": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "comparator": "&gt;=",<br>&nbsp; &nbsp; &nbsp; &nbsp; "value": 18,<br>&nbsp; &nbsp; &nbsp; &nbsp; "unit": "years",</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "a"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<p><br></p>
+<p>"valueQuantity": { "comparator": "&gt;=", "value": 18, "unit": "years",</p>
+<p> "system": "http://unitsofmeasure.org", "code": "a" }</p>
 <ul>
     <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the value is "&gt;= 30 kg/m2" and the value may be expressed as</li>
 </ul>
-<p>"valueQuantity": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "comparator": "&gt;=",<br>&nbsp; &nbsp; &nbsp; &nbsp; "value": 30,<br>&nbsp; &nbsp; &nbsp; &nbsp; "unit": "kg/m2",</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "kg/m2"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<p>(Examples taken from&nbsp;<a href="https://fevir.net/resources/Group/171819" class="external-link" rel="nofollow">https://fevir.net/resources/Group/171819</a>)</p>
+<p>"valueQuantity": { "comparator": "&gt;=", "value": 30, "unit": "kg/m2",</p>
+<p>"system": "http://unitsofmeasure.org", "code": "kg/m2" }</p>
 <h4>Group.characteristic.exclude</h4>
 <p>Sometimes group membership is determined by characteristics not possessed. When this is the case, the Group.characteristic.exclude element has a value of true ("exclude": true). For characteristics that are not exclusion criteria, the Group.characteristic.exclude element has a value of false ("exclude": false). The exclude element is required.</p>
 <p>For example, an exclusion criterion of HbA1c ≥ 14.0% is expressed as:</p>
-<p>{<br>&nbsp; &nbsp; &nbsp; "description": "HbA1c ≥ 14.0%",<br>&nbsp; &nbsp; &nbsp; "code": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://loinc.org/" class="external-link" rel="nofollow">http://loinc.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "59261-8",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Hemoglobin A1c/Hemoglobin.total in Blood"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; "valueQuantity": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "value": 14,<br>&nbsp; &nbsp; &nbsp; &nbsp; "comparator": "&gt;=",<br>&nbsp; &nbsp; &nbsp; &nbsp; "unit": "%",<br>&nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; "code": "%"<br>&nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; "exclude": true<br>&nbsp; &nbsp; }</p>
-<p>modified off:</p>
-<p>StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study) [Database Entry: FHIR Group Resource]. Contributors: Brian S. Alper [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 170443. Revised 2022-09-09. Available at:&nbsp;<a href="https://fevir.net/resources/Group/170443" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170443</a>. Computable resource at:&nbsp;<a href="https://fevir.net/resources/Group/170443" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170443</a>.</p>
+<p>{ "description": "HbA1c ≥ 14.0%", "code": {; "coding": [ { "system": "http://loinc.org", "code": "59261-8", "display": "Hemoglobin A1c/Hemoglobin.total in Blood" } ] }, "valueQuantity": { "value": 14, "comparator": "&gt;=", "unit": "%", "system": "http://unitsofmeasure.org", "code": "%" }, "exclude": true }</p>
 <h4>Group.characteristic.description</h4>
-<p>A short, natural language description of the characteristic (using the markdown datatype) that could be used to communicate the criteria to an end-user. &nbsp;The description element is for convenience so that end users can understand the characteristic and is neither a required part of the characteristic nor part of the structured representation of the characteristic.</p>
+<p>A short, natural language description of the characteristic (using the markdown datatype) that could be used to communicate the criteria to an end-user. The description element is for convenience so that end users can understand the characteristic and is neither a required part of the characteristic nor part of the structured representation of the characteristic.</p>
 <h4>Group.characteristic.method</h4>
-<p>The method modifies the Group.characteristic.code and indicates how the value is to be determined, using the CodeableConcept datatype. &nbsp;For example, HbA1C values can be determined by High-Performance Liquid Chromatography or by Capillary electrophoresis.</p>
-<p>The method may be expressed as multiple concepts, eg. standing barefoot for Height measurements could be expressed as two separate concepts that express the one method.</p>
-<h4>Group.characteristic.determinedBy[x]</h4>
-<p>determinedBy[x] modifies the Group.characteristic.code and indicates how the value is to be determined, using either a Reference datatype or an Expression datatype. &nbsp;This provides a means of expressing or modifying the method not as a set of concepts but as either a reference to a device or as an Expression. &nbsp;The reference to a device can be either to a specific device using the Device resource or the DeviceMetric resource if a specific set of device parameters is needed, or a type of device using the DeviceDefinition resource.</p>
+<p>The method modifies the Group.characteristic.code and indicates how the value is to be determined, using the CodeableConcept datatype. For example, HbA1C values can be determined by High-Performance Liquid Chromatography or by Capillary electrophoresis.</p>
+<p>The method may be expressed as multiple concepts, eg. standing barefoot for Height measurements could be expressed as two separate concepts (standing, barefoot) that express the method.</p>
+<h4>Group.characteristic.formula</h4>
+<p>The formula modifies the Group.characteristic.code and indicates how the value is to be determined, using an Expression datatype.</p>
+<h4>Group.characteristic.determiner</h4>
+<p>The determiner modifies the Group.characteristic.code and indicates who or what determines the value, using a Reference datatype. The determiner value may reference a person (<a href="practitioner.html">Practitioner</a> or <a href="practitionerrole.html">PractitionerRole</a> Resource) or group (<a href="organization.html">Organization</a> Resource) or device. The reference to a device can be either to a specific device using the <a href="device.html">Device</a> Resource, or the <a href="devicemetric.html">DeviceMetric</a> Resource if a specific set of device parameters is needed, or a type of device using the <a href="devicedefinition.html">DeviceDefinition</a> Resource.</p>
 <h4>Group.characteristic.offset</h4>
-<p>Defines the reference point for comparison when other than 0. &nbsp;As an example, to express a characteristic of a calcium level greater than the normal limit or a hemoglobin level less than 1gm/dL below the reference range, the offset concept would represent "normal limit" or "reference range".</p>
+<p>Defines the reference point for comparison when other than 0. As an example, to express a characteristic of a calcium level greater than the normal limit or a hemoglobin level less than 1 g/dL below the reference range, the offset concept would represent "normal limit" or "reference range".</p>
 <p>This is a modifier element because it modifies the meaning of the characteristic.value[x].</p>
 <h4>Group.characteristic.instances[x]</h4>
 <p>Number of occurrences meeting the characteristic.</p>
@@ -94,12 +84,11 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
 <p>The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.</p>
 <h4>Group.characteristic.timing</h4>
 <p>The relative time in which the characteristic is tested, eg. within a month following patient discharge.</p>
-<p>Note: RelativeTime is a recent addition to the Group Resource.&nbsp;RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime.</p>
-<p>Example:<a href="https://fevir.net/resources/Group/172484" class="external-link" rel="nofollow">https://fevir.net/resources/Group/172484</a></p>
-<p>Example includes timing and offset "At 12months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
-<p>&nbsp;"timing": [<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "contextCode": {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://snomed.info/sct" class="external-link" rel="nofollow">http://snomed.info/sct</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "709491003",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Enrollment in clinical trial"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "offsetDuration": {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "value": 12,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "unit": "months",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "mo"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text": "at 12 months"<br>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>Note: RelativeTime is a recent addition to the Group Resource. RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime.</p>
+<p>Example:<a href="https://fevir.net/resources/Group/172484" class="external-link" rel="nofollow">https://fevir.net/resources/Group/172484</a> -- THIS EXAMPLE WILL BE ADDED TO Group examples INSTEAD OF USING THE EXTERNAL LINK</p>
+<p>Example includes timing and offset "At 12 months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
+<p>"timing": [ { "contextCode": { "coding": [ { "system": "http://snomed.info/sct", "code": "709491003", "display": "Enrollment in clinical trial" } ] }, "offsetDuration": { "value": 12, "unit": "months", "system": "http://unitsofmeasure.org", "code": "mo" }, "text": "at 12 months" }</p>
 </div>
-
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
