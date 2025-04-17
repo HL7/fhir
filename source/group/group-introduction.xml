@@ -17,16 +17,17 @@
 <p>NOTE: While <a href="specimen.html">Specimen</a> does not quite fit with this definition, it is being retained as part of
 Group to avoid making a breaking change to the <a href="observation.html">Observation</a> resource.</p>
 <h3>Defining Group Inclusion and Exclusion Criteria</h3>
-<h4>Group.type</h4>
-<p>In the conventional use of&nbsp;Group&nbsp;resource, the type specifies the type of FHIR resources that can be used to represent&nbsp;Group&nbsp;members.&nbsp;The&nbsp;Group.type&nbsp;element is required if the&nbsp;Group.membership&nbsp;element has a value of&nbsp;definitional&nbsp;or&nbsp;enumerated&nbsp;</p>
-<p>In other words,&nbsp;type&nbsp;is letting you know the type of group (Person, Specimen,...).&nbsp; The choices in Group.type are limited to concepts represented in FHIR. If&nbsp;type&nbsp;is&nbsp;person,&nbsp;then the members would have to be resources of type&nbsp;person. If type is&nbsp;device&nbsp;you will expect a different set of resources.&nbsp;</p>
+  <p>The Group definition, specifying the criteria for membership in the Group, may be expressed with one or more Group.characteristic elements. Here we describe how the Group StructureDefinition is used to express inclusion and exclusion criteria for group membership.</p>
 <h4>Group.membership</h4>
 <p>Group.membership requires one of three codes:</p>
 <ul>
-    <li>'enumerated':&nbsp;Use this code if you desire to list the group members and/or specify the number of entities in the group.</li>
-    <li>'definitional': Use this code if the&nbsp;Group.characteristics specified are both necessary and sufficient to determine qualifications for membership (for defining what makes something a member of the group). If a group is both&nbsp;enumerated&nbsp;and&nbsp;definitional, then use the&nbsp;enumerated&nbsp;code.</li>
-    <li>'conceptual': Use this code if the Group is neither enumerated (listing or counting actual members) nor&nbsp;definitional&nbsp;(providing complete definition for membership qualifications). A different use of conceptual is when the 'conceptual' Group is a 'definitional' Group in which the Group.type is not bound to FHIR types.</li>
+    <li>'enumerated': Use this code if the Group Resource lists the group members and/or specifies the number of entities in the group. Use of the 'enumerated' code will require use of the Group.type element.</li>
+    <li>'definitional': Use this code if the Group Resource provides structured data (i.e. the Group.characteristic values) that is necessary and sufficient to define the qualifications for group membership (the inclusion and exclusion criteria for defining what makes something a member of the group). Use of the 'definitional' code will require use of the Group.type element. If a group is both enumerated and definitional, then use the enumerated code.</li>
+    <li>'conceptual': Use this code if the Group Resource is an abstract representation of a group that is neither enumerated (listing or counting actual members) nor definitional (providing complete definition for membership qualifications). A different use of the 'conceptual' code is when the Group is otherwise 'definitional' but the Group.type cannot be used because the actual type value is not included in FHIR types.</li>
 </ul>
+<h4>Group.type</h4>
+<p>In the conventional use of the Group Resource, the type specifies the type of FHIR resources that can be used to represent Group members. The Group.type element is required if the Group.membership element has a value of definitional or enumerated.</p>
+<p>In other words, type is letting you know the type of group (Person, Specimen,...). The choices in Group.type are limited to concepts represented in FHIR. If type is person, then the members would have to be Resources of type person. If type is device, you will expect a different set of Resources for Group members.</p>
 <h4>Group.code</h4>
 <p>Group.code is used to describe the&nbsp;kind&nbsp;of group members, especially when a more specific classification than the Group.type value is desired. For example, if Group.type is 'animal', then Group.code may be 'cow'. If Group.type is 'device',&nbsp;then Group.code could be 'syringe' or 'cytometer'.&nbsp;</p>
 <h4>Group.quantity</h4>
@@ -40,7 +41,6 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
     <li>Use a code&nbsp;at-most&nbsp;to indicate that at most&nbsp;n&nbsp;of the characteristics must be met. Use Group.combinationThreshold to specify the value of&nbsp;n.</li>
     <li>Use a code&nbsp;except-subset&nbsp;to indicate that the characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria. Explaining by example: “Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years” (<a href="https://fevir.net/resources/Group/170441" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170441</a>)</li>
 </ul>
-<p><br></p>
 <h4>Group.combinationThreshold</h4>
 <p>Provides the value of "n" when "at-least" or "at-most" codes are used for Group.combinationMethod (see above)</p>
 <h4>Group.characteristic.code&nbsp;</h4>
@@ -48,7 +48,6 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
 <ul>
     <li>for a characteristic of "age &gt; 18 years” the attribute is “age” and the attribute of age may be expressed as&nbsp;</li>
 </ul>
-<p><br></p>
 <p>"code": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://snomed.info/sct" class="external-link" rel="nofollow">http://snomed.info/sct</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "397669002",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Age"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; }</p>
 <ul>
     <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the attribute is "Body mass index" and the attribute may be expressed as.</li>
@@ -67,19 +66,13 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
 <ul>
     <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the value is "&gt;= 30 kg/m2" and the value may be expressed as</li>
 </ul>
-<p><br></p>
 <p>"valueQuantity": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "comparator": "&gt;=",<br>&nbsp; &nbsp; &nbsp; &nbsp; "value": 30,<br>&nbsp; &nbsp; &nbsp; &nbsp; "unit": "kg/m2",</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "kg/m2"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<p><br></p>
 <p>(Examples taken from&nbsp;<a href="https://fevir.net/resources/Group/171819" class="external-link" rel="nofollow">https://fevir.net/resources/Group/171819</a>)</p>
-<p><br></p>
-<p>→ Further examples for other types to be added.</p>
 <h4>Group.characteristic.exclude</h4>
 <p>Sometimes group membership is determined by characteristics not possessed. When this is the case, the Group.characteristic.exclude element has a value of true ("exclude": true). For characteristics that are not exclusion criteria, the Group.characteristic.exclude element has a value of false ("exclude": false). The exclude element is required.</p>
 <p>For example, an exclusion criterion of HbA1c ≥ 14.0% is expressed as:</p>
-<p><br></p>
 <p>{<br>&nbsp; &nbsp; &nbsp; "description": "HbA1c ≥ 14.0%",<br>&nbsp; &nbsp; &nbsp; "code": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://loinc.org/" class="external-link" rel="nofollow">http://loinc.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "59261-8",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Hemoglobin A1c/Hemoglobin.total in Blood"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; "valueQuantity": {<br>&nbsp; &nbsp; &nbsp; &nbsp; "value": 14,<br>&nbsp; &nbsp; &nbsp; &nbsp; "comparator": "&gt;=",<br>&nbsp; &nbsp; &nbsp; &nbsp; "unit": "%",<br>&nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; "code": "%"<br>&nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; "exclude": true<br>&nbsp; &nbsp; }</p>
-<p><br></p>
 <p>modified off:</p>
 <p>StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study) [Database Entry: FHIR Group Resource]. Contributors: Brian S. Alper [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 170443. Revised 2022-09-09. Available at:&nbsp;<a href="https://fevir.net/resources/Group/170443" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170443</a>. Computable resource at:&nbsp;<a href="https://fevir.net/resources/Group/170443" class="external-link" rel="nofollow">https://fevir.net/resources/Group/170443</a>.</p>
 <h4>Group.characteristic.description</h4>
@@ -102,10 +95,8 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
 <h4>Group.characteristic.timing</h4>
 <p>The relative time in which the characteristic is tested, eg. within a month following patient discharge.</p>
 <p>Note: RelativeTime is a recent addition to the Group Resource.&nbsp;RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime.</p>
-<p><br></p>
 <p>Example:<a href="https://fevir.net/resources/Group/172484" class="external-link" rel="nofollow">https://fevir.net/resources/Group/172484</a></p>
 <p>Example includes timing and offset "At 12months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
-<p><br></p>
 <p>&nbsp;"timing": [<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "contextCode": {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "coding": [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://snomed.info/sct" class="external-link" rel="nofollow">http://snomed.info/sct</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "709491003",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "display": "Enrollment in clinical trial"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "offsetDuration": {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "value": 12,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "unit": "months",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "system": "<a href="http://unitsofmeasure.org/" class="external-link" rel="nofollow">http://unitsofmeasure.org</a>",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "code": "mo"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text": "at 12 months"<br>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
 </div>
 
