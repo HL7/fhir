@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Group xmlns="http://hl7.org/fhir">
-	<id value="example-conceptualcohortdefinition-cancer"/>
+	<id value="example-conceptualcohortdefinition-cancer-except-subset"/>
 	<meta>
 		<versionId value="8"/>
 		<lastUpdated value="2025-03-15T20:57:46.493Z"/>
@@ -11,18 +11,8 @@
 			<name value="Brian S. Alper"/>
 		</valueContactDetail>
 	</extension>
-	<url value="http://hl7.org/fhir/Group/example-conceptualcohortdefinition-cancer"/>
-	<identifier>
-		<type>
-			<text value="FEvIR Object Identifier"/>
-		</type>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="https://fevir.net/FOI/170441"/>
-		<assigner>
-			<display value="Computable Publishing LLC"/>
-		</assigner>
-	</identifier>
-	<name value="ConceptualCohortDefinition: Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years"/>
+	<url value="http://hl7.org/fhir/Group/example-conceptualcohortdefinition-cancer-except-subset"/>
+	<name value="ConceptualCohortDefinition: Cancer except subsets"/>
 	<status value="active"/>
 	<date value="2022-09-09T10:30:50.570Z"/>
 	<publisher value="Computable Publishing LLC"/>
@@ -33,20 +23,6 @@
 		</telecom>
 	</contact>
 	<description value="Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years"/>
-	<useContext>
-		<code>
-			<system value="https://fevir.net/resources/CodeSystem/179423"/>
-			<code value="evidence-communication"/>
-			<display value="Evidence Communication"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="https://fevir.net/resources/CodeSystem/179423"/>
-				<code value="CohortDefinition"/>
-				<display value="CohortDefinition"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
 	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 	<membership value="conceptual"/>
 	<combinationMethod value="except-subset"/>
@@ -143,7 +119,9 @@
 			<offsetRange>
 				<low>
 					<value value="-5"/>
+					<unit value="years"/>
 					<system value="http://unitsofmeasure.org"/>
+					<code value="a"/>
 				</low>
 				<high>
 					<value value="0"/>
@@ -152,7 +130,7 @@
 					<code value="a"/>
 				</high>
 			</offsetRange>
-			<text value="for five years"/>
+			<text value="for five years up until study enrollment"/>
 		</timing>
 	</characteristic>
 </Group>
