@@ -32,7 +32,7 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
     <li>Use a code 'any-of' to indicate that at least one of the characteristics must be met. This is functionally equivalent to combining all characteristics with an OR operator.</li>
     <li>Use a code 'at-least' to indicate that at least n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.</li>
     <li>Use a code 'at-most' to indicate that at most n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.</li>
-    <li>Use a code 'except-subset' to indicate that the characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria. Explaining by example: “Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years” (<a href="group-example-cancer-except-subset.html">Example of Group for Cancer Except Subset</a>).</li>
+    <li>Use a code 'except-subset' to indicate that the characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria. Explaining by example: “Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years” (<a href="example-conceptualcohortdefinition-cancer-except-subset.html">Example of Group for Cancer Except Subset</a>).</li>
 </ul>
 <h4>Group.combinationThreshold</h4>
 <p>Provides the value of "n" when "at-least" or "at-most" codes are used for Group.combinationMethod (see above)</p>
@@ -85,7 +85,7 @@ Group to avoid making a breaking change to the <a href="observation.html">Observ
 <h4>Group.characteristic.timing</h4>
 <p>The relative time in which the characteristic is tested, eg. within a month following patient discharge.</p>
 <p>Note: RelativeTime is a recent addition to the Group Resource. RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime.</p>
-<p>Example: <a href="group-outcomedefinition-hba1c-at-12-months.html">Example of Group for HbA1c at 12 months</a></p>
+<p>Example: <a href="group-example-outcomedefinition-hba1c-at-12-months.html">Example of Group for HbA1c at 12 months</a></p>
 <p>Example includes timing and offset "At 12 months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
 <p>"timing": [ { "contextCode": { "coding": [ { "system": "http://snomed.info/sct", "code": "709491003", "display": "Enrollment in clinical trial" } ] }, "offsetDuration": { "value": 12, "unit": "months", "system": "http://unitsofmeasure.org", "code": "mo" }, "text": "at 12 months" }</p>
 </div>
