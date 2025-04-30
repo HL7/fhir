@@ -102,14 +102,14 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="ConceptualCohortDefinition: Cancer of any kind"/>
+      <valueString value="ConceptualCohortDefinition: Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="group-example-conceptualcohortdefinition-cancer"/>
+      <valueString value="group-example-conceptualcohortdefinition-cancer-except-subset"/>
     </extension>
     <item>
-      <reference value="Group/example-conceptualcohortdefinition-cancer"/>
-      <display value="ConceptualCohortDefinition: Cancer of any kind"/>
+      <reference value="Group/example-conceptualcohortdefinition-cancer-except-subset"/>
+      <display value="ConceptualCohortDefinition: Cancer except subset"/>
     </item>
   </entry>
   <entry>
