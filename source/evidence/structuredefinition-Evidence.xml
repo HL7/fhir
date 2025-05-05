@@ -489,7 +489,7 @@
 			</extension>
 			<strength value="required"/>
 			<description value="The type of relationship to the related artifact."/>
-			<valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+			<valueSet value="http://terminology.hl7.org/artifact-relationship-type"/>
 		  </binding>
 		</element>
 		<element id="Evidence.relatesTo.target[x]">
@@ -622,7 +622,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The sub-role that the variable plays."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role-subtype"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/variable-role-subtype"/>
 			</binding>
 		</element>
 		<element id="Evidence.variableDefinition.comparatorCategory">
@@ -758,7 +758,7 @@
 					<valueString value="StatisticType"/>
 				</extension>
 				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.category">
@@ -909,7 +909,7 @@
 					<valueString value="AttributeEstimateType"/>
 				</extension>
 				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/attribute-estimate-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/attribute-estimate-type"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.attributeEstimate.quantity">
@@ -977,7 +977,7 @@
 					<valueString value="StatisticModelCode"/>
 				</extension>
 				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-model-code"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/statistic-model-code"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.value[x]">
@@ -1135,7 +1135,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The aspect of quality, confidence, or certainty."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/certainty-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/certainty-type"/>
 			</binding>
 		</element>
 		<element id="Evidence.certainty.rating">
@@ -1153,7 +1153,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The assessment of quality, confidence, or certainty."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/certainty-rating"/>
 			</binding>
 		</element>
 		<element id="Evidence.certainty.rater">

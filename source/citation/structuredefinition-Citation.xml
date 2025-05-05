@@ -529,7 +529,7 @@
           <valueString value="CitationSummaryStyle"/>
         </extension>
         <strength value="preferred"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-summary-style"/>
       </binding>
     </element>
     <element id="Citation.summary.text">
@@ -566,7 +566,7 @@
           <valueString value="CitationClassificationType"/>
         </extension>
         <strength value="preferred"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-classification-type"/>
       </binding>
     </element>
     <element id="Citation.classification.classifier">
@@ -582,7 +582,7 @@
           <valueString value="CitationArtifactClassifier"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.note">
@@ -608,7 +608,7 @@
           <valueString value="CitationStatusType"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-status-type"/>
       </binding>
     </element>
     <element id="Citation.statusDate">
@@ -636,7 +636,7 @@
           <valueString value="CitationStatusType"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-status-type"/>
       </binding>
     </element>
     <element id="Citation.statusDate.actual">
@@ -688,7 +688,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of relationship to the related artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
     <element id="Citation.relatesTo.target[x]">
@@ -784,7 +784,7 @@
           <valueString value="CitedArtifactStatusType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-artifact-status-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.statusDate">
@@ -811,7 +811,7 @@
           <valueString value="CitedArtifactStatusType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-artifact-status-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.statusDate.actual">
@@ -857,7 +857,7 @@
           <valueString value="TitleType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/title-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.title.language">
@@ -918,7 +918,7 @@
           <valueString value="CitedArtifactAbstractType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-artifact-abstract-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.abstract.language">
@@ -987,7 +987,7 @@
           <valueString value="CitedArtifactPartType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-part-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-artifact-part-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.part.value">
@@ -1035,7 +1035,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of relationship to the related artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.classifier">
@@ -1052,7 +1052,7 @@
           <valueString value="CitationArtifactClassifier"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.label">
@@ -1141,7 +1141,7 @@
           <valueString value="PublishedInType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/published-in-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/published-in-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.publicationForm.publishedIn.identifier">
@@ -1196,7 +1196,7 @@
           <valueString value="CitedMedium"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-medium"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.publicationForm.volume">
@@ -1363,7 +1363,7 @@
           <valueString value="ArtifactUrlClassifier"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-url-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.webLocation.url">
@@ -1398,7 +1398,7 @@
           <valueString value="CitedArtifactClassificationType"/>
         </extension>
         <strength value="preferred"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-artifact-classification-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.classification.classifier">
@@ -1414,7 +1414,7 @@
           <valueString value="CitationArtifactClassifier"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.classification.artifactAssessment">
@@ -1509,10 +1509,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactContributionType"/>
+          <valueString value="CitedArtifactContributionType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/cited-artifact-contribution-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.role">
@@ -1528,7 +1528,7 @@
           <valueString value="ContributorRole"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-role"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/contributor-role"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionInstance">
@@ -1553,7 +1553,7 @@
           <valueString value="ArtifactContributionInstanceType"/>
         </extension>
         <strength value="preferred"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-contribution-instance-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionInstance.time">
@@ -1613,7 +1613,7 @@
           <valueString value="ContributorSummaryType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/contributor-summary-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.summary.style">
@@ -1630,7 +1630,7 @@
           <valueString value="ContributorSummaryStyle"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-style"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/contributor-summary-style"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.summary.source">
@@ -1646,7 +1646,7 @@
           <valueString value="ContributorSummarySource"/>
         </extension>
         <strength value="preferred"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-source"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/contributor-summary-source"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.summary.value">
