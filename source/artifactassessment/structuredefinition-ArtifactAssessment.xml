@@ -187,7 +187,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of relationship to the related artifact."/>
-        <valueSet value="http://terminology.hl7.org/artifact-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.relatesTo.target[x]">
