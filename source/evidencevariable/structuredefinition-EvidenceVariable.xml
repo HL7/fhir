@@ -513,7 +513,7 @@
 		</element>
 		<element id="EvidenceVariable.relatesTo.type">
 		  <path value="EvidenceVariable.relatesTo.type"/>
-		  <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
+		  <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of | summarizes"/>
 		  <definition value="The type of relationship to the related artifact."/>
 		  <min value="1"/>
 		  <max value="1"/>
@@ -620,7 +620,7 @@
 			</type>
 			<type>
 				<code value="Quantity"/>
-			</type> 
+			</type>
 			<type>
 				<code value="Range"/>
 			</type>
@@ -742,7 +742,7 @@
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
-			</type>			
+			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRTypes"/>
