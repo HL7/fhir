@@ -590,7 +590,7 @@
 		</element>
 		<element id="Evidence.variableDefinition.variableRole">
 			<path value="Evidence.variableDefinition.variableRole"/>
-			<short value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder | measuredVariableA | measuredVariableB | measuredVariableAB"/>
+			<short value="population | exposure | outcome | covariate"/>
 			<definition value="Classification of the role of the variable."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -604,7 +604,7 @@
 				</extension>
 				<strength value="required"/>
 				<description value="The role that the variable plays."/>
-				<valueSet value="http://terminology.hl7.org/ValueSet/variable-role"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
 			</binding>
 		</element>
 		<element id="Evidence.variableDefinition.roleSubtype">
