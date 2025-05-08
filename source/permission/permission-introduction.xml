@@ -43,7 +43,7 @@ Examples are:
 <li>consent provisions (i.e., `Consent.provision`) encoding in a different rule language (i.e., `Permission.rule`) using `Consent.provisionReference`.</li>
 </ul>
 <p>
-The Permission resource should not be used in a conflicting way with <a href="https://build.fhir.org/security-labels.html">security labels in the .meta.security element</a>.
+The Permission resource should not be used in a conflicting way with <a href="security-labels.html">security labels in the .meta.security element</a>.
 </p>
 
 <!-- (optional):
