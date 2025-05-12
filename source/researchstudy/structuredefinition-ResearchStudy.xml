@@ -702,7 +702,7 @@
     </element>
     <element id="ResearchStudy.associatedParty.role">
       <path value="ResearchStudy.associatedParty.role"/>
-      <short value="sponsor | lead-sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | general-contact | recruitment-contact | sub-investigator | study-chair | irb"/>
+      <short value="sponsor | lead-sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | general-contact | recruitment-contact | sub-investigator | study-chair | irb | data-monitoring"/>
       <definition value="Type of association."/>
       <min value="1"/>
       <max value="1"/>
