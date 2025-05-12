@@ -1181,6 +1181,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
       </binding>
     </element>
+    <element id="ResearchStudy.objective.outcomeMeasure.endpointAnalysisPlan">
+      <path value="ResearchStudy.objective.outcomeMeasure.endpointAnalysisPlan"/>
+      <short value="Endpoint analysis plan"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
+      </type>
+    </element>
     <element id="ResearchStudy.objective.outcomeMeasure.eventHandling">
       <path value="ResearchStudy.objective.outcomeMeasure.eventHandling"/>
       <short value="Handling of intercurrent event"/>
