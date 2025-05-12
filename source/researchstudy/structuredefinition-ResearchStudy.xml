@@ -313,7 +313,7 @@
         <path value="ResearchStudy.relatesTo.target[x]"/>
         <short value="The artifact that is related to this ResearchStudy"/>
         <definition value="The artifact that is related to this ResearchStudy Resource."/>
-		<comment value="A targetReference using a DocumentReference allows providing metadata regarding the referenced document."/>
+        <comment value="A targetReference using a DocumentReference allows providing metadata regarding the referenced document."/>
         <min value="1"/>
         <max value="1"/>
         <type>
