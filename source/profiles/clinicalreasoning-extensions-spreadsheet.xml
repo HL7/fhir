@@ -13,11 +13,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-
-
-
-
-  <ActiveSheet>4</ActiveSheet>
+ <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4211,6 +4207,36 @@
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID=""/>
+   </Row>
+      <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"><Data ss:Type="String">CertaintyType</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The aspect of quality, confidence, or certainty</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-type" ss:StyleID="s134"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-type</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s135"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s103"><Data ss:Type="String">CertaintyRating</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The assessment of quality, confidence, or certainty</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-rating" ss:StyleID="s134"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/certainty-rating</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4226,7 +4252,7 @@
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID=""/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">ActionRelationshipType</Data></Cell>
@@ -4241,7 +4267,7 @@
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID=""/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s137"><Data ss:Type="String">KnowledgeRepresentationLevel</Data></Cell>
@@ -4264,7 +4290,7 @@
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID=""/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
