@@ -324,7 +324,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Product"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
