@@ -80,7 +80,7 @@
       </extension>
       <path value="Transport"/>
       <short value="Delivery of item"/>
-      <definition value="Record of transport of item."/>
+      <definition value="The Transport resource represents the movement or transportation of individuals and items (such materials and equipment) within a healthcare setting. It encompasses both planned and completed transport events."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
