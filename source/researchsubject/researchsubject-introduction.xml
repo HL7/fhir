@@ -42,7 +42,7 @@
   <a name="bnr"></a>
   <h2>Boundaries and Relationships</h2>
   <p>
-    When used in relation to patient care, the ResearchSubject.subject element references the Patient Resource and allows deidentified data sharing related to the ResearchSubject. In this context, it is the Patient and not the ResearchSubject that follows the <a href="participant.html#%5c%22mappings%5c%22">Participant Pattern</a> in FHIR.
+    When used in relation to patient care, the ResearchSubject.subject element references the Patient Resource and allows deidentified data sharing related to the ResearchSubject. In this context, it is the Patient and not the ResearchSubject that follows the <a href="participant.html">Participant Pattern</a> in FHIR.
   </p>
   </div>
   <div>
