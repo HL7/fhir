@@ -314,14 +314,23 @@
     <element id="Transport.focus">
       <path value="Transport.focus"/>
       <short value="What transport is acting on"/>
-      <definition value="The request being actioned or the resource being manipulated by this transport."/>
+      <definition value="The resource representing the physical entity being transported."/>
       <comment value="If multiple resources need to be manipulated, use sub-transports.  (This ensures that status can be tracked independently for each referenced resource.)."/>
       <requirements value="Used to identify the thing to be done."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
