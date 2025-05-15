@@ -21,13 +21,6 @@
 			<display value="Vital Signs"/>
 		</coding>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="85354-9"/>
-			<display value="Blood pressure panel with all children optional"/>
-		</coding>
-	</category>
 	<code><!-- replaced by 85354-9
 				<coding>
 					<system value="http://loinc.org"/>
@@ -65,15 +58,6 @@
 		</coding>
 	</bodySite>
 	<component>
-		<extension url="http://hl7.org/fhir/StructureDefinition/observation-componentCategory">
-			<valueCodeableConcept> 
-			  <coding> 
-				<system value="http://loinc.org"/> 
-				<code value="8480-6"/>
-				<display value="Systolic blood pressure"/>
-			  </coding> 
-			</valueCodeableConcept> 
-		</extension> 
 		   <!--
            Observations are often coded in multiple code systems.
            - LOINC provides a very specific code (though not more specific in this particular case)
@@ -108,15 +92,6 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			</coding>
 			<text value="Normal"/>
 		</interpretation><!--  	Should have a refrange as well  --></component><component>
-			<extension url="http://hl7.org/fhir/StructureDefinition/observation-componentCategory">
-				<valueCodeableConcept> 
-				  <coding> 
-					<system value="http://loinc.org"/> 
-					<code value="8462-4"/>
-					<display value="Diastolic blood pressure"/>
-				  </coding> 
-				</valueCodeableConcept> 
-			</extension> 
 			<!--   this codes only has a LOINC code   --><code>
 			<coding>
 				<system value="http://loinc.org"/>
