@@ -50,15 +50,14 @@
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="Transport.for">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CareTeam,Device,HealthcareService,Organization,Practitioner,PractitionerRole,RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual the service is ordered/prohibited for"/>
-            <resource value="Beneficiary of the Transport"/>
+            <resource value="Beneficiary of the Transport (such as patient or subject)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
-            <resource value="The entity who benefits from the performance of the service specified in the transport (e.g., the patient)."/>
+            <resource value="The entity who benefits from the performance of the service specified in the transport (such as patient or subject)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the request to the Patient context."/>

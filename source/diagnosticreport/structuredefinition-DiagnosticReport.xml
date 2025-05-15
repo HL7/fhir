@@ -539,7 +539,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PI&quot;)"/>
+        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PRI&quot;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
