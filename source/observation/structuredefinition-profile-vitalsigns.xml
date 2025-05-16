@@ -115,17 +115,6 @@
       </slicing>
       <min value="1"/>
       <mustSupport value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="This value set includes the required vital sign interoperability categories."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSignsCategory"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="This value set includes the required vital sign interoperability categories."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-category"/>
-      </binding>
     </element>
     <element id="Observation.category:VSCat">
       <path value="Observation.category"/>
@@ -143,7 +132,7 @@
     <element id="Observation.code">
       <path value="Observation.code"/>
       <short value="Vital Sign Measurement"/>
-      <definition value="Vital Sign Measurement."/>
+      <definition value="Vital Sign Measurement"/>
       <min value="1"/>
       <mustSupport value="true"/>
       <binding>
@@ -229,14 +218,6 @@
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
-      <slicing> 
-        <discriminator> 
-          <type value="type"/> 
-          <path value="$this"/> 
-        </discriminator> 
-        <ordered value="false"/> 
-        <rules value="closed"/>
-      </slicing> 
       <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
       <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
     </element>
