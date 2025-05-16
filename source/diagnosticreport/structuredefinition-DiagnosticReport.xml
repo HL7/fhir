@@ -676,6 +676,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">
