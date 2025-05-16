@@ -82,35 +82,19 @@
       <short value="FHIR Vital Signs Panel Profile"/>
       <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP - with a minimum of 2 members of the set/panel required)."/>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:VitalsPanelCode">
-      <path value="Observation.category"/>
-      <sliceName value="VitalsPanelCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Vital Signs Panel"/>
+      <definition value="Vital Signs Panel"/>
+      <alias value="Panel Name"/>
+      <alias value="Panel Code"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="85353-1"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Vital Signs Panel"/>
-      <definition value="Vital Signs Panel."/>
-      <alias value="Panel Name"/>
-      <alias value="Panel Code"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsPanel"/>

@@ -89,33 +89,17 @@
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:HeartRateCode">
-      <path value="Observation.category"/>
-      <sliceName value="HeartRateCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Heart Rate"/>
+      <definition value="Heart Rate"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="8867-4"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Heart Rate"/>
-      <definition value="Heart Rate."/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsHeartRate"/>
