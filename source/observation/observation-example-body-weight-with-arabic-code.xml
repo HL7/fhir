@@ -9,14 +9,12 @@
             <display value="Vital Signs"/>
         </coding>
     </category>
-    <category>
+    <code>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="29463-7"/> <!-- "interoperability category" LOINC code (methodless) -->
+            <code value="29463-7"/> <!-- "interoperability standard" LOINC code (methodless) -->
             <display value="Body Weight"/>
         </coding>
-    </category>
-    <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="3141-9"/> <!-- more specific method = measured LOINC -->

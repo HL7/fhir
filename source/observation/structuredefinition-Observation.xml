@@ -1135,7 +1135,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationReferenceRangeNormalValue"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Codes identifying the normal value of the observation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
       </binding>

@@ -344,15 +344,23 @@
     </element>
     <element id="Transport.for">
       <path value="Transport.for"/>
-      <short value="Beneficiary of the Transport"/>
-      <definition value="The entity who benefits from the performance of the service specified in the transport (e.g., the patient)."/>
+      <short value="Beneficiary of the Transport (such as patient or subject)"/>
+      <definition value="The entity who benefits from the performance of the service specified in the transport (such as patient or subject)."/>
       <requirements value="Used to track transports outstanding for a beneficiary.  Do not use to track the transport owner or creator (see owner and creator respectively).  This can also affect access control."/>
       <alias value="Patient"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>        
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
