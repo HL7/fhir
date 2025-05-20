@@ -104,7 +104,7 @@
     <element id="Specimen.identifier">
       <path value="Specimen.identifier"/>
       <short value="Identifier for specimen"/>
-      <definition value="Identifiers for a specimen. These could include but are not limited to identifiers generated upon collection, accessioning, or other reasons for labeling a specimen."/>
+      <definition value="Identifiers used for specimen identification. These could include but are not limited to identifiers generated upon collection, accessioning, or other reasons for labeling a specimen."/>
       <comment value="These are business identifiers, not Specimen.id - the resource identifier. More information in this (see [discussion](resource.html#identifiers))."/>
       <min value="0"/>
       <max value="*"/>

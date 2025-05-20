@@ -171,6 +171,7 @@
             <resource value="Party responsible for managing task execution."/>
         </definitionUnmatched>
     </divergentElement>
+    <doubleMappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <divergentElement patternPath="Event.reason" resourcePath="Task.reason">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
