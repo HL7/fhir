@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Permission xmlns="http://hl7.org/fhir">
+    <id value="per-1.p1.pass" />
+    <status value="active" />
+    <asserter>
+        <reference value="Organization/f203" />
+    </asserter>
+    <date value="2018-12-24" />
+    <combining value="permit-overrides" />
+    <rule>
+        <import>
+            <reference value="Permission/example-base" />
+        </import>
+        <limit>
+            <tag>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+                <code value="LOCIS" />
+            </tag>
+        </limit>
+    </rule>
+    <rule>
+        <type value="permit" />
+        <data>
+            <security>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+                <code value="SUD" />
+            </security>
+        </data>
+        <activity>
+            <actor>
+                <reference>
+                    <reference value="Organization/f203" />
+                </reference>
+            </actor>
+            <action>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/consentaction" />
+                    <code value="access" />
+                </coding>
+            </action>
+            <purpose>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+                    <code value="TREAT" />
+                </coding>
+            </purpose>
+        </activity>
+        <limit>
+            <tag>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+                <code value="LOCIS" />
+            </tag>
+        </limit>
+    </rule>
+</Permission>

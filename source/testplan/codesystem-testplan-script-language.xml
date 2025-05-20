@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="testplan-script-language"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/testplan-script-language"/>
+  <version value="6.0.0"/>
+  <name value="TestPlanScriptLanguage"/>
+  <title value="TestPlanScriptLanguage"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-02-24T10:56:24+04:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The TestPlan test run script language."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/testplan-script-language"/>
+  <content value="complete"/>
+  <concept>
+    <code value="gherkin"/>
+    <display value="Gherkin"/>
+    <definition value="The Gherkin test script language."/>
+  </concept>
+  <concept>
+    <code value="postman"/>
+    <display value="Postman"/>
+    <definition value="The Postman test script language."/>
+  </concept>
+  <concept>
+    <code value="testscript"/>
+    <display value="FHIR TestScript"/>
+    <definition value="The FHIR TestScript resource."/>
+  </concept>
+</CodeSystem>

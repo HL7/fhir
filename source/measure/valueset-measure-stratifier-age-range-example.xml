@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="measure-stratifier-age-range-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/measure-stratifier-age-range-example"/>
+  <version value="6.0.0"/>
+  <name value="MeasureStratifierAgeRangeExample"/>
+  <title value="Measure Stratifier Age Range Example"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="An example value set representing a possible age range stratification."/>
+  <compose>
+    <include>
+      <system value="http://ohie.org/ValueSet/iso-8601-derived-periods"/>
+      <concept><code value="P0Y--P1Y"/> <display value="&lt; 1 year"/></concept>
+      <concept><code value="P1Y--P5Y"/> <display value="1-4 years"/></concept>
+      <concept><code value="P5Y--P10Y"/> <display value="5-9 years"/></concept>
+      <concept><code value="P10Y--P15Y"/> <display value="10-14 years"/></concept>
+      <concept><code value="P15Y--P20Y"/> <display value="15-19 years"/></concept>
+      <concept><code value="P20Y--P25Y"/> <display value="20-24 years"/></concept>
+      <concept><code value="P25Y--P30Y"/> <display value="25-29 years"/></concept>
+      <concept><code value="P30Y--P35Y"/> <display value="30-34 years"/></concept>
+      <concept><code value="P35Y--P40Y"/> <display value="35-39 years"/></concept>
+      <concept><code value="P40Y--P50Y"/> <display value="40-49 years"/></concept>
+      <concept><code value="P50Y--P9999Y"/> <display value="50+ years"/></concept>
+    </include>
+  </compose>
+</ValueSet>

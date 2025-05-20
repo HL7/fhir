@@ -10,7 +10,7 @@
     <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'85353-1'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -80,39 +80,21 @@
     <element id="Observation">
       <path value="Observation"/>
       <short value="FHIR Vital Signs Panel Profile"/>
-      <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP)."/>
-      <min value="0"/>
-      <max value="*"/>
+      <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP - with a minimum of 2 members of the set/panel required)."/>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:VitalsPanelCode">
-      <path value="Observation.category"/>
-      <sliceName value="VitalsPanelCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Vital Signs Panel"/>
+      <definition value="Vital Signs Panel"/>
+      <alias value="Panel Name"/>
+      <alias value="Panel Code"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="85353-1"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Vital Signs Panel"/>
-      <definition value="Vital Signs Panel."/>
-      <alias value="Panel Name"/>
-      <alias value="Panel Code"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsPanel"/>
@@ -124,13 +106,11 @@
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <min value="0"/>
       <max value="0"/>
     </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
-      <min value="1"/>
-      <max value="*"/>
+      <min value="2"/>
       <mustSupport value="true"/>
     </element>
   </differential>

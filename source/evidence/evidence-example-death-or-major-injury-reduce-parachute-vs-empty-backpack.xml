@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Evidence xmlns="http://hl7.org/fhir">
+	<id value="example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
+	<meta>
+		<versionId value="6"/>
+		<lastUpdated value="2025-02-17T13:56:56.719Z"/>
+		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/comparative-evidence"/>
+		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/single-study-evidence"/>
+	</meta>
+	<url value="http://hl7.org/fhir/Evidence/example-death-or-major-injury-reduce-parachute-vs-empty-backpack"/>
+	<identifier>
+		<type>
+			<text value="FEvIR Object Identifier"/>
+		</type>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="https://fevir.net/FOI/318273"/>
+		<assigner>
+			<display value="Computable Publishing LLC"/>
+		</assigner>
+	</identifier>
+	<title value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator"/>
+	<citeAs value="Death or Major Traumatic Injury on Impact comparing intervention vs. comparator [Database Entry: FHIR Evidence Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 318273. Revised 2025-02-17. Available at: https://fevir.net/resources/Evidence/318273. Computable resource at: https://fevir.net/resources/Evidence/318273#json."/>
+	<status value="active"/>
+	<author>
+		<name value="Joanne Dehnbostel"/>
+	</author>
+	<publisher value="Computable Publishing LLC"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="support@computablepublishing.com"/>
+		</telecom>
+	</contact>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+	<relatesTo>
+		<type value="part-of"/>
+		<targetReference>
+			<reference value="Composition/312172"/>
+			<type value="Composition"/>
+			<display value="PARACHUTE Trial Results"/>
+		</targetReference>
+	</relatesTo>
+	<description value="Example Evidence Resource for EBMonFHIR IG using SingleStudyEvidence and ComparativeEvidence Profiles"/>
+	<variableDefinition>
+		<variableRole value="population"/>
+		<observed>
+			<reference value="Group/292955"/>
+			<type value="Group"/>
+			<display value="PARACHUTE Trial Participants"/>
+		</observed>
+	</variableDefinition>
+	<variableDefinition>
+		<variableRole value="exposure"/>
+		<comparatorCategory value="Parachute trial participants assigned an empty backpack"/>
+		<observed>
+			<reference value="EvidenceVariable/297490"/>
+			<type value="EvidenceVariable"/>
+			<display value="GroupAssignment: Jumping from aircraft with parachute vs. Jumping from aircraft with empty backpack"/>
+		</observed>
+	</variableDefinition>
+	<variableDefinition>
+		<variableRole value="outcome"/>
+		<observed>
+			<reference value="EvidenceVariable/297743"/>
+			<type value="EvidenceVariable"/>
+			<display value="Death or Major Traumatic Injury on Impact"/>
+		</observed>
+	</variableDefinition>
+	<synthesisType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
+			<code value="NotApplicable"/>
+			<display value="not applicable"/>
+		</coding>
+	</synthesisType>
+	<studyDesign>
+		<coding>
+			<system value="https://fevir.net/sevco"/>
+			<code value="SEVCO:01003"/>
+			<display value="randomized assignment"/>
+		</coding>
+	</studyDesign>
+	<statistic>
+		<statisticType>
+			<coding>
+				<system value="https://fevir.net/sevco"/>
+				<code value="STATO:0000614"/>
+				<display value="absolute difference"/>
+			</coding>
+		</statisticType>
+		<quantity>
+			<value value="0"/>
+		</quantity>
+		<sampleSize>
+			<knownDataCount value="23"/>
+		</sampleSize>
+		<attributeEstimate>
+			<type>
+				<coding>
+					<system value="https://fevir.net/sevco"/>
+					<code value="STATO:0000700"/>
+					<display value="p-value"/>
+				</coding>
+			</type>
+			<quantity>
+				<value value="0.9"/>
+				<comparator value="&gt;"/>
+			</quantity>
+		</attributeEstimate>
+	</statistic>
+</Evidence>

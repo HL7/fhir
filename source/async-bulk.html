@@ -41,7 +41,8 @@
   <p>The request will support the HTTP methods, URLs, headers and other parameters that normally apply, but servers
     SHALL also support the <code>Prefer</code> header described below, and SHOULD support the <code>Accept</code> header
     and <code>_outputFormat</code> parameter described below.</p>
-
+  <p>For servers that support both the Bulk Data and Asynchronous Interaction patterns, the <code>_outputFormat</code> parameter is 
+    used to disambiguate the two: when present, the Bulk Data pattern is used. Servers MAY only support the Bulk Data pattern, in which case the <code>_outputFormat</code> parameter is optional.</p>
   <h5 id="headers">Headers</h5>
   <ul>
     <li>
@@ -54,7 +55,7 @@
     <li>
       <p><code>Prefer</code> (string, required)</p>
       <p>Specifies whether the response is immediate or asynchronous. Setting this to <code>respond-async</code>
-        triggers this async pattern.</p>
+        triggers the async pattern.</p>
     </li>
   </ul>
 
@@ -69,10 +70,35 @@
       </p>
       <p>For requests types where the server supports either the Asynchronous Bulk Data Request pattern or the <a
           href="async-bundle.html">Asynchronous Interaction Request</a> pattern,
-        requests that include the <code>_outputFormat</code> parameter SHALL trigger the Asynchronous Bulk Data Request pattern.</p>
+        requests that include the <code>_outputFormat</code> parameter SHALL trigger the Asynchronous Bulk Data 
+        Request pattern.</p>
+    </li>
+    <li>
+      <p><code>_minimumFileSize</code> (number, optional)</p>
+      <p>Specifies the minimum size in bytes for generated NDJSON files. The value SHALL be a positive integer. 
+        If a server supports this parameter, it SHOULD construct files that meet or exceed this size, unless doing 
+        so would violate the _maximumFileSize constraint.
+      </p>
+    </li>
+    <li>
+      <p><code>_maximumFileSize</code> (number, optional)</p>
+      <p>Specifies the maximum size in bytes for generated NDJSON files. The value SHALL be a positive integer and 
+        SHALL be greater than _minimumFileSize if both are specified. If a server supports this parameter, it SHALL 
+        construct files that do not exceed this size. The server MAY use a lower internal maximum.
+      </p>
     </li>
   </ul>
-
+  <p>Implementation notes:
+    <ul>
+      <li>If neither <code>_minimumFileSize</code> or <code>_maximumFileSize</code> is specified, servers use their 
+        default file size behavior.
+      </li>
+      <li>Servers MAY deviate from the specified <code>_minimumFileSize</code> and <code>_maximumFileSize</code> when 
+        necessary (e.g., last file in sequence, files holding resources larger than the <code>_maximumFileSize</code>).
+      </li>
+      <li>Servers SHOULD document any fixed file size bounds they implement.</li>
+    </ul>
+  </p>  
   <h5 id="kick-off-response---success">Response - Success</h5>
   <ul>
     <li>HTTP Status Code of <code>202 Accepted</code> </li>
@@ -251,6 +277,9 @@
           <br />
           <br />
           - <code>count</code> - the number of resources in the file, represented as a JSON number.
+          <br />
+          - <code>filesize</code> - the size of the file in bytes, represented as a JSON number. This provides clients 
+          with information about the storage and processing requirements for downloading and parsing the file.
         </td>
       </tr>
       <tr>

@@ -3,6 +3,12 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+
+<blockquote class="stu-note">
+<p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
+</p>
+</blockquote>
+
 <p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>request</em> resources</a>.</strong></p>
 <p>
 The NutritionOrder resource describes a request for oral diets (including general diets such as General Healthy diet, or therapeutic diets such as Consistent Carbohydrate, 2-gram Sodium, or Fluid Restricted), oral nutrition supplements (such as nutritionally complete pre-packed drinks), enteral nutrition (tube feedings) and infant formula which govern the distribution of food and nutritional products used to feed patients within a patient setting. It does not cover orders for parenteral (IV) nutrition which are typically filled by pharmacy. These nutrition orders are combined with information on a patient's food allergies and intolerances, and ethnic or cultural food preferences (e.g. Kosher or Vegetarian) to inform healthcare personnel about the type, texture, and/or quantity of foods that the patient should receive or consume.
@@ -22,7 +28,7 @@ This resource is intended to be used by practitioners from a variety of specialt
 <p>
     The NutritionOrder resource is used for requesting oral diets, oral nutrition supplements, enteral feedings, and infant formula. The <a href="medicationrequest.html">MedicationRequest</a> resource should be used for requesting parenteral (IV) nutrition and prescribing dietary supplements such as vitamin or mineral supplements.</p>
 <p>
-The Nutrition Order is a record of the request for the supply of a diet, oral supplement, enteral formulas, and infant formula for a patient. However, to initiate the request requires the use of the <a href="task.html">Task</a> resource and its associated workflow with the Nutrition Order referenced from Task.basedOn, or by using the Nutrition Task resource in the context of a messaging or service workflow where the request is explicit or implicit.  For further information about this separation of responsibilities, refer to the <a href="request.html#fulfillment">Fulfillment/Execution section</a> of the Request pattern.
+The Nutrition Order is a record of the request for the supply of a diet, oral supplement, enteral formulas, and infant formula for a patient. However, to initiate the request requires the use of the <a href="task.html">Task</a> resource and its associated workflow with the Nutrition Order referenced from Task.basedOn, or by using the nutrition Task resource in the context of a messaging or service workflow where the request is explicit or implicit.  For further information about this separation of responsibilities, refer to the <a href="request.html#fulfillment">Fulfillment/Execution section</a> of the Request pattern.
 </p>
 </div>
 

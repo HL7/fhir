@@ -1,11 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
+<div>
         <a name="scope"></a>
         <h2>Scope and Usage</h2>
         <p>
-The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are four 
+The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are three 
 anticipated uses for the Consent Resource, all of which are written or verbal agreements by a 
-healthcare consumer [grantor] or a personal representative, made to an authorized entity [grantee] 
+healthcare consumer <code>grantor</code> or a personal representative, made to an authorized entity <code>grantee</code> 
 concerning authorized or restricted actions with any limitations on purpose of use, and 
 handling instructions to which the authorized entity must comply: 
         </p>
@@ -15,8 +15,8 @@ handling instructions to which the authorized entity must comply:
             <li>Research Consent Directive: Consent to participate in research protocol and information sharing required.</li>
         </ul>
         <p>
-            This resource is scoped to cover all three uses, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists.  
-The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. HL7 is working on Advance Directives and would welcome participation by the community.
+            This resource is scoped to cover all three uses and specified via the Category element, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists. Other use cases are possible through the use of the use of other category codes.  
+The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. It is possible to have multiply scoped consent in one Consent resource (e.g., Privacy and Research, or Research and Treatment, etc.) by having multiple provision trees paired.
         </p>
         <p>
             Usage of the
@@ -103,5 +103,5 @@ such as the rules in place when there is an opt-in consent would be specific abo
 organizational roles have access to what kinds of resources (e.g. RBAC, ABAC). 
 The specification of these details is not in scope for the Consent resource.
         </p>
-
+</div>
 </div>

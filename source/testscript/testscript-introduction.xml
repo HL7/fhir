@@ -24,7 +24,7 @@ The purpose of the TestScript is to encode in an executable representation tests
   <li>to support end-to-end testing of business case workflow, such as patient coordination</li>
   <li>within an Ecosystem or Community of Systems-Under-Test</li>
   <li>to determine whether given FHIR clients and servers adhere and are conformant to the FHIR specification</li>
-  <li>to determine whether the capabilities of two or more FHIR implementations capabilities are compatible and interoperable according to the FHIR specification</li>
+  <li>to determine whether the capabilities of two or more FHIR implementation capabilities are compatible and interoperable according to the FHIR specification</li>
 </ol>
 It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange FHIR Resources; for example, the request sent and response returned from a <a href="operation-patient-everything.html">Patient $everything operation</a>.
 </p>

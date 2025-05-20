@@ -713,7 +713,8 @@ return a <code>404 Not Found</code> error, with an operation outcome explaining 
 history is not supported for the underlying resource type or instance.
 </p>
 <p>
-A HEAD request can also be used - <a href="#head">see below</a>.
+Note that a <code>HEAD</code> request can also be used to test if a specific version exists and gain 
+access to the appropriate headers (e.g., <code>ETag</code>>) - see <a href="#head">Support for HEAD</a>.
 </p>
 
 <a name="update"></a>
@@ -806,7 +807,7 @@ Servers can choose whether or not to support client defined ids, and indicate su
 using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate">CapabilityStatement.rest.resource.updateCreate</a>.
 </p>
 <p>
-A server SHALL not return a <code>201</code> response if it did not create a new resource.
+A server SHALL NOT return a <code>201</code> response if it did not create a new resource.
 If a new resource is created, a location header SHALL be returned (though it SHALL be the 
 same as the location in the URL of the PUT request).
 </p>
@@ -1651,12 +1652,15 @@ on the value of the <code>mode</code> parameter:
 Servers MAY ignore the mode parameter and return a CapabilityStatement resource. Note: servers might be required to support this parameter in further versions of this specification.
 </p>
 <p>
-If a <code>404 Not Found</code> is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
-nominated service url. An <code>ETag</code> header SHOULD be returned with the Response. The value of the ETag header SHALL change if the
-returned resource changes.
+Servers SHOULD check for the <a href="#version-parameter">fhirVersion MIME-type parameter</a> when processing this request.
 </p>
 <p>
-Servers SHOULD check for the <a href="#version-parameter">fhirVersion MIME-type parameter</a> when processing this request.
+An <code>ETag</code> header SHOULD be returned with the response. The value of the ETag header SHALL change 
+if the returned resource changes. For more information on versioning, see <a href="#versioning">Resource Metadata and Versioning</a>.
+For more information on the <code>ETag</code> header, see <a href="#Http-Headers">HTTP Headers</a>.
+</p>
+<p>
+If a <code>404 Not Found</code> is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
 </p>
 <p>
 The resource returned typically has an arbitrary id, and no meta element, though it is not prohibited.
@@ -1744,7 +1748,8 @@ Examples:
 <h4>Batch Processing Rules</h4>
 <p>
 For a <code>batch</code>, there SHALL be no interdependencies between the different entries
-in the Bundle that cause change on the server. The success or failure of one change SHOULD
+in the Bundle that cause change on the server. E.g. multiple entries making updates, patches, 
+or deletes to the same resource with would be considered interdependencies. The success or failure of one change SHOULD
 not alter the success or failure or resulting content of another change. Servers SHOULD
 validate that this is the case. Note that it is considered that servers execute the batch
 in the same order as that specified below for transactions, though the order of execution
@@ -1833,6 +1838,17 @@ Similarly if the narrative includes <code>&lt;img src="urn:uuid:someguid"/&gt;</
 transaction creating a Binary with a full url of <code>urn:uuid:someguid</code>, that entire URL would be replaced with the new
 absolute URL of the created Binary resource.
 </p>
+
+[%dragons-start%]
+<p>
+NOTE: it is unsafe to simply perform a string replacement on the contents of both the resource generally 
+and even the narrative text element. Proper replacement requires parsing of narrative content and looking 
+for links inside of the specific tags listed.
+</p>
+[%dragons-end%]
+:
+
+
 <a name="vs-refs"> </a>
 <h4>Version specific references and updates</h4>
 <p>
@@ -1840,7 +1856,7 @@ If a reference within a transaction contains a version-specific reference, the e
 already exists - either on the target server or on another server. If the intention is to point to a version created as
 part of the current transaction, the reference should be a version-independent reference and SHALL include the
 <a href="[%extensions-location%]StructureDefinition-resolve-as-version-specific.html">extension resolve-as-version-specific</a>
-extension, requesting that the server update the reference to be version-specific to the
+extension (see <a href="bundle-transaction.html">Transaction Example</a>), requesting that the server update the reference to be version-specific to the
 target version produced by this transaction. If there is no entry in the transaction Bundle that creates a new version of
 the referenced resource, this MAY be treated as an error.
 </p> 

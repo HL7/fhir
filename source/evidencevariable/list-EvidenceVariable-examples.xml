@@ -100,4 +100,40 @@
       <display value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Outcome: Death or Major Traumatic Injury on Impact"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-outcome-death-or-major-injury"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-outcome-death-or-major-injury"/>
+      <display value="Outcome: Death or Major Traumatic Injury on Impact"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="GroupAssignment: PARACHUTE Trial jumping from aircraft with parachute vs. empty backpack"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-group-assignment"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-group-assignment"/>
+      <display value="GroupAssignment: Jumping from aircraft with parachute vs. Jumping from aircraft with empty backpack"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ParticipantFlowEvidenceVariable: PARACHUTE Trial Participants that declined randomization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-participant-flow"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-participant-flow"/>
+      <display value="PARACHUTE Trial Participants that declined randomization"/>
+    </item>
+  </entry>
 </List>

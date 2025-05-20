@@ -213,7 +213,7 @@
        class="diagram-class-detail"><a
    id="n840"
    xlink:href="task-definitions.html#Task.intent"><title
-   id="title103850">Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc</title>intent</a> : <a
+   id="title103850">Indicates the &quot;level&quot; of actionability associated with the Task, i.e. this a proposed task, a planned task, an actionable task, etc</title>intent</a> : <a
    id="n841"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n842"

@@ -141,13 +141,15 @@
 <h4>Evaluation Context</h4>
 <p>In general, when an expression is evaluated, it is evaluated in the context of the containing resource. This means that the resource is available within the expression so that the current values of the resource can be accessed.</p>
 
-<p>Note that this is the general case for establishing the evaluation context for expressions. Many of the clinical reasoning resources, such as the Measure, will define specific behavior for the evaluation context that overrides this general behavior.</p>
+<p>Note that this is the general case for establishing the evaluation context for expressions.</p>
 
 <p>For FHIRPath expressions, the expression is evaluated with the containing resource using the <code>%context</code> environment variable. For example, when evaluated against a Patient resource, the following expression will return all <code>given</code> elements of all <code>name</code> elements for the patient:</p>
 
 <pre><code>%context.name.given</code></pre>
 
 <p>And because FHIRPath expressions can be used within CQL, the same approach works for accessing the context in a CQL expression.</p>
+
+<p>Knowledge artifacts with a <code>subject</code> element, such as Measure, establish the evaluation context based on that subject. For example, when the subject is <code>Patient</code>, the expression is evaluated in the context of a patient, passed in as an argument to the operation performing the evaluation. For example, the <code>Measure/$evaluate</code> operation takes a subject parameter that establishes the subject context for the evaluation. In CQL, this corresponds to the <code>context</code> for the expression.</p>
 
 <a name="parameters"> </a>
 <h5>Parameters</h5>
@@ -212,7 +214,7 @@
 
 <p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
 
-<p>For more guidance and best-practices for the use of CQL with FHIR-based knowledge artifacts, refer to the [Using CQL]([%ig crmi%]/using-cql.html) topic in the Canonical Resource Management Infrastructure Implementation Guide.</p>
+<p>For more guidance and best-practices for the use of CQL with FHIR-based knowledge artifacts, refer to the <a href="https://hl7.org/fhir/uv/cql/"> Using CQL with FHIR</a> implementation guide.</p>
 [%file newfooter%]
 </body>
 </html>

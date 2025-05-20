@@ -39,63 +39,64 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
   <content value="complete"/>
-  <concept>
+<concept>
     <code value="sponsor"/>
-    <display value="sponsor"/>
-    <definition value="sponsor"/>
+    <display value="Sponsor"/>
+    <definition value="Person, company, agency or institution that initiates a clinical investigation and takes responsibility for that investigation but does not conduct the investigation."/>
   </concept>
   <concept>
     <code value="lead-sponsor"/>
-    <display value="lead-sponsor"/>
-    <definition value="lead-sponsor"/>
+    <display value="Lead sponsor"/>
+    <definition value="Primary person, company, agency or institution that initiates a clinical investigation and takes responsibility for that investigation but does not conduct the investigation if there is more than one sponsor."/>
   </concept>
   <concept>
     <code value="sponsor-investigator"/>
-    <display value="sponsor-investigator"/>
-    <definition value="sponsor-investigator"/>
+    <display value="Sponsor-investigator"/>
+    <definition value="Entity who both initiates and conducts an investigation."/>
   </concept>
   <concept>
     <code value="primary-investigator"/>
-    <display value="primary-investigator"/>
-    <definition value="primary-investigator"/>
+    <display value="Principal investigator"/>
+    <definition value="An investigator who is responsible for all aspects of the conduct of a study."/>
   </concept>
   <concept>
     <code value="collaborator"/>
-    <display value="collaborator"/>
-    <definition value="collaborator"/>
+    <display value="Collaborator"/>
+    <definition value="An organization or individual, who contributes to a study by providing support to the primary investigator to conduct research."/>
   </concept>
   <concept>
     <code value="funding-source"/>
-    <display value="funding-source"/>
-    <definition value="funding-source"/>
+    <display value="Funding source"/>
+    <definition value="An organization that underwrites financial support for the research study."/>
   </concept>
   <concept>
     <code value="general-contact"/>
-    <display value="general-contact"/>
-    <definition value="general-contact"/>
+    <display value="General contact"/>
+    <definition value="Information for the person who can answer general questions for a study."/>
   </concept>
   <concept>
     <code value="recruitment-contact"/>
-    <display value="recruitment-contact"/>
-    <definition value="recruitment-contact"/>
+    <display value="Recruitment contact"/>
+    <definition value="Information for the person who can answer recruitment questions for a study."/>
   </concept>
   <concept>
     <code value="sub-investigator"/>
-    <display value="sub-investigator"/>
-    <definition value="sub-investigator"/>
-  </concept>
-  <concept>
-    <code value="study-director"/>
-    <display value="study-director"/>
-    <definition value="study-director"/>
+    <display value="Sub-investigator"/>
+    <definition value="Any individual member of the clinical trial team designated and supervised by the investigator at a trial site to perform critical trial-related procedures and/or to make important trial-related decisions (e.g., associates, residents, research fellows)."/>
   </concept>
   <concept>
     <code value="study-chair"/>
-    <display value="study-chair"/>
-    <definition value="study-chair"/>
+    <display value="Study chair"/>
+    <definition value="An individual person who both initiates and conducts, alone or with others, a clinical trial and under whose immediate direction the investigational product is administered to, dispensed to, or used by a subject. (Also called study director or study chairperson)"/>
   </concept>
-	<concept>
-		<code value="irb"/>
-		<display value="Institutional Review Board"/>
-	</concept>
+  <concept>
+    <code value="irb"/>
+    <display value="Institutional Review Board"/>
+    <definition value="A group of individuals that reviews and monitors research involving human subjects."/>
+  </concept>
+  <concept>
+    <code value="data-monitoring"/>
+    <display value="Data Monitoring"/>
+    <definition value="An organization or individual who monitors the validity and integrity of collected data while prioritizing participant safety and study integrity. The organization may be called a Data Monitoring Committee (DMC) or Data and Safety Monitoring Board (DSMB)."/>
+  </concept>
 </CodeSystem>

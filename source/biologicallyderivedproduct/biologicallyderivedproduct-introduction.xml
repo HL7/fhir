@@ -1,45 +1,52 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
-		<a name="bnc"> </a>
+		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+		<blockquote class="stu-note">
+		<p><b>Note to Implementers:</b> For an overview of this resource and others in the Biologically Derived Product domain, also see the <a href="biologically-derived-product-module.html">module page</a>.
+		</p>
+		</blockquote>
+		<p>
+			This is a base resource that represents a material substance originating from a biological entity intended to be clinically applied (e.g., transplanted, infused, grafted) to another (possibly the same) biological entity. Examples include:
+		</p>
+		<ul>
+			<li>hematopoietic stem cells (bone marrow, peripheral blood, or cord blood extraction)</li>
+			<li>mesenchymal stromal cells</li>
+			<li>blood products (whole blood, red blood cells, platelets, plasma, etc.)</li>
+			<li>organs (kidney, lung, heart, liver etc.)</li>
+			<li>tissues, human (cornea, heart valves, blood vessels, skin, tendons, cartilage, bone)</li>
+			<li>tissues, non-human (porcine valves, porcine skin, bovine cardiac tissue, etc.)</li>
+			<li>ART tissue (sperm, oocyte, embryo)</li>
+			<li>manipulated cells (e.g. CAR T-cells)</li>
+			<li>human milk for immunological properties</li>
+			<li>topical products (serum eye drops, fibrin sealant)</li>
+			<li>fecal microbiota</li>
+			<li>regenerated tissue products (regenerated epidermis, regenerated corneal epithelium, regenerated trachea)</li>
+		</ul>
+	</div>
+
+	<div>
+		<a name="bnr"></a>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			The following boundaries need to be considered:
+		</p>
+		<ul>
+			<li>Medication - If the product is derived from an individual or small pool, or is blood group specific, it is a BiologicallyDerivedProduct, otherwise it is to be considered a Medication.</li>
+			<li>NutritionProduct - If the product is for normal human dietary consumption it is a NutritionProduct, while if the product is for transplant, infusion, or injection it is a  BiologicallyDerivedProduct.  We note that this is remains a grey area, particularly around certain uses of human milk, that specific implementations can more specifically resolve.</li>
+			<li>Device - Some biologically derived products are considered a device within certain jurisdictions.</li>
+			<li>Specimen - A biologically derived product may involve the same material (e.g., tissue, blood, organ, etc.) as a specimen where the intended use determines whether to use Specimen or BiologicallyDerivedProduct. The focus of the Specimen is to conduct a diagnostic test, while the BiologicallyDerivedProduct is to use for a clinical therapy or procedure on the same or different patient. E.g., blood used for a test is represented by a Specimen, while blood for transfusion is represented as a BiologicallyDerivedProduct. A specimen can be obtained from a BiologicallyDerivedProduct thus creating a Specimen instance where Specimen.subject is a BiologicallyDerivedProduct as a source.</li>
+			<li>Substance - A substance is a homogeneous material with a definite composition that can be reproduced in the same way consistently. Certain substances may include or originate from biologically derived product, but from the point where the substance is identified by batch/lot number and any necessary links to the originating donor(s) are held within the manufacturing records the product can be considered and managed as a substance.</li>
+		</ul>
 
 		<p>
-		This is a base resource that represents a material substance originating from a biological entity intended to be clinically applied (e.g., transplanted, infused, grafted) to another (possibly the same) biological entity. Examples include:
+		<a name="bnr-nutrition"></a>
+		<h3>Nutrition Product</h3>
+		If the product is for dietary administration it is represented as a NutritionProduct. If the product is for transplant, infusion, or injection it is represented as a BiologicallyDerivedProduct. We note that this remains a grey area, particularly around certain uses of donated human milk, and additional use cases may need to be clarified to determine the appropriate representation. Local implementation guidance may provide further direction.
 		</p>
-	<ul>
-		<li>hematopoietic stem cells (bone marrow, peripheral blood, or cord blood extraction)</li>
-        <li>mesenchymal stromal cells</li>
-		<li>blood products (whole blood, red blood cells, platelets, plasma, etc.)</li>
-        <li>organs (kidney, lung, heart, liver etc.)</li>
-        <li>tissues, human (cornea, heart valves, blood vessels, skin, tendons, cartilage, bone)</li>
-		<li>tissues, non-human (porcine valves, porcine skin, bovine cardiac tissue, etc.)</li>
-        <li>ART tissue (sperm, oocyte, embryo)</li>
-        <li>manipulated cells (e.g. CAR T-cells)</li>
-        <li>human milk for immunological properties</li>
-        <li>topical products (serum eye drops, fibrin sealant)</li>
-        <li>fecal microbiota</li>
-        <li>regenerated tissue products (regenerated epidermis, regenerated corneal epithelium, regenerated trachea)</li>
-	</ul>
-</div>
+	</div>
 
-<div>
-<h2>Boundaries and Relationships</h2>
-<p>
-The following boundaries need to be considered:
-</p>
-<ul>
-	<li>Medication - If the product is derived from an individual or small pool, or is blood group specific, it is a BiologicallyDerivedProduct, otherwise it is to be considered a Medication.</li>
-    <li>NutritionProduct - If the product is for normal human dietary consumption it is a NutritionProduct, while if the product is for transplant, infusion, or injection it is a  BiologicallyDerivedProduct.  We note that this is remains a grey area, particularly around certain uses of human milk, that specific implementations can more specifically resolve.</li>
-    <li>Device - Some biologically derived products are considered a device within certain jurisdictions.</li>
-    <li>Specimen - A biologically derived product may involve the same material (e.g., tissue, blood, organ, etc.) as a specimen where the intended use determines whether to use Specimen or BiologicallyDerivedProduct. The focus of the Specimen is to conduct a diagnostic test, while the BiologicallyDerivedProduct is to use for a clinical therapy or procedure on the same or different patient. E.g., blood used for a test is represented by a Specimen, while blood for transfusion is represented as a BiologicallyDerivedProduct. A specimen can be obtained from a BiologicallyDerivedProduct thus creating a Specimen instance where Specimen.subject is a BiologicallyDerivedProduct as a source.</li>
-    <li>Substance - A substance is a homogeneous material with a definite composition that can be reproduced in the same way consistently. Certain substances may include or originate from biologically derived product, but from the point where the substance is identified by batch/lot number and any necessary links to the originating donor(s) are held within the manufacturing records the product can be considered and managed as a substance.</li>
-</ul>
-</div>
-<p>
-<h3>Nutrition Product</h3>
-If the product is for dietary administration it is represented as a NutritionProduct. If the product is for transplant, infusion, or injection it is represented as a BiologicallyDerivedProduct. We note that this remains a grey area, particularly around certain uses of donated human milk, and additional use cases may need to be clarified to determine the appropriate representation. Local implementation guidance may provide further direction.
-</p>
-	<!-- (optional):
+<!-- (optional):
 <div>
 <h2>Background and Context</h2>
 <p>
@@ -47,4 +54,5 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
+
 </div>

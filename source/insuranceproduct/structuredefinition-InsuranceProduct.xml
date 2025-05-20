@@ -67,7 +67,7 @@
     <element id="InsuranceProduct">
       <path value="InsuranceProduct"/>
       <short value="Details of a Health Insurance product provided by an organization"/>
-      <definition value="Details of a Health Insurance product provided by an organization."/>
+      <definition value="A product is a discrete package of health insurance coverage benefits that are offered under a particular network, by an organization (payer) and additional information about the offering, such as who it is owned and administered by, a coverage area, contact information, etc."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>

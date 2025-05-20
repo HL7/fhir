@@ -117,15 +117,9 @@
       <isModifierReason value="This element determines what kind of resource is being represented which drives the meaning of all of the other elements."/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BasicResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes for identifying types of resources not yet defined by FHIR."/>
-        </extension>
-        <strength value="example"/>
-        <description value="HL7-maintained set of codes for &quot;Basic&quot; resources"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/basic-resource-type"/>
+        <strength value="extensible"/>
+        <description value="Codes for all resources across R5 and all published previous versions since R2"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
       </binding>
       <mapping>
         <identity value="w5"/>

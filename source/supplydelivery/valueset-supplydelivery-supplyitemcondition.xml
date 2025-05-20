@@ -15,6 +15,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemcondition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3341"/>
+  </identifier>
   <version value="6.0.0"/>
   <name value="SupplyDeliverySupplyItemCondition"/>
   <title value="Supply Delivery Supply Item Condition"/>

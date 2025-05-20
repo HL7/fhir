@@ -345,4 +345,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DiagnosticReport-procedure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DiagnosticReport.procedure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-procedure"/>
+        <description value="The procedure(s) from which the report was produced."/>
+        <code value="procedure"/>
+        <type value="reference"/>
+        <expression value="DiagnosticReport.procedure"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

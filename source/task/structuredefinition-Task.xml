@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress."/>
+  <description value="A task to be performed as a part of a workflow and the related information like inputs, outputs and execution progress."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -77,11 +77,11 @@
     <element id="Task">
       <path value="Task"/>
       <short value="A task to be performed"/>
-      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/>
+      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/> 
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="inv-1"/>
+        <key value="tsk-0"/>
         <severity value="error"/>
         <human value="Last modified date must be greater than or equal to authored-on date."/>
         <expression value="lastModified.exists().not() or authoredOn.exists().not() or lastModified &gt;= authoredOn"/>
@@ -311,6 +311,7 @@
         </extension>
         <strength value="example"/>
         <description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-business-status"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -320,7 +321,7 @@
     <element id="Task.intent">
       <path value="Task.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. this a proposed task, a planned task, an actionable task, etc."/>
       <comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
       <min value="1"/>
       <max value="1"/>
@@ -425,7 +426,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskCode"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
       </binding>
@@ -585,7 +586,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.authoredOn"/>
@@ -610,7 +610,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -652,7 +651,7 @@
     </element>
     <element id="Task.requestedPerformer">
       <path value="Task.requestedPerformer"/>
-      <short value="Who should perform Task"/>
+      <short value="Who should perform the Task"/>
       <definition value="The kind of participant or specific participant that should perform the task."/>
       <requirements value="Use to distinguish tasks on different activity queues."/>
       <min value="0"/>
@@ -752,6 +751,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of task performers."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-performer-function-code"/>
       </binding>
     </element>
     <element id="Task.performer.actor">
@@ -763,6 +763,8 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
@@ -810,6 +812,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -999,6 +1002,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1203,7 +1207,8 @@
           <valueString value="TaskOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <description value="Codes to identify types of input parameters. These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>

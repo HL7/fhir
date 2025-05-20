@@ -96,6 +96,7 @@
       <path value="Person.identifier"/>
       <short value="A human identifier for this person"/>
       <definition value="Identifier for a person within a particular scope."/>
+      <comment value="Systems MAY use identifier for user identities (using the type='USER'). Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities, particularly where duplicating the identifier to other resources." />
       <requirements value="People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the person. Examples are national person identifier and local identifier."/>
       <min value="0"/>
       <max value="*"/>
@@ -169,7 +170,7 @@
       <path value="Person.telecom"/>
       <short value="A contact detail for the person"/>
       <definition value="A contact detail for the person, e.g. a telephone number or an email address."/>
-      <comment value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification."/>
+      <comment value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
       <max value="*"/>

@@ -12,7 +12,7 @@
 
 <%dtheader examples%>
 <h2>Datatype Examples</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg mnm%]">[%wgt mnm%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>This page includes additional examples of the datatypes, based on common usages and questions</p>
 
@@ -50,6 +50,10 @@
 
 
 <div class="example">
+
+[%example-start%]
+
+
 	<p>A boolean true value:</p><pre class="xml" fragment="boolean">&lt;active value="true" /&gt;</pre>
 	<p>A negative integer value:</p><pre class="xml" fragment="integer">&lt;score value="-14" /&gt;</pre>
 	<p>A high-precision decimal value:</p><pre class="xml" fragment="decimal">&lt;pi value="3.14159265358979323846264338327950288419716939937510" /&gt;</pre>
@@ -64,16 +68,75 @@
   <p>2:35pm in the afternoon:</p><pre class="xml" fragment="time">&lt;time value="14:35:00" /&gt;</pre>
 </div>
 
+[%example-json%]
+<p>A boolean true value:</p><pre class="json" fragment="boolean">  "active" : true</pre>
+<p>A negative integer value:</p><pre class="json" fragment="integer">  "score" : -14</pre>
+<p>A high-precision decimal value:</p><pre class="json" fragment="decimal">  "pi" : 3.14159265358979323846264338327950288419716939937510</pre>
+<p>A stream of bytes, base64 encoded:</p><pre class="json" fragment="base64Binary">  "data" : "/9j/4...KAP//Z"   "!-- covers many lines --&gt;</pre>
+<p>A Unicode string:</p><pre class="json" fragment="string">  "caption" : "Noodles are called ?? in Chinese"</pre>
+<p>A URI that points to a website:</p><pre class="json" fragment="uri">  "reference" : "http://hl7.org/fhir"</pre>
+<p>A URI that is a urn:</p><pre class="json" fragment="uri">  "id" : "urn:isbn:0451450523"</pre>
+<p>A date of birth:</p><pre class="json" fragment="date">  "date" : "1951-06-04"</pre>
+<p>An approximate date of birth:</p><pre class="json" fragment="date">  "date" : "1951-06"</pre>
+<p>The instant a document was created, including timezone:</p><pre class="json" fragment="instant">  "instant" : "2013-06-08T10:57:34+01:00"</pre>
+<p>The instant a document was created, expressed in UTC, with milliseconds:</p><pre class="json" fragment="instant">  "instant" : "2013-06-08T09:57:34.2112Z"</pre>
+<p>2:35pm in the afternoon:</p><pre class="json" fragment="time">  "time" : "14:35:00"</pre>
+
+[%example-end%]
+
 <a name="strings"></a>
 <h3>String Patterns</h3>
 
 <div class="example">
-	<p>A URI that is the root oid of HL7:</p><pre class="xml" fragment="oid">&lt;root value="urn:oid:2.16.840.1.113883" /&gt;</pre>
-	<p>A URI that is a uuid:</p><pre class="xml" fragment="uuid">&lt;id value="urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11" /&gt;</pre>
-	<p>A code:</p><pre class="xml" fragment="code">&lt;code value="acq4+acq5" /&gt;</pre>
-	<p>A code with single internal space:</p><pre class="xml" fragment="code">&lt;code value="Question 4b" /&gt;</pre>
-	<p>A numeric id:</p><pre class="xml" fragment="code">&lt;id value="314" /&gt;</pre>
-	<p>An alphanumeric id:</p><pre class="xml" fragment="code">&lt;id value="alpha-gamma-14" /&gt;</pre>
+  
+[%example-start%]
+
+<p>A URI that is the root oid of HL7:</p><pre class="xml" fragment="oid">&lt;root value="urn:oid:2.16.840.1.113883" /&gt;</pre>
+<p>A URI that is a uuid:</p><pre class="xml" fragment="uuid">&lt;id value="urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11" /&gt;</pre>
+<p>A code:</p><pre class="xml" fragment="code">&lt;code value="acq4+acq5" /&gt;</pre>
+<p>A code with single internal space:</p><pre class="xml" fragment="code">&lt;code value="Question 4b" /&gt;</pre>
+<p>A numeric id:</p><pre class="xml" fragment="code">&lt;id value="314" /&gt;</pre>
+<p>An alphanumeric id:</p><pre class="xml" fragment="code">&lt;id value="alpha-gamma-14" /&gt;</pre>
+[%example-json%]
+
+<p>A URI that is the root oid of HL7:</p><pre class="json" fragment="oid">  "root" : "urn:oid:2.16.840.1.113883"</pre>
+<p>A URI that is a uuid:</p><pre class="json" fragment="uuid">  "id" : "urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11"</pre>
+<p>A code:</p><pre class="json" fragment="code">  "code" : "acq4+acq5"</pre>
+<p>A code with single internal space:</p><pre class="json" fragment="code">  "code" : "Question 4b"</pre>
+<p>A numeric id:</p><pre class="json" fragment="code">  "id" : "314"</pre>
+<p>An alphanumeric id:</p><pre class="json" fragment="code">  "id" : "alpha-gamma-14"</pre>
+[%example-end%]
+</div>
+
+<a name="extensions"></a>
+<h3>Primitive Extensions and Ids</h3>
+
+
+<div class="example">
+  <p>A text representation of a date:</p>
+  [%example-start%]  
+<pre class="xml">
+  &lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
+    &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
+      &lt;valueString value="Easter 1970"/&gt;
+    &lt;/extension&gt;
+  &lt;/<b>birthDate</b>&gt;
+</pre>
+
+  [%example-json%]
+
+<pre class="json">
+  "birthDate": "1970-03-30",
+  "_birthDate": {
+    "id": "314159",
+    "extension" : [ {
+      "url" : "http://example.org/fhir/StructureDefinition/text",
+      "valueString" : "Easter 1970"
+    }]
+  }
+</pre>
+  
+  [%example-end%]
 </div>
 
 <a name="Attachment"></a>
@@ -82,7 +145,7 @@
 Attachment
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Attachment-->See also <a no-external="true" href="datatypes.html#Attachment">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Attachment">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Attachment">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Attachment">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Attachment">R4 Conversions</a>
+<!--xlp:Attachment-->See also <a data-no-external="true" href="datatypes.html#Attachment">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Attachment">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Attachment">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Attachment">Extensions</a>
 </p>
 <div class="example">
 <p>A PDF document:</p>
@@ -134,7 +197,7 @@ Since the JSON examples have the same structure as the XML, only XML is shown fo
 Identifier
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Identifier-->See also <a no-external="true" href="datatypes.html#Identifier">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Identifier">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Identifier">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Identifier">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Identifier">R4 Conversions</a>
+<!--xlp:Identifier-->See also <a data-no-external="true" href="datatypes.html#Identifier">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Identifier">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Identifier">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Identifier">Extensions</a>
 </p>
 <div class="example">
 <p><b>Examples</b></p>
@@ -400,7 +463,7 @@ See <a href="datatypes-mappings.html#ii">v3 Mapping Notes</a>
 <a name="coding"></a>
 <h3 style="margin-bottom: 1px">Coding</h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Coding-->See also <a no-external="true" href="datatypes.html#Coding">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Coding">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Coding">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Coding">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Coding">R4 Conversions</a>
+<!--xlp:Coding-->See also <a data-no-external="true" href="datatypes.html#Coding">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Coding">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Coding">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Coding">Extensions</a>
 </p>
 <div class="example">
 <p><b>Examples</b></p>
@@ -447,7 +510,7 @@ See <a href="datatypes-mappings.html#ii">v3 Mapping Notes</a>
 CodeableConcept
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:CodeableConcept-->See also <a no-external="true" href="datatypes.html#CodeableConcept">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#CodeableConcept">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#CodeableConcept">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#CodeableConcept">R4 Conversions</a>
+<!--xlp:CodeableConcept-->See also <a data-no-external="true" href="datatypes.html#CodeableConcept">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#CodeableConcept">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#CodeableConcept">Extensions</a>
 </p>
 
 <div class="example">
@@ -662,7 +725,7 @@ And where the value set would be something like this:
 Quantity
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Quantity-->See also <a no-external="true" href="datatypes.html#Quantity">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Quantity">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Quantity">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Quantity">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Quantity">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Quantity">R4 Conversions</a>
+<!--xlp:Quantity-->See also <a data-no-external="true" href="datatypes.html#Quantity">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Quantity">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Quantity">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Quantity">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Quantity">Extensions</a>
 </p>
 
 <div class="example">
@@ -737,7 +800,7 @@ Quantity
 Money
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Money-->See also <a no-external="true" href="datatypes.html#Money">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Money">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Money">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Money">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Money">R4 Conversions</a>
+<!--xlp:Money-->See also <a data-no-external="true" href="datatypes.html#Money">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Money">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Money">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Money">Extensions</a>
 </p>
 
 <div class="example">
@@ -803,7 +866,7 @@ Money
 Range
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Range-->See also <a no-external="true" href="datatypes.html#Range">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Range">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Range">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Range">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Range">R4 Conversions</a>
+<!--xlp:Range-->See also <a data-no-external="true" href="datatypes.html#Range">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Range">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Range">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Range">Extensions</a>
 </p>
 <div class="example">
 <p><b>Examples</b></p>
@@ -842,7 +905,7 @@ Range
 Ratio
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Ratio-->See also <a no-external="true" href="datatypes.html#Ratio">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Ratio">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Ratio">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Ratio">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Ratio">R4 Conversions</a>
+<!--xlp:Ratio-->See also <a data-no-external="true" href="datatypes.html#Ratio">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Ratio">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Ratio">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Ratio">Extensions</a>
 </p>
 <div class="example">
 <p><b>Examples</b></p>
@@ -913,7 +976,7 @@ Ratio
 RatioRange
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:RatioRange-->See also <a no-external="true" href="datatypes.html#RatioRange">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RatioRange">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RatioRange">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RatioRange">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#RatioRange">R4 Conversions</a>
+<!--xlp:RatioRange-->See also <a data-no-external="true" href="datatypes.html#RatioRange">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RatioRange">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RatioRange">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RatioRange">Extensions</a>
 </p>
 <div class="example">
 <p><b>Examples</b></p>
@@ -1050,7 +1113,7 @@ RatioRange
 Period
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Period-->See also <a no-external="true" href="datatypes.html#Period">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Period">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Period">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Period">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Period">R4 Conversions</a>
+<!--xlp:Period-->See also <a data-no-external="true" href="datatypes.html#Period">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Period">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Period">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Period">Extensions</a>
 </p>
 
 <div class="example">
@@ -1079,7 +1142,7 @@ Period
 SampledData
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:SampledData-->See also <a no-external="true" href="datatypes.html#SampledData">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#SampledData">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#SampledData">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#SampledData">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#SampledData">R4 Conversions</a>
+<!--xlp:SampledData-->See also <a data-no-external="true" href="datatypes.html#SampledData">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#SampledData">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#SampledData">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#SampledData">Extensions</a>
 </p>
 <div class="example">
 <p><b>Example</b></p>
@@ -1122,7 +1185,7 @@ SampledData
 HumanName
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:HumanName-->See also <a no-external="true" href="datatypes.html#HumanName">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#HumanName">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#HumanName">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#HumanName">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#HumanName">R4 Conversions</a>
+<!--xlp:HumanName-->See also <a data-no-external="true" href="datatypes.html#HumanName">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#HumanName">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#HumanName">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#HumanName">Extensions</a>
 </p>
 
 <div class="example">
@@ -2013,7 +2076,7 @@ fidelity of the name parts is not critical.
 Address
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Address-->See also <a no-external="true" href="datatypes.html#Address">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Address">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Address">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Address">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Address">R4 Conversions</a>
+<!--xlp:Address-->See also <a data-no-external="true" href="datatypes.html#Address">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Address">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Address">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Address">Extensions</a>
 </p>
 
 <p>
@@ -2450,7 +2513,7 @@ even if it might be the whole line.
 ContactPoint
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:ContactPoint-->See also <a no-external="true" href="datatypes.html#ContactPoint">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#ContactPoint">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#ContactPoint">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#ContactPoint">R4 Conversions</a>
+<!--xlp:ContactPoint-->See also <a data-no-external="true" href="datatypes.html#ContactPoint">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#ContactPoint">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#ContactPoint">Extensions</a>
 </p>
 
 <div class="example">
@@ -2518,7 +2581,7 @@ the base FHIR type does not require the phone number to be conformant. An ISO 21
 Timing
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Timing-->See also <a no-external="true" href="datatypes.html#Timing">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Timing">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Timing">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Timing">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Timing">R4 Conversions</a>
+<!--xlp:Timing-->See also <a data-no-external="true" href="datatypes.html#Timing">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Timing">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Timing">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Timing">Extensions</a>
 </p>
 
 <div class="example">
@@ -2680,16 +2743,55 @@ Note that the end date is inclusive like the end date of a Period.
 RelativeTime
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:RelativeTime-->See also <a no-external="true" href="datatypes.html#RelativeTime">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#RelativeTime">R4 Conversions</a>
+<!--xlp:RelativeTime-->See also <a data-no-external="true" href="datatypes.html#RelativeTime">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
 
+<div class="example">
+  <p><b>Example</b></p>
+  <p>Start a treatment the day after surgery:</p>
+  [%example-start%]
+  <pre class="xml" fragment="RelativeTime">
+    &lt;contextCode&gt;
+      &lt;coding&gt;
+        &lt;system value="http://snomed.info/sct"/&gt;
+        &lt;code value="38102005"/&gt;
+        &lt;display value="Removal of gallbladder"/&gt;
+      &lt;/coding&gt;
+    &lt;/contextCode&gt;
+    &lt;offsetDuration&gt;
+      &lt;value value="1"/&gt;
+      &lt;system value="http://unitsofmeasure.org"/&gt;
+      &lt;code value="d"/&gt;
+    &lt;/offsetDuration&gt;
+  </pre>
+  [%example-json%]
+  <pre class="json" fragment="RelativeTime">
+  {
+    "contextCode" : {
+      "coding" : [{
+        "system" : "http://snomed.info/sct",
+        "code" : "38102005",
+        "display" : "Removal of gallbladder"
+      }]
+    },
+    "offsetDuration" : {
+      "value" : 1,
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d"
+    }
+  }
+  </pre>
+  [%example-end%]
+  
+</div>
+  
 <a name="Signature"></a>
 <a name="signature"></a>
 <h3>
 Signature
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Signature-->See also <a no-external="true" href="datatypes.html#Signature">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Signature">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Signature">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Signature">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Signature">R4 Conversions</a>
+<!--xlp:Signature-->See also <a data-no-external="true" href="datatypes.html#Signature">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Signature">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Signature">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Signature">Extensions</a>
 </p>
 
 <div class="example">
@@ -2737,7 +2839,7 @@ Signature
 Annotation
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-<!--xlp:Annotation-->See also <a no-external="true" href="datatypes.html#Annotation">Base Definition</a>, <a no-external="true" href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Annotation">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Annotation">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Annotation">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Annotation">R4 Conversions</a>
+<!--xlp:Annotation-->See also <a data-no-external="true" href="datatypes.html#Annotation">Base Definition</a>, <a data-no-external="true" href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Annotation">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Annotation">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Annotation">Extensions</a>
 </p>
 
 <div class="example">

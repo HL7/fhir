@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="simple-format-codes"/>
+  <url value="http://hl7.org/fhir/simple-format-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2133"/>
+  </identifier>
+  <name value="SimpleFormatCodes"/>
+  <title value="Simple Format Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <description value="This value set includes simple codes for format defined for CapabilityStatement.format."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="xml"/>
+    <display value="xml"/>
+    <definition value="The XML format described by the FHIR specification. The formal Mime Type is application/fhir+xml"/>
+  </concept>
+  <concept>
+    <code value="json"/>
+    <display value="json"/>
+    <definition value="The JSON format described by the FHIR specification. The formal Mime Type is application/fhir+json"/>
+  </concept>
+  <concept>
+    <code value="ttl"/>
+    <display value="ttl"/>
+    <definition value="The RDF format described by the FHIR specification. The formal Mime Type is application/fhir+turtle"/>
+  </concept>
+</CodeSystem>

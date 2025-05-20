@@ -84,7 +84,7 @@
       </extension>
       <path value="ServiceRequest"/>
       <short value="A request for a service to be performed"/>
-      <definition value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed."/>
+      <definition value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed. When the ServiceRequest is active, it represents an authorization to perform the service."/>
       <alias value="diagnostic request"/>
       <alias value="referral"/>
       <alias value="referral request"/>
@@ -103,6 +103,13 @@
         <severity value="error"/>
         <human value="bodyStructure SHALL only be present if bodySite is not present"/>
         <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </constraint>
+      <constraint>
+        <key value="asn-1"/>
+        <severity value="error"/>
+        <human value="asNeededFor SHALL only be present if asNeeded is empty or true"/>
+        <expression value="asNeededFor.empty() or (asNeeded = true or asNeeded.empty())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
       <mapping>
@@ -310,7 +317,7 @@
         <valueString value="[#3720][#10296][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The status of the order."/>
       <comment value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
       <min value="1"/>
@@ -499,8 +506,8 @@
       </extension>
       <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
-      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
-      <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."/>
+      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
+      <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code. The PlanDefinition may be used when you want to group multiple activities together (e.g., order set that are part of a plan)."/>
       <alias value="service requested"/>
       <min value="0"/>
       <max value="1"/>
@@ -516,7 +523,7 @@
           <valueString value="ServiceRequestCode"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  [preferred](terminologies.html#preferred)."/>
+        <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is [preferred](terminologies.html#preferred)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
       <mapping>
@@ -838,21 +845,34 @@
         <map value="Procedure.procedureSchedule"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.asNeeded[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#13196]."/>
-      </extension>
-      <path value="ServiceRequest.asNeeded[x]"/>
-      <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+    <element id="ServiceRequest.asNeeded">
+      <path value="ServiceRequest.asNeeded"/>
+      <short value="Perform the service &quot;as needed&quot;"/>
+      <definition value="Indicates that the service (e.g., procedure, lab test) should be performed when needed (Boolean option)." />
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.asNeededFor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13196]."/>
+      </extension>
+      <path value="ServiceRequest.asNeededFor"/>
+      <short value="Specified criteria for the service"/>
+      <definition value="Indicates specific criteria that need to be met to perform the service (e.g., lab results or symptoms)."/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="asn-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -862,10 +882,6 @@
         <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
-      </mapping>
       <mapping>
         <identity value="quick"/>
         <map value="Proposal.prnReason.reason"/>
@@ -913,7 +929,7 @@
       <path value="ServiceRequest.requester"/>
       <short value="Who/what is requesting service"/>
       <definition value="The individual who initiated the request and has responsibility for its activation."/>
-      <comment value="This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource."/>
+      <comment value="This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource. The requestor is expected to receive the provided results (if any) of the ServiceRequest.  If other additional recipients of results are required, use a [CommunicationRequest](./communicationrequest.html) resource based on the ServiceRequest and with the appropriate code in the `CommunicationRequest.category` element. Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. In those instances it is preferable to use more specific resources such as Organization."/>
       <alias value="author"/>
       <alias value="orderer"/>
       <min value="0"/>
@@ -926,6 +942,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -996,7 +1013,7 @@
       <path value="ServiceRequest.performer"/>
       <short value="Requested performer"/>
       <definition value="The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc."/>
-      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
+      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B). Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. In those instances it is preferable to use more specific resources such as Organization, CareTeam, or HealthcareService instead."/>
       <alias value="request recipient"/>
       <min value="0"/>
       <max value="*"/>
@@ -1010,6 +1027,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1065,9 +1083,9 @@
         <valueString value="7134. [#10296]  need to add reference as another inline element[#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.reason"/>
-      <short value="Explanation/Justification for procedure or service"/>
-      <definition value="An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`."/>
-      <comment value="This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise, use `concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
+      <short value="Reason or indication for requesting the service"/>
+      <definition value="The reason or the indication for requesting the service (e.g., procedure, lab test)."/>
+      <comment value="This element represents why the request is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Use `reason.concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1077,6 +1095,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -1164,10 +1183,13 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10589][#11119]#13196][#13821]."/>
       </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="ServiceRequest.specimen"/>
       <short value="Procedure Samples"/>
       <definition value="One or more specimens that the laboratory procedure will use."/>
-      <comment value="The purpose of the ServiceRequest.specimen is to reflect the actual specimen that the requested test/procedure is asked to be performed on, whether the lab already has it or not.  References to specimens for purposes other than to perform a test/procedure on should be made using the ServiceRequest.supportingInfo or the Specimen.parent where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo a general reference for context."/>
+      <comment value="Most commonly the association between the Specimen and ServiceRequest resources will be from the Specimen to the ServiceRequest, as usually the ServiceRequest is created first and provides the authorization for the specimen to be collected, and the reference to the ServiceRequest is recorded using the Specimen.request element.  The ServiceRequest.specimen element, on the other hand, is being deprecated and is discouraged from use and is intended to be removed in a future release.  In the less common cases where the specimen to be used to perform the test is already known and available and needs to be specified at the time the ServiceRequest is created, it is preferable to use the new 'specimenSuggestion' extension on the ServiceRequest resource, which enables specifying a particular specimen to be used either by a direct reference, more generally by a coded concept specifying the specimen type, or by the context of another ServiceRequest and any existing specimen(s) that may be associated with that request.  When a specimen is referenced, it is expected to be used.  If for some reason the specified specimen is unable to be used (doesn't exist, wrong specimen type, insufficient quantity or quality, etc.), the decision to collect another specimen or to not perform the test must be based on established policies or determined by some other means agreed to with the requester.  References to specimens for purposes other than performing a test/procedure should be made using ServiceRequest.supportingInfo or the Specimen.parent, where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo provides a general reference for context."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1191,7 +1213,7 @@
       <path value="ServiceRequest.bodySite"/>
       <short value="Coded location on Body"/>
       <definition value="Anatomic location where the procedure should be performed. This is the target site."/>
-      <comment value="Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure]]]."/>
+      <comment value="ServiceRequest.bodyStructure is the preferred way to codify the target site of the requested service. Instead of using .bodySite.code, use .bodyStructure.includedStructure.structure.  Note that laterality in bodyStructure would use .bodyStructure.includedStructure.laterality, and the BodyStructure.includedStructure.structure code should not precoordinate the laterality."/>
       <requirements value="Knowing where the procedure is performed is important for tracking if multiple sites are possible."/>
       <alias value="location"/>
       <min value="0"/>

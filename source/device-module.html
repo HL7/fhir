@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+[%settitle Device Module%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    [%file newheader%]
+</head>
+<body>
+    [%file newnavbar%]
+
+    <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+    <a name="root"></a>
+    <h2>Device Module</h2>
+    
+    <blockquote class="stu-note">
+        <p><b>Note to Implementers:</b> This module page describes the context and usage of the Devices and related resources. HL7 seeks specific feedback on the usefulness of this module page and the implementability of the referenced resources.</p>
+        <p>The future location and navigation links to this module are outstanding items to be revisited in a future FHIR version.</p>
+    </blockquote>
+    
+    <a name="intro"></a>
+    <h3>Introduction</h3>
+    <p>This module is concerned with "devices" and how to use the various device-related FHIR resources to address common use cases. Within FHIR a "device" can represent a wide range of equipment including such diverse things as MRIs, beds, tongue depressors, bandages, stents and implants, blood pressure monitors, weight scales, infusions pumps, clinical decision support software, continuous glucose monitor, and bed-side monitors. Because of the range of possible devices and the range of uses, systems may choose to implement a subset of device-related resources.</p>
+
+    <p>Device-related resources include:</p>
+    <ul>
+        <li>Resources providing the <b>definition and documenting the capabilities</b> of the device include: Device, DeviceDefinition, DeviceMetric</li>
+        <li>Resources documenting the <b>supply or clinical workflow</b> (e.g., order, fulfillment, and use) of devices include: DeviceAssociation, DeviceRequest, DeviceDispense, DeviceUsage</li>
+        <li>Resources related to the <b>actual clinical use and/or behavior</b> of the device include: Observation, DeviceAlert, Procedure.</li>
+    </ul>
+
+    <a name="index"></a>
+    <h3>Index</h3>
+    <table width="100%" style="table-layout: fixed">
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="device.html">Device</a></li>
+                    <li><a href="devicealert.html">DeviceAlert</a></li>
+                    <li><a href="deviceassociation.html">DeviceAssociation</a></li>
+                    <li><a href="devicedefinition.html">DeviceDefinition</a></li>
+                    <li><a href="devicedispense.html">DeviceDispense</a></li>
+                    <li><a href="devicemetric.html">DeviceMetric</a></li>
+                    <li><a href="devicerequest.html">DeviceRequest</a></li>
+                    <li><a href="deviceusage.html">DeviceUsage</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <a name="devicerelatedresourcesdiagram"></a>
+    <h4>Device-related FHIR Resources: The Big picture</h4>
+    <p>When considering the use of FHIR for the integration of device information and services, many resources may be involved in even the simplest application.  Additionally, given the robust nature of FHIR resources, a single basic capability will have many potential solutions all using valid FHIR resource configurations.  The following diagram captures the core device-related FHIR resources and representative relationships.</p>
+    <img src="device-module-resources-big-map.png" alt="Image showing the Device-related FHIR Resources: The Big picture" />
+
+    <p>Looking in to the details of each of the resources on this diagram, though, will reveal a significant amount of detail that can often lead to confusion as to the high-level purposes they are intended to address.  Only the most comprehensive applications will require integration of all the model components.  Most will require only a subset. To sort this out, the following examples are provided to help understand the key concepts and rationale for their implementation.</p>
+
+    <a name="deviceinstancevstype"></a>
+    <p><b><u>Device Instance vs. Device Type</u></b></p>
+    <p><b>Resources:</b><a href="device.html">Device</a>, <a href="devicedefinition.html">Device Definition</a></p>
+
+    <p>When working with a specific <b>INSTANCE</b> of a device (that can be uniquely identified for example: Company Z Super Ventilator, model SV, serial #123xyz456), a <a href="device.html">Device</a> resource is used. A <a href="device.html">Device</a> may reference a single <a href="devicedefinition.html">DeviceDefinition</a> when additional definitional information about the device is necessary to exchange.</p>
+
+    <p><b><u>What about device settings vs. "observations"?</u></b></p>
+    <p><b>Resources:</b><a href="device.html">Device</a>, <a href="devicemetric.html">Device Metric</a>, <a href="observation.html">Observation</a></p>
+    <p><b>Description:</b>  The DeviceMetric models the properties of the Observations generated by the device, whereas the Observation is recording the measurement taken by the device.</p>
+    <p><b>Examples</b>: TBD - Personal Health Device examples</p>
+
+    <strong style="color:red">Under development for R6 Comment Only Ballot #3</strong>
+
+    <a name="devicerelatedresources"></a>
+    <h3>Device-related Resources</h3>
+    <p>The following are the core device-related resources:</p>
+    <table class="bare">
+        <tr>
+            <th>Name</th>
+            <th>Description/Relationship</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="device.html">Device</a>
+            </td>
+            <td>
+                <p>A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device, and might or might not be capable of communicating. A device may be a physical object or virtual, such as software.</p>
+                <p>An instrument, apparatus, implement, machine, appliance, implant, reagent for in vitro use, software, material or other similar or related article, intended by the manufacturer (3.33) to be used, alone or in combination, for human beings, for one of more of the specific medical purpose(s) of ....</p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="devicealert.html">Device Alert</a>
+            </td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="deviceassociation.html">Device Association</a>
+            </td>
+            <td><ul>
+                <li>record of association or dissociation of the device with patient or other device, or a practitioner, group, location;</li>
+                <li>This is a more precise record of association with a patient</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="devicedefinition.html">Device Definition</a>
+            </td>
+            <td>The DeviceDefinition provides a description of all instances of a particular model of device.Description/Relationship.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="devicedispense.html">Device Dispense</a>
+            </td>
+            <td><ul>
+                <li>Record of allocation of the device to a patient</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="devicemetric.html">Device Metric</a>
+            </td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="devicerequest.html">Device Request</a>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="deviceusage.html">Device Usage</a>
+            </td>
+            <td><ul>
+                <li>Record of use by patient, whereas DeviceAssociation is more record of association or dissociation of the device with patient;</li>
+                <li>DeviceUsage has details about how it was used; DeviceAssociation doesn't</li>
+            </ul></td>
+
+        </tr>
+    </table>
+
+    <br />
+    <a name="relatedresources"></a>
+    <h3>Related Resources</h3>
+    <p>The following are the secondary resources that are used in many device related activities:</p>
+    <table class="bare">
+        <tr>
+            <th>Name</th>
+            <th>Module(s)</th>
+            <th>Description/Relationship</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="patient.html">Patient</a>
+            </td>
+            <td valign="top">Administration</td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="location.html">Location</a>
+            </td>
+            <td valign="top">Administration</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+
+                <a href="servicerequest.html">Service Request</a>
+            </td>
+            <td valign="top">Clinical, Workflow</td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="procedure.html">Procedure</a>
+            </td>
+            <td valign="top">Clinical</td>
+            <td><ul>
+                <li>The actual procedure in which the device is used, consumed, implanted or explanted. The device may be the focus of the procedure or just used in the procedure.</li>
+                <li>Procedure is intended to capture the details of the procedure</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="observation.html">Observation</a>
+            </td>
+            <td valign="top">Diagnostics</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="endpoint.html">Endpoint</a>
+            </td>
+            <td valign="top">Administration</td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="bundle.html">Bundle</a>
+            </td>
+            <td valign="top">Foundation</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <a name="secpriv"></a>
+    <h3>Security and Privacy</h3>
+    <p>The Device-related resources typically represent patient-specific data, and as such are susceptible to data breaching. Necessary privacy and security provisions must be in place when searching and fetching this information. For more general considerations, see the <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
+    <P>Device data must be treated securely across all three aspects that include confidentiality, integrity, and availability. Furthermore, proper confidentiality, integrity and availability protections must be applied across the entire ecosystem that delivers the data from the device to personal health or point of care services. Device data privacy must also be considered to ensure that patient identifiable data is not compromised and made public. The ecosystem delivering the device data must not publicly associate device data with the patient or user to which that data belongs. In addition, access to device data must be restricted to those who need to know in clinical and consumer settings and to those who are allowed access by the user or patient.</P>
+    <p>It is highly recommended that a proper methodology is used to assess the security vulnerabilities and associated threats of any such architecture and to apply proper mitigation techniques based on the risks exposed by such threats. To that end, it is recommended that security methods are constructed based on the <a href="https://standards.ieee.org/ieee/11073-40101/7668/">IEEE 11073-40101</a> and <a href="https://standards.ieee.org/ieee/11073-40102/7680/">IEEE 11073-40102</a> standards that provide the framework for device cybersecurity vulnerability analysis and risk mitigation. Such analysis will enable application of transport-specific mitigation techniques such as the Bluetooth Authorization Control <a href="https://www.bluetooth.com/specifications/specs/authorization-control-service-1-0/">Service</a> and <a href="https://www.bluetooth.com/specifications/specs/authorization-control-profile-1-0/">Profile</a> specifications.</p>
+    <a name="roadmap"></a>
+    <h3>Developmental Roadmap</h3>
+    <p></p>
+    <table class="bare">
+        <tr>
+            <th>Name</th>
+            <th>Matutity Level</th>
+            <th>Known changes</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="device.html">Device</a>
+            </td>
+            <td valign="top">
+                
+            </td>
+            <td valign="top">
+                The <a href="device.html">Device</a> resource has undergone substantial change since R5, to include removing core elements.  The Device.owner has been moved to DeviceAssociation.relationship to indicate the .subject of the association is an owner.  The following core elements: mode, cycle, duration, gateway and endpoint have been moved to extensions (note: the extensions will not be available in R6 Comment Only #3 ballot).
+            </td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="devicealert.html">Device Alert</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="deviceassociation.html">Device Association</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="devicedefinition.html">Device Definition</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="devicedispense.html">Device Dispense</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="devicemetric.html">Device Metric</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="devicerequest.html">Device Request</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="deviceusage.html">Device usage</a>
+            </td>
+            <td valign="top"></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <p>
+        <i>O&amp;O welcomes feedback to show if the resource designs have made a solution that works, and is implementable, for users across a range of domains.</i>
+    </p>
+
+    [%file newfooter%]
+</body>
+</html>

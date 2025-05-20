@@ -43,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, a Referenced Content Item Identifier from a DICOM SR Content Item or a Segment Number from a DICOM Segmentation SOP Instance."/>
+  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation from a DICOM SR Content Item, or a Segment Number from a DICOM Segmentation SOP Instance."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -52,7 +52,7 @@
   </mapping>
   <mapping>
     <identity value="dicom"/>
-    <uri value="http://nema.org/dicom"/>
+    <uri value="https://dicomstandard.org/current"/>
     <name value="DICOM Tag Mapping"/>
   </mapping>
   <mapping>
@@ -77,6 +77,48 @@
       <definition value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="isl-1"/>
+        <severity value="error"/>
+        <human value="At least one of seriesUid or imageRegion3D shall be present"/>
+        <expression value="seriesUid.exists() or imageRegion3D.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-2"/>
+        <severity value="error"/>
+        <human value="seriesUid SHALL only be present if studyUid is present"/>
+        <expression value="seriesUid.empty() or studyUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-3"/>
+        <severity value="error"/>
+        <human value="seriesNumber SHALL only be present if seriesUid is present"/>
+        <expression value="seriesNumber.empty() or seriesUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-4"/>
+        <severity value="error"/>
+        <human value="instance SHALL only be present if seriesUid is present"/>
+        <expression value="instance.empty() or seriesUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-5"/>
+        <severity value="error"/>
+        <human value="imageRegion3D SHALL only be present if frameOfReferenceUid is present"/>
+        <expression value="imageRegion3D.empty() or frameOfReferenceUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-6"/>
+        <severity value="error"/>
+        <human value="imageRegion3D SHALL only be present if instance.imageRegion2D is not present"/>
+        <expression value="imageRegion3D.empty() or instance.imageRegion2D.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -92,7 +134,7 @@
     </element>
     <element id="ImagingSelection.identifier">
       <path value="ImagingSelection.identifier"/>
-      <short value="Business Identifier for Imaging Selection"/>
+      <short value="Business Identifiers for Imaging Selection"/>
       <definition value="Unique identifiers assigned to this imaging selection."/>
       <comment value="This is a business identifiers, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers). "/>
       <requirements value="Allows imaging selections to be distinguished and referenced."/>
@@ -114,15 +156,15 @@
     <element id="ImagingSelection.status">
       <path value="ImagingSelection.status"/>
       <short value="available | entered-in-error | inactive | unknown"/>
-      <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <definition value="The current state of the imaging selection. This is distinct from the status of any imaging study, service request, or task associated with the imaging selection."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource SHOULD not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -144,7 +186,7 @@
     <element id="ImagingSelection.category">
       <path value="ImagingSelection.category"/>
       <short value="Classifies the imaging selection"/>
-      <definition value="Classifies the imaging selection."/>
+      <definition value="Classifies the general purpose of the imaging selection."/>
       <requirements value="Used for filtering what imaging selections are retrieved and displayed."/>
       <min value="0"/>
       <max value="*"/>
@@ -156,7 +198,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImagingSelectionCode"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Key Object Selection Document Title."/>
         <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
       </binding>
@@ -172,9 +214,8 @@
     <element id="ImagingSelection.code">
       <path value="ImagingSelection.code"/>
       <short value="Imaging Selection purpose text or code"/>
-      <definition value="Reason for referencing the selected content."/>
-      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
-      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
+      <definition value="Identifies the type of imaging selection."/>
+      <requirements value="Identifies the type of content and the structure of the imaging selection."/>
       <alias value="Description"/>
       <min value="1"/>
       <max value="1"/>
@@ -332,7 +373,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </type>
       <isSummary value="true"/>
@@ -354,7 +394,7 @@
       <short value="The imaging study from which the imaging selection is derived"/>
       <definition value="The imaging study from which the imaging selection is made."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
@@ -367,7 +407,6 @@
       <short value="DICOM Study Instance UID"/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
-      <requirements value="DICOM Study Instance UID.&#xA;       Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -378,6 +417,7 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793"/>
       </example>
+      <condition value="isl-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -389,7 +429,7 @@
       <short value="DICOM Series Instance UID"/>
       <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Instance UID.&#xA;Required unless `frameOfReferenceUid` and `imageRegion` are present and instance is not present. &#xA;Must correspond to a Series that is part of the DICOM study identified by the `studyUID` element."/>
+      <requirements value="Must correspond to a Series that is part of the DICOM study identified by the `studyUid` element."/>
       <alias value="SeriesInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -400,6 +440,10 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
       </example>
+      <condition value="isl-1"/>
+      <condition value="isl-2"/>
+      <condition value="isl-3"/>
+      <condition value="isl-4"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -411,13 +455,14 @@
       <short value="DICOM Series Number"/>
       <definition value="The Series Number for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Number. &#xA;Must correspond to the series identified by the `seriesUID` element."/>
+      <requirements value="DICOM Series Number. &#xA;Must correspond to the series identified by the `seriesUid` element."/>
       <alias value="SeriesNumber"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="unsignedInt"/>
       </type>
+      <condition value="isl-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -427,9 +472,8 @@
     <element id="ImagingSelection.frameOfReferenceUid">
       <path value="ImagingSelection.frameOfReferenceUid"/>
       <short value="The Frame of Reference UID for the selected images"/>
-      <definition value="The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames."/>
+      <definition value="Uniquely identifies groups of composite instances that have the same coordinate system that conveys spatial and/or temporal information."/>
       <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
-      <requirements value="DICOM Frame of Reference UID.&#xA;                            Required if studyInstanceUid and seriesInstanceUid are not present."/>
       <alias value="FrameOfReferenceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -440,6 +484,7 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.2"/>
       </example>
+      <condition value="isl-5"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
@@ -479,7 +524,7 @@
       <path value="ImagingSelection.focus"/>
       <short value="Related resources that are the focus for the imaging selection"/>
       <definition value="The actual focus of an imaging selection when it is another imaging selection resource and not the patient of record."/>
-      <comment value="An imaging selection may reference a DICOM resource that itself references other DICOM resources.&#xA;       e.g. a presentation state references a set of source images or frames."/>
+      <comment value="An imaging selection MAY reference a DICOM resource that itself references other DICOM resources.&#xA;       e.g. a presentation state references a set of source images or frames."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -509,12 +554,14 @@
       <path value="ImagingSelection.instance"/>
       <short value="The selected instances"/>
       <definition value="Each imaging selection includes one or more selected DICOM SOP instances."/>
-      <requirements value="Required if the the selection does not include all instances in the specified series."/>
+      <requirements value="If this element is not present and ImagingSelection.seriesUid is present, all instances in the specified series are included in the selection."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-6"/>
+      <condition value="isl-4"/>
       <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.instance.uid">
@@ -581,7 +628,7 @@
     <element id="ImagingSelection.instance.subset">
       <path value="ImagingSelection.instance.subset"/>
       <short value="The selected subset of the SOP Instance"/>
-      <definition value="Selected subset of the SOP Instance. The type of the subset item is determined by the `instance.sopClass` value.&#xA;May be one of:&#xA;- A list of frame numbers selected from a multiframe SOP Instance.&#xA;- A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html)).&#xA;- A list of segment numbers selected from a segmentation SOP Instance (See [DICOM Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4)).&#xA;- A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
+      <definition value="Selected subset of the SOP Instance. The type of the subset item is determined by the `instance.sopClass` value.&#xA;May be one of:&#xA;- A list of frame numbers selected from a multiframe SOP Instance (See [DICOM PS 3.3 Table 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html#table_10-3)).&#xA;- A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS 3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html)).&#xA;- A list of segment numbers selected from a segmentation SOP Instance (See [DICOM PS 3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4)).&#xA;- A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM PS 3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -606,13 +653,14 @@
       </extension>
       <path value="ImagingSelection.instance.imageRegion2D"/>
       <short value="A specific 2D region in a DICOM image / frame"/>
-      <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.&#xA;If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
-      <requirements value="Shall not be present if the parent imagingSelection.instance is not an image."/>
+      <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates."/>
+      <requirements value="Shall not be present if the parent imagingSelection.instance is not an image. If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-6"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D.regionType">
       <path value="ImagingSelection.instance.imageRegion2D.regionType"/>
@@ -641,9 +689,9 @@
     <element id="ImagingSelection.instance.imageRegion2D.coordinate">
       <path value="ImagingSelection.instance.imageRegion2D.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
-      <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames."/>
+      <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values SHALL be within the range 0\0 to the number of columns\rows in the image / frames."/>
       <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS 3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
-      <requirements value="The number of values must be a multiple of two."/>
+      <requirements value="The number of values SHALL be a multiple of two."/>
       <alias value="GraphicData"/>
       <min value="1"/>
       <max value="*"/>
@@ -666,12 +714,14 @@
       <path value="ImagingSelection.imageRegion3D"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
       <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>
-      <requirements value="Requires that the ImagingSelection.frameOfReferenceUid element is present."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="isl-1"/>
+      <condition value="isl-5"/>
+      <condition value="isl-6"/>
     </element>
     <element id="ImagingSelection.imageRegion3D.regionType">
       <path value="ImagingSelection.imageRegion3D.regionType"/>
@@ -700,9 +750,9 @@
     <element id="ImagingSelection.imageRegion3D.coordinate">
       <path value="ImagingSelection.imageRegion3D.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
-      <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
+      <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and MAY be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
       <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
-      <requirements value="The number of values must be a multiple of three."/>
+      <requirements value="The number of values SHALL be a multiple of three."/>
       <alias value="GraphicData"/>
       <min value="1"/>
       <max value="*"/>

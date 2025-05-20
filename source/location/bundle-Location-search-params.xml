@@ -13,7 +13,7 @@
           <valueString value="Location.address"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-address"/>
-        <description value="A (part of the) address of the location"/>
+        <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
         <code value="address"/>
         <type value="string"/>
         <expression value="Location.address"/>

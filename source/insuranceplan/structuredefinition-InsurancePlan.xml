@@ -67,7 +67,7 @@
     <element id="InsurancePlan">
       <path value="InsurancePlan"/>
       <short value="Plan details"/>
-      <definition value="Details about an insurance plan."/>
+      <definition value="InsurancePlan describes the costs to the subscriber or beneficiary associated with benefits, as well as additional information about the offering, such as who administers the plan, a coverage area, contact information, etc.  The specific benefits covered by the plan are described in the `InsuranceProduct` referenced in `InsurancePlan.product`."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="Observation"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="Observation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="Observation.identifier">
         <shortUnmatched reason="Unknown">
@@ -21,8 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Observation.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,DeviceRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DeviceRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this observation."/>
             <resource value="A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed."/>
@@ -34,8 +32,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="Observation.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(MedicationAdministration,MedicationDispense,MedicationStatement,Procedure,Immunization,ImagingStudy,GenomicStudy)" reason="Unknown"/>
+        <extraTypes _resource="Reference(MedicationAdministration,MedicationDispense,MedicationStatement,Procedure,Immunization,ImagingStudy,GenomicStudy)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular observation is a component or step."/>
             <resource value="A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure."/>
@@ -55,7 +52,7 @@
             <resource value="The status of the result value."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -72,8 +69,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="Observation.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(Device,Location,Organization,Procedure,Practitioner,Medication,Substance,BiologicallyDerivedProduct,NutritionProduct)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,Location,Organization,Procedure,Practitioner,Medication,Substance,BiologicallyDerivedProduct,NutritionProduct)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
             <resource value="Who and/or what the observation is about"/>
@@ -116,7 +112,7 @@
             <resource value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="At least a date should be present unless this observation is a historical report.  For recording imprecise or &quot;fuzzy&quot; times (For example, a blood glucose measurement taken &quot;after breakfast&quot;) use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events."/>
         </commentsUnmatched>
     </divergentElement>
@@ -124,6 +120,7 @@
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed observation"/>
             <resource value="Who is responsible for the observation"/>

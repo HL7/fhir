@@ -116,6 +116,7 @@
       <path value="Patient.identifier"/>
       <short value="An identifier for this patient"/>
       <definition value="An identifier for this patient."/>
+      <comment value="Systems MAY use identifier for user identities (using the type='USER'). Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="Patients are almost always assigned specific numerical identifiers."/>
       <min value="0"/>
       <max value="*"/>
@@ -209,7 +210,7 @@
       <path value="Patient.telecom"/>
       <short value="A contact detail for the individual"/>
       <definition value="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted."/>
-      <comment value="A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone)."/>
+      <comment value="A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone).&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
       <max value="*"/>
@@ -415,8 +416,8 @@
     <element id="Patient.multipleBirth[x]">
       <path value="Patient.multipleBirth[x]"/>
       <short value="Whether patient is part of a multiple birth"/>
-      <definition value="Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).  This count is relative to the total of live births and fetal losses."/>
-      <comment value="Where the valueInteger is provided, the number is the birth number in the sequence. E.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3 If a boolean value was provided for this triplets example, then all 3 patient records would have valueBoolean=true (the ordering is not indicated)."/>
+      <definition value="Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).  This count is relative to the total of live births and fetal losses, which MAY be tracked in the `patient-multipleBirthTotal` extension.&#xD;&#xD;The boolean option for this property can also be used to track that there are known to be multiple fetuses prior to birth." />
+      <comment value="Where the valueInteger is provided, the number is the birth number in the sequence.&#xD;&#xD;E.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3.&#xD;If a boolean value was provided for this triplets example, then all 3 patient records would have valueBoolean=true (the ordering is not indicated).&#xD;&#xD;`valueBoolean` can be used to track fetuses.  `valueInteger` should only be used after live birth." />
       <requirements value="For disambiguation of multiple-birth children, especially relevant where the care provider doesn't meet the patient, such as labs."/>
       <min value="0"/>
       <max value="1"/>

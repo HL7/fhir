@@ -2,6 +2,10 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="DocumentReference-core"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.30.4"/>
+  </identifier>
   <version value="0.01"/>
   <name value="DocumentReferenceHL7Extensions"/>
   <title value="Document Reference  H L7  Extensions"/>

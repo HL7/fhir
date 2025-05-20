@@ -175,18 +175,7 @@
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n955"
    xlink:href="researchstudy.html#ResearchStudy">ResearchStudy</a> »</text>
-    <text
-       id="n960"
-       x="366"
-       y="140"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n961"
-   xlink:href="researchstudy-definitions.html#ResearchStudy.relatedArtifact"><title
-   id="title112614">Citations, references, URLs and other related documents.  When using relatedArtifact to share URLs, the relatedArtifact.type will often be set to one of &quot;documentation&quot; or &quot;supported-with&quot; and the URL value will often be in relatedArtifact.document.url but another possible location is relatedArtifact.resource when it is a canonical URL</title>relatedArtifact</a> : <a
-   id="n962"
-   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
-    <text
+   <text
        id="n966"
        x="366"
        y="154"
@@ -436,10 +425,8 @@
    id="n1118"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1119"
-   xlink:href="evidencereport.html#EvidenceReport">EvidenceReport</a>|<a
-   id="n1120"
    xlink:href="citation.html#Citation">Citation</a>|<a
-   id="n1121"
+   id="n1120"
    xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a> »</text>
   </g>
   <g

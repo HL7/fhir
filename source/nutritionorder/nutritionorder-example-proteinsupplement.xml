@@ -20,13 +20,22 @@ edited by Eric Haas Health eData Inc
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
 	</orderer>
-	<supplement>
+	<oralDiet>
 		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="182922004"/>
+				<display value="Regular diet care"/>
+			</coding>
+		</type>
+	</oralDiet>
+	<additive>
+		<modularType>
 			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="442991000124104"/>
-				<display value="Adult high protein formula"/>
+				<code value="443581000124102"/>
+				<display value="Modular protein formula component (product)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
@@ -35,17 +44,19 @@ edited by Eric Haas Health eData Inc
 			</coding>
 			<text value="High Protein Powder"/>
 		</concept>
-		</type>
+		</modularType>
 		<productName value="Beneprotein"/>
 		<schedule>
 			<timing>
-			<repeat>
-        <boundsPeriod>
-          <start value="2015-02-10"/>
-        </boundsPeriod>
-				<when value="C"/>
-			</repeat>
-		</timing>
+				<repeat>
+					<boundsPeriod>
+						<start value="2015-02-10T15:00:00Z"/>
+					</boundsPeriod>
+					<frequency value="3"/>
+					<period value="24"/>
+					<periodUnit value="h"/>
+				</repeat>
+			</timing>
 		</schedule>
 		<quantity>
 			<value value="1"/>
@@ -54,6 +65,6 @@ edited by Eric Haas Health eData Inc
 			<code value="{scoop}"/>
 		</quantity>
 		<!-- EH:  use the .instructions element to list diet  supplement order-->
-		<instruction value="Beneprotein 1 scoop TID with meal.starting on  2015-02-10"/>
-	</supplement>
+		<note value="Beneprotein 1 scoop TID with meal.starting on  2015-02-10"/>
+	</additive>
 </NutritionOrder>

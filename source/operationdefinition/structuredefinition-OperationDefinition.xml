@@ -319,9 +319,9 @@
     </element>
     <element id="OperationDefinition.experimental">
       <path value="OperationDefinition.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-      <comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
+      <short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of operation definitions that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level operation definition."/>
       <min value="0"/>
       <max value="1"/>
@@ -555,6 +555,23 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="OperationDefinition.synchronicity">
+      <path value="OperationDefinition.synchronicity"/>
+      <short value="synchronous | asynchronous | either"/>
+      <definition value="Indicates that this operation must always be handled as synchronous or asynchronous, or that the server must provide both options, and clients can choose."/>
+      <comment value="An operation derived from another must be consistent with regard to synchronicity - it cannot change from synchronous to asynchronous or vice versa, but it may choose one if synchronicity is either or not specified"/>
+      <meaningWhenMissing value="It is up to server discretion whether to accept a particular invocation of the operation as synchronous or asynchronous."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/synchronicity-control"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>
     <element id="OperationDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
@@ -713,7 +730,7 @@
         <key value="opd-3"/>
         <severity value="error"/>
         <human value="A targetProfile can only be specified for parameters of type Reference, Canonical, or a Resource"/>
-        <expression value="targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/resource-types'))"/>
+        <expression value="targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/all-resource-types'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <constraint>
@@ -723,6 +740,13 @@
         <expression value="(use = 'out') implies searchType.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
+      <constraint> 
+        <key value="opd-8"/> 
+        <severity value="error"/> 
+        <human value="Min &lt;= Max"/> 
+        <expression value="(max = '*') or iif(max != '*', min &lt;= max.toInteger())"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/> 
+      </constraint> 
     </element>
     <element id="OperationDefinition.parameter.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -731,7 +755,7 @@
       <path value="OperationDefinition.parameter.name"/>
       <short value="Name in Parameters.parameter.name or in URL"/>
       <definition value="The name of used to identify the parameter."/>
-      <comment value="This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore. Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers."/>
+      <comment value="This name must be a token (start with a letter in a..z or underscore and only contain letters, numerals, and underscore). Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -789,7 +813,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="unsignedInt"/>
       </type>
     </element>
     <element id="OperationDefinition.parameter.max">
@@ -801,6 +825,13 @@
       <type>
         <code value="string"/>
       </type>
+      <constraint> 
+        <key value="opd-9"/> 
+        <severity value="error"/> 
+        <human value="Max SHALL be a number or &quot;*&quot;"/> 
+        <expression value="empty() or ($this = '*') or (toInteger() &gt;= 0)"/> 
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/> 
+      </constraint> 
     </element>
     <element id="OperationDefinition.parameter.documentation">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -881,7 +912,7 @@
     </element>
     <element id="OperationDefinition.parameter.searchType">
       <path value="OperationDefinition.parameter.searchType"/>
-      <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
+      <short value="number | date | string | token | reference | composite | quantity | uri | special | resource"/>
       <definition value="How the parameter is understood if/when it used as search parameter. This is only used if the parameter is a string."/>
       <comment value="Parameters that are search parameter usually - but not always - are also defined for use with general searches, and function in the operation to filter the set of resources in scope for the operation just like the do when searching. The searchType describes how the server processes the value. For an example, see the [Evaluate Measure Operation](measure-operation-evaluate-measure.html)"/>
       <min value="0"/>
@@ -916,7 +947,7 @@
     </element>
     <element id="OperationDefinition.parameter.binding.strength">
       <path value="OperationDefinition.parameter.binding.strength"/>
-      <short value="required | extensible | preferred | example"/>
+      <short value="required | extensible | preferred | example | descriptive"/>
       <definition value="Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances."/>
       <comment value="For further discussion, see [Using Terminologies](terminologies.html)."/>
       <alias value="conformance"/>

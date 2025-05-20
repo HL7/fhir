@@ -53,7 +53,7 @@
       <slicing>
         <discriminator>
           <type value="exists" />
-          <path value="entry" />
+          <path value="$this" />
         </discriminator>
         <description value="Slice to enforce first entry is NessageHeader." />
         <ordered value="true" />

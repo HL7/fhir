@@ -228,7 +228,7 @@ notes: do not list revision in the version
       <ul>
         <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> datatype</li>
         <li>Rename DeviceUseStatement to <a href="deviceusage.html">DeviceUsage</a></li>
-        <li>New resources <a href="inventoryreport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, <a href="evidencereport.html">EvidenceReport</a>, ClinicalUseIssue</li>
+        <li>New resources <a href="inventoryreport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, EvidenceReport, and ClinicalUseIssue</li>
         <li>Updates for <a href="subscription.html">subscriptions</a>, <a href="medication-definition-module.html">medication definitions</a>, and <a href="evidence.html">evidence based medicine</a></li>
         <li>Ongoing development of other resources</li>
       </ul>
@@ -250,7 +250,7 @@ notes: do not list revision in the version
       2nd Milestone for R5 - May 2020 Virtual Connectathon Stable Version. Significant changes:
       <ul>
        <li>Further Development of the Subscription framework (<a href="subscriptionstatus.html">SubjectStatus</a>, rename Topic to SubscriptionTopic)</li>
-       <li>Add new Resources <a href="permission.html">Permission</a>, <a href="nutritionproduct.html">NutritionProduct</a>, <a href="citation.html">Citation</a>, and <a href="evidencereport.html">EvidenceReport</a></li>
+       <li>Add new Resources <a href="permission.html">Permission</a>, <a href="nutritionproduct.html">NutritionProduct</a>, <a href="citation.html">Citation</a>, and EvidenceReport</li>
       </ul>
     </td>
   </tr>
@@ -277,7 +277,7 @@ notes: do not list revision in the version
       <li>Rework <a href="evidence.html" title="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence.">Evidence</a> and 
         <a href="evidencevariable.html" title="The EvidenceVariable resource describes an element that knowledge (Evidence) is about.">EvidenceVariable</a> Resources</li>
        <li>Add <a href="citation.html" title="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.">Citation</a> and
-        <a href="evidencereport.html" title="The EvidenceReport Resource is a specialized container for a collection of resources and codable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts.">EvidenceReport</a> Resources</li>
+        EvidenceReport Resources</li>
        <li>Remove EffectEvidenceSynthesis and RiskEvidenceSynthesis Resources</li>
        <li>Add canonical as an allowed type for <code>subject[x]</code> to 
         <a href="activitydefinition.html" title="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.">ActivityDefinition</a> and 
@@ -880,7 +880,7 @@ notes: do not list revision in the version
         <li><a href="auditevent.html">AuditEvent</a> - add .event.purposeOfEvent, participant.location, .policy, and .purposeOfUse</li>
         <li><a href="bundle.html">Bundle</a> - major reorganization</li>
         <li><a href="careplan.html">CarePlan</a> - pull goal out + other reorganization</li>
-        <li><a href="clinicalimpression.html">ClinicalImpression</a> - add status, replace careplan &amp; referral with trigger, rename diagnosis to finding, make plan 0..*, </li>
+        <li><a href="clinicalassessment.html">ClinicalImpression</a> - add status, replace careplan &amp; referral with trigger, rename diagnosis to finding, make plan 0..*, </li>
         <li><a href="composition.html">Composition</a> - change .section.content to refer to List only, not any </li>
         <li><a href="conceptmap.html">ConceptMap</a> - change identifier to url, add useContext, change telecom to contact, </li>
         <li><a href="condition.html">Condition</a> - rename subject to patient, rename status to clinicalStatus, change to bodySite = code or Reference(BodySite), rename .codeableConcept to .code</li>
@@ -980,7 +980,7 @@ notes: do not list revision in the version
         <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
         <li><a href="basic.html">Basic</a></li>
         <li><a href="claimresponse.html">ClaimResponse</a></li>
-        <li><a href="clinicalimpression.html">ClinicalImpression</a></li>
+        <li><a href="clinicalassessment.html">ClinicalImpression</a></li>
         <li><a href="communication.html">Communication</a></li>
         <li><a href="communicationrequest.html">CommunicationRequest</a></li>
         <li><a href="contract.html">Contract</a></li>

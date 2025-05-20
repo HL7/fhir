@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="risk-assessment-method"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/risk-assessment-method"/>
+  <version value="6.0.0"/>
+  <name value="RiskAssessmentMethod"/>
+  <title value="Risk Assessment Method"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example code system illustrating possible codes for identifying the mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method"/>
+  <content value="complete"/>
+  <concept>
+    <code value="timi"/>
+    <display value="TIMI"/>
+    <definition value="Thrombolysis in Myocardial Infarction Risk"/>
+  </concept>
+  <concept>
+    <code value="prism"/>
+    <display value="PRISM"/>
+    <definition value="Pediatric risk of mortality (PRISM)"/>
+  </concept>
+  <concept>
+    <code value="cardiff-t2d"/>
+    <display value="Cardiff T2D"/>
+    <definition value="Cardiff Type 2 Diabetes Risk"/>
+  </concept>
+</CodeSystem>

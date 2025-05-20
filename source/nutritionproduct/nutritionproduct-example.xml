@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <NutritionProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
 	<id value="example"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
 	<code>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="227507002"/>
+			<code value="226886006"/>
+			<display value="Scrambled egg (substance)"/>
 		</coding>
 	</code>
 	<status value = "active"/>
   <category>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="227313005"/>
+			<code value="102263004"/>
+			<display value="Eggs (edible) (substance)"/>
 		</coding>
 	</category>
-	<instance>
-		<identifier>
-			<system value="http://example.org/foodserials"/>
-			<value value="77239487"/>
-		</identifier>
-	</instance>
 </NutritionProduct>

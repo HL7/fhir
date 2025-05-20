@@ -24,6 +24,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Immunization-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-encounter"/>
+        <description value="The Encounter this Immunization was part of"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Immunization.encounter"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Immunization-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

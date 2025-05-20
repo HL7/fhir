@@ -114,20 +114,47 @@ in order to support consistent definitions for schema and UML derived code.
                 Person resource will be hosted on external systems.
 [%end-note%]
 
+        <h5>Representing Households and Personal Relationships</h5>
+        <div>
+            <img src="administration-module-relationships.png" alt="Image showing the administration module references between person based resources" width="600px" />
+        </div>
+        <p>
+            There are many use cases that require providing and tracking care to households, families, tribes, villages, shared accommodations, etc.
+        </p>
+        <p>
+            Within these collections of people there can be quite complex networks of relationships between the members.
+        </p>
+        <p>
+            <a href="group.html">Group</a> resources representing households are able to act collectively, however groups of this kind can only contain Patients and RelatedPersons (and potentially other Groups).
+        </p>
+        <p>
+            The <a href="group.html">Group</a> resource is used to collect all the members of the household, and within that resource the <code>member.involvement</code> property
+            is used to describe the role or relationship of the individual (member) has with the group, not with other members of the group.
+        </p>
+        <p>
+            The relationship between the members of the group can be quite complex, and transient over time, and is recorded using the <a href="personalrelationship.html">PersonalRelationship</a> resource,
+            which connects 2 members of the group together (only members of type <a href="patient.html">Patient</a>, <a href="relatedperson.html">RelatedPerson</a>).
+        </p>
+        <p>
+            The <a href="personalrelationship.html">PersonalRelationship</a> resource can also be used outside the group, in these cases it can also reference non group members, including <a href="person.html">Person</a> resources.
+        </p>
+        <p>
+            Some use cases might require a <a href="personalrelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
+        </p>
+        <p>
+            <a href="personalrelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
+        </p>
+
         <a name="agg-pop"></a>
-        <h4>Aggregate Populations</h4>
+        <h5>Aggregate Populations</h5>
         <p>
             The Group resource should be used when representing an aggregate population, where the system is not
             tracking the individual members.  Examples of aggregate populations include households, a tribe, workers
             at a job site, or attendees at a sporting event. 
         </p>
-        <table class="bare">
-            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-            [%res-item Group%]
-        </table>
 
         <a name="clinical-reg"></a>
-        <h4>Clinical Categorization Resources</h4>
+        <h4>Clinical / Financial Categorization Resources</h4>
         <p>
             Most clinical activities occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, whereas short term care is covered by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)
         </p>
@@ -233,7 +260,7 @@ in order to support consistent definitions for schema and UML derived code.
             One of the more common use cases is for marking a patient as being a <a href="security-labels.html">celebrity</a>.
         </p>
         <p>
-            Note that privacy considerations apply to Person, Practitioner and RelatedPerson records in addition to Patient's.
+            Note that privacy considerations apply to Person, Practitioner, RelatedPerson and PersonalRelationship records in addition to Patient's.
         </p>
         <p>
             While Organization, Location, Device and other non-person-identifying records are generally subject to less stringent
@@ -246,6 +273,50 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
         </p>
+        <h4>Representing User Identities</h4>
+        <p>
+            When considering how a User Identity could be represented in FHIR resources:
+        </p>
+        <ul>
+            <li>Systems MAY use .identifier on the Patient, RelatedPerson, Practitioner or Person resources for user identities.</li>
+            <li>When using a Person resource, this identifier MAY be duplicated to the other related resources, however is not required.</li>
+            <li>User identities MAY be handled completely outside of the FHIR and not represented on FHIR resources at all.</li>
+            <li>DO NOT use .telecom properties to represent user identities.</li>
+        </ul>
+        <p>
+            Example Identifier for a User Identity:
+        </p>
+<pre class="json" fragment="Identifier">
+"identifier": [
+{
+    "type": {
+    "coding": [
+        {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "USER",
+        "display": "User Name"
+        }
+    ]
+    },
+    "value": "username@example.org"
+}]
+</pre>
+        [%impl-note%]
+        <p>
+            Some systems may use e-mail as a unique user identifier.  Other systems may use e-mail as one piece of potentially uniquely identifying information.  And other systems may use it for communication (where communication may be to validate identity, or for other purposes).
+        </p>
+        <p>
+            If an e-mail is used as both a user identifier and as a method of communication, then you'd put the same e-mail in both spots (identifier and telecom).
+        </p>
+        <p>
+            Also, consider that not all individuals that need to be identified may have e-mails, for example, kids in a pediatric setting.
+        </p>
+        [%end-note%]
+        [%impl-note%]
+        <p>
+            The FHIR SMART App Launch specification MAY refer to a FHIR Patient, RelatedPerson, Practitioner, PractitionerRole or Person resource instance in its <code>fhirUser</code> claim.
+        </p>
+        [%end-note%]
 
         <a name="uses"></a>
         <h3>Common Use Cases</h3>

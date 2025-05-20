@@ -12,7 +12,6 @@
   <name value="VitalSignsMeasurement"/>
   <title value="Vital Signs Measurement"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
@@ -24,43 +23,33 @@
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyheight"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-panel"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bppanel"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bmi"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodytemp"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyweight"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-heartrate"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-resprate"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-oxygensat"/>
     </include>
     <include>
-      <system value="http://loinc.org"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-headcircum"/>
     </include>
   </compose>

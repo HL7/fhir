@@ -21,12 +21,16 @@
   <concept id="11537-8" short="" long="Surgical drains Narrative"/>
   <concept id="13457-7" short="" long="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
   <concept id="14647-2" short="" long="Cholesterol [Moles/volume] in Serum or Plasma"/>
+  <concept id="15074-8" short="" long="Glucose [Moles/volume] in Blood"/>
   <concept id="18262-6" short="" long="Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"/>
   <concept id="18776-5" short="" long="Plan of care note"/>
   <concept id="18841-7" short="" long="Hospital consultations Document"/>
   <concept id="18842-5" short="" long="Discharge summary"/>
   <concept id="1963-8" short="" long="Bicarbonate [Moles/volume] in Serum or Plasma"/>
+  <concept id="2085-9" short="" long="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
   <concept id="2093-3" short="" long="Cholesterol [Mass/volume] in Serum or Plasma"/>
+  <concept id="21112-8" short="" long="Birth date"/>
+  <concept id="24360-0" short="" long="Hemoglobin and Hematocrit panel - Blood"/>
   <concept id="2708-6" short="" long="Oxygen saturation in Arterial blood"/>
   <concept id="28655-9" short="" long="Attending Discharge summary"/>
   <concept id="29299-5" short="" long="Reason for visit Narrative"/>
@@ -41,15 +45,20 @@
   <concept id="34133-9" short="" long="Summary of episode note"/>
   <concept id="35094-2" short="" long="Blood pressure panel"/>
   <concept id="35200-5" short="" long="Cholesterol [Mass or Moles/volume] in Serum or Plasma"/>
+  <concept id="38208-5" short="" long="Pain severity - Reported"/>
   <concept id="39156-5" short="" long="Body mass index (BMI) [Ratio]"/>
   <concept id="42344-2" short="" long="Discharge diet (narrative)"/>
   <concept id="42346-7" short="" long="Medications on admission (narrative)"/>
   <concept id="42348-3" short="" long="Advance directives"/>
   <concept id="42349-1" short="" long="Reason for referral (narrative)"/>
+  <concept id="45260-7" short="" long="HIV ART medication"/>
+  <concept id="45402-5" short="" long="Language.primary"/>
   <concept id="4548-4" short="" long="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+  <concept id="45701-0" short="" long="Fever [Minimum Data Set]"/>
   <concept id="46240-8" short="" long="History of Hospitalizations+Outpatient visits Narrative"/>
   <concept id="46241-6" short="" long="Hospital admission diagnosis Narrative - Reported"/>
   <concept id="46264-8" short="" long="History of medical device use"/>
+  <concept id="46463-6" short="" long="Race or ethnicity"/>
   <concept id="47420-5" short="" long="Functional status assessment note"/>
   <concept id="47519-4" short="" long="History of Procedures Document"/>
   <concept id="48765-2" short="" long="Allergies and adverse reactions Document"/>
@@ -60,6 +69,7 @@
   <concept id="55109-3" short="" long="Complications Document"/>
   <concept id="55122-6" short="" long="Surgical operation note implants Narrative"/>
   <concept id="55417-0" short="" long="Short blood pressure panel"/>
+  <concept id="55758-7" short="" long="Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]"/>
   <concept id="57016-8" short="" long="Privacy policy acknowledgment Document"/>
   <concept id="57017-6" short="" long="Privacy policy Organization Document"/>
   <concept id="57852-6" short="" long="Problem list Narrative - Reported"/>
@@ -78,7 +88,20 @@
   <concept id="61150-9" short="" long="Subjective Narrative"/>
   <concept id="64292-6" short="" long="Release of information consent Document"/>
   <concept id="64994-7" short="" long="Vaccine funding program eligibility category"/>
+  <concept id="68358-1" short="" long="Date chronic dialysis began"/>
+  <concept id="68518-0" short="" long="How often do you have a drink containing alcohol"/>
   <concept id="69730-0" short="" long="Instructions"/>
+  <concept id="71802-3" short="" long="Housing status"/>
+  <concept id="72133-2" short="" long="Montreal Cognitive Assessment [MoCA]"/>
+  <concept id="74013-4" short="" long="Alcoholic drinks per day"/>
+  <concept id="74468-0" short="" long="Questionnaire form definition Document"/>
+  <concept id="75323-6" short="" long="Condition"/>
+  <concept id="75640-3" short="" long="Lysozyme [Moles/volume] in 24 hour Urine"/>
+  <concept id="76689-9" short="" long="Sex assigned at birth"/>
+  <concept id="76691-5" short="" long="Gender identity"/>
+  <concept id="77160-0" short="" long="Functional outcome score GOSE"/>
+  <concept id="77301-0" short="" long="Reason care action performed or not"/>
+  <concept id="79423-0" short="" long="Cardiovascular disease 10Y risk [Likelihood] ACC-AHA Pooled Cohort by Goff 2013"/>
   <concept id="8302-2" short="" long="Body height"/>
   <concept id="8310-5" short="" long="Body temperature"/>
   <concept id="8462-4" short="" long="Diastolic blood pressure"/>
@@ -95,6 +118,7 @@
   <concept id="9270-0" short="" long="Glasgow coma score verbal"/>
   <concept id="9279-1" short="" long="Respiratory rate"/>
   <concept id="9342-7" short="" long="Cholesterol [Percentile]"/>
+  <concept id="95023-8" short="" long="FASI v1.0 - Mobility [CMS Assessment]"/>
   <concept id="9843-4" short="" long="Head Occipital-frontal circumference"/>
   <concept id="LA10395-4" short="" long="Childhood"/>
   <concept id="LA10397-0" short="" long="30-39"/>
@@ -190,6 +214,7 @@
   <concept id="LP72831-8" short="" long="Intravascular diastolic"/>
   <concept id="LP72836-7" short="" long="Intravascular systolic"/>
   <concept id="LP7753-9" short="" long="Qn"/>
+  <concept id="LP7767-9" short="" long="BDYCRC.MOLEC"/>
   <concept id="LP7768-7" short="" long="BDYHGT.ATOM"/>
   <concept id="LP7769-5" short="" long="BDYHGT.MOLEC"/>
 </loinc>

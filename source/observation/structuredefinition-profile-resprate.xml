@@ -10,7 +10,7 @@
     <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'9279-1'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'/min'**"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -81,38 +81,25 @@
       <path value="Observation"/>
       <short value="FHIR Respiratory Rate Profile"/>
       <definition value="This profile defines  how to represent Respiratory Rate observations in FHIR using a standard LOINC code and UCUM units of measure."/>
-      <min value="0"/>
-      <max value="*"/>
+      <constraint>
+        <key value="vs-4"/>
+        <severity value="error"/>
+        <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
+        <expression value="dataAbsentReason.exists() or value.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+      </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:RespRateCode">
-      <path value="Observation.category"/>
-      <sliceName value="RespRateCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Respiratory Rate"/>
+      <definition value="Respiratory Rate"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="9279-1"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Respiratory Rate"/>
-      <definition value="Respiratory Rate."/>
-      <alias value="Test"/>
-      <alias value="Name"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsRespRate"/>
@@ -124,45 +111,23 @@
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
-    </element>
-    <element id="Observation.valueQuantity.value">
-      <path value="Observation.valueQuantity.value"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
+      <condition value="vsp-4"/>
       <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Common UCUM rate units for vital signs including heart and respiratory rate."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsRateUnits"/>
+        </extension>
+        <strength value="required"/>
+        <description value="/min"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-vitalsignsrate"/>
+      </binding>
     </element>
-    <element id="Observation.valueQuantity.unit">
-      <path value="Observation.valueQuantity.unit"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.system">
-      <path value="Observation.valueQuantity.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://unitsofmeasure.org"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.code">
-      <path value="Observation.valueQuantity.code"/>
-      <short value="Coded responses from the common UCUM units for vital signs value set."/>
-      <definition value="Coded responses from the common UCUM units for vital signs value set."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <fixedCode value="/min"/>
+    <element id="Observation.dataAbsentReason">
+      <path value="Observation.dataAbsentReason"/>
+      <condition value="vsp-4"/>
       <mustSupport value="true"/>
     </element>
   </differential>
