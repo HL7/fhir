@@ -37,7 +37,7 @@
   <div>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The MolecularDefinition resource should be profiled and used to capture representations of molecular concepts such as sequence, allele, haplotype, and genotype. The <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/">Molecular Definition Implementation Guide for Molecular Data Types</a> provides a list of profiles to represent these use cases such as Sequence, Allele, and Variation profiles.
+    The MolecularDefinition resource should be profiled and used to capture representations of molecular concepts such as sequence, allele, haplotype, and genotype. The <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/">Molecular Definition Implementation Guide for Molecular Data Types</a> provides a list of profiles to represent these use cases such as <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-sequence.html">Sequence</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-allele.html">Allele</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-variation.html">Variation</a> profiles.
   </p>
   <p>
     This resource does not capture workflow (e.g., test ordering/resulting process), the method of obtaining or specifying the molecular content (e.g., the test or assay), or the interpretation of the results (e.g., clinical impact). Those concepts will be captured by profiles of Observation and by the Genomic Study resource. In particular, the Genomics Reporting Implementation Guide contains extensive support for the observation and reporting of clinical genomic results.
