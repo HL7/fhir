@@ -8,6 +8,15 @@ repositories {
     jcenter()
     google()
     mavenLocal()
+    maven {
+        name = "Central Portal Snapshots"
+        url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+
+        // Only search this repository for the specific dependency
+        content {
+            includeModule("org.hl7.fhir", "kindling")
+        }
+    }
     mavenCentral()
     maven {
         url = uri("https://jitpack.io")
