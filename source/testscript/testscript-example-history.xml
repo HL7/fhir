@@ -66,7 +66,10 @@
   <profile id="bundle-profile" value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
   <variable>
     <name value="createResourceId"/>
-    <path value="Patient/id"/>
+    <expression>
+      <language value="text/xml"/>
+      <expression value="Patient/id"/>
+    </expression>
     <sourceId value="fixture-patient-create"/>
   </variable>
   <setup>
@@ -190,8 +193,11 @@
     <action>
       <assert>
         <description value="Confirm that the returned Bundle type equals 'history'."/>
+        <expression>
+          <language value="text/xml"/>
+          <expression value="fhir:Bundle/fhir:type/@value"/>
+        </expression>
         <operator value="equals"/>
-        <path value="fhir:Bundle/fhir:type/@value"/>
         <stopTestOnFail value="false"/>
         <value value="history"/>
         <warningOnly value="false"/>
