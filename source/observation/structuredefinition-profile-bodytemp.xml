@@ -89,33 +89,17 @@
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:BodyTempCode">
-      <path value="Observation.category"/>
-      <sliceName value="BodyTempCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Body Temperature"/>
+      <definition value="Body Temperature"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="8310-5"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Body Temperature"/>
-      <definition value="Body Temperature."/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsBodyTemp"/>

@@ -7,7 +7,7 @@
 		<lastUpdated value="2025-03-10T13:18:16.608Z"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/participant-flow-evidence-variable"/>
 	</meta>
-	<url value="https://fevir.net/resources/EvidenceVariable/346779"/>
+	<url value="http://hl7.org/fhir/EvidenceVariable/example-participant-flow"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>

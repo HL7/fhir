@@ -452,8 +452,8 @@
     </element>
     <element id="DiagnosticReport.procedure">
       <path value="DiagnosticReport.procedure"/>
-      <short value="The procedure(s) from which the report was produced"/>
-      <definition value="The procedure(s) that are reported on in the DiagnosticReport."/>
+      <short value="The performed procedure(s) from which the report was produced"/>
+      <definition value="The performed procedure(s) that are reported on in the DiagnosticReport."/>
       <comment value="This is a summary of the report, not a list of results."/>
       <min value="0"/>
       <max value="*"/>
@@ -539,7 +539,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PI&quot;)"/>
+        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PRI&quot;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -676,6 +676,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">
@@ -813,7 +814,15 @@
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
        <isSummary value="true"/>
     </element>

@@ -7,7 +7,7 @@
 		<lastUpdated value="2025-03-10T14:59:32.227Z"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/statistic-model"/>
 	</meta>
-	<url value="https://fevir.net/resources/Evidence/346428"/>
+	<url value="http://hl7.org/fhir/Evidence/example-statistic-model-include-if"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
@@ -18,10 +18,6 @@
 			<display value="Computable Publishing LLC"/>
 		</assigner>
 	</identifier>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.10.6"/>
-  </identifier>
 	<title value="Example of statistical analysis plan with different statistical test if non-normal distribution"/>
 	<status value="active"/>
 	<author>
