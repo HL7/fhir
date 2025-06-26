@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir">
-	<id value="5rd0687e-f477-468c-afd5-xcc2bf897808"/>
+	<id value="example-observation-device-flowratemetric"/>
 	<type value="collection"/>
 	<entry>
 		<fullUrl value="http://hl7.org/fhir/Observation/example-observation-device-flowratemetric"/>
@@ -60,7 +60,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DeviceMetric/iv-pump-flowratemetric"/>
+		<fullUrl value="http://hl7.org/fhir/DeviceMetric/example-iv-pump-flowratemetric"/>
 		<resource>
 			<DeviceMetric xmlns="http://hl7.org/fhir">
 				<id value="example-iv-pump-flowratemetric"/>
@@ -75,7 +75,7 @@
 					<coding>
 						<system value="http://unitsofmeasure.org"/>
 						<code value="mL/(8.h)"/>
-						<display value="milliliter per 8 hour"/>
+						<display value="mL/(8.h)"/>
 					</coding>
 				</unit>
 				<device>
