@@ -1,13 +1,13 @@
-
 plugins {
     java
     application
 }
 
 repositories {
-    jcenter()
+
     google()
     mavenLocal()
+    mavenCentral()
     maven {
         name = "Central Portal Snapshots"
         url = uri("https://central.sonatype.com/repository/maven-snapshots/")
@@ -17,18 +17,11 @@ repositories {
             includeModule("org.hl7.fhir", "kindling")
         }
     }
-    mavenCentral()
     maven {
         url = uri("https://jitpack.io")
     }
     maven {
         url = uri("https://plugins.gradle.org/m2/")
-    }
-    maven {
-        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
-    }
-    maven {
-        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
     }
 }
 
