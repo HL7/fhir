@@ -38,7 +38,7 @@
   <summary>
     <style>
       <coding>
-        <system value="http://terminology.hl7.org/ValueSet/citation-summary-style"/>
+        <system value="http://terminology.hl7.org/CodeSystem/citation-summary-style"/>
         <code value="comppub"/>
         <display value="Computable Publishing"/>
       </coding>
