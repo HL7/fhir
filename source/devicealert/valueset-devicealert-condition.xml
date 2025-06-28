@@ -15,14 +15,14 @@
   </extension>
   <extension
     url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
+    <valueInteger value="2" />
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
   <version value="6.0.0" />
   <name value="DeviceAlertConditionCodes" />
   <title value="DeviceAlert Condition Codes" />
   <status value="draft" />
-  <experimental value="true" />
+  <experimental value="false" />
   <publisher value="FHIR Project team" />
   <contact>
     <telecom>
