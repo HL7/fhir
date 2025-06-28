@@ -44,7 +44,7 @@
   <concept>
     <code value="vibratory" />
     <display value="Vibratory" />
-    <definition value="The signal is annunciated using a haptic or tactile method (e.g. vibration)" />
+    <definition value="The signal is annunciated using a vibrating tactile method" />
   </concept>
   <concept>
     <code value="visual" />
