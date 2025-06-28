@@ -16,7 +16,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.identifier" />
@@ -44,7 +44,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.subject" />
@@ -75,7 +75,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.subject" />
@@ -103,7 +103,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.status" />
@@ -131,7 +131,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.condition.code" />
@@ -159,7 +159,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.condition.presence" />
@@ -215,7 +215,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.condition.timing" />
@@ -243,7 +243,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.priority" />
@@ -271,7 +271,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.type" />
@@ -299,7 +299,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.source" />
@@ -327,7 +327,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.derivedFrom" />
@@ -355,7 +355,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.presence" />
@@ -383,7 +383,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.annunciator.concept" />
@@ -412,7 +412,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.annunciator.reference" />
@@ -440,7 +440,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.manifestation" />
@@ -468,7 +468,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.indication" />
