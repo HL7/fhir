@@ -23,58 +23,260 @@ Outstanding issues:
 
 
 <p>
-<em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
-</p><p>
-<em>Approach:</em> FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
-As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
-This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
-Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
-</p><p>
-Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
-When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
-the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
-These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
-One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
-created/updated Resource is as expected, then the Digital Signature is formed.
-Another solution is to use a canonicalization that excuses these dynamic elements.
-</p><p>
-A variation of this happens in Messaging, Documents, and other interaction models. 
-For details, see 
-<a href="updates.html">Ramifications of storage/retrieval variations</a>
+Digital Signatures are needed to prove the authenticity and integrity of FHIR content and to establish the grounds for non-repudiation.
+</p>
+<p>
+FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
+As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and rely on non-repudiation.
+This functionality is provided through the <a href="datatypes.html#Signature">Signature</a> type found in the
+signature elements in the <a href="provenance.html">Provenance</a> and <a href="bundle.html">Bundle</a> Resources
+The signature can either be an electronic signature (e.g. an image of an ink signature), or a digital signature (cryptographic
+proof that the content has not changed), and in the case of a digital signature, either a JWS signature or an XML Digital Signature.
+</p>
+<p>
+Due the wide set of choices around the use of electronic and digital signatures, 
+local policy and applicable implementation guides are required to define how signatures
+should be created when authoring FHIR content, and what actions should be taken to 
+establish full verification when checking signatures. Note that this specification 
+defines a common set of actions that will cryptographically verify all conformant signatures, but 
+this is not enough by itself to establish trustworthiness.
+</p>
+<p>
+The goal of the FHIR specification with regard to signatures is two-fold:
+</p>
+<ol>
+ <li>Provide implementations with the capabilities needed to enable the set of local policies that are needed</li>
+ <li>Make the actual signature verification process fully interoperable</li>
+</ol>
+<p>
+If implementers follow all the conformance points below (both the "SHALL" and the "SHOULD" points), then any FHIR consumer will be able to verify 
+any digital signature.
 </p>
 
+<a name="cautions"></a>
+<h2>Cautions around the use of digital signatures</h2>
 
 <p>
-This specification recommends the use of <a href="datatypes.html#XML">W3C Digital Signatures</a> 
-or <a href="datatypes.html#JSON">JSON Digital Signatures</a> for digital signatures. 
-Resources can be signed using the <a href="provenance.html">Provenance</a> resource to carry a 
-signature. 
-The <a href="datatypes.html#signature">Signature datatype</a> is available to support various signature types including non-repudiation purposes. 
+The use of digital signatures with FHIR content comes with multiple challenges that 
+implementers using digital signatures have to manage:
 </p>
 <ul>
- <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation.</li>
- <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
- <li>The JSON Digital-Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-LT</a> for support of Long Term signatures.</li>
- <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
+  <li>Ongoing change to the content</li>
+  <li>Uncertainty about what is signed</li>
+  <li>Extent of signature verification</li>
+</ul>
+
+
+<a name="change"></a>
+<h3>Ongoing change to the content</h3>
+<p>
+Once a resource or set of resources is signed, any change to the URLs, identifiers and the expression 
+of internal references will invalidate the signature. From the point of view of the signature, then, 
+these things are frozen. However interoperability between system often requires systems to adjust 
+URLs between relative and absolute, and to re-identify resources or references to resources, and/or 
+to adjust other content, including coded values, in order to <a href="managing.html">Manage system integration</a>. 
+</p>
+<p>
+For example, when a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
+the server is expected at a minimum to update relevant elements that it manages (id, lastUpdated, etc.). 
+These changes, although expected of normal RESTful create/update operations, will break any existing Digital Signature. 
+Variations of this same pattern happens in Messaging, Documents, and other interaction models. 
+For details, see <a href="updates.html">Ramifications of storage/retrieval variations</a>
+</p>
+<p>
+For this reason, it is recommended that systems consider carefully the impact of any signature processes,
+particularly associated with RESTful APIs. One solution is to create the Digital Signature after the REST
+create operation completes, one must first confirm that the resulting 
+created/updated Resource is as expected, then the Digital Signature is formed.
+Another solution is to use a canonicalization that excuses these dynamic elements.
+</p>
+<p>
+The impact of signatures on <a href="documents.html">Document bundles</a> 
+and their related processes is the most well understood use of digital signatures, as the attestation of a 
+documents is inherently associated with the frozen bundle.
+</p>
+
+<a name="uncertainty"></a>
+
+<h3>Uncertainty about what is signed</h3>
+<p>
+Signing content and the consequential non-repudiation is often associated with human user actions, 
+and human-level accountability. However, human users do not sign the resources themselves, they 
+sign some representation of the resource, and the difference between these two forms is a 
+challenge for implementers. When the goal of the digital signature includes human-level non-repudiation, 
+implementers should pay careful attention to the resource narrative as the signed form in such cases.
+</p>
+
+<a name="extent"></a>
+
+<h3>Extent of signature verification</h3>
+
+<p>
+There are multiple aspects to signature verification:
+</p>
+<ol>
+   <li>Verifying that the Digital Signature block itself has integrity through verifying the signature across the Signature.</li>
+   <li>Confirming that the signed content of interest is unmodified using the hash algorithm (for XML digital signatures - this is inherently required for JWS signatures).</li>
+   <li>Confirming that the signer (e.g. the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
+   <li>Confirming the relationship between the signed content, and the functionality of interest .</li>
+</ol>
+<p>
+Local policy and implementation guides are required to guide implementations here. While full conformance to 
+this specification will enable the first and second aspects of signature verification, it does not (and 
+cannot) speak to the third and fourth points; local guidance is required here.
+</p>
+
+<a name="canonicalization"></a>
+<h2>Canonicalization</h2>
+<p>
+A consistent representation of resources in their wire formats (JSON and XML) is required to 
+make signatures interoperable; this is called 'Canonicalizing' resources. Because of the complexities around the interplay between 
+data exchange and human-level signatures, FHIR defines a number of ways of canonicalizing resources
+that are suitable for different purposes. 
+</p>
+
+<a name="json"></a>
+<h3>JSON</h3>
+<p>
+This specification defines the following method for canonicalizing FHIR resources, when represented as JSON. 
+</p>
+<p>
+When JSON resources are canonicalized, they SHALL be canonicalized in accordance with the 
+<a href="https://www.rfc-editor.org/rfc/rfc8785">JSON Canonicalization Scheme defined in RFC 8785</a>. 
+In addition, the following rules apply: 
+</p>
+<ul>
+  <li>Whitespace in the primitive values SHALL not be altered (including multiple spaces in markdown), except for:</li>
+  <li>The XHTML narrative SHALL be canonicalized according to <code>http://hl7.org/fhir/canonicalization/xml</code> after all unnecessary whitespace is removed</li>
+  <li>When sets of resources are signed, multiple fragments are concatenated with no intervening whitespace in the order in which the set is defined</li>
 </ul>
 <p>
-<a href="documents.html#signatures">Documents may be signed</a> using an 
-enveloped or enveloping 
-signature. A specification for enveloped and enveloping signatures on documents are profiled in 
-the <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-37.html">IHE Document Digital Signature (DSG) Profile</a>.
+This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. 
 </p>
+
+<a name="xml"></a>
+<h3>XML</h3>
+
 <p>
-SMART Health Cards defines a <a href="https://spec.smarthealth.cards/#health-cards-are-encoded-as-compact-serialization-json-web-signatures-jws">signature protocol for FHIR Bundles</a> based on the W3C Verifiable Credentials Data Model, and it has been internationally adopted for secure, granulart verification of health information such as COVID-19 immunizations and test results.
+This specification defines the following method for canonicalizing FHIR resources, when represented as 
+XML. Resources are canonicalized using XML canonical method <a href="http://www.w3.org/TR/xmldsig-core1/#sec-Canonical">Canonical XML 1.1</a> (<code>http://www.w3.org/2006/12/xml-c14n11</code>).
+In addition, the following rules apply:
 </p>
-[%stu-note dstu%]
-We would welcome reports of implementation experience. 
-See <a href="https://confluence.hl7.org/display/FHIR/Digital+Signatures">discussion on use of Digital Signature in FHIR</a>
-</p>
+<ul>
+  <li>Whitespace in the primitives value SHALL not be altered (including multiple spaces in markdown), except for:</li>
+  <li>The XHTML <a href="narrative.html">Narrative</a> SHALL be canonicalized following these same rules</li>
+  <li>Resources are to contain no whitespace other than as found in attribute values and in the XHTML in the narrative </li>
+  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
+  <li>Omit all comments</li>
+  <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
+  <li>When sets of resources are signed, multiple fragments are concatenated with no intervening whitespace in the order in which the set is defined</li>
+</ul>
 <p>
-Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
-[%end-note%]
+This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/xml</code>.
+</p>
+
+<a name="variants"></a>
+<h3>Canonicalization Variants</h3>
+<p>
+The following additional canonicalization URIs are also defined for both the JSON and XML forms:
+</p>
+<table class="grid">
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}}#data</td>
+  <td>The narrative (<code>Resource.text</code>) is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#static</td>
+  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if unsigned.</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#narrative</td>
+  <td>The method only retains the <code>Resource.id</code> and Narrative (<code>Resource.text</code></td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#document</td>
+  <td>The signs everything in a Bundle, except for the Bundle.id and Bundle.metadata on the root Bundle (allows for a document to be copied from server to server)</td>
+ </tr>
+</table>
+<p>
+These canonicalization methods allow systems the flexibility to sign the various portions of 
+the resource that matter for the workflow the signature serves. This specification may define
+additional canonicalizations in the future, and other specifications might also define  additional canonicalization methods.
+</p>
 
 
+<a name="methods"></a>
+<h3>Digital Signatures Methods</h3>
+
+<p>
+This specification makes rules about the use of JWS - JSON Web Signatures, and XML Digital Signature.
+Other signature methods can be used, but this specification says nothing about their use.
+Note that SMART Health Cards defines a <a href="https://hl7.org/fhir/uv/smart-health-cards-and-links">signature
+protocol for FHIR Bundles</a> based on the W3C Verifiable Credentials Data Model, and it has been
+internationally adopted for secure, granular verification of health information such as COVID-19 immunizations and test results.
+</p>
+
+<p>
+Implementers should note that the choice of JSON vs XML digital signature is independent of 
+the format of the resource that contains the signature, and also independent of the 
+<code>Signature.targetFormat</code>. This independence may be useful, but implementers 
+may find this challenging too.
+</p>
+
+<p>
+Note that when the signature is created for<code>Bundle.signature</code>, the <code>Bundle.signature</code> element itself
+is excluded during the canonicalization process.
+</p>
+
+<a name="JWS"></a>
+<h3>JWS/JSON Signatures</h3>
+
+<p>
+When the signature is a JWS Digital Signature, the following rules apply:
+</p>
+<ul>
+ <li>The Signature.data is base64 encoded JWS-Signature as specified in <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
+ <li>The value of Signature.sigFormat is <code>application/jose</code> and this SHOULD be populated</li>
+ <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above. The canonicalization method MAY also be found in the <code>canon</code> property in the protected header</li>
+ <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature
+    (where the content that is signed is separate from the signature itself), and the payload SHALL be omitted</li>
+ <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> 
+    of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
+ <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. 
+    The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
+    The Signature.type SHALL contain the same values as the srCms element.</li>
+ <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>Specifically, protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
+ <li>The protected header SHALL contain either a <code>kid</code> or an <code>x5c</code> property</li>
+ <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
+   that matches an identifier found in the X509 certificate (e.g. the <code>Subject</code>, or one of the Subject Alternative Names</li> 
+ <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
+</ul>
+
+<a name="DigSig"></a>
+<h3>XML Digital Signatures</h3>
+
+<p>
+When the signature is an XML Digital Signature, the following rules apply:
+</p>
+<ul>
+  <li>The Signature.data is base64 encoded XML Digital Signature as specified in <a href="https://www.w3.org/TR/xmldsig-core/">XML Signature Syntax and Processing Version 1.1</a></li>
+  <li>The value of Signature.sigFormat is <code>application/pkcs7-signature</code> and this SHOULD be populated</li>
+  <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above</li>
+  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
+  <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> 
+    of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
+  <li>The Signature SHOULD include a "xades CommitmentTypeId" element for the Purpose(s) of Signature. 
+    The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
+    The Signature.type SHALL contain the same values as the srCms element.</li>
+  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation.</li>
+  <li>Specifically, SignedSignatureProperties SHOULD have a <code>SigningTime</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL be equal</li>
+  <li>If a SignedSignatureProperties block is present, it SHOULD not have any whitespace between the elements</li>
+  <li>The Signature SHALL contain a <code>X509Certificate</code></li>
+  <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
+    that matches an identifier found in the X509 certificate (e.g. the <code>Subject</code>, or one of the Subject Alternative Names</li> 
+  <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
+</ul>
 
 [%file newfooter%]
     
