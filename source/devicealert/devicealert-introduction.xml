@@ -102,21 +102,21 @@
                         <strong>DeviceAlert</strong> directly references:</p>
                 <ul>
                         <li>
-                                <strong>Device</strong> or <strong>DeviceMetric</strong> to identify the device or part thereof that
+                                <a href="device.html">Device</a> or <a href="devicemetric.html">DeviceMetric</a> to identify the device or part thereof that
                 originated the detection of the alert condition (e.g., the heart rate device metric that detected a
                 tachycardia alert). These resources may contain additional data elements to describe the alert
                 activation states (e.g., if detection of all or a subset of alerts is on, paused or off).</li>
                         <li>
-                                <strong>Patient</strong> to identify the patient the physiological alert is about (e.g., a tachycardia
+                                <a href="patient.html">Patient</a> to identify the patient the physiological alert is about (e.g., a tachycardia
                 alert). Alternatively, <strong>Device</strong> to identify the device the technical alert is about (e.g.
                 EKG leads off).</li>
                         <li>
-                                <strong>Observation</strong> to identify any evidentiary data needed to interpret the alert condition or
+                                <a href="observation.html">Observation</a> to identify any evidentiary data needed to interpret the alert condition or
                 that is the reason why the alert condition is present.</li>
                 </ul>
-                <p>Via its directly / indirectly referenced <strong>Device,</strong>
+                <p>Via its directly / indirectly referenced <strong>Device</strong>,
                         <strong>DeviceAlert</strong> indirectly
-            references <strong>Location</strong> to identify the location of the device that detected the alert
+            references <a href="location.html">Location</a> to identify the location of the device that detected the alert
             condition (e.g., the location the practitioner may have to go to for acknowledging the alert condition or
             silencing the alert signal).</p>
 
@@ -126,7 +126,7 @@
                                 <strong>Flag:</strong>
                         </li>
                 </ul>
-                <p>Although there is similarity in that both Flag and DeviceAlert indicate &quot;significant information&quot;,
+                <p>Although there is similarity in that both <a href="flag.html">Flag</a> and DeviceAlert indicate &quot;significant information&quot;,
             DeviceAlert provides a carrier for the specific content important to the regulated and automated processing
             of device alerts typically resulting in near real-time notification of a person, typically a clinician in
             the patient vicinity able to respond.</p>
@@ -147,7 +147,7 @@
                                 <strong>DetectedIssue:</strong>
                         </li>
                 </ul>
-                <p>DetectedIssue indicates an actual or potential clinical issue with or between one or more active or proposed
+                <p><a href="detectedissue.html">DetectedIssue</a> indicates an actual or potential clinical issue with or between one or more active or proposed
             clinical actions for a patient.</p>
                 <p>However, DeviceAlert is not necessarily triggered by clinical actions. In most cases it is triggered by
             physiological processes (e.g., hemodynamic deterioration) or physical phenomena (e.g., EKG lead falls off).
@@ -160,7 +160,7 @@
                                 <strong>Communication:</strong>
                         </li>
                 </ul>
-                <p>In Communication there is a specific intended sender and receiver, and the information is delivered only
+                <p>In <a href="communication.html">Communication</a> there is a specific intended sender and receiver, and the information is delivered only
             once. However, Device alerts are not necessarily (or even usually) targeted at a specific intended receiver,
             and they are often continuous and ongoing.</p>
                 <p>Another difference with Communication is that DeviceAlert is not sent with the purpose of &quot;adherence to
@@ -170,7 +170,7 @@
                                 <strong>Observation:</strong>
                         </li>
                 </ul>
-                <p>Observation is intended for capturing measurements and subjective point-in-time assessments. DeviceAlert does
+                <p><a href="observation.html">Observation</a> is intended for capturing measurements and subjective point-in-time assessments. DeviceAlert does
             not share that intent.</p>
                 <p>However, Observation may be used to complement DeviceAlert, identifying any evidentiary data needed to
             interpret the alert condition or that is the reason why the alert condition is present. An example of the
@@ -181,8 +181,8 @@
                                 <strong>Subscription:</strong>
                         </li>
                 </ul>
-                <p>The Subscription resource describes a particular client's request to a FHIR server to be notified about a
-            SubscriptionTopic. Contrarily, device alerts are events that a device determines and signals. They may be
+                <p>The <a href="subscription.html">Subscription</a> resource describes a particular client's request to a FHIR server to be notified about a
+            <a href="subscriptiontopic.html">SubscriptionTopic</a>. Contrarily, device alerts are events that a device determines and signals. They may be
             pushed onto a FHIR server or another receiving actor, but without consumer-controlled filtering.
             Consumer-controlled filtering (e.g., based on subscriptions to device observations for a certain
             Observation.code and, possibly to a certain range of Observation.value) would typically be impossible or
@@ -205,7 +205,7 @@
                                 <strong>AuditEvent:</strong>
                         </li>
                 </ul>
-                <p>AuditEvent records an event relevant for purposes such as operations, privacy, security, maintenance, and
+                <p><a href="auditevent.html">AuditEvent</a> records an event relevant for purposes such as operations, privacy, security, maintenance, and
             performance analysis. Its content is primarily intended for administrative or operational use. However,
             device alerts are relevant for clinical purposes, most notably to trigger a clinical action (e.g., to refill
             an infusion pump).</p>
