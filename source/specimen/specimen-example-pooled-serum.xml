@@ -5,6 +5,10 @@
 <Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Downloads/fhir-all-xsd/structuredefinition.xsd">
 	<id value="pooled-serum"/>
 	<!--  the accessionId assigned by the lab-->
+	<identifier>
+		<system value="https://vetmed.iastate.edu/vdl"/>
+		<value value="20171120-1234"/>
+	</identifier>
 	<accessionIdentifier>
 		<system value="https://vetmed.iastate.edu/vdl"/>
 		<value value="20171120-1234"/>

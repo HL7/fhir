@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="vma-urine"/>
+	<identifier>
+		<system value="http://lab.acme.org/specimens/2015"/>
+		<value value="X352356"/>
+	</identifier>
 	<accessionIdentifier>
 		<!-- accession identifier - e.g. assigned by the labaratory when it is received.
      This is common, unlike specimen identifier -->
