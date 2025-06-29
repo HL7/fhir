@@ -18,16 +18,5 @@
 			Any substance that is to be used as medication would be considered a medicinal product (even a plain one such as water)
 			and as such would be described using <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a> or for a concise summary suitable for day-to-day prescribing, <a href="medication.html">Medication</a>.
 		</p>
-	<div style="border: 1px solid maroon; padding: 10px; background-color: #fffbf7; min-height: 160px;">
-<img src="assets/images/dragon.png" width="150" title="Here Be Dragons!" height="150" style="float:left; mix-blend-mode: multiply; margin-right: 10px;"/>
-
-	<p>
-		This resource is undergoing review for which elements are core and which may be suitable as extensions.
-	</p>
-	<p>
-		Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">on the issue tracker</a> or <a href="https://chat.fhir.org/#narrow/stream/4-implementers">chat.fhir.org</a>.
-	</p>
-	</div><p>&nbsp;</p>
-
 	</div>
 </div>
