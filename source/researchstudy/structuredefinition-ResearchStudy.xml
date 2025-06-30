@@ -206,7 +206,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/title-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.label.value">
@@ -218,6 +218,31 @@
       <type>
         <code value="string"/>
       </type>
+    </element>
+    <element id="ResearchStudy.label.language">
+      <path value="ResearchStudy.label.language"/>
+      <short value="Used to express the specific language"/>
+      <definition value="Used to express the specific language of the title."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
+      </binding>
     </element>
     <element id="ResearchStudy.protocol">
       <path value="ResearchStudy.protocol"/>
@@ -306,7 +331,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of relationship to the related artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.relatesTo.target[x]">
@@ -393,7 +418,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Codes for the main intent of the study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-prim-purp-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-prim-purp-type"/>
       </binding>
       <mapping>
         <identity value="BRIDG5.1"/>
@@ -416,7 +441,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Classifiers of clinical trial progression for human use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-trial-phase"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-phase"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -826,7 +851,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes for why the study ended prematurely."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-reason-stopped"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-reason-stopped"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -1051,7 +1076,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Codes for the kind of study objective."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-objective-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-objective-type"/>
       </binding>
       <mapping>
         <identity value="BRIDG5.1"/>
@@ -1104,7 +1129,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="defn."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-objective-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-objective-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.objective.outcomeMeasure.description">
