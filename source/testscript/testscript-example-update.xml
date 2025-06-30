@@ -66,7 +66,7 @@
   <variable>
     <name value="createResourceId"/>
     <expression>
-      <language value="text/xml"/>
+      <language value="application/xml"/>
       <expression value="Patient/id"/>
     </expression>
     <sourceId value="fixture-patient-create"/>

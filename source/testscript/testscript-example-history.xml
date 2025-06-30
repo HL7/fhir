@@ -67,7 +67,7 @@
   <variable>
     <name value="createResourceId"/>
     <expression>
-      <language value="text/xml"/>
+      <language value="application/xml"/>
       <expression value="Patient/id"/>
     </expression>
     <sourceId value="fixture-patient-create"/>
@@ -194,7 +194,7 @@
       <assert>
         <description value="Confirm that the returned Bundle type equals 'history'."/>
         <expression>
-          <language value="text/xml"/>
+          <language value="application/xml"/>
           <expression value="fhir:Bundle/fhir:type/@value"/>
         </expression>
         <operator value="equals"/>

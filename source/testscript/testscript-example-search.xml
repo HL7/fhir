@@ -244,7 +244,7 @@
       <assert>
         <description value="Confirm that the returned Bundle type equals 'searchset'."/>
         <expression>
-          <language value="text/xml"/>
+          <language value="application/xml"/>
           <expression value="fhir:Bundle/fhir:type/@value"/>
         </expression>
         <operator value="equals"/>
