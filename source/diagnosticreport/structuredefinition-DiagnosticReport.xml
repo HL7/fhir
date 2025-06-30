@@ -513,7 +513,7 @@
         <valueString value="13169."/>
       </extension>
       <path value="DiagnosticReport.resultsInterpreter"/>
-      <short value="Primary result interpreter"/>
+      <short value="Who analyzed and reported the conclusions and interpretations"/>
       <definition value="The practitioner or organization that is responsible for the report's conclusions and interpretations."/>
       <comment value="Might not be the same entity that takes responsibility for the clinical report."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
