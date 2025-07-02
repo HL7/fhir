@@ -278,6 +278,189 @@ When the signature is an XML Digital Signature, the following rules apply:
   <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
 </ul>
 
+<a name="examples"></a>
+<h2>Worked Examples</h2>
+
+<a name="example-jws"></a>
+<h3>JWS example</h3>
+
+<p>
+Here's an example of a signed Bundle.
+</p>
+
+<pre class="json">
+{
+  "resourceType" : "Bundle",
+  "id" : "signed",
+  "identifier" : {
+    "system" : "http://something1",
+    "value" : "something2"
+  },
+  "type" : "collection",
+  "timestamp" : "2024-06-09T11:06:35+10:00",
+  "link" : [{
+    "relation" : "self",
+    "url" : "http://something3"
+  }],
+  "entry" : [{
+    "fullUrl" : "http://something5",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "obs1",
+      "text" : {
+        "status" : "generated",
+        "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;a name=\"Observation_obs1\"> &lt;/a>This is a simple &lt;b>example&lt;/b>&lt;/div>"
+      },
+      "status" : "final",
+      "code" : {
+        "text" : "something"
+      },
+      "valueQuantity" : {
+        "value" : 1
+      }
+    }
+  }],
+  "signature" : {
+    "type" : [{
+      "system" : "urn:iso-astm:E1762-95:2013",
+      "code" : "1.2.840.10065.1.12.1.1"
+    }],
+    "when" : "2025-07-01T08:48:05Z",
+    "who" : {
+      "identifier" : {
+        "system" : "http://example.org/certificates",
+        "value" : "OU=IG Publisher,L=Ann Arbor,CN=hl7.org,O=HL7,ST=Missouri,C=us"
+      }
+    },
+    "targetFormat" : "application/fhir+json;canonicalization=http://hl7.org/fhir/canonicalization/json",
+    "sigFormat" : "application/jose",
+    "data" : "ZXlKMGVYQWlPaUpLVDFORklpd2ljM0pEYlhNaU9sdDdJbU52YlcxSlpDSTZleUpwWkNJNkluVnlianB2YVdRNk1TNHlMamcwTUM0eE1EQTJOUzR4TGpFeUxqRXVNU0lzSW1SbGMyTWlPaUpCZFhSb2IzSW5jeUJUYVdkdVlYUjFjbVVpZlgxZExDSmhiR2NpT2lKU1V6STFOaUlzSW5OcFoxUWlPaUl5TURJMUxUQTNMVEF4VkRBNE9qUTRPakExV2lJc0ltTmhibTl1SWpvaWFIUjBjRG92TDJoc055NXZjbWN2Wm1ocGNpOWpZVzV2Ym1sallXeHBlbUYwYVc5dUwycHpiMjRpTENKNE5XTWlPbHNpVFVsSlJHOTZRME5CYjNGblFYZEpRa0ZuU1VKQlJFRk9RbWRyY1docmFVYzVkekJDUVZFd1JrRkVRbkpOVVhOM1ExRlpSRlpSVVVkRmQwb3hZM3BGVWsxQk9FZEJNVlZGUTBGM1NWUlhiSHBqTWpreFkyMXJlRVJFUVV0Q1owNVdRa0Z2VFVFd2FFMU9la1ZSVFVFMFIwRXhWVVZCZDNkSVlVZDNNMHh0T1hsYWVrVlRUVUpCUjBFeFZVVkNkM2RLVVZjMWRVbEZSbmxaYlRsNVRWSlZkMFYzV1VSV1VWRk1SRUY0U2xKNVFsRmtWMHB6WVZoT2IxcFlTWGRJYUdOT1RXcFZkMDVxUlRWTlJFbDZUVVJOZWxkb1kwNU5hbGwzVG1wSmQwMUVTWHBOUkUxNlYycENjazFSYzNkRFVWbEVWbEZSUjBWM1NqRmpla1ZTVFVFNFIwRXhWVVZEUVhkSlZGZHNlbU15T1RGamJXdDRSRVJCUzBKblRsWkNRVzlOUVRCb1RVNTZSVkZOUVRSSFFURlZSVUYzZDBoaFIzY3pURzA1ZVZwNlJWTk5Ra0ZIUVRGVlJVSjNkMHBSVnpWMVNVVkdlVmx0T1hsTlVsVjNSWGRaUkZaUlVVeEVRWGhLVW5sQ1VXUlhTbk5oV0U1dldsaEpkMmRuUldwTlFUQkhRMU54UjFOSllqTkVVVVZDUVZGVlFVRTBTVUpGUVVGM1oyZEZURUZ2U1VKQlowTTVWWE00ZGpCVmVVOTVLMWhYVEZKbVpqSTVSMGhSWVRsaGVIRjBSR0Z2TjJGNmMxZHVSakl2UVVKa1p6Rm5ObVJQUmk4d1dtdHlhRXhrY1VwSlUybzRUV3hUVURWV1RHOTFOamRwV2tsSU1GSjRVazFtVTBFd1pTOW1hVGxFUlRoUlUzcHdTVTlzZFdWbFNESk5PRkV5Vm1WelMzQXphRWxyY0N0NFEyRkhVR0pqTkV3d2ExcFdhMFUyUlZjclZGVlNOMUZVY3pGT2EyRjRkSGRaZGxjNE4yZExlbTQyUWt3d1dYZ3ZOVzExTVZWR1YyTktMMWgwVEVocmFXRm5kRWxpVTJsRldGTmtjMnA0ZG1sUFlrcE5NbE5oVmpOMFlVTmhZWGxIUzFaR2NGVTJjbEJNUkM5V1VtRnlkRFphVURGRFNsRXllbXhKYzJ0RlJVOXVibFZMUlZWMWQyTkdjRXczZERWR1dHbElWazlZTUdoYU5XWnpkVWRaZERoRmRVeDNZVGRuYVVWUmRtWXZVR0ZSWWxSeVZGWk5UMlJMU0M5RlIxWktTVGd4VFdaT1ozcEZZbkpCTDBOMlkwY3ZiR2RITTBSTkswcDNTVVJCVVVGQ2J6RkJkMVJxUVdSQ1owNVdTRkUwUlVablVWVnhRa3R2TW1sUk1GSTFjalZIYVU1c2FESnpUa042UlhFNVVVbDNTSGRaUkZaU01HcENRbWQzUm05QlZYRkNTMjh5YVZFd1VqVnlOVWRwVG14b01uTk9RM3BGY1RsUlNYZEVRVmxFVmxJd1ZFSkJWWGRCZDBWQ0wzcEJUa0puYTNGb2EybEhPWGN3UWtGUk1FWkJRVTlEUVZGSlFXazRSbFp6Y1ZwS05FOW1hV2xuYW1kd05DdERaVWhFZURaTVNsSjFjVFpaYjJsT1pYSjRTalJzSzBWVU5FSmlOMm80UlM5RVJHVkZabVZpUlZGMmQxQnlhR3hQZVVaUFpubHZjM3BoUW01R09FVndMMGhyTjA5cU5tTndUR2h2UVVocVpWWXpSMVY1S3pONFp6Tk9Rak5FZFVVM1NtaHVlRGs1YTNkbVVrdzVkRTlZU2pVclRHd3hRVWxvZVZRd1NrbEVPRW8yTHprNVVUVldiWGRUUTFWbFVtWnVhRzV1YVdkYWJIZFRORlpvUVc5aGJtaHljWHAzV0had1QyTnZLMGg1YUV3d2VUTnRiV0pDU0M5bFMxVXJTRFZRSzB3eVNVWnBVMFpNTmxoQlREUlFUVE53V1VrdmVtb3JUbmxvUVZoYVdscDNiR3hTYW05SlMyWnNSMDlQT0VoVll6VnBTbWxVU0doWmJ6QnBTMU14YkZCNFEwaHZTM2xCSzJGV1JXRldSUzluYjNGQ2QyOWxNMVk1YlhoSVFYbzBWWEU0WlM5aFVUQlBabU5wUm0xcU5UVnpObTE0TldWVlpIazFiRkZ4Wm05bGEwVTlJbDE5Li5vUDFVd2xHQll2TllLREFpc2h6YThQbThjbDltMXkwbWkxVGMtZTdER2dUMEVGMG1xSV8tN3o3aFNQR1NPWEJISmRqcE00MHVZMHE1UlJ4MXFUdi1jbVhGQW52NHd4TXFHYzZ3U3VkbTZmMXRkTGdMbGZwUTlaOTh0cEZnSDBQejU2aWpmLUxqb0I1dVBtbV9Sb1Nyd2V3RlFuN0xocFk5Wm9wQWVUVVNTY1R5OUFGOW1Cdnd1MXZUbWFMeE9TSkR6b0djbmxmV3RKZ09fN29yMmVfS2ZKZDUzdGRYZkFOaVpmQURZcFEzaHhmLTJTWF9HYzVaZ3J4WGl0V2tGUDVSaFRYb3lycUMzSFlKNko2M1BnSzhEVmxMcWNFLXgzUXBZMDB3UXB2MUEtSGdjUGhKY3Rhc3k3QmJwbkszeldfdUxNRFZGYjl0OHVJV095a210UlJwZUtJ"
+  }
+}
+</pre>
+
+<p>
+The raw data for the signature is (after decoding the base64):
+</p>
+<pre>
+eyJ0eXAiOiJKT1NFIiwic3JDbXMiOlt7ImNvbW1JZCI6eyJpZCI6InVybjpvaWQ6MS4yLjg0MC4xMDA2NS4xLjEyLjEuMSIsImRlc2MiOiJBdXRob3IncyBTaWduYXR1cmUifX1dLCJhbGciOiJSUzI1NiIsInNpZ1QiOiIyMDI1LTA3LTAxVDA4OjQ4OjA1WiIsImNhbm9uIjoiaHR0cDovL2hsNy5vcmcvZmhpci9jYW5vbmljYWxpemF0aW9uL2pzb24iLCJ4NWMiOlsiTUlJRG96Q0NBb3FnQXdJQkFnSUJBREFOQmdrcWhraUc5dzBCQVEwRkFEQnJNUXN3Q1FZRFZRUUdFd0oxY3pFUk1BOEdBMVVFQ0F3SVRXbHpjMjkxY21reEREQUtCZ05WQkFvTUEwaE1OekVRTUE0R0ExVUVBd3dIYUd3M0xtOXlaekVTTUJBR0ExVUVCd3dKUVc1dUlFRnlZbTl5TVJVd0V3WURWUVFMREF4SlJ5QlFkV0pzYVhOb1pYSXdIaGNOTWpVd05qRTVNREl6TURNeldoY05Nall3TmpJd01ESXpNRE16V2pCck1Rc3dDUVlEVlFRR0V3SjFjekVSTUE4R0ExVUVDQXdJVFdsemMyOTFjbWt4RERBS0JnTlZCQW9NQTBoTU56RVFNQTRHQTFVRUF3d0hhR3czTG05eVp6RVNNQkFHQTFVRUJ3d0pRVzV1SUVGeVltOXlNUlV3RXdZRFZRUUxEQXhKUnlCUWRXSnNhWE5vWlhJd2dnRWpNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJFQUF3Z2dFTEFvSUJBZ0M5VXM4djBVeU95K1hXTFJmZjI5R0hRYTlheHF0RGFvN2F6c1duRjIvQUJkZzFnNmRPRi8wWmtyaExkcUpJU2o4TWxTUDVWTG91NjdpWklIMFJ4Uk1mU0EwZS9maTlERThRU3pwSU9sdWVlSDJNOFEyVmVzS3AzaElrcCt4Q2FHUGJjNEwwa1pWa0U2RVcrVFVSN1FUczFOa2F4dHdZdlc4N2dLem42QkwwWXgvNW11MVVGV2NKL1h0TEhraWFndEliU2lFWFNkc2p4dmlPYkpNMlNhVjN0YUNhYXlHS1ZGcFU2clBMRC9WUmFydDZaUDFDSlEyemxJc2tFRU9ublVLRVV1d2NGcEw3dDVGWGlIVk9YMGhaNWZzdUdZdDhFdUx3YTdnaUVRdmYvUGFRYlRyVFZNT2RLSC9FR1ZKSTgxTWZOZ3pFYnJBL0N2Y0cvbGdHM0RNK0p3SURBUUFCbzFBd1RqQWRCZ05WSFE0RUZnUVVxQktvMmlRMFI1cjVHaU5saDJzTkN6RXE5UUl3SHdZRFZSMGpCQmd3Rm9BVXFCS28yaVEwUjVyNUdpTmxoMnNOQ3pFcTlRSXdEQVlEVlIwVEJBVXdBd0VCL3pBTkJna3Foa2lHOXcwQkFRMEZBQU9DQVFJQWk4RlZzcVpKNE9maWlnamdwNCtDZUhEeDZMSlJ1cTZZb2lOZXJ4SjRsK0VUNEJiN2o4RS9ERGVFZmViRVF2d1ByaGxPeUZPZnlvc3phQm5GOEVwL0hrN09qNmNwTGhvQUhqZVYzR1V5KzN4ZzNOQjNEdUU3SmhueDk5a3dmUkw5dE9YSjUrTGwxQUloeVQwSklEOEo2Lzk5UTVWbXdTQ1VlUmZuaG5uaWdabHdTNFZoQW9hbmhycXp3WHZwT2NvK0h5aEwweTNtbWJCSC9lS1UrSDVQK0wySUZpU0ZMNlhBTDRQTTNwWUkvemorTnloQVhaWlp3bGxSam9JS2ZsR09POEhVYzVpSmlUSGhZbzBpS1MxbFB4Q0hvS3lBK2FWRWFWRS9nb3FCd29lM1Y5bXhIQXo0VXE4ZS9hUTBPZmNpRm1qNTVzNm14NWVVZHk1bFFxZm9la0U9Il19..oP1UwlGBYvNYKDAishza8Pm8cl9m1y0mi1Tc-e7DGgT0EF0mqI_-7z7hSPGSOXBHJdjpM40uY0q5RRx1qTv-cmXFAnv4wxMqGc6wSudm6f1tdLgLlfpQ9Z98tpFgH0Pz56ijf-LjoB5uPmm_RoSrwewFQn7LhpY9ZopAeTUSScTy9AF9mBvwu1vTmaLxOSJDzoGcnlfWtJgO_7or2e_KfJd53tdXfANiZfADYpQ3hxf-2SX_Gc5ZgrxXitWkFP5RhTXoyrqC3HYJ6J63PgK8DVlLqcE-x3QpY00wQpv1A-HgcPhJctasy7BbpnK3zW_uLMDVFb9t8uIWOykmtRRpeKI
+</pre>
+<p>
+This JWS signature has 3 parts: header, payload, and signature. 
+</p>
+<p><b>Header</b></p>
+<p>
+The header is json:
+</p>
+<pre class="json">
+{
+  "typ": "JOSE",
+  "srCms": [
+    {
+      "commId": {
+        "id": "urn:oid:1.2.840.10065.1.12.1.1",
+        "desc": "Author's Signature"
+      }
+    }
+  ],
+  "alg": "RS256",
+  "sigT": "2025-07-01T08:48:05Z",
+  "canon": "http://hl7.org/fhir/canonicalization/json",
+  "x5c": [
+    "MIIDozCCAoqgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBrMQswCQYDVQQGEwJ1czERMA8GA1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9yZzESMBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwHhcNMjUwNjE5MDIzMDMzWhcNMjYwNjIwMDIzMDMzWjBrMQswCQYDVQQGEwJ1czERMA8GA1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9yZzESMBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwggEjMA0GCSqGSIb3DQEBAQUAA4IBEAAwggELAoIBAgC9Us8v0UyOy+XWLRff29GHQa9axqtDao7azsWnF2/ABdg1g6dOF/0ZkrhLdqJISj8MlSP5VLou67iZIH0RxRMfSA0e/fi9DE8QSzpIOlueeH2M8Q2VesKp3hIkp+xCaGPbc4L0kZVkE6EW+TUR7QTs1NkaxtwYvW87gKzn6BL0Yx/5mu1UFWcJ/XtLHkiagtIbSiEXSdsjxviObJM2SaV3taCaayGKVFpU6rPLD/VRart6ZP1CJQ2zlIskEEOnnUKEUuwcFpL7t5FXiHVOX0hZ5fsuGYt8EuLwa7giEQvf/PaQbTrTVMOdKH/EGVJI81MfNgzEbrA/CvcG/lgG3DM+JwIDAQABo1AwTjAdBgNVHQ4EFgQUqBKo2iQ0R5r5GiNlh2sNCzEq9QIwHwYDVR0jBBgwFoAUqBKo2iQ0R5r5GiNlh2sNCzEq9QIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0FAAOCAQIAi8FVsqZJ4Ofiigjgp4+CeHDx6LJRuq6YoiNerxJ4l+ET4Bb7j8E/DDeEfebEQvwPrhlOyFOfyoszaBnF8Ep/Hk7Oj6cpLhoAHjeV3GUy+3xg3NB3DuE7Jhnx99kwfRL9tOXJ5+Ll1AIhyT0JID8J6/99Q5VmwSCUeRfnhnnigZlwS4VhAoanhrqzwXvpOco+HyhL0y3mmbBH/eKU+H5P+L2IFiSFL6XAL4PM3pYI/zj+NyhAXZZZwllRjoIKflGOO8HUc5iJiTHhYo0iKS1lPxCHoKyA+aVEaVE/goqBwoe3V9mxHAz4Uq8e/aQ0OfciFmj55s6mx5eUdy5lQqfoekE="
+  ]
+}
+</pre>
+<p>
+Comments on the contents of the header:
+</p>
+<ul>
+  <li>the <code>srCms</code> is as defined by JAdES-B-T. It SHOULD be present, and if present, and Signature.type is present, they SHALL agree, as this example does</li>
+  <li>the <code>sigT</code> is as defined by JAdES-B-T. It SHOULD be present, and if present, and Signature.when is present, they SHALL agree, as this example does</li>
+  <li>The <code>canon</code> is optional, but if it it is present, and Signature.targetFormat is present and specifies a canonicalization, they SHALL agree, as this example does. Note that the signature should explicitly state the canonicalization since this is the most troublesome part of the signature verification</li>
+  <li>This signature includes the public key directly (as this does). Alternatively, it might specify a <code>kid</code> that identifies the key, which must be retrieved from some key management arrangement</li>
+  <li>Irrespective of how the public key is found, the signature is only trustable if the certificate itself is verified, and doing that is outside the scope of the FHIR specification</li>
+</ul>
+<p><b>Payload</b></p>
+<p>
+The payload is not provided, since this is a detached signature. In order to verify the signature, the verifying application must rebuild the payload as the signing application did, using the same canonicalization, and with Bundle.signature removed. 
+In this case, that is:
+</p>
+<pre>
+{"entry":[{"fullUrl":"http://something5","resource":{"code":{"text":"something"},"id":"obs1","resourceType":"Observation","status":"final","text":{"div":"&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;a name=\"Observation_obs1\"> &lt;/a>This is a simple &lt;b>example&lt;/b>&lt;/div>","status":"generated"},"valueQuantity":{"value":1}}}],"id":"signed","identifier":{"system":"http://something1","value":"something2"},"link":[{"relation":"self","url":"http://something3"}],"resourceType":"Bundle","timestamp":"2024-06-09T11:06:35+10:00","type":"collection"}
+</pre>
+<p>
+Using Base64URL encoding, This encodes to 
+</p>
+<pre>
+eyJlbnRyeSI6W3siZnVsbFVybCI6Imh0dHA6Ly9zb21ldGhpbmc1IiwicmVzb3VyY2UiOnsiY29kZSI6eyJ0ZXh0Ijoic29tZXRoaW5nIn0sImlkIjoib2JzMSIsInJlc291cmNlVHlwZSI6Ik9ic2VydmF0aW9uIiwic3RhdHVzIjoiZmluYWwiLCJ0ZXh0Ijp7ImRpdiI6IjxkaXYgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sXCI-PGEgbmFtZT1cIk9ic2VydmF0aW9uX29iczFcIj4gPC9hPlRoaXMgaXMgYSBzaW1wbGUgPGI-ZXhhbXBsZTwvYj48L2Rpdj4iLCJzdGF0dXMiOiJnZW5lcmF0ZWQifSwidmFsdWVRdWFudGl0eSI6eyJ2YWx1ZSI6MX19fV0sImlkIjoic2lnbmVkIiwiaWRlbnRpZmllciI6eyJzeXN0ZW0iOiJodHRwOi8vc29tZXRoaW5nMSIsInZhbHVlIjoic29tZXRoaW5nMiJ9LCJsaW5rIjpbeyJyZWxhdGlvbiI6InNlbGYiLCJ1cmwiOiJodHRwOi8vc29tZXRoaW5nMyJ9XSwicmVzb3VyY2VUeXBlIjoiQnVuZGxlIiwidGltZXN0YW1wIjoiMjAyNC0wNi0wOVQxMTowNjozNSsxMDowMCIsInR5cGUiOiJjb2xsZWN0aW9uIn0
+</pre>
+<p>
+Note that the payload SHALL be empty in the resource, but if the Java validator finds a payload, it will inspect the payload to determine whether there is a content or a canonicalization problem, and this can be useful when debugging signatures.
+</p>
+
+<p><b>Signature</b></p>
+<p>
+The key that signed this is a developmental key with a published private key:
+</p>
+<pre>
+
+-----BEGIN CERTIFICATE-----
+MIIDozCCAoqgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBrMQswCQYDVQQGEwJ1czER
+MA8GA1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9y
+ZzESMBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwHhcN
+MjUwNjE5MDIzMDMzWhcNMjYwNjIwMDIzMDMzWjBrMQswCQYDVQQGEwJ1czERMA8G
+A1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9yZzES
+MBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwggEjMA0G
+CSqGSIb3DQEBAQUAA4IBEAAwggELAoIBAgC9Us8v0UyOy+XWLRff29GHQa9axqtD
+ao7azsWnF2/ABdg1g6dOF/0ZkrhLdqJISj8MlSP5VLou67iZIH0RxRMfSA0e/fi9
+DE8QSzpIOlueeH2M8Q2VesKp3hIkp+xCaGPbc4L0kZVkE6EW+TUR7QTs1NkaxtwY
+vW87gKzn6BL0Yx/5mu1UFWcJ/XtLHkiagtIbSiEXSdsjxviObJM2SaV3taCaayGK
+VFpU6rPLD/VRart6ZP1CJQ2zlIskEEOnnUKEUuwcFpL7t5FXiHVOX0hZ5fsuGYt8
+EuLwa7giEQvf/PaQbTrTVMOdKH/EGVJI81MfNgzEbrA/CvcG/lgG3DM+JwIDAQAB
+o1AwTjAdBgNVHQ4EFgQUqBKo2iQ0R5r5GiNlh2sNCzEq9QIwHwYDVR0jBBgwFoAU
+qBKo2iQ0R5r5GiNlh2sNCzEq9QIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0F
+AAOCAQIAi8FVsqZJ4Ofiigjgp4+CeHDx6LJRuq6YoiNerxJ4l+ET4Bb7j8E/DDeE
+febEQvwPrhlOyFOfyoszaBnF8Ep/Hk7Oj6cpLhoAHjeV3GUy+3xg3NB3DuE7Jhnx
+99kwfRL9tOXJ5+Ll1AIhyT0JID8J6/99Q5VmwSCUeRfnhnnigZlwS4VhAoanhrqz
+wXvpOco+HyhL0y3mmbBH/eKU+H5P+L2IFiSFL6XAL4PM3pYI/zj+NyhAXZZZwllR
+joIKflGOO8HUc5iJiTHhYo0iKS1lPxCHoKyA+aVEaVE/goqBwoe3V9mxHAz4Uq8e
+/aQ0OfciFmj55s6mx5eUdy5lQqfoekE=
+-----END CERTIFICATE-----
+
+-----BEGIN PRIVATE KEY-----
+MIIEwQIBADANBgkqhkiG9w0BAQEFAASCBKswggSnAgEAAoIBAgC9Us8v0UyOy+XW
+LRff29GHQa9axqtDao7azsWnF2/ABdg1g6dOF/0ZkrhLdqJISj8MlSP5VLou67iZ
+IH0RxRMfSA0e/fi9DE8QSzpIOlueeH2M8Q2VesKp3hIkp+xCaGPbc4L0kZVkE6EW
++TUR7QTs1NkaxtwYvW87gKzn6BL0Yx/5mu1UFWcJ/XtLHkiagtIbSiEXSdsjxviO
+bJM2SaV3taCaayGKVFpU6rPLD/VRart6ZP1CJQ2zlIskEEOnnUKEUuwcFpL7t5FX
+iHVOX0hZ5fsuGYt8EuLwa7giEQvf/PaQbTrTVMOdKH/EGVJI81MfNgzEbrA/CvcG
+/lgG3DM+JwIDAQABAoIBAQ3lKAOwbtgEKwg/IwNxFL3CmmYlMqiuB3ITvvn2hGMp
+iqbS1NKsfA0GcbRILrzzhhEcWRmRmGCdOF00vzkwp6iiFyRxK3JkluDxRIPMlLDa
+0wwnHQIdkm/5NoeuM27kTn/qyG++x6Iitq4C+FwqczQWoyCN+9VtAd7yIL6cj9eT
+9N2qPIH4dAHfbp0gN1yTqTJi/IoIk2nAFs/6CBzjDS8jbr5qdEtX/VRVhVvb4p0k
+ICle9wQ6VMCUM9tEJaPea7NqieJ+z7fFVKGMthFnIKqJ9VHpjpcRHgjH/6HqAvvM
+pnRnWH3pIk9AXJSZ5s5dM4W4pLEXy3OX1Eizud7HSzdRAoGBDgmZRLl3hIJZXAO7
+PN+wTT+J1qg3NcIXJcJvescMLTewWymkpfDISbhHlZYVtqPlkaz6pw3mpaRQRd/k
+IY4gDmNwaxgmJ5LpGk6TGu2emkKr+95Cj2HaiYTRaOz3UVlpnTYvm7UTcNkfzXXe
+mVXyfzJtl8SapVFaZpV5v2QobGfrAoGBDXyrANX2PD7c1NgbmGhhKs2wzpWL6o2s
+0CHYQsAuxsvbO1YZr1e/wuPNtlmHQllIa5y1yRnhUkvjs62Ne2fvjGFFbbGew9WJ
+kuBwGrfCziX9OYtLumSIw1ahodA1rQRpty5KImeCWXOGoTkgrMzlQ7/avlqZk1El
+xED6gbkZpQ+1AoGBAIb/yQMmqEW1Ua2aNRk6KEzAwt2i5VQbRoHdakFcBb7X0zTn
+SIyZGZvgpI/01N2nXCehavEsvwBDO7zDdzc9oQy/Rmar2ES+mQxmnlZa5PSoPVgG
+LBjC+vOQYl60k8vGGe/VLgZJaq3dcfyBlkUSTRD56P+rx5YczUnEPxpmIlxtAoGB
+DMvdX+SiRZULZ7NHs3pNvxP8DnYbk8cqUSvbibHYb+wZrRnLMu+Z1SrZEoutZwlZ
+Sikc3Zp9i9zPRbqEQ7NguJvOCP7++SYQ6teh5ee2oGuw8Dk297nNfTEkGGh5lRhb
+yV7VHgGBzqdq9GtEkk+xs29D91n03q6em69fP1fFejQFAoGBB/k1UBOMCjo+iNPH
+bI+OzUqOy5NL7nd+SqB9FG53VE+w1b8XfCW3Cuf0Vm52AFudtXuAt5aEsezAJsfV
+2XZfr+txSIgRbbFWQ39VccOFjckVzD2egXnFdL5Ac2s9JkAJZHqWU8pppJTVEuPF
+KrYFFnz13zUOg9B7zxatELWn9rNV
+-----END PRIVATE KEY-----
+</pre>
+<p>
+The signature can be verified by passing the public key, the header, the reconstructed payload, and the signature to a JWS library.
+This signature is valid.
+</p>
 [%file newfooter%]
     
     
