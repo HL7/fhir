@@ -52,7 +52,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Permission-rule-activity-actor"/>
         <description value="The activity actor mentioned in a permission rule (permit or deny)."/>
-        <code value="rule.activity.actor.reference"/>
+        <code value="rule-activity-actor"/>
         <type value="reference"/>
         <expression value="Permission.rule.activity.actor.reference"/>
         <processingMode value="normal"/>
@@ -71,7 +71,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Permission-rule-data-resource"/>
         <description value="The data resource mentioned in a permission rule (permit or deny)."/>
-        <code value="rule.data.resource.reference"/>
+        <code value="rule-data-resource"/>
         <type value="reference"/>
         <expression value="Permission.rule.data.resource.reference"/>
         <processingMode value="normal"/>
@@ -90,7 +90,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Permission-rule-data-period"/>
         <description value="The data period mentioned in a permission rule (permit or deny)."/>
-        <code value="rule.data.period"/>
+        <code value="rule-data-period"/>
         <type value="date"/>
         <expression value="Permission.rule.data.period"/>
         <processingMode value="normal"/>
@@ -109,7 +109,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Permission-rule-limit-element"/>
         <description value="The element limits mentioned in a permission rule (permit or deny)."/>
-        <code value="rule.limit.element"/>
+        <code value="rule-limit-element"/>
         <type value="string"/>
         <expression value="Permission.rule.limit.element"/>
         <processingMode value="normal"/>
