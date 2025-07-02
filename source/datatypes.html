@@ -1718,7 +1718,7 @@ Methods to express the "event" or "context" that is reference point for time rel
 
 <p>
 A <a href="signatures.html">Signature</a> holds an electronic representation of a signature and its supporting context in a FHIR accessible form.
-The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or
+The signature may either be a cryptographic type (e.g. XML DigSig or a JWS), which is able to provide non-repudiation proof, or
 it may be a graphical image that represents a signature or a digital-signature process.
 </p>
 [%dt Signature 14%]
@@ -1733,74 +1733,11 @@ Notes:
 <ul>
  <li>The Signature datatype can be used to hold a digital-signature, but may also be used to hold electronic-signatures.</li>
  <li>Electronic-Signatures, such as image of ink signature, do not protect the signed content from change, but do carry details about who signed, when signature happened, and what the signature means.</li>
- <li>One consequence of digital-signature on a Resource (document) is that URLs, identifiers and internal references are frozen and
-cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
-ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
-recommended that systems consider carefully the impact of any signature processes. The impact of signatures
-on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
-use of digital signatures.
-</li>
-<li>
-Note that following common normalization procedures in XML can assign the same normalized text to resources
-with slightly different meanings, since leading whitespace matters in markdown text, and the XML representation
-serializes the <a href="datatypes.html#markdown">markdown</a> datatype using attributes.
-</li>
-</ul>
-
-<p>&nbsp;</p>
-<a name="XML"></a>
-<h3>XML Signature rules</h3>
-<p>
-When the signature is an XML Digital Signature (<code>sigFormat</code> = <code>application/signature+xml</code>), the following rules apply:
-</p>
-<ul>
- <li>The Signature.data is base64 encoded XML-Signature</li>
- <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
- <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
- <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
- <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
- <li>The signature can be XML Signature or JSON Jose, Regardless the Resource itself is in XML form or JSON form, e.g. XML Signature can be generated for a Resource in JSON format.</li>
+ <li>Digital-Signatures (e.g. Xml DigSig or JOSE) do protect the content when implemented properly - see <a href="signatures.html">Signatures</a> for further details.</li>
 </ul>
 <p>
-There are three levels of signature verification:
-<ol>
-   <li>Verifying that the Digital Signature block itself has integrity through verifying the signature across the XML-Signature.</li>
-   <li>Confirming that the signer was authentic, not revoked, and appropriate to the signature purpose.</li>
-   <li>Confirming that the signed content of interest is unmodified using the hash algorithm.</li>
-</ol>
-</p>
-<p>
-Deviations from these guidelines would need to be expressed in site policy and would be enumerated in the XML-Signature block.
-For example, some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary.
-</p>
-<a name="JSON"></a>
-<h3>JSON Signature rules</h3>
-<p>
-When the signature is an JSON Digital Signature (<code>sigFormat</code> = <code>application/jose</code>), the following rules apply:
-</p>
-<ul>
- <li>The Signature.data is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
- <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
- <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
- <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as the srCms element.</li>
- <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
-</ul>
-<p>
-There are three levels of signature verification:
-<ol>
-   <li>Verifying that the Digital Signature block itself has integrity through verifying the signature across the JWS-Signature.</li>
-   <li>Confirming that the signer was authentic, not revoked, and appropriate to the signature purpose.</li>
-   <li>Confirming that the signed content of interest is unmodified using the hash algorithm.</li>
-</ol>
-</p>
-<p>
-Deviations from these guidelines would need to be expressed in site policy and would be enumerated in the JWS-Signature block.
-For example, some environments may choose a different hashing algorithm, policy identifier, or signature purpose vocabulary.
-</p>
-<p>
-Signature is used in the following places: [%dtusage Signature%]
+Signature is used in the following places: [%dtusage Signature%], and also there is an
+extension: [[[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature]]].
 </p>
 
 <a name="Annotation"></a>
@@ -1889,8 +1826,8 @@ The following types are defined as part of the datatypes, but are documented els
 
 [%file newfooter%]
 
-  <script src="external/jquery/jquery.js"> </script>
-<script src="jquery-ui.min.js"> </script>
+  <script src="assets/js/jquery.js"> </script>
+<script src="assets/js/jquery-ui.min.js"> </script>
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
