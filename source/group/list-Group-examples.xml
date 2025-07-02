@@ -100,4 +100,28 @@
       <display value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConceptualCohortDefinition: Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-conceptualcohortdefinition-cancer-except-subset"/>
+    </extension>
+    <item>
+      <reference value="Group/example-conceptualcohortdefinition-cancer-except-subset"/>
+      <display value="ConceptualCohortDefinition: Cancer except subset"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="OutcomeDefinition: HbA1c at 12 months"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-outcomedefinition-hba1c-at-12-months"/>
+    </extension>
+    <item>
+      <reference value="Group/example-outcomedefinition-hba1c-at-12-months"/>
+      <display value="OutcomeDefinition: HbA1c at 12 months"/>
+    </item>
+  </entry>
 </List>
