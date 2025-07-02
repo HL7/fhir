@@ -19,7 +19,7 @@ Outstanding issues:
 
 
 <h1>Digital Signatures</h1>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 
 <p>
@@ -146,8 +146,8 @@ When JSON resources are canonicalized, they SHALL be canonicalized in accordance
 In addition, the following rules apply: 
 </p>
 <ul>
-  <li>Whitespace in the primitive values SHALL not be altered (including multiple spaces in markdown), except for:</li>
-  <li>The XHTML narrative SHALL be canonicalized according to <code>http://hl7.org/fhir/canonicalization/xml</code> after all unnecessary whitespace is removed</li>
+  <li>As specified by RFC 8785, whitespace in the primitive values SHALL not be altered (including multiple spaces in markdown), except that:</li>
+  <li>XHTML narratives SHALL be canonicalized according to <code>http://hl7.org/fhir/canonicalization/xml</code> after all unnecessary whitespace is removed</li>
   <li>When sets of resources are signed, multiple fragments are concatenated with no intervening whitespace in the order in which the set is defined</li>
 </ul>
 <p>
@@ -165,7 +165,7 @@ In addition, the following rules apply:
 <ul>
   <li>Whitespace in the primitives value SHALL not be altered (including multiple spaces in markdown), except for:</li>
   <li>The XHTML <a href="narrative.html">Narrative</a> SHALL be canonicalized following these same rules</li>
-  <li>Resources are to contain no whitespace other than as found in attribute values and in the XHTML in the narrative </li>
+  <li>Resources are to contain no whitespace other than as found in attribute values and in the XHTML in the narrative, and single spaces between attributes in XML elements </li>
   <li>Use default namespaces for the FHIR and XHTML namespaces</li>
   <li>Omit all comments</li>
   <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
