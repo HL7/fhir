@@ -244,10 +244,6 @@
         <description value="Describes the availability of the metric"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
       </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
     </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
