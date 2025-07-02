@@ -225,6 +225,30 @@
       </type>
       <isSummary value="false" />
     </element>
+    <element id="DeviceMetric.availability">
+      <path value="DeviceMetric.availability"/>
+      <short value="How the metric is derived"/>
+      <definition value="Indicates whether the metric is derived from a continuous means or from an intermittent means."/>
+      <comment value="Note that metric availability is typically a static characteristic and is distinct from the operational status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricAvailability"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the availability of the metric"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
