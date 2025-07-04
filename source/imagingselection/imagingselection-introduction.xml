@@ -21,8 +21,8 @@
     </ul>
     <p>Uses for ImagingSelection resources include:</p>
     <ul>
-      <li>Identifying a specific set of images or frames as the focus of an <a href="observation.html">Observation</a></li>
-      <li>Identifying a spatial region or volume as the focus of an <a href="observation.html">Observation</a></li>
+      <li>Identifying a specific set of images or frames that an <a href="observation.html">Observation</a> is derived from</li>
+      <li>Identifying a spatial region or volume that an <a href="observation.html">Observation</a> is derived from</li>
       <li>Identifying the set of image coordinates as the focus of a measurement represented by an <a href="observation.html">Observation</a></li>
       <li>Identifying a node in a DICOM Structured Report SOP Instance from which an <a href="observation.html">Observation</a> is derived</li>
       <li>Identifying images, frames or presentation states selected as part of shared application context in a context-sharing environment</li>
@@ -46,7 +46,7 @@
           <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
           <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a specific set of images, frames, waveforms or image regions</li>
           <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a specific set of images, frames, waveforms or image regions</li>
-          <li><a href="observation.html">Observation.focus</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
+          <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
         </ul>
       
     
