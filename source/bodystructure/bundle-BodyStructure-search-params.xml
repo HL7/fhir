@@ -29,7 +29,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.includedStrcture.structure"/>
+          <valueString value="BodyStructure.includedStructure.structure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-includedStructure-structure"/>
         <description value="Body site includedStructure structure"/>
@@ -48,7 +48,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.excludedStrcture.structure"/>
+          <valueString value="BodyStructure.excludedStructure.structure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-excludedStructure-structure"/>
         <description value="Body site excludedStructure structure"/>
