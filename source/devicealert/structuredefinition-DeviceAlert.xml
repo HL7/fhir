@@ -104,7 +104,7 @@
             </mapping>
             <mapping>
                 <identity value="IEEESDC" />
-                <map value="AlertOccurenceIdentifier" />
+                <map value="AlertOccurrenceIdentifier" />
             </mapping>
         </element>
         <element id="DeviceAlert.status">
