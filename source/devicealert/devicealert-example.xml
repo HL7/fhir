@@ -7,20 +7,18 @@
 		<value value="345675" />
 	</identifier>
 	<status value="completed"/>
+	<code>
+		<coding>
+			<system value="urn:iso:std:iso:11073:10101" />
+			<code value="196688"/>
+		</coding>
+	</code>
 	<type value="physiological" />
+	<device>
+		<reference value="Device/example" />
+	</device>
 	<subject>
 		<reference value="Patient/pat1"/>
 	</subject>
-	<source>
-		<reference value="Device/example" />
-	</source>
-	<condition>
-		<code>
-			<coding>
-				<system value="urn:iso:std:iso:11073:10101" />
-				<code value="196688"/>
-			</coding>
-		</code>
-		<presence value="true"/>
-	</condition>
+	<presence value="true"/>
 </DeviceAlert>
