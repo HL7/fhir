@@ -38,6 +38,16 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.groupIdentifier" resourcePath="SupplyRequest.groupIdentifier">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="SupplyRequest.status">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -150,7 +160,6 @@
     </divergentElement>
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
     <unmappedElement patternPath="Request.subject" reason="Unknown"/>
-    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
