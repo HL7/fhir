@@ -137,7 +137,7 @@
         <element id="DeviceAlert.category">
             <path value="DeviceAlert.category" />
             <short value="High-level categorization of the DeviceAlert" />
-            <definition value="Partitions the DeviceAlert into one or more categories that can be used to filter searching, to govern access control, or guide system behavior" />
+            <definition value="Partitions the DeviceAlert into one or more categories that can be used to filter searching, to govern access control, or guide system behavior." />
             <min value="0" />
             <max value="*" />
             <isSummary value="true" />
