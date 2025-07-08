@@ -204,7 +204,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TitleType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="desc."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/title-type"/>
       </binding>
@@ -577,7 +577,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
@@ -739,7 +739,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyRole"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="desc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
       </binding>
@@ -810,7 +810,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyStudyStatus"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="defn."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
