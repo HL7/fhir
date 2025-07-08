@@ -17,8 +17,8 @@
 	<subject>
 		<reference value="Patient/pat1"/>
 	</subject>
+	<presence value="true"/>
 	<device>
 		<reference value="Device/example" />
 	</device>
-	<presence value="true"/>
 </DeviceAlert>

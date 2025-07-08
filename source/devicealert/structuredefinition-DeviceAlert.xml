@@ -146,6 +146,11 @@
             <type>
                 <code value="CodeableConcept" />
             </type>
+            <binding>
+                <strength value="example" />
+                <!-- <description value="in-progress | completed | entered-in-error" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-category" />
+            </binding>
         </element>
         <element id="DeviceAlert.type">
             <path value="DeviceAlert.type" />
@@ -251,6 +256,41 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
             </type>
         </element>
+        <element id="DeviceAlert.presence">
+            <path value="DeviceAlert.presence" />
+            <short value="Whether the alert condition is currently active" />
+            <!--       <definition value="" /> -->
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="true" />
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionState/Presence" />
+            </mapping>
+            <type>
+                <code value="boolean" />
+            </type>
+        </element>
+        <element id="DeviceAlert.presencePeriod">
+            <path value="DeviceAlert.presencePeriod" />
+            <short value="The period during which the alert condition was active" />
+            <definition value="An instantaneous condition is reported with the same start and end value. The end value is omitted if the condition is ongoing." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.init" />
+                <map value="FiveWs.done[x]" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionState/DeterminationTime" />
+            </mapping>
+            <type>
+                <code value="Period" />
+            </type>
+        </element>
         <element id="DeviceAlert.device">
             <path value="DeviceAlert.device" />
             <short value="The Device (or DeviceMetric) that detected the alert condition" />
@@ -329,41 +369,6 @@
             <isSummary value="false" />
             <type>
                 <code value="boolean" />
-            </type>
-        </element>
-        <element id="DeviceAlert.presence">
-            <path value="DeviceAlert.presence" />
-            <short value="Whether the alert condition is currently active" />
-            <!--       <definition value="" /> -->
-            <min value="1" />
-            <max value="1" />
-            <isSummary value="true" />
-            <mapping>
-                <identity value="IEEESDC" />
-                <map value="AlertConditionState/Presence" />
-            </mapping>
-            <type>
-                <code value="boolean" />
-            </type>
-        </element>
-        <element id="DeviceAlert.presencePeriod">
-            <path value="DeviceAlert.presencePeriod" />
-            <short value="The period during which the alert condition was active" />
-            <definition value="An instantaneous condition is reported with the same start and end value. The end value is omitted if the condition is ongoing." />
-            <min value="0" />
-            <max value="1" />
-            <isSummary value="false" />
-            <mapping>
-                <identity value="w5" />
-                <map value="FiveWs.init" />
-                <map value="FiveWs.done[x]" />
-            </mapping>
-            <mapping>
-                <identity value="IEEESDC" />
-                <map value="AlertConditionState/DeterminationTime" />
-            </mapping>
-            <type>
-                <code value="Period" />
             </type>
         </element>
         <!-- <element id="DeviceAlert.created">
@@ -529,11 +534,11 @@
             <type>
                 <code value="CodeableConcept" />
             </type>
-            <!-- <binding>
-        <strength value="" />
-        <description value="" />
-        <valueSet value="" />
-      </binding> -->
+            <binding>
+                <strength value="example" />
+                <!-- <description value="" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-signalType" />
+            </binding>
         </element>
         <element id="DeviceAlert.signal.indication">
             <path value="DeviceAlert.signal.indication" />
