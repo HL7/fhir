@@ -93,7 +93,6 @@
             <type>
                 <code value="Identifier" />
             </type>
-            <isSummary value="true" />
             <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.identifier" />
@@ -122,7 +121,6 @@
                 <identity value="DIM" />
                 <map value="AlertState" />
             </mapping>
-
             <type>
                 <code value="code" />
             </type>
@@ -148,6 +146,35 @@
             <type>
                 <code value="CodeableConcept" />
             </type>
+        </element>
+        <element id="DeviceAlert.type">
+            <path value="DeviceAlert.type" />
+            <short value="physiological | technical" />
+            <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
+            <!--       <definition value="" /> -->
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.class" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition/alert-type" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor/Kind" />
+            </mapping>
+            <type>
+                <code value="code" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <!-- <description value="physiological | technical" /> -->
+                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
+            </binding>
         </element>
         <element id="DeviceAlert.priority">
             <path value="DeviceAlert.priority" />
@@ -207,34 +234,22 @@
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
             </binding>
         </element>
-        <element id="DeviceAlert.type">
-            <path value="DeviceAlert.type" />
-            <short value="physiological | technical" />
-            <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
+        <element id="DeviceAlert.subject">
+            <path value="DeviceAlert.subject" />
+            <short value="The who or what the alert is about" />
             <!--       <definition value="" /> -->
-            <min value="0" />
+            <min value="1" />
             <max value="1" />
-            <isSummary value="false" />
+            <isSummary value="true" />
             <mapping>
                 <identity value="w5" />
-                <map value="FiveWs.class" />
-            </mapping>
-            <mapping>
-                <identity value="DIM" />
-                <map value="AlertCondition/alert-type" />
-            </mapping>
-            <mapping>
-                <identity value="IEEESDC" />
-                <map value="AlertConditionDescriptor/Kind" />
+                <map value="FiveWs.subject[x]" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
             </type>
-            <binding>
-                <strength value="required" />
-                <!-- <description value="physiological | technical" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
-            </binding>
         </element>
         <element id="DeviceAlert.device">
             <path value="DeviceAlert.device" />
@@ -269,21 +284,39 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric" />
             </type>
         </element>
-        <element id="DeviceAlert.subject">
-            <path value="DeviceAlert.subject" />
-            <short value="The who or what the alert is about" />
+        <element id="DeviceAlert.derivedFrom">
+            <path value="DeviceAlert.derivedFrom" />
+            <short value="The value causing the alert condition" />
             <!--       <definition value="" /> -->
-            <min value="1" />
-            <max value="1" />
-            <isSummary value="true" />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
             <mapping>
                 <identity value="w5" />
-                <map value="FiveWs.subject[x]" />
+                <map value="FiveWs.why[x]" />
             </mapping>
             <type>
                 <code value="Reference" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+            </type>
+        </element>
+        <element id="DeviceAlert.limit">
+            <path value="DeviceAlert.limit" />
+            <short value="The boundaries outside of which a value was detected to cause the alert condition" />
+            <definition value="The limits beyond which a value was detected to cause the alert condition. The actual value is in DeviceAlert.derivedFrom." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="DIM" />
+                <map value="Limit-Specification" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="LimitAlertConditionState/Limits" />
+            </mapping>
+            <type>
+                <code value="Range" />
             </type>
         </element>
         <!-- insert encounter/partOf/procedure here -->
@@ -348,41 +381,6 @@
             </type>
             <isModifier value="false" />
         </element> -->
-        <element id="DeviceAlert.derivedFrom">
-            <path value="DeviceAlert.derivedFrom" />
-            <short value="The value causing the alert condition" />
-            <!--       <definition value="" /> -->
-            <min value="0" />
-            <max value="*" />
-            <isSummary value="false" />
-            <mapping>
-                <identity value="w5" />
-                <map value="FiveWs.why[x]" />
-            </mapping>
-            <type>
-                <code value="Reference" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
-            </type>
-        </element>
-        <element id="DeviceAlert.limit">
-            <path value="DeviceAlert.limit" />
-            <short value="The boundaries outside of which a value was detected to cause the alert condition" />
-            <definition value="The limits beyond which a value was detected to cause the alert condition. The actual value is in DeviceAlert.derivedFrom." />
-            <min value="0" />
-            <max value="1" />
-            <isSummary value="false" />
-            <mapping>
-                <identity value="DIM" />
-                <map value="Limit-Specification" />
-            </mapping>
-            <mapping>
-                <identity value="IEEESDC" />
-                <map value="LimitAlertConditionState/Limits" />
-            </mapping>
-            <type>
-                <code value="Range" />
-            </type>
-        </element>
         <!-- insert location here -->
         <element id="DeviceAlert.label">
             <path value="DeviceAlert.label" />
