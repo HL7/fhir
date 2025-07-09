@@ -208,7 +208,7 @@
             <binding>
                 <strength value="required" />
                 <!-- <description value="high | medium | low | info" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-priority" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-priority" />
             </binding>
         </element>
         <element id="DeviceAlert.code">
@@ -236,7 +236,7 @@
             <binding>
                 <strength value="preferred" />
                 <!--         <description value="" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-condition" />
             </binding>
         </element>
         <element id="DeviceAlert.subject">
@@ -469,7 +469,7 @@
             <binding>
                 <strength value="required" />
                 <!-- <description value="on | off | paused" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-activationState" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.presence">
