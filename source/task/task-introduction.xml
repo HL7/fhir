@@ -10,7 +10,7 @@
     </p>
     <p> Concretely the Task resource could be used in FHIR to serve different purposes like: </p>
 <ul>
-<li>operationalize a Request (but could exists without a Request),</li>
+<li>operationalize a Request (but could exist without a Request),</li>
 <li>communicate between Filler and Placer,</li>
 <li>track business status (i.e. collection of specimen, dispense of medication, procedure scheduled),</li>
 <li>communicate the results of the execution of the Task via .output,</li>
