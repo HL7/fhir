@@ -342,7 +342,7 @@
         <element id="DeviceAlert.derivedFrom.observation">
             <path value="DeviceAlert.derivedFrom.observation" />
             <short value="The Observation having a value causing the alert condition" />
-            <definition value="The Observation whose value is is causing the alert condition; or, if `component` is present, the Observation with a component causing the alert condition." />
+            <definition value="The Observation whose value is causing the alert condition; or, if `component` is present, the Observation with a component causing the alert condition." />
             <min value="1" />
             <max value="1" />
             <isSummary value="false" />
