@@ -358,13 +358,13 @@
           <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.derivedFrom" />
+          <valueString value="DeviceAlert.derivedFrom.observation" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-derivedFrom" />
         <description value="Whether the alert is currently occurring" />
         <code value="derived-from" />
         <type value="reference" />
-        <expression value="DeviceAlert.derivedFrom" />
+        <expression value="DeviceAlert.derivedFrom.observation" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
