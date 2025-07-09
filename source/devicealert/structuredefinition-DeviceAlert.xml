@@ -353,7 +353,7 @@
         </element>
         <element id="DeviceAlert.derivedFrom.component">
             <path value="DeviceAlert.derivedFrom.component" />
-            <short value="The `Observation.component` having a value causing the alert condition" />
+            <short value="The Observation.component having a value causing the alert condition" />
             <definition value="If applicable, the code of the component (of the Observation identified in `derivedFrom.observation`) having a value causing the alert condition. This may be used when the alert is associated with a specific component of an Observation, rather than the overall Observation; for example, a low diastolic blood pressure. Since the component is identified by matching `Observation.component.code`, if more than one component have the same code, the specific component is ambiguous. Repetitions of this element indicate additional components contributing to the alert condition." />
             <min value="0" />
             <max value="1" />
