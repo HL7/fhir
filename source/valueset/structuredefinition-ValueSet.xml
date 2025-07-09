@@ -951,7 +951,7 @@
 			</extension>
 			<path value="ValueSet.compose.include.filter.value"/>
 			<short value="Code from the system, or regex criteria, or boolean value for exists"/>
-			<definition value="ValueSet.compose.include.filter.value is represented as a string, and the string value must be [as described](valueset.html#filter-values)"/>
+			<definition value="ValueSet.compose.include.filter.value is represented as a string, and the string value must be [as described](valueset.html#filter-values)."/>
 			<comment value="Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example."/>
 			<min value="1"/>
 			<max value="1"/>
