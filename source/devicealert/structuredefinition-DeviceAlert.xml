@@ -336,14 +336,36 @@
                 <map value="FiveWs.why[x]" />
             </mapping>
             <type>
+                <code value="BackboneElement" />
+            </type>
+        </element>
+        <element id="DeviceAlert.derivedFrom.observation">
+            <path value="DeviceAlert.derivedFrom.observation" />
+            <short value="The Observation having a value causing the alert condition" />
+            <definition value="The Observation whose value is causing the alert condition; or, if `component` is present, the Observation with a component causing the alert condition." />
+            <min value="1" />
+            <max value="1" />
+            <isSummary value="false" />
+            <type>
                 <code value="Reference" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
             </type>
         </element>
-        <element id="DeviceAlert.limit">
-            <path value="DeviceAlert.limit" />
-            <short value="The boundaries outside of which a value was detected to cause the alert condition" />
-            <definition value="The limits beyond which a value was detected to cause the alert condition. The actual value is in DeviceAlert.derivedFrom." />
+        <element id="DeviceAlert.derivedFrom.component">
+            <path value="DeviceAlert.derivedFrom.component" />
+            <short value="The `Observation.component` having a value causing the alert condition" />
+            <definition value="If applicable, the code of the component (of the Observation identified in `derivedFrom.observation`) having a value causing the alert condition. This may be used when the alert is associated with a specific component of an Observation, rather than the overall Observation; for example, a low diastolic blood pressure. Since the component is identified by matching `Observation.component.code`, if more than one component have the same code, the specific component is ambiguous. Repetitions of this element indicate additional components contributing to the alert condition." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <type>
+                <code value="Coding" />
+            </type>
+        </element>
+        <element id="DeviceAlert.derivedFrom.limit">
+            <path value="DeviceAlert.derivedFrom.limit" />
+            <short value="The boundaries beyond which a value was detected to cause the alert condition" />
+            <definition value="The limits beyond which a value was detected to cause the alert condition. The actual value is the `Observation.value[x]` referenced by `derivedFrom.observation` or, if specified, the `Observation.component.value[x]` of the component (with `Observation.component.code` matching `derivedFrom.component`) of the reference Observation." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
