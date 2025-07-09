@@ -281,6 +281,23 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
             </type>
         </element>
+        <element id="DeviceAlert.partOf">
+            <path value="DeviceAlert.partOf" />
+            <short value="The event during which this alert occurred" />
+            <definition value="A reference to a larger event of during which this alert occurred." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure" />
+            </type>
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.context" />
+            </mapping>
+        </element>
         <element id="DeviceAlert.presence">
             <path value="DeviceAlert.presence" />
             <short value="Whether the alert condition is currently active" />
@@ -422,7 +439,6 @@
                 <code value="Range" />
             </type>
         </element>
-        <!-- insert encounter/partOf/procedure here -->
         <element id="DeviceAlert.acknowledged">
             <path value="DeviceAlert.acknowledged" />
             <short value="Whether the alert condition has been acknowledged" />
