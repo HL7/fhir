@@ -864,6 +864,15 @@
 				<code value="unsignedInt"/>
 			</type>
 		</element>
+		<element id="Evidence.statistic.sampleSize.numberAnalyzed">
+			<path value="Evidence.statistic.sampleSize.numberAnalyzed"/>
+			<short value="Total number of participants who were analayzed"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
 		<element id="Evidence.statistic.attributeEstimate">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
 				<valueCode value="300;100"/>
