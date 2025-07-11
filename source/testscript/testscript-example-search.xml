@@ -72,7 +72,10 @@
   <variable>
     <name value="PatientSearchBundleTotal"/>
     <description value="Evaluate the returned Patient searchset Bundle.total value"/>
-    <expression value="Bundle.total.toInteger()"/>
+    <expression>
+      <language value="text/fhirpath"/>
+      <expression value="Bundle.total.toInteger()"/>
+    </expression>
   </variable>
   <setup>
     <action>
@@ -240,8 +243,11 @@
     <action>
       <assert>
         <description value="Confirm that the returned Bundle type equals 'searchset'."/>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Bundle/fhir:type/@value"/>
+        </expression>
         <operator value="equals"/>
-        <path value="fhir:Bundle/fhir:type/@value"/>
         <stopTestOnFail value="false"/>
         <value value="searchset"/>
         <warningOnly value="false"/>
@@ -250,7 +256,10 @@
     <action>
       <assert>
         <description value="Confirm that the returned Bundle total is greater than or equal to the number of returned entries."/>
-        <expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+        <expression>
+          <language value="text/fhirpath"/>
+          <expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+        </expression>
         <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>

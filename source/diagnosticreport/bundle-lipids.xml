@@ -25,6 +25,9 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 					<system value="http://acme.com/lab/reports"/>
 					<value value="5234342"/>
 				</identifier>
+				<basedOn>
+					<reference value="ServiceRequest/lipids"/>
+				</basedOn>
 				<status value="final"/>
 				<category>
 					<coding>
@@ -37,7 +40,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 						<system value="http://loinc.org"/>
 						<code value="57698-3"/>
 						<display value="Lipid panel with direct LDL - Serum or Plasma"/>
-					</coding>
+					</coding> 
 					<text value="Lipid Panel"/>
 				</code>
 				<subject>
