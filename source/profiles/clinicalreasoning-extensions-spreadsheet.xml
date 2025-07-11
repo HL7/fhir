@@ -4248,7 +4248,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">The aspect of quality, confidence, or certainty</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-type" ss:StyleID="s134"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-type</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/certainty-type" ss:StyleID="s134"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/certainty-type</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -4263,7 +4263,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">The assessment of quality, confidence, or certainty</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-rating" ss:StyleID="s134"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-rating</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/certainty-rating" ss:StyleID="s134"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/certainty-rating</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
