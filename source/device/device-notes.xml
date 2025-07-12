@@ -21,9 +21,9 @@
 <a name="udi"></a>
 <h4>Unique Device Identifier (UDI)</h4>
 	<p>
-The International Medical Device Regulators Forum IMDRF UDI Working Group published <a href="http://www.imdrf.org/consultations/cons-udi.asp">UDI System for Medical Devices (Version 2.0)</a>, the base specification for Unique Device Identifiers (UDI). The United States Food and Drug Administration has produced an <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">implementation guide</a> for Unique Device Identifiers (UDI) which implements the IMDRF specification and other jurisdictions may produce similar IMDRF implementation guides as well.  The full UDI string that represents the barcode as printed on the packaging of the device or Automatic Identification and Data Capture (AIDC) representation is called the "UDI carrier".  The UDI has 2 components*:
+The International Medical Device Regulators Forum IMDRF UDI Working Group published <a href="http://www.imdrf.org/consultations/cons-udi.asp">UDI System for Medical Devices (Version 2.0)</a>, the base specification for Unique Device Identifiers (UDI). The United States Food and Drug Administration has produced an <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">implementation guide</a> for Unique Device Identifiers (UDI) which implements the IMDRF specification and other jurisdictions may produce similar IMDRF implementation guides as well.  The full UDI string that represents the barcode as printed on the packaging of the device or Automatic Identification and Data Capture (AIDC) representation is called the "UDI carrier".  The UDI has 2 components(1):
 </p><ul>
-	<li>Device identifier (DI)**, which is the actual identification component</li>
+	<li>Device identifier (DI)(2), which is the actual identification component</li>
 	<li>Production identifier(s)(PI) which provide the means to track a device through its manufacture, distribution and use.</li>
 </ul>
 		<ol>
