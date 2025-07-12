@@ -35,7 +35,7 @@
     </item>
     <item>
       <linkId value="M0010"/>
-      <text value="C M S Certification Number"/>
+      <text value="CMS Certification Number"/>
       <type value="string"/>
       <required value="true"/>
     </item>
@@ -63,7 +63,7 @@
     </item>
     <item>
       <linkId value="M0020"/>
-      <text value="Patient I D Number"/>
+      <text value="Patient ID Number"/>
       <type value="string"/>
       <required value="true"/>
     </item>

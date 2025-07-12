@@ -4,7 +4,7 @@
   <id value="example"/>
   <url value="http://hl7.org/fhir/CompartmentDefinition/example"/>
   <name value="EXAMPLE"/>
-  <title value="E X A M P L E"/>
+  <title value="EXAMPLE"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-02-24"/>
