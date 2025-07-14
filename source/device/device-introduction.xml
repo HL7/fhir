@@ -18,7 +18,7 @@
 <p>The resource may be used to document the Unique Device Identifier (UDI) and information about a device where appropriate or necessary according to local jurisdictions over time. Additional information about UDI is provided in the <a class="external-link" href="device.html#udi" rel="nofollow">Unique Device Identifier (UDI)</a> section.</p>
 <p>Devices may be categorized and may be associated with one or more categories. Device category examples include, but are not limited to: active, communicating, durable medical equipment, home use, implantable, InVitro diagnostics, personal health, point-of-care, single use, re-usable, and software. See <a class="external-link" href="devicedefinition.html" rel="nofollow">DeviceDefinition</a> for detailed descriptions of devce categories.</p>
 
-<h4 id="DeviceScopeBoundaryRelationships-Device-DeviceDefinition">Device and DeviceDefinition</h4>
+<h3 id="DeviceScopeBoundaryRelationships-Device-DeviceDefinition">Device and DeviceDefinition</h3>
 <p>When referring to a specific instance, even without specific instance details, Device is to be used, not a DeviceDefinition. The context of a data exchange indicates whether the data is representing a physical instance or a &quot;kind&quot;, not the presence of instance data such as lot and serial numbers. </p>
 <p>Some examples:</p>
 <ol>
