@@ -46,6 +46,7 @@
   </device>
   <status>
     <coding>
+      <system value="http://hl7.org/fhir/deviceassociation-status"/>
       <code value="attached"/>
     </coding>
   </status>
