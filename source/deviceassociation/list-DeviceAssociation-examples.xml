@@ -27,4 +27,16 @@
       <display value="Implant Device Assigned to Patient"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Wheelchair Device Association"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-wheelchair-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/wheelchair-association"/>
+      <display value="Wheelchair Device Association"/>
+    </item>
+  </entry>
 </List>
