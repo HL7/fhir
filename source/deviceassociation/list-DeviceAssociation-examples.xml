@@ -39,4 +39,16 @@
       <display value="Wheelchair Device Association"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Tablet Assigned to Practitioner"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-tablet-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/tablet-association"/>
+      <display value="Tablet Assigned to Practitioner"/>
+    </item>
+  </entry>
 </List>
