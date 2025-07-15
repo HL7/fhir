@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="robot-association"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: DeviceAssociation robot-association</b></p><a name="robot-association"> </a><a name="hcrobot-association"> </a><p><b>device</b>: <a href="#hcrobot-association/surgical-robot">Device: status = active; type = Surgical robot</a></p><p><b>status</b>: <span title="Codes:">attached</span></p><p><b>subject</b>: <a href="#hcrobot-association/example-patient">John Doe  (no stated gender), DoB Unknown</a></p><p><b>period</b>: 2025-07-01 08:00:00+0000 --&gt; 2025-07-01 12:00:00+0000</p><h3>Operations</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Status</b></td><td><b>Operator</b></td><td><b>Period</b></td></tr><tr><td style="display: none">*</td><td><span title="Codes:">on</span></td><td><a href="#hcrobot-association/example-practitioner">Practitioner Alex Nguyen </a></td><td>2025-07-01 08:00:00+0000 --&gt; 2025-07-01 12:00:00+0000</td></tr></table><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Patient #example-patient</b></p><a name="robot-association/example-patient"> </a><a name="hcrobot-association/example-patient"> </a><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">John Doe  (no stated gender), DoB Unknown</p><hr/></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Practitioner #example-practitioner</b></p><a name="robot-association/example-practitioner"> </a><a name="hcrobot-association/example-practitioner"> </a><p><b>name</b>: Alex Nguyen </p></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Device #surgical-robot</b></p><a name="robot-association/surgical-robot"> </a><a name="hcrobot-association/surgical-robot"> </a><p><b>status</b>: Active</p><h3>Names</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Value</b></td><td><b>Type</b></td></tr><tr><td style="display: none">*</td><td>Da Vinci Xi</td><td><span title="Codes:">model-name</span></td></tr></table><p><b>type</b>: <span title="Codes:{http://snomed.info/sct 466893009}">Surgical robot</span></p></blockquote></div>
+  </text>
+  <contained>
+    <Patient>
+      <id value="example-patient"/>
+      <name>
+        <family value="Doe"/>
+        <given value="John"/>
+      </name>
+    </Patient>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="example-practitioner"/>
+      <name>
+        <family value="Nguyen"/>
+        <given value="Alex"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Device>
+      <id value="surgical-robot"/>
+      <status value="active"/>
+      <name>
+        <value value="Da Vinci Xi"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="466893009"/>
+          <display value="Surgical robot"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <device>
+    <reference value="#surgical-robot"/>
+  </device>
+  <status>
+    <coding>
+      <code value="attached"/>
+    </coding>
+  </status>
+  <subject>
+    <reference value="#example-patient"/>
+  </subject>
+  <period>
+    <start value="2025-07-01T08:00:00Z"/>
+    <end value="2025-07-01T12:00:00Z"/>
+  </period>
+  <operation>
+    <status>
+      <coding>
+        <code value="on"/>
+      </coding>
+    </status>
+    <operator>
+      <reference value="#example-practitioner"/>
+    </operator>
+    <period>
+      <start value="2025-07-01T08:00:00Z"/>
+      <end value="2025-07-01T12:00:00Z"/>
+    </period>
+  </operation>
+</DeviceAssociation>

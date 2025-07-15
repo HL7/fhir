@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="lab-device-association"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: DeviceAssociation lab-device-association</b></p><a name="lab-device-association"> </a><a name="hclab-device-association"> </a><p><b>device</b>: <a href="#hclab-device-association/lab-analyzer">Device: status = active; type = Clinical chemistry analyzer</a></p><p><b>status</b>: <span title="Codes:">attached</span></p><p><b>period</b>: 2025-07-10 10:00:00+0000 --&gt; 2025-07-10 12:00:00+0000</p><h3>Operations</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Status</b></td><td><b>Operator</b></td><td><b>Period</b></td></tr><tr><td style="display: none">*</td><td><span title="Codes:">on</span></td><td><a href="#hclab-device-association/repair-tech">PractitionerRole Technician</a></td><td>2025-07-10 10:00:00+0000 --&gt; 2025-07-10 12:00:00+0000</td></tr></table><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: PractitionerRole #repair-tech</b></p><a name="lab-device-association/repair-tech"> </a><a name="hclab-device-association/repair-tech"> </a><p><b>practitioner</b>: <code>#example-repairer</code></p><p><b>code</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/practitioner-role technician}">Technician</span></p></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Device #lab-analyzer</b></p><a name="lab-device-association/lab-analyzer"> </a><a name="hclab-device-association/lab-analyzer"> </a><p><b>status</b>: Active</p><h3>Names</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Value</b></td><td><b>Type</b></td></tr><tr><td style="display: none">*</td><td>Beckman AU5800</td><td><span title="Codes:">model-name</span></td></tr></table><p><b>type</b>: <span title="Codes:{http://snomed.info/sct 11987000}">Clinical chemistry analyzer</span></p></blockquote></div>
+  </text>
+  <contained>
+    <PractitionerRole>
+      <id value="repair-tech"/>
+      <practitioner>
+        <reference value="#example-repairer"/>
+      </practitioner>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/practitioner-role"/>
+          <code value="technician"/>
+          <display value="Technician"/>
+        </coding>
+      </code>
+    </PractitionerRole>
+  </contained>
+  <contained>
+    <Device>
+      <id value="lab-analyzer"/>
+      <status value="active"/>
+      <name>
+        <value value="Beckman AU5800"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="11987000"/>
+          <display value="Clinical chemistry analyzer"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <device>
+    <reference value="#lab-analyzer"/>
+  </device>
+  <status>
+    <coding>
+      <code value="attached"/>
+    </coding>
+  </status>
+  <period>
+    <start value="2025-07-10T10:00:00Z"/>
+    <end value="2025-07-10T12:00:00Z"/>
+  </period>
+  <operation>
+    <status>
+      <coding>
+        <code value="on"/>
+      </coding>
+    </status>
+    <operator>
+      <reference value="#repair-tech"/>
+    </operator>
+    <period>
+      <start value="2025-07-10T10:00:00Z"/>
+      <end value="2025-07-10T12:00:00Z"/>
+    </period>
+  </operation>
+</DeviceAssociation>
