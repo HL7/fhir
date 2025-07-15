@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <List xmlns="http://hl7.org/fhir">
   <id value="DeviceAssociation-examples"/>
   <status value="current"/>
@@ -16,5 +15,16 @@
       <display value="General"/>
     </item>
   </entry>
- 
-</List> 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Implant Device Assigned to Patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-implant-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/implant-association"/>
+      <display value="Implant Device Assigned to Patient"/>
+    </item>
+  </entry>
+</List>
