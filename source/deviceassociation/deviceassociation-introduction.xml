@@ -18,7 +18,7 @@
 <div>
 <h2>Boundaries and Relationships</h2>
 <ul>
-<li><strong><a href="device.html">Device</a></strong>  - This resource contains the association (incluuding history) between a device and a subject, eliminating the need for the Device resource to contain that history of associations which might allow unintended exposure of patient information.</li>
+<li><strong><a href="device.html">Device</a></strong>  - This DeviceAssociation resource contains the association (including history) between a device and a subject, eliminating the need for the Device resource to contain that history of associations which might allow unintended exposure of patient information.</li>
 <li><strong><a href="deviceusage.html">DeviceUsage</a></strong> and <strong><a href="procedure.html">Procedure</a></strong> - Both Procedure and DeviceUsage can comprehend association (not necessarily the related dissociation) of a device with a subject. They are intended to be used from the patient of process perspective.
 <ul>
 <li>For tracking the act of implanting or using the device, Procedure may be used;</li>
