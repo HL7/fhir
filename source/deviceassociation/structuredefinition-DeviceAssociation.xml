@@ -87,8 +87,8 @@
     </element>
     <element id="DeviceAssociation.device">
       <path value="DeviceAssociation.device"/>
-      <short value="Reference to the devices associated with the patient or group"/>
-      <definition value="Reference to the devices associated with the patient or group."/>
+      <short value="Reference to the device that is being associated"/>
+      <definition value="Reference to the device that is being associated."/>
       <min value="1"/>
       <max value="1"/>
       <type>
