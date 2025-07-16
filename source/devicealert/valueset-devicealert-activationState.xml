@@ -9,18 +9,19 @@
     <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/devicealert-activationState"/>
-  <version value="6.0.0"/>
+  <version value="1.0.0"/>
   <name value="DeviceAlertActivationStateCodes"/>
   <title value="DeviceAlert Activation State Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <publisher value="FHIR Project team"/>
+  <date value="2025-07-07T09:02:11-06:00"/>
+  <publisher value="HL7 International / Health Care Devices"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -30,7 +31,7 @@
   <description value="DeviceAlert Activation State Codes"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/devicealert-activationState"/>
+      <system value="http://hl7.org/fhir/CodeSystem/devicealert-activationState"/>
     </include>
   </compose>
 </ValueSet>
