@@ -2,9 +2,6 @@
 
 <DeviceAssociation xmlns="http://hl7.org/fhir">
   <id value="wheelchair-association"/>
-  <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: DeviceAssociation wheelchair-association</b></p><a name="wheelchair-association"> </a><a name="hcwheelchair-association"> </a><p><b>device</b>: <a href="#hcwheelchair-association/wheelchair-device">Device: status = active; type = Wheelchair</a></p><p><b>status</b>: <span title="Codes:">attached</span></p><p><b>subject</b>: <a href="#hcwheelchair-association/example-patient">John Doe  (no stated gender), DoB Unknown</a></p><p><b>period</b>: 2024-01-01 --&gt; 2025-12-31</p><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Patient #example-patient</b></p><a name="wheelchair-association/example-patient"> </a><a name="hcwheelchair-association/example-patient"> </a><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">John Doe  (no stated gender), DoB Unknown</p><hr/></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Device #wheelchair-device</b></p><a name="wheelchair-association/wheelchair-device"> </a><a name="hcwheelchair-association/wheelchair-device"> </a><p><b>status</b>: Active</p><h3>Names</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Value</b></td><td><b>Type</b></td></tr><tr><td style="display: none">*</td><td>Quickie Q500</td><td><span title="Codes:">model-name</span></td></tr></table><p><b>type</b>: <span title="Codes:{http://snomed.info/sct 58938008}">Wheelchair</span></p></blockquote></div>
-  </text>
   <contained>
     <Patient>
       <id value="example-patient"/>

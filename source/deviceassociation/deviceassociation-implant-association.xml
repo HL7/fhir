@@ -2,10 +2,6 @@
 
 <DeviceAssociation xmlns="http://hl7.org/fhir">
   <id value="implant-association"/>
-  <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: DeviceAssociation implant-association</b></p><a name="implant-association"> </a><a name="hcimplant-association"> </a><p><b>device</b>: <a href="#hcimplant-association/implant-device">Device: status = active; type = Implantable cardiac defibrillator</a></p><p><b>status</b>: <span title="Codes:">implanted</span></p><p><b>subject</b>: <a href="#hcimplant-association/example-patient">John Doe  (no stated gender), DoB Unknown</a></p><p><b>bodyStructure</b>: <a href="#hcimplant-association/heart-structure">BodyStructure: description = Anatomical site for ICD implantation</a></p><p><b>period</b>: 2022-01-01 --&gt; (ongoing)</p><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Patient #example-patient</b></p><a name="implant-association/example-patient"> </a><a name="hcimplant-association/example-patient"> </a><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">John Doe  (no stated gender), DoB Unknown</p><hr/></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: Device #implant-device</b></p><a name="implant-association/implant-device"> </a><a name="hcimplant-association/implant-device"> </a><p><b>status</b>: Active</p><h3>Names</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Value</b></td><td><b>Type</b></td></tr><tr><td style="display: none">*</td><td>ICD Model X</td><td><span title="Codes:">model-name</span></td></tr></table><p><b>type</b>: <span title="Codes:{urn:iso:std:iso:11073:10101 753666}">Implantable cardiac defibrillator</span></p></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: BodyStructure #heart-structure</b></p><a name="implant-association/heart-structure"> </a><a name="hcimplant-association/heart-structure"> </a><h3>IncludedStructures</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Structure</b></td></tr><tr><td style="display: none">*</td><td><span title="Codes:{http://snomed.info/sct 80891009}">Heart structure</span></td></tr></table><p><b>description</b>: </p><div><p>Anatomical site for ICD implantation</p>
-</div><p><b>patient</b>: <a href="#hcimplant-association/example-patient">John Doe  (no stated gender), DoB Unknown</a></p></blockquote></div>
-  </text>
   <contained>
     <Patient>
       <id value="example-patient"/>
@@ -31,7 +27,7 @@
         <coding>
           <system value="urn:iso:std:iso:11073:10101"/>
           <code value="753666"/>
-          <display value="Implantable cardiac defibrillator"/>
+          <display value="MDC_IDC_ENUM_DEV_TYPE_ICD"/>
         </coding>
       </type>
     </Device>
