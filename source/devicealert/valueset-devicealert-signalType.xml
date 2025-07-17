@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="devicealert-type"/>
+  <id value="devicealert-signalType"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -12,12 +12,12 @@
     <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="1" />
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/devicealert-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/devicealert-signalType"/>
   <version value="6.0.0"/>
-  <name value="DeviceAlertTypeCodes"/>
-  <title value="DeviceAlert Type Codes"/>
+  <name value="DeviceAlertSignalTypeCodes"/>
+  <title value="DeviceAlert Signal Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
@@ -27,10 +27,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="DeviceAlert Type Codes"/>
+  <description value="DeviceAlert Signal Type Codes"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/devicealert-type"/>
+      <system value="http://hl7.org/fhir/devicealert-signalType"/>
     </include>
   </compose>
 </ValueSet>

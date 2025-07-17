@@ -59,7 +59,10 @@
   <profile id="patient-profile" value="http://hl7.org/fhir/StructureDefinition/Patient"/>
   <variable>
     <name value="createResourceId"/>
-    <path value="Patient/id"/>
+    <expression>
+      <language value="application/xml"/>
+      <expression value="Patient/id"/>
+    </expression>
     <sourceId value="fixture-patient-create"/>
   </variable>
   <setup>
@@ -143,7 +146,10 @@
       <assert>
         <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient."/>
         <compareToSourceId value="fixture-patient-create"/>
-        <compareToSourceExpression value="Patient.name.first().family"/>
+        <compareToSourceExpression>
+          <language value="text/fhirpath"/>
+          <expression value="Patient.name.first().family"/>
+        </compareToSourceExpression>
         <operator value="equals"/>
         <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
@@ -205,8 +211,11 @@
     <action>
       <assert>
         <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit sourceId reference to read responseId fixture."/>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        </expression>
         <operator value="equals"/>
-        <path value="fhir:Patient/fhir:name/fhir:family/@value"/>
         <sourceId value="fixture-patient-read"/>
         <stopTestOnFail value="false"/>
         <value value="Chalmers"/>
@@ -216,8 +225,11 @@
     <action>
       <assert>
         <description value="Confirm that the returned Patient contains the expected given name 'Peter'. Uses explicit sourceId reference to read responseId fixture."/>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        </expression>
         <operator value="equals"/>
-        <path value="fhir:Patient/fhir:name/fhir:given/@value"/>
         <sourceId value="fixture-patient-read"/>
         <stopTestOnFail value="false"/>
         <value value="Peter"/>
@@ -228,9 +240,15 @@
       <assert>
         <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and implicit reference to read response payload."/>
         <compareToSourceId value="fixture-patient-create"/>
-        <compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        <compareToSourceExpression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        </compareToSourceExpression>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        </expression>
         <operator value="equals"/>
-        <path value="fhir:Patient/fhir:name/fhir:family/@value"/>
         <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
@@ -239,8 +257,14 @@
       <assert>
         <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and explicit reference to read response payload and default operator of 'equals'."/>
         <compareToSourceId value="fixture-patient-create"/>
-        <compareToSourcePath value="fhir:Patient/fhir:name/fhir:given/@value"/>
-        <path value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        <compareToSourceExpression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        </compareToSourceExpression>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        </expression>
         <sourceId value="fixture-patient-read"/>
         <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
