@@ -86,11 +86,8 @@
      <constraint>
         <key value="spm-2"/>
         <severity value="error"/>
-        <human value="Specimen.accessionIdentifier must be present in Specimen.identifier and identifier.assigner and/or identifier.system must be valued and the type code is ACSN"/>
-        <expression value="Specimen.accessionIdentifier.exists() implies (Specimen.accessionIdentifier.value in Specimen.identifier.value ) or Specimen.accessionIdentifier.exists().not()"/> 
-        <!-- and Specimen.identifier.type.coding.code = 'ACSN'  -->
-         <!-- and  (Specimen.identifier.assigner.exists() or Specimen.identifier.system.exists()))  -->
-        <!-- and Specimen.identifier.type.coding.code = 'ACSN' -->
+        <human value="If Specimen.accessionIdentifier is present then the same identifier must also be present in Specimen.identifier with identifier.type = ACSN and (identifier.assigner and/or identifier.system = valued.)"/>
+        <expression value="accessionIdentifier.exists() implies identifier.where(value = %resource.accessionIdentifier.value and type.coding.code = 'ACSN' and (assigner.exists() or system.exists())).exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
      </constraint>
       <mapping>
@@ -104,7 +101,7 @@
     </element> 
     <element id="Specimen.identifier">
       <path value="Specimen.identifier"/>
-      <short value="Identifier for specimen"/>
+      <short value="External identifier"/>
       <definition value="Identifiers used for specimen identification. These could include but are not limited to identifiers generated upon collection, accessioning, or other reasons for labeling a specimen."/>
       <comment value="These are business identifiers, not Specimen.id - the resource identifier. More information in this (see [discussion](resource.html#identifiers))."/>
       <min value="0"/>

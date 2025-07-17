@@ -1,0 +1,652 @@
+Configuration on demand is an incubating feature.
+
+> Configure project :
+
+Kicking off FHIR publishing job!
+
+==============================
+Generating code using kindling version 1.17.0-SNAPSHOT
+For more information on kindling, and to check latest version, check here:
+https://github.com/HL7/kindling
+
+Verbose or customized output can be further configured using the logback.configurationFile gradle property:
+
+  ./gradlew publish -Plogback.configurationFile=~/my-logback-config.xml
+
+==============================
+
+> Task :printVersion UP-TO-DATE
+
+> Task :publish
+Publish FHIR in folder /Users/jdlnolen/workspace/fhir/fhir @ Thu, Jul 17, 2025 15:31-0500    0.009   0sec   17MB
+Detected Java version: 23.0.2 from /opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home on Mac OS X/aarch64 (64bit). 16384MB available    0.009   0sec   25MB
+dir = /Users/jdlnolen/workspace/fhir/fhir, path = /Users/jdlnolen/.opam/default/bin:/opt/homebrew/opt/python@3.13/libexec/bin:/Users/jdlnolen/.elan/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/Applications/iTerm.app/Contents/Resources/utilities      0.0   0sec   25MB
+Parameters:                                                                     0.0   0sec   25MB
+character encoding = UTF-8 / UTF-8                                              0.0   0sec   25MB
+Start Clock @ Thursday, July 17, 2025, 3:31:02 PM Central Daylight Time (2025-07-17T15:31:02-05:00)    0.003   0sec   25MB
+                                                                                0.0   0sec   25MB
+Build local copy                                                                0.0   0sec   25MB
+API keys loaded from /Users/jdlnolen/.fhir/fhir-settings.json                   0.0   0sec   25MB
+CI_BRANCH_DIRECTORY=null
+This is a GitHub Repository: https://github.com/HL7/fhir/jdlnolen-FHIR-22145
+Load Terminology Cache from /Users/jdlnolen/.fhir/tx-cache/HL7/fhir/jdlnolen-FHIR-22145    0.596   0sec   33MB
+Load UTG Terminology                                                           1.47   2sec 2514MB
+Load Package hl7.terminology#6.5.0
+Load Extensions                                                               0.951   3sec 2626MB
+Load Package hl7.fhir.uv.extensions#current
+Load DICOM Terminology                                                        0.876   3sec 2698MB
+Load Package fhir.dicom#2025.2.20250411
+Load IHE Format Codes                                                         0.072   3sec 2706MB
+Load Package ihe.formatcode.fhir#1.4.0
+  .. loaded                                                                   1.092   5sec 2738MB
+Checking Source for directory /Users/jdlnolen/workspace/fhir/fhir             0.004   5sec 2738MB
+Full Build                                                                    0.769   5sec 2770MB
+Version 6.0.0-ballot2-v5.0.0-3154-g427ebb10e5
+Load Loinc                                                                    0.104   5sec 2770MB
+Loading                                                                        0.14   6sec 2778MB
+Load Common Bindings                                                          0.009   6sec 2778MB
+Load Code Systems                                                             0.077   6sec 2810MB
+Load Value Sets                                                               0.014   6sec 2826MB
+ValueSet http://hl7.org/fhir/ValueSet/signature-type WG mismatch 5: is sec, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/signature-type WG mismatch 4: is sec, want to set to fhir
+UTG Claimant: http://terminology.hl7.org/CodeSystem/timing-abbreviation
+ValueSet http://hl7.org/fhir/ValueSet/evidence-variable-event WG mismatch 4: is vocab, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/days-of-week WG mismatch 4: is fhir, want to set to pa
+ValueSet http://hl7.org/fhir/ValueSet/participant-resource-types WG mismatch 4: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/value-filter-comparator WG mismatch 5: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/value-filter-comparator WG mismatch 4: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/operation-parameter-use WG mismatch 5: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/operation-parameter-use WG mismatch 4: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/citation-artifact-classifier WG mismatch 5: is cds, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/citation-artifact-classifier WG mismatch 4: is cds, want to set to fhir
+ValueSet http://terminology.hl7.org/ValueSet/usage-context-type WG mismatch 4: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/use-context WG mismatch 4: is fhir, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/route-codes WG mismatch 5: is fhir, want to set to phx
+ValueSet http://hl7.org/fhir/ValueSet/route-codes WG mismatch 4: is fhir, want to set to phx
+ValueSet http://terminology.hl7.org/ValueSet/dose-rate-type WG mismatch 4: is fhir, want to set to phx
+ValueSet http://hl7.org/fhir/ValueSet/knowledge-capability WG mismatch 4: is cds, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/jurisdiction WG mismatch 4: is vocab, want to set to fhir
+Load Resources                                                                2.044   8sec  469MB
+ValueSet http://hl7.org/fhir/ValueSet/manifestation-or-symptom WG mismatch 4b: is pc, want to set to cds
+ValueSet http://hl7.org/fhir/ValueSet/performer-role WG mismatch 4b: is pc, want to set to oo
+Unable to find invariant mea-1 at description
+ValueSet http://hl7.org/fhir/ValueSet/research-study-trial-phase WG mismatch 4b: is cds, want to set to brr
+Unable to find invariant cnl-0 at name
+Load Extras                                                                   5.147  13sec  703MB
+Load Profiles                                                                 0.017  13sec  751MB
+ValueSet http://hl7.org/fhir/ValueSet/action-relationship-type WG mismatch 4: is cds, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/condition-cause WG mismatch 4: is pc, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/condition-cause WG mismatch 4: is pc, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/condition-cause WG mismatch 4: is pc, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/jurisdiction WG mismatch 4: is vocab, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/definition-topic WG mismatch 4: is cds, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/action-relationship-type WG mismatch 4: is cds, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/certainty-type WG mismatch 4: is cds, want to set to fhir
+ValueSet http://hl7.org/fhir/ValueSet/certainty-rating WG mismatch 4: is cds, want to set to fhir
+Copy HTML templates                                                           0.215  13sec  871MB
+ ...diagram uml-example                                                       0.065  13sec  871MB
+ ...diagram primitives                                                          0.0  13sec  871MB
+ ...diagram resources                                                         0.001  13sec  871MB
+ ...vocab #1                                                                    0.0  13sec  871MB
+ ...code systems                                                                0.0  13sec  871MB
+ ...value sets (1)                                                            0.477  14sec  578MB
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................!
+ ...value sets (1) Done                                                      22.953  37sec 1100MB
+Generate Status Code Concept Maps                                             0.002  37sec 1100MB
+ ...process profiles (base)                                                   0.004  37sec 1100MB
+ ...process profiles (resources)                                              0.061  37sec 1132MB
+ ...process profiles (extensions)                                             0.968  38sec  978MB
+ ...process profiles (packs)                                                   0.35  38sec  607MB
+ ...process logical models                                                      0.0  38sec  607MB
+ ...process logical model definition                                            0.0  38sec  607MB
+ ...process logical model event                                                 0.0  38sec  607MB
+ ...process logical model request                                             0.001  38sec  607MB
+ ...process logical model fivews                                              0.001  38sec  607MB
+ ...process logical model participant                                           0.0  38sec  607MB
+ ...process logical model participantcontactable                                0.0  38sec  607MB
+ ...process logical model participantliving                                     0.0  38sec  607MB
+ ...process logical model product                                               0.0  38sec  607MB
+ ...process logical model shareable                                             0.0  38sec  607MB
+ ...process logical model publishable                                           0.0  38sec  607MB
+ ...Validate Definitions                                                      0.001  38sec  607MB
+ ...Validate Resource Profiles                                                  0.0  38sec  607MB
+ ...Check FHIR Path Expressions                                               0.004  38sec  607MB
+Validating                                                                    0.069  38sec  639MB
+Candidate for CodeableReference: [ClinicalAssessment.prognosis]
+Value Set http://hl7.org/fhir/ValueSet/all-languages: ownership clash patient vs conformance
+Code System urn:ietf:bcp:47: ownership clash patient vs conformance
+Value Set http://hl7.org/fhir/ValueSet/languages: ownership clash patient vs conformance
+Code System urn:ietf:bcp:47: ownership clash patient vs conformance
+Candidate for CodeableReference: [Procedure.body]
+ERROR @ Specimen: Resource Specimen (FMM=3) cannot have an FMM level > 0 (3) if it has warnings
+Didn't publish FHIR due to errors @ Thu, Jul 17, 2025 15:31-0500              3.186  41sec  903MB
+
+================================
+= Clinical Quality Information =
+================================
+  WARNING: cqi:ValueSet[measure-scoring-unit].copyright: Value set valueset-measure-scoring-unit (MeasureScoringUnit): A copyright statement should be present for any value set that includes non-HL7 sourced codes (http://unitsofmeasure.org)
+
+=======================
+= FHIR Infrastructure =
+=======================
+  WARNING: fhir:ValueSet[timezones].copyright: Value set valueset-timezones (IANATimezones): A copyright statement should be present for any value set that includes non-HL7 sourced codes (https://www.iana.org/time-zones)
+  WARNING: fhir:ValueSet[cdshooks-indicator].copyright: Value set valueset-cdshooks-indicator (Indicator): A copyright statement should be present for any value set that includes non-HL7 sourced codes (http://cds-hooks.hl7.org/CodeSystem/indicator)
+
+==========================================================
+= HL7 International / Biomedical Research and Regulation =
+==========================================================
+Resource Ingredient:
+  INFORMATION: Ingredient.group: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: Ingredient.substance.strength.basis: An element of type CodeableConcept or Coding must have a binding
+
+Resource ManufacturedItemDefinition:
+  INFORMATION: ManufacturedItemDefinition.component.constituent.function: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ManufacturedItemDefinition.component.constituent.location: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ManufacturedItemDefinition.component.function: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ManufacturedItemDefinition.component.type: An element of type CodeableConcept or Coding must have a binding
+
+Resource PackagedProductDefinition:
+  INFORMATION: PackagedProductDefinition.packaging.containedItem.item: Name of child (item) overlaps with name of parent (containedItem)
+
+Resource ResearchStudy:
+  INFORMATION: ResearchStudy.associatedParty.party: Name of child (party) overlaps with name of parent (associatedParty)
+  INFORMATION: ResearchStudy.objective.outcomeMeasure.eventHandling.event: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ResearchStudy.objective.outcomeMeasure.eventHandling.group: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ResearchStudy.objective.outcomeMeasure.eventHandling.handling: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ResearchStudy.objective.outcomeMeasure.eventHandling.handling: Name of child (handling) overlaps with name of parent (eventHandling)
+  INFORMATION: ResearchStudy.studyDesign: Name of child (studyDesign) overlaps with name of parent (ResearchStudy)
+  WARNING: ResearchStudy.associatedParty.name: Short description doesn't add any new content: 'Name of associated party'
+  WARNING: ResearchStudy.comparisonGroup.description: Short description doesn't add any new content: 'Description of the comparison Group'
+  WARNING: ResearchStudy.objective.description: Short description doesn't add any new content: 'Description of the objective'
+  WARNING: ResearchStudy.objective.outcomeMeasure.description: Short description doesn't add any new content: 'Description of the outcome measure'
+  WARNING: ResearchStudy.objective.outcomeMeasure.eventHandling.event: Short description doesn't add any new content: 'The event'
+  WARNING: ResearchStudy.recruitment.description: Short description doesn't add any new content: 'Description of the recruitment'
+  WARNING: ResearchStudy: A resource that contains a url element must have a search parameter 'url'
+  WARNING: ResearchStudy: Resource elements are out of order. The correct order is '[identifier(=id), status(=status), condition(=what), recruitment(=who.focus), period(=when.done), site(=where), whyStopped(=why)]' but the actual order is '[identifier(=id), status(=status), condition(=what), period(=when.done), site(=where), whyStopped(=why), recruitment(=who.focus)]'
+
+Resource ResearchSubject:
+  INFORMATION: ResearchSubject.subject: Name of child (subject) overlaps with name of parent (ResearchSubject)
+  INFORMATION: ResearchSubject.subjectMilestone.milestone: Name of child (milestone) overlaps with name of parent (subjectMilestone)
+  INFORMATION: ResearchSubject.subjectMilestone: Name of child (subjectMilestone) overlaps with name of parent (ResearchSubject)
+  INFORMATION: ResearchSubject.subjectState: Name of child (subjectState) overlaps with name of parent (ResearchSubject)
+  INFORMATION: ResearchSubject: Search Parameter name 'subject_state' does not follow the style guide
+  WARNING: ResearchSubject.actualComparisonGroup: Element has a todo associated with it (This ought to have an identifier as well as a name  OR - allocation is to a Group which is part of a planDefinition which represents an Arm.)
+  WARNING: ResearchSubject.assignedComparisonGroup: Element has a todo associated with it (This ought to have an identifier as well as a name  OR - allocation is to a Group which is part of a planDefinition which represents an Arm.)
+  WARNING: ResearchSubject.period: Element has a todo associated with it (.effectiveTime.)
+
+Resource SubstanceDefinition:
+  INFORMATION: SubstanceDefinition.classification: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceDefinition.code.code: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceDefinition.moiety.role: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceDefinition: A resource must have w5 mappings
+  INFORMATION: SubstanceDefinition: A resource that contains a status element must have a search parameter 'status'
+
+Resource SubstanceNucleicAcid:
+  INFORMATION: SubstanceNucleicAcid.oligoNucleotideType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceNucleicAcid.sequenceType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceNucleicAcid.subunit.fivePrime: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceNucleicAcid.subunit.threePrime: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceNucleicAcid: A resource must have w5 mappings
+  WARNING: SubstanceNucleicAcid: A resource must have an 'entered in error' status
+  WARNING: SubstanceNucleicAcid: All resources should have an identifier
+
+Resource SubstancePolymer:
+  INFORMATION: SubstancePolymer.class: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.copolymerConnectivity: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.geometry: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.monomerSet.ratioType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.monomerSet.startingMaterial.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.monomerSet.startingMaterial.code: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.repeat.repeatUnit.orientation: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.repeat.repeatUnit.structuralRepresentation.format: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.repeat.repeatUnit.structuralRepresentation.representation: Name of child (representation) overlaps with name of parent (structuralRepresentation)
+  INFORMATION: SubstancePolymer.repeat.repeatUnit.structuralRepresentation.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.repeat.repeatUnit.unit: Name of child (unit) overlaps with name of parent (repeatUnit)
+  INFORMATION: SubstancePolymer.repeat.repeatUnit: Name of child (repeatUnit) overlaps with name of parent (repeat)
+  INFORMATION: SubstancePolymer.repeat.repeatUnitAmountType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstancePolymer.repeat.repeatUnitAmountType: Name of child (repeatUnitAmountType) overlaps with name of parent (repeat)
+  INFORMATION: SubstancePolymer: A resource must have w5 mappings
+  WARNING: SubstancePolymer: A resource that contains an identifier must have a search parameter 'identifier'
+
+Resource SubstanceProtein:
+  INFORMATION: SubstanceProtein.sequenceType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceProtein: A resource must have w5 mappings
+  WARNING: SubstanceProtein: A resource must have an 'entered in error' status
+  WARNING: SubstanceProtein: All resources should have an identifier
+
+Resource SubstanceReferenceInformation:
+  INFORMATION: SubstanceReferenceInformation.gene.gene: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.gene.geneSequenceOrigin: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.gene.geneSequenceOrigin: Name of child (geneSequenceOrigin) overlaps with name of parent (gene)
+  INFORMATION: SubstanceReferenceInformation.geneElement.element: Name of child (element) overlaps with name of parent (geneElement)
+  INFORMATION: SubstanceReferenceInformation.geneElement.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.target.amountType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.target.interaction: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.target.organism: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.target.organismType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation.target.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceReferenceInformation: A resource must have w5 mappings
+  WARNING: SubstanceReferenceInformation.comment: MnM must have confirmed this should not be an Annotation
+  WARNING: SubstanceReferenceInformation: A resource must have an 'entered in error' status
+  WARNING: SubstanceReferenceInformation: All resources should have an identifier
+
+Resource SubstanceSourceMaterial:
+  INFORMATION: SubstanceSourceMaterial.countryOfOrigin: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.developmentStage: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.fractionDescription.materialType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.author.authorDescription: Name of child (authorDescription) overlaps with name of parent (author)
+  INFORMATION: SubstanceSourceMaterial.organism.author.authorType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.author.authorType: Name of child (authorType) overlaps with name of parent (author)
+  INFORMATION: SubstanceSourceMaterial.organism.family: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.genus: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.hybrid.hybridType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.hybrid.hybridType: Name of child (hybridType) overlaps with name of parent (hybrid)
+  INFORMATION: SubstanceSourceMaterial.organism.intraspecificType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.organismGeneral.class: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.organismGeneral.kingdom: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.organismGeneral.order: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.organismGeneral.phylum: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.organism.organismGeneral: Name of child (organismGeneral) overlaps with name of parent (organism)
+  INFORMATION: SubstanceSourceMaterial.organism.species: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.partDescription.part: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.partDescription.partLocation: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.sourceMaterialClass: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.sourceMaterialClass: Name of child (sourceMaterialClass) overlaps with name of parent (SubstanceSourceMaterial)
+  INFORMATION: SubstanceSourceMaterial.sourceMaterialState: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.sourceMaterialState: Name of child (sourceMaterialState) overlaps with name of parent (SubstanceSourceMaterial)
+  INFORMATION: SubstanceSourceMaterial.sourceMaterialType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubstanceSourceMaterial.sourceMaterialType: Name of child (sourceMaterialType) overlaps with name of parent (SubstanceSourceMaterial)
+  INFORMATION: SubstanceSourceMaterial: A resource must have w5 mappings
+  WARNING: SubstanceSourceMaterial: A resource must have an 'entered in error' status
+  WARNING: SubstanceSourceMaterial: All resources should have an identifier
+
+
+=================================================
+= HL7 International / Clinical Decision Support =
+=================================================
+Resource EventDefinition:
+  WARNING: EventDefinition.author: Element has a todo associated with it (Does this apply?)
+  WARNING: EventDefinition.editor: Element has a todo associated with it (Does this apply?)
+  WARNING: EventDefinition.endorser: Element has a todo associated with it (Does this apply?)
+  WARNING: EventDefinition.relatedArtifact: Element has a todo associated with it (Does this apply?)
+  WARNING: EventDefinition.reviewer: Element has a todo associated with it (Does this apply?)
+  WARNING: EventDefinition.usage: Element has a todo associated with it (Does this apply?)
+
+Resource Evidence:
+  INFORMATION: Evidence.statistic.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: Evidence.statistic.modelCharacteristic.variable.valueCategory: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: Evidence.statistic.modelCharacteristic.variable.variableDefinition: Name of child (variableDefinition) overlaps with name of parent (variable)
+  INFORMATION: Evidence.statistic.statisticType: Name of child (statisticType) overlaps with name of parent (statistic)
+
+Resource RiskAssessment:
+  INFORMATION: RiskAssessment: A resource that contains a status element must have a search parameter 'status'
+
+
+=========================================
+= HL7 International / Clinical Genomics =
+=========================================
+Resource GenomicStudy:
+  INFORMATION: GenomicStudy.analysis.device.function: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: GenomicStudy.analysis.performer.role: An element of type CodeableConcept or Coding must have a binding
+  WARNING: GenomicStudy.description: Short description doesn't add any new content: 'Description of the genomic study'
+  WARNING: GenomicStudy.identifier: Short description doesn't add any new content: 'Identifiers for this genomic study'
+  WARNING: GenomicStudy: Short description doesn't add any new content: 'Genomic Study'
+
+Resource MolecularDefinition:
+  INFORMATION: MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.location.cytobandLocation.genomeAssembly.accession: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.location.cytobandLocation.genomeAssembly.build: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.location.cytobandLocation.genomeAssembly.organism: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system: Name of child (system) overlaps with name of parent (coordinateSystem)
+  INFORMATION: MolecularDefinition.location.sequenceLocation.strand: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.moleculeType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.code: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.normalizationMethod: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.system: Name of child (system) overlaps with name of parent (coordinateSystem)
+  INFORMATION: MolecularDefinition.representation.focus: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.literal.encoding: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.normalizationMethod: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.origin: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.system: Name of child (system) overlaps with name of parent (coordinateSystem)
+  INFORMATION: MolecularDefinition.representation.relative.edit.editOrder: Name of child (editOrder) overlaps with name of parent (edit)
+  INFORMATION: MolecularDefinition.topology: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularDefinition.type: An element of type CodeableConcept or Coding must have a binding
+  WARNING: MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome: Short description doesn't add any new content: 'Chromosome'
+  WARNING: MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband: Short description doesn't add any new content: 'End'
+  WARNING: MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband: Short description doesn't add any new content: 'Start'
+  WARNING: MolecularDefinition.location.cytobandLocation.cytobandInterval: Short description doesn't add any new content: 'Cytoband Interval'
+  WARNING: MolecularDefinition.location.cytobandLocation.genomeAssembly.accession: Short description doesn't add any new content: 'Accession'
+  WARNING: MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin: Short description doesn't add any new content: 'The location of the origin of the coordinate system'
+
+Resource MolecularSequence:
+  INFORMATION: MolecularSequence.extracted.coordinateSystem: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MolecularSequence.relative.edit.editOrder: Name of child (editOrder) overlaps with name of parent (edit)
+
+
+==========================================================
+= HL7 International / Community Based Collaborative Care =
+==========================================================
+Resource Consent:
+  INFORMATION: Consent.verification.verificationDate: Name of child (verificationDate) overlaps with name of parent (verification)
+  INFORMATION: Consent.verification.verificationType: Name of child (verificationType) overlaps with name of parent (verification)
+
+
+===========================================
+= HL7 International / FHIR Infrastructure =
+===========================================
+Resource DomainResource:
+  INFORMATION: DomainResource: Search Parameter name '_text' does not follow the style guide
+
+Resource ExampleScenario:
+  INFORMATION: ExampleScenario.instance.containedInstance.instanceReference: Name of child (instanceReference) overlaps with name of parent (containedInstance)
+
+Resource GraphDefinition:
+  INFORMATION: GraphDefinition.node.nodeId: Name of child (nodeId) overlaps with name of parent (node)
+
+Resource Resource:
+  INFORMATION: Resource: Search Parameter name '_content' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_filter' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_has' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_id' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_in' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_language' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_lastUpdated' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_list' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_profile' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_query' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_security' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_source' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_tag' does not follow the style guide
+  INFORMATION: Resource: Search Parameter name '_type' does not follow the style guide
+
+Resource StructureDefinition:
+  WARNING: StructureDefinition.differential.element[3]: Cannot check whether the target profile http://hl7.org/fhir/StructureDefinition/cholesterol on DiagnosticReport.result is valid constraint on the base because it is not known
+  WARNING: StructureDefinition.differential.element[4]: Cannot check whether the target profile http://hl7.org/fhir/StructureDefinition/triglyceride on DiagnosticReport.result is valid constraint on the base because it is not known
+  WARNING: StructureDefinition.differential.element[5]: Cannot check whether the target profile http://hl7.org/fhir/StructureDefinition/hdlcholesterol on DiagnosticReport.result is valid constraint on the base because it is not known
+  WARNING: StructureDefinition.differential.element[6]: Cannot check whether the target profile http://hl7.org/fhir/StructureDefinition/ldlcholesterol on DiagnosticReport.result is valid constraint on the base because it is not known
+
+Resource SubscriptionStatus:
+  INFORMATION: SubscriptionStatus.notificationEvent.eventNumber: Name of child (eventNumber) overlaps with name of parent (notificationEvent)
+  INFORMATION: SubscriptionStatus.notificationEvent.relatedQuery.query: Name of child (query) overlaps with name of parent (relatedQuery)
+  INFORMATION: SubscriptionStatus.notificationEvent.relatedQuery.queryType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubscriptionStatus.notificationEvent.relatedQuery.queryType: Name of child (queryType) overlaps with name of parent (relatedQuery)
+  INFORMATION: SubscriptionStatus.notificationEvent.triggerEvent: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubscriptionStatus.status: Name of child (status) overlaps with name of parent (SubscriptionStatus)
+
+Resource SubscriptionTopic:
+  INFORMATION: SubscriptionTopic.trigger.notificationShape.relatedQuery.query: Name of child (query) overlaps with name of parent (relatedQuery)
+  INFORMATION: SubscriptionTopic.trigger.notificationShape.relatedQuery.queryType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: SubscriptionTopic.trigger.notificationShape.relatedQuery.queryType: Name of child (queryType) overlaps with name of parent (relatedQuery)
+
+Resource TestPlan:
+  INFORMATION: TestPlan.testCase.testData.type: An element of type CodeableConcept or Coding must have a binding
+
+Data Type CodeableReference:
+  INFORMATION: CodeableReference.concept: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: CodeableReference.reference: Name of child (reference) overlaps with name of parent (CodeableReference)
+
+Data Type DataRequirement:
+  INFORMATION: DataRequirement.codeFilter.code: An element of type CodeableConcept or Coding must have a binding
+  WARNING: DataRequirement.codeFilter.valueSet: Short description doesn't add any new content: 'ValueSet for the filter'
+
+Data Type ElementDefinition:
+  WARNING: ElementDefinition.binding.additional.valueSet: Short description doesn't add any new content: 'The value set for the additional binding'
+  WARNING: ElementDefinition.valueAlternatives: Element names should be singular
+
+Data Type Expression:
+  INFORMATION: Expression.expression: Name of child (expression) overlaps with name of parent (Expression)
+
+Data Type ExtendedContactDetail:
+  WARNING: ExtendedContactDetail.address: Short description doesn't add any new content: 'Address for the contact'
+
+Data Type MarketingStatus:
+  INFORMATION: MarketingStatus.country: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MarketingStatus.jurisdiction: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MarketingStatus.status: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MarketingStatus.status: Name of child (status) overlaps with name of parent (MarketingStatus)
+
+Data Type MonetaryComponent:
+  INFORMATION: Binding @ MonetaryComponent.code: Need to provide a binding
+
+Data Type ProductShelfLife:
+  INFORMATION: ProductShelfLife.specialPrecautionsForStorage: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ProductShelfLife.type: An element of type CodeableConcept or Coding must have a binding
+
+Data Type Timing:
+  INFORMATION: Timing.repeat.when: Bindings for code datatypes should only use internally defined codes (http://hl7.org/fhir/ValueSet/event-timing)
+
+Data Type TriggerDefinition:
+  INFORMATION: TriggerDefinition.code: An element of type CodeableConcept or Coding must have a binding
+
+Data Type VirtualServiceDetail:
+  WARNING: VirtualServiceDetail.channelType: Short description doesn't add any new content: 'Channel Type'
+
+
+============================================
+= HL7 International / Financial Management =
+============================================
+Resource Claim:
+  INFORMATION: Claim.item.bodySite.site: Name of child (site) overlaps with name of parent (bodySite)
+
+Resource ClaimResponse:
+  INFORMATION: ClaimResponse.addItem.bodySite.site: Name of child (site) overlaps with name of parent (bodySite)
+  INFORMATION: ClaimResponse.addItem.itemSequence: Name of child (itemSequence) overlaps with name of parent (addItem)
+  INFORMATION: ClaimResponse.item.detail.detailSequence: Name of child (detailSequence) overlaps with name of parent (detail)
+  INFORMATION: ClaimResponse.item.detail.subDetail.subDetailSequence: Name of child (subDetailSequence) overlaps with name of parent (subDetail)
+  INFORMATION: ClaimResponse.item.itemSequence: Name of child (itemSequence) overlaps with name of parent (item)
+
+Resource ExplanationOfBenefit:
+  INFORMATION: ExplanationOfBenefit.addItem.bodySite.site: Name of child (site) overlaps with name of parent (bodySite)
+  INFORMATION: ExplanationOfBenefit.addItem.itemSequence: Name of child (itemSequence) overlaps with name of parent (addItem)
+  INFORMATION: ExplanationOfBenefit.benefitBalance: Name of child (benefitBalance) overlaps with name of parent (ExplanationOfBenefit)
+  INFORMATION: ExplanationOfBenefit.benefitPeriod: Name of child (benefitPeriod) overlaps with name of parent (ExplanationOfBenefit)
+  INFORMATION: ExplanationOfBenefit.item.bodySite.site: Name of child (site) overlaps with name of parent (bodySite)
+
+Resource Invoice:
+  INFORMATION: Invoice.participant.role: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: Invoice.type: An element of type CodeableConcept or Coding must have a binding
+  WARNING: Invoice.lineItem: Short description doesn't add any new content: 'Line items of this Invoice'
+  WARNING: Invoice.recipient: Short description doesn't add any new content: 'Recipient of this invoice'
+  WARNING: Invoice.totalGross: Short description doesn't add any new content: 'Gross total of this Invoice'
+  WARNING: Invoice.totalNet: Short description doesn't add any new content: 'Net total of this Invoice'
+  WARNING: Invoice.totalPriceComponent: Short description doesn't add any new content: 'Components of Invoice total'
+  WARNING: Invoice.type: Short description doesn't add any new content: 'Type of Invoice'
+
+
+===========================================
+= HL7 International / Health Care Devices =
+===========================================
+Resource DeviceAlert:
+  INFORMATION: DeviceAlert.signal.type: An element of type CodeableConcept or Coding must have a binding
+
+
+===============================================
+= HL7 International / Orders and Observations =
+===============================================
+Resource BiologicallyDerivedProduct:
+  INFORMATION: BiologicallyDerivedProduct.productCategory: Name of child (productCategory) overlaps with name of parent (BiologicallyDerivedProduct)
+  INFORMATION: BiologicallyDerivedProduct.productCode: Name of child (productCode) overlaps with name of parent (BiologicallyDerivedProduct)
+  INFORMATION: BiologicallyDerivedProduct.productStatus: Name of child (productStatus) overlaps with name of parent (BiologicallyDerivedProduct)
+
+Resource BiologicallyDerivedProductDispense:
+  INFORMATION: BiologicallyDerivedProductDispense: A resource must have w5 mappings
+
+Resource BodyStructure:
+  INFORMATION: BodyStructure.includedStructure.structure: Name of child (structure) overlaps with name of parent (includedStructure)
+  INFORMATION: BodyStructure: Search Parameter name 'excluded_structure' does not follow the style guide
+  INFORMATION: BodyStructure: Search Parameter name 'included_structure' does not follow the style guide
+
+Resource Device:
+  INFORMATION: Device.deviceVersion: Name of child (deviceVersion) overlaps with name of parent (Device)
+  INFORMATION: Device.udiCarrier.carrierAIDC: Name of child (carrierAIDC) overlaps with name of parent (udiCarrier)
+  INFORMATION: Device.udiCarrier.carrierHRF: Name of child (carrierHRF) overlaps with name of parent (udiCarrier)
+  INFORMATION: Device: Search Parameter name 'udi-carrier-hrf' does not follow the style guide
+
+Resource DeviceAssociation:
+  INFORMATION: DeviceAssociation: A resource must have w5 mappings
+  WARNING: DeviceAssociation: A resource that contains a subject that can be a patient reference must have a search parameter 'patient'
+
+Resource DeviceDefinition:
+  INFORMATION: DeviceDefinition.chargeItem.chargeItemCode: Name of child (chargeItemCode) overlaps with name of parent (chargeItem)
+  INFORMATION: DeviceDefinition.deviceName.name: Name of child (name) overlaps with name of parent (deviceName)
+  INFORMATION: DeviceDefinition.deviceVersion.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDefinition.guideline.contraindication: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDefinition.guideline.indication: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDefinition.guideline.warning: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDefinition.packaging.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDefinition.udiDeviceIdentifier.deviceIdentifier: Name of child (deviceIdentifier) overlaps with name of parent (udiDeviceIdentifier)
+  INFORMATION: DeviceDefinition: A resource that contains a status element must have a search parameter 'status'
+
+Resource DeviceDispense:
+  INFORMATION: DeviceDispense.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDispense.performer.function: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceDispense.type: An element of type CodeableConcept or Coding must have a binding
+
+Resource DeviceRequest:
+  INFORMATION: DeviceRequest.asNeededFor: An element of type CodeableConcept or Coding must have a binding
+
+Resource DeviceUsage:
+  INFORMATION: DeviceUsage.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceUsage.usageReason: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: DeviceUsage.usageReason: Name of child (usageReason) overlaps with name of parent (DeviceUsage)
+  INFORMATION: DeviceUsage.usageStatus: Name of child (usageStatus) overlaps with name of parent (DeviceUsage)
+
+Resource InventoryItem:
+  INFORMATION: InventoryItem.association.associationType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem.association.associationType: Name of child (associationType) overlaps with name of parent (association)
+  INFORMATION: InventoryItem.baseUnit: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem.characteristic.characteristicType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem.characteristic.characteristicType: Name of child (characteristicType) overlaps with name of parent (characteristic)
+  INFORMATION: InventoryItem.code: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem.inventoryStatus: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem.name.nameType: Name of child (nameType) overlaps with name of parent (name)
+  INFORMATION: InventoryItem.responsibleOrganization.organization: Name of child (organization) overlaps with name of parent (responsibleOrganization)
+  INFORMATION: InventoryItem.responsibleOrganization.role: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryItem: A resource must have w5 mappings
+  WARNING: InventoryItem.characteristic: Short description doesn't add any new content: 'Characteristic of the item'
+
+Resource InventoryReport:
+  INFORMATION: InventoryReport.inventoryListing.item.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryReport.inventoryListing.itemStatus: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryReport.operationType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InventoryReport.operationTypeReason: An element of type CodeableConcept or Coding must have a binding
+
+Resource ObservationDefinition:
+  INFORMATION: ObservationDefinition.performerType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: ObservationDefinition.subject: An element of type CodeableConcept or Coding must have a binding
+
+Resource Specimen:
+  ERROR: Specimen: Resource Specimen (FMM=3) cannot have an FMM level > 0 (3) if it has warnings
+  WARNING: Specimen.identifier: Short description doesn't add any new content: 'Identifier for specimen'
+
+Resource SpecimenDefinition:
+  INFORMATION: SpecimenDefinition: A resource must have w5 mappings
+
+
+==============================================
+= HL7 International / Patient Administration =
+==============================================
+Resource EpisodeOfCare:
+  INFORMATION: EpisodeOfCare.careTeam: Name of child (careTeam) overlaps with name of parent (EpisodeOfCare)
+
+Resource InsurancePlan:
+  INFORMATION: InsurancePlan.generalCost.cost: Name of child (cost) overlaps with name of parent (generalCost)
+  INFORMATION: InsurancePlan.generalCost.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsurancePlan.specificCost.benefit.cost.qualifier: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsurancePlan.specificCost.benefit.cost.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsurancePlan.specificCost.benefit.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsurancePlan.specificCost.category: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsurancePlan.type: An element of type CodeableConcept or Coding must have a binding
+
+Resource InsuranceProduct:
+  INFORMATION: InsuranceProduct.coverage.benefit.limit.code: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsuranceProduct.coverage.benefit.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsuranceProduct.coverage.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: InsuranceProduct.related.relationship: An element of type CodeableConcept or Coding must have a binding
+
+Resource PersonalRelationship:
+  INFORMATION: PersonalRelationship.relationshipType: Name of child (relationshipType) overlaps with name of parent (PersonalRelationship)
+  WARNING: PersonalRelationship: A resource must have an 'entered in error' status
+  WARNING: PersonalRelationship: All resources should have an identifier
+
+Resource VerificationResult:
+  INFORMATION: VerificationResult: A resource must have w5 mappings
+
+
+====================================
+= HL7 International / Patient Care =
+====================================
+Resource ConditionDefinition:
+  INFORMATION: ConditionDefinition.definition: Name of child (definition) overlaps with name of parent (ConditionDefinition)
+  INFORMATION: ConditionDefinition.plan.role: An element of type CodeableConcept or Coding must have a binding
+  WARNING: ConditionDefinition.questionnaire: Short description doesn't add any new content: 'Questionnaire for this condition'
+  WARNING: ConditionDefinition: Short description doesn't add any new content: 'A definition of a condition'
+
+Resource Goal:
+  INFORMATION: Goal: Search Parameter name 'lifecycle-status' does not follow the style guide
+
+
+================================
+= HL7 International / Pharmacy =
+================================
+Resource FormularyItem:
+  INFORMATION: FormularyItem: A resource that contains a status element must have a search parameter 'status'
+
+Resource MedicationKnowledge:
+  INFORMATION: MedicationKnowledge.cost.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.jurisdiction: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.medicineClassification.classification: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.medicineClassification.classification: Name of child (classification) overlaps with name of parent (medicineClassification)
+  INFORMATION: MedicationKnowledge.medicineClassification.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.monitoringProgram.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.monograph.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.productType: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.regulatory.regulatoryAuthority: Name of child (regulatoryAuthority) overlaps with name of parent (regulatory)
+  INFORMATION: MedicationKnowledge.regulatory.schedule: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.regulatory.substitution.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.relatedMedicationKnowledge.type: An element of type CodeableConcept or Coding must have a binding
+  INFORMATION: MedicationKnowledge.storageGuideline.environmentalSetting.type: An element of type CodeableConcept or Coding must have a binding
+
+
+================================
+= HL7 International / Security =
+================================
+Resource Permission:
+  INFORMATION: Permission.rule.data.security: An element of type CodeableConcept or Coding must have a binding
+
+
+==============================
+= Terminology Infrastructure =
+==============================
+  WARNING: vocab:ValueSet[jurisdiction].copyright: Value set valueset-jurisdiction (JurisdictionValueSet): A copyright statement should be present for any value set that includes non-HL7 sourced codes (http://unstats.un.org/unsd/methods/m49/m49.htm)
+
+Errors: 1 Warnings: 62 Hints: 253
+
+===Resources with FMM forced to 0===
+HL7 International / FHIR Infrastructure:
+  DomainResource(5), ExampleScenario(1), GraphDefinition(2), Resource(5), StructureDefinition(5), SubscriptionStatus(2), SubscriptionTopic(2), TestPlan(1)
+HL7 International / Orders and Observations:
+  BiologicallyDerivedProduct(2), BiologicallyDerivedProductDispense(1), BodyStructure(1), Device(2), DeviceDefinition(1), DeviceRequest(1), DeviceUsage(1), ObservationDefinition(1), Specimen(3), SpecimenDefinition(1)
+    0.672  42sec 1118MB
+ERROR @ Specimen: Resource Specimen (FMM=3) cannot have an FMM level > 0 (3) if it has warnings
+This was a Full Build                                                           0.0  42sec 1118MB
+FHIR build failure @ Thu, Jul 17, 2025 15:31-0500                             1.154  43sec 1126MB
+Error: Errors executing build. Details logged.
+
+> Task :publish FAILED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3.1/userguide/command_line_interface.html#sec:command_line_warnings
+1 actionable task: 1 executed
