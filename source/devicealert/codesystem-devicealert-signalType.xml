@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="devicealert-status" />
+  <id value="devicealert-signalType" />
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
   </meta>
@@ -12,12 +12,12 @@
     <valueCode value="draft" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2" />
+    <valueInteger value="1" />
   </extension>
-  <url value="http://hl7.org/fhir/devicealert-status" />
+  <url value="http://hl7.org/fhir/devicealert-signalType" />
   <version value="6.0.0" />
-  <name value="DeviceAlertStatus" />
-  <title value="Device Alert Status" />
+  <name value="DeviceAlertSignalType" />
+  <title value="Device Alert Signal Type" />
   <status value="draft" />
   <experimental value="false" />
   <date value="2023-12-10T10:01:24+11:00" />
@@ -32,23 +32,23 @@
       <value value="fhir@lists.hl7.org" />
     </telecom>
   </contact>
-  <description value="Describes the status of a DeviceAlert." />
+  <description value="Describes the annunciator of a device alert." />
   <caseSensitive value="true" />
-  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-status" />
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-signalType" />
   <content value="complete" />
   <concept>
-    <code value="in-progress" />
-    <display value="In Progress" />
-    <definition value="The alert condition is present, or any signal from a previously present condition is not off" />
+    <code value="strobe-white" />
+    <display value="White Strobe" />
+    <definition value="White flashing light" />
   </concept>
   <concept>
-    <code value="completed" />
-    <display value="Completed" />
-    <definition value="The alert condition is not present, and all signals are off" />
+    <code value="text-2m" />
+    <display value="Text (2 m)" />
+    <definition value="Text readable at a distance of 2 meters" />
   </concept>
   <concept>
-    <code value="entered-in-error" />
-    <display value="Entered in Error" />
-    <definition value="This alert record was created in error and is not valid." />
+    <code value="fast-pulse" />
+    <display value="Intermittent Vibration (Rapid)" />
+    <definition value="A rapid intermittent (alternating) vibration" />
   </concept>
 </CodeSystem>
