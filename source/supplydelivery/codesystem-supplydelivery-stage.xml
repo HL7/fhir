@@ -50,4 +50,14 @@
     <display value="Reception"/>
     <definition value="This is about a Reception."/>
   </concept>
+  <concept>
+    <code value="return-dispatch"/>
+    <display value="Return Dispatch"/>
+    <definition value="This is about a return Dispatch."/>
+  </concept>
+  <concept>
+    <code value="return-reception"/>
+    <display value="Return Reception"/>
+    <definition value="This is about a return Reception."/>
+  </concept>
 </CodeSystem>
