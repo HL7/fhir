@@ -14,7 +14,7 @@
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
 						<code value="ACSN"/>
-						<display value="Accession"/>
+						<display value="Accession ID"/>
 					</coding>
 				</type>
 				<system value="http://lab.acme.org/specimens/2015"/>
@@ -72,7 +72,7 @@
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
 				<code value="ACSN"/>
-				<display value="Accession"/>
+				<display value="Accession ID"/>
 			</coding>
 		</type>
 		<system value="http://lab.acme.org/specimens/2011"/>
