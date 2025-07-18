@@ -33,7 +33,7 @@ When a device gets replaced by another device of the same type. In this case, a 
 
 
 <a name="bnr"></a>
-<h3>Boundaries and Relationships</h3>
+<h2>Boundaries and Relationships</h2>
 
 [%stu-note dstu%]
 The module pages under development by Orders and Observations will further describe the variations of device use cases across the device resources, e.g., Device, DeviceDefinition, DeviceAssociation, DeviceDispense, DeviceMetric, DeviceRequest, and Device Usage.
