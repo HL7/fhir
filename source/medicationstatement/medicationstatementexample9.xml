@@ -10,8 +10,8 @@
       <code>
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
-          <code value="358793"/>
-          <display value="Nigroglycerin patch"/>
+          <code value="0378-9112-93"/>
+          <display value="Nitroglycerin, 30 POUCH in 1 CARTON (0378-9112-93) > 1 PATCH in 1 POUCH (0378-9112-16) > 14 h in 1 PATCH (package)"/>
         </coding>
       </code>
         <doseForm>
