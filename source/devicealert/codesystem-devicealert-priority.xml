@@ -21,15 +21,11 @@
   <status value="active"/>
   <experimental value="false"/>
   <date value="2023-12-10T10:01:24+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="HL7 International / Health Care Devices"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices"/>
     </telecom>
   </contact>
   <description value="Describes the priority of a DeviceAlert."/>
