@@ -87,7 +87,7 @@
         <key value="spm-2"/>
         <severity value="error"/>
         <human value="Specimen.accessionIdentifier must be present in Specimen.identifier and identifier.assigner and/or identifier.system must be valued and the type code is ACSN"/>
-        <expression value="Specimen.accessionIdentifier.exists() implies (Specimen.accessionIdentifier.value in Specimen.identifier.value and Specimen.identifier.type.coding.exists(code = 'ACSN')) or Specimen.accessionIdentifier.exists().not()"/> 
+        <expression value="Specimen.accessionIdentifier.exists() implies (Specimen.identifier.where(value = %resource.accessionIdentifier.value and type.coding.exists(code = 'ACSN')).exists())"/> 
          <!-- and  (Specimen.identifier.assigner.exists() or Specimen.identifier.system.exists()))  -->
         <!-- and Specimen.identifier.type.coding.code = 'ACSN' -->
         <source value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
