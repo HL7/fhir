@@ -357,6 +357,41 @@
         <map value="Action.currentStatus"/>
       </mapping>
     </element>
+    <element id="ServiceRequest.statusReason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="FHIR-43105"/>
+      </extension>
+      <path value="ServiceRequest.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Provides coded or textual reasons for why the ServiceRequest has its current status. This can be used to describe reasons for suspension, cancellation, or other status changes."/>
+      <comment value="There is overlap between ServiceRequest.reason and ServiceRequest.statusReason early in the performance of the request since the .reason is the reason for the ServiceRequest. However, statusReason specifically captures why the ServiceRequest has its current status (e.g., suspended due to pre-approval denied, cancelled as no longer clinically necessary)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceRequestStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes providing the reason why a ServiceRequest has its current status."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-5, ORC-16"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
     <element id="ServiceRequest.intent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3720][#10296][#11119]#13196]."/>
