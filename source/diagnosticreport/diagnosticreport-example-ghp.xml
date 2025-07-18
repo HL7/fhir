@@ -72,7 +72,7 @@
 					   </coding>
 				    </type>
 					<system value="http://acme.com/labs/accession-ids"/>
-					<value value="20150816-00124"/>
+					<value value="20150816-001245"/>
 				</identifier>
 				<accessionIdentifier>
 				    <type>

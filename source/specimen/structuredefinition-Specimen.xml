@@ -576,6 +576,7 @@
         </extension>
         <strength value="example"/>
         <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
       </binding>
       <mapping>
         <identity value="v2"/>
