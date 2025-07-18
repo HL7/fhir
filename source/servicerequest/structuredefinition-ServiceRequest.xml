@@ -267,6 +267,14 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -399,7 +407,7 @@
       <path value="ServiceRequest.intent"/>
       <short value="proposal | plan | directive | order +"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
+      <comment value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <min value="1"/>
       <max value="1"/>
       <type>
