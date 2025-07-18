@@ -72,7 +72,7 @@
 					   </coding>
 				    </type>
 					<system value="http://acme.com/lab/accession-ids"/>
-					<value value="20150816-00124"/>c
+					<value value="20150816-00124"/>
 				</identifier>
 				<accessionIdentifier>
 				    <type>
@@ -82,7 +82,7 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
-					<system value="http://acme.com/labs/accession-ids"/>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</accessionIdentifier>
 				<type>
@@ -122,7 +122,7 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
-					<system value="http://acme.com/labs/accession-ids"/>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</identifier>
 				<accessionIdentifier>
@@ -133,7 +133,7 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
-					<system value="http://acme.com/labs/accession-ids"/>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</accessionIdentifier>
 				<type>
@@ -173,7 +173,7 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
-					<system value="http://acme.com/labs/accession-ids"/>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</identifier>
 				<accessionIdentifier>
@@ -184,7 +184,7 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
-					<system value="http://acme.com/labs/accession-ids"/>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</accessionIdentifier>
 				<type>
