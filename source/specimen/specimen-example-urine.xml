@@ -5,6 +5,17 @@
 		<system value="http://lab.acme.org/specimens/2015"/>
 		<value value="X352356"/>
 	</identifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
+		<system value="http://lab.acme.org/specimens/2015"/>
+		<value value="X352356"/>
+	</identifier>
 	<accessionIdentifier>
 		<!-- accession identifier - e.g. assigned by the labaratory when it is received.
      This is common, unlike specimen identifier -->
