@@ -71,8 +71,13 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
+<<<<<<< HEAD
 					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
+=======
+					<system value="http://acme.com/labs/accession-ids"/>
+					<value value="20150816-001245"/>
+>>>>>>> jdlnolen-FHIR-44755c
 				</identifier>
 				<accessionIdentifier>
 				    <type>
@@ -82,8 +87,13 @@
 						  <display value="Accession ID"/>
 					   </coding>
 				    </type>
+<<<<<<< HEAD
 					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
+=======
+					<system value="http://acme.com/labs/accession-ids"/>
+					<value value="20150816-001245"/>
+>>>>>>> jdlnolen-FHIR-44755c
 				</accessionIdentifier>
 				<type>
 					<coding>

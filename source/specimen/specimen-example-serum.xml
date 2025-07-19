@@ -2,10 +2,13 @@
 <Specimen xmlns="http://hl7.org/fhir">
 	<id value="sst"/>
 	<identifier>
+<<<<<<< HEAD
 		<system value="http://acme.com/lab/accession-ids"/>
 		<value value="20150816-00124"/>
 	</identifier>
 	<identifier>
+=======
+>>>>>>> jdlnolen-FHIR-44755c
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
@@ -13,7 +16,11 @@
 				<display value="Accession ID"/>
 			</coding>
 		</type>
+<<<<<<< HEAD
 		<system value="http://acme.com/lab/accession-ids"/>
+=======
+		<system value="http://acme.com/labs/accession-ids"/>
+>>>>>>> jdlnolen-FHIR-44755c
 		<value value="20150816-00124"/>
 	</identifier>
 	<accessionIdentifier>

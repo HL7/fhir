@@ -88,8 +88,6 @@
         <severity value="error"/>
         <human value="Specimen.accessionIdentifier must be present in Specimen.identifier and identifier.assigner and/or identifier.system must be valued and the type code is ACSN"/>
         <expression value="Specimen.accessionIdentifier.exists() implies (Specimen.identifier.where(value = %resource.accessionIdentifier.value and type.coding.exists(code = 'ACSN')).exists())"/> 
-         <!-- and  (Specimen.identifier.assigner.exists() or Specimen.identifier.system.exists()))  -->
-        <!-- and Specimen.identifier.type.coding.code = 'ACSN' -->
         <source value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
      </constraint>
       <mapping>
@@ -578,6 +576,7 @@
         </extension>
         <strength value="example"/>
         <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
       </binding>
       <mapping>
         <identity value="v2"/>
