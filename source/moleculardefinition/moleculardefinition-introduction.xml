@@ -1,12 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
-    
-    [%stu-note dstu%]
-
-      Molecular Definition resource will replace <a href="molecularsequence.html"> Molecular Sequence</a> resource. Current page of the <a href="molecularsequence.html"> Molecular Sequence</a> is temporarily available for referencing and review purposes.
-
-    [%end-note%]
-
   <h2>Scope and Usage</h2>
   <p>
     The MolecularDefinition resource represents molecular entities (e.g., nucleotide or protein sequences) for both clinical and non-clinical use cases, including translational research. The resource is definitional, in that it focuses on discrete, computable, and semantically expressive data structures that reflect the genomic domain. Because the resource focuses on the molecular entities rather than specimen source or annotated knowledge, it supports both patient/participant-specific use cases and population-based data, and both human and non-human data.
