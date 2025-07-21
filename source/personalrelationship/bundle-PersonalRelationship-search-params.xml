@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="PersonalRelationship-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PersonalRelationship-patient"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PersonalRelationship.source,PersonalRelationship.target"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PersonalRelationship-patient"/>
+        <description value="The patient this related person is related to"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="PersonalRelationship.source.where(resolve() is Patient) | PersonalRelationship.target.where(resolve() is Patient)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PersonalRelationship-source"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PersonalRelationship.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PersonalRelationship-source"/>
+        <description value="The source of the relationship"/>
+        <code value="source"/>
+        <type value="reference"/>
+        <expression value="PersonalRelationship.source"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PersonalRelationship.target"/>
+        </extension>
+        <description value="The target of the relationship"/>
+        <code value="target"/>
+        <type value="reference"/>
+        <expression value="PersonalRelationship.target"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PersonalRelationship.relationshipType"/>
+        </extension>
+        <description value="The personal relationship between the patient and the PersonalRelationship"/>
+        <code value="relationship"/>
+        <type value="token"/>
+        <expression value="PersonalRelationship.relationshipType"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

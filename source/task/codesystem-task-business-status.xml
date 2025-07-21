@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="task-business-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/task-business-status"/>
+  <version value="6.0.0"/>
+  <name value="TaskBusinessStatus"/>
+  <title value="Task Business Status"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-03-12T10:00:00+08:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Task execution business status."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/task-business-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="specimen-collected"/>
+    <display value="Specimen Collected"/>
+    <definition value="The specimen has been collected."/>
+  </concept>
+  <concept>
+    <code value="iv-prepped"/>
+    <display value="IV Prepped"/>
+    <definition value="The patient IV has been prepared."/>
+  </concept>
+  <concept>
+    <code value="specimen-in-transit"/>
+    <display value="Specimen In Transit"/>
+    <definition value="The specimen is in transit."/>
+  </concept>
+  <concept>
+    <code value="waiting-for-final-review"/>
+    <display value="Waiting For Final Review"/>
+    <definition value="Waiting for final review."/>
+  </concept>
+</CodeSystem>

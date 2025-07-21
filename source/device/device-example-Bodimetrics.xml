@@ -34,8 +34,13 @@
   <serialNumber value="1607124656"/>
   <name>
     <value value="BM-88   4656"/>
-    <type value="user-friendly-name"/>
-  </name>
+	  <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+            <code value="user-friendly-name"/>
+        </coding>
+      </type>	
+    </name>
   <modelNumber value="6611"/>
   <type>
     <coding>
@@ -45,7 +50,7 @@
     </coding>
     <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
   </type>
-  <version>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -54,8 +59,8 @@
       <text value="MDC_ID_PROD_SPEC_SW: Software revision"/>
     </type>
     <value value="020008"/>
-  </version>
-  <version>
+  </deviceVersion>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -64,7 +69,7 @@
       <text value="MDC_ID_PROD_SPEC_HW: Hardware revision"/>
     </type>
     <value value="CC"/>
-  </version>
+  </deviceVersion>
   <conformsTo>
     <specification>
       <coding>

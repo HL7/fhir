@@ -132,45 +132,6 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <h4>Usage Examples</h4>
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternC-POSTofrequesttoplacer/queueserversystem,receiverusespollingorsubscription">HL7 Confluence page</a></p>
-        <!--
-        <a name="optioni"></a>
-        <h3>Option I: POST of "request" resource for filler system, response via Task</h3>
-        <p>
-            <i>TODO: needs review, likely to be presented as a variation to option C</i>
-        </p>
-        <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optioni.png" />
-        <h4>Steps</h4>
-        <ol>
-            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
-                queue server system and sets a "tag" on the resource that indicates the request is "actionable"</li>
-            <li>Filler POSTs a Task resource to its own system or a queue server system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
-            <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>
-            <li>Fulfiller may update the Task to indicate interim progress notes</li>
-            <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
-            <li>Fulfiller POSTs an event resource to its own system or to a queue server system</li>
-            <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
-            <li>Placer system becomes aware of the update via polling or subscription</li>
-            <li>Placer system retrieves the event</li>
-            <li>Placer system marks the request as "complete"</li>
-        </ol>
-        <h4>Benefits</h4>
-        <ul>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
-            <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
-        </ul>
-        <h4>Limitations</h4>
-        <ul>
-            <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
-            <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
-            <li>Additional complexity of using Task</li>
-            <li>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and have "write" permissions to each other's servers (if no queue server is used)</li>
-            <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
-        </ul>
-        <h4>Usage Recommendations</h4>
-        <p>
-            Use this when the filler needs to have complete ownership over the task and there's no ability for both placer &amp; filler to manipulate tasks on a common server
-        </p>
-        -->
         <a name="optiond"></a>
         <h3>Option D: Messaging request from placer to filler &amp; acknowledgment</h3>
         <p>

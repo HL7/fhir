@@ -138,7 +138,6 @@
 			<path value="TestScript.identifier"/>
 			<short value="Additional identifier for the test script"/>
 			<definition value="A formal identifier that is used to identify this test script when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test script outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -270,9 +269,9 @@
 		</element>
 		<element id="TestScript.experimental">
 			<path value="TestScript.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of test scripts that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of test scripts that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level test script."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -481,8 +480,8 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="TestScript.origin">
-			<path value="TestScript.origin"/>
+		<element id="TestScript.testSystem">
+			<path value="TestScript.testSystem"/>
 			<short value="An abstract server representing a client or sender in a message exchange"/>
 			<definition value="An abstract server used in operations within this test script in the origin element."/>
 			<comment value="The purpose of this element is to define the profile of an origin element used elsewhere in the script.  Test engines could then use the origin-profile mapping to offer a filtered list of test systems that can serve as the sender for the interaction."/>
@@ -492,95 +491,54 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="TestScript.origin.index">
-			<path value="TestScript.origin.index"/>
-			<short value="The index of the abstract origin server starting at 1"/>
-			<definition value="Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1."/>
-			<comment value="A given origin index (e.g. 1) can appear only once in the list (e.g. Origin 1 cannot be specified twice ... once as FormFiller and again as FormProcessor within the same script as that could get confusing during test configuration). &#xA;&#xA;Different origin indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Filler).&#xA;&#xA;The origin indices provided elsewhere in the test script must be one of these origin indices."/>
+		<element id="TestScript.testSystem.index">
+			<path value="TestScript.testSystem.index"/>
+			<short value="The index of the abstract test system"/>
+			<definition value="Number for the test system that is unique within this test script.  Referenced by operation.origin and/or operation.destination."/>
+			<comment value="A given test system index (e.g. 1) can appear only once in the list (e.g. Origin 1 cannot be specified twice ... once as actor A and again as actor B within the same script as that could get confusing during test configuration). &#xA;&#xA;Different test system indices could play the same actor in the same test script.&#xA;&#xA;The operation.origin and/or operation.destination values defined elsewhere in the test script must be one of these test system indices."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="positiveInt"/>
 			</type>
 		</element>
-		<element id="TestScript.origin.profile">
-			<path value="TestScript.origin.profile"/>
-			<short value="FHIR-Client | FHIR-SDC-FormFiller"/>
-			<definition value="The type of origin profile the test system supports."/>
-			<comment value="Must be a &quot;sender&quot;/&quot;client&quot; profile."/>
+		<element id="TestScript.testSystem.title">
+			<path value="TestScript.testSystem.title"/>
+			<short value="Label for the test system"/>
+			<definition value="A short human-friendly label for the test system that is unique within this test script and may be used when rendering the script."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="Coding"/>
-			</type>
-			<meaningWhenMissing value="FHIR-Client"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TestScriptProfileOriginType"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="The type of origin profile the test system supports."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-profile-origin-types"/>
-			</binding>
-		</element>
-		<element id="TestScript.origin.url">
-			<path value="TestScript.origin.url"/>
-			<short value="The url path of the origin server"/>
-			<definition value="The explicit url path of the origin server used in this test script."/>
-			<comment value="If provided, the test engine is not expected to prompt for or accept external input of this value."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="url"/>
+				<code value="string"/>
 			</type>
 		</element>
-		<element id="TestScript.destination">
-			<path value="TestScript.destination"/>
-			<short value="An abstract server representing a destination or receiver in a message exchange"/>
-			<definition value="An abstract server used in operations within this test script in the destination element."/>
-			<comment value="The purpose of this element is to define the profile of a destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction."/>
+		<element id="TestScript.testSystem.actor">
+			<path value="TestScript.testSystem.actor"/>
+			<short value="Features met by the test system"/>
+			<definition value="Reference to requirements that must be satisfied by the test system."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="BackboneElement"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
 			</type>
 		</element>
-		<element id="TestScript.destination.index">
-			<path value="TestScript.destination.index"/>
-			<short value="The index of the abstract destination server starting at 1"/>
-			<definition value="Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1."/>
-			<comment value="A given destination index (e.g. 1) can appear only once in the list (e.g. Destination 1 cannot be specified twice ... once as Form-Manager and again as Form-Processor within the same script as that could get confusing during test configuration). &#xA;&#xA;Different destination indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Manager).&#xA;&#xA;The destination indices provided elsewhere in the test script must be one of these destination indices."/>
-			<min value="1"/>
+		<element id="TestScript.testSystem.description">
+			<path value="TestScript.testSystem.description"/>
+			<short value="Formatted information of this test system"/>
+			<definition value="Additional information about the role and capabilities of the systems that would participate in this portion of the script."/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="integer"/>
+				<code value="markdown"/>
 			</type>
 		</element>
-		<element id="TestScript.destination.profile">
-			<path value="TestScript.destination.profile"/>
-			<short value="FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessor"/>
-			<definition value="The type of destination profile the test system supports."/>
-			<comment value="Must be a &quot;receiver&quot;/&quot;server&quot; profile."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<meaningWhenMissing value="FHIR-Server"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TestScriptProfileDestinationType"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="The type of destination profile the test system supports."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-profile-destination-types"/>
-			</binding>
-		</element>
-		<element id="TestScript.destination.url">
-			<path value="TestScript.destination.url"/>
-			<short value="The url path of the destination server"/>
-			<definition value="The explicit url path of the destination server used in this test script."/>
-			<comment value="If provided, the test engine is not expected to prompt for or accept external input of this value."/>
+		<element id="TestScript.testSystem.url">
+			<path value="TestScript.testSystem.url"/>
+			<short value="The url path of this test system"/>
+			<definition value="The explicit url path of the test system used in this test script. If populated, the test engine is not expected to prompt for or accept external input of this value."/>
+			<comment value="This value represents the host location for an origin test system or the base url for a destination test system."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -638,7 +596,7 @@
 			<path value="TestScript.metadata.capability"/>
 			<short value="Capabilities  that are assumed to function correctly on the FHIR server being tested"/>
 			<definition value="Capabilities that must exist and are assumed to function correctly on the FHIR server being tested."/>
-			<comment value="When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The &quot;metadata.capabilities.required&quot; and &quot;metadata.capabilities.validated&quot; elements only indicate whether the capabilities are the primary focus of the test script or not.  They do not impact the skipping logic.  Capabilities whose &quot;metadata.capabilities.validated&quot; flag is true are the primary focus of the test script."/>
+			<comment value="When the metadata capabilities section is defined at TestScript.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped. The &quot;metadata.capabilities.required&quot; and &quot;metadata.capabilities.validated&quot; elements only indicate whether the capabilities are the primary focus of the test script or not. They do not impact the skipping logic. Capabilities whose &quot;metadata.capabilities.validated&quot; flag is true are the primary focus of the test script."/>
 			<min value="1"/>
 			<max value="*"/>
 			<type>
@@ -827,6 +785,17 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
+		<element id="TestScript.fixture.expression">
+			<path value="TestScript.fixture.expression"/>
+			<short value="The expression against the fixture to extract the required element"/>
+			<definition value="The expression for a specific element to extract from the fixture body."/>
+			<comment value="If expression is defined then the evaluated element from the fixture will become the fixture contents. A test engine is expected to minimally support the expression languages: text/fhirpath, application/xml and application/json."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
 		<element id="TestScript.profile">
 			<path value="TestScript.profile"/>
 			<short value="Reference of the validation profile"/>
@@ -853,7 +822,7 @@
 				<key value="tst-3"/>
 				<severity value="error"/>
 				<human value="Variable can only contain one of expression, headerField or path."/>
-				<expression value="expression.empty() or headerField.empty() or path.empty()"/>
+				<expression value="(expression.empty() and headerField.empty() and path.empty()) or (expression.empty() and (headerField.exists() xor path.exists())) or (headerField.empty() and (expression.exists() xor path.exists())) or (path.empty() and (expression.exists() xor headerField.exists()))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -891,13 +860,13 @@
 		</element>
 		<element id="TestScript.variable.expression">
 			<path value="TestScript.variable.expression"/>
-			<short value="The FHIRPath expression against the fixture body"/>
-			<definition value="The FHIRPath expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
-			<comment value="If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path."/>
+			<short value="The expression against the fixture body"/>
+			<definition value="The expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
+			<comment value="If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to. If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to. It is an error to define any combination of expression, headerField and path. A test engine is expected to minimally support the expression languages: text/fhirpath, application/xml and application/json."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Expression"/>
 			</type>
 			<condition value="tst-3"/>
 		</element>
@@ -924,6 +893,9 @@
 			</type>
 		</element>
 		<element id="TestScript.variable.path">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="TestScript.variable.path"/>
 			<short value="XPath or JSONPath against the fixture body"/>
 			<definition value="XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified."/>
@@ -961,10 +933,10 @@
 				<valueString value="SetupAction"/>
 			</extension>
 			<path value="TestScript.setup.action"/>
-			<short value="A setup operation or assert to perform"/>
-			<definition value="Action would contain either an operation or an assertion."/>
-			<comment value="An action should contain either an operation or an assertion but not both.  It can contain any number of variables."/>
-			<min value="1"/>
+			<short value="A setup common or operation or assert to perform"/>
+			<definition value="Action would contain either a common or operation or an assertion."/>
+			<comment value="An action should contain only one of either a common or operation or an assertion.  It can contain any number of variables."/>
+			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="BackboneElement"/>
@@ -972,10 +944,80 @@
 			<constraint>
 				<key value="tst-1"/>
 				<severity value="error"/>
-				<human value="Setup action SHALL contain either an operation or assert but not both."/>
-				<expression value="operation.exists() xor assert.exists()"/>
+				<human value="Setup action SHALL contain only one of either a common or an operation or an assert."/>
+				<expression value="common.exists() xor operation.exists() xor assert.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
+		</element>
+		<element id="TestScript.setup.action.common">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="SetupActionCommon"/>
+			</extension>
+			<path value="TestScript.setup.action.common"/>
+			<short value="Links or references to common collection(s) of actions"/>
+			<definition value="Links or references to common collection(s) of actions in this or an external TestScript instance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="tst-1"/>
+		</element>
+		<element id="TestScript.setup.action.common.testScript">
+			<path value="TestScript.setup.action.common.testScript"/>
+			<short value="Canonical reference to the common TestScript instance"/>
+			<definition value="Canonical reference providing traceability to the common TestScript instance containing the commonKey."/>
+			<comments value="If not defined, this TestScript instance is the container of the setup common key."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.common.keyRef">
+			<path value="TestScript.setup.action.common.keyRef"/>
+			<short value="Common key reference that identifies the common collection of actions to perform"/>
+			<definition value="Common key reference that identifies the common collection of actions to perform as defined the this or the common testScript."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.common.parameter">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="SetupActionCommonParameter"/>
+			</extension>
+			<path value="TestScript.setup.action.common.parameter"/>
+			<short value="Parameter(s) to convey input values to the identified common collection of actions"/>
+			<definition value="Optional named parameter(s) to provide input values to the identified common collection of actions from this or an external TestScript."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.common.parameter.name">
+			<path value="TestScript.setup.action.common.parameter.name"/>
+			<short value="Name of the parameter from the identified common collection of actions"/>
+			<definition value="The name of this parameter from the identified common collection of actions from this or an external TestScript."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.common.parameter.value">
+			<path value="TestScript.setup.action.common.parameter.value"/>
+			<short value="Value to assign to the parameter from the identified common collection of actions"/>
+			<definition value="The value to assign to this parameter from the identified common collection of actions from this or an external TestScript."/>
+			<comment value="The value data type is a generic string where the expectation is the actual value may be assigned to any action.opertion or action.assert element. The FHIR test engine must correctly assign the value to the target element's data type."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
 		</element>
 		<element id="TestScript.setup.action.operation">
 			<path value="TestScript.setup.action.operation"/>
@@ -1078,17 +1120,18 @@
 			</example>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="MimeType"/>
+					<valueString value="SupplementedMimeType"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-				</extension>
 				<strength value="required"/>
-				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.operation.contentType">
@@ -1107,24 +1150,25 @@
 			</example>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="MimeType"/>
+					<valueString value="SupplementedMimeType"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-				</extension>
 				<strength value="required"/>
-				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.operation.destination">
 			<path value="TestScript.setup.action.operation.destination"/>
 			<short value="Server responding to the request"/>
-			<definition value="The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section."/>
-			<comment value="If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will report an error as it cannot determine what destination to use for the exchange."/>
+			<definition value="The test system where the request message is destined. Must be one of the test system indices listed in TestScript.testSystem section."/>
+			<comment value="If multiple TestScript.testSystem elements are defined and operation.destination is undefined, the test engine will report an error as it cannot determine what destination test system to use for the exchange."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1163,8 +1207,8 @@
 		<element id="TestScript.setup.action.operation.origin">
 			<path value="TestScript.setup.action.operation.origin"/>
 			<short value="Server initiating the request"/>
-			<definition value="The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section."/>
-			<comment value="If absent, test engine will send the message.  When present, test engine will not send the request message but will wait for the request message to be sent from this origin server."/>
+			<definition value="The test system where the request message originates. Must be one of the test system indices listed in TestScript.testSystem section."/>
+			<comment value="If absent, the test engine will send the message. When present, the test engine will not send the request message but will wait for the request message to be sent from this test system."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1317,6 +1361,28 @@
 				<code value="string"/>
 			</type>
 		</element>
+		<element id="TestScript.setup.action.assert.key">
+			<path value="TestScript.setup.action.assert.key"/>
+			<short value="Key that identifies this assert"/>
+			<definition value="The key that identifies this assert (unique within this TestScript)."/>
+			<comment value="This may be referenced by downstream assert.evaluateBasedOn for conditional evaluation by the test engine."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.assert.evaluateBasedOn">
+			<path value="TestScript.setup.action.assert.evaluateBasedOn"/>
+			<short value="Zero or more assert.key references"/>
+			<definition value="A list of zero or more assert.key references to conditionally determine if this assert will be evaluated."/>
+			<comment value="This may reference upstream assert.key value(s) for conditional evaluation of this assert by the test engine."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
 		<element id="TestScript.setup.action.assert.description">
 			<path value="TestScript.setup.action.assert.description"/>
 			<short value="Tracking/reporting assertion description"/>
@@ -1354,7 +1420,7 @@
 		<element id="TestScript.setup.action.assert.compareToSourceId">
 			<path value="TestScript.setup.action.assert.compareToSourceId"/>
 			<short value="Id of the source fixture to be evaluated"/>
-			<definition value="Id of the source fixture used as the contents to be evaluated by either the &quot;source/expression&quot; or &quot;sourceId/path&quot; definition."/>
+			<definition value="Id of the source fixture used as the contents to be evaluated by either the &quot;assert.compareToSourceExpression&quot; or &quot;assert.compareToSourcePath&quot; definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1364,17 +1430,20 @@
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourceExpression">
 			<path value="TestScript.setup.action.assert.compareToSourceExpression"/>
-			<short value="The FHIRPath expression to evaluate against the source fixture"/>
-			<definition value="The FHIRPath expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
-			<comment value="Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated."/>
+			<short value="The expression to evaluate against the source fixture"/>
+			<definition value="The expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
+			<comment value="The expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Expression"/>
 			</type>
 			<condition value="tst-10"/>
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourcePath">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="TestScript.setup.action.assert.compareToSourcePath"/>
 			<short value="XPath or JSONPath expression to evaluate against the source fixture"/>
 			<definition value="XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
@@ -1403,17 +1472,18 @@
 			<condition value="tst-5"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="MimeType"/>
+					<valueString value="SupplementedMimeType"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-				</extension>
 				<strength value="required"/>
-				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
+				<additional>
+					<purpose value="starter"/>
+					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+				</additional>
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.assert.defaultManualCompletion">
@@ -1441,13 +1511,13 @@
 		</element>
 		<element id="TestScript.setup.action.assert.expression">
 			<path value="TestScript.setup.action.assert.expression"/>
-			<short value="The FHIRPath expression to be evaluated"/>
-			<definition value="The FHIRPath expression to be evaluated against the request or response message contents - HTTP headers and payload."/>
-			<comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId. If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation. Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.&#xA;&#xA;The FHIRPath expression can be evaluated as either a path to a specific value or as a boolean expression against the given FHIR resource. When the FHIRPath is a boolean expression, the assert.value element is not used. See [Testing FHIR Use Expressions](testing.html#expressions)."/>
+			<short value="The expression to be evaluated"/>
+			<definition value="The expression to be evaluated against the request or response message contents - HTTP headers and payload."/>
+			<comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId. If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation. Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.&#xA;&#xA;The expression can be evaluated as either a path to a specific value or as a boolean expression against the given sourceId. When the expression evaluates to a boolean, the assert.value element is not used. See [Testing FHIR Use Expressions](testing.html#expressions). A test engine is expected to minimally support the expression languages: text/fhirpath, application/xml and application/json."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Expression"/>
 			</type>
 			<condition value="tst-5"/>
 		</element>
@@ -1511,6 +1581,9 @@
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.assert.path">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="TestScript.setup.action.assert.path"/>
 			<short value="XPath or JSONPath expression"/>
 			<definition value="The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server."/>
@@ -1680,18 +1753,25 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="TestScript.setup.action.assert.requirement.link[x]">
-			<path value="TestScript.setup.action.assert.requirement.link[x]"/>
-			<short value="Link or reference to the testing requirement"/>
-			<definition value="Link or reference providing traceability to the testing requirement for this test."/>
-			<min value="0"/>
+		<element id="TestScript.setup.action.assert.requirement.reference">
+			<path value="TestScript.setup.action.assert.requirement.reference"/>
+			<short value="Canonical reference to the Requirements instance"/>
+			<definition value="Canonical reference providing traceability to the testing requirement for this assert."/>
+			<min value="1"/>
 			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.assert.requirement.key">
+			<path value="TestScript.setup.action.assert.requirement.key"/>
+			<short value="Requirements statement key identifier"/>
+			<definition value="Requirements.statement.key that identifies the statement that this assert satisfies."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
 			</type>
 		</element>
 		<element id="TestScript.test">
@@ -1732,7 +1812,7 @@
 			<short value="A test operation or assert to perform"/>
 			<definition value="Action would contain either an operation or an assertion."/>
 			<comment value="An action should contain either an operation or an assertion but not both.  It can contain any number of variables."/>
-			<min value="1"/>
+			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="BackboneElement"/>
@@ -1740,10 +1820,21 @@
 			<constraint>
 				<key value="tst-2"/>
 				<severity value="error"/>
-				<human value="Test action SHALL contain either an operation or assert but not both."/>
-				<expression value="operation.exists() xor assert.exists()"/>
+				<human value="Test action SHALL contain only one of either a common or an operation or an assert."/>
+				<expression value="common.exists() xor operation.exists() xor assert.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
+		</element>
+		<element id="TestScript.test.action.common">
+			<path value="TestScript.test.action.common"/>
+			<short value="Links or references to common collection(s) of actions"/>
+			<definition value="Links or references to common collection(s) of actions in this or an external TestScript instance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<contentReference value="#TestScript.setup.action.common"/>
 		</element>
 		<element id="TestScript.test.action.operation">
 			<path value="TestScript.test.action.operation"/>
@@ -1814,6 +1905,17 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
+		<element id="TestScript.teardown.action.common">
+			<path value="TestScript.teardown.action.common"/>
+			<short value="Links or references to common collection(s) of actions"/>
+			<definition value="Links or references to common collection(s) of actions in this or an external TestScript instance. Action asserts SHALL be ignored for the TestScript.teardown."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<contentReference value="#TestScript.setup.action.common"/>
+		</element>
 		<element id="TestScript.teardown.action.operation">
 			<path value="TestScript.teardown.action.operation"/>
 			<short value="The teardown operation to perform"/>
@@ -1826,6 +1928,144 @@
 				<severity value="error"/>
 				<human value="Teardown operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+		</element>
+		<element id="TestScript.common">
+			<path value="TestScript.common"/>
+			<short value="A common collection of actions in this script"/>
+			<definition value="A common collection of actions that can be re-used in a TestScript."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TestScript.common.key">
+			<path value="TestScript.common.key"/>
+			<short value="Key that identifies this common collection of actions"/>
+			<definition value="Key that identifies this common collection of actions (unique within this resource)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
+		<element id="TestScript.common.name">
+			<path value="TestScript.common.name"/>
+			<short value="Tracking/logging name of this common collection of actions"/>
+			<definition value="The name of this this common collection of actions used for tracking/logging purposes by test engines."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="TestScript.common.description">
+			<path value="TestScript.common.description"/>
+			<short value="Tracking/reporting short description of this common collection of actions"/>
+			<definition value="A short description of this common collection of actions used by test engines for tracking and reporting purposes."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="TestScript.common.parameter">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="CommonParameter"/>
+			</extension>
+			<path value="TestScript.common.parameter"/>
+			<short value="Parameter(s) to convey input values to this common collection of actions in this script"/>
+			<definition value="Optional named parameter(s) to provide input values to this common collection of actions from this or an external TestScript."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TestScript.common.parameter.name">
+			<path value="TestScript.common.parameter.name"/>
+			<short value="Tracking/logging name of this parameter to be used in this common collection of actions"/>
+			<definition value="The name of this parameter that will referenced in this common collection of actions using the TestScript variable nomenclature '${name}."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="TestScript.common.parameter.description">
+			<path value="TestScript.common.parameter.description"/>
+			<short value="Tracking/reporting short description of this parameter to be used this common collection of actions"/>
+			<definition value="An optional short description of this parameter to be used this common collection of actions used by test engines for tracking and reporting purposes."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="TestScript.common.action">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="CommonAction"/>
+			</extension>
+			<path value="TestScript.common.action"/>
+			<short value="A common operation or assert that can be re-used in this script"/>
+			<definition value="An action will contain either an operation or an assertion but not both."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="tst-14"/>
+				<severity value="error"/>
+				<human value="Common action SHALL contain either an operation or assert but not both."/>
+				<expression value="operation.exists() xor assert.exists()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+		</element>
+		<element id="TestScript.common.action.operation">
+			<path value="TestScript.common.action.operation"/>
+			<short value="The common operation that can be re-used in this script"/>
+			<definition value="An operation would involve a REST request to a server."/>
+			<min value="0"/>
+			<max value="1"/>
+			<contentReference value="#TestScript.setup.action.operation"/>
+			<constraint>
+				<key value="tst-15"/>
+				<severity value="error"/>
+				<human value="Common operation SHALL contain either sourceId or targetId or params or url."/>
+				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+		</element>
+		<element id="TestScript.common.action.assert">
+			<path value="TestScript.common.action.assert"/>
+			<short value="The common assertion to perform"/>
+			<definition value="Evaluates the results of previous operations to determine if the server under test behaves appropriately."/>
+			<comment value="In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine."/>
+			<min value="0"/>
+			<max value="1"/>
+			<contentReference value="#TestScript.setup.action.assert"/>
+			<constraint>
+				<key value="tst-16"/>
+				<severity value="error"/>
+				<human value="Common action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither."/>
+				<expression value="compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+			<constraint>
+				<key value="tst-17"/>
+				<severity value="error"/>
+				<human value="Common action assert response and response and responseCode SHALL be empty when direction equals request"/>
+				<expression value="(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+			<constraint>
+				<key value="tst-18"/>
+				<severity value="error"/>
+				<human value="Only a single assertion SHALL be present within common action assert element."/>
+				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-replaced-sequence"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <literal>
+            <value value="CCCCC"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

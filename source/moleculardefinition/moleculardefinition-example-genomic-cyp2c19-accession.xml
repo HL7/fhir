@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+  <id value="example-genomic-cyp2c19-accession"/>
+  <moleculeType>
+    <coding>
+      <system value="http://hl7.org/fhir/sequence-type"/>
+      <code value="dna"/>
+      <display value="DNA Sequence"/>
+    </coding>
+  </moleculeType>
+  <representation>
+    <code>
+      <coding>
+        <system value="http://www.ncbi.nlm.nih.gov/refseq"/>
+        <code value="NG_008384.3"/>
+        <display value="Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
+      </coding>
+    </code>
+  </representation>
+</MolecularDefinition>

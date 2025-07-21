@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="devicealert-activationState" />
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2" />
+  </extension>
+  <url value="http://hl7.org/fhir/devicealert-activationState" />
+  <version value="6.0.0" />
+  <name value="DeviceAlertActivationState" />
+  <title value="Device Alert Activation State" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2023-12-10T10:01:24+11:00" />
+  <publisher value="HL7 (FHIR Project)" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://hl7.org/fhir" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="fhir@lists.hl7.org" />
+    </telecom>
+  </contact>
+  <description value="Describes the activation state of a DeviceAlert." />
+  <caseSensitive value="true" />
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
+  <content value="complete" />
+  <concept>
+    <code value="on" />
+    <display value="On" />
+    <definition value="The signal will be announciated during an alert condition" />
+  </concept>
+  <concept>
+    <code value="off" />
+    <display value="Off" />
+    <definition value="The signal will not be announciated during an alert condition" />
+  </concept>
+  <concept>
+    <code value="paused" />
+    <display value="Paused" />
+    <definition value="Annunciation of the signal during an alert condition has been suppressed temporarily" />
+  </concept>
+</CodeSystem>

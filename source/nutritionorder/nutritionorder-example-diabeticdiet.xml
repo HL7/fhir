@@ -33,7 +33,6 @@ edited by Eric Haas Health eData Inc-->
 	<excludeFoodModifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
 			<code value="227493005"/>
 			<display value="Cashew Nut"/>
 		</coding>
@@ -43,8 +42,8 @@ edited by Eric Haas Health eData Inc-->
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="160670007"/>
-				<display value="Diabetic diet"/>
+				<code value="435651000124106"/>
+				<display value="Consistent carbohydrate diet (regime/therapy)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
@@ -76,8 +75,8 @@ edited by Eric Haas Health eData Inc-->
 				</coding>
 			</modifier>
 			<amount>
-				<value value="75"/>
-				<unit value="grams"/>
+				<value value="45"/>
+				<unit value="grams/meal"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>

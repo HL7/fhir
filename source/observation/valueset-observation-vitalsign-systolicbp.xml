@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-vitalsign-systolicbp"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
+  <name value="VitalSignsSystolicBP"/>
+  <title value="Vital Signs - Systolic BP"/>
+  <status value="active"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of LOINC codes considered to be appropriate for representing an arterial systolic BP vital sign measurement in Observation.component.code."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="COMPONENT"/>
+        <op value="in"/>
+        <!-- LP72836-7 Intravascular systolic -->
+        <!-- LP304522-8 Intravascular systolic^sitting -->
+        <!-- LP304524-4 Intravascular systolic^supine -->
+        <!-- LP304523-6 Intravascular systolic^standing -->
+        <!-- LP304513-7 Intravascular systolic^lying in L-lateral position -->
+        <value value="LP72836-7,LP304522-8,LP304524-4,LP304523-6,LP304513-7"/>
+      </filter>
+      <filter>
+        <property value="PROPERTY"/>
+        <op value="="/>
+        <value value="LP6847-0"/> <!-- Pres -->
+      </filter>
+      <filter>
+        <property value="TIME_ASPCT"/>
+        <op value="="/>
+        <value value="LP6960-1"/> <!-- Pt -->
+      </filter>
+      <filter>
+        <property value="SYSTEM"/>
+        <op value="="/>
+        <value value="LP7034-4"/> <!-- Arterial system -->
+      </filter>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="LP7753-9"/> <!-- Qn -->
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

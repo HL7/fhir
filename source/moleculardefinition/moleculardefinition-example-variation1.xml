@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-variation1"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-msh2"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: MSH2"/>
+            </sequenceContext>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
+                        </coding>
+                        <text value="0-based interval counting"/>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="2502"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="2503"/>
+                </endQuantity>
+            </coordinateInterval>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <focus>
+            <coding>
+                <code value="reference-state"/>
+                <display value="Reference State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="A"/>
+        </literal>
+    </representation>
+    <representation>
+        <focus>
+            <coding>
+                <code value="alternative-state"/>
+                <display value="Alternative State"/>
+            </coding>
+        </focus>
+        <literal>
+            <value value="C"/>
+        </literal>
+    </representation>
+</MolecularDefinition>

@@ -336,8 +336,27 @@
           <valueString value="RelatedPerson.relationship"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-relationship"/>
-        <description value="The relationship between the patient and the relatedperson"/>
+        <description value="The personal relationship between the patient and the relatedperson"/>
         <code value="relationship"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.relationship"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.role"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-role"/>
+        <description value="The functional relationship between the patient and the relatedperson"/>
+        <code value="role"/>
         <type value="token"/>
         <expression value="RelatedPerson.relationship"/>
         <processingMode value="normal"/>

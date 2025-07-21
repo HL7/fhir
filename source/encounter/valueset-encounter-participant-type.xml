@@ -27,7 +27,7 @@
   <name value="ParticipantType"/>
   <title value="Participant Type"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

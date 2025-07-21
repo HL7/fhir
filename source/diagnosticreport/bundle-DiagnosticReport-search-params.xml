@@ -62,18 +62,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DiagnosticReport-conclusion"/>
+        <id value="DiagnosticReport-conclusioncode-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DiagnosticReport.conclusionCode"/>
+          <valueString value="DiagnosticReport.conclusionCode.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-conclusion"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-conclusioncode-code"/>
         <description value="A coded conclusion (interpretation/impression) on the report"/>
-        <code value="conclusion"/>
+        <code value="conclusioncode-code"/>
         <type value="token"/>
-        <expression value="DiagnosticReport.conclusionCode"/>
+        <expression value="DiagnosticReport.conclusionCode.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DiagnosticReport-conclusioncode-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DiagnosticReport.conclusionCode.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-conclusionCode-reference"/>
+        <description value="A reference for the conclusion (interpretation/impression) on the report"/>
+        <code value="conclusioncode-reference"/>
+        <type value="reference"/>
+        <expression value="DiagnosticReport.conclusionCode.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -322,6 +341,25 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="DiagnosticReport.subject"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DiagnosticReport-procedure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DiagnosticReport.procedure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-procedure"/>
+        <description value="The procedure(s) from which the report was produced."/>
+        <code value="procedure"/>
+        <type value="reference"/>
+        <expression value="DiagnosticReport.procedure"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ArtifactAssessment xmlns="http://hl7.org/fhir">
+	<id value="example-risk-of-bias-assessment-of-parachute-trial"/>
+	<meta>
+		<versionId value="4"/>
+		<lastUpdated value="2025-02-25T20:01:47.665Z"/>
+		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/risk-of-bias"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/artifact-url">
+		<valueUri value="https://fevir.net/resources/ArtifactAssessment/307449"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/artifact-description">
+		<valueMarkdown value="This is an example of the RiskOfBias Profile."/>
+	</extension>
+	<identifier>
+		<type>
+			<text value="FEvIR Object Identifier"/>
+		</type>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="https://fevir.net/FOI/307449"/>
+		<assigner>
+			<display value="Computable Publishing LLC"/>
+		</assigner>
+	</identifier>
+	<title value="Risk of Bias Assessment of PARACHUTE trial"/>
+	<artifactReference>
+		<reference value="Citation/306957"/>
+		<type value="Citation"/>
+		<display value="30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
+	</artifactReference>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+	<content>
+		<type>
+			<coding>
+				<system value="https://fevir.net/resources/CodeSystem/27270"/>
+				<code value="SEVCO:00001"/>
+				<display value="Bias"/>
+			</coding>
+		</type>
+		<freeToShare value="true"/>
+		<component>
+			<summary value="Assignment was done by order of enrollment. "/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00278"/>
+					<display value="Inadequate random sequence generation"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00194"/>
+					<display value="Factor present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00208"/>
+					<display value="Factor likely has potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00187"/>
+					<display value="Moderate risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+		<component>
+			<summary value="The investigator who assigned the treatment was aware of the assignment which was reported verbally to the participant. "/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00031"/>
+					<display value="Inadequate allocation concealment"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00194"/>
+					<display value="Factor present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00208"/>
+					<display value="Factor likely has potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00187"/>
+					<display value="Moderate risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+		<component>
+			<summary value="Participants could discern the difference between a parachute and an empty backpack. Knowing that they have only an empty backpack might change jumping behavior which would have an unpredictable effect on the outcome. "/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00035"/>
+					<display value="Inadequate blinding of participants"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00195"/>
+					<display value="Factor likely present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00208"/>
+					<display value="Factor likely has potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00187"/>
+					<display value="Moderate risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+		<component>
+			<summary value="Intervention deliverers could discern the difference between the parachute and the empty backback. This likely made no difference in the outcome."/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00036"/>
+					<display value="Inadequate blinding of intervention deliverers"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00195"/>
+					<display value="Factor likely present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00209"/>
+					<display value="Factor likely does not have potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00186"/>
+					<display value="Low risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+		<component>
+			<summary value="Although outcome determination was done with full knowledge of exposure status, it was not likely that this changed the determination of death or injury"/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00048"/>
+					<display value="Bias due to lack of masking for outcome determination"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00195"/>
+					<display value="Factor likely present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00209"/>
+					<display value="Factor likely does not have potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00186"/>
+					<display value="Low risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+		<component>
+			<summary value="Attrition was much higher in the intervention group."/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00019"/>
+					<display value="Attrition Bias"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00195"/>
+					<display value="Factor likely present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00208"/>
+					<display value="Factor likely has potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00187"/>
+					<display value="Moderate risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+		<component>
+			<summary value="Study was only published in a satirical journal issue."/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00023"/>
+					<display value="Reporting Bias"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00194"/>
+					<display value="Factor present"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00208"/>
+					<display value="Factor likely has potential to impact results"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00205"/>
+					<display value="Risk of bias direction unpredictable"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="SEVCO:00187"/>
+					<display value="Moderate risk of bias"/>
+				</coding>
+			</classifier>
+		</component>
+	</content>
+	<content>
+		<type>
+			<text value="Profile"/>
+		</type>
+		<classifier>
+			<text value="ROB1"/>
+		</classifier>
+	</content>
+</ArtifactAssessment>

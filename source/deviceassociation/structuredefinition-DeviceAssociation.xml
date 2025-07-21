@@ -9,7 +9,7 @@
     <valueInteger value="0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="business"/>
+    <valueCode value="patient"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -87,8 +87,8 @@
     </element>
     <element id="DeviceAssociation.device">
       <path value="DeviceAssociation.device"/>
-      <short value="Reference to the devices associated with the patient or group"/>
-      <definition value="Reference to the devices associated with the patient or group."/>
+      <short value="Reference to the device that is being associated"/>
+      <definition value="Reference to the device that is being associated."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -96,8 +96,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
-    <element id="DeviceAssociation.category">
-      <path value="DeviceAssociation.category"/>
+    <element id="DeviceAssociation.relationship">
+      <path value="DeviceAssociation.relationship"/>
       <short value="Describes the relationship between the device and subject"/>
       <definition value="Describes the relationship between the device and subject."/>
       <min value="0"/>
@@ -105,6 +105,19 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAssociationRelationship"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="A coded concept specifying the type of association."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Describes the lifecycle of the association."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship"/>
+      </binding>
+
+
     </element>
     <element id="DeviceAssociation.status">
       <path value="DeviceAssociation.status"/>
@@ -156,13 +169,16 @@
       <path value="DeviceAssociation.subject"/>
       <short value="The individual, group of individuals or device that the device is on or associated with"/>
       <definition value="The individual, group of individuals or device that the device is on or associated with."/>
+      <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
@@ -223,6 +239,7 @@
       <path value="DeviceAssociation.operation.operator"/>
       <short value="The individual performing the action enabled by the device"/>
       <definition value="The individual performing the action enabled by the device."/>
+      <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated."/>
       <min value="0"/>
       <max value="*"/>
       <type>

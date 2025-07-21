@@ -322,6 +322,25 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="Subscription.filterBy.event">
+      <path value="Subscription.filterBy.event"/>
+      <short value="Event to filter by"/>
+      <definition value="An event filter to be applied to the topic - e.g., if a topic defined multiple event triggers, this can be used to specify a single one.  Multiple values are or-joined, multiple codings within a value are and-joined."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SubscriptionTopicEventTrigger"/>
+				</extension>
+				<strength value="example"/>
+				<description value="FHIR Value set/code system definition for HL7 V2 table 0003 (EVENT TYPE CODE)."/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/v2-0003"/>
+			</binding>
+    </element>
     <element id="Subscription.channelType">
       <path value="Subscription.channelType"/>
       <short value="Channel type for notifications"/>
@@ -355,9 +374,9 @@
     </element>
     <element id="Subscription.parameter">
       <path value="Subscription.parameter"/>
-      <short value="Channel type"/>
+      <short value="Channel type dependent information"/>
       <definition value="Channel-dependent information to send as part of the notification (e.g., HTTP Headers)."/>
-      <comment value="Exactly what these mean depend on the channel type. They can convey additional information to the server or recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions. Note that names are not required to be unique, but channel definitions can impose restrictions."/>
+      <comment value="Exactly what these mean depends on the channel type. They can convey additional information to the server or recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions. Note that names are not required to be unique, but channel definitions can impose restrictions."/>
       <min value="0"/>
       <max value="*"/>
       <type>

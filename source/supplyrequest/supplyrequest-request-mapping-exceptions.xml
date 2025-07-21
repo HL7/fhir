@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Request" resource="SupplyRequest"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Request" resource="SupplyRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Request.identifier" resourcePath="SupplyRequest.identifier">
         <shortUnmatched reason="Unknown">
@@ -11,7 +10,7 @@
             <resource value="Business identifiers assigned to this SupplyRequest by the author and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#10;&#10;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -31,11 +30,21 @@
             <resource value="Plan/proposal/order fulfilled by this request."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.groupIdentifier" resourcePath="SupplyRequest.groupIdentifier">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -50,9 +59,27 @@
             <resource value="Status of the supply request."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#10;&#10;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
             <resource value=""/>
         </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.intent" resourcePath="SupplyRequest.intent">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="proposal | plan | order (immutable)"/>
+            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the level of authority/intentionality associated with the supply request and where the request fits into the workflow chain."/>
+            <resource value="Whether the request is a proposal, plan, or an original order."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#10;&#10;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <resource value="This element is immutable. It cannot be changed for the same resource instance. It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#13;&#13;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#13;&#13;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
+            <resource value=""/>
+        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.priority" resourcePath="SupplyRequest.priority">
         <definitionUnmatched reason="Unknown">
@@ -63,8 +90,7 @@
     <divergentElement patternPath="Request.code" resourcePath="SupplyRequest.item">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes
-            _resource="CodeableReference(Medication,Substance,Device,DeviceDefinition,BiologicallyDerivedProduct,NutritionProduct,InventoryItem)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Medication,Substance,Device,DeviceDefinition,BiologicallyDerivedProduct,NutritionProduct,InventoryItem)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Service requested/ordered"/>
             <resource value="Medication, Substance, or Device requested to be supplied"/>
@@ -107,8 +133,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="SupplyRequest.supplier">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Who is intended to fulfill the request"/>
@@ -133,10 +158,8 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Request.intent" reason="Unknown"/>
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
     <unmappedElement patternPath="Request.subject" reason="Unknown"/>
-    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>

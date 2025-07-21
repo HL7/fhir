@@ -127,7 +127,6 @@
 			<path value="EvidenceVariable.identifier"/>
 			<short value="Additional identifier for the evidence variable"/>
 			<definition value="A formal identifier that is used to identify this evidence variable when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this evidence variable outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -217,10 +216,23 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
+		<element id="EvidenceVariable.citeAs">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,150"/>
+			</extension>
+			<path value="EvidenceVariable.citeAs"/>
+			<short value="Display of how to cite this EvidenceVariable"/>
+			<definition value="Display of the suggested method of how to cite this EvidenceVariable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
 		<element id="EvidenceVariable.status">
 			<path value="EvidenceVariable.status"/>
 			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this evidence variable. Enables tracking the life-cycle of the content."/>
+			<definition value="The status of this EvidenceVariable. Enables tracking the life-cycle of the content."/>
 			<comment value="Allows filtering of evidence variables that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -228,7 +240,7 @@
 				<code value="code"/>
 			</type>
 			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired EvidenceVariable without due consideration"/>
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -248,8 +260,9 @@
 		</element>
 		<element id="EvidenceVariable.experimental">
 			<path value="EvidenceVariable.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of artifacts that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -272,6 +285,25 @@
 			<mapping>
 				<identity value="w5"/>
 				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="EvidenceVariable.author">
+			<path value="EvidenceVariable.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.author"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT]"/>
 			</mapping>
 		</element>
 		<element id="EvidenceVariable.publisher">
@@ -303,10 +335,62 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
+		<element id="EvidenceVariable.recorder">
+			<path value="EvidenceVariable.recorder"/>
+			<short value="Who entered the data for the evidence variable"/>
+			<definition value="The person or entity that entered the data into the EvidenceVariable Resource instance, if different than the author or creator of the intellectual property contained within the EvidenceVariable Resource instance."/>
+			<comment value="The EvidenceVariable.recorder element is structured to support a name (with a string datatype) and contact point information for the recorder, and is not structured to support unique identifiers for the recorder. If detailed contributorship data is needed, then one can create a Citation Resource for the EvidenceVariable Resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.editor">
+			<path value="EvidenceVariable.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.reviewer">
+			<path value="EvidenceVariable.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="EvidenceVariable.endorser">
+			<path value="EvidenceVariable.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
 		<element id="EvidenceVariable.description">
 			<path value="EvidenceVariable.description"/>
 			<short value="Natural language description of the evidence variable"/>
-			<definition value="A free text natural language description of the evidence variable from a consumer's perspective."/>
+			<definition value="A natural language summary of the evidence variable."/>
 			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the evidence variable as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the evidence variable is presumed to be the predominant language in the place the evidence variable was created)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -359,8 +443,8 @@
 		</element>
 		<element id="EvidenceVariable.copyright">
 			<path value="EvidenceVariable.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the resource and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the resource."/>
+			<short value="Intellectual property ownership, may include restrictions on use"/>
+			<definition value="A copyright statement relating to the EvidenceVariable and/or its contents. Copyright statements are legal notices of intellectual property ownership and may include restrictions on the use and publishing of the EvidenceVariable."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -373,7 +457,7 @@
 			</extension>
 			<path value="EvidenceVariable.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted . (e.g. 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
@@ -414,72 +498,59 @@
 				<code value="Period"/>
 			</type>
 		</element>
-		<element id="EvidenceVariable.author">
-			<path value="EvidenceVariable.author"/>
-			<short value="Who authored the content"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=AUT]"/>
-			</mapping>
+		<element id="EvidenceVariable.relatesTo">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+			<valueCode value="400,0"/>
+		  </extension>
+		  <path value="EvidenceVariable.relatesTo"/>
+		  <short value="Relationships to other Resources"/>
+		  <definition value="Relationships that this EvidenceVariable has with other FHIR or non-FHIR resources that already exist."/>
+		  <min value="0"/>
+		  <max value="*"/>
+		  <type>
+			<code value="BackboneElement"/>
+		  </type>
 		</element>
-		<element id="EvidenceVariable.editor">
-			<path value="EvidenceVariable.editor"/>
-			<short value="Who edited the content"/>
-			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
+		<element id="EvidenceVariable.relatesTo.type">
+		  <path value="EvidenceVariable.relatesTo.type"/>
+		  <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
+		  <definition value="The type of relationship to the related artifact."/>
+		  <min value="1"/>
+		  <max value="1"/>
+		  <type>
+			<code value="code"/>
+		  </type>
+		  <binding>
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			  <valueString value="ArtifactRelationshipType"/>
+			</extension>
+			<strength value="required"/>
+			<description value="The type of relationship to the related artifact."/>
+			<valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+		  </binding>
 		</element>
-		<element id="EvidenceVariable.reviewer">
-			<path value="EvidenceVariable.reviewer"/>
-			<short value="Who reviewed the content"/>
-			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/>
+		<element id="EvidenceVariable.relatesTo.target[x]">
+			<path value="EvidenceVariable.relatesTo.target[x]"/>
+			<short value="The artifact that is related to this EvidenceVariable"/>
+			<definition value="The artifact that is related to this EvidenceVariable Resource."/>
+			<min value="1"/>
+			<max value="1"/>
 			<type>
-				<code value="ContactDetail"/>
+				<code value="uri"/>
 			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-			</mapping>
-		</element>
-		<element id="EvidenceVariable.endorser">
-			<path value="EvidenceVariable.endorser"/>
-			<short value="Who endorsed the content"/>
-			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
-			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="0"/>
-			<max value="*"/>
 			<type>
-				<code value="ContactDetail"/>
+				<code value="Attachment"/>
 			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-			</mapping>
-		</element>
-		<element id="EvidenceVariable.relatedArtifact">
-			<path value="EvidenceVariable.relatedArtifact"/>
-			<short value="Additional documentation, citations, etc"/>
-			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-			<requirements value="EvidenceVariables must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
-			<min value="0"/>
-			<max value="*"/>
 			<type>
-				<code value="RelatedArtifact"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="markdown"/>
 			</type>
 		</element>
 		<element id="EvidenceVariable.actual">
@@ -491,11 +562,11 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="Value is unknown."/>
 		</element>
 		<element id="EvidenceVariable.definition">
 			<path value="EvidenceVariable.definition"/>
-			<short value="Defines the variable with a concept and/or Reference"/>
-			<definition value="Defines the variable with a concept and/or Reference."/>
+			<short value="The meaning of the evidence variable"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -511,9 +582,68 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-definition"/>
 			</binding>
 		</element>
+		<element id="EvidenceVariable.definitionModifier">
+			<path value="EvidenceVariable.definitionModifier"/>
+			<short value="Further specification of the definition"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.definitionModifier.code">
+			<path value="EvidenceVariable.definitionModifier.code"/>
+			<short value="Attribute of the definition"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableDefinitionModifierCode"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-definition-modifier-code"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.definitionModifier.value[x]">
+			<path value="EvidenceVariable.definitionModifier.value[x]"/>
+			<short value="Specification of the definition attribute"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="Quantity"/>
+			</type> 
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Period"/>
+			</type>
+			<type>
+				<code value="RelativeTime"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
 		<element id="EvidenceVariable.handling">
 			<path value="EvidenceVariable.handling"/>
-			<short value="continuous | dichotomous | ordinal | polychotomous"/>
+			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | extension"/>
 			<definition value="The method of handling in statistical analysis."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -530,8 +660,7 @@
 		</element>
 		<element id="EvidenceVariable.category">
 			<path value="EvidenceVariable.category"/>
-			<short value="A grouping for ordinal or polychotomous variables"/>
-			<definition value="A grouping for ordinal or polychotomous variables."/>
+			<short value="A grouping for dichotomous, ordinal, or polychotomouos variables"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -567,6 +696,293 @@
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 			</type>
+		</element>
+		<element id="EvidenceVariable.conditional">
+			<path value="EvidenceVariable.conditional"/>
+			<short value="Condition determining whether the data will be collected"/>
+			<definition value="The context, situation, or parameters that determine whether the data is obtained to determine the value of the variable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.classifier">
+			<path value="EvidenceVariable.classifier"/>
+			<short value="Classification"/>
+			<definition value="Classification of the variable."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableClassifier"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.dataStorage">
+			<path value="EvidenceVariable.dataStorage"/>
+			<short value="How the data element (value of the variable) is found"/>
+			<definition value="How the data element is organized and where the data element (expressing the value of the variable) is found in the dataset."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.dataStorage.datatype">
+			<path value="EvidenceVariable.dataStorage.datatype"/>
+			<short value="Type of data used to express value of the variable"/>
+			<definition value="The type of data used to express values of the variable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>			
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.dataStorage.path">
+			<path value="EvidenceVariable.dataStorage.path"/>
+			<short value="Where to find the data element in the dataset"/>
+			<definition value="The mapping (order of elements) to reach the element containing the  data element in the dataset."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.dataStorage.delimiter">
+			<path value="EvidenceVariable.dataStorage.delimiter"/>
+			<short value="Character(s) separating values in a string-based list"/>
+			<definition value="A character or series of characters that is used within a string to signal the separation of discrete values."/>
+			<comment value="The delimiter element SHOULD only be used when the datatype element is a string- or text-based datatype. The delimiter element is used when the data is stored in a string which contains a list or array of values."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.dataStorage.component">
+		  <path value="EvidenceVariable.dataStorage.component"/>
+		  <definition value="A part of the value for a variable that is stored in 2 or more parts."/>
+		  <min value="0"/>
+		  <max value="*"/>
+		  <contentReference value="#EvidenceVariable.dataStorage"/>
+		</element>
+		<element id="EvidenceVariable.timing">
+			<path value="EvidenceVariable.timing"/>
+			<short value="When the variable is observed"/>
+			<definition value="When the variable is observed in relation to a reference point in time defined by context or event."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="RelativeTime"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.period">
+			<path value="EvidenceVariable.period"/>
+			<short value="Calendar-based timing when the variable is observed"/>
+			<definition value="When the variable is observed in relation to calendar dates and times."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint">
+			<path value="EvidenceVariable.constraint"/>
+			<short value="Limit on acceptability of data value"/>
+			<definition value="Limit on acceptability of data used to express values of the variable."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.conditional">
+			<path value="EvidenceVariable.constraint.conditional"/>
+			<short value="Condition determining whether this constraint applies"/>
+			<definition value="The context, situation, or parameters that determine whether this constraint applies."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="AdministrativeGender"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.constraint.minimumQuantity">
+			<path value="EvidenceVariable.constraint.minimumQuantity"/>
+			<short value="The lowest permissible value of the variable"/>
+			<definition value="The lowest permissible value of the variable, used with variables that have a number-based datatype (with or without units)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.maximumQuantity">
+			<path value="EvidenceVariable.constraint.maximumQuantity"/>
+			<short value="The highest permissible value of the variable"/>
+			<definition value="The highest permissible value of the variable, used with variables that have a number-based datatype (with or without units)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.earliestDateTime">
+			<path value="EvidenceVariable.constraint.earliestDateTime"/>
+			<short value="The earliest permissible value of the variable"/>
+			<definition value="The earliest permissible value of the variable, used with variables that have a date-based or dateTime-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.latestDateTime">
+			<path value="EvidenceVariable.constraint.latestDateTime"/>
+			<short value="The latest permissible value of the variable"/>
+			<definition value="The latest permissible value of the variable, used with variables that have a date-based or dateTime-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.minimumStringLength">
+			<path value="EvidenceVariable.constraint.minimumStringLength"/>
+			<short value="The lowest number of characters allowed for a value of the variable"/>
+			<definition value="The lowest number of characters allowed for a value of the variable, used with variables that have a string-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.maximumStringLength">
+			<path value="EvidenceVariable.constraint.maximumStringLength"/>
+			<short value="The highest number of characters allowed for a value of the variable"/>
+			<definition value="The highest number of characters allowed for a value of the variable, used with variables that have a string-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="positiveInt"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.code">
+			<path value="EvidenceVariable.constraint.code"/>
+			<short value="Rule for acceptable data values"/>
+			<definition value="A rule, such as a format or other expectation, for the data values."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableConstraint"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-constraint"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.constraint.expression">
+			<path value="EvidenceVariable.constraint.expression"/>
+			<short value="Rule for acceptable data values, as an Expression"/>
+			<definition value="A rule, such as a format or other expectation, for the data values, expressed as an Expression."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.expectedValueSet">
+			<path value="EvidenceVariable.constraint.expectedValueSet"/>
+			<short value="List of anticipated values used to express value of the variable"/>
+			<definition value="List of anticipated values used to express value of the variable, used with variables that have a codeable concept-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.expectedUnitsValueSet">
+			<path value="EvidenceVariable.constraint.expectedUnitsValueSet"/>
+			<short value="List of anticipated values used to express units for the value of the variable"/>
+			<definition value="List of anticipated values used to express units for the value of the variable, used with variables that have a Quantity-based datatype."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</type>
+		</element>
+		<element id="EvidenceVariable.constraint.anyValueAllowed">
+			<path value="EvidenceVariable.constraint.anyValueAllowed"/>
+			<short value="Permissibility of unanticipated value used to express value of the variable"/>
+			<definition value="Whether the value expressed for a variable is allowed to not be restricted to the expected value set."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="Presumed false."/>
+		</element>
+		<element id="EvidenceVariable.missingDataMeaning">
+			<path value="EvidenceVariable.missingDataMeaning"/>
+			<short value="How missing data can be interpreted"/>
+			<definition value="A method or transformation applied for missing data."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationValueAbsentReason"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
+			</binding>
+		</element>
+		<element id="EvidenceVariable.unacceptableDataHandling">
+			<path value="EvidenceVariable.unacceptableDataHandling"/>
+			<short value="How erroneous data is processed"/>
+			<definition value="A method or transformation applied for data that does not match required patterns."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableUnacceptableDataHandling"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+			</binding>
 		</element>
 	</differential>
 </StructureDefinition>

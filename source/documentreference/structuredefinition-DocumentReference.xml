@@ -80,8 +80,8 @@
   </mapping>
   <mapping>
     <identity value="xds"/>
-    <uri value="http://ihe.net/xds"/>
-    <name value="XDS metadata equivalent"/>
+    <uri value="https://profiles.ihe.net/ITI/TF/Volume3"/>
+    <name value="IHE Document Sharing (e.g. XDS) metadata Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -524,6 +524,7 @@
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -543,7 +544,27 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.eventCodeList, DocumentEntry.referenceIdList"/>
+        <map value="DocumentEntry.eventCodeList"/>
+      </mapping>
+    </element>
+    <element id="DocumentReference.related">
+      <path value="DocumentReference.related"/>
+      <short value="Related identifiers or resources associated with the document reference"/>
+      <definition value="Any other resource this document reference was created or to which the creation of this record is tightly associated."/>
+      <comment value="Use only for references not covered by other elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="fhircomposition"/>
+        <map value="Composition.event.detail"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./outboundRelationship[typeCode=&quot;PERT&quot; and isNormalActRelationship()] / target[isNormalAct]"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -688,12 +709,12 @@
       <path value="DocumentReference.date"/>
       <short value="When this document reference was created"/>
       <definition value="When the document reference was created."/>
-      <comment value="Referencing/indexing time is used for tracking, organizing versions and searching."/>
+      <comment value="Referencing/indexing time is used for tracking, organizing versions and searching. Provide the most precise timestamp available."/>
       <alias value="indexed"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="instant"/>
+        <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -717,7 +738,7 @@
       <path value="DocumentReference.author"/>
       <short value="Who and/or what authored the document"/>
       <definition value="Identifies who is responsible for adding the information to the document."/>
-      <comment value="Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)."/>
+      <comment value="Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant). Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -729,6 +750,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -850,6 +872,7 @@
       <short value="Who attested the document"/>
       <definition value="Who attested the document in the specified way."/>
       <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
+      <comment value="Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -859,6 +882,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -977,7 +1001,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.relatesTo.resourceReference"/>
+        <map value="Composition.relatesTo.targetReference"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1109,7 +1133,7 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.mimeType, DocumentEntry.languageCode, DocumentEntry.URI, DocumentEntry.size, DocumentEntry.hash, DocumentEntry.title, DocumentEntry.creationTime"/>
+        <map value="DocumentEntry.mimeType, DocumentEntry.languageCode, DocumentEntry.repositoryUniqueId, DocumentEntry.URI, DocumentEntry.size, DocumentEntry.hash, DocumentEntry.title, DocumentEntry.creationTime"/>
       </mapping>
       <mapping>
         <identity value="cda"/>

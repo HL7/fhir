@@ -457,7 +457,7 @@
       <path value="Immunization.occurrence[x]"/>
       <short value="Vaccine administration date"/>
       <definition value="Date vaccine administered or was to be administered."/>
-      <comment value="When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
+      <comment value="When immunizations are given, a specific date and time should always be recorded if known. If the time is not known, it should not be included. However, systems primarily rely on the date component of the immunization record for determining dose validity and future dose forecasting. For this reason, immunization records should preserve the immunization date as recorded for the time zone where the dose was administered. Care should be taken when recording and transmitting time and time zone information, as adjustments based on time zone can shift the recorded date. Additionally, because Patient.birthDate does not include a time component, systems should ensure that comparisons between occurrence date and birth date do not introduce inconsistencies in determining patient age at vaccination. When immunizations are patient reported, a specific date might not be known. Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -567,7 +567,7 @@
     </element>
     <element id="Immunization.location">
       <path value="Immunization.location"/>
-      <short value="Where immunization occurred"/>
+      <short value="The service delivery location"/>
       <definition value="The service delivery location where the vaccine administration occurred."/>
       <min value="0"/>
       <max value="1"/>
@@ -711,8 +711,8 @@
         <valueString value="#13290."/>
       </extension>
       <path value="Immunization.performer.function"/>
-      <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+      <short value="Type of performance"/>
+      <definition value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1146,12 +1146,19 @@
       <path value="Immunization.protocolApplied.doseNumber"/>
       <short value="Dose number within series"/>
       <definition value="Nominal position in a series as intended by the practitioner administering the dose."/>
-      <comment value="The use of an integer is preferred if known. Text should only be used in cases where an integer is not available (such as when documenting a recurring booster dose)."/>
-      <min value="1"/>
+      <comment value="The dose number may be communicated as either a coded concept (for example Dose 1, Dose 2 or Booster) or as free text as needed by the use case."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DoseNumber"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code expressing the vaccine dose number - several coding schemes exist or will be defined for each jurisdiction."/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -1164,12 +1171,19 @@
       <path value="Immunization.protocolApplied.seriesDoses"/>
       <short value="Recommended number of doses for immunity"/>
       <definition value="The recommended number of doses to achieve immunity as intended by the practitioner administering the dose."/>
-      <comment value="The use of an integer is preferred if known."/>
+      <comment value="The number of doses in a series may be communicated as either a coded concept or as free text as needed by the use case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SeriesDoses"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code expressing the doses recommended or expected - several coding schemes exist or will be defined for each jurisdiction."/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>

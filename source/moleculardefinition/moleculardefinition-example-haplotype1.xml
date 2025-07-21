@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-haplotype1"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <name value="CYP2C19*1B"/>
+    <name value="CYP2C19*1.002"/>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele1"/>
+        <type value="MolecularDefinition"/>
+        <display value="First Allele, NG_008384.3:g.5124C>T"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele2"/>
+        <type value="MolecularDefinition"/>
+        <display value="Second Allele, NG_008384.3:g.85186A>G"/>
+    </memberState>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-lrg584"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: LRG_584"/>
+            </sequenceContext>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
+                        </coding>
+                        <text value="0-based interval counting"/>
+                    </system>
+                </coordinateSystem>
+                <startQuantity>
+                    <value value="5001"/>
+                </startQuantity>
+                <endQuantity>
+                    <value value="97867"/>
+                </endQuantity>
+            </coordinateInterval>
+        </sequenceLocation>
+    </location>
+</MolecularDefinition>

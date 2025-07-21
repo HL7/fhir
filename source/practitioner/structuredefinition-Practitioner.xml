@@ -203,7 +203,7 @@
       <path value="Practitioner.telecom"/>
       <short value="A contact detail for the practitioner (that apply to all roles)"/>
       <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address."/>
-      <comment value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and to help with identification.  These typically will have home numbers, or mobile numbers that are not role specific."/>
+      <comment value="Practitioner may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="Need to know how to reach a practitioner independent to any roles the practitioner may have."/>
       <min value="0"/>
       <max value="*"/>
@@ -404,6 +404,7 @@
       <path value="Practitioner.qualification.identifier"/>
       <short value="An identifier for this qualification for the practitioner"/>
       <definition value="An identifier that applies to this person's qualification."/>
+      <comment value="Systems MAY use identifier for user identities (using the type='USER'). Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="Often, specific identities are assigned for the qualification."/>
       <min value="0"/>
       <max value="*"/>
@@ -504,7 +505,7 @@
       <path value="Practitioner.communication"/>
       <short value="A language which may be used to communicate with the practitioner"/>
       <definition value="A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.&#xD;&#xD;The `PractitionerRole.communication` property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis)."/>
-      <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations.&#xD;&#xD;For animals, language is not a relevant field, and should be absent from the instance."/>
+      <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations, using the `patient-proficiency` extension.&#xD;&#xD;For animals, language is not a relevant field, and should be absent from the instance." />
       <min value="0"/>
       <max value="*"/>
       <type>

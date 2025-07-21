@@ -60,5 +60,16 @@
 			occurrence (recurring = false).<br/>
 			For more general information on recurring appointments, refer to the <a href="appointment.html#recurring">appointment page</a>.
 		</p>
+
+	</div>
+	<div>
+
+		<a name="bnr"></a>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			AppointmentResponse is a response to an Appointment.  It is used to record the outcome of the request
+			for an appointment. The AppointmentResponse resource is only used as a response to proposed Appointments.<br/>
+			Further details are available in the <a href="appointment.html#bnr">Appointment Boundaries and Relationships</a>
+		</p>
 	</div>
 </div>

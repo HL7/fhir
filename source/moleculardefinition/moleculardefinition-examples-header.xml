@@ -1,0 +1,84 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Sequence and Sequence Representation</h3>
+<p>The following examples illustrate instances of a sequence, each designed to demonstrate different uses of the representation element.</p>
+
+<h4>Literal (String)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a literal. The moleculeType and encoding attributes enable unambiguous interpretation of the sequence value.</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-a-dna-iupac.html">Simple Sequence example DNA A, IUPAC</a></li>
+    <li><a href="moleculardefinition-example-sequence-a-aa-iupac.html">Simple Sequence example Amino Acid A, IUPAC</a></li>
+</ul>
+
+<h4>Code (Accession Number)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a code using an accession number.</p>
+<ul>
+    <li><a href="moleculardefinition-example-genomic-cyp2c19-accession.html">Example of Sequence profile of CYP2C19 as Accession Number</a></li>
+</ul>
+
+<h4>Resolvable (URL)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a resolvable URL.</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-cyp2c19-url.html">Sequence example of CYP2C19 as URL</a></li>
+</ul>
+
+<h4>Resolvable (File)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as an attached file.</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-cyp2c19-attached.html">Sequence example of CYP2C19 as Attachment</a></li>
+</ul>
+
+<h4>Extracted (Subsequence)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a subsequence extracted from a “parent” sequence. In these examples, a sequence representing the CYP2C19 genetic locus is used as the “parent”, from which three subsequences are extracted (corresponding to the upstream region, gene region, and downstream region).</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-cyp2c19-gene-region.html">Example of Sequence profile of CYP2C19 gene region</a></li>
+    <li><a href="moleculardefinition-example-sequence-cyp2c19-upstream-region.html">Example of Sequence profile of CYP2C19 upstream region</a></li>
+    <li><a href="moleculardefinition-example-sequence-cyp2c19-downstream-region.html">Example of Sequence profile of CYP2C19 downstream region</a></li>
+</ul>
+
+<h4>Concatenated (Assembly)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a concatenation of sequence instances. In this example, the three subsequences from the Extracted example are reassembled into the full genetic locus.</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-cyp2c19-Concatenated-regions.html">Example of Sequence profile of CYP2C19 of concatenated upstream, gene, and downstream regions</a></li>
+</ul>
+
+<h4>Repeated (Motif)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a repeated sequence motif. In this use case, the CGG trinucleotide repeat from the FMR1 gene is represented in a compressed form that emphasizes the copyCount (convenient for use cases where the number of repeats is important).</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-fmr1-cgg-20x-repeat.html">Example of Sequence profile of FMR1 CGG motif repeated 20 times</a></li>
+</ul>
+
+<h4>Relative (Edit)</h4>
+<p>The following MolecularDefinitions show examples of a sequence represented as a relative sequence, which applies an edit to a starting sequence to create the sequence of interest. In this example, the starting sequence is a perfect CGG trinucleotide that was repeated 20 times (see the repeated motif example). The desired sequence is not a perfect repeat, however, and a single nucleotide must be edited to yield the sequence of interest. The result of this edit operation represents an actual CGG repeat region that is found in the FMR1 gene.</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-fmr1-cgg-20x-edited-referenced.html">Example of Sequence profile of FMR1 using CGG motifs edited by external referenced sequence resources</a></li>
+</ul>
+
+<h3>Contained Resource</h3>
+<p>Many instances of MolecularDefinition reference other instances of MolecularDefinition. When references within a message are not desired, contained resources can be used. This example shows how contained resources can be used to create a standalone message. It is the same content that was used in the relative (edit) example, but the references have been changed to contained resources.</p>
+<ul>
+    <li><a href="moleculardefinition-example-sequence-fmr1-cgg-20x-edited-contained.html">Example of Sequence profile of FMR1 using CGG motifs edited by contained referenced sequence resources</a></li>
+</ul>
+
+<h3>Allele</h3>
+<p>The following examples illustrate instances of allele. In this example, the asserted state of the allele is different from the state of the context sequence at the given location. Note: the CG group is still determining how to best represent named alleles; therefore, the reference to the star allele in this example should be considered to be a draft (if not ignored).</p>
+<ul>
+    <li><a href="moleculardefinition-example-allelesliced-cyp2c19-1016.html">Example of Allele profile including slices for CYP2C19 position 1016</a></li>
+</ul>
+<ul>
+    <li><a href="moleculardefinition-example-allelesliced-cyp2c19-1016-cont.html">Example of Allele profile including slices for CYP2C19 position 1016 while leveraging contained resources</a></li>
+</ul>
+
+<h3>Variation</h3>
+<p>The following examples illustrate instances of variation. In this example, the state of the alternate allele is defined as being different from the state of the reference allele, but the same structure could be used to represent a variation where the two alleles are the same. Note that this example uses a 0-based interval coordinate system.</p>
+<ul>
+    <li><a href="moleculardefinition-example-variation-cyp2c19-1015-spdi.html">Example of Variation profile of CYP2C19 at Position 1015 as SPDI</a></li>
+</ul>
+
+<p>The following example illustrates a tri-allelic polymorphism. In this example, it is necessary to unambiguously specify the reference and alternate alleles, neither of which might match the state of the context sequence at the specified location. The slices on the representation element are needed to support this use case.</p>
+<ul>
+    <li>TBD: tri-allelic example in ABCB1</li>
+</ul>
+  
+</div>
+</div>

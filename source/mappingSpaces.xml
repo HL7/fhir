@@ -117,7 +117,7 @@
     <sparse>true</sparse>
 	</space>
 	<space>
-		<url>http://nema.org/dicom</url>
+		<url>https://dicomstandard.org/current</url>
 		<link>https://www.dicomstandard.org/current</link>
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
@@ -135,8 +135,8 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>http://ihe.net/xds</url>
-    <link>http://wiki.ihe.net/index.php/Category:DocShare</link>
+		<url>https://profiles.ihe.net/ITI/TF/Volume3</url>
+    <link>https://profiles.ihe.net/ITI/TF/Volume3</link>
 		<columnName>XDS Mapping</columnName>
 		<title>XDS metadata equivalent</title>
 		<id>xds</id>
@@ -490,5 +490,24 @@
 		<id>idmp-substance</id>
 		<sort>52</sort>
 		<publish>true</publish>
+	</space>
+	<space>
+		<url>urn:iso:std:iso:11073:20701</url>
+		<link>https://standards.ieee.org/ieee/11073-20701/10223</link>
+		<columnName>ISO/IEEE 11073-20701</columnName>
+		<title>ISO/IEEE 11073-20701: Service oriented medical device exchange architecture and protocol binding</title>
+		<id>IEEESDC</id>
+		<sort>43</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<!-- historic -->
+		<url>http://nema.org/dicom</url>
+		<link>https://www.dicomstandard.org/current</link>
+		<columnName>DICOM Mapping</columnName>
+		<title>DICOM Tag Mapping</title>
+		<id>dicom</id>
+		<sort>44</sort>
+    	<publish>true</publish>
 	</space>
 </mappingSpaces>

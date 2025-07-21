@@ -104,7 +104,7 @@
       <path value="RelatedPerson.identifier"/>
       <short value="A human identifier for this person"/>
       <definition value="Identifier for a person within a particular scope."/>
-      <comment value="RelatedPerson identifiers might not be unique across instances within a system, as a single human individual may be represented as many different RelatedPerson resources with different roles, periods, or relationships."/>
+      <comment value="RelatedPerson identifiers might not be unique across instances within a system, as a single human individual may be represented as many different RelatedPerson resources with different roles, periods, or relationships.&#xD;&#xD;Systems MAY use identifier for user identities (using the type='USER'). Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier."/>
       <min value="0"/>
       <max value="*"/>
@@ -183,10 +183,10 @@
     </element>
     <element id="RelatedPerson.relationship">
       <path value="RelatedPerson.relationship"/>
-      <short value="The relationship of the related person to the patient"/>
-      <definition value="The nature of the relationship between the related person and the patient."/>
-      <comment value="The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)."/>
-      <requirements value="We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person."/>
+      <short value="The personal relationship of the related person to the patient"/>
+      <definition value="The nature of the personal relationship between the related person and the patient."/>
+      <comment value="This property is for personal relationships. Functional relationships are represented in `RelatedPerson.role`.&#xD;&#xD;The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)." />
+      <requirements value="We need to know the personal relationship with the patient since it influences the interpretation of the information attributed to this person."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -198,8 +198,8 @@
           <valueString value="PatientRelationshipType"/>
         </extension>
         <strength value="preferred"/>
-        <description value="The nature of the relationship between a patient and the related person."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"/>
+        <description value="The nature of the personal relationship between a patient and the related person."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -213,6 +213,27 @@
         <identity value="rim"/>
         <map value="code"/>
       </mapping>
+    </element>
+    <element id="RelatedPerson.role">
+      <path value="RelatedPerson.role"/>
+      <short value="The functional role of the related person to the patient"/>
+      <definition value="The nature of the functional relationship between the patient and the related person."/>
+      <comment value="This property is for functional relationships. Personal relationships are represented in `RelatedPerson.relationship`."/>
+      <requirements value="Used to determine which related person is the most relevant to approach, depending on circumstances."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContactRelationship"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The nature of the functional relationship between the patient and the related person. "/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"/>
+      </binding>
     </element>
     <element id="RelatedPerson.name">
       <path value="RelatedPerson.name"/>
@@ -242,7 +263,7 @@
       <path value="RelatedPerson.telecom"/>
       <short value="A contact detail for the person"/>
       <definition value="A contact detail for the person, e.g. a telephone number or an email address."/>
-      <comment value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification."/>
+      <comment value="RelatedPerson may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
       <max value="*"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-hla000011"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <resolvable>
+            <reference value="DocumentReference/example-genomicFile-hla00001"/>
+        </resolvable>
+    </representation>
+</MolecularDefinition>

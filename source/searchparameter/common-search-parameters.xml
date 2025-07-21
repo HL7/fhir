@@ -143,7 +143,7 @@
         <base value="AuditEvent"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
-        <base value="ClinicalImpression"/>
+        <base value="ClinicalAssessment"/>
         <base value="Composition"/>
         <base value="Consent"/>
         <base value="DetectedIssue"/>
@@ -209,7 +209,7 @@
         <base value="CarePlan"/>
         <base value="ChargeItem"/>
         <base value="Claim"/>
-        <base value="ClinicalImpression"/>
+        <base value="ClinicalAssessment"/>
         <base value="Communication"/>
         <base value="CommunicationRequest"/>
         <base value="Composition"/>
@@ -256,7 +256,7 @@
         <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
-        <base value="ClinicalImpression"/>
+        <base value="ClinicalAssessment"/>
         <base value="Communication"/>
         <base value="CommunicationRequest"/>
         <base value="Composition"/>
@@ -331,7 +331,7 @@
         <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
-        <base value="ClinicalImpression"/>
+        <base value="ClinicalAssessment"/>
         <base value="Communication"/>
         <base value="CommunicationRequest"/>
         <base value="Composition"/>
@@ -342,6 +342,7 @@
         <base value="CoverageEligibilityRequest"/>
         <base value="CoverageEligibilityResponse"/>
         <base value="DetectedIssue"/>
+        <base value="DeviceAssociation"/>
         <base value="DeviceRequest"/>
         <base value="DeviceUsage"/>
         <base value="DiagnosticReport"/>

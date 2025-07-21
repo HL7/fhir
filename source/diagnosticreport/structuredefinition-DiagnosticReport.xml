@@ -94,7 +94,7 @@
       <constraint>
         <key value="dgr-1"/>
         <severity value="error"/>
-        <human value="When a Composition is referenced in `Diagnostic.composition`, all Observation resources referenced in `Composition.entry` must also be referenced in `Diagnostic.entry` or in the references Observations in `Observation.hasMember`"/>
+        <human value="When a Composition is referenced in `DiagnosticReport.composition`, all Observation resources referenced in `Composition.entry` must also be referenced in `DiagnosticReport.result` or in the `Observation.hasMember` references."/>
         <expression value="composition.exists() implies (composition.resolve().section.entry.reference.where(resolve() is Observation) in (result.reference|result.reference.resolve().hasMember.reference))"/>
       </constraint>
       <mapping>
@@ -266,6 +266,7 @@
       <path value="DiagnosticReport.code"/>
       <short value="Name/Code for this diagnostic report"/>
       <definition value="A code or name that describes this diagnostic report."/>
+      <comment value="DiagnosticReport.code is primarily meant to characterize the nature of the entire report, not to summarize the content in detail. In the case where multiple orderables are included in a single report, then the single DiagnosticReport.code would represent the entire 'panel' that the report is covering."/>
       <alias value="Type"/>
       <min value="1"/>
       <max value="1"/>
@@ -339,14 +340,24 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.relatesTo">
+      <path value="DiagnosticReport.relatesTo"/>
+      <short value="Related DiagnosticReports"/>
+      <definition value="Other DiagnosticReports that the current DiagnosticReport replaces, amendens, extends, or otherwise relates to."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
     <element id="DiagnosticReport.encounter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3839]."/>
       </extension>
       <path value="DiagnosticReport.encounter"/>
-      <short value="Health care event when test ordered"/>
-      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about."/>
-      <comment value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter  but still be tied to the context of the encounter  (e.g. pre-admission laboratory tests)."/>
+      <short value="Encounter associated with the DiagnosticReport"/>
+      <definition value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
+      <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
       <requirements value="Links the request to the Encounter context."/>
       <alias value="Context"/>
       <min value="0"/>
@@ -375,7 +386,7 @@
     </element>
     <element id="DiagnosticReport.effective[x]">
       <path value="DiagnosticReport.effective[x]"/>
-      <short value="Clinically relevant time/time-period for report"/>
+      <short value="Clinically relevant time/time-period for the results that are included in the report"/>
       <definition value="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself."/>
       <comment value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
       <requirements value="Need to know where in the patient history to file/present this report."/>
@@ -439,6 +450,19 @@
         <map value="participation[typeCode=VRF or AUT].time"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.procedure">
+      <path value="DiagnosticReport.procedure"/>
+      <short value="The performed procedure(s) from which the report was produced"/>
+      <definition value="The performed procedure(s) that are reported on in the DiagnosticReport."/>
+      <comment value="This is a summary of the report, not a list of results."/>
+      <min value="0"/>
+      <max value="*"/>
+       <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+       </type>
+       <isSummary value="true"/>
+      </element>
     <element id="DiagnosticReport.performer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="12/22/2016 EH: 8936,11428,13169."/>
@@ -446,7 +470,7 @@
       <path value="DiagnosticReport.performer"/>
       <short value="Responsible Diagnostic Service"/>
       <definition value="The diagnostic service that is responsible for issuing the report."/>
-      <comment value="This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report."/>
+      <comment value="This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report.  In the regulated context of diagnostic laboratory work on humans, it is extremely likely that regulation requires a human performer.  Point of care testing, veterinary testing, drug screens, and environmental surveillance are common cases where the device is the performer with no additional human interaction or direct oversight."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
       <alias value="Laboratory"/>
       <alias value="Service"/>
@@ -463,6 +487,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>   
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -487,7 +513,7 @@
         <valueString value="13169."/>
       </extension>
       <path value="DiagnosticReport.resultsInterpreter"/>
-      <short value="Primary result interpreter"/>
+      <short value="Who analyzed and reported the conclusions and interpretations"/>
       <definition value="The practitioner or organization that is responsible for the report's conclusions and interpretations."/>
       <comment value="Might not be the same entity that takes responsibility for the clinical report."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
@@ -513,7 +539,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PI&quot;)"/>
+        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PRI&quot;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -640,10 +666,17 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">
@@ -743,12 +776,14 @@
     </element>
     <element id="DiagnosticReport.conclusionCode">
       <path value="DiagnosticReport.conclusionCode"/>
-      <short value="Codes for the clinical conclusion of test results"/>
-      <definition value="One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report."/>
+      <short value="Codes and/or references for the clinical conclusion of test results"/>
+      <definition value="One or more codes and/or references that represent the summary conclusion (interpretation/impression) of the diagnostic report."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -770,6 +805,27 @@
         <map value="inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.recomendation">
+      <path value="DiagnosticReport.recomendation"/>
+      <short value="Recommendations based on findings and interpretations"/>
+      <definition value="Proposed follow-up actions based on the findings and interpretations of the diagnostic test for which this report is the subject."/>
+      <comment value="The resources that should be referenced include CarePlan, ServiceRequest, CommunicationRequest, etc. that allow for proposed actions and next steps."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
+       <isSummary value="true"/>
+    </element>
     <element id="DiagnosticReport.presentedForm">
       <path value="DiagnosticReport.presentedForm"/>
       <short value="Entire report as issued"/>
@@ -789,6 +845,20 @@
         <identity value="rim"/>
         <map value="text (type=ED)"/>
       </mapping>
+    </element>
+    <element id="DiagnosticReport.communication">
+      <path value="DiagnosticReport.communication"/>
+      <short value="Communication initiated during the reporting process"/>
+      <definition value="Communications initiated during the generation of the DiagnosticReport by members of the organization fulfilling that order. e.g. direct communication of time critical results by the radiologist to the referring physician."/>
+      <comment value="Note: This can document attempted communications as well as completed communications. Communications that follow publication of the report (e.g. between the referring physician and the patient or a subsequent specialist) are not referenced here. DiagnosticReport.recommendation might also contain references to ServiceRequest or CommunicationRequest instances for proposed subsequent communications."/>
+      <requirements value="Need to record details of such communications for medico-legal purposes, to support review or the improvement of conformance to best practices for patient safety and quality of care."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
+      </type>
+       <isSummary value="false"/>
     </element>
   </differential>
 </StructureDefinition>

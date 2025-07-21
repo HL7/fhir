@@ -1,4 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <PlanDefinition xmlns="http://hl7.org/fhir">
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.11"/>
+  </identifier>
   <status value="draft"/>
   <action>
     <title value="Create an episode of care to link the related events"/>

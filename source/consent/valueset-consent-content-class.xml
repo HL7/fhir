@@ -6,8 +6,8 @@
   </meta>
   <name value="ConsentContentClass"/>
   <title value="Consent Content Class"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="CBCC"/>
   <contact>
     <telecom>
@@ -25,7 +25,7 @@
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="Doc"/>
+        <value value="LP32888-7"/>
       </filter>
     </include>
   </compose>

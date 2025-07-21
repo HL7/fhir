@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3350"/>
+  </identifier>
+  <name value="SupplementedMimeTypes"/>
+  <title value="Supplemented Mime Types"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International - FHIR-Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes all possible codes from BCP-13 (see http://tools.ietf.org/html/bcp13), and xml, json, and ttl"/>
+  <compose>
+    <include>
+      <system value="urn:ietf:bcp:13"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/simple-format-codes"/>
+    </include>
+  </compose>
+</ValueSet>

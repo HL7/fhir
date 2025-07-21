@@ -16,4 +16,40 @@
       <display value="Fully Populated"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Enteral Formula Intake"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionintake-example-enteralformula"/>
+    </extension>
+    <item>
+      <reference value="NutritionIntake/enteral-formula"/>
+      <display value="Enteral Formula Intake"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Malnutrition patient reported intake"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionintake-example-malnutrition"/>
+    </extension>
+    <item>
+      <reference value="NutritionIntake/malnutrition-patient-reported"/>
+      <display value="Malnutrition Patient Reported Intake"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Malnutrition staff reported intake"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionintake-example-malnutrition-staff"/>
+    </extension>
+    <item>
+      <reference value="NutritionIntake/malnutrition-staff-reported"/>
+      <display value="Malnutrition Staff Reported Intake"/>
+    </item>
+  </entry>
 </List>

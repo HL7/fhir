@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-haplotype2"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <name value="HLA-A*01:02:01:01"/>
+    <name value="HLA00002"/>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele3"/>
+        <type value="MolecularDefinition"/>
+        <display value="First Allele, HLA00001.1:c.98T>C"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele4"/>
+        <type value="MolecularDefinition"/>
+        <display value="Second Allele, HLA00001.1:c.121C>A"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele5"/>
+        <type value="MolecularDefinition"/>
+        <display value="Third Allele, HLA00001.1:c.123C>T"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele6"/>
+        <type value="MolecularDefinition"/>
+        <display value="Fourth Allele, HLA00001.1:c.126G>A"/>
+    </memberState>
+    <memberState>
+        <reference value="MolecularDefinition/example-allele7"/>
+        <type value="MolecularDefinition"/>
+        <display value="Fifth Allele, HLA00001.1:c.144C>A"/>
+    </memberState>
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-hla000011"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: HLA00001 (A*01:01:01:01)"/>
+            </sequenceContext>
+        </sequenceLocation>
+    </location>
+</MolecularDefinition>

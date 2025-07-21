@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="medicalproductofhumanorigin"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/medicalproductofhumanorigin"/>
+  <version value="6.0.0"/>
+  <name value="MedicalProductOfHumanOrigin"/>
+  <title value="MedicalProductOfHumanOrigin"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2024-10-08T00:00:00+00:00"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm Orders and Observations"/>
+    </telecom>
+  </contact>
+  <description value="This profile is designed for biologically derived products that are derived from a human donor and intended for clinical application in a human recipient. Donor and recipient might, or might not, be the same individual. Products of this nature are referred to as medical products of human origin (MPHO) and have specific traceability requirements to ensure that the bi-directional link between donor and recipient is maintained. The profile specifies the essential identifiers for traceability as required elements."/>
+  <fhirVersion value="6.0.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-concept"/>
+    <uri value="http://snomed.info/conceptdomain"/>
+    <name value="SNOMED CT Concept Domain Binding"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 V2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-attr"/>
+    <uri value="http://snomed.org/attributebinding"/>
+    <name value="SNOMED CT Attribute Binding"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="BiologicallyDerivedProduct"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="BiologicallyDerivedProduct">
+      <path value="BiologicallyDerivedProduct"/>
+      <short value="Medical Product of Human Origin Profile "/>
+      <definition value="This profile is designed for biologically derived products that are derived from a human donor and intended for clinical application in a human recipient. Donor and recipient might, or might not, be the same individual. Products of this nature are referred to as medical products of human origin (MPHO) and have specific traceability requirements to ensure that the bi-directional link between donor and recipient is maintained. The profile specifies the essential identifiers for traceability as required elements."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.productCategory">
+      <path value="BiologicallyDerivedProduct.productCategory"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="coding.code"/>
+        </discriminator>
+        <discriminator>
+          <type value="value"/>
+          <path value="coding.system"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+      <min value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.productCategory:MPHOCode">
+      <path value="BiologicallyDerivedProduct.productCategory"/>
+      <sliceName value="MPHOCode"/>
+      <min value="1"/>
+      <max value="1"/>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/product-category"/>
+          <code value="mpho"/>
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="BiologicallyDerivedProduct.productCode">
+      <path value="BiologicallyDerivedProduct.productCode"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.productCode.coding">
+      <path value="BiologicallyDerivedProduct.productCode.coding"/>
+      <min value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.productCode.coding.system">
+      <path value="BiologicallyDerivedProduct.productCode.coding.system"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.productCode.coding.code">
+      <path value="BiologicallyDerivedProduct.productCode.coding.code"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.identifier">
+      <path value="BiologicallyDerivedProduct.identifier"/>
+	  <short value="Under most circumstances an MPHO will be uniquely identified using a single identifier from production to point of use. In some cases, a second identifier may be required (for example, import from another country that uses a different identification coding system).  In these cases, both the original and new identifier must be included."/>
+      <min value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.identifier.system">
+      <path value="BiologicallyDerivedProduct.identifier.system"/>
+	  <short value="Identity of the Issuing Agency responsible for the allocation of unique identifiers"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.identifier.value">
+      <path value="BiologicallyDerivedProduct.identifier.value"/>
+	  <short value="Unique identifier of the MPHO item"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.biologicalSourceEvent">
+      <path value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.biologicalSourceEvent.system">
+      <path value="BiologicallyDerivedProduct.biologicalSourceEvent.system"/>
+	  <short value="Identity of the Issuing Agency responsible for the allocation of unique identifiers"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="BiologicallyDerivedProduct.biologicalSourceEvent.value">
+      <path value="BiologicallyDerivedProduct.biologicalSourceEvent.value"/>
+	  <short value="Unique identifier of the donation, collection or pooling event from which the MPHO item was derived"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -79,7 +79,8 @@
 			<display value="Right arm"/>
 		</coding>
 	</bodySite>
-	<component><!--
+	<component>
+		<!--
            Observations are often coded in multiple code systems.
            - LOINC provides a very specific code (though not usefully more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC

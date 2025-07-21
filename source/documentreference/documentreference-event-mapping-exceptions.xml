@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="DocumentReference"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="DocumentReference" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="DocumentReference.identifier">
         <shortUnmatched reason="More specific to the use-case for this resource">
@@ -17,8 +16,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="DocumentReference.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="More specific to the use-case for this resource"/>
-        <extraTypes
-            _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,VisionPrescription)" reason="More specific to the use-case for this resource"/>
+        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,VisionPrescription)" reason="More specific to the use-case for this resource"/>
         <summary _pattern="true" _resource="false" reason="More specific to the use-case for this resource"/>
         <shortUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="Fulfills plan, proposal or order"/>
@@ -39,8 +37,8 @@
             <resource value="current | superseded | entered-in-error"/>
         </shortUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="This is the status of the DocumentReference object, which might be independent from the docStatus element.&#xa;&#xa;This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="This is the status of the DocumentReference object, which might be independent from the docStatus element.&#10;&#10;This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.category" resourcePath="DocumentReference.category">
@@ -54,7 +52,7 @@
             <resource value="A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type."/>
         </definitionUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
-            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#xa;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
             <resource value="Key metadata element describing the the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
         </commentsUnmatched>
     </divergentElement>
@@ -100,13 +98,11 @@
             <resource value="The time period over which the service that is described by the document was provided."/>
         </definitionUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.recorded" resourcePath="DocumentReference.date">
-        <missingTypes _pattern="dateTime" reason="recorded elswhere"/>
-        <extraTypes _resource="instant" reason="recorded elsewhere"/>
         <shortUnmatched reason="More specific to this resource">
             <_pattern value="When document reference was first captured in the subject's record"/>
             <resource value="When this document reference was created"/>
@@ -115,10 +111,15 @@
             <_pattern value="The date the occurrence of the document reference was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="When the document reference was created."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <resource value="Referencing/indexing time is used for tracking, organizing versions and searching. Provide the most precise timestamp available."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.author">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known"/>
         <upperCardinality _pattern="1" _resource="*" reason="Need more than one to enable broad use."/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Not always a who, sometimes a what.">
             <_pattern value="Who performed document reference"/>
             <resource value="Who and/or what authored the document"/>

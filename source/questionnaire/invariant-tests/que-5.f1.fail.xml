@@ -11,6 +11,8 @@
   <item>
     <linkId value="1"/>
     <type value="boolean"/>
-    <answerValueSet value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
+    <answerOption>
+      <valueString value="foo"/>
+    </answerOption>
   </item>
 </Questionnaire>

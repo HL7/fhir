@@ -33,7 +33,6 @@ edited by Eric Haas Health eData Inc
 	<excludeFoodModifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
 			<code value="227493005"/>
 			<display value="Cashew Nut"/>
 		</coding>
@@ -43,8 +42,8 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="15108003"/>
-				<display value="Restricted fiber diet"/>
+				<code value="1156444001"/>
+				<display value="Decreased plant fiber diet (regime/therapy)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
@@ -56,8 +55,8 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="16208003"/>
-				<display value="Low fat diet"/>
+				<code value="1055207008"/>
+				<display value="Decreased fat and oil diet (regime/therapy)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
@@ -84,15 +83,31 @@ edited by Eric Haas Health eData Inc
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="256674009"/>
-					<display value="Fat"/>
+					<code value="37202001"/>
+					<display value="Plant fiber"/>
+				</coding>
+			</modifier>
+			<amount>
+				<value value="13"/>
+				<unit value="grams/day"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="g/d"/>
+			</amount>
+		</nutrient>
+		<nutrient>
+			<!-- list nutrients and amounts here -->
+			<modifier>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="226887002"/>
+					<display value="Fat and oil"/>
 				</coding>
 			</modifier>
 			<amount>
 				<value value="50"/>
-				<unit value="grams"/>
+				<unit value="grams/day"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="g"/>
+				<code value="g/d"/>
 			</amount>
 		</nutrient>
 	</oralDiet>

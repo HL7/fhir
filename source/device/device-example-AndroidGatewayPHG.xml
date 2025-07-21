@@ -20,7 +20,7 @@
     </coding>
     <text value="MDC_MOC_VMS_MDS_AHD: Continua compliant Gateway" />
   </type>
-  <version>
+  <deviceVersion>
     <type>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
@@ -29,7 +29,7 @@
       <text value="MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version"/>
     </type>
     <value value="6.0" />
-  </version>
+  </deviceVersion>
   <property>
     <type>
       <coding>

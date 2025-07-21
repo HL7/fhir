@@ -8,8 +8,8 @@
   <title value="admission"/>
 	<status value="active"/>
   <description value="Example admission topic"/>
-	<resourceTrigger>
-		<description value="Encounter resource moving to state 'in-progress'"/>
+	<trigger>
+		<description value="Encounter resource moving to state 'in-progress' or event matching HL7v2 ADT^A01"/>
 		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
     <supportedInteraction value="create"/>
     <supportedInteraction value="update"/>
@@ -21,9 +21,6 @@
 			<requireBoth value="true"/>
 		</queryCriteria>
 		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
-	</resourceTrigger>
-  <eventTrigger>
-    <description value="Patient admission is covered by HL7v2 ADT^A01"/>
     <event>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
@@ -31,23 +28,22 @@
         <display value="ADT/ACK - Admit/visit notification"/>
       </coding>
     </event>
-		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-  </eventTrigger>
-  <canFilterBy>
-    <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
-    <resource value="Encounter"/>
-    <filterParameter value="patient"/>
-    <modifier value="in"/>
-    <modifier value="not-in"/>
-  </canFilterBy>
-  <notificationShape>
-    <resource value="Encounter"/>
-    <include value="Encounter:patient"/>
-    <include value="Encounter:practitioner"/>
-    <include value="Encounter:service-provider"/>
-    <include value="Encounter:account"/>
-    <include value="Encounter:diagnosis"/>
-    <include value="Encounter:observation"/>
-    <include value="Encounter:location"/>
-  </notificationShape>
+    <canFilterBy>
+      <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
+      <resource value="Encounter"/>
+      <filterParameter value="patient"/>
+      <modifier value="in"/>
+      <modifier value="not-in"/>
+    </canFilterBy>
+    <notificationShape>
+      <resource value="Encounter"/>
+      <include value="Encounter:patient"/>
+      <include value="Encounter:practitioner"/>
+      <include value="Encounter:service-provider"/>
+      <include value="Encounter:account"/>
+      <include value="Encounter:diagnosis"/>
+      <include value="Encounter:observation"/>
+      <include value="Encounter:location"/>
+    </notificationShape>
+	</trigger>
 </SubscriptionTopic>

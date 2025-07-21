@@ -85,7 +85,7 @@
       </extension>
       <path value="Device"/>
       <short value="Item used in healthcare"/>
-      <definition value="A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device."/>
+      <definition value="A manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device."/>
       <min value="0"/>
       <max value="*"/>
 
@@ -140,7 +140,7 @@
         <map value="The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty."/>
       </mapping>
     </element>
-    <element id="Device.displayName">
+    <!-- <element id="Device.displayName">
       <path value="Device.displayName"/>
       <short value="The name used to display by default when the device is referenced"/>
       <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.name, or may be another simple name."/>
@@ -149,7 +149,7 @@
       <type>
         <code value="string"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.definition">
       <path value="Device.definition"/>
       <short value="The reference to the definition for the device"/>
@@ -157,7 +157,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
@@ -166,8 +166,8 @@
         <valueCode value="600,0"/>
       </extension>
       <path value="Device.udiCarrier"/>
-      <short value="Unique Device Identifier (UDI) Barcode string"/>
-      <definition value="Unique device identifier (UDI) assigned to device label or package.  Note that the Device may include multiple udiCarriers as it either may include just the udiCarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold."/>
+      <short value="Unique Device Identifier (UDI) value"/>
+      <definition value="Unique Device Identifier (UDI) placed on a device label or package. Note that the Device may include multiple UDIs if it is sold in multiple jurisdictions."/>
       <comment value="UDI may identify an unique instance of a device, or it may only identify the type of the device.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device."/>
       <min value="0"/>
       <max value="*"/>
@@ -187,7 +187,7 @@
     <element id="Device.udiCarrier.deviceIdentifier">
       <path value="Device.udiCarrier.deviceIdentifier"/>
       <short value="Mandatory fixed portion of UDI"/>
-      <definition value="The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
+      <definition value="The device identifier (UDI-DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device. The UDI-DI portion is placed on a device label or package. Note that the DeviceDefinition may include multiple UDI-DIs if it is sold in multiple jurisdictions."/>
       <alias value="DI"/>
       <min value="1"/>
       <max value="1"/>
@@ -207,6 +207,16 @@
         <identity value="udi"/>
         <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       </mapping>
+    </element>
+    <element id="Device.udiCarrier.deviceIdentifierSystem">
+      <path value="Device.udiCarrier.deviceIdentifierSystem"/>
+      <short value="The namespace for the device identifier value"/>
+      <definition value="Establishes the namespace for the device identifier value that is an URL, OID, urn or uuid."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
     </element>
     <element id="Device.udiCarrier.issuer">
       <path value="Device.udiCarrier.issuer"/>
@@ -245,8 +255,8 @@
     </element>
     <element id="Device.udiCarrier.carrierAIDC">
       <path value="Device.udiCarrier.carrierAIDC"/>
-      <short value="UDI Machine Readable Barcode String"/>
-      <definition value="The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or RFID.   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded."/>
+      <short value="UDI Machine Readable value"/>
+      <definition value="The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation as printed on the packaging of the device - e.g., a barcode or RFID.   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded."/>
       <comment value="The AIDC form of UDIs should be scanned or otherwise used for the identification of the device whenever possible to minimize errors in records resulting from manual transcriptions. If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label."/>
       <alias value="Automatic Identification and Data Capture"/>
       <min value="0"/>
@@ -368,8 +378,8 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.biologicalSourceEvent"/>
-      <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>
-      <definition value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled."/>
+      <short value="A production identifier of the donation, collection, or pooling event from which biological material in this device was derived"/>
+      <definition value="A production identifier of the donation, collection, or pooling event from which biological material in this device was derived."/>
       <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <alias value="Distinct Identification Code (DIC)"/>
       <min value="0"/>
@@ -538,17 +548,18 @@
       <path value="Device.name.type"/>
       <short value="registered-name | user-friendly-name | patient-reported-name"/>
       <definition value="Indicates the kind of name. RegisteredName | UserFriendlyName | PatientReportedName."/>
+      <comment value="The implementation or jurisdiction must clarify which name is to be used as the registered-name. As a result a device definition may have multiple names that are the same, but then used for different purposes per the name type and jurisdictional guidance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of name the device is referred by."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
       </binding>
@@ -651,7 +662,8 @@
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
       <definition value="The kind or type of device. A device instance may have more than one type - in which case those are the types that apply to the specific instance of the device."/>
-      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor."/>
+      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor.
+      Device.type relates DeviceDefinition.classification.type using the same binding enabling referencing."/> 
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -669,21 +681,22 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
-    <element id="Device.version">
+    <element id="Device.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="800,100"/>
       </extension>
-      <path value="Device.version"/>
+      <path value="Device.deviceVersion"/>
       <short value="The actual design of the device or software version running on the device"/>
       <definition value="The actual design of the device or software version running on the device."/>
+      <comment value="The combination of type and component SHOULD be unique across all repetitions of version."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.version.type">
-      <path value="Device.version.type"/>
+    <element id="Device.deviceVersion.type">
+      <path value="Device.deviceVersion.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
       <alias value="Σ"/>
@@ -701,8 +714,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
     </element>
-    <element id="Device.version.component">
-      <path value="Device.version.component"/>
+    <element id="Device.deviceVersion.component">
+      <path value="Device.deviceVersion.component"/>
       <short value="The hardware or software module of the device to which the version applies"/>
       <definition value="The hardware or software module of the device to which the version applies."/>
       <comment value="Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version."/>
@@ -716,8 +729,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="Device.version.installDate">
-      <path value="Device.version.installDate"/>
+    <element id="Device.deviceVersion.installDate">
+      <path value="Device.deviceVersion.installDate"/>
       <short value="The date the version was installed on the device"/>
       <definition value="The date the version was installed on the device."/>
       <min value="0"/>
@@ -730,8 +743,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="Device.version.value">
-      <path value="Device.version.value"/>
+    <element id="Device.deviceVersion.value">
+      <path value="Device.deviceVersion.value"/>
       <short value="The version text"/>
       <definition value="The version text."/>
       <min value="1"/>
@@ -796,7 +809,6 @@
         <code value="string"/>
       </type>
     </element>
-
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>
@@ -917,7 +929,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element> -->
-    <element id="Device.mode">
+    <!-- <element id="Device.mode">
       <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
@@ -954,7 +966,7 @@
       <type>
         <code value="Duration"/>
       </type>
-    </element>
+    </element> -->
     <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
@@ -1022,7 +1034,7 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element> -->
-    <element id="Device.owner">
+    <!-- <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
       <definition value="An organization that is responsible for the provision and ongoing maintenance of the device."/>
@@ -1040,6 +1052,111 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=OWN].scoper"/>
       </mapping>
+    </element> -->
+    <element id="Device.additive">
+      <path value="Device.additive"/>
+      <short value="Material added to a container device"/>
+      <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Material"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.type">
+      <path value="Device.additive.type"/>
+      <short value="The additive substance"/>
+      <definition value="The type of the substance added to the container.  This is represented as a concept from a code system or described in a Substance resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device additive substance type codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.quantity">
+      <path value="Device.additive.quantity"/>
+      <short value="Quantity of additive substance within container"/>
+      <definition value="The quantity of the additive substance in the container; may be volume, dimensions, or other appropriate measurements, depending on the container and additive substance type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[classCode=CONT].quantity"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.performer">
+      <path value="Device.additive.performer"/>
+      <short value="Entity adding substance to the container"/>
+      <definition value="The performer who adds the substance to the container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM].role"/>
+      </mapping>
+    </element>
+    <element id="Device.additive.performed">
+      <path value="Device.additive.performed"/>
+      <short value="When the additive substance was added to the container"/>
+      <definition value="Time when the additive substance was placed into the container by the performer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
     </element>
     <element id="Device.contact">
       <path value="Device.contact"/>
@@ -1051,6 +1168,7 @@
       <type>
         <code value="ContactPoint"/>
       </type>
+      <!--
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.source"/>
@@ -1059,6 +1177,7 @@
         <identity value="rim"/>
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
+      -->
     </element>
     <element id="Device.distributor">
       <path value="The distributor of the model of device"/>
@@ -1121,7 +1240,7 @@
         <map value=".playedRole[typeCode=LOCE].scoper"/>
       </mapping>
     </element>
-    <element id="Device.url">
+    <!-- <element id="Device.url">
       <path value="Device.url"/>
       <short value="Network address to contact device"/>
       <definition value="A network address on which the device may be contacted directly."/>
@@ -1139,8 +1258,8 @@
         <identity value="rim"/>
         <map value=".telecom"/>
       </mapping>
-    </element>
-    <element id="Device.endpoint">
+    </element> -->
+    <!-- <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>
       <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
@@ -1166,7 +1285,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
     <element id="Device.note">
       <path value="Device.note"/>
       <short value="Device notes and comments"/>

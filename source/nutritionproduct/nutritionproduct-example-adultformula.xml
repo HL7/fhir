@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+	<id value="adult-formula-supplement"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="442651000124102"/>
+			<display value="Adult Formula (product)"/>
+		</coding>
+	</code>
+	<status value = "active"/>
+	<manufacturer>
+		<display value="Nestle"/>
+	</manufacturer>
+	<energy>
+		<value value="1.7"/>
+		<unit value="kcal/ml"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="kcal/ml"/>
+	</energy>
+	<instance>
+		<name value="Boost Pudding"/>
+		<expiry value="2026-08-23"/>
+	</instance>
+</NutritionProduct>

@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of imagingstudy"/>
+      <valueString value="Example ImagingStudy"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingstudy-example"/>
@@ -18,7 +18,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example XR imaging study with full elements"/>
+      <valueString value="Example X-ray ImagingStudy with full elements"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingstudy-example-xr"/>

@@ -54,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The collect-data operation is used to collect the data-of-interest for the given measure."/>
+  <description value="The collect-data operation is used to collect the data-of-interest for the given measure. Note that the use of the [X-Provenance header data](provenance.html#header) with data that establishes provenance being submitted/collected **SHOULD** be supported.  This provides the capability for associating the provider with the data submitted through the $collect-data transaction. If the X-Provenance header is used it should be consistent with the `reporter` element in the DEQM Data Exchange MeasureReport Profile."/>
   <affectsState value="false"/>
   <code value="collect-data"/>
   <comment value="The effect of invoking this operation is to gather the data required to perform an evaluation of the measure. If the lastReceivedOn parameter is supplied, only data that is new or has been changed since the lastReceivedOn date is included in the response. Note that the resulting MeasureReport is a transient resource"/>
@@ -67,7 +67,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period s"/>
+    <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
     <type value="date"/>
   </parameter>
   <parameter>
@@ -79,23 +79,63 @@
     <type value="date"/>
   </parameter>
   <parameter>
+    <name value="measureId"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The id of a Measure resource that is on the server for which the data-of-interest will be collected. E.g., the id of the Measure resource for Breast Cancer Screening measure."/>
+    <type value="id"/>
+  </parameter>
+  <parameter>
+    <name value="measureIdentifier"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The business identifier of a measure for which the data-of-interest will be collected. E.g., CMS125 is a CMS assigned identifier for the Breast Cancer Screening eCQM in their system. Note that the type of this parameter is a string with a search type of token, so the $care-gaps operation has only simple input parameters and may be invoked using GET."/>
+    <type value="string"/>
+    <searchType value="token"/>
+  </parameter>
+  <parameter>
+    <name value="measureUrl"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="This the the URL of a measure for which the data-of-interest will be collected. A measure URL is specified in the url element of the Measure resource. The measure URL remains the same when the measure is stored on different servers."/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="measureResource"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The measure for which the data-of-interest will be collected is provided as a Measure resource."/>
+    <type value="Measure"/>
+  </parameter>
+  <parameter>
     <name value="measure"/>
     <use value="in"/>
-    <scope value="type"/>
     <min value="0"/>
-    <max value="1"/>
-    <documentation value="The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
+    <max value="*"/>
+    <documentation value="The measure for which the data-of-interest will be collected. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
     <type value="string"/>
-    <searchType value="reference"/>
+    <searchType value="token"/>
   </parameter>
   <parameter>
     <name value="subject"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the measure will be collected. If not specified, measure data will be collected for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)"/>
+    <documentation value="Subject for which the data-of-interest for the measure will be collected. If not specified, measure data will be collected for all subjects that meet the requirements of the measure.  If specified, the measure will only be collected for the referenced subject(s)."/>
     <type value="string"/>
     <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="subjectGroup"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Subject for which the data-of-interest for measure will be collected is provided as a Group resource."/>
+    <type value="Group"/>
   </parameter>
   <parameter>
     <name value="practitioner"/>
@@ -115,19 +155,36 @@
     <type value="dateTime"/>
   </parameter>
   <parameter>
-    <name value="measureReport"/>
-    <use value="out"/>
-    <min value="1"/>
+    <name value="organizationResource"/>
+    <use value="in"/>
+    <min value="0"/>
     <max value="1"/>
-    <documentation value="A MeasureReport of type data-exchange detailing the results of the operation"/>
-    <type value="MeasureReport"/>
+    <documentation value="Organization resource for which data-of-interest for the given measure will be collected."/>
+    <type value="Organization"/>
   </parameter>
   <parameter>
-    <name value="resource"/>
+    <name value="organization"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Organization for which data-of-interest for the given measure will be collected."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="validateResources"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Indicates whether data collected conform to the appropriate profiles as specified by the measure."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
     <use value="out"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The result resources that make up the data-of-interest for the measure"/>
-    <type value="Resource"/>
+    <documentation value="Returns [Parameters](https://www.hl7.org/fhir/parameters.html) resource, which contains one or more bundles. The first entry of the bundle is a MeasureReport and subsequent entries in the bundle are resources created and/or evaluated as part of the measure calculation. Note that the result of the $evaluate operation must be returned using the Parameters resource, even when the result contains only one bundle, because the cardinality of the return parameter is specified as 0..*"/>
+    <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

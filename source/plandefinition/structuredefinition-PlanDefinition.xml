@@ -156,7 +156,6 @@
 			<path value="PlanDefinition.identifier"/>
 			<short value="Additional identifier for the plan definition"/>
 			<definition value="A formal identifier that is used to identify this plan definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this plan definition outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -368,9 +367,9 @@
 		</element>
 		<element id="PlanDefinition.experimental">
 			<path value="PlanDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of plan definitions that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of plan definitions that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level plan definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1230,11 +1229,12 @@
 			<path value="PlanDefinition.actor.option.typeReference"/>
 			<short value="Who or what can participate"/>
 			<definition value="The type of participant in the action."/>
-			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location). Note that specimen as a participant in cell-line research is acceptable, but specimen in clinical research would typically be represented as the focus rather the subject."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
@@ -1242,11 +1242,14 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1480,7 +1483,7 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="id"/>
+				<code value="string"/>
 			</type>
 			<condition value="pld-3"/>
 			<mapping>
@@ -1545,7 +1548,7 @@
 			<path value="PlanDefinition.action.condition"/>
 			<short value="Whether or not the action is applicable"/>
 			<definition value="An expression that describes applicability criteria or start/stop conditions for the action."/>
-			<comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true."/>
+			<comment value="If no applicability conditions are present, the action is considered applicable (i.e. it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g. applicability and start criteria are never considered together)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1654,7 +1657,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="id"/>
+				<code value="string"/>
 			</type>
 			<condition value="pld-0"/>
 			<mapping>
@@ -1756,7 +1759,7 @@
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="id"/>
+				<code value="string"/>
 			</type>
 			<condition value="pld-4"/>
 			<mapping>
@@ -1966,11 +1969,12 @@
 			<path value="PlanDefinition.action.participant.typeReference"/>
 			<short value="Who or what can participate"/>
 			<definition value="The type of participant in the action."/>
-			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location). Note that specimen as a participant in cell-line research is acceptable, but specimen in clinical research would typically be represented as the focus rather the subject."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
@@ -1978,11 +1982,14 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>

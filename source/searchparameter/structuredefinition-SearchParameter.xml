@@ -279,9 +279,9 @@
 		</element>
 		<element id="SearchParameter.experimental">
 			<path value="SearchParameter.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of search parameters that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this search parameter is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of search parameters that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level search parameter."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -466,9 +466,24 @@
 			<path value="SearchParameter.code"/>
 			<short value="Recommended name for parameter in search url"/>
 			<definition value="The label that is recommended to be used in the URL or the parameter name in a parameters resource for this search parameter.  In some cases, servers may need to use a different CapabilityStatement searchParam.name to differentiate between multiple SearchParameters that happen to have the same code."/>
-			<comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple search parameters with the same code."/>
+			<comment value="For maximum compatibility, use only lowercase ASCII characters and hyphens. Note that HL7 will never define multiple search parameters with the same code."/>
 			<min value="1"/>
 			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="SearchParameter.aliasCode">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="SearchParameter.aliasCode"/>
+			<short value="Additional recommended names for parameter in search url"/>
+			<definition value="Additional label that are recommended to be used in the URL or the parameter name in a parameters resource for this search parameter. Typically used to provide backwards-compatibility for renamed search parameters and translations into localized languages."/>
+			<comment value="For maximum compatibility, use only lowercase ASCII characters and hyphens."/>
+			<min value="0"/>
+			<max value="*"/>
 			<type>
 				<code value="code"/>
 			</type>
@@ -501,7 +516,7 @@
 		</element>
 		<element id="SearchParameter.type">
 			<path value="SearchParameter.type"/>
-			<short value="number | date | string | token | reference | composite | quantity | uri | special"/>
+			<short value="number | date | string | token | reference | composite | quantity | uri | special | resource"/>
 			<definition value="The type of value that a search parameter may contain, and how the content is interpreted."/>
 			<min value="1"/>
 			<max value="1"/>

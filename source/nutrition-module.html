@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+[%settitle Nutrition Module%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    [%file newheader%]
+</head>
+<body>
+    [%file newnavbar%]
+
+    <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+    <a name="root"></a>
+    <h2>Nutrition Module</h2>
+    
+    <blockquote class="stu-note">
+        <p><b>Note to Implementers:</b> This module page describes the context and usage of Nutrition and related resources. This module supports and clarifies the traceability requirements for nutrition. HL7 seeks specific feedback on the usefulness of this module page and the implementability of the referenced resources.</p>
+        <p>The future location and navigation links to this module are outstanding items to be revisited in a future FHIR version.</p>
+    </blockquote>
+    
+    <a name="intro"></a>
+    <h3>Introduction</h3>
+    <p>The Nutrition module in FHIR provides a structured framework to document and manage consumable food, drinks, and supplements integral to patient care. It captures essential information on nutrition-related items and how they are utilized, whether for therapeutic purposes or routine consumption. Nutrition is key in patient care, from standard diets to more specialized nutrition delivery systems.</p>
+
+    <a name="index"></a>
+    <h3>Index</h3>
+    <table width="100%" style="table-layout: fixed">
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="nutritionorder.html">Nutrition Order</a></li>
+                    <li><a href="nutritionintake.html">Nutrition Intake</a></li>
+                    <li><a href="nutritionproduct.html">Nutrition Product</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <a name="nutritionrelatedresources"></a>
+    <h4>Nutrition-related Resources</h4>
+    <p>The following are the core nutrition related resources:</p>
+    <table width="100%" style="table-layout: fixed">
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="nutritionorder.html">Nutrition Order</a> - (also known as Diet Order, Diet , Nutritional Supplement, Enteral Nutrition) Describes a request for oral diets (including general diets such as General Healthy diet, or therapeutic diets such as Consistent Carbohydrate, 2-gram Sodium, or Fluid Restricted), oral nutrition supplements (such as nutritionally complete pre-packed drinks), enteral nutrition (tube feedings) and infant formula which govern the distribution of food and nutritional products.</li>
+                    <li><a href="nutritionintake.html">Nutrition Intake</a> - Utilized to capture details about the consumption of foods, fluids, and enteral nutrition. </li>
+                    <li><a href="nutritionproduct.html">Nutrition Product</a> - Represents the identification of a food (i.e., solid and/or liquid) product consumed by patients.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <a name="relatedresources"></a>
+    <h3>Related Resources</h3>
+    <p>The following are the secondary resources that are used in many nutrition related activities:</p>
+    <table class="bare">
+        <tr>
+            <th>Name</th>
+            <th>Module(s)</th>
+            <th>Description/Relationship</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="clinicalassessment.html">Clinical Assessment</a>
+            </td>
+            <td valign="top">Clinical</td>
+            <td>A record of a clinical assessment performed to determine what problem(s) (Nutrition Diagnosis) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition.</td>
+        </tr>
+        <tr>
+            <td valign="top">
+
+                <a href="condition.html">Condition</a>
+            </td>
+            <td valign="top">Clinical</td>
+            <td>A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="servicerequest.html">Service Request</a>
+            </td>
+            <td valign="top">Clinical, Workflow</td>
+            <td>Represents an order or proposal or plan to perform a diagnostic or other service on or for a patient.</td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="patient.html">Patient</a>
+            </td>
+            <td valign="top">Administration</td>
+            <td>Demographics and other administrative information about an individual receiving care or other health-related services.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="goal.html">Goal</a>
+            </td>
+            <td valign="top">Clinical</td>
+            <td>Describes the intended objective(s) for a patient, group or organization care.</td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="careplan.html">CarePlan</a>
+            </td>
+            <td valign="top">Clinical</td>
+            <td>Describes the intention of how one or more practitioners intend to deliver care (Nutrition Intervention) for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="practitioner.html">Practitioner</a>
+            </td>
+            <td valign="top">Administration</td>
+            <td>A person who is directly or indirectly involved in the provisioning of healthcare or related services.</td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="observation.html">Observation</a>
+            </td>
+            <td valign="top">Diagnostic</td>
+            <td>Measurements and simple assertions made about a patient or other subject.</td>
+        </tr>
+    </table>
+
+    <br />
+    <p>The diagram below illustrates the relationship between the related resources associated with nutrition resources.</p>
+    <img src="nutrition-module-resources-relation.png" alt="Image showing the Nutrition resources and related resources" />
+
+    <p>
+        The Nutrition module is designed to differentiate between various types of nutritional intake and their relevant documentation: 
+    </p>
+
+    <p>
+        <b>NutritionIntake:</b> This resource is used to document the intake of foods, drinks, oral nutrition supplements, and other consumables like infant formula or breastmilk. It records patient consumption—whether past, present, or planned—based on inputs from the patient, family members, or healthcare providers. 
+        <li>Add examples</li>
+    </p>
+
+    <p>
+        <b>NutritionProduct:</b> Focuses on identifying consumable food products, both solid and liquid, intended for human consumption. This includes general food items, beverages, and other nutritional consumables used in patient care settings. 
+        <li>Add examples</li>
+    </p>
+
+    <p>
+        <b>NutritionOrder:</b> This resource describes various dietary requests made for patients. It includes general oral diets (e.g., General Healthy diet), therapeutic diets (e.g., low-sodium or fluid-restricted diets), oral nutrition supplements, enteral feedings (tube feeding), and infant formulas. 
+        <li>Add examples</li>
+    </p>
+
+    <a name="uses"></a>
+    <h3>Common Use Cases</h3>
+
+    <a name="usecase-heart-failure-inpatient"></a>
+    <b>Heart Failure Inpatient Use Case.</b>
+    <ol>
+        <li>The dietitian performs a comprehensive nutrition assessment (Observation).</li>
+        <li>The dietitian documents the patient's admitted weight (65kg) and nutrition history (ClinicalImpression).
+            <ul>
+                <li>The assessment reveals the patient adheres to a low sodium diet. The patient reports decreased food intake due to dental issues and prefers foods that are easy to chew. Additionally, the patient is lactose intolerant and adheres to the Halal diet. The patient also reports a dislike of strawberries.</li>
+                <li>The dietitian's nutrition diagnoses (Condition) are: Excessive sodium intake related to intake of processed foods at home as evidenced by food recall. Excessive fluid intake related to new recommendation to restrict fluid intake as evidenced by client statements of intake of ~2.4 liters of fluid/day.</li>
+                <li>The dietitian's nutrition intervention care plan is to recommend a diet that includes 2gm sodium, 1500ml fluid restriction, mechanically altered, lactose-free, and Halal.</li>
+            </ul>
+        </li>
+        <li>The physician reviews the dietitian's recommendations.</li>
+        <li>The physician enters a <a href="nutritionorder.html">comprehensive diet order</a> into the Computerized Provider Order Entry (CPOE) system. The order includes:
+            <ul>
+                <li>2gm sodium</li>
+                <li>1500ml fluid restriction</li>
+                <li>Mechanically altered</li>
+                <li>Lactose-free</li>
+                <li>Halal diet</li>
+                <li>Dislikes strawberries</li>
+            </ul>
+        </li>
+        <li>The diet order is transmitted to the Food &amp; Nutrition Services via an HL7-compliant interface to the Food &amp; Nutrition Management System (FNMS).</li>
+        <li>The dietitian schedules nutrition monitoring and evaluation of the patient's acceptance of foods consistent with NutritionOrder as well as goal of less lower extremity edema and shortness of breath.</li>
+    </ol>
+
+    <a name="usecase-ambulatory-outpatient"></a>
+    <b>Outpatient/Ambulatory Use Case.</b>
+    <ol>
+        <li>The dietitian performs a comprehensive nutrition assessment (Observation). A 52-year-old male was seen in the amyotrophic lateral sclerosis (ALS) clinic regarding placement of a gastrostomy tube (GT) as they have been losing weight and respiratory status is worsening making it difficult for the patient to take medications, to eat, and to maintain weight.
+            <ul>
+                <li>In the multi-disciplinary office visit including the speech therapist and dietitian, the dietitian identified the patient's nutritional status to be moderate malnutrition (<strong>Observation</strong>). Speech therapy noted that the patient requires IDDSI minced and moist level 5 foods and IDDSI mildly thick level 2 drinks. Due to the patient's inadequate oral intake meeting &lt; 50% of needs and weight loss, the dietitian also recommended placement of GT with 750 mLs of a high protein enteral nutrition feeding via an evening bolus to provide 750 kcals and 45 gm protein.</li>
+                <li>Indication for G-tube is: Dysphagia, increased work of breathing.</li>
+            </ul>
+        </li>
+        <li>The dietitian's nutrition diagnosis (Condition) is moderate chronic disease or condition related malnutrition related to dysphagia and increased work of breathing as evidenced by unintended weight loss of 7 % in the past 3 months, moderate temporalis muscle atrophy, and moderate Interosseous hand muscle atrophy.</li>
+        <li>Based on the documented (ClinicalImpression) assessment and nutrition diagnosis, the <a href="careplan.html">nutrition intervention care plan</a> includes:
+            <ul>
+                <li><a href="nutritionorder.html">Nutrition Order</a>: International Dysphagia Diet Standardisation Initiative Framework (IDDSI) minced and moist level 5 foods and IDDSI mildly thick level 2 drinks. Also, GT placement to supplement oral intake with 750 mLs of a high protein enteral nutrition formula via an evening bolus via gastrostomy tube to provide 750 kcals and 45 gm protein.</li>
+            </ul>
+        </li>
+        <li>After reviewing the multidisciplinary team's note, the physician entered orders for insertion of a gastrostomy feeding tube. The physician also entered <a href="nutritionorder.html">post-op nutrition orders</a> by selecting from the available diet and enteral nutrition codes in the CPOE system:
+            <ul>
+                <li>Diet: International Dysphagia Diet Standardisation Initiative Framework - Minced and moist Level 5 foods</li>
+                <li>International Dysphagia Diet Standardisation Initiative Framework - Mildly Thick Level 2 drinks</li>
+                <li>High protein enteral nutrition product
+                    <ol type="a">
+                    <li>Quantity: 750ml
+                        <ol type="i">
+                            <li>Administration Instruction: Bolus</li>
+                            <li>Timing: 7pm daily</li>
+                        </ol>
+                    </li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+        <li>The <strong>NutritionOrder</strong> is sent to Food &amp; Nutrition Services via HL7-compliant interface to the FNMS.</li>
+        <li>The enteral home care company provides enteral feeding supplies and instructions for the patient and caregivers at home based on the referral from the ALS clinic physician.</li>
+        <li>The patient will follow-up with speech therapy and dietitian at the next multidisciplinary clinic visit for speech and nutrition monitoring and evaluation of the care plan with revisions as needed.</li>
+    </ol>
+
+    <a name="usecase-malnutrition-ltc"></a>
+    <b>Malnutrition Case in Long-Term Care Setting Use Case.</b>
+    <ol>
+        <li>The dietitian performs a comprehensive nutrition assessment (Observation) on a 60-year-old male patient with Alzheimer's disease in a long-term care setting.</li>
+        <li>
+            The dietitian documents (ClinicalImpression):
+            <ul>
+                <li>Patient's age: 60 years old</li>
+                <li>Recent unintentional weight loss: 15 lbs (6%) in 1 month</li>
+                <li>Nutrition-Focused Physical Exam (NFPE) results: Indicates moderate deltoid and quadriceps muscle atrophy and moderate subcutaneous fat loss (Observation).</li>
+            </ul>
+        </li>
+        <li>The dietitian's nutrition diagnosis (Condition) is Moderate chronic disease or condition related malnutrition due to decreased appetite as evidenced by 6% unplanned weight loss in 1 month and moderate deltoid and quadriceps muscle atrophy and moderate subcutaneous fat loss.</li>
+        <li>
+            Based on the assessment and nutrition diagnosis, the dietitian <a href="careplan.html">nutrition intervention care plan</a> includes:
+            <ul>
+                <li>Regular diet with increased energy and protein</li>
+                <li>Oral nutrition supplement: Standard pudding supplement, 1 serving 3 times per day with meals</li>
+                <li>Allowing the patient's daughter to bring favorite foods from home</li>
+                <li>Staff to document food intake (NutritionIntake)</li>
+                <li>Patient reports the food and fluid consumed (NutritionIntake)</li>
+                <li>Goal: 75% of nutritional needs are met daily, maintain weight or weight gain</li>
+            </ul>
+        </li>
+        <li>The physician reviews the dietitian's care plan.</li>
+        <li>The physician enters a <a href="nutritionorder.html">comprehensive diet order</a> into the Computerized Provider Order Entry (CPOE) system. The order includes:
+            <ul>
+                <li>Regular diet</li>
+                <li>Increased energy diet</li>
+                <li>Increased protein diet</li>
+                <li>Oral nutrition supplement: Standard pudding supplement, 1 serving 3 times per day with meals</li>
+                <li>Allow patient's daughter to bring favorite foods from home</li>
+                <li>Staff to document meals and supplements consumed</li>
+                <li>Staff to obtain weekly weights</li>
+            </ul>
+        </li>
+        <li>The diet order is transmitted to Food &amp; Nutrition Services via an HL7-compliant interface.</li>
+        <li>The nursing staff is notified of the new diet order and supplementation schedule.</li>
+        <li>The long-term care facility's kitchen staff is informed about the increased energy and protein requirements for the patient's meals and supplement order.</li>
+        <li>The facility's staff is instructed to document the <a href="nutritionintake.html">patient's food intake</a>, including regular meals, supplements, and foods brought from home. Patient reports the food and fluid consumed.</li>
+        <li>The dietitian meets with the patient's daughter to discuss the nutrition care plan and is encouraged to bring the patient's favorite foods from home.</li>
+        <li>The dietitian schedules regular nutrition monitoring and evaluation per MDS (Minimum Data Set) requirements to track the patient's weight, intake, and nutritional status, adjusting the nutrition care plan as needed.</li>
+    </ol>
+
+    <a name="secpriv"></a>
+    <h3>Security and Privacy</h3>
+    <p>
+        The Nutrition resources typically represent patient-specific data, and as such are susceptible to data breaching.
+        Necessary privacy and security provisions must be in place when searching and fetching this information. For
+        more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+    </p>
+
+    <a name="roadmap"></a>
+    <h3>Developmental Roadmap - Place holder</h3>
+    <table class="bare">
+        <tr>
+            <th>Name</th>
+            <th>Matutity Level</th>
+            <th>Known changes</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="nutritionorder.html">Nutrition Order</a>
+            </td>
+            <td valign="top">FMM3 (R6)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <a href="nutritionintake.html">Nutrition Intake</a>
+            </td>
+            <td valign="top">FMM3 (R6)</td>
+            <td></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top">
+                <a href="nutritionproduct.html">Nutrition Product</a>
+            </td>
+            <td valign="top">FMM3 (R6)</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <p>
+        <i>O&amp;O welcomes feedback to show if the resource designs have made a solution that works, and is implementable, for users across a range of domains.</i>
+    </p>
+
+    [%file newfooter%]
+</body>
+</html>

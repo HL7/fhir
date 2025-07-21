@@ -25,7 +25,7 @@
 	</type>
 	
 	<policyHolder>
-		<reference value="http://benefitsinc.com/FHIR/Organization/CBI35"/>
+		<reference value="http://benefits.example.org/FHIR/Organization/CBI35"/>
 	</policyHolder>
 
 	<subscriber>

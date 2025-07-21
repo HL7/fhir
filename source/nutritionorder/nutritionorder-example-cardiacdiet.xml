@@ -1,7 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?><NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><!-- id = cardiacdiet  file name = nutritionorder-example-cardiacdiet.xml  Name= Low Sodium and Fiber Restricted Diet  Description = Nutrition Order Low Sodium and Fiber Restricted Diet Example
-edited by Eric Haas Health eData Inc
--->
-<!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element -->
+﻿<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <id value="cardiacdiet"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-requests"/>
@@ -34,7 +32,6 @@ edited by Eric Haas Health eData Inc
 	<excludeFoodModifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
 			<code value="227493005"/>
 			<display value="Cashew Nut"/>
 		</coding>

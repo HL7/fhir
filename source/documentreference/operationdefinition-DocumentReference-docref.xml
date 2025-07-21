@@ -37,6 +37,10 @@
     <valueMarkdown value="The server either returns a search result Bundle containing at least one DocumentReference, &#xA;or it returns an error."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/DocumentReference-docref"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.32.8"/>
+  </identifier>
   <version value="5.0.1"/>
   <name value="Docref"/>
   <title value="Fetch DocumentReference"/>
@@ -90,7 +94,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="	The type relates to document type e.g. C-CDA Clinical Summary of Care (CCD) = LOINC 34133-9: Summary of episode note, and International Patient Summary (IPS) = LOINC 60591-5: Patient summary document.  If no type is provided, the summary document, if available, SHALL be in scope, and all other document types MAY be in scope. It is at the server's discretion how to respond if multiple types are provided. The server MAY return documents to any of the specified types. The server's CapabilityStatement should document its behavior and what types it supports"/>
+    <documentation value=" The type relates to document type e.g. C-CDA Clinical Summary of Care (CCD) = LOINC 34133-9: Summary of episode note, and International Patient Summary (IPS) = LOINC 60591-5: Patient summary document.  If no type is provided, the summary document, if available, SHALL be in scope, and all other document types MAY be in scope. It is at the server's discretion how to respond if multiple types are provided. The server MAY return documents to any of the specified types. The server's CapabilityStatement should document its behavior and what types it supports"/>
     <type value="CodeableConcept"/>
     <binding>
       <strength value="required"/>

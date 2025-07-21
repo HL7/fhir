@@ -16,7 +16,7 @@
   <name value="MedicationRequestIntent"/>
   <title value="medicationRequest Intent"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

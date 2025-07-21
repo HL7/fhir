@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="DeviceDefinitionRelationType"/>
   <title value="Device Definition Relation Type"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Description Needed Here"/>
   <compose>
     <include>

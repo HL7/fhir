@@ -382,8 +382,10 @@
     </element>
     <element id="MedicationRequest.doNotPerform">
       <path value="MedicationRequest.doNotPerform"/>
-      <short value="True if patient is to stop taking or not to start taking the medication"/>
-      <definition value="If true, indicates that the provider is asking for the patient to either stop taking or to not start taking the specified medication. For example, the patient is taking an existing medication and the provider is changing their medication. They want to create two seperate requests: one to stop using the current medication and another to start the new medication."/>
+      <short value="If true, indicates the provider is ordering a patient should not take the specified medication"/>
+      <definition value="If true, indicates the provider is ordering a patient should not take the specified medication. The reason for this order can be provided in the .reason element. A MedicationRequest with .doNotPerform = true will not result in any dispense or administration. 
+A request not to take or administer medication is a standalone request, and does not update any other medication request.  
+When true, active orders that may exist for the same medication are expected to be canceled/ended, and new orders for the same medication are not expected."/>
       <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -476,7 +478,8 @@
     <element id="MedicationRequest.informationSource">
       <path value="MedicationRequest.informationSource"/>
       <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
-      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor.  This is often used when the MedicationRequest is reported by another person."/>
+      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .reported element would be set to &quot;true&quot;."/>
+      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.reported and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -486,6 +489,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -668,6 +672,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -729,6 +734,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>        
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/> 
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

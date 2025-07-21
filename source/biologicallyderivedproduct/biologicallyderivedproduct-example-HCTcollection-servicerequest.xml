@@ -21,7 +21,7 @@
 		<text value="Surgical procedure"/>
 	</code>
 	<subject>
-		<reference value="Patient/example-b"/>
+		<reference value="Patient/pat2"/>
 	</subject>
 	<occurrenceDateTime value="2022-03-22"/>
 	<authoredOn value="2022-03-22"/>

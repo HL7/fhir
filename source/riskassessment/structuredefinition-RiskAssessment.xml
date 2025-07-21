@@ -166,7 +166,7 @@
     </element>
     <element id="RiskAssessment.status">
       <path value="RiskAssessment.status"/>
-      <short value="registered | preliminary | final | amended +"/>
+      <short value="registered | specimen-in-process | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown | cannot-be-obtained"/>
       <definition value="The status of the RiskAssessment, using the same statuses as an Observation."/>
       <min value="1"/>
       <max value="1"/>
@@ -208,6 +208,7 @@
         </extension>
         <strength value="example"/>
         <description value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -228,6 +229,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RiskAssessmentCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of risk assessment performed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.code"/>
@@ -367,7 +376,7 @@
     </element>
     <element id="RiskAssessment.reason">
       <path value="RiskAssessment.reason"/>
-      <short value="Why the assessment was necessary?"/>
+      <short value="Why was the assessment necessary?"/>
       <definition value="The reason the risk assessment was performed."/>
       <min value="0"/>
       <max value="*"/>
@@ -446,6 +455,7 @@
         </extension>
         <strength value="example"/>
         <description value="The condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-outcome"/>
       </binding>
       <mapping>
         <identity value="rim"/>

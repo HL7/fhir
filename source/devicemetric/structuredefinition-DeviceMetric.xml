@@ -193,19 +193,19 @@
     </element>
     <element id="DeviceMetric.category">
       <path value="DeviceMetric.category"/>
-      <short value="measurement | setting | calculation | unspecified"/>
-      <definition value="Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation."/>
+      <short value="The kind of metric represented"/>
+      <definition value="Indicates the category of the observation generation process. A DeviceMetric can be, for example, a setting, measurement, or calculation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCategory"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Describes the category of the metric."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
       </binding>
@@ -225,6 +225,26 @@
       </type>
       <isSummary value="false" />
     </element>
+    <element id="DeviceMetric.availability">
+      <path value="DeviceMetric.availability"/>
+      <short value="The continuity of the metric (e.g., measurement)"/>
+      <definition value="Indicates whether the metric is derived (measured) by a continuous means or by an intermittent means."/>
+      <comment value="For example, a gauge on a pressurized vessel showing current pressure is a continuous measurement, while a thermometer that produces readings on demand is an intermittent measurement. Note that metric availability is typically a static characteristic and is distinct from the operational status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricAvailability"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the availability of the metric"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
+      </binding>
+    </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
@@ -241,19 +261,19 @@
     </element>
     <element id="DeviceMetric.calibration.type">
       <path value="DeviceMetric.calibration.type"/>
-      <short value="unspecified | offset | gain | two-point"/>
+      <short value="The method of calibration"/>
       <definition value="Describes the type of the calibration method."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Describes the type of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
       </binding>

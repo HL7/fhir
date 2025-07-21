@@ -62,7 +62,7 @@ href="#turtle-template">Turtle
             <li><a href="#resources">Representing Resources</a></li>
             <li><a href="#caseSensitivity">Case Sensitivity</a></li>
             <li><a href="#nestedNodes">Nested Anonymous Nodes</a></li>
-            <li><a href="#propertyNames">Property Names</a></li>
+            <li><a href="#propertyNames">Property Names and Polymorphism</a></li>
             <li><a href="#rdflist">Representing Repeating Elements -- RDF Lists</a></li>
             <li><a href="#primitive">Representing Primitive Elements</a></li>
             <li><a href="#reference">Representing References</a></li>
@@ -141,7 +141,7 @@ href="extensibility.html">extensions</a>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
-<span class="xmlcomment">                                  # Obs123 (subject) hasType (predicate) fhir:Observation</span>
+<span class="xmlcomment">                                  # Obs123 (subject) hasType (property) fhir:Observation</span>
 &lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;    <span class="xmlcomment"># (subject) is the serialization root of this document</span>
   fhir:id [ fhir:v "Obs123" ];    <span class="xmlcomment"># (subject) has an id of "Obs123"</span>
@@ -183,7 +183,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
         <ul>
           <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
           <li>the type (<code class="rdf">fhir:Observation</code>) and
-            following predicates (e.g. <code class="rdf">fhir:status</code>)
+            following properties (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
           <li>assertions following a ';' re-use the same subject,</li>
           <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s,</li>
@@ -232,11 +232,11 @@ href="fhir.shex">fhir.shex</a>
 
         <a name="caseSensitivity"></a>
           <h4>Case Sensitivity</h4>
-          <p> While RDF predicate names are case-sensitive, FHIR avoids
-            confusion by assuring that there are no predicates that
+          <p> While RDF property names are case-sensitive, FHIR avoids
+            confusion by assuring that there are no properties that
             differ only in case. For example, there will be no <span
-              class="rdf">fhir:Code</span> predicate because there is
-            already a fhir:code predicate. <br/>
+              class="rdf">fhir:Code</span> property because there is
+            already a fhir:code property. <br/>
           </p>
 
         <a name="nestedNodes"></a>
@@ -246,34 +246,77 @@ href="fhir.shex">fhir.shex</a>
             Resource nodes can be <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
-	  &nbsp;&nbsp;&nbsp;&nbsp;<span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]</span> 
+          <pre class="rdf">
+	  &lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]
+          </pre>
 
 	  <p>asserts that: </p>
           <ul>
-            <li><span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</span> has a <span
-                class="rdf">status</span> of some anonymous node.</li>
-            <li>That anonymous node has a <span class="rdf">fhir:v</span>
-              of <span class="rdf">"final"</span> (the literal
+            <li><code class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</code>
+                has a <code class="rdf">status</code> of some anonymous node.</li>
+            <li>That anonymous node has a <code class="rdf">fhir:v</code>
+              of <code class="rdf">"final"</code> (the literal
               "final").</li>
           </ul>
 
         <a name="propertyNames"></a>
-          <h4>Property Names</h4>
-          <p> A great deal of effort has gone into unifying FHIR
-            property names across resources and datatypes. These defined
-            properties effectively declare the FHIR RDF namespace with a
-            set of polymorphic, reuseable predicates. For example, <span
-              class="rdf">fhir:status</span> is spelled the same way
+          <h4>Property Names and Polymorphism</h4>
+          <p> Property names in FHIR RDF are shared across resources:
+            the same property may be used in several different resources.
+            For example, <span class="rdf">fhir:status</span> is spelled
+            the same way
             regardless of whether it appears in an Observation,
             Diagnosis, or any other FHIR Resource. </p>
-          <p> In other formats (XML, JSON), FHIR properties with choice
-            datatypes, like <span class="spec">value[x]</span>, are
-            appended with the datatype, e.g. <span class="json">valueQuantity</span>.
-            In RDF, this is written <span class="rdf">fhir:value</span>
+          <p> Some properties are polymorphic within a resource:
+            the property may offer a choice of more than one
+            permissible object type.
+
+            If the Structure tab in a resource's
+            HTML page shows "[x]" next to a property, such as
+            <span class="spec">value[x]</span> or
+            <a href="observation.html#resource">instantiates[x]</a>,
+            then that property is polymorphic in FHIR RDF.
+            (Alternatively, if the <code class="rdf">type</code>
+            property in the resource's structure definition shows
+            a list of two or more types for a given property's value,
+            then the property is polymorphic in FHIR RDF.  For example, see the
+            <i>instantiates</i> property in
+            <a href="observation.profile.json.html">
+            Observation's structure definition</a>.)
+            In other formats (XML, JSON), a FHIR property with a choice
+            of value types has the value type appended to the property name,
+            e.g. <span class="json">valueQuantity</span>.
+            But in FHIR RDF, it is written as a polymorphic <span class="rdf">fhir:value</span> property,
             and the object asserts its type explicitly, as in the <a href="#value">above
-              example</a>:<br/>
+            Observation example</a>:<br/>
           </p>
           <pre class="rdf">  fhir:value [ a fhir:Quantity; ... ]</pre>
+
+          <p> The <code class="rdf">fhir:instantiates</code> property in the
+            Observation resource is unusual in that its value may either
+            be the complex type <code class="rdf">fhir:Reference</code> or
+            the primitve type <code class="rdf">fhir:canonical</code>.  But
+            in either case, the type is specified, such as:
+          </p>
+          <pre class="rdf">
+  &lt;Observation/123&gt;
+    fhir:instantiates [
+       a fhir:Reference ;
+       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5&gt; ;
+       fhir:reference [
+         fhir:v "http://example.org/fhir/PlanDefinition/KDN5"^^xsd:anyURI
+      ]
+    ] ;
+          </pre>
+          <p>or:</p>
+          <pre class="rdf">
+  &lt;Observation/123&gt;
+    fhir:instantiates [
+       a fhir:canonical ;
+       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
+       fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
+    ] ;
+          </pre>
 
         <a name="rdflist"></a>
           <h4>Representing Repeating Elements -- RDF Lists</h4>
@@ -298,7 +341,7 @@ href="fhir.shex">fhir.shex</a>
             extensions can be attached and so that they can consistently
 	    be treated as OWL object properties (versus sometimes being datatype properties).&nbsp; The actual value of the
             primitive type is represented as an RDF Literal using the <span
-              class="rdf">fhir:v</span> predicate.&nbsp; fhir:v is the
+              class="rdf">fhir:v</span> property.&nbsp; fhir:v is the
             only FHIR property that directly holds an RDF literal -- i.e., it
 	    is the only OWL datatype property in FHIR RDF -- and
             it always holds an RDF Literal: </p>
@@ -343,6 +386,15 @@ href="fhir.shex">fhir.shex</a>
             character of content. XHTML is represented as an escaped
             xsd:string.&nbsp; <br/>
           </p>
+
+          <pre class="rdf">
+&lt;Observation/123&gt; fhir:instantiates [
+      a fhir:canonical ;
+       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
+       fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
+    ] ;
+          </pre>
+
         <a name="reference"></a>
           <h4>Representing References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
@@ -459,6 +511,24 @@ href="fhir.shex">fhir.shex</a>
           the IRI stem <code class="rdf">http://loinc.org/rdf/</code> with the code
           <code class="rdf">29463-7</code>. This particular IRI stem is defined in the
           <a href="https://loinc.org/kb/users-guide/recommendations-for-best-practices-in-using-and-mapping-to-loinc/#using-a-uri-to-identify-loinc-concepts-as-resources-in-rdf">LOINC User Guide S12.7.2</a>.
+          </p>
+
+          <p>
+          <a href="https://www.w3.org/TR/curie/">Compact URIs ("CURIEs")</a>
+          provide a mechanism for abbreviating IRIs using
+          a prefix and a reference, separated by a colon, such as
+          <code class="rdf">loinc:29463-7</code>.
+          Although some RDF systems have treated CURIEs
+          directly as FHIR Codes -- i.e. including the "loinc:" prefix as part of the code --
+          non-prefixed FHIR codes like <code class="rdf">29463-7</code> are strongly
+          preferred because they align better with the use of IRI stems
+          described herein.
+          If the "loinc:" prefix were treated as part of the FHIR code,
+          like <code class="rdf">loinc:29463-7</code>, then when the
+          IRI stem is prepended the resulting absolute IRI would become
+          <code class="rdf">http://loinc.org/rdf/loinc:29463-7</code>,
+          which in this example would be incorrect for
+          the intended LOINC concept.
           </p>
 
           <p>
@@ -584,7 +654,7 @@ fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationReques
 </pre>
 
           <p> BackboneElements and BackboneTypes are object types. Any
-            RDF predicate that references a modified BackboneElement or
+            RDF property that references a modified BackboneElement or
             BackboneType is prefixed with a '_'.  Note the underscore
 	    at the beginning of "_value" in the following example:</p>
           <pre class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;

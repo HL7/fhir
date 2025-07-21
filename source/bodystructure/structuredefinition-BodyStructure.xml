@@ -231,11 +231,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyStructureQualifier"/>
+          <valueString value="BodyStructureLaterality"/>
         </extension>
         <strength value="example"/>
         <description value="Concepts modifying the anatomic location."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-laterality"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -257,7 +257,7 @@
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation"/>
       <short value="Landmark relative location"/>
-      <definition value="Body locations in relation to a specific body landmark (tatoo, scar, other body structure)."/>
+      <definition value="Body location in relation to a specific body landmark (e.g., a body structure such a navel, scar, or implanted device)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

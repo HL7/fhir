@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-sequence-cyp2c19-gene-region"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+    <representation>
+        <extracted>
+            <startingMolecule>
+                <reference value="MolecularDefinition/example-sequence-cyp2c19-accession"/>
+                <type value="MolecularDefinition"/>
+                <display value="Homo sapiens cytochrome P450 family 2 subfamily C member 19 (CYP2C19), RefSeqGene (LRG_584) on chromosome 10"/>
+            </startingMolecule>
+            <coordinateInterval>
+                <coordinateSystem>
+                    <system>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="LA30100-4"/>
+                            <display value="0-based interval counting"/>
+                        </coding>
+                        <text value="0-based interval counting"/>
+                    </system>
+                </coordinateSystem>
+                <start value="5001"/>
+                <end value="97867"/>
+            </coordinateInterval>
+
+            <reverseComplement value="false"/>
+        </extracted>
+    </representation>
+</MolecularDefinition>

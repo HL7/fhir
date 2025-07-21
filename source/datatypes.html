@@ -13,7 +13,7 @@
 <%dtheader base%>
 
 <h1>Datatypes</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg mnm%]">[%wgt mnm%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
 
 [%normative page infrastructure%]
 
@@ -76,7 +76,8 @@ extensions, but only the following datatypes may include <a href="extensibility.
 <a name="imports"></a>
 <p>
 The following table describes the primitive types that are used in this specification. Primitive types are those that specialize <a href="types.html#PrimitiveType">PrimitiveType</a>, with a value, and no additional elements as children (though, like
-all types, they have <code>id</code> and <a href="extensibility.html">extensions</a>). See also the <a href="datatypes-examples.html#primitives">Examples</a>.
+all types, they have <code>id</code> and <a href="extensibility.html">extensions</a>). See also the <a href="datatypes-examples.html#primitives">Primitive Examples</a> and 
+the section about <a href="extensibility.html#primitives">Extensions on Primitive Datatypes</a>.
 </p>
 
 
@@ -216,7 +217,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 <tr>
   <td>instant<a name="instant"></a></td>
   <td>An instant in time in a format that is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a timezone offset.
-    Actual timezone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
+    Actual timezone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.  Sub-millisecond precision is optionally allowed.
     Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
@@ -591,7 +592,7 @@ values are.
 <h2 style="margin-bottom: 1px">Attachment</h2>
 [%dtstatus Attachment%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Attachment-->See also <a no-external="true" href="datatypes-examples.html#Attachment">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Attachment">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Attachment">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Attachment">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Attachment">R4 Conversions</a>
+<!--xlp:Attachment-->See also <a data-no-external="true" href="datatypes-examples.html#Attachment">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Attachment">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Attachment">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Attachment">Extensions</a>
 </p>
 
 <p>
@@ -657,7 +658,7 @@ Attachment is used in the following places: [%dtusage Attachment%]
 <h2 style="margin-bottom: 1px">Coding</h2>
 [%dtstatus Coding%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Coding-->See also <a no-external="true" href="datatypes-examples.html#Coding">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Coding">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Coding">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Coding">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Coding">R4 Conversions</a>
+<!--xlp:Coding-->See also <a data-no-external="true" href="datatypes-examples.html#Coding">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Coding">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Coding">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Coding">Extensions</a>
 </p>
 
 <p>
@@ -729,11 +730,11 @@ populated, and the meaning of the code won't be accessible to systems that don't
 
 <p>
 In some cases, the <code>system</code> might not be known - only the code is known.
-In this case, no useful processing of the code may be performed unless
-the system can be safely inferred by the context.
-This practice should be avoided where possible, as
-information sharing in a wider context is very likely to arise eventually, and codes cannot
-be used in the absence of a known system.
+In this case, no useful processing of the code may be performed unless the system 
+is known implicitly through knowledge of the context (e.g., from a known device/source). 
+This practice should be avoided where possible, as information sharing in a wider context 
+is very likely to arise eventually, and codes cannot be used in the absence of a known system. 
+Thus, systems SHOULD populate the <code>Coding.system</code> whenever the system is known.
 </p>
 <p>
 If the system is present, and there is no code, then this is understood to mean that there
@@ -794,7 +795,7 @@ in extensions, which are usually intended to be defined for a well-controlled co
 <h2 style="margin-bottom: 1px">CodeableConcept</h2>
 [%dtstatus CodeableConcept%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:CodeableConcept-->See also <a no-external="true" href="datatypes-examples.html#CodeableConcept">Examples</a>, <a no-external="true" href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#CodeableConcept">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#CodeableConcept">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#CodeableConcept">R4 Conversions</a>
+<!--xlp:CodeableConcept-->See also <a data-no-external="true" href="datatypes-examples.html#CodeableConcept">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#CodeableConcept">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#CodeableConcept">Extensions</a>
 </p>
 
 <p>
@@ -877,7 +878,7 @@ CodeableConcept is used in the following places: [%dtusage CodeableConcept%]
 <h2 style="margin-bottom: 1px">Quantity</h2>
 [%dtstatus Quantity%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Quantity-->See also <a no-external="true" href="datatypes-examples.html#Quantity">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Quantity">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Quantity">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Quantity">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Quantity">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Quantity">R4 Conversions</a>
+<!--xlp:Quantity-->See also <a data-no-external="true" href="datatypes-examples.html#Quantity">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Quantity">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Quantity">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Quantity">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Quantity">Extensions</a>
 </p>
 
 <p>
@@ -1046,7 +1047,7 @@ just rules applied where the Quantity type is used. There's another constraint -
 <h2 style="margin-bottom: 1px">Money</h2>
 [%dtstatus Money%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Money-->See also <a no-external="true" href="datatypes-examples.html#Money">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Money">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Money">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Money">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Money">R4 Conversions</a>
+<!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#Money">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Money">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Money">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Money">Extensions</a>
 </p>
 
 <p>
@@ -1103,7 +1104,7 @@ just rules applied where the Quantity type is used to represent Money amounts.
 <h2 style="margin-bottom: 1px">Range</h2>
 [%dtstatus Range%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Range-->See also <a no-external="true" href="datatypes-examples.html#Range">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Range">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Range">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Range">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Range">R4 Conversions</a>
+<!--xlp:Range-->See also <a data-no-external="true" href="datatypes-examples.html#Range">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Range">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Range">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Range">Extensions</a>
 </p>
 
 <p>
@@ -1140,7 +1141,7 @@ Range is used in the following places: [%dtusage Range%]
 <h2 style="margin-bottom: 1px">Ratio</h2>
 [%dtstatus Ratio%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Ratio-->See also <a no-external="true" href="datatypes-examples.html#Ratio">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Ratio">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Ratio">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Ratio">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Ratio">R4 Conversions</a>
+<!--xlp:Ratio-->See also <a data-no-external="true" href="datatypes-examples.html#Ratio">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Ratio">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Ratio">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Ratio">Extensions</a>
 </p>
 
 <p>
@@ -1186,7 +1187,7 @@ Ratio is used in the following places: [%dtusage Ratio%]
 <h2 style="margin-bottom: 1px">RatioRange</h2>
 [%dtstatus RatioRange%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:RatioRange-->See also <a no-external="true" href="datatypes-examples.html#RatioRange">Examples</a>, <a no-external="true" href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RatioRange">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RatioRange">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RatioRange">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#RatioRange">R4 Conversions</a>
+<!--xlp:RatioRange-->See also <a data-no-external="true" href="datatypes-examples.html#RatioRange">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RatioRange">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RatioRange">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RatioRange">Extensions</a>
 </p>
 
 <p>
@@ -1226,7 +1227,7 @@ RatioRange is used in the following places: [%dtusage RatioRange%]
 <h2 style="margin-bottom: 1px">Period</h2>
 [%dtstatus Period%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Period-->See also <a no-external="true" href="datatypes-examples.html#Period">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Period">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Period">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Period">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Period">R4 Conversions</a>
+<!--xlp:Period-->See also <a data-no-external="true" href="datatypes-examples.html#Period">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Period">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Period">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Period">Extensions</a>
 </p>
 
 <p>
@@ -1263,7 +1264,7 @@ Period is used in the following places: [%dtusage Period%]
 <h2 style="margin-bottom: 1px">SampledData</h2>
 [%dtstatus SampledData%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:SampledData-->See also <a no-external="true" href="datatypes-examples.html#SampledData">Examples</a>, <a no-external="true" href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#SampledData">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#SampledData">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#SampledData">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#SampledData">R4 Conversions</a>
+<!--xlp:SampledData-->See also <a data-no-external="true" href="datatypes-examples.html#SampledData">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#SampledData">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#SampledData">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#SampledData">Extensions</a>
 </p>
 <p>
 A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency.
@@ -1311,7 +1312,7 @@ SampledData is used in the following places: [%dtusage SampledData%]
 <h2 style="margin-bottom: 1px">Identifier</h2>
 [%dtstatus Identifier%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Identifier-->See also <a no-external="true" href="datatypes-examples.html#Identifier">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Identifier">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Identifier">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Identifier">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Identifier">R4 Conversions</a>
+<!--xlp:Identifier-->See also <a data-no-external="true" href="datatypes-examples.html#Identifier">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Identifier">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Identifier">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Identifier">Extensions</a>
 </p>
 
 <p>
@@ -1403,7 +1404,7 @@ Identifier is used in the following places: [%dtusage Identifier%]
 <h2 style="margin-bottom: 1px">HumanName</h2>
 [%dtstatus HumanName%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:HumanName-->See also <a no-external="true" href="datatypes-examples.html#HumanName">Examples</a>, <a no-external="true" href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#HumanName">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#HumanName">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#HumanName">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#HumanName">R4 Conversions</a>
+<!--xlp:HumanName-->See also <a data-no-external="true" href="datatypes-examples.html#HumanName">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#HumanName">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#HumanName">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#HumanName">Extensions</a>
 </p>
 
 <p>
@@ -1500,7 +1501,7 @@ HumanName is used in the following places: [%dtusage HumanName%]
 <h2 style="margin-bottom: 1px">Address</h2>
 [%dtstatus Address%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Address-->See also <a no-external="true" href="datatypes-examples.html#Address">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Address">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Address">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Address">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Address">R4 Conversions</a>
+<!--xlp:Address-->See also <a data-no-external="true" href="datatypes-examples.html#Address">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Address">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Address">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Address">Extensions</a>
 </p>
 
 <p>
@@ -1535,7 +1536,7 @@ Address is used in the following places: [%dtusage Address%]
 <h2 style="margin-bottom: 1px">ContactPoint</h2>
 [%dtstatus ContactPoint%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:ContactPoint-->See also <a no-external="true" href="datatypes-examples.html#ContactPoint">Examples</a>, <a no-external="true" href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#ContactPoint">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#ContactPoint">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#ContactPoint">R4 Conversions</a>
+<!--xlp:ContactPoint-->See also <a data-no-external="true" href="datatypes-examples.html#ContactPoint">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#ContactPoint">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#ContactPoint">Extensions</a>
 </p>
 
 <p>
@@ -1567,7 +1568,7 @@ ContactPoint is used in the following places: [%dtusage ContactPoint%]
 <h2 style="margin-bottom: 1px">Timing</h2>
 [%dtstatus Timing%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Timing-->See also <a no-external="true" href="datatypes-examples.html#Timing">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Timing">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Timing">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Timing">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Timing">R4 Conversions</a>
+<!--xlp:Timing-->See also <a data-no-external="true" href="datatypes-examples.html#Timing">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Timing">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Timing">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Timing">Extensions</a>
 </p>
 
 <p>
@@ -1680,7 +1681,7 @@ Timing is used in the following places: [%dtusage Timing%]
 <h2 style="margin-bottom: 1px">RelativeTime</h2>
 [%dtstatus RelativeTime%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Money-->See also <a no-external="true" href="datatypes-examples.html#RelativeTime">Examples</a>, <a no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#RelativeTime">R4 Conversions</a>
+<!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#RelativeTime">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
 
 <p>
@@ -1712,7 +1713,7 @@ Methods to express the "event" or "context" that is reference point for time rel
 <h2 style="margin-bottom: 1px">Signature</h2>
 [%dtstatus Signature%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Signature-->See also <a no-external="true" href="datatypes-examples.html#Signature">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Signature">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Signature">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Signature">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Signature">R4 Conversions</a>
+<!--xlp:Signature-->See also <a data-no-external="true" href="datatypes-examples.html#Signature">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Signature">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Signature">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Signature">Extensions</a>
 </p>
 
 <p>
@@ -1750,15 +1751,16 @@ serializes the <a href="datatypes.html#markdown">markdown</a> datatype using att
 <a name="XML"></a>
 <h3>XML Signature rules</h3>
 <p>
-When the signature is an XML Digital Signature (contentType = application/signature+xml), the following rules apply:
+When the signature is an XML Digital Signature (<code>sigFormat</code> = <code>application/signature+xml</code>), the following rules apply:
 </p>
 <ul>
  <li>The Signature.data is base64 encoded XML-Signature</li>
  <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
- <li>The Signature SHOULD use the hashing algorithm SHA-256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
+ <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
  <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
+ <li>The signature can be XML Signature or JSON Jose, Regardless the Resource itself is in XML form or JSON form, e.g. XML Signature can be generated for a Resource in JSON format.</li>
 </ul>
 <p>
 There are three levels of signature verification:
@@ -1775,15 +1777,15 @@ For example, some environments may choose a different XAdES profile, hashing alg
 <a name="JSON"></a>
 <h3>JSON Signature rules</h3>
 <p>
-When the signature is an JSON Digital Signature (contentType = application/jose), the following rules apply:
+When the signature is an JSON Digital Signature (<code>sigFormat</code> = <code>application/jose</code>), the following rules apply:
 </p>
 <ul>
  <li>The Signature.data is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
- <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
- <li>The Signature SHOULD use the hashing algorithm SHA-256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
  <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as the srCms element.</li>
  <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
 </ul>
 <p>
 There are three levels of signature verification:
@@ -1806,7 +1808,7 @@ Signature is used in the following places: [%dtusage Signature%]
 <h2 style="margin-bottom: 1px">Annotation</h2>
 [%dtstatus Annotation%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Annotation-->See also <a no-external="true" href="datatypes-examples.html#Annotation">Examples</a>, <a no-external="true" href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a no-external="true" href="datatypes-mappings.html#Annotation">Mappings</a>, <a no-external="true" href="datatypes-profiles.html#Annotation">Profiles</a>, <a no-external="true" href="[%extensions-location%]extensions-datatypes.html#Annotation">Extensions</a> and <a no-external="true" href="[%extensions-location%]conversions-datatypes.html#Annotation">R4 Conversions</a>
+<!--xlp:Annotation-->See also <a data-no-external="true" href="datatypes-examples.html#Annotation">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Annotation">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Annotation">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Annotation">Extensions</a>
 </p>
 
 <p>
@@ -1856,6 +1858,18 @@ The element name ends with "[x]", and this is replaced with the Title cased name
 <p>
 Open types are used in the following places: [%dtusage *%]
 </p>
+
+
+<a name="other"></a>
+<h2>Type Characteristic Summary</h2>
+
+<p>
+This table presents the <a href="[%extensions-location%]CodeSystem-type-characteristics-code.html">type characteristics</a> for the different data types. 
+These are used when designing to profiles to know what characteristics can be 
+set for a particular type. Types that are not listed have no characteristics.
+</p>
+
+<%type-characteristics%>
 
 <a name="other"></a>
 <h2>Other Types</h2>

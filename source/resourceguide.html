@@ -23,8 +23,7 @@ The <a href="resourcelist.html">Resource List</a> provides views of the resource
 organized in several different ways, and is the primary entry point to the resources. 
 </p>
 <p>
-This page describes the resources and their functional intent in more detail to assist implementers to
-understand their purpose and scope, and their supporting classifications.
+This page describes a subset of common clinical terms and identifies the resources most likely to be used to represent such information.
 </p>
 
 <p>
@@ -51,7 +50,7 @@ Where to find common concepts in this specification:
  <tr><td>Adverse Event</td><td>Adverse reaction to an agent, falls, adverse surgical events, hospital infections</td><td><a href="adverseevent.html">AdverseEvent</a> </td></tr>
 
  <tr><td colspan="3"><b>Patient History</b></td></tr>
- <tr><td>Chief Complaint</td><td>Cough, Pain, Fever, Fatigue</td><td><a href="condition.html">Condition</a> </td></tr>
+ <tr><td>Chief Complaint</td><td>Cough, Pain, Fever, Fatigue</td><td><a href="condition.html">Condition</a> &amp; <a href="observation.html">Observation</a></td></tr>
  <tr><td>Past Surgical History</td><td>Appendectomy, Hernia repair</td><td><a href="procedure.html">Procedure</a> </td></tr>
  <tr><td>Past Medical History</td><td>Diabetes, Congestive heart failure</td><td><a href="condition.html">Condition</a> </td></tr>
  <tr><td>MAR (Medication Administration Record)</td><td>Warfarin 5mg PO administered on 12/10/2013 at 3pm</td><td><a href="medicationadministration.html">MedicationAdministration</a> </td></tr>
@@ -87,7 +86,6 @@ the set of resources provided in this specification:
 <ul>
   <li><a href="modules.html#modules">Modules</a></li>
   <li><a href="workflow.html#respatterns">Workflow Patterns</a>: <a href="event.html">Event</a>, <a href="request.html">Request</a>, <a href="definition.html">Definition</a></li>
-  <li>RIM Mappings (todo)</li>
 </ul>  
 
 
@@ -147,9 +145,9 @@ the event they are concerned with passes.
 </p>
 
 <p>
-  <code>ClinicalImpression</code> (aka ClinicalAssessment) records the core of a clinical consultation/assessment/impression.
+  <code>ClinicalAssessment</code> (aka ClinicalAssessment) records the core of a clinical consultation/assessment/impression.
   When a single text note is inserted directly in the patient record, this is typically a
-  ClinicalImpression.summary. A <code>RiskAssessment</code> is an assessment - usually, but not necessarily, by
+  ClinicalAssessment.summary. A <code>RiskAssessment</code> is an assessment - usually, but not necessarily, by
   a decision support engine of the likely outcomes of some course of action for a patient.
 </p>
 <p>
@@ -165,7 +163,7 @@ the event they are concerned with passes.
 <tr><td><a href="occupationaldata.html">OccupationalData</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="procedure.html">Procedure</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
 <tr><td><a href="familymemberhistory.html">FamilyMemberHistory</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="clinicalimpression.html">ClinicalImpression</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="clinicalassessment.html">ClinicalAssessment</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="riskassessment.html">RiskAssessment</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
 <tr><td><a href="detectedissue.html">DetectedIssue</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
 </table>
@@ -368,12 +366,17 @@ including stock control, locating devices, and tracking implants.
 <code>Device</code> and <code>DeviceMetric</code> are used to report the status
 and characteristics of the kinds of medical devices that produce a stream of one or
 more data points (<a href="observation.html">Observations</a>), usually about a patient.
+<code>DeviceAlert<code> is used to report and track the occurrence, signaling, and lifecycle of
+an alarm or alert that is produced by a device notifying of a physiological (patient-related)
+or technological (device-related) condition.
 </p>
 
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="device.html">Device</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
 <tr><td><a href="devicemetric.html">DeviceMetric</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+<tr><td><a href="devicealert.html">DeviceAlert</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+
 </table>
 
 <h4>Research</h4>

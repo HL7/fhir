@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Request" resource="Appointment"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Request" resource="Appointment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Request.identifier" resourcePath="Appointment.identifier">
         <shortUnmatched reason="Unknown">
@@ -11,7 +10,7 @@
             <resource value="This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#xa;&#xa;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <_pattern value="The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.&#10;&#10;Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -21,8 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.basedOn" resourcePath="Appointment.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,DeviceRequest,MedicationRequest,ServiceRequest,RequestOrchestration,NutritionOrder,VisionPrescription,ImmunizationRecommendation)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DeviceRequest,MedicationRequest,ServiceRequest,RequestOrchestration,NutritionOrder,VisionPrescription,ImmunizationRecommendation)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
@@ -33,7 +31,7 @@
             <resource value="The request this appointment is allocated to assess (e.g. incoming referral or procedure request)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -72,8 +70,8 @@
             <resource value="The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#xa;&#xa;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
-            <resource value="If the Appointment's status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xa;&#xa;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
+            <_pattern value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding]](s) or using the]] resource.  A nominal state-transition diagram can be found in the] documentation  Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of 'active' when doNotPerform is true means that the request to not perform is currently in force.&#10;&#10;A status of completed for a &quot;doNotPerform&quot; request indicates that the period of non-performance is now satisfied and the request no longer holds."/>
+            <resource value="If the Appointment's status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#10;&#10;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.priority" resourcePath="Appointment.priority">
@@ -168,7 +166,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date or time(s) at which the activity or service is desired to occur or not occur."/>
-            <resource value="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.&#xa;&#xa;The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system."/>
+            <resource value="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.&#10;&#10;The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.authoredOn" resourcePath="Appointment.created">
@@ -185,8 +183,7 @@
     <divergentElement patternPath="Request.performer" resourcePath="Appointment.participant">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes
-            _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -239,7 +236,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
-            <resource value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xd;&#xd;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.&#xd;&#xd;Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required."/>
+            <resource value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#13;&#13;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.&#13;&#13;Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required."/>
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.intent" reason="Unknown"/>

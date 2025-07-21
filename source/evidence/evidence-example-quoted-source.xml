@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Evidence xmlns="http://hl7.org/fhir">.
+    <id value="example-quoted-source"/>
+<!--    <extension url="http://hl7.org/fhir/StructureDefinition/relates-to-with-quotation">
+        <extension url="type">
+            <valueCode value="derived-from"/>
+        </extension>
+        <extension url="quotation">
+            <valueMarkdown value="Prevalence of PASC at 30 days post-infection was 68.7% (95% confidence interval: 63.4, 73.9)."/>
+        </extension>
+        <extension url="targetReference">
+            <valueReference>
+                <reference value="Citation/238142"/>
+                <type value="Citation"/>
+                <display value="34347785 Post-acute sequelae of COVID-19 in a non-hospitalized cohort: Results from the Arizona CoVHORT"/>
+            </valueReference>
+        </extension>
+    </extension> !-->
+	<title value="Quoted Source: Prevalence of PASC at 30 days"/>
+	<status value="active"/>
+	<description value="An example of using the relatedArtifact element to quote a line of text from the evidence source."/>
+	<variableDefinition>
+		<description value="People with a history of COVID-19 who were not hospitalized (Arizona CoVHORT)"/>
+		<variableRole value="population"/>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Post-acute sequelae of COVID-19"/>
+		<variableRole value="outcome"/>
+	</variableDefinition>
+	<studyDesign>
+		<coding>
+			<system value="https://fevir.net/sevco"/>
+			<code value="SEVCO:01002"/>
+			<display value="Observational research"/>
+		</coding>
+		<coding>
+			<system value="https://fevir.net/sevco"/>
+			<code value="SEVCO:01028"/>
+			<display value="Longitudinal data collection"/>
+		</coding>
+	</studyDesign>
+	<statistic>
+		<description value="Prevalence 68.7% (95% Confidence interval 63.4% to 73.9%)"/>
+		<statisticType>
+			<coding>
+				<system value="https://fevir.net/resources/CodeSystem/27270"/>
+				<code value="STATO:0000412"/>
+				<display value="prevalence"/>
+			</coding>
+		</statisticType>
+		<quantity>
+			<value value="68.7"/>
+			<unit value="%"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="%"/>
+		</quantity>
+		<attributeEstimate>
+			<description value="95% Confidence interval 63.4% to 73.9%"/>
+			<type>
+				<coding>
+					<system value="https://fevir.net/resources/CodeSystem/27270"/>
+					<code value="TBD:0000059"/>
+					<display value="Confidence interval"/>
+				</coding>
+			</type>
+			<level value="0.95"/>
+			<range>
+				<low>
+					<value value="63.4"/>
+					<unit value="%"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="%"/>
+				</low>
+				<high>
+					<value value="73.9"/>
+					<unit value="%"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="%"/>
+				</high>
+			</range>
+		</attributeEstimate>
+	</statistic>
+</Evidence>

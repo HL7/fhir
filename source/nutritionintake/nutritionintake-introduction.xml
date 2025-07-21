@@ -3,14 +3,20 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+
+<blockquote class="stu-note">
+<p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
+</p>
+</blockquote>
+
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>event</em> resources</a>.</strong></p>
 <p>
-The NutritionIntake resource, in conjunction with the NutritionProduct resource, is utilized to capture details about the consumption of foods, fluids, and enteral nutrition. Dietitians and other clinicians use the data to calculate how much nutrition a patient has taken in. NutritionIntake represents the event of consuming food, fluid, etc. and NutritionProduct represents the actual food items.
+The NutritionIntake resource, in conjunction with the <a href="nutritionproduct.html">NutritionProduct</a> resource, is utilized to capture details about the consumption of foods (i.e., solid and/or liquid), supplements, enteral nutrition, and infant formula. Dietitians and other practitioners use the data to calculate how much nutrition a patient has taken in. NutritionIntake represents the event of consuming food (i.e. solid and/or liquid), etc. and NutritionProduct represents the actual food and formula items.
 </p>
 <p>
-NutritionIntake can also be used to record a person’s intake through uses of food tracking apps (e.g.MyFitnessPal), any grocery store purchases, or a student’s meal consumption in a school district.</p>
+NutritionIntake can also be used to record a person’s intake through the use of food tracking apps (e.g.MyFitnessPal), inpatient hospital consumption or administration, or a student’s meal consumption in a school district.</p>
 <p>
-NutritionIntake can be utilized in many environments where food is served, consumed or purchased: hospitals/acute care, meal tracking systems, school districts, grocery stores, outpatient settings, LTC, etc. NutritionIntake should be general enough to capture intake regardless of country or region.
+NutritionIntake can be utilized in many environments where food is served or consumed: hospitals/acute care, meal tracking systems, enteral or supplement in a home setting, outpatient settings, long-term care, etc. NutritionIntake should be general enough to capture intake regardless of country or region.
 </p>
 <p>
 Parenteral nutrition is out of scope as this ordering is handled through MedicationRequest, thus administration of parenteral nutrition should also be captured through MedicationAdministration.
@@ -22,8 +28,8 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <ul>
-	<li>Oral intake of food, fluids, oral nutritional supplements (i.e. Ensure), or enteral nutrition should be recorded using the NutritionIntake resource.</li>
-	<li>Supplements, such as vitamins, minerals, herbals, should be recorded using the medication resources</li>
+	<li>Intake of food (i.e. solid and/or liquid), oral nutritional supplements, enteral nutrition, or infant formula should be recorded using the NutritionIntake resource.</li>
+	<li>Supplements, such as vitamins, minerals, and herbals, should be recorded using the medication resources</li>
 	<li>Parenteral nutrition should be recorded using the medication resources</li>
 </ul>
 </div>
@@ -32,10 +38,10 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 <div>
 <h2>Background and Context</h2>
 <p>
-As a dietitian, it is important to be able to know what a person is consuming and assess the adequacy of the patient’s diet. Capturing a patient’s intake is important to establish a baseline, determine care, track trends, and see improvement of that patient. Dietitians might use intake data to see patterns, such as when a diabetic patient’s blood glucose is consistently high due to over consumption of carbohydrates.  Other clinicians have the need to monitor intake as well; for example, a nurse might need to know intake for administering insulin prior to meals or a physician may need to ensure a patient on a fluid restriction is following orders.
+As a dietitian, it is important to be able to know what a person is consuming and/or administered to assess the adequacy of the patient’s intake. Capturing a patient’s intake is important to establish a baseline, determine care, track trends, and see improvement in that patient. Dietitians might use intake data to see patterns, such as when a diabetic patient’s blood glucose is consistently high given the distribution of carbohydrates.  Other practitioners have the need to monitor intake as well; for example, a nurse might need to know intake for administering insulin prior to meals, a speech therapist needs this information for ensuring safe administration of food, or a physician may need to ensure a patient fluid restriction is consistent with recommendations.
 </p>
 <p>
-Having intake documented within its own resource allows for consistency in documentation acrossmultiple disciplines and settings. In some instances, the Observation resource has been extended to capture intake; while this allows for a quick way to document intake, the Observation resource does not provide all the detail necessary, such as capturing all the nutrients (  including calories, vitamins, minerals, carbohydrates, etc.). Previous implementation attempts of using the Observation resourcehave noted this is cumbersome and has required too many extensions without being able to documentall the necessary details tied to ingredients in food and fluid products.
+Having intake documented within its own resource allows for consistency in documentation across multiple disciplines and settings. In some instances, the Observation resource has been extended to capture intake; while this allows for a quick way to document intake, the Observation resource does not provide all the detail necessary, such as capturing energy and nutrients (including vitamins, minerals, carbohydrates, etc.). Previous implementation attempts of using the Observation resource have noted this is cumbersome and has required too many extensions without being able to document all the necessary details tied to ingredients in food (i.e., solid and/or liquid) products.
 </p>
 </div>
 

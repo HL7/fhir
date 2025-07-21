@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Definition" resource="Measure"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Definition" resource="Measure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Definition.url" resourcePath="Measure.url">
         <shortUnmatched reason="Unknown">
@@ -7,8 +6,8 @@
             <resource value="Canonical identifier for this measure, represented as a URI (globally unique)"/>
         </shortUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-            <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xa;&#xa;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xa;&#xa;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+            <_pattern value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#10;&#10;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#10;&#10;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+            <resource value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#10;&#10;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#10;&#10;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.identifier" resourcePath="Measure.identifier">
@@ -16,6 +15,10 @@
             <_pattern value="Business identifier for measure"/>
             <resource value="Additional identifier for the measure"/>
         </shortUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI."/>
+            <resource value=""/>
+        </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows externally provided and/or usable business identifiers to be easily associated with the measure."/>
             <resource value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
@@ -43,19 +46,13 @@
             <resource value="The status of this measure. Enables tracking the life-cycle of the content."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#xa;&#xa;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Allows filtering of measures that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+            <_pattern value="A nominal state-transition diagram can be found in the] documentation&#10;&#10;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="Allows filtering of measures that are appropriate for use versus not.&#10;&#10;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables tracking the lifecycle of the content and filtering of measures that are appropriate for use versus not."/>
             <resource value=""/>
         </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Definition.experimental" resourcePath="Measure.experimental">
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage."/>
-            <resource value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.description" resourcePath="Measure.description">
         <commentsUnmatched reason="Unknown">
@@ -75,8 +72,8 @@
     </divergentElement>
     <divergentElement patternPath="Definition.jurisdiction" resourcePath="Measure.jurisdiction">
         <commentsUnmatched reason="Unknown">
-            <_pattern value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
-            <resource value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+            <_pattern value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+            <resource value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended.&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.copyright" resourcePath="Measure.copyright">
@@ -88,7 +85,7 @@
     <divergentElement patternPath="Definition.effectivePeriod" resourcePath="Measure.effectivePeriod">
         <commentsUnmatched reason="Unknown">
             <_pattern value="The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-            <resource value="The effective period for a measure determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+            <resource value="The effective period for a measure determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#10;&#10;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>

@@ -34,7 +34,6 @@ edited by Eric Haas Health eData Inc
 	<excludeFoodModifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
 			<code value="227493005"/>
 			<display value="Cashew Nut"/>
 		</coding>
@@ -44,8 +43,8 @@ edited by Eric Haas Health eData Inc
 			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="443051000124104"/>
-				<display value="Adult diabetic specialty formula"/>
+				<code value="441581000124101"/>
+				<display value="Diabetic specialty enteral formula (product)"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
@@ -59,28 +58,33 @@ edited by Eric Haas Health eData Inc
 		<!--EH:Glucerna Shake at 3pm and HS-->
 		<schedule>
 			<timing>
-			<repeat>
-				<boundsPeriod>
-					<start value="2015-02-10T15:00:00Z"/>
-				</boundsPeriod>
-				<frequency value="1"/>
-				<period value="24"/>
-				<periodUnit value="h"/>
-			</repeat>
-		</timing>
+				<repeat>
+					<boundsPeriod>
+						<start value="2015-02-10T15:00:00Z"/>
+					</boundsPeriod>
+					<frequency value="2"/>
+					<period value="24"/>
+					<periodUnit value="h"/>
+				</repeat>
+			</timing>
 			<timing>
-			<repeat>
-				<duration value="1"/>
-				<durationUnit value="h"/>
-				<when value="HS"/>
-			</repeat>
-		</timing>
+				<repeat>
+					<duration value="1"/>
+					<durationUnit value="h"/>
+					<when value="HS"/>
+				</repeat>
+			</timing>
+			<asNeeded value="true"/>
+			<asNeededFor>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="440321000124101"/>
+					<display value="Inadequate oral intake"/>
+				</coding>
+			</asNeededFor>
 		</schedule>
 		<quantity>
 			<value value="1"/>
-			<unit value="8 oz bottle"/>
+			<unit value="8 oz serving"/>
 		</quantity>
-		<!-- EH:  use the .instructions element to list diet  supplement order
-		<instruction value="Glucerna Shake at 3pm and HS"/>
--->
 	</supplement></NutritionOrder>

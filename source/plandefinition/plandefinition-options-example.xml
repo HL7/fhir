@@ -26,6 +26,10 @@
       </productCodeableConcept>
     </ActivityDefinition>
   </contained>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.15"/>
+  </identifier>
   <name value="ThisExampleIllustratesRelationshipsBetweenActions"/>
   <title value="This example illustrates relationships between actions."/>
   <status value="draft"/>

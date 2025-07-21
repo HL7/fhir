@@ -4,14 +4,4 @@
   <id value="Library-packs"/>
   <status value="current"/>
   <mode value="working"/>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/Library-core"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/Library-cqf"/>
-    </item>
-  </entry>
 </List>

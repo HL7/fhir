@@ -136,7 +136,6 @@
 			<path value="ValueSet.identifier"/>
 			<short value="Additional identifier for the value set (business identifier)"/>
 			<definition value="A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this value set outside of FHIR, where it is not possible to use the logical URI."/>
 			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -251,9 +250,9 @@
 		</element>
 		<element id="ValueSet.experimental">
 			<path value="ValueSet.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of value sets that are appropriate for use versus not."/>
+			<short value="For testing only - never for real usage"/>
+			<definition value="A Boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+			<comment value="Allows filtering of value sets that are appropriate for use versus not.. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc"/>
 			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level value set."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -697,7 +696,7 @@
 			<path value="ValueSet.compose.include.system"/>
 			<short value="The system the codes come from"/>
 			<definition value="An absolute URI which is the code system from which the selected codes come from."/>
-			<comment value="If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element."/>
+			<comment value="If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element.  If a contained code system is referenced, the entire canonical url must be provided. "/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -952,7 +951,7 @@
 			</extension>
 			<path value="ValueSet.compose.include.filter.value"/>
 			<short value="Code from the system, or regex criteria, or boolean value for exists"/>
-			<definition value="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'."/>
+			<definition value="ValueSet.compose.include.filter.value is represented as a string, and the string value must be one of the three types below: &#13;&#10;When the filter operation (ValueSet.compose.include.filter.op) is equal to &quot;regex&quot;, the value (ValueSet.compose.include.filter.value) is a regex expression. This is used to match string values (including integer and decimal, if necessary).&#13;&#10;When the filter operation (ValueSet.compose.include.filter.op) is equal to &quot;exists&quot;, the value (ValueSet.compose.include.filter.value) is a boolean and must be equal to &quot;true&quot; or &quot;false&quot;.&#13;&#10;For all other filter operations (ValueSet.compose.include.filter.op) the value (ValueSet.compose.include.filter.value) represents a code."/>
 			<comment value="Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -993,7 +992,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1466,7 +1465,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1480,7 +1479,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>

@@ -65,7 +65,10 @@
   <profile id="patient-profile" value="http://hl7.org/fhir/StructureDefinition/Patient"/>
   <variable>
     <name value="createResourceId"/>
-    <path value="Patient/id"/>
+    <expression>
+      <language value="application/xml"/>
+      <expression value="Patient/id"/>
+    </expression>
     <sourceId value="fixture-patient-create"/>
   </variable>
   <setup>

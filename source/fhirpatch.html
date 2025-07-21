@@ -112,7 +112,9 @@ The FHIRPath patch operations are encoded in a <a href="parameters.html">Paramet
  <li>Each operation is a Parameter named "operation"</li>
  <li>Each operation has a series of parts, using the following parameter names from the table above with these types:</li>
 </ul>
-
+<p>
+A <a href="fhirpath-patch.html">profile for this has been defined</a> on the <a href="parameters.html">Parameters resource</a>.
+</p>
 <table class="grid">
  <tr>
   <td>Parameter</td>
@@ -326,6 +328,46 @@ Applied to an empty Specimen, this would produce:
 <p>
 There is a set of test cases for implementers in the <a href="https://github.com/FHIR/fhir-test-cases/releases">fhir-test-cases</a> repository.
 </p>
+
+<a name="path-example-complex"></a>
+<h3>Complex Path Example</h3>
+<p>
+  Note that the <code>path</code> parameter value is a FHIRPath expression, and not a simple path. For example, in the following patch operation, 
+  the <code>path</code> parameter value is a FHIRPath expression that selects the <code>period</code> element of the <code>identifier</code> element 
+  with a <code>use</code> value of <code>official</code>.
+</p>
+<pre class="json">
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "operation",
+      "part": [
+        {
+          "name": "type",
+          "valueCode": "add"
+        },
+        {
+          "name": "path",
+          "valueString": "Patient.identifier.where(use = 'official').period"
+        },
+        {
+          "name": "name",
+          "valueString": "end"
+        },
+        {
+          "name": "value",
+          "valueDate": "2021-12-01"
+        }
+      ]
+    }
+  ]
+}
+</pre>
+<p>
+  There is a set of test cases for implementers in the <a href="https://github.com/FHIR/fhir-test-cases/releases">fhir-test-cases</a> repository.
+</p>
+
 
 [%file newfooter%]
 

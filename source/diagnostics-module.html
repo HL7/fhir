@@ -53,6 +53,7 @@ in order to support consistent definitions for schema and UML derived code.
                     <li><a href="imagingselection.html">ImagingSelection</a></li>
                     <li><a href="imagingstudy.html">ImagingStudy</a></li>
                     <li><a href="molecularsequence.html">MolecularSequence</a></li>
+                    <li><a href="moleculardefinition.html">MolecularDefinition</a></li>
                     <li><a href="genomicstudy.html">GenomicStudy</a></li>
                 </ul>
             </td>
@@ -86,7 +87,6 @@ in order to support consistent definitions for schema and UML derived code.
         [%res-item Observation%]
         [%res-item DiagnosticReport%]
         [%res-item ServiceRequest%]
-        [%res-item Media%]
         [%res-item ImagingSelection%]
         [%res-item ImagingStudy%]
         [%res-item MolecularSequence%]
@@ -114,7 +114,7 @@ in order to support consistent definitions for schema and UML derived code.
         <li>Microbiology results relating observations on the identification of the organism(s) with observations of the
             sensitivity results</li>
         <li>Results associated with reflex, repeat, or re-run of tests based on prior result</li>
-        <li>Results associated with a follow-up orders to a prior order and/or result</li>
+        <li>Results associated with a follow-up order to a prior order and/or result</li>
         <li>Results associated with an add-on order to the original order</li>
     </ul>
     <p>
@@ -223,7 +223,7 @@ in order to support consistent definitions for schema and UML derived code.
         attribute.
     </p>
     <p>
-        The Observation.triggeredBy on the additional observation(s) will be valued to the appropriate type (reflect,
+        The Observation.triggeredBy on the additional observation(s) will be valued to the appropriate type (reflex,
         repeat, or re-run) and reference the Observation that it is additional to. The Observation.basedOn contains the
         link to the
         original ServiceRequest that authorized the performance of the additional tests, and may also point to another
@@ -262,7 +262,7 @@ in order to support consistent definitions for schema and UML derived code.
         to establish appropriate reasons to enable managing any fulfillment of these requests.
     </p>
     <p>
-        Diagnostic reports do not specifically reflect these orders and might or might not include them in one or
+        Diagnostic reports do not specifically reflect these orders and might or might not include them in one or more
         DiagnosticReport instances.
     </p>
     <h5>Add-On Orders/Results</h5>
@@ -279,7 +279,7 @@ in order to support consistent definitions for schema and UML derived code.
     </p>
     <p>
         Conversely, an ordering provider may indicate explicitly to use a new, separate specimen rather than using any
-        available or about to be drawn specimen where policy otherwise may optimization of specimen draws reducing
+        available or about to be drawn specimen where policy otherwise may push for the optimization of specimen draws reducing
         sticking the
         patient twice. That is not considered an add-on order. But still can be indicated.
     </p>
@@ -354,7 +354,7 @@ in order to support consistent definitions for schema and UML derived code.
             scope and
             boundaries. We anticipate its broad use by implementers which will help to increase its maturity level.</li>
         <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group
-            efforts. We expect to see more widespread use of this resource which will help to increase its maturity.
+            efforts. We expect to see more widespread use of this resource which will help to increase its maturity from FMM3.
         </li>
         <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 and has been added for R5. We are
             looking for implementer feedback to advance its maturity.</li>

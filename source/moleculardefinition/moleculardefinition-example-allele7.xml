@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularDefinition xmlns="http://hl7.org/fhir">
+    <id value="example-allele7"/>
+    <moleculeType>
+        <coding>
+            <system value="http://hl7.org/fhir/sequence-type"/>
+            <code value="dna"/>
+            <display value="DNA Sequence"/>
+        </coding>
+    </moleculeType>
+
+    <location>
+        <sequenceLocation>
+            <sequenceContext>
+                <reference value="MolecularDefinition/example-sequence-hla000011"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: HLA00001"/>
+            </sequenceContext>
+        </sequenceLocation>
+    </location>
+    <representation>
+        <relative>
+            <startingMolecule>
+                <reference value="MolecularDefinition/example-sequence-hla000011"/>
+                <type value="MolecularDefinition"/>
+                <display value="Starting Sequence Resource: HLA00001"/>
+            </startingMolecule>
+            <edit>
+                <coordinateInterval>
+                    <coordinateSystem>
+                        <system>
+                            <coding>
+                                <system value="http://loinc.org"/>
+                                <code value="LA30100-4"/>
+                                <display value="0-based interval counting"/>
+                            </coding>
+                            <text value="0-based interval counting"/>
+                        </system>
+                    </coordinateSystem>
+                    <start value="143"/>
+                    <end value="144"/>
+                </coordinateInterval>
+
+                <replacementMolecule>
+                    <reference value="MolecularDefinition/example-sequence-a"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Replacement Sequence Resource: A"/>
+                </replacementMolecule>
+                <replacedMolecule>
+                    <reference value="MolecularDefinition/example-sequence-c"/>
+                    <type value="MolecularDefinition"/>
+                    <display value="Replaced Sequence Resource: C"/>
+                </replacedMolecule>
+            </edit>
+        </relative>
+    </representation>
+</MolecularDefinition>

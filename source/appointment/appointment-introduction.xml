@@ -151,9 +151,9 @@
 	</p>
 	<p>
 		Accepting a recurring appointment can be done either as accepting the entire series 
-		(using <code>AppointmentRequest.recurring=true</code>) or can accept each occurrence individually
-		(using <code>AppointmentRequest.recurring=false</code> along with <code>AppointmentRequest.occurrenceDate</code>
-		or <code>AppointmentRequest.recurrenceId</code> to indicate which repitition specifically)
+		(using <code>AppointmentResponse.recurring=true</code>) or can accept each occurrence individually
+		(using <code>AppointmentResponse.recurring=false</code> along with <code>AppointmentResponse.occurrenceDate</code>
+		or <code>AppointmentResponse.recurrenceId</code> to indicate which repetition specifically)
 	</p>
 	<p>
 		Note that in the template the <code>timezone</code> property defines which timezone the start/end times
@@ -213,6 +213,12 @@
 			so that the appropriate values can be allocated.
 			If you need multiple actors of a specific type, then multiple participants with that type value
 			are included on the appointment.
+		</p>
+		<p>
+			The Appointment resource represents an intention to perform a service.
+			An Appointment does NOT represent an authorization. Authorization is typically provided via
+			a ServiceRequest when required. Details about the fulfillment of the appointment are handled
+			by the Encounter resource.
 		</p>
 <a name="statuses"></a>
     <h3>Appointment Statuses and Encounters</h3>
