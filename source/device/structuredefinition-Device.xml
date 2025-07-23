@@ -688,6 +688,7 @@
       <path value="Device.deviceVersion"/>
       <short value="The actual design of the device or software version running on the device"/>
       <definition value="The actual design of the device or software version running on the device."/>
+      <comment value="The combination of type and component SHOULD be unique across all repetitions of version."/>
       <min value="0"/>
       <max value="*"/>
       <type>
