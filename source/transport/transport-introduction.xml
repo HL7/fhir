@@ -35,7 +35,7 @@ The Transport resource can be requested by a ServiceRequest or by a Task, as sho
 
 During the movement of a patient, the business status (change in the level of care/patient class) might change. To allow for the capture of the current business status of the patient, the reason element should be used. 
 </p>
-<img src="transport-resource-event.png" alt="Diagram showing Transport resource event flow"/>
+<img src="transport-resource-event.png" alt="Diagram showing Transport resource event flow" width=500/>
 
 </div>
 
