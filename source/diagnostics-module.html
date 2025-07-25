@@ -77,9 +77,9 @@ in order to support consistent definitions for schema and UML derived code.
         ordering and fulfilling of diagnostics using ServiceRequest (exemplified here with a reference) and other request, task, and workflow management resources.</p>
     <div>
         <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="1000" />
+        <figure>Figure 1: Indicates the FHIR Resources that are involved in Diagnostics.  Note - the blue container is intended to link all Resources inside the box to the resources outside the box.</figure>
     </div>
-    <figure>Figure 1: Indicates the FHIR Resources that are involved in Diagnostics.  Note - the blue container is intended to link all Resources inside the box to the resources outside the box.</figure>
-
+    
     [%impl-note%]
     See the <a href="genomics.html">Genomics Implementation Guidance</a> for additional information about how to use the
     Diagnostic resources for Clinical Genomic Reporting and Analysis.
@@ -158,7 +158,7 @@ in order to support consistent definitions for schema and UML derived code.
         The initial observation of a the sample anaerobic culture would be recorded as an Observation and linked to
         using DiagnosticReport.result. The Observation would describe presence of none, one or more growths or patterns.
         Other
-        results for, e.g., a stain may be reported as well and linked to DiagnosticReport.result as well.
+        results for, e.g., a stain may be reported as well and linked to DiagnosticReport.result.
     </p>
     <p>
         As the growth is identified, an Observation to report the actual organism is created. The actual identification
@@ -344,31 +344,15 @@ in order to support consistent definitions for schema and UML derived code.
     <a name="roadmap"></a>
     <h3>Developmental Roadmap</h3>
     <ul>
-        <li>The <em>Observation</em> resource has been tested and used in production tooling and is Normative. Any
-            further development will follow the rules for Normative resources. Future work will focus on developing core
-            profiles and clarifying
-            use cases and boundaries and providing more domain specific examples.</li>
-        <li>The <em>DocumentReference</em> and <em>ImagingStudy</em> resources have been tested and used in production
-            tooling and have reached maturity level FMM=4.</li>
-        <li>The <em>DiagnosticReport</em> resource has been tested and used in production tooling and has reached
-            maturity level FMM=3. Future work will focus on further refinements to the resource, as well as developing
-            core profiles and
-            clarifying use cases and boundaries and providing more domain specific examples.</li>
-        <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group
-            efforts. We expect to see more widespread use of this resource which will help to increase its maturity from FMM3.
-        </li>
-        <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 and has been added for R5. We are
-            looking for implementer feedback to advance its maturity.</li>
-        <li>The <em>MolecularSequence</em> resource has had some limited testing and use. Changes have been made to
-            improve the ability to represent sequences in various ways. It remains at FMM=1.</li>
-        <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to
-            analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is
-            needed for it to reach a more
-            stable FMM level.</li>
-        <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support
-            greater precision of body location identification based on feedback that has been received, and we expect to
-            receive additional
-            implementation feedback which will help increase the resource maturity level.</li>
+        <li>The <em>Observation</em> resource has been tested and used in production tooling and is Normative with some Trial Use elements.  Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>DocumentReference</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
+        <li>The <em>DiagnosticReport</em> resource has been tested and used in production tooling and has reached maturity level FMM=3. Future work will focus on further refinements to the resource, as well as developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group efforts. We expect to see more widespread use of this resource which will help to increase its maturity(currently at FMM=2).</li>
+        <li>The <em>ImagingStudy</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
+        <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 (added in R5). We are looking for implementer feedback to advance its maturity.</li>
+        <li>The <em>MolecularSequence</em> resource has had some limited testing and use. Changes have been made to improve the ability to represent sequences in various ways. It remains at FMM=1.</li>
+        <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
+        <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support greater precision of body location identification based on feedback that has been received, and we expect to receive additional implementation feedback which will help increase the resource maturity level.</li>
     </ul>
     [%file newfooter%]
 </body>
