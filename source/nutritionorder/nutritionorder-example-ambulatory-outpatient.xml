@@ -28,6 +28,15 @@
     </type>
   </oralDiet>
   <enteralFormula>
+    <type>
+      <concept>
+        <coding>
+          <system value='http://snomed.info/sct'/>
+          <code value='443111000124101'/>
+          <display value='High protein formula'/>
+        </coding>
+      </concept>
+    </type>
     <caloricDensity>
       <value value='750'/>
       <unit value='kcal'/>

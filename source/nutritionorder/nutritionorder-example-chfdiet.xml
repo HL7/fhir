@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<id value="cardiacdiet"/>
+<id value="chfdiet"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>

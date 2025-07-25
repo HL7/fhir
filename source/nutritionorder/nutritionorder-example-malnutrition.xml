@@ -4,7 +4,7 @@
   <intent value='order'/>
   <subject>
     <reference value='Patient/example'/>
-    <display value='Heart Failure Patient'/>
+    <display value='Malnutrition Patient'/>
   </subject>
 	<dateTime value='2024-10-23T00:00:00Z'/>
   <oralDiet>

@@ -21,23 +21,23 @@
       <valueString value="Nutrition Order Low Sodium and Fluid Restricted Diet Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="nutritionorder-example-cardiacdiet"/>
+      <valueString value="nutritionorder-example-chfdiet"/>
     </extension>
     <item>
-      <reference value="NutritionOrder/cardiacdiet"/>
+      <reference value="NutritionOrder/chfdiet"/>
       <display value="Low Sodium and Fiber Restricted Diet"/>
     </item>
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Nutrition Order Diabetic Diet Example"/>
+      <valueString value="Nutrition Order Consistent Carb Diet Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="nutritionorder-example-diabeticdiet"/>
+      <valueString value="nutritionorder-example-carbcountdiet"/>
     </extension>
     <item>
-      <reference value="NutritionOrder/diabeticdiet"/>
-      <display value="Diabetic Diet"/>
+      <reference value="NutritionOrder/carbcountdiet"/>
+      <display value="Consistent Carb Diet"/>
     </item>
   </entry>
   <entry>
@@ -138,14 +138,14 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Nutrition Order Enteral Continuous Feeding  Example"/>
+      <valueString value="Nutrition Order Enteral Cycled Feeding  Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="nutritionorder-example-enteralcontinuous"/>
+      <valueString value="nutritionorder-example-enteralcycled"/>
     </extension>
     <item>
-      <reference value="NutritionOrder/enteralcontinuous"/>
-      <display value="Enteral Continuous Feeding"/>
+      <reference value="NutritionOrder/enteralcycled"/>
+      <display value="Enteral Cycled Feeding"/>
     </item>
   </entry>
   <entry>
