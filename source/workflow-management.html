@@ -183,7 +183,6 @@ in order to support consistent definitions for schema and UML derived code.
             Appropriate in environments that have a workflow engine that takes on responsibility for ensuring fulfillment
         </p>
         <h4>Usage Examples</h4>
-<<<<<<< HEAD
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternH-POSTofTasktoaworkflowbroker">HL7 Confluence page</a></p>
 
         <a name="optioni"></a>
@@ -243,11 +242,6 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Usage Examples</h4>
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternI-POSTofTasktofulfiller'ssystem,followedbyPOSTofsub-Taskonplacer'ssystem">HL7 Confluence page</a></p>
         <p>Also see the example scenario of a workflow using this approach on the <a href="workflow-examples.html#optionI-ex1">examples tab</a>, including example instances.</p>
-=======
-        <p>
-        </p>
-        
->>>>>>> fe62c8b31ee36afec1321a3654cb0607b0d985fd
 
         <a name="optioni"></a>
         <h3>Option I: Messaging Task from placer to fulfiller</h3>
@@ -282,19 +276,11 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             Appropriate when existing messaging infrastructure can be used (e.g. HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.), and a need to stay consistent with that architecture.
         </p>
-<<<<<<< HEAD
         <h4>Usage Examples</h4>
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternJ-MessagingTaskfromplacertofulfiller">HL7 Confluence page</a></p>
 
         <a name="optionk"></a>
         <h3>Option K: Service request referencing Task from placer to fulfiller</h3>
-=======
-        <h4>Usage examples</h4>
-        <p>
-        </p>
-        <a name="optionj"></a>
-        <h3>Option J: Service request referencing Task from placer to fulfiller</h3>
->>>>>>> fe62c8b31ee36afec1321a3654cb0607b0d985fd
         <p>
             <i>TODO: This scenario needs work - there's not a lot of experience using FHIR services to manage the fulfillment process</i>
         </p>
@@ -318,19 +304,11 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             TBD
         </p>
-<<<<<<< HEAD
         <h4>Usage Examples</h4>
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternK-ServicerequestreferencingTaskfromplacertofulfiller">HL7 Confluence page</a></p>
 
         <a name="optionl"></a>
         <h3>Option L: Combining workflow approaches</h3>
-=======
-        <h4>Usage examples</h4>
-        <p>
-        </p>
-        <a name="optionk"></a>
-        <h3>Option K: Combining workflow approaches</h3>
->>>>>>> fe62c8b31ee36afec1321a3654cb0607b0d985fd
         <p>This approach requires the presence of an active FHIR-aware intermediary/broker, that provides the appropriate interface to requester and fulfiller with different capabilities. The broker translates between multiple workflow fulfillment approaches. For example, messaging in, REST out, or REST in, operation out.</p>
         <p>An example of a Prescription workflow is shown below:</p>
         <img alt="Diagram showing a hybrid messaging/REST approach" src="workflow-optionl.png" />
