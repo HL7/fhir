@@ -163,8 +163,7 @@ in order to support consistent definitions for schema and UML derived code.
     <p>
         As the growth is identified, an Observation to report the actual organism is created. The actual identification
         may take time and could change. The change history on the Observation will track any changes in organism names.
-        Thus the
-        Observation.value may start as unknown and then updated to reflect the actual identified name. The Observation
+        Thus the Observation.value may start as unknown and then be updated to reflect the actual identified name. The Observation
         of the initial anaerobic culture references each identified organism using Observation.hasMember, while the
         Observation
         of each organism references the initial ServiceRequest that authorized the tests using Observation.basedOn.
