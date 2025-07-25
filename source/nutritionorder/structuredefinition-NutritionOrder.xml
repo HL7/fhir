@@ -824,11 +824,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionProductCategory"/>
+          <valueString value="Modified Food Types"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes identifying classes of nutrition products."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-category"/>
+        <description value="Codes identifying food types that undergo texture modification."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
