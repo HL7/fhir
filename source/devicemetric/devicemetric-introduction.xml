@@ -13,11 +13,11 @@
         </p>
         <ul>
             <li>
-                <a href="device.html">Device:</a> The physical, virtual, or software device that this DeviceMetric is for. Note that the <code>Device.property</code> element is used to record static characteristics or properties of the Device.</li>
+                <a href="device.html"><b>Device:</b></a> The physical, virtual, or software device that this <b>DeviceMetric</b> is for. Note that the <code>Device.property</code> element is used to record static characteristics or properties of the <b>Device</b>.</li>
             <li>
-                <a href="devicedefinition.html">DeviceDefinition:</a> Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device, the <code>DeviceDefinition.property</code> element may be used to record static characteristics or properties of the DeviceDefinition.</li>
+                <a href="devicedefinition.html"><b>DeviceDefinition:</b></a> Describes a "kind" of device - not a specific instance of the device. Note alternatively to <b>Device</b>, the <code>DeviceDefinition.property</code> element may be used to record static characteristics or properties of the <b>DeviceDefinition</b>.</li>
             <li>
-                <a href="observation.html">Observation:</a> Used to record the particular value of the DeviceMetric at a point in time.</li>
+                <a href="observation.html"><b>Observation:</b></a> Used to record the particular value of the <b>DeviceMetric</b> at a point in time.</li>
         </ul>
     </div>
 </div>
