@@ -419,7 +419,7 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.manufactureDate"/>
-      <short value="Date when the device was made"/>
+      <short value="A production identifier that indicates the date when the device was made"/>
       <definition value="The date and time when the device was manufactured."/>
       <min value="0"/>
       <max value="1"/>
@@ -444,7 +444,7 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.expirationDate"/>
-      <short value="Date and time of expiry of this device (if applicable)"/>
+      <short value="A production identifier that indicates the date and time of expiry of this device (if applicable)"/>
       <definition value="The date and time beyond which this device is no longer valid or should not be used (if applicable)."/>
       <min value="0"/>
       <max value="1"/>
@@ -469,7 +469,7 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.lotNumber"/>
-      <short value="Lot number of manufacture"/>
+      <short value="A production identifier that indicates the Lot number of manufacture"/>
       <definition value="Lot number assigned by the manufacturer."/>
       <min value="0"/>
       <max value="1"/>
@@ -494,7 +494,7 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.serialNumber"/>
-      <short value="Serial number assigned by the manufacturer"/>
+      <short value="A production identifier that indicates the Serial number assigned by the manufacturer"/>
       <definition value="The serial number assigned by the organization when the device was manufactured."/>
       <comment value="Alphanumeric Maximum 20. While a serial number is a type of identifier, in the context of devices for which a UDI is required, thus a serial number may be part of the production identifier, it is more informative to have the serial number as a dedicated attribute together with the other UDI production identifier.  When the device is not subject to including the UDI (e.g., its presence and exchange is not mandated by local regulatory requirements or specific use case at hand), thus the concept of production identifiers is not relevant as a set, it remains helpful for consistency to still use Device.serialNumber rather than using Device.identifier with an appropriate type.  Systems that do not realize an identifier is a serial number may place it in Device.identifier or if the identifier.system is known for the serial number, it may also be populated in the Device.identifier as a globally unique id_."/>
       <min value="0"/>
