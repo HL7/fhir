@@ -982,7 +982,7 @@
       <path value="Observation.specimen"/>
       <short value="Specimen used for this observation"/>
       <definition value="The specimen that was used when this observation was made."/>
-      <comment value="Should be used when the observation is performed on a specimen. The type of specimen should be consistent with anything implied in the `Observation.code` value."/>
+      <comment value="SHOULD be used when the observation is performed on a specimen. The type of specimen SHOULD be consistent with anything implied in the `Observation.code` value."/>
       <min value="0"/>
       <max value="1"/>
       <type>
