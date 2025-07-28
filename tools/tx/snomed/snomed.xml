@@ -1307,6 +1307,9 @@
   <concept id="433146000" display="Chronic kidney disease stage 5 (disorder)">
     <display value="Chronic kidney disease stage 5 (disorder)"/>
   </concept>
+  <concept id="434711009" display="Specimen container (physical object)">
+    <display value="Specimen container (physical object)"/>
+  </concept>
   <concept id="44027008" display="Seafood">
     <display value="Seafood"/>
   </concept>
