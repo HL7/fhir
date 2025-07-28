@@ -18,20 +18,20 @@ jobs:
     displayName: 'Download java sdk'
     inputs:
       targetType: 'inline'
-      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.15+10/openlogic-openjdk-11.0.15+10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java11.tar.gz'
+      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/17.0.16+8/openlogic-openjdk-17.0.16+8-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java17.tar.gz'
   - task: JavaToolInstaller@0
     inputs:
-      versionSpec: "11"
+      versionSpec: "17"
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: "$(Build.ArtifactStagingDirectory)/java11.tar.gz"
+      jdkFile: "$(Build.ArtifactStagingDirectory)/java17.tar.gz"
       jdkDestinationDirectory: ""
   - task: Bash@3
     inputs:
       targetType: 'inline'
       script: |
         echo JAVA_HOME set to -> $JAVA_HOME
-        echo JAVA_HOME_11_X64 set to -> $JAVA_HOME_11_X64
+        echo JAVA_HOME_17_X64 set to -> $JAVA_HOME_17_X64
         echo which java returns
         which java
 
