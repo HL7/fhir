@@ -196,7 +196,7 @@
         <code value="249224006"/>
         <display value="Apgar respiratory effort score"/>
       </coding>
-      <text value="Apgar heart rate"/>
+      <text value="Apgar respiratory effort score"/>
     </code>
     <valueCodeableConcept>
       <coding>
