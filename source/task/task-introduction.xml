@@ -86,13 +86,7 @@
     section of the Request pattern. Information about the details of the fulfillment 
     of an authorization may be handled by additional Task resource instances.</p>
 
-     <p>Tasks may have named inputs and outputs. Inputs represent
-     information that may or must be present in order for a task to
-     complete. Outputs represent intermediate or final results produced by a
-     task. For example, in a task supporting reading of radiology image, the
-     inputs might include both the imaging study to be read, as well as
-     relevant prior images. Outputs could represent radiology measurements
-     as well as the Radiologist's diagnostic report. </p>
+     <p>Tasks may have named inputs and outputs. Inputs represent information that is provided in order for a task to be completed. Outputs represent intermediate or final results produced while performing a task. For example, in a task supporting reading of radiology images, the inputs might include both the imaging study to be read, as well as relevant prior images. Outputs could represent radiology measurements as well as the Radiologist's diagnostic report. </p>
 
     <p>Inputs and outputs are tracked by the task because workflow
     management activity may automate the transfer of outputs from one task
