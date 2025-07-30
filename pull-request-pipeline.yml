@@ -12,8 +12,11 @@ variables:
   value: $[ replace(variables['System.PullRequest.SourceBranch'], '/', '_') ]
 
 jobs:
-- job: setupEnvironment
+- job: buildAndPublishSpecification
+  dependsOn: setupEnvironment
+  timeoutInMinutes: 120
   steps:
+    # Set up the Java environment for the build.
   - task: Bash@3
     displayName: 'Download java sdk'
     inputs:
@@ -28,17 +31,17 @@ jobs:
       jdkDestinationDirectory: ""
   - task: Bash@3
     inputs:
+    targetType: 'inline'
+    script: |
+       echo JAVA_HOME set to -> $JAVA_HOME
+       echo JAVA_HOME_17_X64 set to -> $JAVA_HOME_17_X64
+  - task: Bash@3
+    inputs:
       targetType: 'inline'
       script: |
-        echo JAVA_HOME set to -> $JAVA_HOME
-        echo JAVA_HOME_17_X64 set to -> $JAVA_HOME_17_X64
-        echo which java returns
         which java
+    
 
-- job: buildAndPublishSpecification
-  dependsOn: setupEnvironment
-  timeoutInMinutes: 120
-  steps:
   # This task reports the CI_BRANCH_DIRECTORY variable for re-use in caching and
   # directory naming.
   - task: Bash@3
