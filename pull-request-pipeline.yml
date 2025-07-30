@@ -13,7 +13,6 @@ variables:
 
 jobs:
 - job: buildAndPublishSpecification
-  dependsOn: setupEnvironment
   timeoutInMinutes: 120
   steps:
     # Set up the Java environment for the build.
