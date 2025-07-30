@@ -187,11 +187,6 @@
   <component>
     <code>
       <coding>
-        <system value="http://loinc.org"/>
-        <code value="32415-2"/>
-        <display value="5 minute Apgar Respiratory effort"/>
-      </coding>
-      <coding>
         <system value="http://snomed.info/sct"/>
         <code value="249224006"/>
         <display value="Apgar respiratory effort score"/>
