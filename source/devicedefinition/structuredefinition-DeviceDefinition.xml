@@ -548,7 +548,7 @@
       </extension>
       <path value="DeviceDefinition.udiDeviceIdentifier"/>
       <short value="Unique Device Identifier (UDI) Barcode string"/>
-      <definition value="Unique device identifier (UDI) assigned to device label or package.  Note that the Device may include multiple udiCarriers as it either may include just the udiCarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold."/>
+      <definition value="The Device Identifier (DI) portion of the Unique Device Identifier (UDI) placed on a device label or package. Also known as UDI-DI. Note that the DeviceDefinition may include multiple UDI-DIs if it is sold in multiple jurisdictions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -618,6 +618,16 @@
         <code value="uri"/>
       </type>
     </element>
+    <element id="DeviceDefinition.udiDeviceIdentifier.deviceIdentifierSystem">
+      <path value="DeviceDefinition.udiDeviceIdentifier.deviceIdentifierSystem"/>
+      <short value="The namespace for the device identifier value"/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.regulatoryIdentifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="750,250"/>
@@ -675,6 +685,16 @@
       <short value="The jurisdiction to which the deviceIdentifier applies"/>
       <definition value="The jurisdiction to which the deviceIdentifier applies."/>
       <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem">
+      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem"/>
+      <short value="The namespace for the device identifier value"/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
