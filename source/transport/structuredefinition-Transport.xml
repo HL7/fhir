@@ -80,7 +80,7 @@
       </extension>
       <path value="Transport"/>
       <short value="Delivery of item"/>
-      <definition value="Record of transport of item."/>
+      <definition value="The Transport resource represents the movement or transportation of individuals and items (such materials and equipment) within a healthcare setting. It encompasses both planned and completed transport events."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -314,14 +314,23 @@
     <element id="Transport.focus">
       <path value="Transport.focus"/>
       <short value="What transport is acting on"/>
-      <definition value="The request being actioned or the resource being manipulated by this transport."/>
+      <definition value="The resource representing the physical entity being transported."/>
       <comment value="If multiple resources need to be manipulated, use sub-transports.  (This ensures that status can be tracked independently for each referenced resource.)."/>
       <requirements value="Used to identify the thing to be done."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -335,15 +344,23 @@
     </element>
     <element id="Transport.for">
       <path value="Transport.for"/>
-      <short value="Beneficiary of the Transport"/>
-      <definition value="The entity who benefits from the performance of the service specified in the transport (e.g., the patient)."/>
+      <short value="Beneficiary of the Transport (such as patient or subject)"/>
+      <definition value="The entity who benefits from the performance of the service specified in the transport (such as patient or subject)."/>
       <requirements value="Used to track transports outstanding for a beneficiary.  Do not use to track the transport owner or creator (see owner and creator respectively).  This can also affect access control."/>
       <alias value="Patient"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>        
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>

@@ -43,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation from a DICOM SR Content Item, or a Segment Number from a DICOM Segmentation SOP Instance."/>
+  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation from a DICOM SR Content Item or a Segment Number from a DICOM Segmentation SOP Instance."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -117,6 +117,20 @@
         <severity value="error"/>
         <human value="imageRegion3D SHALL only be present if instance.imageRegion2D is not present"/>
         <expression value="imageRegion3D.empty() or instance.imageRegion2D.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-7"/>
+        <severity value="error"/>
+        <human value="if present, instance.imageRegion2D.coordinate shall have a value count that is a multiple of 2"/>
+        <expression value="instance.imageRegion2D.coordinate.empty() or instance.imageRegion2D.coordinate.count() mod 2 = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-8"/>
+        <severity value="error"/>
+        <human value="	if present, imageRegion3D.coordinate shall have a value count that is a multiple of 3"/>
+        <expression value="imageRegion3D.coordinate.empty() or imageRegion3D.coordinate.count() mod 3 = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <mapping>
@@ -535,10 +549,8 @@
     </element>
     <element id="ImagingSelection.endpoint">
       <path value="ImagingSelection.endpoint"/>
-      <short value="The network services providing retrieval for the images referenced in the imaging selection"/>
-      <definition value="The network services providing retrieval access to the selected images, frames, etc. See implementation notes for information about using DICOM endpoints."/>
-      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach."/>
-      <requirements value="Access methods for retrieving (e.g., DICOM's WADO-URI and WADO-RS) the selected images, frames, etc."/>
+      <short value="The network services providing access for the images referenced in the imaging selection"/>
+      <definition value="The network services providing access to the selected images, frames, etc. See implementation notes for information about using DICOM endpoints."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -562,6 +574,7 @@
       </type>
       <condition value="isl-6"/>
       <condition value="isl-4"/>
+      <condition value="isl-7"/>
       <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.instance.uid">
@@ -661,6 +674,7 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="isl-6"/>
+      <condition value="isl-7"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D.regionType">
       <path value="ImagingSelection.instance.imageRegion2D.regionType"/>
@@ -699,6 +713,7 @@
         <code value="decimal"/>
       </type>
       <orderMeaning value="The values are an ordered set of (x, y) coordinates."/>
+      <condition value="isl-7"/>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Data (0070,0022)"/>
@@ -714,6 +729,7 @@
       <path value="ImagingSelection.imageRegion3D"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
       <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>
+      <requirements value="The referenced 3D image region must be in the coordinate system identified by the `frameOfReferenceUid` element"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -722,6 +738,7 @@
       <condition value="isl-1"/>
       <condition value="isl-5"/>
       <condition value="isl-6"/>
+      <condition value="isl-8"/>
     </element>
     <element id="ImagingSelection.imageRegion3D.regionType">
       <path value="ImagingSelection.imageRegion3D.regionType"/>
@@ -760,6 +777,7 @@
         <code value="decimal"/>
       </type>
       <orderMeaning value="The values are an ordered set of (x, y, z) coordinates."/>
+      <condition value="isl-8"/>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Data (0070,0022)"/>

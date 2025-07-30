@@ -89,33 +89,17 @@
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:OxygenSatCode">
-      <path value="Observation.category"/>
-      <sliceName value="OxygenSatCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Oxygen Saturation"/>
+      <definition value="Oxygen Saturation"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="2708-6"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Oxygen Saturation"/>
-      <definition value="Oxygen Saturation."/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsOxygenSat"/>

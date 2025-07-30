@@ -305,10 +305,10 @@
           <valueString value="Observation.value[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-value-quantity"/>
-        <description value="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
+        <description value="The value or component value of the observation, if the value is a Quantity."/>
         <code value="combo-value-quantity"/>
         <type value="quantity"/>
-        <expression value="Observation.value.ofType(Quantity) | Observation.value.ofType(SampledData) | Observation.component.value.ofType(Quantity) | Observation.component.value.ofType(SampledData)"/>
+        <expression value="Observation.value.ofType(Quantity) |  Observation.component.value.ofType(Quantity)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -429,10 +429,10 @@
           <valueString value="Observation.component.value[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-quantity"/>
-        <description value="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
+        <description value="The value of the component observation, if the value is a Quantity."/>
         <code value="component-value-quantity"/>
         <type value="quantity"/>
-        <expression value="Observation.component.value.ofType(Quantity) | Observation.component.value.ofType(SampledData)"/>
+        <expression value="Observation.component.value.ofType(Quantity)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -772,10 +772,10 @@
           <valueString value="Observation.value[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-quantity"/>
-        <description value="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
+        <description value="The value of the observation, if the value is a Quantity."/>
         <code value="value-quantity"/>
         <type value="quantity"/>
-        <expression value="Observation.value.ofType(Quantity) | Observation.value.ofType(SampledData)"/>
+        <expression value="Observation.value.ofType(Quantity)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
