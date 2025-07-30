@@ -29,12 +29,14 @@ jobs:
       jdkFile: "$(Build.ArtifactStagingDirectory)/java17.tar.gz"
       jdkDestinationDirectory: ""
   - task: Bash@3
+    displayName: 'Display JAVA_HOME'
     inputs:
       targetType: 'inline'
       script: |
-        echo JAVA_HOME set to -> $JAVA_HOME
-        echo JAVA_HOME_17_X64 set to -> $JAVA_HOME_17_X64
+        echo JAVA_HOME is $JAVA_HOME
+        echo JAVA_HOME_17_X64 is $JAVA_HOME_17_X64
   - task: Bash@3
+    displayName: 'which java'
     inputs:
       targetType: 'inline'
       script: |
