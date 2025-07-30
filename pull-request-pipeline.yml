@@ -31,10 +31,10 @@ jobs:
       jdkDestinationDirectory: ""
   - task: Bash@3
     inputs:
-    targetType: 'inline'
-    script: |
-       echo JAVA_HOME set to -> $JAVA_HOME
-       echo JAVA_HOME_17_X64 set to -> $JAVA_HOME_17_X64
+      targetType: 'inline'
+      script: |
+        echo JAVA_HOME set to -> $JAVA_HOME
+        echo JAVA_HOME_17_X64 set to -> $JAVA_HOME_17_X64
   - task: Bash@3
     inputs:
       targetType: 'inline'
