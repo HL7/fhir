@@ -28,7 +28,7 @@ jobs:
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: "$(Build.ArtifactStagingDirectory)/java17.tar.gz"
-      jdkDestinationDirectory: ""
+      jdkDestinationDirectory: "$(Build.ArtifactStagingDirectory)/build-jdk"
   - task: Bash@3
     displayName: 'Display JAVA_HOME'
     inputs:
