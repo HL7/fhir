@@ -242,9 +242,9 @@
       </code>
     </Substance>
   </contained>
-  <!-- <contained>
+  <contained>
     <ActivityDefinition>
-      <id value="amlodiponePrescription" />
+      <id value="amlodipinePrescription" />
       <status value="draft" />
       <kind value="MedicationRequest" />
       <productReference>
@@ -333,7 +333,7 @@
         <text value="amLODIPine" />
       </code>
     </Substance>
-  </contained> -->
+  </contained>
   <contained>
     <ActivityDefinition>
       <id value="nitroglycerinPrescription"/>
@@ -437,12 +437,11 @@
       </code>
     </Substance>
   </contained>
-<!--
   <contained>
     <ValueSet>
       <id value="CardiologyReferralReasonValues" />
-      <!-!-  Identifiers: Terminology Service requests still on going for
-         value set and code definitions. Hence skeeleton and placeholders here for example-!->
+      <!--  Identifiers: Terminology Service requests still on going for
+         value set and code definitions. Hence skeeleton and placeholders here for example-->
       <name value="Cardiology Referral Reason value set" />
       <status value="draft" />
       <compose>
@@ -454,7 +453,7 @@
           </concept>
         </include>
       </compose>
-      <!-!- <compose>
+      <!-- <compose>
         <include>
           <system value="TSR" />
           <concept>
@@ -474,9 +473,9 @@
             <display value="other" />
           </concept>
         </include>
-      </compose> -!->
+      </compose> -->
     </ValueSet>
-  </contained> -->
+  </contained>
 
   <contained>
     <Questionnaire>
