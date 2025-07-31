@@ -103,7 +103,7 @@
         <code value="249223000"/>
         <display value="Apgar heart rate score"/>
       </coding>
-      <text value="Apgar heart rate score"/>
+      <text value="Apgar heart rate"/>
     </code>
     <valueCodeableConcept>
       <coding>
