@@ -128,7 +128,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-collection-collector"/>
         <description value="Procedure request to obtain this biologically derived product."/>
-        <code value="collector"/>
+        <code value="collection.collector"/>
         <type value="reference"/>
         <expression value="BiologicallyDerivedProduct.collection.collector"/>
         <processingMode value="normal"/>
@@ -166,7 +166,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-collection-source"/>
         <description value="The patient or entity providing the source material for the biologically derived product."/>
-        <code value="collection-source"/>
+        <code value="collection.source"/>
         <type value="reference"/>
         <expression value="BiologicallyDerivedProduct.collection.source"/>
         <processingMode value="normal"/>
