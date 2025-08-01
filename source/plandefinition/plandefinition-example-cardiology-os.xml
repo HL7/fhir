@@ -86,7 +86,7 @@
         <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine"/>
+          <expression value="'routine'"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
@@ -185,7 +185,7 @@
         <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine"/>
+          <expression value="'routine'"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
@@ -242,9 +242,9 @@
       </code>
     </Substance>
   </contained>
-  <!-- <contained>
+  <contained>
     <ActivityDefinition>
-      <id value="amlodiponePrescription" />
+      <id value="amlodipinePrescription" />
       <status value="draft" />
       <kind value="MedicationRequest" />
       <productReference>
@@ -282,7 +282,10 @@
       </dosage>
       <dynamicValue>
         <path value="medicationRequest.priority" />
-        <expression value="routine" />
+        <expression>
+            <language value="text/cql"/>
+            <expression value="'routine'"/>
+        </expression>
       </dynamicValue>
     </ActivityDefinition>
   </contained>
@@ -305,9 +308,11 @@
         <text value="Tablet dose form" />
       </form>
       <ingredient>
-        <itemReference>
-          <reference value="#amlodipineSubstance" />
-        </itemReference>
+        <item>
+          <reference>
+            <reference value="#amlodipineSubstance" />
+          </reference>
+        </item>
         <amount>
           <numerator>
             <value value="5" />
@@ -333,7 +338,7 @@
         <text value="amLODIPine" />
       </code>
     </Substance>
-  </contained> -->
+  </contained>
   <contained>
     <ActivityDefinition>
       <id value="nitroglycerinPrescription"/>
@@ -437,12 +442,11 @@
       </code>
     </Substance>
   </contained>
-<!--
   <contained>
     <ValueSet>
       <id value="CardiologyReferralReasonValues" />
-      <!-!-  Identifiers: Terminology Service requests still on going for
-         value set and code definitions. Hence skeeleton and placeholders here for example-!->
+      <!--  Identifiers: Terminology Service requests still on going for
+         value set and code definitions. Hence skeeleton and placeholders here for example-->
       <name value="Cardiology Referral Reason value set" />
       <status value="draft" />
       <compose>
@@ -454,7 +458,7 @@
           </concept>
         </include>
       </compose>
-      <!-!- <compose>
+      <!-- <compose>
         <include>
           <system value="TSR" />
           <concept>
@@ -474,9 +478,9 @@
             <display value="other" />
           </concept>
         </include>
-      </compose> -!->
+      </compose> -->
     </ValueSet>
-  </contained> -->
+  </contained>
 
   <contained>
     <Questionnaire>
