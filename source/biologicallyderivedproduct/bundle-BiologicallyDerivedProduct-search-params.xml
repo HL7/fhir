@@ -154,6 +154,25 @@
       </SearchParameter>
     </resource>
   </entry>   
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-collection-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.collection.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-collection-source"/>
+        <description value="The patient or entity providing the source material for the biologically derived product."/>
+        <code value="collection-source"/>
+        <type value="reference"/>
+        <expression value="BiologicallyDerivedProduct.collection.source"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 
 
 </Bundle>
