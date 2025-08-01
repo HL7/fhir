@@ -86,7 +86,7 @@
         <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine"/>
+          <expression value="'routine'"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
@@ -185,7 +185,7 @@
         <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine"/>
+          <expression value="'routine'"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
@@ -282,7 +282,10 @@
       </dosage>
       <dynamicValue>
         <path value="medicationRequest.priority" />
-        <expression value="routine" />
+        <expression>
+            <language value="text/cql"/>
+            <expression value="'routine'"/>
+        </expression>
       </dynamicValue>
     </ActivityDefinition>
   </contained>
@@ -305,9 +308,11 @@
         <text value="Tablet dose form" />
       </form>
       <ingredient>
-        <itemReference>
-          <reference value="#amlodipineSubstance" />
-        </itemReference>
+        <item>
+          <reference>
+            <reference value="#amlodipineSubstance" />
+          </reference>
+        </item>
         <amount>
           <numerator>
             <value value="5" />
