@@ -52,7 +52,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProductDispense-performer"/>
         <description value="The identity of a patient for whom to list dispenses"/>
-        <code value="performer.actor"/>
+        <code value="actor"/>
         <type value="reference"/>
         <expression value="BiologicallyDerivedProductDispense.performer.actor"/>
         <processingMode value="normal"/>

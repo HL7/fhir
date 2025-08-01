@@ -212,13 +212,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
-    <Cell><Data ss:Type="String">collection.source</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">collection.collector</Data></Cell>
+    <Cell><Data ss:Type="String">collection-source</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">collection-collector</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">performer.actor</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">actor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BodyStructure</Data></Cell>
@@ -914,7 +914,7 @@
    <Row>
     <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">performer.actor</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">actor</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
