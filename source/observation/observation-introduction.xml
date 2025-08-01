@@ -68,6 +68,10 @@ When an Observation instantiates an <a href="observationdefinition.html">Observa
 <p>
 In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.  "Laboratories routinely have a variable that is summative across a series of discrete variables - these are usually called 'impressions' or 'interpretations'. Sometimes they are algorithmically specified and sometimes they have the imprimatur of pathologists and they are conveyed in Observation or DiagnosticReport instead of the <a href="clinicalassessment.html">ClinicalAssessment</a> resource.  The Observation resource should not be used to record clinical diagnosis about a patient or subject as discussed above.
 </p>
+
+<p>
+The Observation resource is used extensively for observations about people, groups, devices, locations, substances, and procedures – not about the record describing these entities. The Observation resource contains several elements related to the origin and quality of the observation. To record more detailed information about the source of an Observation, the <a href="provenance.html">Provenance</a> resource may be used. More in-depth commentary about or evaluation of the Observation record itself may be recorded in <a href="artifactassessment.html">ArtifactAssessment</a>.
+</p>
   </div>
 
 <a name="stu"></a>
