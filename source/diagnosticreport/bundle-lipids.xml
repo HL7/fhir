@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is an example lipid panel bundle showing a DiagnosticReport with associated observations -->
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/working%20build/schema/account.xsd">
 	<id value="lipids"/>
 	<type value="collection"/>
@@ -46,11 +47,15 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 				<subject>
 					<reference value="Patient/pat2"/>
 				</subject>
-				<effectiveDateTime value="2011-03-04T08:30:00+11:00"/><!--    all this report is final    --><issued value="2013-01-27T11:45:33+11:00"/>
+				<effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+				<!--    all this report is final    -->
+				<issued value="2013-01-27T11:45:33+11:00"/>
 				<performer>
 					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 					<display value="Acme Laboratory, Inc"/>
-				</performer><!--    now the atomic results    --><result id="1">
+				</performer>
+				<!--    now the atomic results    -->
+				<result id="1">
 					<reference value="Observation/cholesterol"/>
 				</result>
 				<result id="2">
@@ -68,13 +73,19 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 	<entry>
 		<fullUrl value="https://example.com/base/Observation/cholesterol"/>
 		<resource>
-			<Observation><!--
-	  all the data items (= Observations) are bundled along with
-	  this diagnostic report. It would be equally
-      valid - and normal - for them to be separate trackable
-      items. However for the purposes of this example, it's
-	  more convenient to have them here.   --><!--    for users steeped in v2, each observation roughly corresponds with an
-	    OBX, and the Diagnostic Report with an ORU_R01 message    --><id value="cholesterol"/>
+			<Observation>
+				<!--
+				  all the data items (= Observations) are bundled along with
+				  this diagnostic report. It would be equally
+			      valid - and normal - for them to be separate trackable
+			      items. However for the purposes of this example, it's
+				  more convenient to have them here.   
+				-->
+				<!--    
+				  for users steeped in v2, each observation roughly corresponds with an
+				  OBX, and the Diagnostic Report with an ORU_R01 message    
+				-->
+				<id value="cholesterol"/>
 				<status value="final"/>
 				<code>
 					<coding>
