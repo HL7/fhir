@@ -276,7 +276,7 @@
       <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
       <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
       </type>
