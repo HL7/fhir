@@ -3,6 +3,9 @@
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="Task.doNotPerform">
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
     </divergentElement>
+    <divergentElement patternPath="FiveWs.what[x]" resourcePath="Task.focus">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+    </divergentElement>
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
