@@ -13,7 +13,7 @@ variables:
 
 jobs:
 
-- job: buildAndPublishSpecification
+- job: buildAndPublishFHIRSpec
   timeoutInMinutes: 120
   steps:
   # Set up the Java environment for the build.
@@ -44,7 +44,7 @@ jobs:
         which java
 
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
-  - task: Gradle@2
+  - task: Gradle@3
     inputs:
       gradleWrapperFile: 'gradlew'
       javaHomeOption: 'JDKVersion'
