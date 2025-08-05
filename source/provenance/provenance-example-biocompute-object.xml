@@ -55,7 +55,7 @@
 		</div>
 	</text>
 	<target>
-		<reference value="MolecularSequence/example/_history/1"/>
+		<reference value="MolecularDefinition/example/_history/1"/>
 	</target>
 	<occurredPeriod>
 		<start value="2017-06-06"/>
