@@ -69,7 +69,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceDefinition.conformsTo.category"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-type"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-category"/>
         <description value="The category of the conformance"/>
         <code value="type"/>
         <type value="token"/>
