@@ -78,7 +78,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence recorded by a Biocompute objects"/>
+      <valueString value="MolecularDefinition recorded by a Biocompute objects"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example-biocompute-object"/>
@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence for CWL workflow project"/>
+      <valueString value="MolecularDefinition for CWL workflow project"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example-cwl"/>
