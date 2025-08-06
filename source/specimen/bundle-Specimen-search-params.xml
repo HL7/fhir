@@ -121,13 +121,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.device"/>
+          <valueString value="Specimen.container.device.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device"/>
         <description value="The unique identifier associated with the specimen container"/>
         <code value="container-device"/>
         <type value="reference"/>
-        <expression value="Specimen.container.device.where(resolve() is Device)"/>
+        <expression value="Specimen.container.device.reference.where(resolve() is Device)"/>
         <processingMode value="normal"/>
         <target value="Device"/>
       </SearchParameter>
