@@ -331,11 +331,13 @@
  		<instance value="false"/>
      <id value="amlodipineSubstance" />
       <code>
-        <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="17767" />
-        </coding>
-        <text value="amLODIPine" />
+        <concept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="17767" />
+          </coding>
+          <text value="amLODIPine" />
+        </concept>
       </code>
     </Substance>
   </contained>
