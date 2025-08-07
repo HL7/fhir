@@ -26,8 +26,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.22.3"/>
   </identifier>
-  <name value="AustalianHealthcareIdentifierIndividual"/>
-  <title value="Austalian Healthcare Identifier - Individual"/>
+  <name value="AustralianHealthcareIdentifierIndividual"/>
+  <title value="Australian Healthcare Identifier - Individual"/>
   <status value="active"/>
   <kind value="identifier"/>
   <date value="2015-08-31"/>
