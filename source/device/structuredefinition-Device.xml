@@ -391,6 +391,10 @@
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
+      <mapping>
+        <identity value="udi"/>
+        <map value="distinctIdentifier (DIC)"/>
+      </mapping>
     </element>
     <element id="Device.manufacturer">
       <path value="Device.manufacturer"/>
