@@ -95,7 +95,7 @@
         <key value="dgr-1"/>
         <severity value="error"/>
         <human value="When a Composition is referenced in `DiagnosticReport.composition`, all Observation resources referenced in `Composition.entry` must also be referenced in `DiagnosticReport.result` or in the `Observation.hasMember` references."/>
-        <expression value="composition.exists() implies (composition.resolve().section.entry.reference.where(resolve() is Observation) in (result.reference|result.reference.resolve().hasMember.reference))"/>
+        <expression value="composition.exists() implies (composition.resolve().section.entry.reference.all($this.resolve() is Observation implies $this in (%resource.result.reference|%resource.result.reference.resolve().hasMember.reference)))"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
