@@ -393,7 +393,7 @@
       </mapping>
       <mapping>
         <identity value="udi"/>
-        <map value="distinctIdentifier (DIC)"/>
+        <map value="A distinct identification code required by §1271.290(c), the product contains or consists of human cells or tissues that are intended for implantation, transplantation, infusion, or transfer into a human recipient as defined under 21 CFR 1271.3.  This may also be known as the donation identification number (DIN) or a value to trace the product's origin."/>
       </mapping>
     </element>
     <element id="Device.manufacturer">
