@@ -48,10 +48,29 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceDefinition.type"/>
+          <valueString value="DeviceDefinition.classification.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-type"/>
         <description value="The device type"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="DeviceDefinition.classification.type"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.conformsTo.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-category"/>
+        <description value="The category of the conformance"/>
         <code value="type"/>
         <type value="token"/>
         <expression value="DeviceDefinition.conformsTo.category"/>

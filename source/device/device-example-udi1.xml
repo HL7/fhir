@@ -63,7 +63,7 @@
 	</association> -->
 	<safety>
 		<coding>
-			<system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+			<system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
 			<code value="mr-unsafe"/>
 			<display value="MR Unsafe"/>
 		</coding>
