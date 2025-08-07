@@ -5,7 +5,7 @@
   <url value="http://hl7.org/fhir/SearchParameter/example"/>
   <version value="1"/>
   <name value="IDSEARCHPARAMETER"/>
-  <title value="I D- S E A R C H- P A R A M E T E R"/>
+  <title value="ID-SEARCH-PARAMETER"/>
   <derivedFrom value="http://hl7.org/fhir/SearchParameter/Resource-id"/>
   <status value="draft"/>
   <experimental value="true"/>

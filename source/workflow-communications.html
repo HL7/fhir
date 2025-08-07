@@ -88,6 +88,11 @@ in order to support consistent definitions for schema and UML derived code.
                 types of execution it can trigger, this will be noted in the "limitations" section.</li>
         </ul>
 
+        <h3>Communication Pattern Considerations</h3>
+        <p>
+          Many of the workflow patterns involve the creation or update of records on one system (which might be the placer, filler or intermediary) and the need for another system to be aware of the newly created or updated record.  There are two general-purpose RESTful mechanisms in FHIR to create this awareness: polling and subscriptions.  Polling makes use of general search mechanisms, while subscriptions makes use of the <a href="subscription.html">Subscription resource</a> and other associated resources.  In our discussion of workflow, we will simply refer to "polling or subscription" without differentiating which approach is used.  For guidance in deciding whether polling or subscriptions are a more appropriate architecture for a specific implementation space, refer to the <a href="exchanging.html#subscription">Approaches to Exchanging FHIR Data</a> section in this specification.
+        </p>
+
         <h3>Workflow State</h3>
         <p>
             One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the workflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource. The <a href="task.html#statemachine">Task state machine</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastructure state of the Task resource.
