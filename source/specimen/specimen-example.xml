@@ -93,7 +93,9 @@
     -->
     <container>
 	<device> 
+  	   	 <reference>
 	      <reference value="Device/device-example-specimen-container-green-gel-vacutainer"/>
+  	   	 </reference>
 	</device>
 	
 	<!-- if there's only one container, then this value is the same

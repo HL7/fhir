@@ -55,7 +55,9 @@
 	</collection>
 	<container>
 	   <device>
+  	   	 <reference>
 	      <reference value="Device/device-example-specimen-container-red-top-vacutainer"/>
+  	   	 </reference>
 	   </device>
 	</container>
 	<note>
