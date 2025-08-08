@@ -66,6 +66,12 @@
 	          When linking to other Observations from which an Observation is derived.  In this case both <code>Observation.code</code> and <code>Observation.value[x]</code> are present,  and the linked observations are listed in <code>Observation.derivedFrom</code>.  An example of this would be a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation where the height and weight measurements are referenced.
 	           </li>
 		</ol>
+		
+		<a name="obsdelta">
+		</a>
+		<h3>Observation Delta</h3>
+		<p>To perform a delta check one can instantiate a new observation (the comparison observation) with <code>derivedFrom</code> populated with references to the two prior Observations that triggered the delta check. Also, the <code>Observation.interpretation</code> of the comparison Observation has the code of the interpretation of the delta check.</p>
+		
 		<a name="usingcodes">
 		</a>
 	  <h3> Using codes in Observation </h3>
