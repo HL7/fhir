@@ -23,7 +23,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The fixed characteristics or conditions of the device."/>
+  <description value="The fixed characteristics or conditions of the device. These codes are for example purposes only."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/device-property-type"/>

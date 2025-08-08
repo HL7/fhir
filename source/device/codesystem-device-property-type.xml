@@ -15,7 +15,7 @@
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 Orders and Observations Workgroup"/>
-  <description value="The fixed characteristics or conditions of the device."/>
+  <description value="The fixed characteristics or conditions of the device. These codes are for example purposes only."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
