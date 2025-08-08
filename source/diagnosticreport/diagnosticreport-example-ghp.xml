@@ -103,7 +103,9 @@
 				</collection>
 				<container>
 				  <device>
+					<reference>	
 	                <reference value="Device/device-example-specimen-container-example-sst-vacutainer"/>
+	              </reference>	
 	              </device>	
 				</container>
 			</Specimen>
@@ -154,7 +156,9 @@
 				</collection>
 				<container>
 					<device>
+					<reference>
 	                <reference value="Device/device-example-specimen-container-lavender-vacutainer"/>
+	              </reference>	
 	              </device>	
 				</container>
 			</Specimen>
@@ -205,8 +209,10 @@
 				</collection>
 				<container>
 					<device>
-	                <reference value="Device/device-example-specimen-container-polycup"/>
-	              </device>	
+                      <reference>	
+	                	<reference value="Device/device-example-specimen-container-polycup"/>
+    	              </reference>	
+				  </device>	
 				</container>
 			</Specimen>
 		</resource>

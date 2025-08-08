@@ -25,6 +25,10 @@
 <li>For updating the patient's information about the usage of a device, DeviceUsage may be used;</li>
 <li>For tracking the different events along the lifecycle of the same Device, DeviceAssociation is appropriate </li>
 </ul>
+<li>For tracking the act of implanting or using the device, Procedure may be used;</li>
+<li>For updating the patient's information about the usage of a device, DeviceUsage may be used;</li>
+<li>For tracking the different events along the lifecycle of the same Device, DeviceAssociation is appropriate </li>
+</ul>
 </li>
 </ul>
 <p>These are not exclusive, i.e. when associating a device with a patient, the it is possible to capture the patient's clinical information with a DeviceUsage resource, include the device in a Procedure for reporting, and keep the Device's traceability information with a DeviceAssociation resource.</p>
