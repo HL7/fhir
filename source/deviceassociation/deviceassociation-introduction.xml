@@ -18,18 +18,14 @@
 <div>
 <h2>Boundaries and Relationships</h2>
 <ul>
-<li><strong><a href="device.html">Device</a></strong>  - The DeviceAssociation resource contains the association (including history) between a device and a subject, eliminating the need for the Device resource to contain that history of associations which might allow unintended exposure of patient information.</li>
-<li><strong><a href="deviceusage.html">DeviceUsage</a></strong> and <strong><a href="procedure.html">Procedure</a></strong> - Both Procedure and DeviceUsage can comprehend association (not necessarily the related dissociation) of a device with a subject. They are intended to be used from the patient or process perspective.
-<ul>
-<li>For tracking the act of implanting or using the device, Procedure may be used;</li>
-<li>For updating the patient's information about the usage of a device, DeviceUsage may be used;</li>
-<li>For tracking the different events along the lifecycle of the same Device, DeviceAssociation is appropriate </li>
-</ul>
-<li>For tracking the act of implanting or using the device, Procedure may be used;</li>
-<li>For updating the patient's information about the usage of a device, DeviceUsage may be used;</li>
-<li>For tracking the different events along the lifecycle of the same Device, DeviceAssociation is appropriate </li>
-</ul>
-</li>
+    <li><strong><a href="device.html">Device</a></strong>  - The DeviceAssociation resource contains the association (including history) between a device and a subject, eliminating the need for the Device resource to contain that history of associations which might allow unintended exposure of patient information.</li>
+    <li><strong><a href="deviceusage.html">DeviceUsage</a></strong> and <strong><a href="procedure.html">Procedure</a></strong> - Both Procedure and DeviceUsage can comprehend association (not necessarily the related dissociation) of a device with a subject. They are intended to be used from the patient or process perspective.
+        <ul>
+            <li>For tracking the act of implanting or using the device, Procedure may be used;</li>
+            <li>For updating the patient's information about the usage of a device, DeviceUsage may be used;</li>
+            <li>For tracking the different events along the lifecycle of the same Device, DeviceAssociation is appropriate </li>
+        </ul>
+    </li>
 </ul>
 <p>These are not exclusive, i.e. when associating a device with a patient, the it is possible to capture the patient's clinical information with a DeviceUsage resource, include the device in a Procedure for reporting, and keep the Device's traceability information with a DeviceAssociation resource.</p>
 <p>To track changes in settings, the Observation resource can be used, where <code>Observation.subject</code> references the Device that the settings apply to.  If, e.g., the patient that the Device is associated with needs to be identified, then the DeviceAssociation where <code>DeviceAssociation.period</code> includes the <code>Observation.effective[x]</code> would have that patient in <code>DeviceAssociation.subject</code>.</p>
