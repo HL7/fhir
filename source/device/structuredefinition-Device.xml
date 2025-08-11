@@ -256,7 +256,7 @@
     <element id="Device.udiCarrier.carrierAIDC">
       <path value="Device.udiCarrier.carrierAIDC"/>
       <short value="UDI Machine Readable value"/>
-      <definition value="The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation as printed on the packaging of the device - e.g., a barcode or RFID.   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded."/>
+      <definition value="The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation as printed on the packaging of the device - e.g., a barcode , 2D Matrix, or RFID. Some AIDC representations contain non-printable characters and cannot be represented in a string format.  For this reason, AIDC format SHALL be base64Binary encoded."/>
       <comment value="The AIDC form of UDIs should be scanned or otherwise used for the identification of the device whenever possible to minimize errors in records resulting from manual transcriptions. If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label."/>
       <alias value="Automatic Identification and Data Capture"/>
       <min value="0"/>
@@ -276,8 +276,8 @@
     </element>
     <element id="Device.udiCarrier.carrierHRF">
       <path value="Device.udiCarrier.carrierHRF"/>
-      <short value="UDI Human Readable Barcode String"/>
-      <definition value="The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device."/>
+      <short value="UDI Human Readable value"/>
+      <definition value="The full UDI carrier as the human readable form (HRF) representation as printed on the packaging of the device."/>
       <comment value="If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label."/>
       <alias value="Human Readable Form"/>
       <min value="0"/>
@@ -390,6 +390,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="udi"/>
+        <map value="A distinct identification code required by §1271.290(c), the product contains or consists of human cells or tissues that are intended for implantation, transplantation, infusion, or transfer into a human recipient as defined under 21 CFR 1271.3.  This may also be known as the donation identification number (DIN) or a value to trace the product's origin."/>
       </mapping>
     </element>
     <element id="Device.manufacturer">
