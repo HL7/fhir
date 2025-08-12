@@ -21,9 +21,9 @@ Outstanding issues:
 <h1>Digital Signatures</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
-
 <p>
-Digital Signatures are needed to prove the authenticity and integrity of health records generally, and specifically for FHIR content and to establish the grounds for non-repudiation.
+Digital Signatures are needed to prove the authenticity and integrity of health records generally, and specifically
+for FHIR content and to establish the grounds for non-repudiation.
 </p>
 <p>
 FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
@@ -33,6 +33,14 @@ This functionality is provided through the <a href="datatypes.html#Signature">Si
 signature element in the <a href="provenance.html">Provenance</a> Resource.
 The signature can either be an electronic signature (e.g. an image of an ink signature), or a digital signature (cryptographic
 proof that the content has not changed), and in the case of a digital signature, either a JWS signature or an XML Digital Signature.
+</p>
+<p>
+In general, signatures are not used when exchanging information directly between systems,
+as the transport arrangements between systems are expected to provide the necessary assurances of authenticity 
+and integrity. The need for signatures arises when the content is being used across multiple systems, 
+or when the content is stored for later retrieval and uers need to verify that is not been changed. 
+In addition, there may be regulatory requirements that require the use of signatures, including 
+signatures that are applied subsequently to the content being created.
 </p>
 <p>
 Due the wide set of choices around the use of electronic and digital signatures, 
@@ -128,7 +136,7 @@ from a human user perspective.
 There are multiple aspects to signature verification:
 </p>
 <ol>
-   <li>Verifying that the Digital Signature block itself has integrity through verifying the signature across the Signature.</li>
+   <li>Verifying that the Digital Signature block itself (by verifying the signature cryptographically).</li>
    <li>Confirming that the signed content of interest is unmodified using the hash algorithm (for XML digital signatures - this is inherently required for JWS signatures).</li>
    <li>Confirming that the signer (e.g. the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
    <li>Confirming the relationship between the signed content, and the functionality of interest.</li>
@@ -203,22 +211,23 @@ which itself is canonicalized according to the rules of RFC 8785.
 </p>
 
 <a name="json-xml"></a>
-<h3>JSON</h3>
+<h3>JSON-XML (XML Safe JSON Canonicalization)</h3>
 <p>
 The simple JSON Canonicalization defined above has a potentially serious limitation: it does not
 allow for the reconstruction of a standard payload for signature verification if (and only if) the 
 resource is represented as XML at some point in the life cycle between signing and verification.
-This happens because in the XML format, the XHTML is part of the DOM, and whitespace and namespaces 
-may be reorgnised without changing the canonical XHTML.
+This happens because in the XML format, XHTML elements (Resource and Section Narratives) 
+are part of the XML DOM, and whitespace and namespaces may be reorganised without changing the canonical XHTML.
 </p>
 <p>
-However most implementers never use the XML format, and the JSON Canonicalization is sufficient for in this case.
+However most implementers never use the XML format, and the JSON Canonicalization is sufficient when it is not.
 If XML is in scope (and implementers should note that this is a requirement that might arise retrospectively), 
-then an alternative canonicalization method should be used.
+then this alternative canonicalization <code>JSON-XML</code> method should be used. The rules for 
+this canonicalization are the same as for the JSON canonicalization, except that:
 </p>
 <ul>
   <li>Prior to serialization, the content of any xhtml in the narrative SHALL be canonicalized according to the
-XML canonicalization rules defined below.</li>
+XML canonicalization rules defined for XML below.</li>
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json-xml</code>. 
@@ -233,13 +242,13 @@ XML. Resources are canonicalized using XML canonical method <a href="http://www.
 In addition, the following rules apply:
 </p>
 <ul>
-  <li>Whitespace in the primitive values SHALL not be altered (including multiple spaces in markdown), except for:</li>
   <li>The XHTML <a href="narrative.html">Narrative</a> SHALL be canonicalized following these same rules</li>
+  <li>Whitespace in other primitive values SHALL not be altered (including multiple spaces in markdown)</li>
   <li>Resources are to contain no whitespace other than as found in attribute values and in the XHTML in the narrative, and single spaces between attributes in XML elements </li>
   <li>Use default namespaces for the FHIR and XHTML namespaces</li>
   <li>Omit all comments</li>
   <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
-  <li>When sets of resources are signed, </li>
+  <li>When sets of resources are signed, each seperate resource is an additional <code>Reference</code> entry in the <code>SignedInfo</code> </li>
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/xml</code>.
@@ -308,7 +317,7 @@ When the signature is a JWS Digital Signature, the following rules apply:
 <ul>
  <li>The Signature.data is base64 encoded JWS-Signature as specified in <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The value of Signature.sigFormat is <code>application/jose</code> and this SHOULD be populated</li>
- <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above. The canonicalization method MAY also be found in the <code>canon</code> property in the protected header</li>
+ <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above. The custom protected header property <code>canon</code> MAY be also be used to identify the canonicalization method</li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature
     (where the content that is signed is separate from the signature itself), and the payload SHALL be omitted</li>
  <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> 
@@ -317,10 +326,10 @@ When the signature is a JWS Digital Signature, the following rules apply:
     The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
     The Signature.type SHALL contain the same values as the srCms element.</li>
  <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>Specifically, protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
- <li>The protected header SHALL contain either a <code>kid</code> or an <code>x5c</code> property</li>
+ <li>Specifically, the JWS protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
+ <li>The JWS protected header SHALL contain either a <code>kid</code> or an <code>x5c</code> property</li>
  <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
-   that matches an identifier found in the X509 certificate (e.g. the <code>Subject</code>, or one of the Subject Alternative Names</li> 
+   that matches an identifier found in the X509 certificate (e.g. the Subject Name (<code>SN</code>), or one of the Subject Alternative Names (<code>SAN</code>)</li> 
  <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
 </ul>
 
@@ -374,17 +383,19 @@ When a provenance resource is used to carry a signature, the following rules app
 The most common use of signatures in FHIR is to sign a Document Bundle, and embed the signature inside the Bundle.
 In this approach, Documents are signed by provenance resources contained within the document Bundle. Note that it 
 is not necessary to sign Bundles with embedded signatures like this - systems and/or ecosystems may choose to 
-use enveloping signatures, or make the Provenance resources avilable separately. However, if the signature
-is being embedded in the Bundle, then the following rules SHALL be observed:
+use enveloping signatures (<a href="https://w3c.github.io/wot-ejs/">JSON</a>, <a href="https://www.w3.org/Signature/Drafts/WD-xmldsig-core-200005plc/Overview.html#sec-o-SignatureProperty">XML</a>), where the the signed data is included within the signature itself, 
+or make the Provenance resources avilable separately. However, if the signature is being embedded in the 
+Bundle, then the following rules SHALL be observed:
 </p>
 <ol>
  <li>Signatures SHALL be in a Provenance resource (there may be more than one such signature)</li>
  <li>The Provenance resources with these signatures SHALL be in entries in the Bundle</li>
- <li>The target <code>Bundle/[id]</code> where id is the id of the Bundle identifies that the Bundle is being signed. Note that if 
+ <li>The <code>Provenance.target</code> with a <code>reference</code> value of exactly <code>Bundle/[id]</code> 
+   where id is the id of the Bundle, such that the target identifies that the Bundle itself is being signed. Note that if 
    the Provenance does not have a target of `Bundle/[id]` it does not represent an embedded signature, does not sign the Bundle, 
    and is not subject to the rules documented here</li>
  <li>The Provenance resource SHALL have a <code>Provenance.signature</code> element that contains the signature of the Bundle,
-   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource where the Provenance.target includes
+   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource where the Provenance.targets includes
    a reference to <code>Bundle/{id}</code></li>   
  <li>The Provenance resource is allowed to indicate that it signs additional resources, including the special target value <code>#</code>
   which indicates that it signs itself in addition to the Bundle (but not including any Provenance.signature containing a digital signature). 
@@ -398,8 +409,8 @@ is being embedded in the Bundle, then the following rules SHALL be observed:
 
 <p>
 Bundle resources include the <code>Bundle.signature</code>, element, but a number of issues with it's use have been
-identified, and it is deprecated. Applications SHOULD use te method described above to sign Bundles (which may be 
-preadopted when working with earlier versions of the FHIR speciifcation).
+identified, and it is deprecated. Applications SHOULD use the method described above to sign Bundles (which may be 
+pre-adopted when working with earlier versions of the FHIR specification).
 </p>
 
 <a name="examples"></a>
