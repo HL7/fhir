@@ -62,16 +62,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceDefinition-category"/>
+        <id value="DeviceDefinition-conformsTo-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceDefinition.conformsTo.category"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-category"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-conformsTo-category"/>
         <description value="The category of the conformance"/>
-        <code value="type"/>
+        <code value="conformsTo-category"/>
         <type value="token"/>
         <expression value="DeviceDefinition.conformsTo.category"/>
         <processingMode value="normal"/>
