@@ -136,10 +136,10 @@ from a human user perspective.
 There are multiple aspects to signature verification:
 </p>
 <ol>
-   <li>Verifying that the Digital Signature block itself (by verifying the signature cryptographically).</li>
-   <li>Confirming that the signed content of interest is unmodified using the hash algorithm (for XML digital signatures - this is inherently required for JWS signatures).</li>
+   <li>Verifying the Digital Signature block itself by verifying the signature cryptographically</li>
+   <li>Ror XML digital signatures, confirming that the signed content of interest is unmodified using the hash algorithm (for JWS signatures, this is inherently required as part of the previous step)</li>
    <li>Confirming that the signer (e.g. the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
-   <li>Confirming the relationship between the signed content, and the functionality of interest.</li>
+   <li>Confirming the relationship between the signed content, and the singer and functionality of interest.</li>
 </ol>
 <p>
 Local policy and implementation guides are required to guide implementations here. While full conformance to 
@@ -206,8 +206,8 @@ When JSON resources are canonicalized, they SHALL be canonicalized in accordance
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. 
 </p>
 <p>
-When a provenance has multiple targets resources that are signed, the resources are placed in a JSON Array 
-which itself is canonicalized according to the rules of RFC 8785.
+When a provenance has multiple targets resources that are signed, the resources are placed in a JSON Array
+preserving the <code>Provenance.target</code> order which itself is canonicalized according to the rules of RFC 8785.
 </p>
 
 <a name="json-xml"></a>
@@ -267,19 +267,19 @@ The following additional canonicalization URIs are also defined for all three fo
 <table class="grid">
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}}#data</td>
-  <td>The narrative (<code>Resource.text</code>) is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
+  <td><code>Resource.text</code> is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#static</td>
-  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if unsigned.</td>
+  <td><code>Resource.text</code> and <code>Resource.meta</code> are omitted prior to signing. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if the resource is signed with this canonicalization.</td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#narrative</td>
-  <td>The method only retains the <code>Resource.id</code> and Narrative (<code>Resource.text</code></td>
+  <td>Only <code>Resource.id</code> and Narrative (<code>Resource.text</code> are signed</td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#document</td>
-  <td>The signs everything in a Bundle, except for the Bundle.id and Bundle.metadata on the root Bundle (allows for a document to be copied from server to server)</td>
+  <td>The Document <code>Bundle.id</code> and <code>Bundle.metadata</code> on the root Bundle are omitted prioer to signing. This allows for a document to be copied from server to server</td>
  </tr>
 </table>
 <p>
@@ -322,15 +322,17 @@ When the signature is a JWS Digital Signature, the following rules apply:
     (where the content that is signed is separate from the signature itself), and the payload SHALL be omitted</li>
  <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> 
     of the resource(s) as indicated in the <code>targetFormat</code> element as described above.</li>
- <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. 
-    The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
-    The Signature.type SHALL contain the same values as the srCms element.</li>
- <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>Specifically, the JWS protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
+
+ <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> 
+    or <code>Reference.identifier</code> that matches an identifier found in the X509 certificate. E.g. the Subject Name (<code>SN</code>),
+    or one of the Subject Alternative Names (<code>SAN</code>)</li> 
  <li>The JWS protected header SHALL contain either a <code>kid</code> or an <code>x5c</code> property</li>
- <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
-   that matches an identifier found in the X509 certificate (e.g. the Subject Name (<code>SN</code>), or one of the Subject Alternative Names (<code>SAN</code>)</li> 
+ <li>The Signature SHALL include a "srCms signer commitments" property for the Purpose(s) of Signature. 
+    The Purpose can be the action being attested to, or the role associated with the signature. The <code>Signature.type</code> shall come from ASTM E1762-95(2013). 
+    The Signature.type SHALL contain the same values as the srCms element.</li>
+ <li>The JWS protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
  <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
+ <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
 </ul>
 
 <a name="DigSig"></a>
