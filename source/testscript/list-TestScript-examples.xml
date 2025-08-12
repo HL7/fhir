@@ -18,6 +18,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Effective Period TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-effective-period"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-effective-period"/>
+      <display value="Effective Period Test"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="History TestScript Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

@@ -28,10 +28,8 @@
     </testRun>
     <testData>
      <type>
-      <coding>
-        <system value="http://example.org/fhir/testplan/testData-type"/>
-        <code value="description"/>
-      </coding>
+      <system value="http://example.org/fhir/testplan/testData-type"/>
+      <code value="description"/>
      </type>
      <sourceString value="Description of observation test data"/>
     </testData>

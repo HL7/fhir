@@ -276,7 +276,7 @@
       <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
       <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
       </type>
@@ -462,10 +462,10 @@
       <path value="Task.focus"/>
       <short value="What task is acting on"/>
       <definition value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
-      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)."/>
+      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.). Typically a Task should only have one focus.  If multiple focuses are provided, then action must be taken the complete set as a whole.  I.e. All must be accepted, rejected, cancelled, held, completed, etc. as a whole.  If there is a possibility to have different statuses for different focuses, then there SHALL be a separate Task instance for each focus."/>
       <requirements value="Used to identify the thing to be done."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>

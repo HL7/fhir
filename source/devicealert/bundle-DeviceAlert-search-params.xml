@@ -16,7 +16,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.identifier" />
@@ -44,7 +44,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.subject" />
@@ -75,7 +75,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.subject" />
@@ -103,7 +103,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.status" />
@@ -131,16 +131,44 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.condition.code" />
+          <valueString value="DeviceAlert.code" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-code" />
         <description value="Alert condition code" />
         <code value="code" />
         <type value="token" />
-        <expression value="DeviceAlert.condition.code" />
+        <expression value="DeviceAlert.code" />
+        <processingMode value="normal" />
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-category" />
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+          <valueCode value="dev" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+          <valueInteger value="1" />
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.category" />
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-category" />
+        <description value="Alert category" />
+        <code value="category" />
+        <type value="token" />
+        <expression value="DeviceAlert.category" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
@@ -159,16 +187,16 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.presence" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-presence" />
-        <description value="Whether the alert condition is currently occuring" />
+        <description value="Whether the alert condition is currently occurring" />
         <code value="presence" />
         <type value="token" />
-        <expression value="DeviceAlert.condition.presence" />
+        <expression value="DeviceAlert.presence" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
@@ -176,7 +204,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceAlert-timing" />
+        <id value="DeviceAlert-acknowledged" />
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
           <valueCode value="dev" />
@@ -190,13 +218,41 @@
           <valueInteger value="0" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.condition.timing" />
+          <valueString value="DeviceAlert.acknowledged" />
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-acknowledged" />
+        <description value="Whether the alert condition has been acknowledged" />
+        <code value="acknowledged" />
+        <type value="token" />
+        <expression value="DeviceAlert.acknowledged" />
+        <processingMode value="normal" />
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-period" />
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+          <valueCode value="dev" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+          <valueInteger value="2" />
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.presencePeriod" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-timing" />
-        <description value="When the alert condition occured" />
-        <code value="timing" />
+        <description value="When the alert condition occurred" />
+        <code value="period" />
         <type value="date" />
-        <expression value="DeviceAlert.condition.timing" />
+        <expression value="DeviceAlert.presencePeriod" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
@@ -215,7 +271,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.priority" />
@@ -243,7 +299,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.type" />
@@ -260,7 +316,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceAlert-source" />
+        <id value="DeviceAlert-device" />
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
           <valueCode value="dev" />
@@ -271,16 +327,16 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.source" />
+          <valueString value="DeviceAlert.device" />
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-source" />
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-device" />
         <description value="The device detecting the condition" />
-        <code value="source" />
+        <code value="device" />
         <type value="reference" />
-        <expression value="DeviceAlert.source" />
+        <expression value="DeviceAlert.device" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
@@ -299,16 +355,16 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.derivedFrom" />
+          <valueString value="DeviceAlert.derivedFrom.observation" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-derivedFrom" />
-        <description value="Whether the alert is currently occuring" />
+        <description value="Whether the alert is currently occurring" />
         <code value="derived-from" />
         <type value="reference" />
-        <expression value="DeviceAlert.derivedFrom" />
+        <expression value="DeviceAlert.derivedFrom.observation" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
@@ -327,13 +383,13 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.presence" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-signalPresence" />
-        <description value="Whether the alert is currently occuring" />
+        <description value="Whether the alert is currently occurring" />
         <code value="signal-presence" />
         <type value="token" />
         <expression value="DeviceAlert.signal.presence" />
@@ -355,7 +411,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.annunciator.concept" />
@@ -384,7 +440,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.annunciator.reference" />
@@ -412,7 +468,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.manifestation" />
@@ -440,7 +496,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.signal.indication" />

@@ -135,8 +135,7 @@
         <key value="vsp-3-sbp"/>
         <severity value="error"/>
         <human value="If the systolic BP component exists and there is no component value a component data absent reason must be present."/>
-        <expression value="component.value.exists() or component.dataAbsentReason.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/bp"/>
+        <expression value="value.exists() or dataAbsentReason.exists()"/>
       </constraint>
       <mustSupport value="true"/>
     </element>
@@ -202,8 +201,7 @@
         <key value="vsp-3-dbp"/>
         <severity value="error"/>
         <human value="If the diastolic BP component exists and there is no component value a component data absent reason must be present."/>
-        <expression value="component.value.exists() or component.dataAbsentReason.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+        <expression value="value.exists() or dataAbsentReason.exists()"/>
       </constraint>
       <mustSupport value="true"/>
     </element>

@@ -12,6 +12,17 @@
 		<system value="http://ehr.acme.org/identifiers/collections"/>
 		<value value="23234352356"/>
 	</identifier>
+	<identifier>
+	    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+		</type>
+		<system value="http://lab.acme.org/specimens/2011"/>
+		<value value="X352356"/>
+	</identifier>
 	<accessionIdentifier>
 		<system value="http://lab.acme.org/specimens/2011"/>
 		<value value="X352356"/>
@@ -82,7 +93,9 @@
     -->
     <container>
 	<device> 
+  	   	 <reference>
 	      <reference value="Device/device-example-specimen-container-green-gel-vacutainer"/>
+  	   	 </reference>
 	</device>
 	
 	<!-- if there's only one container, then this value is the same
