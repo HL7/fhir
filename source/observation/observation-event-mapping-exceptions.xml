@@ -86,7 +86,7 @@
     <divergentElement patternPath="Event.encounter" resourcePath="Observation.encounter">
         <shortUnmatched reason="Unknown">
             <_pattern value="Encounter the observation is part of"/>
-            <resource value="Healthcare event during which this observation is made. If you need to place the observation within one or more episodes of care, use the workflow-episodeOfCare extension"/>
+            <resource value="Healthcare event during which this observation is made"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The Encounter during which this observation was created or to which the creation of this record is tightly associated."/>

@@ -2,7 +2,7 @@
 	<id value="map-sitting"/>
 
 	<!--	To be used only when the body position in not precoordinated in the observation code.-->
-<!-- 	<extension url="http://hl7.org/fhir/StructureDefinition/observation-bodyPosition">
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-bodyPosition">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -10,7 +10,7 @@
 				<display value="Sitting position (finding)"/>
 			</coding>
 		</valueCodeableConcept>
-	</extension> -->
+	</extension>
 		<!--	The qualitative change in the value relative to the previous measurement. Usually only recorded if the change is clinically significant.-->
 	<extension url="http://hl7.org/fhir/StructureDefinition/observation-delta">
 		<valueCodeableConcept>
