@@ -38,7 +38,7 @@ proof that the content has not changed), and in the case of a digital signature,
 In general, signatures are not used when exchanging information directly between systems,
 as the transport arrangements between systems are expected to provide the necessary assurances of authenticity 
 and integrity. The need for signatures arises when the content is being used across multiple systems, 
-or when the content is stored for later retrieval and uers need to verify that is not been changed. 
+or when the content is stored for later retrieval and users need to verify that has not been changed. 
 In addition, there may be regulatory requirements that require the use of signatures, including 
 signatures that are applied subsequently to the content being created.
 </p>
@@ -88,7 +88,7 @@ to adjust other content, including coded values, in order to <a href="managing.h
 </p>
 <p>
 For example, when a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
-the server is expected at a minimum to update relevant elements that it manages (id, lastUpdated, etc.). 
+the server is expected, at a minimum, to update relevant elements that it manages (id, lastUpdated, etc.). 
 These changes, although expected of normal RESTful create/update operations, will break any existing Digital Signature
 that covers these elements. 
 Variations of this same pattern happens in Messaging, Documents, and other interaction models. 
@@ -137,9 +137,9 @@ There are multiple aspects to signature verification:
 </p>
 <ol>
    <li>Verifying the Digital Signature block itself by verifying the signature cryptographically</li>
-   <li>Ror XML digital signatures, confirming that the signed content of interest is unmodified using the hash algorithm (for JWS signatures, this is inherently required as part of the previous step)</li>
+   <li>For XML digital signatures, confirming that the signed content of interest is unmodified using the hash algorithm (for JWS signatures, this is inherently required as part of the previous step)</li>
    <li>Confirming that the signer (e.g. the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
-   <li>Confirming the relationship between the signed content, and the singer and any consequences of the signature for the application.</li>
+   <li>Confirming the relationship between the signed content, the signer, and any consequences of the signature for the application.</li>
 </ol>
 <p>
 Local policy and implementation guides are required to guide implementations here. While full conformance to 
@@ -160,11 +160,11 @@ of the person/software/organization that requested the certificate (e.g.
 <code>OU=IG Publisher,L=Ann Arbor,CN=hl7.org,O=HL7,ST=Michigan,C=us</code>). However:
 </p>
 <ul> 
-  <li>this is not necessarily the same as the person who signed the content</li>
-  <li>the user won't easily be able to resolve the LDAP identification to a known entity within their context of use</li>
-  <li>an application verifying the signature and presenting it to the user won't typically be able to relate the identity in the certificate to a FHIR reference / etc</li>
+  <li>This is not necessarily the same as the person who signed the content.</li>
+  <li>The user won't easily be able to resolve the LDAP identification to a known entity within their context of use.</li>
+  <li>An application verifying the signature and presenting it to the user won't typically be able to relate the identity in the certificate to a FHIR reference / etc.</li>
   <li>Statements about the signer in the Provenance resource in <code>.agent</code> 
-    are easier to relate to the context, but can only be trusted to the extent that they can be validated by comparison to the signature contents</li>
+    are easier to relate to the context, but can only be trusted to the extent that they can be validated by comparison to the signature contents.</li>
 </ul>
 <p>
 There are some mitigations possible here. Certificate authorities can issue certificates that include additional identifiers 
@@ -266,7 +266,7 @@ The following additional canonicalization URIs are also defined for all three fo
 </p>
 <table class="grid">
  <tr>
-  <td>http://hl7.org/fhir/canonicalization/{fmt}}#data</td>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#data</td>
   <td><code>Resource.text</code> is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
  </tr>
  <tr>
@@ -351,7 +351,8 @@ When the signature is an XML Digital Signature, the following rules apply:
   <li>The Signature SHOULD include a "xades CommitmentTypeId" element for the Purpose(s) of Signature. 
     The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
     The Signature.type SHALL contain the same values as the srCms element.</li>
-  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation.</li>
+  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, 
+       inclusion of the signing certificate, and statement of revocation.</li>
   <li>Specifically, SignedSignatureProperties SHOULD have a <code>SigningTime</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL be equal</li>
   <li>If a SignedSignatureProperties block is present, it SHOULD not have any whitespace between the elements</li>
   <li>The Signature SHALL contain a <code>X509Certificate</code></li>
@@ -370,11 +371,11 @@ When a provenance resource is used to carry a signature, the following rules app
  <li>The Signature elements <code>type</code>, <code>when</code>, <code>who</code>, and <code>onBehalfOf</code>
    duplicate the Provenance elements <code>agent.type</code>, <code>occurredDateTime</code>, <code>agent.who</code>, and <code>agent.onBehalfOf</code>
   and SHOULD not be used</li>
- <li>if they are present, they SHALL agree with the values in the Provenance resource</li> 
+ <li>If they are present, they SHALL agree with the values in the Provenance resource</li> 
  <li>
   Since all digital signatures in the same provenance share the same signer, time, purpose etc, the primary use if 
   multiple signatures is to include different media representations of the signature such as text and images as 
-  described above and if these are present, they should be signed by the digital signature(s)
+  described above and if these are present, they should be signed by the digital signature(s).
  </li>
 </ol>
 
@@ -383,7 +384,7 @@ When a provenance resource is used to carry a signature, the following rules app
 <h3>Signing Bundles</h3>
 <p>
 The most common use of signatures in FHIR is to sign a Document Bundle, and embed the signature inside the Bundle.
-In this approach, Documents are signed by provenance resources contained within the document Bundle. Note that it 
+In this approach, Documents are signed by Provenance resources contained within the document Bundle. Note that it 
 is not necessary to sign Bundles with embedded signatures like this - systems and/or ecosystems may choose to 
 use enveloping signatures (<a href="https://w3c.github.io/wot-ejs/">JSON</a>, <a href="https://www.w3.org/Signature/Drafts/WD-xmldsig-core-200005plc/Overview.html#sec-o-SignatureProperty">XML</a>), where the the signed data is included within the signature itself, 
 or make the Provenance resources avilable separately. However, if the signature is being embedded in the 
@@ -410,8 +411,8 @@ Bundle, then the following rules SHALL be observed:
 </ol>
 
 <p>
-Bundle resources include the <code>Bundle.signature</code>, element, but a number of issues with it's use have been
-identified, and it is deprecated. Applications SHOULD use the method described above to sign Bundles (which may be 
+Bundle resources include the <code>Bundle.signature</code>, element, but a number of issues with its use have been
+identified, and the element is deprecated. Applications SHOULD use the method described above to sign Bundles (which may be 
 pre-adopted when working with earlier versions of the FHIR specification).
 </p>
 
@@ -582,7 +583,8 @@ Comments on the contents of the header:
 <ul>
   <li>the <code>srCms</code> is as defined by JAdES-B-T. It SHOULD be present, and if present, and Signature.type is present, they SHALL agree, as this example does</li>
   <li>the <code>sigT</code> is as defined by JAdES-B-T. It SHOULD be present, and if present, and Signature.when is present, they SHALL agree, as this example does</li>
-  <li>The <code>canon</code> is optional, but if it it is present, and Signature.targetFormat is present and specifies a canonicalization, they SHALL agree, as this example does. Note that the signature should explicitly state the canonicalization since this is the most troublesome part of the signature verification</li>
+  <li>The <code>canon</code> is optional, but if it it is present, and Signature.targetFormat is present and specifies a canonicalization, they SHALL agree, as this example does. Note that the signature should explicitly state the canonicalization 
+       since this is the most troublesome part of the signature verification</li>
   <li>This signature includes the public key directly (as this does). Alternatively, it might specify a <code>kid</code> that identifies the key, which must be retrieved from some key management arrangement</li>
   <li>Irrespective of how the public key is found, the signature is only trustable if the certificate itself is verified, and doing that is outside the scope of the FHIR specification</li>
 </ul>
@@ -671,4 +673,5 @@ This signature is valid.
     
     
 </body>
+
 </html>
