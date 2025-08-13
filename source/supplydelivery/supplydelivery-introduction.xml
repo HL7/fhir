@@ -32,15 +32,14 @@ Those associations are done in dedicated resources such as the MedicationDispens
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource has a boundary with <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">Medicationdispense</a>:
-The DeviceDispense and MedicationDispense resources are used to associate the device or medication with the specific patient for their use, while SupplyDelivery is solely focused on location and movement 
+The <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">MedicationDispense</a> resources are used to associate the device or medication with the specific patient for their use, while <a href="supplydelivery.html">SupplyDelivery</a> is solely focused on location and movement 
 where the targeted patient or other person (e.g., devices used by a clinician), if included, are for delivery context only.</p>
 
 <p>
-To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done, as the context of the use case actually determines which date of either resource is considered the purchase date.
+To determine the purchase date, a search of <a href="devicerequest.html">DeviceRequest</a>, <a href="supplyrequest.html">SupplyRequest</a>, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done, as the context of the use case actually determines which date of either resource is considered the purchase date.
 </p>
 <p>
-The Transport documents the movement of the supplies, people, patients, etc. between dispatch and receipt including, e.g., time of movement, transporter, average temperature during transport.
+The <a href="transport.html">Transport</a> resource documents the movement of the supplies, people, patients, etc. between dispatch and receipt including, e.g., time of movement, transporter, average temperature during transport.
 </p>
 </div>
 
