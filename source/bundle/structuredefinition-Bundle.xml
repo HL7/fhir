@@ -664,7 +664,6 @@
 			<path value="Bundle.signature"/>
 			<short value="Digital Signature (deprecated: use Provenance Signatures)"/>
 			<definition value="Digital Signature: XML-DSig or JWS. This element is deprecated, and [Provenance based Signatures](signatures.html#Bundle) should be used instead."/>
-			<comment value="See discussion on the signatures page."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

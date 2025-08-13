@@ -139,7 +139,7 @@ There are multiple aspects to signature verification:
    <li>Verifying the Digital Signature block itself by verifying the signature cryptographically</li>
    <li>Ror XML digital signatures, confirming that the signed content of interest is unmodified using the hash algorithm (for JWS signatures, this is inherently required as part of the previous step)</li>
    <li>Confirming that the signer (e.g. the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
-   <li>Confirming the relationship between the signed content, and the singer and functionality of interest.</li>
+   <li>Confirming the relationship between the signed content, and the singer and any consequences of the signature for the application.</li>
 </ol>
 <p>
 Local policy and implementation guides are required to guide implementations here. While full conformance to 
