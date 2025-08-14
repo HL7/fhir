@@ -490,6 +490,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
     </element>
     <element id="TestPlan.scope.description">
@@ -560,12 +562,9 @@
 			</extension>
 			<path value="TestPlan.mode.code"/>
 			<short value="The code that identifies the mode"/>
-			<definition value="The code by which the mode is identified when passed to runner. This code is used to select which parameters are used, and which tests are run."/>
+			<definition value="The code by which the mode is identified when passed to runner. This code is used to select which suite and tests are run, and which parameters and inputs are used. Codes are entirely at the descretion of the TestPlan, but typically 'advanced' or 'general' are the kind of codes that could be used."/>
 			<comment value="The code should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
 			<requirements value="Allows the runner to select which tests and parameters are relevant for this mode."/>
-			<path value="TestPlan.mode.code"/>
-      <short value="The code that identifies the mode"/>
-      <definition value="The code by which the mode is identified when passed to runner."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -704,7 +703,7 @@
         <code value="Base"/>
       </type>
       <constraint>
-        <key value="tp-2"/>
+        <key value="tp-1"/>
         <severity value="error"/>
         <human value="Either a file, or a resource, but not both"/>
         <expression value="file.exists() xor resource.exists()"/>
@@ -816,7 +815,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
       <meaningWhenMissing value="If no modes are listed, the test is always executed"/>
     </element>
@@ -853,6 +852,12 @@
       <type>
         <code value="Base"/>
       </type>
+      <constraint>
+        <key value="tp-2"/>
+        <severity value="error"/>
+        <human value="At least an expression or a human readable rule must exist"/>
+        <expression value="expression.exists() or human.exists()"/>
+      </constraint>
     </element>
     <element id="TestPlan.suite.test.assertion.focus">
       <path value="TestPlan.suite.test.assertion.focus"/>
@@ -866,8 +871,8 @@
     </element>
     <element id="TestPlan.suite.test.assertion.severity">
       <path value="TestPlan.suite.test.assertion.severity"/>
-      <short value="fatal | error | warning | information | success; only errors are considered to cause a test to fail"/>
-      <definition value="Resources expected as output from this test. Often, but not always, these resources are Matchetype resources. How exactly it is used depends on the definition of the runner."/>
+      <short value="fatal | error | warning | information | success; fatal+error = fail"/>
+      <definition value="Resources expected as output from this test. Only error and fatal assertions are considered to cause a test to fail. Often, but not always, these resources are Matchetype resources. How exactly it is used depends on the definition of the runner."/>
       <min value="0"/>
       <max value="1"/>
       <type>

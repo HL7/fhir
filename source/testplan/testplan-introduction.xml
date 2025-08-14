@@ -24,7 +24,7 @@ tools, while others are intended to be used as a specification for manual testin
 <p>
 The FHIR Specification defines another resource type called <a href="testscript.html">TestScript</a> that is used 
 define test cases for the FHIR RESTful API. The TestScript resource differs from TestPlan in that it has a pre-defined
-implicit test runner that is suitable for it's stated purpose of testing FHIR RESTful APIs. 
+implicit test runner that is suitable for its stated purpose of testing FHIR RESTful APIs. 
 </p>
 <p>
 As such, TestScript covers a subset of what TestPlan can do, and does so with much more precision and detail, 
