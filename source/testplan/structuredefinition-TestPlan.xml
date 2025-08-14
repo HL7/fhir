@@ -77,8 +77,8 @@
 				<valueCode value="0,0"/>
 			</extension>
 			<path value="TestPlan"/>
-			<short value="Description of intented testing"/>
-			<definition value="A plan for executing testing on an artifact or specifications."/>
+			<short value="Tests to be executed by a Test Runner that knows the tests"/>
+			<definition value="A set of test specifications that are able to be executed by a TestRunner that knows how to interpret the tests and execute them."/>
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>
@@ -88,14 +88,6 @@
 				<expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
 			</constraint>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="n/a"/>
-			</mapping>
 			<mapping>
 				<identity value="w5"/>
 				<map value="conformance.misc"/>
@@ -265,7 +257,7 @@
 				<map value="FiveWs.status"/>
 			</mapping>
 		</element>
-				<element id="TestPlan.experimental">
+		<element id="TestPlan.experimental">
 			<path value="TestPlan.experimental"/>
 			<short value="For testing only - never for real usage"/>
 			<definition value="A Boolean value to indicate that this test plan is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
@@ -384,9 +376,6 @@
 			</mapping>
 		</element>
 		<element id="TestPlan.jurisdiction">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<path value="TestPlan.jurisdiction"/>
 			<short value="Intended jurisdiction where the test plan applies (if applicable)"/>
 			<definition value="A legal or geographic region in which the test plan is intended to be used."/>
@@ -478,442 +467,472 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="TestPlan.category">
-			<path value="TestPlan.category"/>
-			<short value="The category of the Test Plan - can be acceptance, unit, performance"/>
-			<definition value="The category of the Test Plan - can be acceptance, unit, performance, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TestPlanCategory"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="The high-level category for this plan."/>
-				</extension>
-				<strength value="example"/>
-				<description value="The high-level category for this plan."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes"/>
-			</binding>
-		</element>
-		<element id="TestPlan.scope">
-			<path value="TestPlan.scope"/>
-			<short value="What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference"/>
-			<definition value="What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference..."/>
-			<comment value="Inclusion of an artifact in scope means that at least some portion of the testing pertains to that artifact."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.scope.artifact[x]">
-			<path value="TestPlan.scope.artifact[x]"/>
-			<short value="The specific conformance artifact, or narrative criteria, or an external reference being tested"/>
-			<definition value="The specific conformance artifact, or narrative criteria, or an external reference being tested. The canonical reference can be version-specific."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
-			</type>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<type>
-				<code value="uri"/>
-			</type>
-		</element>
-		<element id="TestPlan.testTools">
-			<path value="TestPlan.testTools"/>
-			<short value="A description of test tools to be used in the test plan - narrative for now"/>
-			<definition value="A description of test tools to be used in the test plan."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="TestPlan.dependency">
-			<path value="TestPlan.dependency"/>
-			<short value="The required criteria to execute the test plan - e.g. preconditions, previous tests"/>
-			<definition value="The required criteria to execute the test plan - e.g. preconditions, previous tests..."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.dependency.description">
-			<path value="TestPlan.dependency.description"/>
-			<short value="Description of the dependency criterium"/>
-			<definition value="A textual description of the criterium - what is needed for the dependency to be considered met."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="TestPlan.dependency.predecessor">
-			<path value="TestPlan.dependency.predecessor"/>
-			<short value="Link to predecessor test plans"/>
-			<definition value="Predecessor test plans - those that are expected to be successfully performed as a dependency for the execution of this test plan."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
-			</type>
-		</element>
-		<element id="TestPlan.exitCriteria">
-			<path value="TestPlan.exitCriteria"/>
-			<short value="The threshold or criteria for the test plan to be considered successfully executed - narrative"/>
-			<definition value="The threshold or criteria for the test plan to be considered successfully executed - narrative."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase">
-			<path value="TestPlan.testCase"/>
-			<short value="The test cases that constitute this plan"/>
-			<definition value="The individual test cases that are part of this plan, when they they are made explicit."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.key">
-			<path value="TestPlan.testCase.key"/>
-			<short value="Key that identifies this test case"/>
-			<definition value="Key that identifies this test case (unique within this resource)."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="id"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.description">
-			<path value="TestPlan.testCase.description"/>
-			<short value="Narrative description explaining the purpose of this test case"/>
-			<definition value="Narrative description using markdown content to explain the purpose of this test case."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.sequence">
-			<path value="TestPlan.testCase.sequence"/>
-			<short value="Sequence of test case in the test plan"/>
-			<definition value="Sequence of test case - an ordinal number that indicates the order for the present test case in the test plan."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="integer"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.scope">
-			<path value="TestPlan.testCase.scope"/>
-			<short value="The scope or artifact covered by the case"/>
-			<definition value="The scope or artifact covered by the case, when the individual test case is associated with a testable artifact."/>
-			<comment value="Inclusion of an artifact in scope means that at least some portion of the testing pertains to that artifact."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.scope.artifact[x]">
-			<path value="TestPlan.testCase.scope.artifact[x]"/>
-			<short value="The specific conformance artifact, or narrative criteria, or an external reference covered by the case"/>
-			<definition value="The specific conformance artifact, or narrative criteria, or an external reference covered by the case. The canonical reference can be version-specific."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
-			</type>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<type>
-				<code value="uri"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.requirement">
-			<path value="TestPlan.testCase.requirement"/>
-			<short value="Links or references to the testing requirements"/>
-			<definition value="Links or references providing traceability to the testing requirements for this assert."/>
-			<comment value="TestPlan instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.requirement.reference">
-			<path value="TestPlan.testCase.requirement.reference"/>
-			<short value="Canonical reference to the Requirements instance"/>
-			<definition value="Canonical reference providing traceability to the testing requirement for this test case."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.requirement.key">
-			<path value="TestPlan.testCase.requirement.key"/>
-			<short value="Requirements statement key identifier"/>
-			<definition value="Requirements.statement.key that identifies the statement that this test case satisfies."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="id"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.dependency">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-				<valueString value="TestCaseDependency"/>
+
+
+    <element id="TestPlan.scope">
+      <path value="TestPlan.scope"/>
+      <short value="The scope - what these test cases are testing"/>
+      <definition value="The scope indicates what kind of systems these test cases are intended to test."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.scope.reference">
+      <path value="TestPlan.scope.reference"/>
+      <short value="A reference to what is being tested"/>
+      <definition value="A reference to what is being tested."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+      </type>
+    </element>
+    <element id="TestPlan.scope.description">
+      <path value="TestPlan.scope.description"/>
+      <short value="Description of what the scope is exists / what is being tested"/>
+      <definition value="Description of what the scope is does / what is being tested."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.dependency">
+      <path value="TestPlan.dependency"/>
+      <short value="Test cases that must be passed before these test cases are meaningful to execute"/>
+      <definition value="Another set of test cases that must be passed before these test cases are meaningful to execute. These test cases prove functionality that these tests require to execute."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.dependency.reference">
+      <path value="TestPlan.dependency.reference"/>
+      <short value="The Test Cases"/>
+      <definition value="The test cases."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
+      </type>
+    </element>
+    <element id="TestPlan.dependency.description">
+      <path value="TestPlan.dependency.description"/>
+      <short value="Description of what the dependency exists / why it was defined"/>
+      <definition value="Description of what this mode does / why it was defined. This should explain to a tester why the ."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.runner">
+      <path value="TestPlan.runner"/>
+      <short value="URL Documentation for a runner that executes these tests"/>
+      <definition value="URL of documentation that explains how a runner would read these tests, and use them to actually test out a tool."/>
+      <min value="1"/>
+      <max value="1"/>
+			<isSummary value="true"/>
+      <type>
+        <code value="url"/>
+      </type>
+    </element>
+    <element id="TestPlan.mode">
+      <path value="TestPlan.mode"/>
+      <short value="A mode that can be passed to runner - affects test content"/>
+      <definition value="A mode that can be passed to a runner running these these tests, that affects test content and influences how the tests are executed or evaulated (or even if they run)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.mode.code">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
 			</extension>
-			<path value="TestPlan.testCase.dependency"/>
-			<short value="Required criteria to execute the test case"/>
-			<definition value="The required criteria to execute the test case - e.g. preconditions, previous tests."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.dependency.description">
-			<path value="TestPlan.testCase.dependency.description"/>
-			<short value="Description of the criteria"/>
-			<definition value="Description of the criteria."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.dependency.reference">
-			<path value="TestPlan.testCase.dependency.reference"/>
-			<short value="Canonical reference to the TestPlan dependency instance"/>
-			<definition value="Canonical reference providing traceability to the TestPlan dependency instance for this test case."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.dependency.key">
-			<path value="TestPlan.testCase.dependency.key"/>
-			<short value="TestPlan dependency instance testCase key identifier"/>
-			<definition value="TestPlan.testCase.key that identifies the testCase in the TestPlan dependency instance."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="id"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testRun">
-			<path value="TestPlan.testCase.testRun"/>
-			<short value="The actual test to be executed"/>
-			<definition value="The actual test to be executed."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testRun.narrative">
-			<path value="TestPlan.testCase.testRun.narrative"/>
-			<short value="The narrative description of the tests"/>
-			<definition value="The narrative description of the tests."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testRun.script">
-			<path value="TestPlan.testCase.testRun.script"/>
-			<short value="The test cases in a structured language"/>
-			<definition value="The test cases in a structured language e.g. Gherkin, Postman, or FHIR TestScript."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testRun.script.language">
-			<path value="TestPlan.testCase.testRun.script.language"/>
-			<short value="The structured language for the test case script"/>
-			<definition value="The structured language for the test case script e.g. Gherkin, Postman, or FHIR TestScript."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testplan-script-language"/>
-			</binding>
-		</element>
-		<element id="TestPlan.testCase.testRun.script.source[x]">
-			<path value="TestPlan.testCase.testRun.script.source[x]"/>
-			<short value="The actual content of the script, reference to test resource (TestScript) or externally defined content"/>
-			<definition value="The actual content of the script, references to test resource (TestScript) or externally defined content."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="Attachment"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testData">
-			<path value="TestPlan.testCase.testData"/>
-			<short value="The test data used in the test case"/>
-			<definition value="The test data used in the test case."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testData.type">
-			<path value="TestPlan.testCase.testData.type"/>
-			<short value="The type of test data description, e.g. 'synthea'"/>
-			<definition value="The type of test data description, e.g. 'synthea'."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Coding"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testData.content">
-			<path value="TestPlan.testCase.testData.content"/>
-			<short value="The actual test resources when they exist"/>
-			<definition value="The actual test resources when they exist."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testData.source[x]">
-			<path value="TestPlan.testCase.testData.source[x]"/>
-			<short value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc"/>
-			<definition value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="uri"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.assertion">
-			<path value="TestPlan.testCase.assertion"/>
-			<short value="Test assertions or expectations"/>
-			<definition value="The test assertions - the expectations of test results from the execution of the test case."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.assertion.type">
-			<path value="TestPlan.testCase.assertion.type"/>
-			<short value="The expected outcome for this assertion"/>
-			<definition value="The test case assertion type - this can be used to group assertions as 'required' or 'optional', or can be used for other classification of the assertion."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/testplan-assertion-type"/>
-			</binding>
-		</element>
-		<element id="TestPlan.testCase.assertion.object">
-			<path value="TestPlan.testCase.assertion.object"/>
-			<short value="The focus or object of the assertion"/>
-			<definition value="The focus or object of the assertion i.e. a resource."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableReference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.assertion.result">
-			<path value="TestPlan.testCase.assertion.result"/>
-			<short value="The actual result assertion"/>
-			<definition value="The test assertion - the expected outcome from the test case execution."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableReference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-		</element>
-		<element id="TestPlan.testCase.testCase">
-			<path value="TestPlan.testCase.testCase"/>
-			<short value="Nested test cases"/>
-			<definition value="Breaks down a larger test case into smaller components."/>
-			<comment value="There is no specified limit to the depth of nesting. However, TestPlan authors are encouraged to consider the impact on the user, user interface and test tools of overly deep nesting."/>
-			<requirements value="TestPlan test cases can consist of complex nested groups."/>
-			<min value="0"/>
-			<max value="*"/>
-			<contentReference value="#TestPlan.testCase"/>
-		</element>
+			<path value="TestPlan.mode.code"/>
+			<short value="The code that identifies the mode"/>
+			<definition value="The code by which the mode is identified when passed to runner. This code is used to select which parameters are used, and which tests are run."/>
+			<comment value="The code should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Allows the runner to select which tests and parameters are relevant for this mode."/>
+			<path value="TestPlan.mode.code"/>
+      <short value="The code that identifies the mode"/>
+      <definition value="The code by which the mode is identified when passed to runner."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.mode.description">
+      <path value="TestPlan.mode.description"/>
+      <short value="Description of what this mode exists / why it was defined"/>
+      <definition value="Description of what this mode does / why it was defined. This should explain to a tester when they should use the mode."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.parameter">
+      <path value="TestPlan.parameter"/>
+      <short value="Parameter defined for all tests"/>
+      <definition value="A parameter passed to the runner when executing tests. Which parameters are valid, and how exactly the parameter is used are used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.parameter.name">
+      <path value="TestPlan.parameter.name"/>
+      <short value="Name per Runner Definition"/>
+      <definition value="Name for the parameter as defined by the runner definition."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.parameter.value[x]">
+      <path value="TestPlan.parameter.value[x]"/>
+      <short value="Value of this parameter"/>
+      <definition value="The value of the parameter. If the value is an Expression, the definition of the runner describes what kind of expressions are allowed and the features/capabilities that they can make use of."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Expression"/>
+      </type>
+    </element>
+    <element id="TestPlan.parameter.mode">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+      <path value="TestPlan.parameter.mode"/>
+      <short value="A mode that must be true for this parameter to be used"/>
+      <definition value="If this mode is not passed to the runner, then this parameter will not be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If no modes are listed, the parameter is always used, unless there is a parameter with the same name that is selected by mode"/>
+    </element>
+    <element id="TestPlan.suite">
+      <path value="TestPlan.suite"/>
+      <short value="A suite of tests that share a common set up"/>
+      <definition value="A suite of tests that all share a common set up, and can be executed as a group."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.name">
+      <path value="TestPlan.suite.name"/>
+      <short value="The name of this suite - unique in the TestCases resource"/>
+      <definition value="The name by which this suite is known by in the test system. The name must be unique in the amongst the suites."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.description">
+      <path value="TestPlan.suite.description"/>
+      <short value="Description of what this suite does / why it was defined"/>
+      <definition value="Description of what this suite does / why it was defined. This should explain to a tester what they should know when deciding which tests to run."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.mode">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+      <path value="TestPlan.suite.mode"/>
+      <short value="Mode required to run this suite"/>
+      <definition value="If this mode is not passed to the runner, then this suite will not be run."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If no modes are listed, the suite is always executed"/>
+    </element>
+    <element id="TestPlan.suite.input">
+      <path value="TestPlan.suite.input"/>
+      <short value="Resources used in the tests in this suite"/>
+      <definition value="The resources used in the tests in this suite. How exactly they are used depends on the definition of the runner ."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+      <constraint>
+        <key value="tp-2"/>
+        <severity value="error"/>
+        <human value="Either a file, or a resource, but not both"/>
+        <expression value="file.exists() xor resource.exists()"/>
+      </constraint>
+    </element>
+    <element id="TestPlan.suite.input.name">
+      <path value="TestPlan.suite.input.name"/>
+      <short value="A name for this resource (per runner definition)"/>
+      <definition value="A name that identifies this resource. The runner definition defines whether there must be a name, and what names there are."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.input.file">
+      <path value="TestPlan.suite.input.file"/>
+      <short value="A file containing a resource used in the tests"/>
+      <definition value="A file containing a resource used in the tests."/>
+      <comment value="Filename is relative to the folder/directory containing this TestCases"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.input.resource">
+      <path value="TestPlan.suite.input.resource"/>
+      <short value="An inline resource used in the tests"/>
+      <definition value="An inline resource used in the tests. How exactly it is used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Resource"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.input.mode">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+      <path value="TestPlan.suite.input.mode"/>
+      <short value="A mode that must be true for this resource to be used"/>
+      <definition value="If this mode is not passed to the runner, then this resource will not be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If no modes are listed, the resource is always used, unless there is another entry with the same name that is selected by mode"/>
+    </element>
+    <element id="TestPlan.suite.parameter">
+      <path value="TestPlan.suite.parameter"/>
+      <short value="Parameter defined by the suite"/>
+      <definition value="A parameter passed to the runner when executing tests. Which parameters are valid, and how exactly the parameter is used are used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#TestPlan.parameter"/>
+    </element>
+    <element id="TestPlan.suite.test">
+      <path value="TestPlan.suite.test"/>
+      <short value="A test in the test suite"/>
+      <definition value="An actual test in the test suite."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.name">
+      <path value="TestPlan.suite.test.name"/>
+      <short value="The name of this test - unique in the suite"/>
+      <definition value="The name by which this test is known by in the test system. The name must be unique in the suite."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.description">
+      <path value="TestPlan.suite.test.description"/>
+      <short value="Description of what this test does / why it was defined"/>
+      <definition value="Description of what this test does / why it was defined. This should explain to a tester what they should know when looking at failing test results."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.operation">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+      <path value="TestPlan.suite.test.operation"/>
+      <short value="Operation that is executed during this test (per definition of runner)"/>
+      <definition value="A code that identifies the operation executed for this test. One of the codes defined in the definition of the runner."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.mode">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+      <path value="TestPlan.suite.test.mode"/>
+      <short value="Mode required to run this test"/>
+      <definition value="If this mode is not passed to the runner, then this test will not be run."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <meaningWhenMissing value="If no modes are listed, the test is always executed"/>
+    </element>
+    <element id="TestPlan.suite.test.parameter">
+      <path value="TestPlan.suite.test.parameter"/>
+      <short value="Parameter defined by the test"/>
+      <definition value="A parameter passed to the runner when executing tests. Which parameters are valid, and how exactly the parameter is used are used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#TestPlan.parameter"/>
+    </element>
+    <element id="TestPlan.suite.test.input">
+      <path value="TestPlan.suite.test.input"/>
+      <short value="Resources used when executing this test (per runner definition)"/>
+      <definition value="The resources used when executing this test. How exactly they are used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#TestPlan.suite.input"/>
+    </element>
+    <element id="TestPlan.suite.test.expected">
+      <path value="TestPlan.suite.test.expected"/>
+      <short value="Resources expected as output from this test (per runner definition, often Matchetypes)"/>
+      <definition value="Resources expected as output from this test. Often, but not always, these resources are Matchetype resources. How exactly it is used depends on the definition of the runner. How exactly it is used depends on the definition of the runner, but the expectation is that these are the expected output, to which the actual output is compared."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#TestPlan.suite.input"/>
+    </element>
+    <element id="TestPlan.suite.test.assertion">
+      <path value="TestPlan.suite.test.assertion"/>
+      <short value="Assertions that can be executed against the output of the tests"/>
+      <definition value="One or more assertions that can be executed against the output of the tests. These may be used with matchetypes to make rules about content the matchetypes leave open."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.assertion.focus">
+      <path value="TestPlan.suite.test.assertion.focus"/>
+      <short value="Which output the assertion is tested on (by name, if there is more than one)"/>
+      <definition value="Resources expected as output from this test. Often, but not always, these resources are Matchetype resources."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.assertion.severity">
+      <path value="TestPlan.suite.test.assertion.severity"/>
+      <short value="fatal | error | warning | information | success; only errors are considered to cause a test to fail"/>
+      <definition value="Resources expected as output from this test. Often, but not always, these resources are Matchetype resources. How exactly it is used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <description value="The severity of the assertion"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/issue-severity|5.0.0"/>
+      </binding>
+    </element>
+    <element id="TestPlan.suite.test.assertion.expression">
+      <path value="TestPlan.suite.test.assertion.expression"/>
+      <short value="Technical Expression of the assertion"/>
+      <definition value="Resources expected as output from this test. Often, but not always, these resources are Matchetype resources. How exactly it is used depends on the definition of the runner."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.assertion.human">
+      <path value="TestPlan.suite.test.assertion.human"/>
+      <short value="Human readable description of the assertion"/>
+      <definition value="A human readable description of the assertion."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.suite.test.assertion.mode">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+      <path value="TestPlan.suite.test.assertion.mode"/>
+      <short value="A mode that must be true for this assertion to apply"/>
+      <definition value="If this mode is not passed to the runner, then this assertion will not be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If no modes are listed, the assertion is always used, unless there is another assertion with the same name that is selected by mode"/>
+    </element>
+    <element id="TestPlan.suite.suite">
+      <path value="TestPlan.suite.suite"/>
+      <short value="A nested suite of tests"/>
+      <definition value="A nested set of tests."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#TestPlan.suite"/>
+    </element>
+    <element id="TestPlan.suite.plan">
+      <path value="TestPlan.suite.plan"/>
+      <short value="A nested set of test plans"/>
+      <definition value="A nested set of test plans that run within the context of this suite. Typically, the runner must be the same in the nested test plans."/>
+			<comment value="This is a reference to allow for direct local file references etc, but since TestPlan is a CanonicalResource, it can also be resolved as a canonical reference."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
+      </type>
+    </element>
+				
 	</differential>
 </StructureDefinition>
