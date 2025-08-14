@@ -302,18 +302,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="TestPlan-category"/>
+        <id value="TestPlan-scope"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="TestPlan.category"/>
+          <valueString value="TestPlan.scope.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-category"/>
-        <description value="The category for the test plan"/>
-        <code value="category"/>
-        <type value="token"/>
-        <expression value="TestPlan.category"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope"/>
+        <description value="URL contained in TestPlan.scope.reference"/>
+        <code value="scope"/>
+        <type value="reference"/>
+        <expression value="TestPlan.scope.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -321,18 +321,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="TestPlan-scope-artifact-canonical"/>
+        <id value="TestPlan-dependency"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="TestPlan.scope.artifactCanonical"/>
+          <valueString value="TestPlan.dependency.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope-artifact-canonical"/>
-        <description value="URL contained in TestPlan.scope.artifactCanonical"/>
-        <code value="scope-canonical"/>
-        <type value="uri"/>
-        <expression value="TestPlan.scope.artifact.ofType(canonical)"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-dependency"/>
+        <description value="URL contained in TestPlan.dependency.reference"/>
+        <code value="dependency"/>
+        <type value="reference"/>
+        <expression value="TestPlan.dependency.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -340,62 +340,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="TestPlan-scope-artifact-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="TestPlan.scope.artifactUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-scope-artifact-uri"/>
-        <description value="URL contained in TestPlan.scope.artifactUri"/>
-        <code value="scope-uri"/>
-        <type value="uri"/>
-        <expression value="TestPlan.scope.artifact.ofType(uri)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="TestPlan-requirement-reference"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="TestPlan.testCase.requirement.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-requirement-reference"/>
-        <description value="Canonical reference to a requirement this TestPlan supports"/>
-        <code value="requirement"/>
-        <type value="uri"/>
-        <expression value="TestPlan.testCase.requirement.reference"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="TestPlan-requirement-reference-key"/>
+        <id value="TestPlan-runner"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="draft"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/TestPlan-requirement-reference-key"/>
-        <description value="Canonical reference to a requirement and statement (key) this TestPlan supports"/>
-        <code value="requirement-key"/>
-        <type value="composite"/>
-        <expression value="TestPlan.testCase.requirement"/>
+        <description value="Reference to the runner for the test case"/>
+        <code value="runner"/>
+        <type value="uri"/>
+        <expression value="TestPlan.runner"/>
         <processingMode value="normal"/>
-        <component>
-          <definition value="reference"/>
-          <expression value="reference"/>
-        </component>
-        <component>
-          <definition value="key"/>
-          <expression value="key"/>
-        </component>
       </SearchParameter>
     </resource>
   </entry>
