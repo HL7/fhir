@@ -8,30 +8,29 @@
   </identifier>
   <status value="draft"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
+  <description value="This test plan describes a manual test that a given observation can be read from the server using POSTMan. The user is instructed in the documentation to perform a POSTMan get with the $id in the URL and the Accept header, and compare with the expected output."/>
   <scope>
-    <artifactCanonical value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/Observation"/>
   </scope>
-  <testCase>
-    <key value="obs-read"/>
-    <testRun>
-     <narrative value="Read a JSON formatted Observation"/>
-     <script>
-      <language>
-        <coding>
-          <system value="http://hl7.org/fhir/testplan-script-language"/>
-          <code value="postman"/>
-          <display value="Postman"/>
-        </coding>
-      </language>
-      <sourceString value="Postman test script contents"/>
-     </script>
-    </testRun>
-    <testData>
-     <type>
-      <system value="http://example.org/fhir/testplan/testData-type"/>
-      <code value="description"/>
-     </type>
-     <sourceString value="Description of observation test data"/>
-    </testData>
-  </testCase>
+  <runner value="http://example.org/testing/my-manual-runner"/>
+  <suite>
+    <name value="Basic Observation Handling"/>
+    <test>
+      <name value="obs-read"/>
+      <description value="Read a JSON formatted Observation"/>
+      <operation value="postman/GET"/>
+      <parameter>
+        <name value="$id"/>
+        <valueString value="123124"/>
+      </parameter>
+      <parameter>
+        <name value="Accept"/>
+        <valueString value="application/fhir+json"/>
+      </parameter>
+      <expected>
+        <name value="response"/>
+        <file value="response1.json"/>
+      </expected>
+    </test>
+  </suite>
 </TestPlan>
