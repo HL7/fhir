@@ -84,7 +84,7 @@
         <tr>
           <td style="display: none">*</td>
           <td>
-            <span title="Codes:{http://terminology.hl7.org/CodeSystem/citation-summary-style comppub}">Computable Publishing</span>
+            <span title="Codes:{http://hl7.org/fhir/citation-summary-style comppub}">Computable Publishing</span>
           </td>
           <td>
             <div>
@@ -118,7 +118,7 @@
           <tr>
             <td style="display: none">*</td>
             <td>
-              <span title="Codes:{http://terminology.hl7.org/CodeSystem/title-type primary}">Primary title</span>
+              <span title="Codes:{http://hl7.org/fhir/title-type primary}">Primary title</span>
             </td>
             <td>
               <span title="Codes:{urn:ietf:bcp:47 en}">English</span>
@@ -194,7 +194,7 @@
             <tr>
               <td style="display: none">*</td>
               <td>
-                <span title="Codes:{http://terminology.hl7.org/CodeSystem/published-in-type D019991}">Database</span>
+                <span title="Codes:{http://hl7.org/fhir/published-in-type D019991}">Database</span>
               </td>
               <td>Abbreviation/dbGaP</td>
               <td>database of Genotypes and Phenotypes</td>
@@ -204,7 +204,7 @@
           </table>
           <p>
             <b>citedMedium</b>: 
-            <span title="Codes:{http://terminology.hl7.org/CodeSystem/cited-medium internet}">Internet</span>
+            <span title="Codes:{http://hl7.org/fhir/cited-medium internet}">Internet</span>
           </p>
           <p>
             <b>articleDate</b>: 2023-10-16
@@ -229,7 +229,7 @@
           </p>
           <p>
             <b>classifier</b>: 
-            <span title="Codes:{http://terminology.hl7.org/CodeSystem/artifact-url-classifier webpage}">Webpage</span>
+            <span title="Codes:{http://hl7.org/fhir/artifact-url-classifier webpage}">Webpage</span>
           </p>
           <p>
             <b>url</b>: 
@@ -255,11 +255,11 @@
           </p>
           <p>
             <b>type</b>: 
-            <span title="Codes:{http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type knowledge-artifact-type}">Knowledge Artifact Type</span>
+            <span title="Codes:{http://hl7.org/fhir/cited-artifact-classification-type knowledge-artifact-type}">Knowledge Artifact Type</span>
           </p>
           <p>
             <b>classifier</b>: 
-            <span title="Codes:{http://terminology.hl7.org/CodeSystem/citation-artifact-classifier D064886}">Dataset</span>
+            <span title="Codes:{http://hl7.org/fhir/citation-artifact-classifier D064886}">Dataset</span>
           </p>
         </blockquote>
         <blockquote>
@@ -313,7 +313,7 @@
             </p>
             <p>
               <b>role</b>: 
-              <span title="Codes:{http://terminology.hl7.org/CodeSystem/contributor-role author}">Author/Creator</span>
+              <span title="Codes:{http://hl7.org/fhir/contributor-role author}">Author/Creator</span>
             </p>
           </blockquote>
           <blockquote>
@@ -333,7 +333,7 @@
             </p>
             <p>
               <b>role</b>: 
-              <span title="Codes:{http://terminology.hl7.org/CodeSystem/contributor-role author}">Author/Creator</span>
+              <span title="Codes:{http://hl7.org/fhir/contributor-role author}">Author/Creator</span>
             </p>
           </blockquote>
           <blockquote>
@@ -353,7 +353,7 @@
             </p>
             <p>
               <b>role</b>: 
-              <span title="Codes:{http://terminology.hl7.org/CodeSystem/contributor-role author}">Author/Creator</span>
+              <span title="Codes:{http://hl7.org/fhir/contributor-role author}">Author/Creator</span>
             </p>
           </blockquote>
           <blockquote>
@@ -373,7 +373,7 @@
             </p>
             <p>
               <b>role</b>: 
-              <span title="Codes:{http://terminology.hl7.org/CodeSystem/contributor-role author}">Author/Creator</span>
+              <span title="Codes:{http://hl7.org/fhir/contributor-role author}">Author/Creator</span>
             </p>
           </blockquote>
         </blockquote>
@@ -501,7 +501,7 @@
   <summary>
     <style>
       <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/citation-summary-style"/>
+        <system value="http://hl7.org/fhir/citation-summary-style"/>
         <code value="comppub"/>
         <display value="Computable Publishing"/>
       </coding>
@@ -523,7 +523,7 @@
     <title>
       <type>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/title-type"/>
+          <system value="http://hl7.org/fhir/title-type"/>
           <code value="primary"/>
           <display value="Primary title"/>
         </coding>
@@ -547,7 +547,7 @@
       <publishedIn>
         <type>
           <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/published-in-type"/>
+            <system value="http://hl7.org/fhir/published-in-type"/>
             <code value="D019991"/>
             <display value="Database"/>
           </coding>
@@ -571,7 +571,7 @@
       </publishedIn>
       <citedMedium>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/cited-medium"/>
+          <system value="http://hl7.org/fhir/cited-medium"/>
           <code value="internet"/>
           <display value="Internet"/>
         </coding>
@@ -584,7 +584,7 @@
     <webLocation>
       <classifier>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+          <system value="http://hl7.org/fhir/artifact-url-classifier"/>
           <code value="webpage"/>
           <display value="Webpage"/>
         </coding>
@@ -605,14 +605,14 @@
     <classification>
       <type>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+          <system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
           <code value="knowledge-artifact-type"/>
           <display value="Knowledge Artifact Type"/>
         </coding>
       </type>
       <classifier>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+          <system value="http://hl7.org/fhir/citation-artifact-classifier"/>
           <code value="D064886"/>
           <display value="Dataset"/>
         </coding>
@@ -682,7 +682,7 @@
         </contributionType>
         <role>
           <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/contributor-role"/>
+            <system value="http://hl7.org/fhir/contributor-role"/>
             <code value="author"/>
             <display value="Author/Creator"/>
           </coding>
@@ -706,7 +706,7 @@
         </contributionType>
         <role>
           <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/contributor-role"/>
+            <system value="http://hl7.org/fhir/contributor-role"/>
             <code value="author"/>
             <display value="Author/Creator"/>
           </coding>
@@ -730,7 +730,7 @@
         </contributionType>
         <role>
           <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/contributor-role"/>
+            <system value="http://hl7.org/fhir/contributor-role"/>
             <code value="author"/>
             <display value="Author/Creator"/>
           </coding>
@@ -754,7 +754,7 @@
         </contributionType>
         <role>
           <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/contributor-role"/>
+            <system value="http://hl7.org/fhir/contributor-role"/>
             <code value="author"/>
             <display value="Author/Creator"/>
           </coding>

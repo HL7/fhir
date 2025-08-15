@@ -66,13 +66,8 @@
     <definition value="A polychotomous variable is a categorical variable which is defined to have minimally 2 categories or possible values. (from STATO  http://purl.obolibrary.org/obo/STATO_0000087).  Suggestion to limit code use to situations when neither dichotomous nor ordinal variables apply."/>
   </concept>
   <concept>
-    <code value="time-to-event"/>
-    <display value="time-to-event"/>
-    <definition value="time-to-event"/>
-  </concept>
-  <concept>
-    <code value="not-specified"/>
-    <display value="not-specified"/>
-    <definition value="not-specified"/>
+    <code value="extension"/>
+    <display value="extension"/>
+    <definition value="The variable handling is defined in an extension."/>
   </concept>
 </CodeSystem>
