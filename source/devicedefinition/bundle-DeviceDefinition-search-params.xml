@@ -71,7 +71,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-conformsTo-category"/>
         <description value="The category of the conformance"/>
-        <code value="conformsTo-category"/>
+        <code value="conforms-to-category"/>
         <type value="token"/>
         <expression value="DeviceDefinition.conformsTo.category"/>
         <processingMode value="normal"/>
