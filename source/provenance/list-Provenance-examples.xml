@@ -78,30 +78,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence recorded by a Biocompute objects"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="provenance-example-biocompute-object"/>
-    </extension>
-    <item>
-      <reference value="Provenance/example-biocompute-object"/>
-      <display value="Biocompute Object"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence for CWL workflow project"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="provenance-example-cwl"/>
-    </extension>
-    <item>
-      <reference value="Provenance/example-cwl"/>
-      <display value="CWL Workflow"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Creation of a Consent from a Questionnaire"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
