@@ -120,7 +120,7 @@
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
-        <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
+        <extraTypes _resource="Reference(HealthcareService,Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed observation"/>
             <resource value="Who is responsible for the observation"/>
