@@ -9,10 +9,10 @@
   <product>
     <reference value="BiologicallyDerivedProduct/example"/>
   </product>
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
 
   <!-- insert contents here -->
   

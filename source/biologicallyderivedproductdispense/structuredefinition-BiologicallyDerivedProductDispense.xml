@@ -169,15 +169,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
     </element>
-    <element id="BiologicallyDerivedProductDispense.patient">
-      <path value="BiologicallyDerivedProductDispense.patient"/>
-      <short value="The intended recipient of the dispensed product"/>
-      <definition value="A link to a resource representing the patient that the product is dispensed for."/>
+    <element id="BiologicallyDerivedProductDispense.subject">
+      <path value="BiologicallyDerivedProductDispense.subject"/>
+      <short value="The intended recipient(s) of the dispensed product"/>
+      <definition value="A link to a resource representing the individual(s) that the product is dispensed for."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="BiologicallyDerivedProductDispense.matchStatus">
