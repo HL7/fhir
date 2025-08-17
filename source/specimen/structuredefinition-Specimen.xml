@@ -868,9 +868,17 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCondition"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Codes describing the state of the specimen."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0493"/>
+      </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenConditionSCT"/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT codes describing the state of the specimen, descendants of 881221000124104 |Specimen condition finding (finding)|."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-condition-sct"/>
       </binding>
       <mapping>
         <identity value="v2"/>
