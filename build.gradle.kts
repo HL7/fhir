@@ -20,6 +20,7 @@ repositories {
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2016may")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu3")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu3.support")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r4")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r4b")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r5")
