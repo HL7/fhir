@@ -15,6 +15,7 @@ repositories {
         // Only search this repository for the specific dependency
         content {
             includeModule("org.hl7.fhir", "kindling")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.core")
             includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.utilities")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2")
             includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2016may")
