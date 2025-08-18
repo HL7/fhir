@@ -95,7 +95,7 @@
         <key value="dgr-1"/>
         <severity value="error"/>
         <human value="When a Composition is referenced in `DiagnosticReport.composition`, all Observation resources referenced in `Composition.entry` must also be referenced in `DiagnosticReport.result` or in the `Observation.hasMember` references."/>
-        <expression value="composition.exists() implies (composition.resolve().section.entry.reference.where(resolve() is Observation) in (result.reference|result.reference.resolve().hasMember.reference))"/>
+        <expression value="composition.exists() implies (composition.resolve().section.entry.reference.all($this.resolve() is Observation implies $this in (%resource.result.reference|%resource.result.reference.resolve().hasMember.reference)))"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
@@ -358,7 +358,7 @@
       <short value="Encounter associated with the DiagnosticReport"/>
       <definition value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
       <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
-      <requirements value="Links the request to the Encounter context."/>
+      <requirements value="Links the report to the Encounter context."/>
       <alias value="Context"/>
       <min value="0"/>
       <max value="1"/>

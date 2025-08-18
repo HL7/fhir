@@ -5,6 +5,28 @@
 <Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Downloads/fhir-all-xsd/structuredefinition.xsd">
 	<id value="pooled-serum"/>
 	<!--  the accessionId assigned by the lab-->
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
+		<system value="https://vetmed.iastate.edu/vdl"/>
+		<value value="20171120-1234"/>
+	</identifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
+		<system value="https://vetmed.iastate.edu/vdl"/>
+		<value value="20171120-1234"/>
+	</identifier>
 	<accessionIdentifier>
 		<system value="https://vetmed.iastate.edu/vdl"/>
 		<value value="20171120-1234"/>
@@ -33,7 +55,9 @@
 	</collection>
 	<container>
 	   <device>
+  	   	 <reference>
 	      <reference value="Device/device-example-specimen-container-red-top-vacutainer"/>
+  	   	 </reference>
 	   </device>
 	</container>
 	<note>

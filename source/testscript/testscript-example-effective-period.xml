@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
+  <id value="testscript-example-effective-period"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/artifact-effectivePeriod">
+    <valuePeriod>
+      <start value="2019-10-30"/>
+    </valuePeriod>
+  </extension>
+  <url value="http://hl7.org/fhir/TestScript/testscript-example-effective-period"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.12.9"/>
+  </identifier>
+  <version value="1.0"/>
+  <name value="TestScript Example Effective Period Test"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2025-07-29"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="Support"/>
+    <telecom>
+      <system value="email"/>
+      <value value="support@HL7.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="TestScript example resource the demonstrates the use of the artifact-effectivePeriod extenstion. There is a single test for a Patient read operation. The effective period range represents the period of use for the FHIR R4 v4.0.1 specification starting from its release date on Oct 30, 2019 with no expiration."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Demonstrate use of artifact-effectivePeriod extension"/>
+  <copyright value="© HL7.org 2011+"/>
+  <metadata>
+    <link>
+      <url value="http://hl7.org/fhir/patient.html"/>
+      <description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+    </link>
+    <capability>
+      <required value="true"/>
+      <validated value="false"/>
+      <description value="Patient Read Operation"/>
+      <link value="http://hl7.org/fhir/http.html#read"/>
+      <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
+    </capability>
+  </metadata>
+  <scope>
+    <artifact value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <conformance>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-conformance-codes"/>
+        <code value="optional"/>
+      </coding>
+    </conformance>
+    <phase>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-phase-codes"/>
+        <code value="unit"/>
+      </coding>
+    </phase>
+  </scope>
+  <profile id="patient-profile" value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+  <variable>
+    <name value="KnownPatientResourceId"/>
+    <defaultValue value="example"/>
+  </variable>
+  <test id="PatientRead">
+    <name value="Patient Read Test"/>
+    <description value="Read a known Patient and validate response."/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="read"/>
+        </type>
+        <resource value="Patient"/>
+        <description value="Read the known Patient resource on the destination test system using the user defined dynamic variable ${KnownPatientResourceId}."/>
+        <accept value="xml"/>
+        <encodeRequestUrl value="true"/>
+        <params value="/${KnownPatientResourceId}"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)."/>
+        <response value="okay"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is XML."/>
+        <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
+        <validateProfileId value="patient-profile"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+  </test>
+</TestScript>
