@@ -62,7 +62,7 @@ The Observation resource should not be used to record clinical diagnosis about a
 </p>
 
 <p>
-When an Observation instantiates an <a href="observationdefinition.html">ObservationDefinition</a>, the elements of the Observation resource are expected to inherit their content from the corresponding definitional elements declared in the ObservationDefinition resource listed here <a href="observationdefinition.html#8.26.2">here</a>. 
+When an Observation instantiates an <a href="observationdefinition.html">ObservationDefinition</a>, the elements of the Observation resource are expected to inherit their content from the corresponding definitional elements declared in the ObservationDefinition resource listed <a href="observationdefinition.html#8.26.2">here</a>. 
 </p>
 
 <p>
