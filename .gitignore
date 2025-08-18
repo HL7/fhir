@@ -106,6 +106,9 @@ local.properties
 # Locally stored "Eclipse launch configurations"
 *.launch
 
+# Claude config files
+.claude
+
 # PyDev specific (Python IDE for Eclipse)
 *.pydevproject
 
