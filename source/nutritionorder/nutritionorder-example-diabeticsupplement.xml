@@ -43,8 +43,8 @@ edited by Eric Haas Health eData Inc
 			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="441581000124101"/>
-				<display value="Diabetic specialty enteral formula (product)"/>
+				<code value="443051000124104"/>
+				<display value="Adult diabetic specialty formula"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/supplement-type-codes"/>

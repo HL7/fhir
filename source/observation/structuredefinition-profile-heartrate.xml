@@ -86,7 +86,6 @@
         <severity value="error"/>
         <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
         <expression value="dataAbsentReason.exists() or value.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
     </element>
     <element id="Observation.code">

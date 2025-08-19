@@ -129,7 +129,7 @@
         <missingTypes _pattern="Reference(Patient,Device,RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed diagnostic report"/>
-            <resource value="Primary result interpreter"/>
+            <resource value="Who analyzed and reported the conclusions and interpretations"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the diagnostic report."/>
