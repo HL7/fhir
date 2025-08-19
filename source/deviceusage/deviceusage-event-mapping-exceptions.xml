@@ -44,15 +44,14 @@
             <resource value="DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#13;&#13;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="DeviceUsage.patient">
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+    <divergentElement patternPath="Event.subject" resourcePath="DeviceUsage.subject">
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Patient using device"/>
+            <resource value="Individuals(s) who used the device"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The patient who used the device."/>
+            <resource value="The individual(s) who used the device."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the device usage to the Patient context.  May also affect access control."/>
@@ -95,6 +94,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DeviceUsage.informationSource">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <missingTypes _pattern="Reference(CareTeam,Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed device usage"/>
             <resource value="Who made the statement"/>

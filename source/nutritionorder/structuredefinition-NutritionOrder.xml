@@ -794,11 +794,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionProductCategory"/>
+          <valueString value="TextureModifierCodes"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes identifying classes of nutrition products."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-category"/>
+        <description value="Texture modifications for oral diets."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/texture-code"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -824,10 +824,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TextureModifiedFoodType"/>
+          <valueString value="Modified Food Types"/>
         </extension>
-        <strength value="example"/>
-        <description value="Codes for types of foods that are texture-modified."/>
+        <strength value="preferred"/>
+        <description value="Codes identifying food types that undergo texture modification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
       </binding>
       <mapping>
