@@ -696,8 +696,7 @@
       <path value="Task.owner"/>
       <short value="Responsible individual"/>
       <definition value="Party responsible for managing task execution."/>
-      <comment value="Tasks may be created with an owner not yet identified."/>
-      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
+      <comment value="Tasks may be created with an owner not yet identified. Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Identifies who is expected to perform this task."/>
       <alias value="Performer"/>
       <alias value="Executer"/>
