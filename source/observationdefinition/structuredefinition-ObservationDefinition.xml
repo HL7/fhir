@@ -839,8 +839,8 @@
 		</element>
 		<element id="ObservationDefinition.qualifiedValue.condition">
 			<path value="ObservationDefinition.qualifiedValue.condition"/>
-			<short value="Condition associated with the set of qualified values"/>
-			<definition value="Text based condition for which the the set of qualified values is valid."/>
+			<short value="Validity criterion for the qualified value"/>
+			<definition value="Description of the criterion for which the qualified value is valid."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

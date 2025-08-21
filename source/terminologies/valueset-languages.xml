@@ -1359,6 +1359,26 @@
         </designation>
       </concept>
       <concept>
+        <code value="fi-FI"/>
+        <display value="Finnish (Finland)"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Finnish (Finland)"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+            <code value="display"/>
+          </use>
+          <value value="Finnisch (Finnland)"/>
+        </designation>
+      </concept>
+      <concept>
         <code value="fr"/>
         <display value="French"/>
         <designation>
@@ -1556,26 +1576,6 @@
             <code value="display"/>
           </use>
           <value value="Fransk (Frankrig)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fi-FI"/>
-        <display value="Finnish (Finland)"/>
-        <designation>
-          <language value="en"/>
-          <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
-          </use>
-          <value value="Finnish (Finland)"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
-          </use>
-          <value value="Finnisch (Finnland)"/>
         </designation>
       </concept>
       <concept>
@@ -3432,26 +3432,6 @@
             <code value="display"/>
           </use>
           <value value="Kinesisk (Taiwan)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="bg"/>
-        <display value="Bulgarian"/>
-        <designation>
-          <language value="en"/>
-          <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
-          </use>
-          <value value="Bulgarian"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
-          </use>
-          <value value="Bulgarisch"/>
         </designation>
       </concept>
       <concept>

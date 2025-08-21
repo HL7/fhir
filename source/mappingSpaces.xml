@@ -510,4 +510,13 @@
 		<sort>44</sort>
     	<publish>true</publish>
 	</space>
+	<space>
+		<url>https://www.bluetooth.com</url>
+		<link>https://www.bluetooth.com</link>
+		<columnName>Bluetooth Technology</columnName>
+		<title>Bluetooth Technology</title>
+		<id>btle</id>
+		<sort>45</sort>
+    	<publish>true</publish>
+	</space>
 </mappingSpaces>
