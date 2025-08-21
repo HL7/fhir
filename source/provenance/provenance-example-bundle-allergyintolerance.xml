@@ -48,12 +48,14 @@
         <onsetDateTime value="2017-06-09"/>
         <reaction>
           <manifestation>
+          <concept>
             <coding>
               <system value="http://snomed.info/sct"/>
               <version value="http://snomed.info/sct/731000124108"/>
               <code value="247472004"/>
               <display value="Hives"/>
             </coding>
+          </concept>
           </manifestation>
           <onset value="2017-06-09"/>
         </reaction>
