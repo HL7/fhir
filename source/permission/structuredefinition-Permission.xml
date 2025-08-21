@@ -373,6 +373,24 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="Permission.rule.data.resourceType">
+      <path value="Permission.rule.data.resourceType"/>
+      <short value="e.g. Resource Type, Profile, etc"/>
+      <definition value="The resourceType(s) covered by this rule. The type can be a FHIR resource type or a profile on a type that indicates what information the rule applies to."/>
+      <comment value="The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="The resource types a consent provision covers."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+      </binding>
+    </element>
+
     <element id="Permission.rule.data.security">
       <path value="Permission.rule.data.security"/>
       <short value="Security tag code on .meta.security"/>
