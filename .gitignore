@@ -374,7 +374,7 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 
-### Gradle Patch ###
+### Gradle Patch ### 
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,eclipse,java,gradle,osx,windows,linux
