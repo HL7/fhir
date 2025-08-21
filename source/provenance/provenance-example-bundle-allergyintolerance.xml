@@ -13,6 +13,10 @@
     <resource>
       <AllergyIntolerance>
         <id value="79613"/>
+        <meta>
+          <versionId value="1"/>
+          <lastUpdated value="2019-07-09T15:26:23.217+00:00"/>
+        </meta>
         <clinicalStatus>
           <coding>
             <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
