@@ -328,6 +328,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+#Claude config files
+.claude
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
