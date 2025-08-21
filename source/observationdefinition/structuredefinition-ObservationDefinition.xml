@@ -789,10 +789,10 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
 			</binding>
 		</element>
-		<element id="ObservationDefinition.qualifiedValue.gender">
-			<path value="ObservationDefinition.qualifiedValue.gender"/>
+		<element id="ObservationDefinition.qualifiedValue.sexParameterForClinicalUse">
+			<path value="ObservationDefinition.qualifiedValue.sexParameterForClinicalUse"/>
 			<short value="male | female | other | unknown"/>
-			<definition value="The gender this  set of qualified values applies to."/>
+			<definition value="The sex parameter for clinical use this set of qualified values applies to."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
