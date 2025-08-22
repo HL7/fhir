@@ -676,7 +676,7 @@
     </element>
     <element id="ConceptMap.additionalAttribute.uri">
       <path value="ConceptMap.additionalAttribute.uri"/>
-      <short value="Formal identifier for the data element referred to in this attribte"/>
+      <short value="Formal identifier for the data element referred to in this attribute"/>
       <definition value="Reference to the formal definition of the source/target data element. For elements defined by the FHIR specification, or using a FHIR logical model, the correct format is {canonical-url}#{element-id}."/>
       <min value="0"/>
       <max value="1"/>
