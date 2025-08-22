@@ -91,7 +91,7 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the diagnostic report to the Encounter context.  May also affect access control."/>
-            <resource value="Links the request to the Encounter context."/>
+            <resource value="Links the report to the Encounter context."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="DiagnosticReport.effective[x]">
