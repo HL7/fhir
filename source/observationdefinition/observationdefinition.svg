@@ -670,8 +670,8 @@
        fill="#000000"
        class="diagram-class-detail"><a
    id="n1199"
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.gender"><title
-   id="title127082">The gender this  set of qualified values applies to</title>gender</a> : <a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.sexParameterForClinicalUse"><title
+   id="title127082">The sex parameter for clinical use this set of qualified values applies to</title>sexParameterForClinicalUse</a> : <a
    id="n1200"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
    id="n1201"
