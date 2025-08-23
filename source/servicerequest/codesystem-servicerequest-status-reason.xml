@@ -19,10 +19,10 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.3325"/>
   </identifier>
-  <version value="1.0.0"/>
+  <version value="6.0.0-ballot3"/>
   <name value="ServiceRequestStatusReasonCodes"/>
   <title value="Service Request Status Reason Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 International - Orders and Observations"/>
   <contact>
