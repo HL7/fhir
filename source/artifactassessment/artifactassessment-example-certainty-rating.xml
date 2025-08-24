@@ -29,7 +29,7 @@
         </type>
         <classifier>
             <coding>
-                <system value="http://hl7.org/fhir/certainty-rating"/>
+                <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                 <code value="very-low"/>
                 <display value="Very low quality"/>
             </coding>
@@ -42,14 +42,14 @@
             <summary value="risk of bias in both included trials"/>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                     <code value="RiskOfBias"/>
                     <display value="Risk of bias"/>
                 </coding>
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <code value="serious-concern"/>
                     <display value="serious concern"/>
                 </coding>
@@ -62,14 +62,14 @@
             <summary value="high degree of heterogeneity (I-squared 80.7%) with confidence intervals of 2 trial effect estimates barely overlapping"/>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                     <code value="Inconsistency"/>
                     <display value="Inconsistency"/>
                 </coding>
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <code value="serious-concern"/>
                     <display value="serious concern"/>
                 </coding>
@@ -81,14 +81,14 @@
         <component>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                     <code value="Indirectness"/>
                     <display value="Indirectness"/>
                 </coding>
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <code value="no-concern"/>
                     <display value="no serious concern"/>
                 </coding>
@@ -101,14 +101,14 @@
             <summary value="95% confidence interval includes both large effects and no effects"/>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                     <code value="Imprecision"/>
                     <display value="Imprecision"/>
                 </coding>
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <code value="serious-concern"/>
                     <display value="serious concern"/>
                 </coding>
@@ -120,14 +120,14 @@
         <component>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                     <code value="PublicationBias"/>
                     <display value="Publication bias"/>
                 </coding>
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <code value="no-concern"/>
                     <display value="no serious concern"/>
                 </coding>

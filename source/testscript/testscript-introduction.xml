@@ -29,23 +29,30 @@ The purpose of the TestScript is to encode in an executable representation tests
 It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange FHIR Resources; for example, the request sent and response returned from a <a href="operation-patient-everything.html">Patient $everything operation</a>.
 </p>
 
-[%stu-note dstu%]
-At this time the scope and usage of TestScript resources is focused on the FHIR specification. The TestScript resource scope and usage may expand in the future to include support for other HL7 specifications such as C-CDA and V2 as HL7 aligns these specifications with FHIR-based nomenclature and definitions. Future support may also additionally include non-HL7 specifications that leverage the FHIR specification such as IHE profiles.
-[%end-note%]
 </div>
 
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The TestScript resource should <b>NOT</b> be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept. The TestScript resource is an infrastructure support resource used to represent standardized tests to determine a FHIR implementation's level of adherence to the FHIR specification.
+The TestScript resource is <b>NOT</b> intended to be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept.
+The TestScript resource is an infrastructure support resource used to represent standardized tests to determine a FHIR implementation's level of adherence to the FHIR specification.
 </p>
 <p>
-TestScript is a part of the conformance framework and is used to validate the behavior of FHIR systems, specifically their correct
+TestScript is a part of the conformance framework and is used to validate the behavior of FHIR servers, specifically their correct
 implementation of StructureDefinition, ValueSet, OperationDefinition, CapabilityStatement and other FHIR resources that govern system behavior.
 TestScript instances may be included as part of ImplementationGuides to help define and test the desired behavior of systems that
 choose to comply with the implementation guide.
 </p>
+<p>
+The FHIR Specification defines another resource type called <a href="testplan.html">TestPlan</a> that is used to define more generally 
+applicable sets of tests along with inputs and success criteria. TestPlan resources are used for testing 
+the behaviour of FHIR applications and ecosystems. As such, TestScript covers a subset of what TestPlan can 
+do, and does so with much more precision and detail, and without the requirement for an external runner definition. 
+TestPlan should not be used for tests that can be specified using a TestScript resource.
+</p>
+
+
 <p>
 The following resources represent the FHIR conformance framework that are used to express the expected behavior of a FHIR compliant system:
 </p>

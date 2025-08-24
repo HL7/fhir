@@ -18,12 +18,12 @@ business identifier - in this case the same as the request id
 	</partOf>
 	<status value="completed"/>
 	<intent value="order"/>
-	<requestedLocation>
+	<to>
              <reference value="Transport/location-hospitalLab" />
 			 <display value="Requested location for item at City Hospital Lab"/>  
-	</requestedLocation>	
-	<currentLocation>
+	</to>	
+	<from>
              <reference value="Transport/location-labA" />
 			 <display value="Current location for item at Lab A"/>  
-	</currentLocation>	
+	</from>	
 </Transport>

@@ -12,7 +12,7 @@
     <valueCode value="draft" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
+    <valueInteger value="2" />
   </extension>
   <url value="http://hl7.org/fhir/devicealert-manifestation" />
   <version value="6.0.0" />
@@ -44,7 +44,7 @@
   <concept>
     <code value="vibratory" />
     <display value="Vibratory" />
-    <definition value="The signal is annunciated using a haptic or tactile method (e.g. vibration)" />
+    <definition value="The signal is annunciated using a vibrating tactile method" />
   </concept>
   <concept>
     <code value="visual" />

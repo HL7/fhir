@@ -86,36 +86,19 @@
         <severity value="error"/>
         <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
         <expression value="dataAbsentReason.exists() or value.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:RespRateCode">
-      <path value="Observation.category"/>
-      <sliceName value="RespRateCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Respiratory Rate"/>
+      <definition value="Respiratory Rate"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="9279-1"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Respiratory Rate"/>
-      <definition value="Respiratory Rate."/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsRespRate"/>

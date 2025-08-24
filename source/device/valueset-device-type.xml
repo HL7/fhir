@@ -100,7 +100,7 @@
       </concept>
     </include>
     <include>
-      <system value="urn:oid:2.16.840.1.113883.6.276"/>
+      <system value="http://terminology.hl7.org/CodeSystem/GMDN"/>
       <concept>
         <code value="38017"/>
         <display value="Dry salt inhalation therapy device"/>

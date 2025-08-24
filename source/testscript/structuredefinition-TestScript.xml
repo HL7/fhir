@@ -785,6 +785,17 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
 		</element>
+		<element id="TestScript.fixture.expression">
+			<path value="TestScript.fixture.expression"/>
+			<short value="The expression against the fixture to extract the required element"/>
+			<definition value="The expression for a specific element to extract from the fixture body."/>
+			<comment value="If expression is defined then the evaluated element from the fixture will become the fixture contents. A test engine is expected to minimally support the expression languages: text/fhirpath, application/xml and application/json."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+		</element>
 		<element id="TestScript.profile">
 			<path value="TestScript.profile"/>
 			<short value="Reference of the validation profile"/>
@@ -811,7 +822,7 @@
 				<key value="tst-3"/>
 				<severity value="error"/>
 				<human value="Variable can only contain one of expression, headerField or path."/>
-				<expression value="expression.empty() or headerField.empty() or path.empty()"/>
+				<expression value="(expression.empty() and headerField.empty() and path.empty()) or (expression.empty() and (headerField.exists() xor path.exists())) or (headerField.empty() and (expression.exists() xor path.exists())) or (path.empty() and (expression.exists() xor headerField.exists()))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -849,13 +860,13 @@
 		</element>
 		<element id="TestScript.variable.expression">
 			<path value="TestScript.variable.expression"/>
-			<short value="The FHIRPath expression against the fixture body"/>
-			<definition value="The FHIRPath expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
-			<comment value="If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path."/>
+			<short value="The expression against the fixture body"/>
+			<definition value="The expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
+			<comment value="If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to. If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to. It is an error to define any combination of expression, headerField and path. A test engine is expected to minimally support the expression languages: text/fhirpath, application/xml and application/json."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Expression"/>
 			</type>
 			<condition value="tst-3"/>
 		</element>
@@ -882,6 +893,9 @@
 			</type>
 		</element>
 		<element id="TestScript.variable.path">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="TestScript.variable.path"/>
 			<short value="XPath or JSONPath against the fixture body"/>
 			<definition value="XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified."/>
@@ -1347,6 +1361,28 @@
 				<code value="string"/>
 			</type>
 		</element>
+		<element id="TestScript.setup.action.assert.key">
+			<path value="TestScript.setup.action.assert.key"/>
+			<short value="Key that identifies this assert"/>
+			<definition value="The key that identifies this assert (unique within this TestScript)."/>
+			<comment value="This may be referenced by downstream assert.evaluateBasedOn for conditional evaluation by the test engine."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
+		<element id="TestScript.setup.action.assert.evaluateBasedOn">
+			<path value="TestScript.setup.action.assert.evaluateBasedOn"/>
+			<short value="Zero or more assert.key references"/>
+			<definition value="A list of zero or more assert.key references to conditionally determine if this assert will be evaluated."/>
+			<comment value="This may reference upstream assert.key value(s) for conditional evaluation of this assert by the test engine."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
 		<element id="TestScript.setup.action.assert.description">
 			<path value="TestScript.setup.action.assert.description"/>
 			<short value="Tracking/reporting assertion description"/>
@@ -1384,7 +1420,7 @@
 		<element id="TestScript.setup.action.assert.compareToSourceId">
 			<path value="TestScript.setup.action.assert.compareToSourceId"/>
 			<short value="Id of the source fixture to be evaluated"/>
-			<definition value="Id of the source fixture used as the contents to be evaluated by either the &quot;source/expression&quot; or &quot;sourceId/path&quot; definition."/>
+			<definition value="Id of the source fixture used as the contents to be evaluated by either the &quot;assert.compareToSourceExpression&quot; or &quot;assert.compareToSourcePath&quot; definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1394,17 +1430,20 @@
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourceExpression">
 			<path value="TestScript.setup.action.assert.compareToSourceExpression"/>
-			<short value="The FHIRPath expression to evaluate against the source fixture"/>
-			<definition value="The FHIRPath expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
-			<comment value="Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated."/>
+			<short value="The expression to evaluate against the source fixture"/>
+			<definition value="The expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
+			<comment value="The expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Expression"/>
 			</type>
 			<condition value="tst-10"/>
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourcePath">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="TestScript.setup.action.assert.compareToSourcePath"/>
 			<short value="XPath or JSONPath expression to evaluate against the source fixture"/>
 			<definition value="XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
@@ -1472,13 +1511,13 @@
 		</element>
 		<element id="TestScript.setup.action.assert.expression">
 			<path value="TestScript.setup.action.assert.expression"/>
-			<short value="The FHIRPath expression to be evaluated"/>
-			<definition value="The FHIRPath expression to be evaluated against the request or response message contents - HTTP headers and payload."/>
-			<comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId. If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation. Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.&#xA;&#xA;The FHIRPath expression can be evaluated as either a path to a specific value or as a boolean expression against the given FHIR resource. When the FHIRPath is a boolean expression, the assert.value element is not used. See [Testing FHIR Use Expressions](testing.html#expressions)."/>
+			<short value="The expression to be evaluated"/>
+			<definition value="The expression to be evaluated against the request or response message contents - HTTP headers and payload."/>
+			<comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId. If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation. Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.&#xA;&#xA;The expression can be evaluated as either a path to a specific value or as a boolean expression against the given sourceId. When the expression evaluates to a boolean, the assert.value element is not used. See [Testing FHIR Use Expressions](testing.html#expressions). A test engine is expected to minimally support the expression languages: text/fhirpath, application/xml and application/json."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Expression"/>
 			</type>
 			<condition value="tst-5"/>
 		</element>
@@ -1542,6 +1581,9 @@
 			</binding>
 		</element>
 		<element id="TestScript.setup.action.assert.path">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="TestScript.setup.action.assert.path"/>
 			<short value="XPath or JSONPath expression"/>
 			<definition value="The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server."/>

@@ -86,36 +86,19 @@
         <severity value="error"/>
         <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
         <expression value="dataAbsentReason.exists() or value.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:BMICode">
-      <path value="Observation.category"/>
-      <sliceName value="BMICode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Body Mass Index (BMI)"/>
+      <definition value="Body Mass Index (BMI)"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="39156-5"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Body Mass Index (BMI)"/>
-      <definition value="Body Mass Index (BMI)."/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsBMI"/>
