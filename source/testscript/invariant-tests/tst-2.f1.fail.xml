@@ -93,9 +93,11 @@
   <variable>
     <name value="createResourceId"/>
     <expression>
-      <language value="application/xml"/>
-      <expression value="Patient/id"/>
+      <language value="text/fhirpath"/>
+      <expression value="Patient.id"/>
     </expression>
+    <headerField value="header value"/>
+    <path value="Patient/id"/>
     <sourceId value="fixture-patient-create"/>
   </variable>
   <setup>
@@ -198,12 +200,6 @@
         <responseId value="fixture-patient-read"/>
         <targetId value="fixture-patient-create"/>
       </operation>
-      <assert>
-        <label value="SetupDeletePatient-1"/>
-        <description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
-        <stopTestOnFail value="false"/>
-        <warningOnly value="false"/>
-      </assert>
     </action>
     <action>
       <assert>
