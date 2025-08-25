@@ -58,7 +58,7 @@ jobs:
       path: $(HOME)/.fhir/tx-cache/HL7/fhir/$(CI_BRANCH_DIRECTORY)
     displayName: Cache terminology cache directory
 
-  - task: Gradle@2
+  - task: Gradle@3
     inputs:
       gradleWrapperFile: 'gradlew'
       javaHomeOption: 'JDKVersion'
