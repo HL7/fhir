@@ -1,25 +1,27 @@
-
 plugins {
     java
     application
 }
 
 repositories {
-    jcenter()
+
     google()
     mavenLocal()
     mavenCentral()
+    maven {
+        name = "Central Portal Snapshots"
+        url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+
+        // Only search this repository for the specific dependency
+        content {
+            includeModule("org.hl7.fhir", "kindling")
+        }
+    }
     maven {
         url = uri("https://jitpack.io")
     }
     maven {
         url = uri("https://plugins.gradle.org/m2/")
-    }
-    maven {
-        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
-    }
-    maven {
-        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
     }
 }
 
@@ -61,6 +63,6 @@ task("printVersion") {
 }
 
 configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }

@@ -40,13 +40,13 @@ in order to support consistent definitions for schema and UML derived code.
             <td>
                 <ul>
                     <li><a href="device.html">Device</a></li>
-                    <li><a href="devicealert.html">Device Alert</a></li>
-                    <li><a href="deviceassociation.html">Device Association</a></li>
-                    <li><a href="devicedefinition.html">Device Definition</a></li>
-                    <li><a href="devicedispense.html">Device Dispense</a></li>
-                    <li><a href="devicemetric.html">Device Metric</a></li>
-                    <li><a href="devicerequest.html">Device Request</a></li>
-                    <li><a href="deviceusage.html">Device Usage</a></li>
+                    <li><a href="devicealert.html">DeviceAlert</a></li>
+                    <li><a href="deviceassociation.html">DeviceAssociation</a></li>
+                    <li><a href="devicedefinition.html">DeviceDefinition</a></li>
+                    <li><a href="devicedispense.html">DeviceDispense</a></li>
+                    <li><a href="devicemetric.html">DeviceMetric</a></li>
+                    <li><a href="devicerequest.html">DeviceRequest</a></li>
+                    <li><a href="deviceusage.html">DeviceUsage</a></li>
                 </ul>
             </td>
         </tr>
@@ -209,12 +209,9 @@ in order to support consistent definitions for schema and UML derived code.
 
     <a name="secpriv"></a>
     <h3>Security and Privacy</h3>
-    <p>
-        The Device-related resources typically represent patient-specific data, and as such are susceptible to data breaching.
-        Necessary privacy and security provisions must be in place when searching and fetching this information. For
-        more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
-    </p>
-
+    <p>The Device-related resources typically represent patient-specific data, and as such are susceptible to data breaching. Necessary privacy and security provisions must be in place when searching and fetching this information. For more general considerations, see the <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
+    <P>Device data must be treated securely across all three aspects that include confidentiality, integrity, and availability. Furthermore, proper confidentiality, integrity and availability protections must be applied across the entire ecosystem that delivers the data from the device to personal health or point of care services. Device data privacy must also be considered to ensure that patient identifiable data is not compromised and made public. The ecosystem delivering the device data must not publicly associate device data with the patient or user to which that data belongs. In addition, access to device data must be restricted to those who need to know in clinical and consumer settings and to those who are allowed access by the user or patient.</P>
+    <p>It is highly recommended that a proper methodology is used to assess the security vulnerabilities and associated threats of any such architecture and to apply proper mitigation techniques based on the risks exposed by such threats. To that end, it is recommended that security methods are constructed based on the <a href="https://standards.ieee.org/ieee/11073-40101/7668/">IEEE 11073-40101</a> and <a href="https://standards.ieee.org/ieee/11073-40102/7680/">IEEE 11073-40102</a> standards that provide the framework for device cybersecurity vulnerability analysis and risk mitigation. Such analysis will enable application of transport-specific mitigation techniques such as the Bluetooth Authorization Control <a href="https://www.bluetooth.com/specifications/specs/authorization-control-service-1-0/">Service</a> and <a href="https://www.bluetooth.com/specifications/specs/authorization-control-profile-1-0/">Profile</a> specifications.</p>
     <a name="roadmap"></a>
     <h3>Developmental Roadmap</h3>
     <p></p>
