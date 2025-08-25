@@ -31,8 +31,8 @@
 		<!--  LOINC - always recommended to have a LOINC code  -->
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="3141-9"/><!-- more specific method = measured LOINC-->
-			<display value="Body weight Measured"/>
+			<code value="29463-7"/>
+			<display value="Body weight"/>
 		</coding>
 		<!--  SNOMED CT Codes - becoming more common  -->
 		<coding>
