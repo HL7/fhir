@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObservationDefinition xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <id value="example-ck-panel"/>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+      <display value="Laboratory"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="32673-6"/>
+      <display value="Creatine kinase.MB [Enzymatic activity/volume] in Serum or Plasma"/>
+    </coding>
+    <text value="Creatine Kinase Panel"/>
+  </code>
+  <permittedDataType value="Quantity"/>
+  <multipleResultsAllowed value="true"/>
+  <!-- <method>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="258066000"/>
+      <display value="Enzymatic measurement"/>
+    </coding>
+  </method> -->
+  <preferredReportName value="Creatine Kinase, MB and Relative Percent"/>
+  
+  <!-- Panel-level qualified value for cardiac assessment -->
+  <qualifiedValue>
+    <condition>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="21134002"/>
+        <display value="Myocardial infarction"/>
+      </coding>
+    </condition>
+    <context>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
+    </context>
+    <rangeCategory value="reference"/>
+    <validCodedValueSet>
+      <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
+    </validCodedValueSet>
+  </qualifiedValue>
+  
+  <!-- Component 1: Total Creatine Kinase -->
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="2157-6"/>
+        <display value="Creatine kinase [Enzymatic activity/volume] in Serum or Plasma"/>
+      </coding>
+      <text value="Creatine Kinase, Total"/>
+    </code>
+    <permittedDataType value="Quantity"/>
+    <permittedUnit>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="U/L"/>
+      <display value="U/L"/>
+    </permittedUnit>
+    <qualifiedValue>
+      <condition>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="21134002"/>
+          <display value="Myocardial infarction"/>
+        </coding>
+      </condition>
+      <context>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+          <code value="normal"/>
+          <display value="Normal Range"/>
+        </coding>
+      </context>
+      <rangeCategory value="reference"/>
+      <range>
+        <low>
+          <value value="39"/>
+          <unit value="U/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="U/L"/>
+        </low>
+        <high>
+          <value value="308"/>
+          <unit value="U/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="U/L"/>
+        </high>
+      </range>
+    </qualifiedValue>
+  </component>
+  
+  <!-- Component 2: CK-MB Isoenzyme -->
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="13969-1"/>
+        <display value="Creatine kinase.MB [Mass/volume] in Serum or Plasma"/>
+      </coding>
+      <text value="Creatine Kinase, Isoenzyme MB"/>
+    </code>
+    <permittedDataType value="Quantity"/>
+    <permittedUnit>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="ng/mL"/>
+      <display value="ng/mL"/>
+    </permittedUnit>
+    <qualifiedValue>
+      <condition>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="21134002"/>
+          <display value="Myocardial infarction"/>
+        </coding>
+      </condition>
+      <context>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+          <code value="normal"/>
+          <display value="Normal Range"/>
+        </coding>
+      </context>
+      <rangeCategory value="reference"/>
+      <range>
+        <low>
+          <value value="0.0"/>
+          <unit value="ng/mL"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="ng/mL"/>
+        </low>
+        <high>
+          <value value="7.7"/>
+          <unit value="ng/mL"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="ng/mL"/>
+        </high>
+      </range>
+    </qualifiedValue>
+  </component>
+  
+  <!-- Component 3: CK-MB Relative Percent -->
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="20569-0"/>
+        <display value="Creatine kinase.MB/Creatine kinase.total in Serum or Plasma"/>
+      </coding>
+      <text value="CK-MB Relative Percent"/>
+    </code>
+    <permittedDataType value="Quantity"/>
+    <permittedUnit>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+      <display value="%"/>
+    </permittedUnit>
+    <qualifiedValue>
+      <condition>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="21134002"/>
+          <display value="Myocardial infarction"/>
+        </coding>
+      </condition>
+      <context>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+          <code value="normal"/>
+          <display value="Normal Range"/>
+        </coding>
+      </context>
+      <rangeCategory value="reference"/>
+      <range>
+        <low>
+          <value value="0.0"/>
+          <unit value="%"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="%"/>
+        </low>
+        <high>
+          <value value="5.0"/>
+          <unit value="%"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="%"/>
+        </high>
+      </range>
+    </qualifiedValue>
+  </component>
+</ObservationDefinition>
