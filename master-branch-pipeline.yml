@@ -16,6 +16,8 @@ jobs:
 - job: buildAndPublishSpecification
   timeoutInMinutes: 120
   steps:
+  - checkout: self
+    clean: true
   # Set up the Java environment for the build.
   - task: Bash@3
     displayName: 'Download java sdk'
