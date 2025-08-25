@@ -644,7 +644,7 @@
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">subject | device</Data></Cell>
-    <Cell><Data ss:Type="String">specimen | subject</Data></Cell>
+    <Cell><Data ss:Type="String">specimen | subject | performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ObservationDefinition</Data></Cell>
