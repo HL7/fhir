@@ -607,7 +607,7 @@
         <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.referenceInformation">
+    <!--element id="SubstanceDefinition.referenceInformation">
       <path value="SubstanceDefinition.referenceInformation"/>
       <short value="General information detailing this substance"/>
       <definition value="General information detailing this substance."/>
@@ -622,7 +622,7 @@
         <identity value="idmp-substance"/>
         <map value="Reference_Information"/>
       </mapping>
-    </element>
+    </element-->
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="750,640"/>
@@ -1484,7 +1484,7 @@
         <map value="Substance_Relationship.Reference_Source"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.nucleicAcid">
+    <!--element id="SubstanceDefinition.nucleicAcid">
       <path value="SubstanceDefinition.nucleicAcid"/>
       <short value="Data items specific to nucleic acids"/>
       <definition value="Data items specific to nucleic acids."/>
@@ -1531,7 +1531,7 @@
         <identity value="idmp-substance"/>
         <map value="(used to  add specifics of Proteins to Substances)"/>
       </mapping>
-    </element>
+    </element-->
     <element id="SubstanceDefinition.sourceMaterial">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="270,350"/>
