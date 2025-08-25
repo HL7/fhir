@@ -23,39 +23,6 @@
     </telecom>
   </contact>
   <description value="TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts."/>
-  <useContext>
-    <code>
-      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-      <code value="focus"/>
-    </code>
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-        <code value="positive"/>
-      </coding>
-    </valueCodeableConcept>
-  </useContext>
-  <useContext>
-    <code>
-      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-      <code value="program"/>
-    </code>
-    <valueRange>
-      <low>
-        <value value="2018"/>
-        <unit value="year"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="a"/>
-      </low>
-    </valueRange>
-  </useContext>
-  <jurisdiction>
-    <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
-      <display value="United States of America"/>
-    </coding>
-  </jurisdiction>
   <purpose value="Patient Conditional Create (Update), Read and Delete Operations"/>
   <copyright value="© HL7.org 2011+"/>
   <metadata>
@@ -93,11 +60,9 @@
   <variable>
     <name value="createResourceId"/>
     <expression>
-      <language value="text/fhirpath"/>
-      <expression value="Patient.id"/>
+      <language value="application/xml"/>
+      <expression value="Patient/id"/>
     </expression>
-    <headerField value="header value"/>
-    <path value="Patient/id"/>
     <sourceId value="fixture-patient-create"/>
   </variable>
   <setup>
@@ -114,6 +79,12 @@
         <encodeRequestUrl value="true"/>
         <params value="/${createResourceId}"/>
       </operation>
+      <assert>
+        <label value="SetupDeletePatient-1"/>
+        <description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
     </action>
     <action>
       <assert>

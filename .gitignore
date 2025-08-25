@@ -385,3 +385,5 @@ source/patient/Patient-rendering.liquid.x
 # VS Code local settings
 .vscode/
 /fhir-error-dump.html
+
+source/jira-count.ini

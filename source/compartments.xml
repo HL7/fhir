@@ -614,9 +614,6 @@
     <Cell><Data ss:Type="String">receiver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MolecularDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
