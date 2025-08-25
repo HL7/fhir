@@ -292,7 +292,6 @@
         <base value="MedicationDispense"/>
         <base value="MedicationRequest"/>
         <base value="MedicationStatement"/>
-        <base value="MolecularSequence"/>
         <base value="NutritionIntake"/>
         <base value="NutritionOrder"/>
         <base value="Observation"/>
@@ -367,7 +366,6 @@
         <base value="MedicationDispense"/>
         <base value="MedicationRequest"/>
         <base value="MedicationStatement"/>
-        <base value="MolecularSequence"/>
         <base value="NutritionIntake"/>
         <base value="NutritionOrder"/>
         <base value="Observation"/>
@@ -402,7 +400,6 @@
         <base value="EpisodeOfCare"/>
         <base value="Invoice"/>
         <base value="MedicationDispense"/>
-        <base value="MolecularSequence"/>
         <base value="Specimen"/>
       </SearchParameter>
     </resource>
