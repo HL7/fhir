@@ -8,13 +8,40 @@
   <p>An Imaging Selection resource MAY specify the subset of these that are included in the selection using the <code>instance.subset</code> element.</p>
   <p>The defined types of subsets are:</p>
   <ul>
-    <li>Frames selected from a multiframe SOP Instance</li>
-    <li>Referenced Content Item Identifiers selected from a DICOM SR or other structured document SOP Instance</li>
-    <li>Segments selected from a segmentation SOP Instance</li>
-    <li>Regions of interest selected from a radiotherapy structure set SOP Instance</li>
+    <li>Frames selected from a multiframe SOP Instance
+      <ul>
+        <li>Corresponds to the value of DICOM Referenced Frame Number (0008,1160) </li>
+        <li>Each value specifies a frame included in the selection</li>
+        <li>Note: Frame number is implicit and the first frame is denoted as frame 1</li>
+      </ul>
+    </li>
+    <li>Referenced Content Item Identifiers selected from a DICOM SR or other structured document SOP Instance
+      <ul>
+        <li>Corresponds to the value of DICOM Referenced Content Item Identifier (0040,DB73)</li>
+        <li>Each value specifies the node in the DICOM SR tree that is selected at each level</li>
+        <li>See DICOM PS 3.3 C.17.3.2.5</li>
+      </ul>
+    </li>
+    <li>Segments selected from a segmentation SOP Instance
+      <ul>
+        <li>Corresponds to the value of DICOM Referenced Segment Number (0062,000B)</li>
+        <li>Each value specifies a segment included in the selection</li>
+      </ul>
+    </li>
+    <li>Regions of interest selected from a radiotherapy structure set SOP Instance
+      <ul>
+        <li>Corresponds to the value of DICOM Referenced ROI Number (0002,000E)</li>
+        <li>Each value specifies a region of interest included in the selection</li>
+      </ul>
+    </li>
   </ul>
-  <p>The type of subset is determined by the SOP Class of the parent instance.</p>
-  <p>Subsets can only reference sub-resources that are already defined within the selected DICOM SOP Instance.</p>
+  <p>The type of subset is determined by the SOP Class UID of the parent instance, which is specified by the <code>instance.sopClass</code> element.</p>
+  <p>For example:</p>
+  <ul>
+    <li>If <code>instance.sopClass</code> has a value of <code>urn:oid:1.2.840.10008.5.1.4.1.1.2.1</code>, this indicates that the instance is Enhanced CT, which is a multiframe image instance and therefore <code>instance.subset</code> contains a list of frames</li>
+    <li>If <code>instance.sopClass</code> has a value of <code>urn:oid:1.2.840.10008.5.1.4.1.1.88.22</code>, this indicates that the instance is Enhanced SR and therefore <code>instance.subset</code> contains a list of content item identifiers</li>
+  </ul>
+  <p>Note: Because an imaging selection instance is limited to a single DICOM Series and each DICOM Series can contain only one type of instance - image, SR document, radiotherapy object, etc. - each imaging selection instance can only contain one type of subset.</p>
 
   <h3>Use of ImagingSelection.code and ImagingSelection.category</h3>
   <p>
@@ -51,6 +78,187 @@
     }
   }
 </pre>
-<p></p>
+
+<a name="req-by-type"></a>
+<h3>Element Requirements By Selection Type</h3>
+
+<p>
+This section outlines several imaging selection types, each listing a set of resource elements that are required and/or typically present in the selection. Some types require only a minimal set of elements, while others require a comprehensive list to ensure clarity.
+</p>
+
+<h4>Single-Frame Image Selection</h4>
+<p>
+An imaging selection that points to one single-frame image requires:
+</p>
+<ul>
+<li><code>studyUid</code> to identify the DICOM Study that contains the image</li>
+<li><code>seriesUid</code> to identify the Series within the Study that contains the image</li>
+<li><code>instance</code> containing a single entry that specifies:
+  <ul>
+    <li><code>uid</code> to identify the SOP Instance UID of the selected image</li>
+  </ul>
+</li>
+</ul>
+<p>
+While not required, this type of selection typically includes:
+</p>
+<ul>
+<li><code>frameOfReferenceUid</code> to identify the coordinate system of the image</li>
+<li><code>instance.sopClass</code> to specify the SOP Class UID of the selected image</li>
+</ul>
+<p>
+See <a href="imagingselection-example-single-frame-image-selection.html">Single-Frame Image Selection example</a>.
+</p>
+
+<h4>Multiframe Image Selection</h4>
+<p>
+An imaging selection that points to frames in a multiframe image requires:
+</p>
+<ul>
+<li><code>studyUid</code> to identify the DICOM Study that contains the image</li>
+<li><code>seriesUid</code> to identify the Series within the Study that contains the image</li>
+<li><code>instance</code> containing a single entry that specifies:
+  <ul>
+    <li><code>uid</code> to identify the SOP Instance UID of the selected image</li>
+    <li><code>subset</code> to identify the list of frames includes in the selection</li>
+  </ul>
+</li>
+</ul>
+<p>
+While not required, this type of selection typically includes:
+</p>
+<ul>
+<li><code>frameOfReferenceUid</code> to identify the coordinate system of the image</li>
+<li><code>instance.sopClass</code> to specify the SOP Class UID of the selected image</li>
+</ul>
+<p>
+See <a href="imagingselection-example-multiframe-image-selection.html">Multiframe Image Selection example</a>.
+</p>
+
+<h4>2D Image Selection</h4>
+<p>
+An imaging selection that points to a 2D region on an image requires:
+</p>
+<ul>
+<li><code>studyUid</code> to identify the DICOM Study that contains the image</li>
+<li><code>seriesUid</code> to identify the Series within the Study that contains the image</li>
+<li><code>instance</code> containing a single entry that specifies:
+  <ul>
+    <li><code>uid</code> to identify the SOP Instance UID of the selected image</li>
+    <li><code>imageRegion2D</code> containing
+      <ul>
+        <li><code>regionType</code> specifying the type of image region</li>
+        <li><code>coordinate</code> specifying the x and y coordinates that define the image region in image pixel space</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+</ul>
+<p>
+While not required, this type of selection typically includes:
+</p>
+<ul>
+<li><code>frameOfReferenceUid</code> to identify the coordinate system of the image</li>
+<li><code>instance.sopClass</code> to specify the SOP Class UID of the selected image</li>
+</ul>
+<p>
+See <a href="imagingselection-example-2d-image-region-selection.html">2D Image Region Selection example</a>.
+</p>
+
+<h4>3D Image Selection</h4>
+<p>
+An imaging selection that points to a 3D region requires:
+</p>
+<ul>
+<li><code>frameOfReferenceUid</code> to identify the coordinate system that includes the specified coordinates</li>
+<li><code>imageRegion3D</code> containing
+  <ul>
+    <li><code>regionType</code> specifying the type of image region</li>
+    <li><code>coordinate</code> specifying the x, y and z coordinates that define the 3D region</li>
+  </ul>
+</li>
+</ul>
+<p>
+This type of selection may also specify a set of images but this is not required. The 3D region selection can be applied to any images that share the same Frame of Reference UID.
+</p>
+<p>
+See <a href="imagingselection-example-3d-image-region-selection.html">3D Image Region Selection example</a>.
+</p>
+
+<a name="endpoints"></a>
+<h3>ImagingSelection Endpoints</h3>
+<p>
+The ImagingSelection.endpoint elements indicate network 
+services that can be used to access the imaging data referenced by the imaging selection; for example, a DICOM WADO-RS server.  
+Systems can determine if the relevant imaging data is available or offline by interacting with the endpoint.
+</p>
+<p>
+Different Endpoint connection types MAY have different capabilities, protocols or requirements.
+Furthermore, the specified 
+<code>Endpoint.address</code> 
+identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS 3.18 Section 8.2</a> ). 
+The URL needed to retrieve image data may need to be constructed from this base URL. See below for the details on use of imaging-related Endpoint connection types.
+</p>
+<a name="wado-rs"></a>
+<h4>WADO-RS</h4>
+<p>
+An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
+identifies a DICOM WADO-RS service. 
+</p>
+<p>
+The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to instance retrieval.
+This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
+JPEG and MPEG. The media type of a response is specified by the request Accept header (preferred); or, by the <code>accept</code>
+query parameters. Supported media types depend on the  capabilities of the WADO-RS server and the classification of the instance 
+as "single frame", "multi-frame", "video", "text", or "other". The WADO-RS service also allows retrieval of study
+or series level information.
+</p>
+<p>
+The path to retrieve a DICOM instance is constructed by appending the appropriate sub-resource paths to the <code>Endpoint.address</code> value.
+</p>
+<p>
+For example, using the following information in a fictional ImagingSelection resource:
+<ul>
+<li>the WADO-RS service base url of <code>https://pacs.hospital.org/wado-rs</code> found in an <code>ImagingSelection.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910</code> found in an <code>ImagingSelection.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+<li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingSelection.series.uid</code>, and</li>
+<li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingSelection.series.instance.uid</code></li>
+</ul>
+we can construct the WADO-RS URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
+</p>
+<pre>
+
+https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2
+
+</pre>
+<a name="wado-uri"></a>
+<h4>WADO-URI</h4>
+<p>An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
+identifies a DICOM WADO-URI service. 
+</p>
+<p>
+The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
+for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The media
+type of a response is specified by the request Accept header (preferred); or, by the contentType query parameter.
+Supported media types depend on the classification of the instance as "single frame", "multi-frame", "video", "text", or "other."
+</p>
+<p>
+The query to retrieve a DICOM instance is constructed by appending the appropriate query parameters to the <code>Endpoint.address</code> value.
+</p>
+<p>
+For example, using the following information in a fictional ImagingSelection resource:
+<ul>
+<li>the WADO-URI service base url of <code>https://pacs.hospital.org/wado-uri</code> found in an <code>ImagingSelection.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910</code> found in an <code>ImagingSelection.identifier</code> having <code>Identifier.system</code> of <code>urn:dicom:uid</code>,</li>
+<li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingSelection.series.uid</code>, and</li>
+<li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingSelection.series.instance.uid</code></li>
+</ul>
+we can construct the WADO-URI URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
+</p>
+<pre>
+
+https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2
+
+</pre>
 
 </div>

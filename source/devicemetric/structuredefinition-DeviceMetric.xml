@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceMetric"/>
   <meta>
@@ -46,7 +45,7 @@
       <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Describes a measurement, calculation or setting capability of a device.  The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable. "/>
+  <description value="Describes a measurement, calculation or setting capability of a device. The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -96,7 +95,7 @@
       <path value="DeviceMetric.type"/>
       <short value="Identity of metric, for example Heart Rate or PEEP Setting"/>
       <definition value="Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc."/>
-      <comment value="DeviceMetric.type can be referred to either IEEE 11073-10101 or LOINC."/>
+      <comment value="`DeviceMetric.type` can be referred to either IEEE 11073-10101 or LOINC."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -123,7 +122,7 @@
       <path value="DeviceMetric.unit"/>
       <short value="Unit of Measure for the Metric"/>
       <definition value="Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc."/>
-      <comment value="DeviceMetric.unit can refer to either UCUM or preferable a RTMMS coding system."/>
+      <comment value="`DeviceMetric.unit` can refer to either [UCUM](https://terminology.hl7.org/UCUM.html) or preferably an [RTMMS](https://terminology.hl7.org/MDC.html) coding system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -145,7 +144,7 @@
     <element id="DeviceMetric.device">
       <path value="DeviceMetric.device"/>
       <short value="Describes the link to the Device"/>
-      <definition value="Describes the link to the Device.  This is also known as a channel device."/>
+      <definition value="Describes the link to the Device. This is also known as a channel device."/>
       <comment value="Note if this is not the top level device - also know as the source device, it may be referenced in the device.parent element."/>
       <min value="1"/>
       <max value="1"/>
@@ -217,13 +216,33 @@
     <element id="DeviceMetric.measurementFrequency">
       <path value="DeviceMetric.measurementFrequency"/>
       <short value="Indicates how often the metric is taken or recorded"/>
-      <definition value="The frequency at which the metric is taken or recorded. Devices measure metrics at a wide range of frequencies; for example, an ECG might sample measurements in the millisecond range, while an NIBP might trigger only once an hour. Less often, the measurementFrequency may be based on a unit other than time, such as distance (e.g. for a measuring wheel). The update period may be different than the measurement frequency, if the device does not update the published observed value with the same frequency as it was measured."/>
+      <definition value="The frequency at which the metric is taken or recorded. Devices measure metrics at a wide range of frequencies; for example, an ECG might sample measurements in the millisecond range, while an NIBP might trigger only once an hour. Less often, the measurementFrequency may be based on a unit other than time, such as distance (e.g., for a measuring wheel). The update period may be different than the measurement frequency, if the device does not update the published observed value with the same frequency as it was measured."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
       <isSummary value="false" />
+    </element>
+    <element id="DeviceMetric.availability">
+      <path value="DeviceMetric.availability"/>
+      <short value="The continuity of the metric (e.g., measurement)"/>
+      <definition value="Indicates whether the metric is derived (measured) by a continuous means or by an intermittent means."/>
+      <comment value="For example, a gauge on a pressurized vessel showing current pressure is a continuous measurement, while a thermometer that produces readings on demand is an intermittent measurement. Note that metric availability is typically a static characteristic and is distinct from the operational status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricAvailability"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the availability of the metric"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
+      </binding>
     </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">

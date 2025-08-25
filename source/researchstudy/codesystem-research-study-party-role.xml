@@ -92,6 +92,11 @@
   <concept>
     <code value="irb"/>
     <display value="Institutional Review Board"/>
-    <definition value="A group of individuals that reviews and monitors research involving human subjects. "/>
+    <definition value="A group of individuals that reviews and monitors research involving human subjects."/>
+  </concept>
+  <concept>
+    <code value="data-monitoring"/>
+    <display value="Data Monitoring"/>
+    <definition value="An organization or individual who monitors the validity and integrity of collected data while prioritizing participant safety and study integrity. The organization may be called a Data Monitoring Committee (DMC) or Data and Safety Monitoring Board (DSMB)."/>
   </concept>
 </CodeSystem>

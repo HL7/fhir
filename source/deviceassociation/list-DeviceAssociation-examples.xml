@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <List xmlns="http://hl7.org/fhir">
   <id value="DeviceAssociation-examples"/>
   <status value="current"/>
@@ -16,5 +15,76 @@
       <display value="General"/>
     </item>
   </entry>
- 
-</List> 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Implant Device Assigned to Patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-implant-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/implant-association"/>
+      <display value="Implant Device Assigned to Patient"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Wheelchair Device Association"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-wheelchair-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/wheelchair-association"/>
+      <display value="Wheelchair Device Association"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Tablet Assigned to Practitioner"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-tablet-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/tablet-association"/>
+      <display value="Tablet Assigned to Practitioner"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Surgical Robot Association"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-robot-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/robot-association"/>
+      <display value="Surgical Robot Association"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Blood Pressure Monitor Association During In-Patient Stay"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-bp-monitor-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/bp-monitor-association"/>
+      <display value="Blood Pressure Monitor Association During In-Patient Stay"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Lab Device Calibration by Repair Staff"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="deviceassociation-lab-device-association"/>
+    </extension>
+    <item>
+      <reference value="DeviceAssociation/lab-device-association"/>
+      <display value="Lab Device Calibration by Repair Staff"/>
+    </item>
+  </entry>
+</List>

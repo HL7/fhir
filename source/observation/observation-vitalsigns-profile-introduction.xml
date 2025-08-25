@@ -5,7 +5,7 @@
 		</h2>
 		<a name="dstu"></a>
 		<p>Vital signs is one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient.  These include the "primary" vital signs of heart rate, respiratory rate, blood pressure (systolic and diastolic) and body temperature, plus additional measurements such as body height, body weight, BMI and oxygen saturation. Support for basic mandatory searching of resources is defined below in the <a href="#Quick_Start">Quick Start</a> section. When a FHIR implementation supports any of the vital signs observations listed below, the implementation <strong>SHALL</strong> conform to the vital signs base profile and also the profile for the specific vital sign observation.</p>
-		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations that were developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project.]</i></p>
+		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">Argonaut</a> pilot implementations that were developed, balloted, and published in the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG) DSTU2</a> as part of the ONC sponsored <a href="https://oncprojectracking.healthit.gov/wiki/spaces/TechLabSC/pages/16123301/DAF+Home">Data Access Framework (DAF)</a> project.]</i></p>
 	</div>
 	<div>
 		<a name="bnc"></a>
@@ -27,9 +27,12 @@
 		<ol>
 			<li>a status</li>
 			<li>a 'category' code of 'vital-signs'</li>
-			<li>an additional "interoperability category" LOINC code in the 'category' element which specifies the high level (methodless) category for what is being measured
+			<ul>
+				<li>When needed, one or more additional category codes (from the preferred HL7 observation-category or a different code system) may also be included along with the 'vital-signs' category code.</li>
+			</ul>
+		<li>an additional "interoperability standard" high level (methodless LOINC) code for what is being measured
 <ul>
-					<li>The code for the actual measurement is specified in the 'code' element.  This code (which may be from LOINC or a different code system) typically will be more specific than the "interoperability category" LOINC code.</li>
+					<li>The selected code for the actual measurement will often be different from (usually more specific than) the "interoperability standard" code.  When that is the case, the selected code (from LOINC or a different code system) is expected to also be included in the 'code' element, as a repetition of 'code.coding', in addition to the "interoperability standard" code.  Potentially other codes (from the same or different code systems) may also be included as appropriate (also as additional 'code.coding' repetitions).</li>
 				</ul>
 			</li>
 			<li>a patient</li>
@@ -55,7 +58,7 @@
 		<a name="vitals-table"></a>
 		<h2>Formal View of Specific Vital Signs Profile Content</h2>
 		<ul>
-			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability category" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. These terminology bindings are <a href="terminologies.html#extensible">extensible</a> and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability standard" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. These terminology bindings are <a href="terminologies.html#extensible">extensible</a> and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
 			<li>Other profiles may make rules about which vital sign must be present, or must be present as part of a panel, or may expand the list to include other vital signs.</li>
 		</ul>
@@ -64,7 +67,7 @@
 			<thead>
 				<tr>
 					<th>Profile Name</th>
-					<th>"Interoperability Category" (LOINC)</th>
+					<th>"Interoperability Standard" Code (LOINC)</th>
 					<th>LOINC Name and Comments</th>
 					<th>UCUM Unit Code</th>
 					<th id="example">Examples</th>
