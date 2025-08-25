@@ -555,7 +555,7 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-				<key value="tst-4"/>
+				<key value="tst-1"/>
 				<severity value="error"/>
 				<human value="TestScript metadata capability SHALL contain required or validated or both."/>
 				<expression value="capability.required.exists() or capability.validated.exists()"/>
@@ -602,7 +602,7 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="tst-4"/>
+			<condition value="tst-1"/>
 		</element>
 		<element id="TestScript.metadata.capability.required">
 			<path value="TestScript.metadata.capability.required"/>
@@ -613,7 +613,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
-			<condition value="tst-4"/>
+			<condition value="tst-1"/>
 		</element>
 		<element id="TestScript.metadata.capability.validated">
 			<path value="TestScript.metadata.capability.validated"/>
@@ -624,7 +624,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
-			<condition value="tst-4"/>
+			<condition value="tst-1"/>
 		</element>
 		<element id="TestScript.metadata.capability.description">
 			<path value="TestScript.metadata.capability.description"/>
@@ -819,7 +819,7 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-				<key value="tst-3"/>
+				<key value="tst-2"/>
 				<severity value="error"/>
 				<human value="Variable can only contain one of expression, headerField or path."/>
 				<expression value="(expression.empty() and headerField.empty() and path.empty()) or (expression.empty() and (headerField.exists() xor path.exists())) or (headerField.empty() and (expression.exists() xor path.exists())) or (path.empty() and (expression.exists() xor headerField.exists()))"/>
@@ -868,7 +868,7 @@
 			<type>
 				<code value="Expression"/>
 			</type>
-			<condition value="tst-3"/>
+			<condition value="tst-2"/>
 		</element>
 		<element id="TestScript.variable.headerField">
 			<path value="TestScript.variable.headerField"/>
@@ -880,7 +880,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-3"/>
+			<condition value="tst-2"/>
 		</element>
 		<element id="TestScript.variable.hint">
 			<path value="TestScript.variable.hint"/>
@@ -905,7 +905,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-3"/>
+			<condition value="tst-2"/>
 		</element>
 		<element id="TestScript.variable.sourceId">
 			<path value="TestScript.variable.sourceId"/>
@@ -942,7 +942,7 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-				<key value="tst-1"/>
+				<key value="tst-3"/>
 				<severity value="error"/>
 				<human value="Setup action SHALL contain only one of either a common or an operation or an assert."/>
 				<expression value="common.exists() xor operation.exists() xor assert.exists()"/>
@@ -961,7 +961,7 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="tst-1"/>
+			<condition value="tst-3"/>
 		</element>
 		<element id="TestScript.setup.action.common.testScript">
 			<path value="TestScript.setup.action.common.testScript"/>
@@ -1028,9 +1028,9 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="tst-1"/>
+			<condition value="tst-3"/>
 			<constraint>
-				<key value="tst-7"/>
+				<key value="tst-4"/>
 				<severity value="error"/>
 				<human value="Setup operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' |'search' | 'transaction' | 'history'))"/>
@@ -1047,7 +1047,7 @@
 			<type>
 				<code value="Coding"/>
 			</type>
-			<condition value="tst-7"/>
+			<condition value="tst-4"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="TestScriptOperationCode"/>
@@ -1225,7 +1225,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-7"/>
+			<condition value="tst-4"/>
 		</element>
 		<element id="TestScript.setup.action.operation.requestHeader">
 			<path value="TestScript.setup.action.operation.requestHeader"/>
@@ -1291,7 +1291,7 @@
 			<type>
 				<code value="id"/>
 			</type>
-			<condition value="tst-7"/>
+			<condition value="tst-4"/>
 		</element>
 		<element id="TestScript.setup.action.operation.targetId">
 			<path value="TestScript.setup.action.operation.targetId"/>
@@ -1303,7 +1303,7 @@
 			<type>
 				<code value="id"/>
 			</type>
-			<condition value="tst-7"/>
+			<condition value="tst-4"/>
 		</element>
 		<element id="TestScript.setup.action.operation.url">
 			<path value="TestScript.setup.action.operation.url"/>
@@ -1315,7 +1315,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-7"/>
+			<condition value="tst-4"/>
 		</element>
 		<element id="TestScript.setup.action.assert">
 			<path value="TestScript.setup.action.assert"/>
@@ -1327,26 +1327,33 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<condition value="tst-1"/>
+			<condition value="tst-3"/>
 			<constraint>
-				<key value="tst-12"/>
+				<key value="tst-5"/>
+				<severity value="error"/>
+				<human value="Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither."/>
+				<expression value="compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+			<constraint>
+				<key value="tst-6"/>
 				<severity value="error"/>
 				<human value="Setup action assert response and responseCode SHALL be empty when direction equals request"/>
 				<expression value="(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
-				<key value="tst-5"/>
+				<key value="tst-7"/>
 				<severity value="error"/>
-				<human value="Only a single assertion SHALL be present within setup action assert element."/>
-				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+				<human value="A setup action assert SHALL define a singular assertion function and prevent overlapping assertion functionality."/>
+				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + requestURL.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;= 1)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
-				<key value="tst-10"/>
+				<key value="tst-8"/>
 				<severity value="error"/>
-				<human value="Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither."/>
-				<expression value="compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())"/>
+				<human value="A setup action assert SHALL not allow the use of operator and value with minimumId, navigationLinks or validateProfileId."/>
+				<expression value="extension.exists() or (minimumId.count() + navigationLinks.count() + validateProfileId.count() = 0) or (minimumId.count() + navigationLinks.count() + validateProfileId.count() = 1 and operator.count() + value.count() = 0)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1404,7 +1411,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<condition value="tst-12"/>
+			<condition value="tst-6"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AssertionDirectionType"/>
@@ -1426,7 +1433,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-10"/>
+			<condition value="tst-5"/>
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourceExpression">
 			<path value="TestScript.setup.action.assert.compareToSourceExpression"/>
@@ -1438,7 +1445,7 @@
 			<type>
 				<code value="Expression"/>
 			</type>
-			<condition value="tst-10"/>
+			<condition value="tst-5"/>
 		</element>
 		<element id="TestScript.setup.action.assert.compareToSourcePath">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -1453,7 +1460,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-10"/>
+			<condition value="tst-5"/>
 		</element>
 		<element id="TestScript.setup.action.assert.contentType">
 			<path value="TestScript.setup.action.assert.contentType"/>
@@ -1469,7 +1476,7 @@
 				<label value="General"/>
 				<valueCode value="application/fhir+xml"/>
 			</example>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="SupplementedMimeType"/>
@@ -1519,7 +1526,7 @@
 			<type>
 				<code value="Expression"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
 		</element>
 		<element id="TestScript.setup.action.assert.headerField">
 			<path value="TestScript.setup.action.assert.headerField"/>
@@ -1531,7 +1538,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
 		</element>
 		<element id="TestScript.setup.action.assert.minimumId">
 			<path value="TestScript.setup.action.assert.minimumId"/>
@@ -1543,7 +1550,8 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
+			<condition value="tst-8"/>
 		</element>
 		<element id="TestScript.setup.action.assert.navigationLinks">
 			<path value="TestScript.setup.action.assert.navigationLinks"/>
@@ -1555,7 +1563,8 @@
 			<type>
 				<code value="boolean"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
+			<condition value="tst-8"/>
 		</element>
 		<element id="TestScript.setup.action.assert.operator">
 			<path value="TestScript.setup.action.assert.operator"/>
@@ -1568,6 +1577,7 @@
 				<code value="code"/>
 			</type>
 			<meaningWhenMissing value="If operator is not specified, then the default conditional behavior is implemented as defined in the Testing FHIR page Assertions table - see Comments."/>
+			<condition value="tst-8"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AssertionOperatorType"/>
@@ -1593,7 +1603,7 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
 		</element>
 		<element id="TestScript.setup.action.assert.requestMethod">
 			<path value="TestScript.setup.action.assert.requestMethod"/>
@@ -1605,7 +1615,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="TestScriptRequestMethodCode"/>
@@ -1625,6 +1635,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<condition value="tst-7"/>
 		</element>
 		<element id="TestScript.setup.action.assert.resource">
 			<path value="TestScript.setup.action.assert.resource"/>
@@ -1636,7 +1647,7 @@
 			<type>
 				<code value="uri"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRConcreteType"/>
@@ -1659,8 +1670,8 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<condition value="tst-12"/>
-			<condition value="tst-5"/>
+			<condition value="tst-6"/>
+			<condition value="tst-7"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AssertionResponseTypes"/>
@@ -1683,8 +1694,8 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="tst-12"/>
-			<condition value="tst-5"/>
+			<condition value="tst-6"/>
+			<condition value="tst-7"/>
 		</element>
 		<element id="TestScript.setup.action.assert.sourceId">
 			<path value="TestScript.setup.action.assert.sourceId"/>
@@ -1718,7 +1729,8 @@
 			<type>
 				<code value="id"/>
 			</type>
-			<condition value="tst-5"/>
+			<condition value="tst-7"/>
+			<condition value="tst-8"/>
 		</element>
 		<element id="TestScript.setup.action.assert.value">
 			<path value="TestScript.setup.action.assert.value"/>
@@ -1730,6 +1742,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<condition value="tst-8"/>
 		</element>
 		<element id="TestScript.setup.action.assert.warningOnly">
 			<path value="TestScript.setup.action.assert.warningOnly"/>
@@ -1818,7 +1831,7 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-				<key value="tst-2"/>
+				<key value="tst-9"/>
 				<severity value="error"/>
 				<human value="Test action SHALL contain only one of either a common or an operation or an assert."/>
 				<expression value="common.exists() xor operation.exists() xor assert.exists()"/>
@@ -1844,7 +1857,7 @@
 			<max value="1"/>
 			<contentReference value="#TestScript.setup.action.operation"/>
 			<constraint>
-				<key value="tst-8"/>
+				<key value="tst-10"/>
 				<severity value="error"/>
 				<human value="Test operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"/>
@@ -1867,17 +1880,24 @@
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
-				<key value="tst-13"/>
+				<key value="tst-12"/>
 				<severity value="error"/>
 				<human value="Test action assert response and response and responseCode SHALL be empty when direction equals request"/>
 				<expression value="(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
-				<key value="tst-6"/>
+				<key value="tst-13"/>
 				<severity value="error"/>
-				<human value="Only a single assertion SHALL be present within test action assert element."/>
-				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+				<human value="A test action assert SHALL define a singular assertion function and prevent overlapping assertion functionality."/>
+				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + requestURL.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;= 1)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+			<constraint>
+				<key value="tst-14"/>
+				<severity value="error"/>
+				<human value="A test action assert SHALL not allow the use of operator and value with minimumId, navigationLinks or validateProfileId."/>
+				<expression value="extension.exists() or (minimumId.count() + navigationLinks.count() + validateProfileId.count() = 0) or (minimumId.count() + navigationLinks.count() + validateProfileId.count() = 1 and operator.count() + value.count() = 0)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1924,7 +1944,7 @@
 			<max value="1"/>
 			<contentReference value="#TestScript.setup.action.operation"/>
 			<constraint>
-				<key value="tst-9"/>
+				<key value="tst-15"/>
 				<severity value="error"/>
 				<human value="Teardown operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"/>
@@ -2017,7 +2037,7 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-				<key value="tst-14"/>
+				<key value="tst-16"/>
 				<severity value="error"/>
 				<human value="Common action SHALL contain either an operation or assert but not both."/>
 				<expression value="operation.exists() xor assert.exists()"/>
@@ -2032,7 +2052,7 @@
 			<max value="1"/>
 			<contentReference value="#TestScript.setup.action.operation"/>
 			<constraint>
-				<key value="tst-15"/>
+				<key value="tst-17"/>
 				<severity value="error"/>
 				<human value="Common operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"/>
@@ -2048,24 +2068,31 @@
 			<max value="1"/>
 			<contentReference value="#TestScript.setup.action.assert"/>
 			<constraint>
-				<key value="tst-16"/>
+				<key value="tst-18"/>
 				<severity value="error"/>
 				<human value="Common action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither."/>
 				<expression value="compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
-				<key value="tst-17"/>
+				<key value="tst-19"/>
 				<severity value="error"/>
 				<human value="Common action assert response and response and responseCode SHALL be empty when direction equals request"/>
 				<expression value="(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
-				<key value="tst-18"/>
+				<key value="tst-20"/>
 				<severity value="error"/>
-				<human value="Only a single assertion SHALL be present within common action assert element."/>
-				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+				<human value="A common action assert SHALL define a singular assertion function and prevent overlapping assertion functionality."/>
+				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + requestURL.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;= 1)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+			</constraint>
+			<constraint>
+				<key value="tst-21"/>
+				<severity value="error"/>
+				<human value="A common action assert SHALL not allow the use of operator and value with minimumId, navigationLinks or validateProfileId."/>
+				<expression value="extension.exists() or (minimumId.count() + navigationLinks.count() + validateProfileId.count() = 0) or (minimumId.count() + navigationLinks.count() + validateProfileId.count() = 1 and operator.count() + value.count() = 0)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>

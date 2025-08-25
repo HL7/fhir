@@ -69,13 +69,13 @@
             <resource value="Indicates the type of supply being provided.  Examples include: Medication, Device, Biologically Derived Product."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="SupplyDelivery.patient">
+    <divergentElement patternPath="Event.subject" resourcePath="SupplyDelivery.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Organization)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Patient for whom the item is supplied"/>
+            <resource value="Individual(s) or organization  for whom the item is supplied"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
