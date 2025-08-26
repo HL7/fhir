@@ -6,14 +6,14 @@
   </meta>
   <productCategory>
     <coding>
-      <system value="http://hl7.org/fhir/ValueSet/product-category"/>
+      <system value="http://hl7.org/fhir/product-category"/>
       <code value="mpho"/>
     </coding>
     <text value="Medical Product of Human Origin"/>
   </productCategory>
   <productCode>
     <coding>
-      <system value="https://www.isbt128/org/uri/ProductDescriptionCode"/>
+      <system value="https://www.isbt128.org/uri/ProductDescriptionCode"/>
       <code value="E3046"/>
     </coding>
     <text value="Apheresis Platelets, Irradiated, Leukocyte reduced"/>
