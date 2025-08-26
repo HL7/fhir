@@ -45,13 +45,14 @@
     <description value="Describes a physiological or technical alert condition report originated by a device.  The DeviceAlert resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable. " />
     <fhirVersion value="6.0.0" />
     <mapping>
+        <identity value="workflow"/>
+        <uri value="http://hl7.org/fhir/workflow"/>
+        <name value="Workflow Pattern"/>
+    </mapping>
+    <mapping>
         <identity value="w5" />
         <uri value="http://hl7.org/fhir/fivews" />
         <name value="FiveWs Pattern Mapping" />
-    </mapping>
-    <mapping>
-        <identity value="workflow"/>
-        <map value="Event"/>
     </mapping>
     <mapping>
         <identity value="DIM" />
@@ -81,6 +82,10 @@
                 <identity value="w5" />
                 <map value="administrative.device" />
             </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event" />
+            </mapping>
         </element>
         <element id="DeviceAlert.identifier">
             <path value="DeviceAlert.identifier" />
@@ -96,6 +101,10 @@
             <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.identifier" />
+            </mapping>
+            <mapping>
+                <identity value="workflow"/>
+                <map value="Event.identifier"/>
             </mapping>
             <mapping>
                 <identity value="DIM" />
@@ -116,6 +125,10 @@
             <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.status" />
+            </mapping>
+            <mapping>
+                <identity value="workflow"/>
+                <map value="Event.status"/>
             </mapping>
             <mapping>
                 <identity value="DIM" />
@@ -142,6 +155,10 @@
             <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.class" />
+            </mapping>
+            <mapping>
+                <identity value="workflow"/>
+                <map value="Event.category"/>
             </mapping>
             <type>
                 <code value="CodeableConcept" />
@@ -223,6 +240,10 @@
                 <map value="FiveWs.what[x]" />
             </mapping>
             <mapping>
+                <identity value="workflow"/>
+                <map value="Event.code"/>
+            </mapping>
+            <mapping>
                 <identity value="DIM" />
                 <map value="AlertCondition/alert-code" />
             </mapping>
@@ -249,6 +270,10 @@
             <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.subject[x]" />
+            </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.subject" />
             </mapping>
             <type>
                 <code value="Reference" />
@@ -284,6 +309,10 @@
                 <map value="FiveWs.done[x]" />
             </mapping>
             <mapping>
+                <identity value="workflow" />
+                <map value="Event.occurrencePeriod" />
+            </mapping>
+            <mapping>
                 <identity value="IEEESDC" />
                 <map value="AlertConditionState/DeterminationTime" />
             </mapping>
@@ -301,6 +330,10 @@
             <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.source" />
+            </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.product" />
             </mapping>
             <!-- <mapping>
                 <identity value="w5" />
@@ -335,6 +368,10 @@
                 <identity value="w5" />
                 <map value="FiveWs.why[x]" />
             </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.reason" />
+            </mapping>
             <type>
                 <code value="BackboneElement" />
             </type>
@@ -346,6 +383,10 @@
             <min value="1" />
             <max value="1" />
             <isSummary value="false" />
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.reason" />
+            </mapping>
             <type>
                 <code value="Reference" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
