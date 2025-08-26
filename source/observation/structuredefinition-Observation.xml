@@ -694,7 +694,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>   
-      </type>
+      </type> 
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
