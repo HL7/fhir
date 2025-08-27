@@ -30,6 +30,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of BiologicallyDerivedProduct - Apheresis platelet"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="biologicallyderivedproduct-example-apheresis-platelet"/>
+    </extension>
+    <item>
+      <reference value="BiologicallyDerivedProduct/example-apheresis-platelet"/>
+      <display value="Apheresis Platelet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of autologous HCT transplant using biologicallyderivedproduct"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -40,4 +52,16 @@
       <display value="Autologous HCT"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of biologicallyderivedproduct - Red cell antigen"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="biologicallyderivedproduct-example-red-cell-antigen"/>
+    </extension>
+    <item>
+      <reference value="BiologicallyDerivedProduct/example-red-cell-antigen"/>
+      <display value="Red Cell Antigen"/>
+    </item>
+  </entry>    
 </List>
