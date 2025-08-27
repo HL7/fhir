@@ -15,7 +15,6 @@
   <code>
     <text value="Region selected from multiframe CT volume"/>
   </code>
-
   <subject>
     <type value="Patient"/>
     <identifier>

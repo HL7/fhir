@@ -234,11 +234,10 @@
     </element>
     <element id="ImagingSelection.modality">
       <path value="ImagingSelection.modality"/>
-      <short value="The distinct values for series' modalities"/>
+      <short value="The distinct modality"/>
       <definition value="The distinct modality for this selected series. This may be either an acquisition modality (e.g. CT, MR) or a non-acquisition modality (e.g. segmentation, presentation state)."/>
-      <alias value="ModalitiesInStudy"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -246,7 +245,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingModality"/>
+          <valueString value="ImagingSelectionModality"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
@@ -255,14 +254,7 @@
         <description value="Type of acquired data in the instance."/>
         <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"/>
       </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
+
       <mapping>
         <identity value="dicom"/>
         <map value="Modalities in Study (0008,0061) or Modality (0008,0060)"/>
