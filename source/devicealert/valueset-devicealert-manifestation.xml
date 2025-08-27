@@ -18,7 +18,7 @@
   <version value="6.0.0"/>
   <name value="DeviceAlertManifestationCodes"/>
   <title value="DeviceAlert Manifestation Codes"/>
-  <status value="draft"/>
+  <status value="active" />
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
