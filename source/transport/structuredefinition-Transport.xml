@@ -365,14 +365,15 @@
         <map value=".inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="Transport.completionTime">
-      <path value="Transport.completionTime"/>
-      <short value="Completion time of the event (the occurrence)"/>
-      <definition value="Identifies the completion time of the event (the occurrence)."/>
+    <element id="Transport.period">
+      <path value="Transport.period"/>
+      <short value="When transport is occurring/occurred"/>
+      <definition value="The period when the transport event is occurring or did occur."/>
+      <comment value="The status code allows differentiation of whether the timing reflects an ongoing event or historic one. Ongoing transports should not include an end in the Period."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="Period"/>
       </type>
       <isSummary value="true"/>
       <mapping>

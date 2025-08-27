@@ -107,19 +107,19 @@
             <resource value="For some transports it may be important to know the link between the encounter the transport originated within."/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.occurrence[x]" resourcePath="Transport.completionTime">
-        <missingTypes _pattern="Period, Timing" reason="Unknown"/>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="Transport.period">
+        <missingTypes _pattern="dateTime, Timing" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="When transport occurred/is occurring"/>
-            <resource value="Completion time of the event (the occurrence)"/>
+            <resource value="When transport is occurring/occurred"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date, period or timing when the transport did occur or is occurring."/>
-            <resource value="Identifies the completion time of the event (the occurrence)."/>
+            <resource value="The period when the transport event is occurring or did occur."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value=""/>
+            <resource value="The status code allows differentiation of whether the timing reflects an ongoing event or historic one. Ongoing transports should not include an end in the Period."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="Transport.performer">
