@@ -17,7 +17,7 @@
 <h2>Boundaries and Relationships</h2>
 <p>
 There are several resources that can be used to represent device use events or requests. The following Resources should be used in the following manner:
-
+</p>
 <p> 
 <a href="devicerequest.html">DeviceRequest</a> - records a request to use the device.
 </p>
