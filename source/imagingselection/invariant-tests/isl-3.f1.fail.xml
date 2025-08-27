@@ -1,37 +1,66 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ImagingSelection xmlns="http://hl7.org/fhir">
   <id value="isl-3.f1.fail"/>
+
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.234082332589842666931650220811572.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.189914271934823329266024988586343.2.1"/>
   </identifier>
- <status value="available"/> 
- <code>
-  <text value="Segment within a DICOM Segmentation instance"/>
-</code>
-<subject>
+  <status value="available"/>
+  <!-- must remove this also because of isl-9
+  <modality>
+    <coding>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+      <code value="CT"/>
+    </coding>
+  </modality>
+  -->
+  <code>
+    <text value="Region selected from multiframe CT volume"/>
+  </code>
+
+  <subject>
     <type value="Patient"/>
     <identifier>
       <system value="https://fhirhospital.org"/>
-      <value value="ISRNEJAWJHZOTNBS"/>
+      <value value="PNWYPXNBXMPGMTWX"/>
     </identifier>
   </subject>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.234082332592522666931650220811572"/>
+      <value value="urn:oid:1.2.840.113747.20080222.189914271956923329266024988586343"/>
     </identifier>
   </derivedFrom>
-  <studyUid value="1.2.840.113747.20080222.234082332589846966931650220811572"/>
-<!--  <seriesUid value="1.2.840.113747.20080222.234082332589846992931650220811572.1"/> -->
+  <studyUid value="1.2.840.113747.20080222.189914271934870656966024988586343"/>
+<!-- isl-3 requires seriesUid if seriesNumber exists
+  <seriesUid value="1.2.840.113747.20080222.189914271934870659266024988586343.1"/>
+  -->
   <seriesNumber value="1"/>
-  <!--
-  <frameOfReferenceUid value="1.2.840.113747.20080222.234082332589842666931650220811572.0"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.189914270656923329266024988586343.0"/>
+  <!-- must also remove this because of isl-4
   <instance>
-    <uid value="1.2.840.113747.20080222.234082332589846992522666220811572.1.0"/>
-    <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.66.4"/>
-    <subset value="1"/>
+    <uid value="1.2.840.113747.20080222.189914271934870656923024988586343.1.0"/>
+    <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
   </instance>
   -->
+  <imageRegion3D>
+    <regionType value="ellipse"/>
+    <coordinate value="-50.0"/>
+    <coordinate value="-50.0"/>
+    <coordinate value="-50.0"/>
+    <coordinate value="50.0"/>
+    <coordinate value="50.0"/>
+    <coordinate value="50.0"/>
+    <coordinate value="25.0"/>
+    <coordinate value="-25.0"/>
+    <coordinate value="0.0"/>
+    <coordinate value="-25.0"/>
+    <coordinate value="25.0"/>
+    <coordinate value="0.0"/>
+  </imageRegion3D>
+
+
 </ImagingSelection>
+
