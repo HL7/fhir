@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
 <ImagingStudy xmlns="http://hl7.org/fhir">
-	<id value="ist-7.f2.fail"/>
+    <id value="ist-7.f2.fail"/>
     <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>
@@ -17,7 +17,12 @@
             <code value="CT"/>
         </coding>
     </modality>
-
+    <modality>
+        <coding>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+            <code value="MR"/>
+        </coding>
+    </modality>
     <subject>
         <reference value="Patient/dicom"/>
     </subject>
