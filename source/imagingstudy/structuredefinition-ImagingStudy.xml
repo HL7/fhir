@@ -125,7 +125,7 @@
         <key value="ist-7"/>
         <severity value="error"/>
         <human value="If modality is present, modality SHALL include all distinct values of series.modality"/>
-        <expression value="modality.exists() implies series.modality.distinct().exclude(modality).empty()"/>
+        <expression value="modality.exists() implies modality.distinct() = series.modality.distinct()"/>
       </constraint>
       <constraint>
         <key value="ist-8"/>
