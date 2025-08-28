@@ -127,12 +127,6 @@
         <human value="If modality is present, modality SHALL include all distinct values of series.modality"/>
         <expression value="modality.exists() implies modality.distinct() = series.modality.distinct()"/>
       </constraint>
-      <constraint>
-        <key value="ist-8"/>
-        <severity value="error"/>
-        <human value="If numberOfInstances is present, it SHALL be greater than or equal to 1"/>
-        <expression value="numberOfInstances.exists() implies numberOfInstances &gt;= 1"/>
-      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
