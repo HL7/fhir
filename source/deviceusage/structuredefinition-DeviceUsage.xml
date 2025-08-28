@@ -150,6 +150,22 @@
         <map value=".outboundRelationship[typeCode=FLFS].target"/>
       </mapping>
     </element>
+    <element id="DeviceUsage.partOf">
+      <path value="DeviceUsage.partOf"/>
+      <short value="Part of referenced device usage"/>
+      <definition value="A larger event of which this particular device usage is one part the usage."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+    </element>
     <element id="DeviceUsage.status">
       <path value="DeviceUsage.status"/>
       <short value="active | completed | not-done | entered-in-error +"/>
