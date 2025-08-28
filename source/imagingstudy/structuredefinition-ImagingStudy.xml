@@ -89,7 +89,7 @@
         <key value="ist-1"/>
         <severity value="error"/>
         <human value="series SHALL only be present if an identifier is present with a system of urn:dicom:uid"/>
-        <expression value="series.exists() implies identifier.exists() and identifier.system = 'urn:dicom:uid'"/>
+        <expression value="series.exists() implies identifier.where(system = 'urn:dicom:uid').exists()"/>
       </constraint>
       <constraint>
         <key value="ist-2"/>
@@ -125,7 +125,7 @@
         <key value="ist-7"/>
         <severity value="error"/>
         <human value="If modality is present, it SHALL include all distinct values of series.modality"/>
-        <expression value="modality.exists() implies modality = series.modality.distinct()"/>
+        <expression value="modality.exists() implies series.modality.distinct().exclude(modality).empty()"/>
       </constraint>
       <constraint>
         <key value="ist-8"/>

@@ -27,7 +27,7 @@
             <reference value="Observation/656"/>
         </reference>
     </reason>
-    <numberOfSeries value="1"/>
+    <numberOfSeries value="2"/>
     <numberOfInstances value="1"/>
     <series>
         <uid value="2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
