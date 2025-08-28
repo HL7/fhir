@@ -125,7 +125,7 @@
         <key value="ist-7"/>
         <severity value="error"/>
         <human value="If modality is present, modality SHALL equal all of the distinct values of series.modality"/>
-        <expression value="modality.exists() implies modality.exclude(series.modality).empty()"/>
+        <expression value="modality.coding.select(system&amp;'|'&amp;code).exclude(series.modality.coding.select(system&amp;'|'&amp;code)).empty() and modality.text.exclude(series.modality.text).empty()"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
