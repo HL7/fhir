@@ -119,13 +119,13 @@
         <key value="ist-6"/>
         <severity value="error"/>
         <human value="For each series element, if numberOfInstances and instance are both present, the numberOfInstances value SHALL match the number of instance elements"/>
-        <expression value="numberOfInstances.exists() and series.exists() implies numberOfInstances = series.instance.count()"/>
+        <expression value="series.where(numberOfInstances.empty() or instance.empty() or numberOfInstances = instance.count()).count() = series.count()"/>
       </constraint>
       <constraint>
         <key value="ist-7"/>
         <severity value="error"/>
         <human value="If modality is present, modality SHALL equal all of the distinct values of series.modality"/>
-        <expression value="modality.exists() implies modality.distinct() = series.modality.distinct()"/>
+        <expression value="modality.coding.select(system&amp;'|'&amp;code).exclude(series.modality.coding.select(system&amp;'|'&amp;code)).empty() and modality.text.exclude(series.modality.text).empty()"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>

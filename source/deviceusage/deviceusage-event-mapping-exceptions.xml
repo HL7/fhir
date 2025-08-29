@@ -30,6 +30,22 @@
             <resource value="Allows tracing of authorization for the DeviceUsage and tracking whether proposals/recommendations were acted upon."/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="DeviceUsage.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(DeviceUsage)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Part of referenced device usage"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular device usage is a component or step."/>
+            <resource value="A larger event of which this particular device usage is one part the usage."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an device usage to an Encounter - use 'context' for that."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="DeviceUsage.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
@@ -144,7 +160,6 @@
             <resource value="Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement."/>
         </definitionUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.code" reason="Unknown"/>
