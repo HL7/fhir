@@ -1,0 +1,187 @@
+// Results from the merge request above
+
+HTTP/1.1 200 OK
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="input" />
+    <resource>
+      <Parameters>
+        <parameter>
+          <name value="source-encounter" />
+          <valueReference>
+            <reference value="Encounter/enc01" />
+            <identifier>
+              <use value="official" />
+              <system value="urn:oid:2.16.840.1.113883.3.72.5.9.1" />
+              <value value="1000000001" />
+              <assigner>
+                <display value="Hospital A" />
+              </assigner>
+            </identifier>
+          </valueReference>
+        </parameter>
+        <parameter>
+          <name value="target-encounter" />
+          <valueReference>
+            <reference value="Encounter/enc02" />
+            <identifier>
+              <use value="official" />
+              <system value="urn:oid:2.16.840.1.113883.3.72.5.9.1" />
+              <value value="1000000002" />
+              <assigner>
+                <display value="Hospital A" />
+              </assigner>
+            </identifier>
+          </valueReference>
+        </parameter>
+        <parameter>
+          <name value="result-encounter" />
+          <resource>
+            <Encounter xmlns="http://hl7.org/fhir">
+              <id value="enc02" />
+              <identifier>
+                <use value="official" />
+                <system value="http://www.hospital-a/localid" />
+                <value value="1000000002" />
+                <assigner>
+                  <display value="Hospital A" />
+                </assigner>
+              </identifier>
+              <identifier>
+                <use value="old" />
+                <system value="http://www.hospital-a/localid" />
+                <value value="1000000001" />
+                <assigner>
+                  <display value="Hospital A" />
+                </assigner>
+              </identifier>
+              <status value="completed"/> 
+              <class> 
+                <coding> 
+                  <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/> 
+                  <code value="AMB"/> 
+                  <display value="ambulatory"/> 
+                </coding> 
+              </class> 
+              <priority> 
+                <coding> 
+                  <system value="http://snomed.info/sct"/> 
+                  <code value="17621005"/> 
+                  <display value="Normal"/> 
+                </coding> 
+              </priority> 
+              <type> 
+                <coding> 
+                  <system value="http://snomed.info/sct"/> 
+                  <code value="11429006"/> 
+                  <display value="Consultation"/> 
+                </coding> 
+              </type> 
+              <subject> 
+                <reference value="Patient/f201"/> 
+                <display value="Roel"/> 
+              </subject> 
+              <serviceProvider> 
+                <reference value="Organization/f201"/> 
+              </serviceProvider> 
+              <participant> 
+                <actor> 
+                  <reference value="Practitioner/f201"/> 
+                </actor> 
+              </participant> 
+              <reason> 
+                <value> 
+                  <concept> 
+                    <text value="The patient had fever peaks over the last couple of days. He is worried about these
+                    peaks."/> 
+                  </concept> 
+                </value> 
+              </reason> 
+            </Encounter>
+          </resource>
+        </parameter>
+      </Parameters>
+    </resource>
+  </parameter>
+  <parameter>
+    <name value="outcome" />
+    <resource>
+      <OperationOutcome>
+        <issue>
+            <severity value="information" />
+            <details>
+                <text value="Encounter merge completed successfully" />
+            </details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+  </parameter>
+  <parameter>
+    <name value="result" />
+    <resource>
+      <Encounter xmlns="http://hl7.org/fhir">
+        <id value="enc02" />
+        <identifier>
+          <use value="official" />
+          <system value="http://www.hospital-a/localid" />
+          <value value="1000000002" />
+          <assigner>
+            <display value="Hospital A" />
+          </assigner>
+        </identifier>
+        <identifier>
+          <use value="old" />
+          <system value="http://www.hospital-a/localid" />
+          <value value="1000000001" />
+          <assigner>
+            <display value="Hospital A" />
+          </assigner>
+        </identifier>
+        <status value="completed"/> 
+        <class> 
+          <coding> 
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/> 
+            <code value="AMB"/> 
+            <display value="ambulatory"/> 
+          </coding> 
+        </class> 
+        <priority> 
+          <coding> 
+            <system value="http://snomed.info/sct"/> 
+            <code value="17621005"/> 
+            <display value="Normal"/> 
+          </coding> 
+        </priority> 
+        <type> 
+          <coding> 
+            <system value="http://snomed.info/sct"/> 
+            <code value="11429006"/> 
+            <display value="Consultation"/> 
+          </coding> 
+        </type> 
+        <subject> 
+          <reference value="Patient/f201"/> 
+          <display value="Roel"/> 
+        </subject> 
+        <serviceProvider> 
+          <reference value="Organization/f201"/> 
+        </serviceProvider> 
+        <participant> 
+          <actor> 
+            <reference value="Practitioner/f201"/> 
+          </actor> 
+        </participant> 
+        <reason> 
+          <value> 
+            <concept> 
+              <text value="The patient had fever peaks over the last couple of days. He is worried about these
+              peaks."/> 
+            </concept> 
+          </value> 
+        </reason> 
+      </Encounter>
+    </resource>
+  </parameter>
+</Parameters>
