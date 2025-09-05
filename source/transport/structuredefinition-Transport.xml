@@ -129,7 +129,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.instantiatesCanonical"/>
+        <map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -155,7 +155,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.basedOn"/>
+        <map value="Request.basedOn, Event.basedOn"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -265,7 +265,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.code"/>
+        <map value="Request.code, Event.code"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -329,7 +329,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.subject"/>
+        <map value="Request.subject, Event.subject"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -354,7 +354,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.encounter"/>
+        <map value="Request.encounter, Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -399,6 +399,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
@@ -449,7 +453,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
+        <map value="Event.performer.actor, Request.performer"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -493,6 +497,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClaimResponse"/>
       </type>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Request.insurance"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
         <map value="IN1/IN2"/>
       </mapping>
@@ -512,7 +520,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.note"/>
+        <map value="Request.note, Event.note"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -531,6 +539,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.relevantHistory"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
@@ -596,7 +608,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reason"/>
+        <map value="Request.reason, Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

@@ -17,12 +17,13 @@ business identifier - in this case the same as the request id
 		<display value="Central Supply Restock"/>
 	</partOf>
 	<status value="completed"/>
+	<intent value="order"/>
 	<to>
-             <reference value="Location/location-hospitalLab" />
+             <reference value="Transport/location-hospitalLab" />
 			 <display value="Requested location for item at City Hospital Lab"/>  
 	</to>	
 	<from>
-             <reference value="Location/location-labA" />
+             <reference value="Transport/location-labA" />
 			 <display value="Current location for item at Lab A"/>  
 	</from>	
 </Transport>
